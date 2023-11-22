@@ -15,19 +15,11 @@ public class ArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ArrayOfEnumsList extends FrozenList<typing.Union[
-    None,
-    typing.Literal["placed", "approved", "delivered", "single quoted", "multiple
-lines", "double quote 
- with newline"],
-]&gt; {
+    public static class ArrayOfEnumsList extends FrozenList<String> {
 
-        ArrayOfEnumsList(FrozenList<typing.Union[
-    None,
-    typing.Literal["placed", "approved", "delivered", "single quoted", "multiple
-lines", "double quote 
- with newline"],
-]&gt; m) {
+
+        ArrayOfEnumsList(FrozenList<String> m) {
+
 
             super(m);
         }
