@@ -35,7 +35,8 @@ public class ArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayNumberList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayNumberList getListOutputInstance(FrozenList<Number> arg) {
+
             return new ArrayNumberList(arg);
         }
         public static ArrayNumberList validate(List<Object> arg, SchemaConfiguration configuration) {

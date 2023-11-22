@@ -36,7 +36,8 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static FilesList getListOutputInstance(FrozenList<Object> arg) {
+        protected static FilesList getListOutputInstance(FrozenList<String> arg) {
+
             return new FilesList(arg);
         }
         public static FilesList validate(List<Object> arg, SchemaConfiguration configuration) {

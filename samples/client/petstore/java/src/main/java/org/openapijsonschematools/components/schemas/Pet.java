@@ -43,7 +43,8 @@ public class Pet {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static PhotoUrlsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
+
             return new PhotoUrlsList(arg);
         }
         public static PhotoUrlsList validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -75,7 +76,8 @@ public class Pet {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
         ));
-        protected static TagsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
+
             return new TagsList(arg);
         }
         public static TagsList validate(List<Object> arg, SchemaConfiguration configuration) {

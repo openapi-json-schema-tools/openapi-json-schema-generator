@@ -42,7 +42,8 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static EnumFormStringArrayList getListOutputInstance(FrozenList<Object> arg) {
+        protected static EnumFormStringArrayList getListOutputInstance(FrozenList<String> arg) {
+
             return new EnumFormStringArrayList(arg);
         }
         public static EnumFormStringArrayList validate(List<Object> arg, SchemaConfiguration configuration) {

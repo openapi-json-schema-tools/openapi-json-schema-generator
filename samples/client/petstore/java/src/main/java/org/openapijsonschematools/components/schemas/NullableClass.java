@@ -258,7 +258,9 @@ public class NullableClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static ArrayItemsNullableList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
+
+
             return new ArrayItemsNullableList(arg);
         }
         public static ArrayItemsNullableList validate(List<Object> arg, SchemaConfiguration configuration) {

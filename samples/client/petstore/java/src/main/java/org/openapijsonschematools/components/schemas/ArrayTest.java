@@ -36,7 +36,8 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayOfStringList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
+
             return new ArrayOfStringList(arg);
         }
         public static ArrayOfStringList validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -60,7 +61,8 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ItemsList getListOutputInstance(FrozenList<Long> arg) {
+
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -81,7 +83,8 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
-        protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
+
             return new ArrayArrayOfIntegerList(arg);
         }
         public static ArrayArrayOfIntegerList validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -102,7 +105,8 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class))
         ));
-        protected static ItemsList1 getListOutputInstance(FrozenList<Object> arg) {
+        protected static ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
+
             return new ItemsList1(arg);
         }
         public static ItemsList1 validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -123,7 +127,8 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items3.class))
         ));
-        protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
+
             return new ArrayArrayOfModelList(arg);
         }
         public static ArrayArrayOfModelList validate(List<Object> arg, SchemaConfiguration configuration) {

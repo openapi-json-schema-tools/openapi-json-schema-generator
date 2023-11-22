@@ -41,6 +41,8 @@ public class ComposedArray {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
+
+
             return new ComposedArrayList(arg);
         }
         public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) {

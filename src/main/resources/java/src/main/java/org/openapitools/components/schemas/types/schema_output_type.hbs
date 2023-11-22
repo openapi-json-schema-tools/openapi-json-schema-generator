@@ -4,13 +4,11 @@
 {{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_base fullRefModule=containerJsonPathPiece.camelCase }}
         {{/with}}
     {{else}}
-        {{! self reference }}
         {{#with refInfo.ref}}
 {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}
         {{/with}}
     {{/if}}
 {{else}}
-    {{! no more refs }}
     {{#if types}}
         {{#eq types.size 1}}
 {{> src/main/java/org/openapitools/components/schemas/types/_schema_output_type_single }}

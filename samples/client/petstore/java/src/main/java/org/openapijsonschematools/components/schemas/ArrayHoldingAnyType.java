@@ -41,6 +41,8 @@ public class ArrayHoldingAnyType {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object> arg) {
+
+
             return new ArrayHoldingAnyTypeList(arg);
         }
         public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) {

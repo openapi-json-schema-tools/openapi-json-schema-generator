@@ -30,7 +30,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(EnumClass.EnumClass1.class))
         ));
-        protected static AdditionalPropertiesList getListOutputInstance(FrozenList<Object> arg) {
+        protected static AdditionalPropertiesList getListOutputInstance(FrozenList<String> arg) {
+
             return new AdditionalPropertiesList(arg);
         }
         public static AdditionalPropertiesList validate(List<Object> arg, SchemaConfiguration configuration) {

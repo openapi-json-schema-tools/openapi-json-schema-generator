@@ -91,6 +91,8 @@ public class JSONPatchRequest {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static JSONPatchRequestList getListOutputInstance(FrozenList<Object> arg) {
+
+
             return new JSONPatchRequestList(arg);
         }
         public static JSONPatchRequestList validate(List<Object> arg, SchemaConfiguration configuration) {

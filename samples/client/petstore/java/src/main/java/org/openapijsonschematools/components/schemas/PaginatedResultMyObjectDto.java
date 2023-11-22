@@ -43,7 +43,8 @@ public class PaginatedResultMyObjectDto {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class))
         ));
-        protected static ResultsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap> arg) {
+
             return new ResultsList(arg);
         }
         public static ResultsList validate(List<Object> arg, SchemaConfiguration configuration) {

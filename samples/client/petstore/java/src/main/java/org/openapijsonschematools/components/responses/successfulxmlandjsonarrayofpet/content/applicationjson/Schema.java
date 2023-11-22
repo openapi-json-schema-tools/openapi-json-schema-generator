@@ -30,7 +30,8 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(RefPet.RefPet1.class))
         ));
-        protected static SchemaList getListOutputInstance(FrozenList<Object> arg) {
+        protected static SchemaList getListOutputInstance(FrozenList<Pet.PetMap> arg) {
+
             return new SchemaList(arg);
         }
         public static SchemaList validate(List<Object> arg, SchemaConfiguration configuration) {

@@ -35,7 +35,8 @@ public class ArrayOfArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
-        protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
+
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -56,7 +57,8 @@ public class ArrayOfArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayArrayNumberList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList> arg) {
+
             return new ArrayArrayNumberList(arg);
         }
         public static ArrayArrayNumberList validate(List<Object> arg, SchemaConfiguration configuration) {

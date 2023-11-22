@@ -33,6 +33,7 @@ public class Drawing {
             new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
         ));
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
+
             return new ShapesList(arg);
         }
         public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) {

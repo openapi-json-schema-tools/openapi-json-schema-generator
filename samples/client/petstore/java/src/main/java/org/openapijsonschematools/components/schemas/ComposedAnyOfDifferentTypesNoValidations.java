@@ -80,6 +80,8 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
+
+
             return new Schema9List(arg);
         }
         public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) {

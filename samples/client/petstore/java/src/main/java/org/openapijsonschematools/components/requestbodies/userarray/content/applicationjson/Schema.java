@@ -29,7 +29,8 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(User.User1.class))
         ));
-        protected static SchemaList getListOutputInstance(FrozenList<Object> arg) {
+        protected static SchemaList getListOutputInstance(FrozenList<User.UserMap> arg) {
+
             return new SchemaList(arg);
         }
         public static SchemaList validate(List<Object> arg, SchemaConfiguration configuration) {

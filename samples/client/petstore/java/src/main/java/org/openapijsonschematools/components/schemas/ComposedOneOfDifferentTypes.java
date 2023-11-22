@@ -58,6 +58,8 @@ public class ComposedOneOfDifferentTypes {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static Schema5List getListOutputInstance(FrozenList<Object> arg) {
+
+
             return new Schema5List(arg);
         }
         public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) {

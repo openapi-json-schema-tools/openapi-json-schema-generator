@@ -167,7 +167,8 @@ public class FormatTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
+
             return new ArrayWithUniqueItemsList(arg);
         }
         public static ArrayWithUniqueItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
