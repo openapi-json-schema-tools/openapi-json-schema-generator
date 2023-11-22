@@ -19,7 +19,7 @@ public class Items {
     public class Items2 extends MapJsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]> {
+    public static class ItemsList extends FrozenList<FrozenMap<String, Object>> {
 
         ItemsList(FrozenList<Object> m) {
             super(m);

@@ -49,47 +49,23 @@ Long{{{endChar}}}
                         {{#eq this "array"}}
                             {{#if arrayOutputJsonPathPiece}}
                                 {{#if fullRefModule}}
-                                    {{#if optional}}
-typing.Union[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
-                                    {{else}}
 {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
-                                    {{/if}}
                                 {{else}}
                                     {{#if selfReference}}
-                                        {{#if optional}}
-typing.Union['{{arrayOutputJsonPathPiece.camelCase}}', schemas.Unset]{{{endChar}}}
-                                        {{else}}
-'{{arrayOutputJsonPathPiece.camelCase}}'{{{endChar}}}
-                                        {{/if}}
-                                    {{else}}
-                                        {{#if optional}}
-typing.Union[{{arrayOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
-                                        {{else}}
 {{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
-                                        {{/if}}
+                                    {{else}}
+{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
                                     {{/if}}
                                 {{/if}}
                             {{else}}
-                                {{#if optional}}
-typing.Union[typing.Tuple[schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{{endChar}}}
-                                {{else}}
-typing.Tuple[schemas.OUTPUT_BASE_TYPES]{{{endChar}}}
-                                {{/if}}
+FrozenList<Object>{{{endChar}}}
                             {{/if}}
                         {{else}}
                             {{#eq this "object"}}
                                 {{#if mapOutputJsonPathPiece}}
-                                    {{#if optional}}
-typing.Union[{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}, schemas.Unset]{{{endChar}}}
-                                    {{else}}
 {{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{{endChar}}}
-                                    {{/if}}
                                 {{else}}
-                                    {{#if optional}}
-typing.Union[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], schemas.Unset]{{{endChar}}}
-                                    {{else}}
-schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{{endChar}}}
-                                    {{/if}}
+FrozenMap<String, Object>{{{endChar}}}
                                 {{/if}}
                             {{/eq}}
                         {{/eq}}

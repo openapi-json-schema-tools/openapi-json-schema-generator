@@ -163,7 +163,7 @@ public class NullableClass {
     public class Items extends MapJsonSchema {}
     
     
-    public static class ArrayNullablePropList extends FrozenList<schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]> {
+    public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
 
         ArrayNullablePropList(FrozenList<Object> m) {
             super(m);
