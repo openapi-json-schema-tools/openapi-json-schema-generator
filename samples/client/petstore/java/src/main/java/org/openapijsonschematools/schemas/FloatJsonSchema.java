@@ -18,7 +18,7 @@ public class FloatJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("float"))
     ));
 
-    public static Float validate(Float arg, SchemaConfiguration configuration) {
+    public static float validate(float arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(FloatJsonSchema.class, arg, configuration);
     }
 }

@@ -18,19 +18,19 @@ public class IntJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("int"))
     ));
 
-    public static Long validate(Integer arg, SchemaConfiguration configuration) {
+    public static long validate(int arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(IntJsonSchema.class, Long.valueOf(arg), configuration);
     }
 
-    public static Long validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
+    public static long validate(float arg, SchemaConfiguration configuration) {
+        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
     }
 
-    public static Long validate(Long arg, SchemaConfiguration configuration) {
+    public static long validate(long arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
     }
 
-    public static Long validate(Double arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(arg.toString()), configuration);
+    public static long validate(double arg, SchemaConfiguration configuration) {
+        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
     }
 }

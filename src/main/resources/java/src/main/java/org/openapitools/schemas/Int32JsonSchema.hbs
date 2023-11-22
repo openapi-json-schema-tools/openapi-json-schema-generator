@@ -21,11 +21,11 @@ public class Int32JsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("int32"))
     ));
 
-    public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+    public static int validate(int arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
     }
 
-    public static Integer validate(Float arg, SchemaConfiguration configuration) {
-        return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(arg.toString()), configuration);
+    public static int validate(float arg, SchemaConfiguration configuration) {
+        return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(String.valueOf(arg)), configuration);
     }
 }
