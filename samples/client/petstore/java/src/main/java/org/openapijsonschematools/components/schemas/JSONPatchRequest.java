@@ -75,6 +75,10 @@ public class JSONPatchRequest {
 
             super(m);
         }
+        public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return JSONPatchRequest1.validate(arg, configuration);
+        }
     }    
     
     public class JSONPatchRequest1 extends JsonSchema {

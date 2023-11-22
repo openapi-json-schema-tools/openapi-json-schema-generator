@@ -28,6 +28,10 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) {
+
+            return Items.validate(arg, configuration);
+        }
     }    
     
     public class Items extends JsonSchema {
@@ -50,6 +54,10 @@ public class ArrayOfArrayOfNumberOnly {
         ArrayArrayNumberList(FrozenList<ItemsList> m) {
 
             super(m);
+        }
+        public static ArrayArrayNumberList of(List<ItemsList> arg, SchemaConfiguration configuration) {
+
+            return ArrayArrayNumber.validate(arg, configuration);
         }
     }    
     

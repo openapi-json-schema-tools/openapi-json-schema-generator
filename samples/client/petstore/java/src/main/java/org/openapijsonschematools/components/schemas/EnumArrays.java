@@ -46,6 +46,10 @@ public class EnumArrays {
 
             super(m);
         }
+        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return ArrayEnum.validate(arg, configuration);
+        }
     }    
     
     public class ArrayEnum extends JsonSchema {

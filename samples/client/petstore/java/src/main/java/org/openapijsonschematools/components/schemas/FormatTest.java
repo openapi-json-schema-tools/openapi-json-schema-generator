@@ -160,6 +160,10 @@ public class FormatTest {
 
             super(m);
         }
+        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) {
+
+            return ArrayWithUniqueItems.validate(arg, configuration);
+        }
     }    
     
     public class ArrayWithUniqueItems extends JsonSchema {

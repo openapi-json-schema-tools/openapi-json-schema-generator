@@ -21,6 +21,10 @@ public class AnimalFarm {
 
             super(m);
         }
+        public static AnimalFarmList of(List<Animal.AnimalMap> arg, SchemaConfiguration configuration) {
+
+            return AnimalFarm1.validate(arg, configuration);
+        }
     }    
     
     public class AnimalFarm1 extends JsonSchema {

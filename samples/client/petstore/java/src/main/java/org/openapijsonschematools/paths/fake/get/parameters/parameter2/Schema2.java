@@ -32,6 +32,10 @@ public class Schema2 {
 
             super(m);
         }
+        public static SchemaList2 of(List<String> arg, SchemaConfiguration configuration) {
+
+            return Schema21.validate(arg, configuration);
+        }
     }    
     
     public class Schema21 extends JsonSchema {

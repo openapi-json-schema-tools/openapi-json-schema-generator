@@ -36,6 +36,10 @@ public class Pet {
 
             super(m);
         }
+        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return PhotoUrls.validate(arg, configuration);
+        }
     }    
     
     public class PhotoUrls extends JsonSchema {
@@ -69,6 +73,10 @@ public class Pet {
         TagsList(FrozenList<Tag.TagMap> m) {
 
             super(m);
+        }
+        public static TagsList of(List<Tag.TagMap> arg, SchemaConfiguration configuration) {
+
+            return Tags.validate(arg, configuration);
         }
     }    
     

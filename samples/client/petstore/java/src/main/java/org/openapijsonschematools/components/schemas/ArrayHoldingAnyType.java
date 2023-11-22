@@ -25,6 +25,10 @@ public class ArrayHoldingAnyType {
 
             super(m);
         }
+        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return ArrayHoldingAnyType1.validate(arg, configuration);
+        }
     }    
     
     public class ArrayHoldingAnyType1 extends JsonSchema {

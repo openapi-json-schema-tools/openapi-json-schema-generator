@@ -24,6 +24,10 @@ public class FileSchemaTestClass {
 
             super(m);
         }
+        public static FilesList of(List<File.FileMap> arg, SchemaConfiguration configuration) {
+
+            return Files.validate(arg, configuration);
+        }
     }    
     
     public class Files extends JsonSchema {

@@ -35,6 +35,10 @@ public class Schema {
 
             super(m);
         }
+        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return EnumFormStringArray.validate(arg, configuration);
+        }
     }    
     
     public class EnumFormStringArray extends JsonSchema {

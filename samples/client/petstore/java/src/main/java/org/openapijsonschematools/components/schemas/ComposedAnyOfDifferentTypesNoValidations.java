@@ -70,6 +70,10 @@ public class ComposedAnyOfDifferentTypesNoValidations {
 
             super(m);
         }
+        public static Schema9List of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return Schema9.validate(arg, configuration);
+        }
     }    
     
     public class Schema9 extends JsonSchema {

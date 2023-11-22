@@ -49,6 +49,10 @@ public class ArrayWithValidationsInItems {
 
             super(m);
         }
+        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+
+            return ArrayWithValidationsInItems1.validate(arg, configuration);
+        }
     }    
     
     public class ArrayWithValidationsInItems1 extends JsonSchema {

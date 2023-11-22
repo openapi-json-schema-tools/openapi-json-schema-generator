@@ -169,6 +169,10 @@ public class NullableClass {
 
             super(m);
         }
+        public static ArrayNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+            return ArrayNullableProp.validate(arg, configuration);
+        }
     }    
     
     public class ArrayNullableProp extends JsonSchema {
@@ -182,7 +186,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
-        public static ArrayNullablePropList validate(List<FrozenMap<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
@@ -209,6 +213,10 @@ public class NullableClass {
 
             super(m);
         }
+        public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+            return ArrayAndItemsNullableProp.validate(arg, configuration);
+        }
     }    
     
     public class ArrayAndItemsNullableProp extends JsonSchema {
@@ -222,7 +230,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
-        public static ArrayAndItemsNullablePropList validate(List<FrozenMap<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
@@ -249,6 +257,10 @@ public class NullableClass {
 
             super(m);
         }
+        public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+            return ArrayItemsNullable.validate(arg, configuration);
+        }
     }    
     
     public class ArrayItemsNullable extends JsonSchema {
@@ -260,7 +272,7 @@ public class NullableClass {
 
             return new ArrayItemsNullableList(arg);
         }
-        public static ArrayItemsNullableList validate(List<FrozenMap<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
         }

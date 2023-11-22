@@ -22,6 +22,10 @@ public class Schema {
 
             super(m);
         }
+        public static SchemaList of(List<User.UserMap> arg, SchemaConfiguration configuration) {
+
+            return Schema1.validate(arg, configuration);
+        }
     }    
     
     public class Schema1 extends JsonSchema {

@@ -28,6 +28,10 @@ public class ArrayOfNumberOnly {
 
             super(m);
         }
+        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) {
+
+            return ArrayNumber.validate(arg, configuration);
+        }
     }    
     
     public class ArrayNumber extends JsonSchema {

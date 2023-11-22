@@ -25,6 +25,10 @@ public class Drawing {
 
             super(m);
         }
+        public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return Shapes.validate(arg, configuration);
+        }
     }    
     
     public class Shapes extends JsonSchema {

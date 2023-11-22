@@ -36,6 +36,10 @@ public class PaginatedResultMyObjectDto {
 
             super(m);
         }
+        public static ResultsList of(List<MyObjectDto.MyObjectDtoMap> arg, SchemaConfiguration configuration) {
+
+            return Results.validate(arg, configuration);
+        }
     }    
     
     public class Results extends JsonSchema {

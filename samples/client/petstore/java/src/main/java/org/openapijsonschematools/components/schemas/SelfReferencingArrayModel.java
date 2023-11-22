@@ -21,6 +21,10 @@ public class SelfReferencingArrayModel {
 
             super(m);
         }
+        public static SelfReferencingArrayModelList of(List<SelfReferencingArrayModelList> arg, SchemaConfiguration configuration) {
+
+            return SelfReferencingArrayModel1.validate(arg, configuration);
+        }
     }    
     
     public class SelfReferencingArrayModel1 extends JsonSchema {

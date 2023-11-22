@@ -29,6 +29,10 @@ public class Schema {
 
             super(m);
         }
+        public static FilesList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return Files.validate(arg, configuration);
+        }
     }    
     
     public class Files extends JsonSchema {

@@ -23,6 +23,10 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             super(m);
         }
+        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return AdditionalProperties.validate(arg, configuration);
+        }
     }    
     
     public class AdditionalProperties extends JsonSchema {

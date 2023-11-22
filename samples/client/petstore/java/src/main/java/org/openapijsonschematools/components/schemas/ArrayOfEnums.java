@@ -21,6 +21,10 @@ public class ArrayOfEnums {
 
             super(m);
         }
+        public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return ArrayOfEnums1.validate(arg, configuration);
+        }
     }    
     
     public class ArrayOfEnums1 extends JsonSchema {

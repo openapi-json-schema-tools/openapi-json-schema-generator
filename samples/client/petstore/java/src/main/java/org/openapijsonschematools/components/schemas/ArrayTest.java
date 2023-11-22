@@ -29,6 +29,10 @@ public class ArrayTest {
 
             super(m);
         }
+        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return ArrayOfString.validate(arg, configuration);
+        }
     }    
     
     public class ArrayOfString extends JsonSchema {
@@ -55,6 +59,10 @@ public class ArrayTest {
 
             super(m);
         }
+        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+
+            return Items1.validate(arg, configuration);
+        }
     }    
     
     public class Items1 extends JsonSchema {
@@ -77,6 +85,10 @@ public class ArrayTest {
         ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
 
             super(m);
+        }
+        public static ArrayArrayOfIntegerList of(List<ItemsList> arg, SchemaConfiguration configuration) {
+
+            return ArrayArrayOfInteger.validate(arg, configuration);
         }
     }    
     
@@ -101,6 +113,10 @@ public class ArrayTest {
 
             super(m);
         }
+        public static ItemsList1 of(List<ReadOnlyFirst.ReadOnlyFirstMap> arg, SchemaConfiguration configuration) {
+
+            return Items3.validate(arg, configuration);
+        }
     }    
     
     public class Items3 extends JsonSchema {
@@ -123,6 +139,10 @@ public class ArrayTest {
         ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
 
             super(m);
+        }
+        public static ArrayArrayOfModelList of(List<ItemsList1> arg, SchemaConfiguration configuration) {
+
+            return ArrayArrayOfModel.validate(arg, configuration);
         }
     }    
     

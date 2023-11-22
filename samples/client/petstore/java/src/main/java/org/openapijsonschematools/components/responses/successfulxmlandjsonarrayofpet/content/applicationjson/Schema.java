@@ -23,6 +23,10 @@ public class Schema {
 
             super(m);
         }
+        public static SchemaList of(List<Pet.PetMap> arg, SchemaConfiguration configuration) {
+
+            return Schema1.validate(arg, configuration);
+        }
     }    
     
     public class Schema1 extends JsonSchema {
