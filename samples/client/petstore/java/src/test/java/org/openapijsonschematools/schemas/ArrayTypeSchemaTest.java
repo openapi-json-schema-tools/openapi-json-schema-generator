@@ -113,4 +113,54 @@ public class ArrayTypeSchemaTest {
                 finalInList, configuration
         ));
     }
+
+//    @Test
+//    public void testValidateList() {
+//        int schemaQty = 1000;
+//        List<Object> inList = new ArrayList<>(schemaQty-1);
+//        Long loops = 100L;
+//        Double mSecPerSchemaMax = null;
+//        Double mSecPerSchemaMin = null;
+//        Double mSecPerSchemaTotal = 0d;
+//        int loop = loops.intValue();
+//        while (loop > 0) {
+//            int i = 0;
+//            while (i < schemaQty) {
+//                inList.add(i, "a");
+//                i += 1;
+//            }
+//            long start = System.currentTimeMillis();
+//            FrozenList<Object> validatedValue = ArrayWithItemsSchema.validate(inList, configuration);
+//            long finish = System.currentTimeMillis();
+//            long timeElapsed = finish - start;
+//            double mSecPerSchema = Double.longBitsToDouble (timeElapsed) / Double.longBitsToDouble(schemaQty);
+//            mSecPerSchemaTotal += mSecPerSchema;
+//            if (mSecPerSchemaMax == null) {
+//                mSecPerSchemaMax = mSecPerSchema;
+//            } else if (mSecPerSchemaMax < mSecPerSchema) {
+//                mSecPerSchemaMax = mSecPerSchema;
+//            }
+//            if (mSecPerSchemaMin == null) {
+//                mSecPerSchemaMin = mSecPerSchema;
+//            } else if (mSecPerSchema < mSecPerSchemaMin) {
+//                mSecPerSchemaMin = mSecPerSchema;
+//            }
+//            loop -= 1;
+//        }
+//        System.Logger logger = System.getLogger("");
+//        logger.log(System.Logger.Level.INFO, "loops "+loops);
+//        logger.log(System.Logger.Level.INFO, "mSecPerSchemaMax "+mSecPerSchemaMax);
+//        logger.log(System.Logger.Level.INFO, "mSecPerSchemaMin "+mSecPerSchemaMin);
+//        logger.log(System.Logger.Level.INFO, "mSecPerSchemaTotal "+mSecPerSchemaTotal);
+//        double mSecPerSchemaAvg = mSecPerSchemaTotal / loops.doubleValue();
+//        /*
+//        100 loop, max 0.732, min 0.042, avg 0.183 msec per schema
+//        100 loop, max 1.008, min 0.088, avg 0.314 msec per schema
+//        100 loop, max 1.192, min 0.041, avg 0.283 msec per schema
+//        100 loop, max 0.779, min 0.062, avg 0.270 msec per schema
+//        100 loop, max 1.167, min 0.052, avg 0.292 msec per schema
+//         */
+//        logger.log(System.Logger.Level.INFO, "mSecPerSchemaAvg "+mSecPerSchemaAvg);
+//        Assert.assertEquals(mSecPerSchemaAvg, 0d, 0.0000001);
+//    }
 }
