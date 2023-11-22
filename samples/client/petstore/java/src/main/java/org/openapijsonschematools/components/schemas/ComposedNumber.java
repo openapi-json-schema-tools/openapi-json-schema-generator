@@ -31,19 +31,19 @@ public class ComposedNumber {
                 Double.class
             )))
         ));
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
+        public static Number validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedNumber1.class, arg, configuration);
         }
         
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
+        public static Number validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedNumber1.class, arg, configuration);
         }
         
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
+        public static Number validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedNumber1.class, arg, configuration);
         }
         
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
+        public static Number validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedNumber1.class, arg, configuration);
         }
     }}

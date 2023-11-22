@@ -51,20 +51,20 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
         }
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, Long.valueOf(arg), configuration);
         }
         
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntegerProp.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
         }
         
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntegerProp.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
@@ -81,19 +81,19 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
+        public static Number validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
+        public static Number validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
+        public static Number validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
+        public static Number validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
     }    
@@ -108,7 +108,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
         }
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
         }
     }    

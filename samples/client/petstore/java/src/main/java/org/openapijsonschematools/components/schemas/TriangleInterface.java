@@ -66,23 +66,23 @@ public class TriangleInterface {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
         }
         
