@@ -97,9 +97,5 @@ schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]{{{endChar}}}
         {{/eq}}
     {{/each}}
 {{else}}
-    {{#if optional}}
-typing.Union[schemas.OUTPUT_BASE_TYPES, schemas.Unset]{{{endChar}}}
-    {{else}}
-schemas.OUTPUT_BASE_TYPES{{{endChar}}}
-    {{/if}}
+Object{{{endChar}}}
 {{/if}}

@@ -19,10 +19,10 @@ public class ArrayHoldingAnyType {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class ArrayHoldingAnyTypeList extends FrozenList<schemas.OUTPUT_BASE_TYPES> {
+    public static class ArrayHoldingAnyTypeList extends FrozenList<Object> {
 
 
-        ArrayHoldingAnyTypeList(FrozenList<schemas.OUTPUT_BASE_TYPES> m) {
+        ArrayHoldingAnyTypeList(FrozenList<Object> m) {
 
 
             super(m);
