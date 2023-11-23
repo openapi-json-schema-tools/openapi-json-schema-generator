@@ -1291,9 +1291,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         addMapSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("array")) {
-                    if (schema.arrayInputJsonPathPiece != null) {
-                        imports.add("import java.util.ArrayList;");
-                    }
                     if (schema.isSimpleArray()) {
                         imports.add("import "+packageName + ".schemas.ListJsonSchema;");
                         // add this in case the 1 higher schema is a map of FrozenList

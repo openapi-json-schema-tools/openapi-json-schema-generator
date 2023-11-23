@@ -1,5 +1,4 @@
 package org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter3;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
