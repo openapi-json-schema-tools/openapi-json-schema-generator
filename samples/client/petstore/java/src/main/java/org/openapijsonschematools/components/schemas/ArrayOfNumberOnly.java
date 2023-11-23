@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,13 @@ public class ArrayOfNumberOnly {
 
             return ArrayNumber.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayNumberListInput extends ArrayList<Number> {
+
+    }
+    
     
     public class ArrayNumber extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

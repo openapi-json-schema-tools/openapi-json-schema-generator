@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,13 @@ public class ComposedArray {
 
             return ComposedArray1.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ComposedArrayListInput extends ArrayList<Object> {
+
+    }
+    
     
     public class ComposedArray1 extends JsonSchema {
         /*

@@ -1,0 +1,6 @@
+{{#if items}}
+
+
+public class {{arrayInputJsonPathPiece.camelCase}} extends ArrayList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type fullRefModule="" forceNull=true endChar="> {" }}{{/with}}
+}
+{{/if}}

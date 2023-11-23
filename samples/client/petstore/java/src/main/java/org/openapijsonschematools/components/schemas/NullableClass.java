@@ -1,6 +1,7 @@
 package org.openapijsonschematools.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -173,7 +174,13 @@ public class NullableClass {
 
             return ArrayNullableProp.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayNullablePropListInput extends ArrayList<Map<String, Object>> {
+
+    }
+    
     
     public class ArrayNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -217,7 +224,13 @@ public class NullableClass {
 
             return ArrayAndItemsNullableProp.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayAndItemsNullablePropListInput extends ArrayList<Map<String, Object>> {
+
+    }
+    
     
     public class ArrayAndItemsNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -261,7 +274,13 @@ public class NullableClass {
 
             return ArrayItemsNullable.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayItemsNullableListInput extends ArrayList<Map<String, Object>> {
+
+    }
+    
     
     public class ArrayItemsNullable extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

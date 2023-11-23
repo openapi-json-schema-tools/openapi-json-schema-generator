@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -32,7 +33,13 @@ public class ArrayOfArrayOfNumberOnly {
 
             return Items.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ItemsListInput extends ArrayList<Number> {
+
+    }
+    
     
     public class Items extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -55,11 +62,17 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayArrayNumberList of(List<ItemsTupleInput> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList of(List<ItemsListInput> arg, SchemaConfiguration configuration) {
 
             return ArrayArrayNumber.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayArrayNumberListInput extends ArrayList<ItemsListInput> {
+
+    }
+    
     
     public class ArrayArrayNumber extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -70,7 +83,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             return new ArrayArrayNumberList(arg);
         }
-        public static ArrayArrayNumberList validate(List<ItemsTupleInput> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList validate(List<ItemsListInput> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayArrayNumber.class, arg, configuration);
         }

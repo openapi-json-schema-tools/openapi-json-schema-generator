@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -40,7 +41,13 @@ public class Pet {
 
             return PhotoUrls.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class PhotoUrlsListInput extends ArrayList<String> {
+
+    }
+    
     
     public class PhotoUrls extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -78,7 +85,13 @@ public class Pet {
 
             return Tags.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class TagsListInput extends ArrayList<Map<String, Object>> {
+
+    }
+    
     
     public class Tags extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

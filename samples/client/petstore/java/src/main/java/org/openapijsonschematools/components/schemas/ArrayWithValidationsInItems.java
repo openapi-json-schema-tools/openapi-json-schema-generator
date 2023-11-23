@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -53,7 +54,13 @@ public class ArrayWithValidationsInItems {
 
             return ArrayWithValidationsInItems1.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayWithValidationsInItemsListInput extends ArrayList<Long> {
+
+    }
+    
     
     public class ArrayWithValidationsInItems1 extends JsonSchema {
         /*

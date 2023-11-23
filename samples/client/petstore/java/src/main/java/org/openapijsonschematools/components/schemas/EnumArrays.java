@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -50,7 +51,13 @@ public class EnumArrays {
 
             return ArrayEnum.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayEnumListInput extends ArrayList<String> {
+
+    }
+    
     
     public class ArrayEnum extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

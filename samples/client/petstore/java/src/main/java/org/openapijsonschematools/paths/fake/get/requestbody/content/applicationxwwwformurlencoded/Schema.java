@@ -1,4 +1,5 @@
 package org.openapijsonschematools.paths.fake.get.requestbody.content.applicationxwwwformurlencoded;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,13 @@ public class Schema {
 
             return EnumFormStringArray.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class EnumFormStringArrayListInput extends ArrayList<String> {
+
+    }
+    
     
     public class EnumFormStringArray extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

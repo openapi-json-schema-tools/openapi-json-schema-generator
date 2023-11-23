@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,7 +29,13 @@ public class FileSchemaTestClass {
 
             return Files.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class FilesListInput extends ArrayList<Map<String, Object>> {
+
+    }
+    
     
     public class Files extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

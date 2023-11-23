@@ -1,4 +1,5 @@
 package org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter1;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,13 @@ public class Schema1 {
 
             return Schema11.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class SchemaListInput1 extends ArrayList<String> {
+
+    }
+    
     
     public class Schema11 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

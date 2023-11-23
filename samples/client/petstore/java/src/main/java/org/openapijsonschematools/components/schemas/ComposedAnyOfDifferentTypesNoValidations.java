@@ -1,6 +1,7 @@
 package org.openapijsonschematools.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,7 +75,13 @@ public class ComposedAnyOfDifferentTypesNoValidations {
 
             return Schema9.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class Schema9ListInput extends ArrayList<Object> {
+
+    }
+    
     
     public class Schema9 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

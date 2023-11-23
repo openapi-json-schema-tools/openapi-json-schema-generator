@@ -1,6 +1,7 @@
 package org.openapijsonschematools.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -79,7 +80,13 @@ public class JSONPatchRequest {
 
             return JSONPatchRequest1.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class JSONPatchRequestListInput extends ArrayList<Object> {
+
+    }
+    
     
     public class JSONPatchRequest1 extends JsonSchema {
         /*

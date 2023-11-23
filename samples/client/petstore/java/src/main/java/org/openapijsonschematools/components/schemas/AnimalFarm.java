@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,13 @@ public class AnimalFarm {
 
             return AnimalFarm1.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class AnimalFarmListInput extends ArrayList<Map<String, Object>> {
+
+    }
+    
     
     public class AnimalFarm1 extends JsonSchema {
         /*

@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,13 @@ public class ArrayOfEnums {
 
             return ArrayOfEnums1.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayOfEnumsListInput extends ArrayList<String> {
+
+    }
+    
     
     public class ArrayOfEnums1 extends JsonSchema {
         /*

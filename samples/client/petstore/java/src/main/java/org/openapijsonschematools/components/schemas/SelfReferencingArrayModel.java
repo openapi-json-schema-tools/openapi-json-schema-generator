@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -21,11 +22,17 @@ public class SelfReferencingArrayModel {
 
             super(m);
         }
-        public static SelfReferencingArrayModelList of(List<SelfReferencingArrayModelTupleInput> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList of(List<SelfReferencingArrayModelListInput> arg, SchemaConfiguration configuration) {
 
             return SelfReferencingArrayModel1.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class SelfReferencingArrayModelListInput extends ArrayList<SelfReferencingArrayModelListInput> {
+
+    }
+    
     
     public class SelfReferencingArrayModel1 extends JsonSchema {
         /*
@@ -42,7 +49,7 @@ public class SelfReferencingArrayModel {
 
             return new SelfReferencingArrayModelList(arg);
         }
-        public static SelfReferencingArrayModelList validate(List<SelfReferencingArrayModelTupleInput> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList validate(List<SelfReferencingArrayModelListInput> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
         }

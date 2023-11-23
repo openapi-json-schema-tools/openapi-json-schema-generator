@@ -1,4 +1,5 @@
 package org.openapijsonschematools.components.schemas;
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +34,13 @@ public class ArrayTest {
 
             return ArrayOfString.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayOfStringListInput extends ArrayList<String> {
+
+    }
+    
     
     public class ArrayOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -63,7 +70,13 @@ public class ArrayTest {
 
             return Items1.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ItemsListInput extends ArrayList<Long> {
+
+    }
+    
     
     public class Items1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -86,11 +99,17 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<ItemsTupleInput> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList of(List<ItemsListInput> arg, SchemaConfiguration configuration) {
 
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayArrayOfIntegerListInput extends ArrayList<ItemsListInput> {
+
+    }
+    
     
     public class ArrayArrayOfInteger extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -101,7 +120,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<ItemsTupleInput> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList validate(List<ItemsListInput> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
@@ -117,7 +136,13 @@ public class ArrayTest {
 
             return Items3.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ItemsListInput1 extends ArrayList<Map<String, Object>> {
+
+    }
+    
     
     public class Items3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -140,11 +165,17 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<ItemsTupleInput1> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList of(List<ItemsListInput1> arg, SchemaConfiguration configuration) {
 
             return ArrayArrayOfModel.validate(arg, configuration);
         }
-    }    
+    }
+    
+    
+    public class ArrayArrayOfModelListInput extends ArrayList<ItemsListInput1> {
+
+    }
+    
     
     public class ArrayArrayOfModel extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -155,7 +186,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<ItemsTupleInput1> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList validate(List<ItemsListInput1> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }
