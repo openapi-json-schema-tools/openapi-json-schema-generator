@@ -86,7 +86,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<ItemsList> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList of(List<ItemsTupleInput> arg, SchemaConfiguration configuration) {
 
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
@@ -101,7 +101,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<ItemsList> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList validate(List<ItemsTupleInput> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
@@ -113,7 +113,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList1 of(List<ReadOnlyFirst.ReadOnlyFirstMap> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
             return Items3.validate(arg, configuration);
         }
@@ -128,7 +128,7 @@ public class ArrayTest {
 
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(List<ReadOnlyFirst.ReadOnlyFirstMap> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
@@ -140,7 +140,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<ItemsList1> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList of(List<ItemsTupleInput1> arg, SchemaConfiguration configuration) {
 
             return ArrayArrayOfModel.validate(arg, configuration);
         }
@@ -155,7 +155,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<ItemsList1> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList validate(List<ItemsTupleInput1> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }

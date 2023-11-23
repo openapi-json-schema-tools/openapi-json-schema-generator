@@ -82,19 +82,20 @@ long{{{endChar}}}
                                 {{/eq}}
                             {{else}}
                                 {{#eq this "array"}}
-                                    {{#if arrayOutputJsonPathPiece}}
+                                    {{#if arrayInputJsonPathPiece}}
                                         {{#if fullRefModule}}
-{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
+{{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}}{{{endChar}}}
                                         {{else}}
-{{arrayOutputJsonPathPiece.camelCase}}{{{endChar}}}
+{{arrayInputJsonPathPiece.camelCase}}{{{endChar}}}
                                         {{/if}}
                                     {{else}}
 List<Object>{{{endChar}}}
                                     {{/if}}
                                 {{else}}
                                     {{#eq this "object"}}
-                                        {{#if mapOutputJsonPathPiece}}
-{{#if fullRefModule}}{{fullRefModule}}.{{/if}}{{mapOutputJsonPathPiece.camelCase}}{{{endChar}}}
+                                        {{#if mapInputJsonPathPiece}}
+{{! todo: implement input type here }}
+Map<String, Object>{{{endChar}}}
                                         {{else}}
 Map<String, Object>{{{endChar}}}
                                         {{/if}}

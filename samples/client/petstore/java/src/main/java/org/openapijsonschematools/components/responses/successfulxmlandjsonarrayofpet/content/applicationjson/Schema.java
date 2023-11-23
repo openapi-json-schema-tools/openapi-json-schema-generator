@@ -23,7 +23,7 @@ public class Schema {
 
             super(m);
         }
-        public static SchemaList of(List<Pet.PetMap> arg, SchemaConfiguration configuration) {
+        public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
             return Schema1.validate(arg, configuration);
         }
@@ -38,7 +38,7 @@ public class Schema {
 
             return new SchemaList(arg);
         }
-        public static SchemaList validate(List<Pet.PetMap> arg, SchemaConfiguration configuration) {
+        public static SchemaList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

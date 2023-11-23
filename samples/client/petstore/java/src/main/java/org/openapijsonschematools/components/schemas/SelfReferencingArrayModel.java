@@ -21,7 +21,7 @@ public class SelfReferencingArrayModel {
 
             super(m);
         }
-        public static SelfReferencingArrayModelList of(List<SelfReferencingArrayModelList> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList of(List<SelfReferencingArrayModelTupleInput> arg, SchemaConfiguration configuration) {
 
             return SelfReferencingArrayModel1.validate(arg, configuration);
         }
@@ -42,7 +42,7 @@ public class SelfReferencingArrayModel {
 
             return new SelfReferencingArrayModelList(arg);
         }
-        public static SelfReferencingArrayModelList validate(List<SelfReferencingArrayModelList> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList validate(List<SelfReferencingArrayModelTupleInput> arg, SchemaConfiguration configuration) {
 
             return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
         }
