@@ -28,6 +28,7 @@ public class Tag {
             super(m);
         }
         public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Tag1.validate(arg, configuration);
         }
     }    
@@ -50,6 +51,7 @@ public class Tag {
             return new TagMap(arg);
         }
         public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Tag1.class, arg, configuration);
         }
     }

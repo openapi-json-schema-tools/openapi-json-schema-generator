@@ -28,6 +28,7 @@ public class ObjectModelWithArgAndArgsProperties {
             super(m);
         }
         public static ObjectModelWithArgAndArgsPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectModelWithArgAndArgsProperties1.validate(arg, configuration);
         }
     }    
@@ -54,6 +55,7 @@ public class ObjectModelWithArgAndArgsProperties {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
         public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectModelWithArgAndArgsProperties1.class, arg, configuration);
         }
     }

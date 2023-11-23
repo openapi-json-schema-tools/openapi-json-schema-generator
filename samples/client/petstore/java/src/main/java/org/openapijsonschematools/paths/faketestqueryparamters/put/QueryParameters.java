@@ -34,6 +34,7 @@ public class QueryParameters {
             super(m);
         }
         public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return QueryParameters1.validate(arg, configuration);
         }
     }    
@@ -63,6 +64,7 @@ public class QueryParameters {
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

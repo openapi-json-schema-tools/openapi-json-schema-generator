@@ -179,6 +179,7 @@ public class ArrayTest {
             super(m);
         }
         public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ArrayTest1.validate(arg, configuration);
         }
     }    
@@ -202,6 +203,7 @@ public class ArrayTest {
             return new ArrayTestMap(arg);
         }
         public static ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayTest1.class, arg, configuration);
         }
     }

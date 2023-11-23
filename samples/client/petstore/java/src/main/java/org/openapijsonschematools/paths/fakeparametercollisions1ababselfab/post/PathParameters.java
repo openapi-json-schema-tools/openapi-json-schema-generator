@@ -33,6 +33,7 @@ public class PathParameters {
             super(m);
         }
         public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return PathParameters1.validate(arg, configuration);
         }
     }    
@@ -60,6 +61,7 @@ public class PathParameters {
             return new PathParametersMap(arg);
         }
         public static PathParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }

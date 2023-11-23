@@ -255,6 +255,7 @@ public class FormatTest {
             super(m);
         }
         public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return FormatTest1.validate(arg, configuration);
         }
     }    
@@ -302,6 +303,7 @@ public class FormatTest {
             return new FormatTestMap(arg);
         }
         public static FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(FormatTest1.class, arg, configuration);
         }
     }

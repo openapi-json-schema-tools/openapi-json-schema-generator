@@ -46,6 +46,7 @@ public class JSONPatchRequestAddReplaceTest {
             super(m);
         }
         public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);
         }
     }    
@@ -75,6 +76,7 @@ public class JSONPatchRequestAddReplaceTest {
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
         public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(JSONPatchRequestAddReplaceTest1.class, arg, configuration);
         }
     }

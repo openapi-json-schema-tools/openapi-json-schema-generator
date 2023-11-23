@@ -23,7 +23,8 @@ public class ReqPropsFromExplicitAddProps {
         ReqPropsFromExplicitAddPropsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static ReqPropsFromExplicitAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ReqPropsFromExplicitAddPropsMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return ReqPropsFromExplicitAddProps1.validate(arg, configuration);
         }
     }    
@@ -46,7 +47,8 @@ public class ReqPropsFromExplicitAddProps {
         protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
-        public static ReqPropsFromExplicitAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ReqPropsFromExplicitAddPropsMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ReqPropsFromExplicitAddProps1.class, arg, configuration);
         }
     }

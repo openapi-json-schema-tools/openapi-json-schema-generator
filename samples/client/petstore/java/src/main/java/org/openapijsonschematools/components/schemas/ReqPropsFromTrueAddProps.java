@@ -24,6 +24,7 @@ public class ReqPropsFromTrueAddProps {
             super(m);
         }
         public static ReqPropsFromTrueAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ReqPropsFromTrueAddProps1.validate(arg, configuration);
         }
     }    
@@ -47,6 +48,7 @@ public class ReqPropsFromTrueAddProps {
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
         public static ReqPropsFromTrueAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ReqPropsFromTrueAddProps1.class, arg, configuration);
         }
     }

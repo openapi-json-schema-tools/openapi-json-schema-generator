@@ -27,6 +27,7 @@ public class HasOnlyReadOnly {
             super(m);
         }
         public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return HasOnlyReadOnly1.validate(arg, configuration);
         }
     }    
@@ -49,6 +50,7 @@ public class HasOnlyReadOnly {
             return new HasOnlyReadOnlyMap(arg);
         }
         public static HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(HasOnlyReadOnly1.class, arg, configuration);
         }
     }

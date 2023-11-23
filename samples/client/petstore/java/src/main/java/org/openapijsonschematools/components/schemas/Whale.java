@@ -39,6 +39,7 @@ public class Whale {
             super(m);
         }
         public static WhaleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Whale1.validate(arg, configuration);
         }
     }    
@@ -65,6 +66,7 @@ public class Whale {
             return new WhaleMap(arg);
         }
         public static WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Whale1.class, arg, configuration);
         }
     }

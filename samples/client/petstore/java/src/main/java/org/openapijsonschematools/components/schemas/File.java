@@ -24,6 +24,7 @@ public class File {
             super(m);
         }
         public static FileMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return File1.validate(arg, configuration);
         }
     }    
@@ -47,6 +48,7 @@ public class File {
             return new FileMap(arg);
         }
         public static FileMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(File1.class, arg, configuration);
         }
     }

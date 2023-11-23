@@ -53,6 +53,7 @@ public class FileSchemaTestClass {
             super(m);
         }
         public static FileSchemaTestClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return FileSchemaTestClass1.validate(arg, configuration);
         }
     }    
@@ -75,6 +76,7 @@ public class FileSchemaTestClass {
             return new FileSchemaTestClassMap(arg);
         }
         public static FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(FileSchemaTestClass1.class, arg, configuration);
         }
     }

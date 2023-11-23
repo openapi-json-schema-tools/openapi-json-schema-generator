@@ -24,6 +24,7 @@ public class NumberOnly {
             super(m);
         }
         public static NumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return NumberOnly1.validate(arg, configuration);
         }
     }    
@@ -45,6 +46,7 @@ public class NumberOnly {
             return new NumberOnlyMap(arg);
         }
         public static NumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(NumberOnly1.class, arg, configuration);
         }
     }

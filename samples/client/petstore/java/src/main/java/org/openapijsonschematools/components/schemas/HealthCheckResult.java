@@ -35,6 +35,7 @@ public class HealthCheckResult {
             super(m);
         }
         public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return HealthCheckResult1.validate(arg, configuration);
         }
     }    
@@ -58,6 +59,7 @@ public class HealthCheckResult {
             return new HealthCheckResultMap(arg);
         }
         public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(HealthCheckResult1.class, arg, configuration);
         }
     }

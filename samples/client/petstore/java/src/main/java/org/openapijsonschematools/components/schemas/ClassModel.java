@@ -27,6 +27,7 @@ public class ClassModel {
             super(m);
         }
         public static ClassModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ClassModel1.validate(arg, configuration);
         }
     }    

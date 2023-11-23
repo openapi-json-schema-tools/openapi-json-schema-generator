@@ -48,6 +48,7 @@ public class Zebra {
             super(m);
         }
         public static ZebraMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Zebra1.validate(arg, configuration);
         }
     }    
@@ -74,6 +75,7 @@ public class Zebra {
             return new ZebraMap(arg);
         }
         public static ZebraMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Zebra1.class, arg, configuration);
         }
     }

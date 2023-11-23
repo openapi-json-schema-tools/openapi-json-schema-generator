@@ -32,6 +32,7 @@ public class BasquePig {
             super(m);
         }
         public static BasquePigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return BasquePig1.validate(arg, configuration);
         }
     }    
@@ -56,6 +57,7 @@ public class BasquePig {
             return new BasquePigMap(arg);
         }
         public static BasquePigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(BasquePig1.class, arg, configuration);
         }
     }

@@ -24,6 +24,7 @@ public class Schema0 {
             super(m);
         }
         public static SchemaMap0 of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema01.validate(arg, configuration);
         }
     }    
@@ -39,6 +40,7 @@ public class Schema0 {
             return new SchemaMap0(arg);
         }
         public static SchemaMap0 validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema01.class, arg, configuration);
         }
     }

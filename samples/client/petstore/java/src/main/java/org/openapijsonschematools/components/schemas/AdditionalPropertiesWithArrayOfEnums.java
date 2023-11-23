@@ -49,7 +49,9 @@ public class AdditionalPropertiesWithArrayOfEnums {
         AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+
+
             return AdditionalPropertiesWithArrayOfEnums1.validate(arg, configuration);
         }
     }    
@@ -68,7 +70,9 @@ public class AdditionalPropertiesWithArrayOfEnums {
         protected static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
-        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(AdditionalPropertiesWithArrayOfEnums1.class, arg, configuration);
         }
     }

@@ -35,6 +35,7 @@ public class ObjectWithOnlyOptionalProps {
             super(m);
         }
         public static ObjectWithOnlyOptionalPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithOnlyOptionalProps1.validate(arg, configuration);
         }
     }    
@@ -58,6 +59,7 @@ public class ObjectWithOnlyOptionalProps {
             return new ObjectWithOnlyOptionalPropsMap(arg);
         }
         public static ObjectWithOnlyOptionalPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithOnlyOptionalProps1.class, arg, configuration);
         }
     }

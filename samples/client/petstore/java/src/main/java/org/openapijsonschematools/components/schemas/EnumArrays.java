@@ -73,6 +73,7 @@ public class EnumArrays {
             super(m);
         }
         public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return EnumArrays1.validate(arg, configuration);
         }
     }    
@@ -95,6 +96,7 @@ public class EnumArrays {
             return new EnumArraysMap(arg);
         }
         public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(EnumArrays1.class, arg, configuration);
         }
     }

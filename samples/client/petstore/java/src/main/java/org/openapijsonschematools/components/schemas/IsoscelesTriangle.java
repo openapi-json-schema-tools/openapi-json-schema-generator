@@ -36,6 +36,7 @@ public class IsoscelesTriangle {
             super(m);
         }
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema1.validate(arg, configuration);
         }
     }    
@@ -51,6 +52,7 @@ public class IsoscelesTriangle {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

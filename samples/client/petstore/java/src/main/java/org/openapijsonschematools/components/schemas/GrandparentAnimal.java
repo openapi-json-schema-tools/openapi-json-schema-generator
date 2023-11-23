@@ -25,6 +25,7 @@ public class GrandparentAnimal {
             super(m);
         }
         public static GrandparentAnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return GrandparentAnimal1.validate(arg, configuration);
         }
     }    
@@ -49,6 +50,7 @@ public class GrandparentAnimal {
             return new GrandparentAnimalMap(arg);
         }
         public static GrandparentAnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(GrandparentAnimal1.class, arg, configuration);
         }
     }

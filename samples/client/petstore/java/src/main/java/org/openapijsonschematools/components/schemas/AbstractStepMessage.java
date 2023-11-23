@@ -25,6 +25,7 @@ public class AbstractStepMessage {
             super(m);
         }
         public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return AbstractStepMessage1.validate(arg, configuration);
         }
     }    
@@ -53,6 +54,7 @@ public class AbstractStepMessage {
             return new AbstractStepMessageMap(arg);
         }
         public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AbstractStepMessage1.class, arg, configuration);
         }
     }

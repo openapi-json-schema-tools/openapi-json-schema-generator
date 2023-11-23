@@ -50,6 +50,7 @@ public class Order {
             super(m);
         }
         public static OrderMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Order1.validate(arg, configuration);
         }
     }    
@@ -76,6 +77,7 @@ public class Order {
             return new OrderMap(arg);
         }
         public static OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Order1.class, arg, configuration);
         }
     }

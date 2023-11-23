@@ -27,6 +27,7 @@ public class GmFruit {
             super(m);
         }
         public static GmFruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return GmFruit1.validate(arg, configuration);
         }
     }    

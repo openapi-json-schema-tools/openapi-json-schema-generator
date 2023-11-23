@@ -27,6 +27,7 @@ public class ReadOnlyFirst {
             super(m);
         }
         public static ReadOnlyFirstMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ReadOnlyFirst1.validate(arg, configuration);
         }
     }    
@@ -49,6 +50,7 @@ public class ReadOnlyFirst {
             return new ReadOnlyFirstMap(arg);
         }
         public static ReadOnlyFirstMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ReadOnlyFirst1.class, arg, configuration);
         }
     }

@@ -27,6 +27,7 @@ public class ReturnSchema {
             super(m);
         }
         public static ReturnMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ReturnSchema1.validate(arg, configuration);
         }
     }    

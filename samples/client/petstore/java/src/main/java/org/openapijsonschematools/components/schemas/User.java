@@ -63,7 +63,7 @@ public class User {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
     }    
@@ -132,6 +132,7 @@ public class User {
             super(m);
         }
         public static UserMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return User1.validate(arg, configuration);
         }
     }    
@@ -165,6 +166,7 @@ public class User {
             return new UserMap(arg);
         }
         public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(User1.class, arg, configuration);
         }
     }

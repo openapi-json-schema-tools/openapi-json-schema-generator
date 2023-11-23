@@ -55,6 +55,7 @@ public class ArrayOfNumberOnly {
             super(m);
         }
         public static ArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ArrayOfNumberOnly1.validate(arg, configuration);
         }
     }    
@@ -76,6 +77,7 @@ public class ArrayOfNumberOnly {
             return new ArrayOfNumberOnlyMap(arg);
         }
         public static ArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayOfNumberOnly1.class, arg, configuration);
         }
     }

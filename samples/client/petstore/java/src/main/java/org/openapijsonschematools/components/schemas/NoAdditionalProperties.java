@@ -34,7 +34,8 @@ public class NoAdditionalProperties {
         NoAdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static NoAdditionalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static NoAdditionalPropertiesMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return NoAdditionalProperties1.validate(arg, configuration);
         }
     }    
@@ -60,7 +61,8 @@ public class NoAdditionalProperties {
         protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new NoAdditionalPropertiesMap(arg);
         }
-        public static NoAdditionalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static NoAdditionalPropertiesMap validate(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(NoAdditionalProperties1.class, arg, configuration);
         }
     }

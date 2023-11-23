@@ -39,6 +39,7 @@ public class Capitalization {
             super(m);
         }
         public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Capitalization1.validate(arg, configuration);
         }
     }    
@@ -65,6 +66,7 @@ public class Capitalization {
             return new CapitalizationMap(arg);
         }
         public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Capitalization1.class, arg, configuration);
         }
     }

@@ -22,7 +22,8 @@ public class StringBooleanMap {
         StringBooleanMapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static StringBooleanMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static StringBooleanMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+
             return StringBooleanMap1.validate(arg, configuration);
         }
     }    
@@ -41,7 +42,8 @@ public class StringBooleanMap {
         protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new StringBooleanMapMap(arg);
         }
-        public static StringBooleanMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(StringBooleanMap1.class, arg, configuration);
         }
     }

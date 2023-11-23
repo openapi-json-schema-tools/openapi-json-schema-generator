@@ -31,6 +31,7 @@ public class ApiResponseSchema {
             super(m);
         }
         public static ApiResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ApiResponseSchema1.validate(arg, configuration);
         }
     }    
@@ -54,6 +55,7 @@ public class ApiResponseSchema {
             return new ApiResponseMap(arg);
         }
         public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ApiResponseSchema1.class, arg, configuration);
         }
     }

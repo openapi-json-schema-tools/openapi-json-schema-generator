@@ -24,6 +24,7 @@ public class SpecialModelname {
             super(m);
         }
         public static SpecialModelnameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return SpecialModelname1.validate(arg, configuration);
         }
     }    
@@ -47,6 +48,7 @@ public class SpecialModelname {
             return new SpecialModelnameMap(arg);
         }
         public static SpecialModelnameMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(SpecialModelname1.class, arg, configuration);
         }
     }

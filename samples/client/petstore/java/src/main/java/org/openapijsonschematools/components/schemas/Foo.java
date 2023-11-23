@@ -20,6 +20,7 @@ public class Foo {
             super(m);
         }
         public static FooMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Foo1.validate(arg, configuration);
         }
     }    
@@ -41,6 +42,7 @@ public class Foo {
             return new FooMap(arg);
         }
         public static FooMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Foo1.class, arg, configuration);
         }
     }

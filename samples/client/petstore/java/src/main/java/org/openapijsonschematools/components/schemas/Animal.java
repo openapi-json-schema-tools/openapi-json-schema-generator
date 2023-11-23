@@ -36,6 +36,7 @@ public class Animal {
             super(m);
         }
         public static AnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Animal1.validate(arg, configuration);
         }
     }    
@@ -61,6 +62,7 @@ public class Animal {
             return new AnimalMap(arg);
         }
         public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Animal1.class, arg, configuration);
         }
     }

@@ -24,6 +24,7 @@ public class PublicKey {
             super(m);
         }
         public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return PublicKey1.validate(arg, configuration);
         }
     }    
@@ -47,6 +48,7 @@ public class PublicKey {
             return new PublicKeyMap(arg);
         }
         public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PublicKey1.class, arg, configuration);
         }
     }

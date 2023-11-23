@@ -33,6 +33,7 @@ public class Headers {
             super(m);
         }
         public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Headers1.validate(arg, configuration);
         }
     }    
@@ -58,6 +59,7 @@ public class Headers {
             return new HeadersMap(arg);
         }
         public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }

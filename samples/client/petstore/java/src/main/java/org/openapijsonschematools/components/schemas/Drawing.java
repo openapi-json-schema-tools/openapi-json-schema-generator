@@ -52,6 +52,7 @@ public class Drawing {
             super(m);
         }
         public static DrawingMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Drawing1.validate(arg, configuration);
         }
     }    
@@ -77,6 +78,7 @@ public class Drawing {
             return new DrawingMap(arg);
         }
         public static DrawingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Drawing1.class, arg, configuration);
         }
     }

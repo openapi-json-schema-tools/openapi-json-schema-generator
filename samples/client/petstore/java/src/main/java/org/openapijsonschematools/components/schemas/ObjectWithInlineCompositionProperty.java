@@ -86,6 +86,7 @@ public class ObjectWithInlineCompositionProperty {
             super(m);
         }
         public static ObjectWithInlineCompositionPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithInlineCompositionProperty1.validate(arg, configuration);
         }
     }    
@@ -107,6 +108,7 @@ public class ObjectWithInlineCompositionProperty {
             return new ObjectWithInlineCompositionPropertyMap(arg);
         }
         public static ObjectWithInlineCompositionPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithInlineCompositionProperty1.class, arg, configuration);
         }
     }

@@ -36,6 +36,7 @@ public class BananaReq {
             super(m);
         }
         public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return BananaReq1.validate(arg, configuration);
         }
     }    
@@ -62,6 +63,7 @@ public class BananaReq {
             return new BananaReqMap(arg);
         }
         public static BananaReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(BananaReq1.class, arg, configuration);
         }
     }

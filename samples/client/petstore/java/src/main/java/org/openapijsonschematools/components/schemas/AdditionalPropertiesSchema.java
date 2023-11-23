@@ -28,6 +28,7 @@ public class AdditionalPropertiesSchema {
             super(m);
         }
         public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema0.validate(arg, configuration);
         }
     }    
@@ -41,6 +42,7 @@ public class AdditionalPropertiesSchema {
             return new Schema0Map(arg);
         }
         public static Schema0Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema0.class, arg, configuration);
         }
     }
@@ -101,6 +103,7 @@ public class AdditionalPropertiesSchema {
             super(m);
         }
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema1.validate(arg, configuration);
         }
     }    
@@ -114,6 +117,7 @@ public class AdditionalPropertiesSchema {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }
@@ -174,6 +178,7 @@ public class AdditionalPropertiesSchema {
             super(m);
         }
         public static Schema2Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema2.validate(arg, configuration);
         }
     }    
@@ -187,6 +192,7 @@ public class AdditionalPropertiesSchema {
             return new Schema2Map(arg);
         }
         public static Schema2Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema2.class, arg, configuration);
         }
     }
@@ -202,7 +208,7 @@ public class AdditionalPropertiesSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)))
         ));
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalPropertiesSchema1.class, arg, configuration);
         }
     }

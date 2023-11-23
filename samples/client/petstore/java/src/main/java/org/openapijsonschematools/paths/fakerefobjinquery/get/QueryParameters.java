@@ -27,7 +27,9 @@ public class QueryParameters {
         QueryParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return QueryParameters1.validate(arg, configuration);
         }
     }    
@@ -43,7 +45,9 @@ public class QueryParameters {
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

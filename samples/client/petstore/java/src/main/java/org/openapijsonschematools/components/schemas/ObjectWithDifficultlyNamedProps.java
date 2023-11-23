@@ -33,6 +33,7 @@ public class ObjectWithDifficultlyNamedProps {
             super(m);
         }
         public static ObjectWithDifficultlyNamedPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithDifficultlyNamedProps1.validate(arg, configuration);
         }
     }    
@@ -61,6 +62,7 @@ public class ObjectWithDifficultlyNamedProps {
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
         public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
         }
     }

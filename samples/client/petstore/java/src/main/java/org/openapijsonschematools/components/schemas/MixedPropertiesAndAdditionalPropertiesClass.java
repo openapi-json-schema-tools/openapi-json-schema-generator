@@ -28,7 +28,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         MapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static MapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return MapSchema.validate(arg, configuration);
         }
     }    
@@ -41,7 +43,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         protected static MapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapMap(arg);
         }
-        public static MapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(MapSchema.class, arg, configuration);
         }
     }
@@ -52,6 +56,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             super(m);
         }
         public static MixedPropertiesAndAdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return MixedPropertiesAndAdditionalPropertiesClass1.validate(arg, configuration);
         }
     }    
@@ -75,6 +80,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }
         public static MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MixedPropertiesAndAdditionalPropertiesClass1.class, arg, configuration);
         }
     }

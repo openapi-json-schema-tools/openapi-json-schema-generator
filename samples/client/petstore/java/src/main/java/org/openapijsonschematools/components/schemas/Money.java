@@ -32,6 +32,7 @@ public class Money {
             super(m);
         }
         public static MoneyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Money1.validate(arg, configuration);
         }
     }    
@@ -59,6 +60,7 @@ public class Money {
             return new MoneyMap(arg);
         }
         public static MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Money1.class, arg, configuration);
         }
     }

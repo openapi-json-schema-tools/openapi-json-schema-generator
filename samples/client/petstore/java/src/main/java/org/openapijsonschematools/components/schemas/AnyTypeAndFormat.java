@@ -503,6 +503,7 @@ public class AnyTypeAndFormat {
             super(m);
         }
         public static AnyTypeAndFormatMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return AnyTypeAndFormat1.validate(arg, configuration);
         }
     }    
@@ -532,6 +533,7 @@ public class AnyTypeAndFormat {
             return new AnyTypeAndFormatMap(arg);
         }
         public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AnyTypeAndFormat1.class, arg, configuration);
         }
     }

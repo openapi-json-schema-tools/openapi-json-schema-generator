@@ -27,7 +27,8 @@ public class Headers {
         HeadersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeadersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return Headers1.validate(arg, configuration);
         }
     }    
@@ -43,7 +44,8 @@ public class Headers {
         protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new HeadersMap(arg);
         }
-        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeadersMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }

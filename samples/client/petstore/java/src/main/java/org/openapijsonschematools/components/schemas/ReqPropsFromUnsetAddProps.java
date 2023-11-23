@@ -19,6 +19,7 @@ public class ReqPropsFromUnsetAddProps {
             super(m);
         }
         public static ReqPropsFromUnsetAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ReqPropsFromUnsetAddProps1.validate(arg, configuration);
         }
     }    
@@ -41,6 +42,7 @@ public class ReqPropsFromUnsetAddProps {
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
         public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ReqPropsFromUnsetAddProps1.class, arg, configuration);
         }
     }

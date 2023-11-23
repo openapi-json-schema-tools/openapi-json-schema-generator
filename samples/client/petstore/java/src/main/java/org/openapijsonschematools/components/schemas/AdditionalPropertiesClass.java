@@ -27,7 +27,8 @@ public class AdditionalPropertiesClass {
         MapPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static MapPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapPropertyMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return MapProperty.validate(arg, configuration);
         }
     }    
@@ -40,7 +41,8 @@ public class AdditionalPropertiesClass {
         protected static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapPropertyMap(arg);
         }
-        public static MapPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MapProperty.class, arg, configuration);
         }
     }
@@ -53,7 +55,8 @@ public class AdditionalPropertiesClass {
         AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static AdditionalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return AdditionalProperties1.validate(arg, configuration);
         }
     }    
@@ -66,7 +69,8 @@ public class AdditionalPropertiesClass {
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesMap(arg);
         }
-        public static AdditionalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
     }
@@ -76,7 +80,9 @@ public class AdditionalPropertiesClass {
         MapOfMapPropertyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static MapOfMapPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapOfMapPropertyMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
+
+
             return MapOfMapProperty.validate(arg, configuration);
         }
     }    
@@ -89,7 +95,9 @@ public class AdditionalPropertiesClass {
         protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapOfMapPropertyMap(arg);
         }
-        public static MapOfMapPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(MapOfMapProperty.class, arg, configuration);
         }
     }
@@ -112,6 +120,7 @@ public class AdditionalPropertiesClass {
             super(m);
         }
         public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration);
         }
     }    
@@ -125,6 +134,7 @@ public class AdditionalPropertiesClass {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
         public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MapWithUndeclaredPropertiesAnytype3.class, arg, configuration);
         }
     }
@@ -139,7 +149,7 @@ public class AdditionalPropertiesClass {
             super(m);
         }
         // map with no key value pairs
-        public static EmptyMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EmptyMapMap of(Map<String, 
             return EmptyMap.validate(arg, configuration);
         }
     }    
@@ -152,7 +162,7 @@ public class AdditionalPropertiesClass {
         protected static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EmptyMapMap(arg);
         }
-        public static EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EmptyMapMap validate(Map<String, 
             return JsonSchema.validate(EmptyMap.class, arg, configuration);
         }
     }
@@ -165,7 +175,8 @@ public class AdditionalPropertiesClass {
         MapWithUndeclaredPropertiesStringMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static MapWithUndeclaredPropertiesStringMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapWithUndeclaredPropertiesStringMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return MapWithUndeclaredPropertiesString.validate(arg, configuration);
         }
     }    
@@ -178,7 +189,8 @@ public class AdditionalPropertiesClass {
         protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
-        public static MapWithUndeclaredPropertiesStringMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MapWithUndeclaredPropertiesString.class, arg, configuration);
         }
     }
@@ -189,6 +201,7 @@ public class AdditionalPropertiesClass {
             super(m);
         }
         public static AdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return AdditionalPropertiesClass1.validate(arg, configuration);
         }
     }    
@@ -217,6 +230,7 @@ public class AdditionalPropertiesClass {
             return new AdditionalPropertiesClassMap(arg);
         }
         public static AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AdditionalPropertiesClass1.class, arg, configuration);
         }
     }

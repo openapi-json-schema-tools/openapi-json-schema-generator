@@ -41,6 +41,7 @@ public class TriangleInterface {
             super(m);
         }
         public static TriangleInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return TriangleInterface1.validate(arg, configuration);
         }
     }    

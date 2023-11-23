@@ -42,7 +42,8 @@ public class JSONPatchRequestRemove {
         JSONPatchRequestRemoveMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static JSONPatchRequestRemoveMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestRemoveMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JSONPatchRequestRemove1.validate(arg, configuration);
         }
     }    
@@ -69,7 +70,8 @@ public class JSONPatchRequestRemove {
         protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestRemoveMap(arg);
         }
-        public static JSONPatchRequestRemoveMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestRemoveMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(JSONPatchRequestRemove1.class, arg, configuration);
         }
     }

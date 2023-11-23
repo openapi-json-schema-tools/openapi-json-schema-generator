@@ -45,7 +45,8 @@ public class JSONPatchRequestMoveCopy {
         JSONPatchRequestMoveCopyMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static JSONPatchRequestMoveCopyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JSONPatchRequestMoveCopy1.validate(arg, configuration);
         }
     }    
@@ -74,7 +75,8 @@ public class JSONPatchRequestMoveCopy {
         protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new JSONPatchRequestMoveCopyMap(arg);
         }
-        public static JSONPatchRequestMoveCopyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestMoveCopyMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(JSONPatchRequestMoveCopy1.class, arg, configuration);
         }
     }

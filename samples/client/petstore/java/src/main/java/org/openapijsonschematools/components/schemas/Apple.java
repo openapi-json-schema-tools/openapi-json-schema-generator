@@ -43,6 +43,7 @@ public class Apple {
             super(m);
         }
         public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Apple1.validate(arg, configuration);
         }
     }    
@@ -71,6 +72,7 @@ public class Apple {
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
         public static AppleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
     }}

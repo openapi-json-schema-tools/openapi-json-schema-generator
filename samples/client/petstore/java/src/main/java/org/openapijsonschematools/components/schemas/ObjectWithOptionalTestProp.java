@@ -24,6 +24,7 @@ public class ObjectWithOptionalTestProp {
             super(m);
         }
         public static ObjectWithOptionalTestPropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithOptionalTestProp1.validate(arg, configuration);
         }
     }    
@@ -45,6 +46,7 @@ public class ObjectWithOptionalTestProp {
             return new ObjectWithOptionalTestPropMap(arg);
         }
         public static ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithOptionalTestProp1.class, arg, configuration);
         }
     }

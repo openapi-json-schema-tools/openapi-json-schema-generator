@@ -25,6 +25,7 @@ public class ObjWithRequiredPropsBase {
             super(m);
         }
         public static ObjWithRequiredPropsBaseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjWithRequiredPropsBase1.validate(arg, configuration);
         }
     }    
@@ -49,6 +50,7 @@ public class ObjWithRequiredPropsBase {
             return new ObjWithRequiredPropsBaseMap(arg);
         }
         public static ObjWithRequiredPropsBaseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjWithRequiredPropsBase1.class, arg, configuration);
         }
     }

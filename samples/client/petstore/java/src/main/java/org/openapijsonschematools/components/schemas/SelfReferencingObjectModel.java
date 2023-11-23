@@ -21,6 +21,7 @@ public class SelfReferencingObjectModel {
             super(m);
         }
         public static SelfReferencingObjectModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return SelfReferencingObjectModel1.validate(arg, configuration);
         }
     }    
@@ -43,6 +44,7 @@ public class SelfReferencingObjectModel {
             return new SelfReferencingObjectModelMap(arg);
         }
         public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(SelfReferencingObjectModel1.class, arg, configuration);
         }
     }

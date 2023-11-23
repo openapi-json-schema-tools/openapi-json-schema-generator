@@ -28,6 +28,7 @@ public class FromSchema {
             super(m);
         }
         public static FromSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return FromSchema1.validate(arg, configuration);
         }
     }    
@@ -50,6 +51,7 @@ public class FromSchema {
             return new FromSchemaMap(arg);
         }
         public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(FromSchema1.class, arg, configuration);
         }
     }

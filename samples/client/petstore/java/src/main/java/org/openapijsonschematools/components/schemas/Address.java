@@ -22,7 +22,8 @@ public class Address {
         AddressMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static AddressMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AddressMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return Address1.validate(arg, configuration);
         }
     }    
@@ -41,7 +42,8 @@ public class Address {
         protected static AddressMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AddressMap(arg);
         }
-        public static AddressMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AddressMap validate(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Address1.class, arg, configuration);
         }
     }

@@ -20,6 +20,7 @@ public class ObjectModelWithRefProps {
             super(m);
         }
         public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectModelWithRefProps1.validate(arg, configuration);
         }
     }    
@@ -45,6 +46,7 @@ public class ObjectModelWithRefProps {
             return new ObjectModelWithRefPropsMap(arg);
         }
         public static ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectModelWithRefProps1.class, arg, configuration);
         }
     }

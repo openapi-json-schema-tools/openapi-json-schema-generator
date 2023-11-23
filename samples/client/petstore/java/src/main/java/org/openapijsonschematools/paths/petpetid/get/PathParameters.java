@@ -28,7 +28,8 @@ public class PathParameters {
         PathParametersMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return PathParameters1.validate(arg, configuration);
         }
     }    
@@ -47,7 +48,8 @@ public class PathParameters {
         protected static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new PathParametersMap(arg);
         }
-        public static PathParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap validate(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }

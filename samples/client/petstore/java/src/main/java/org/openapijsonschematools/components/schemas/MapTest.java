@@ -25,7 +25,8 @@ public class MapTest {
         AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static AdditionalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return AdditionalProperties.validate(arg, configuration);
         }
     }    
@@ -38,7 +39,8 @@ public class MapTest {
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new AdditionalPropertiesMap(arg);
         }
-        public static AdditionalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
     }
@@ -48,7 +50,9 @@ public class MapTest {
         MapMapOfStringMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static MapMapOfStringMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapMapOfStringMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
+
+
             return MapMapOfString.validate(arg, configuration);
         }
     }    
@@ -61,7 +65,9 @@ public class MapTest {
         protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapMapOfStringMap(arg);
         }
-        public static MapMapOfStringMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(MapMapOfString.class, arg, configuration);
         }
     }
@@ -82,7 +88,8 @@ public class MapTest {
         MapOfEnumStringMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static MapOfEnumStringMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapOfEnumStringMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return MapOfEnumString.validate(arg, configuration);
         }
     }    
@@ -95,7 +102,8 @@ public class MapTest {
         protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MapOfEnumStringMap(arg);
         }
-        public static MapOfEnumStringMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MapOfEnumString.class, arg, configuration);
         }
     }
@@ -108,7 +116,8 @@ public class MapTest {
         DirectMapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static DirectMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static DirectMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+
             return DirectMap.validate(arg, configuration);
         }
     }    
@@ -121,7 +130,8 @@ public class MapTest {
         protected static DirectMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new DirectMapMap(arg);
         }
-        public static DirectMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(DirectMap.class, arg, configuration);
         }
     }
@@ -132,6 +142,7 @@ public class MapTest {
             super(m);
         }
         public static MapTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return MapTest1.validate(arg, configuration);
         }
     }    
@@ -156,6 +167,7 @@ public class MapTest {
             return new MapTestMap(arg);
         }
         public static MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MapTest1.class, arg, configuration);
         }
     }

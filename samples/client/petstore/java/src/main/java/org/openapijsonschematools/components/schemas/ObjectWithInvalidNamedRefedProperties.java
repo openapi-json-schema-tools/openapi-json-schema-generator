@@ -21,6 +21,7 @@ public class ObjectWithInvalidNamedRefedProperties {
             super(m);
         }
         public static ObjectWithInvalidNamedRefedPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithInvalidNamedRefedProperties1.validate(arg, configuration);
         }
     }    
@@ -47,6 +48,7 @@ public class ObjectWithInvalidNamedRefedProperties {
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
         public static ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithInvalidNamedRefedProperties1.class, arg, configuration);
         }
     }

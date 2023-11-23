@@ -36,6 +36,7 @@ public class Name {
             super(m);
         }
         public static NameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Name1.validate(arg, configuration);
         }
     }    

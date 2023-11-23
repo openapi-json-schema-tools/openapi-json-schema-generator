@@ -86,6 +86,7 @@ public class EnumTest {
             super(m);
         }
         public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return EnumTest1.validate(arg, configuration);
         }
     }    
@@ -118,6 +119,7 @@ public class EnumTest {
             return new EnumTestMap(arg);
         }
         public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(EnumTest1.class, arg, configuration);
         }
     }

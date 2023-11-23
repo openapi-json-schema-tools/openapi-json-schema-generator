@@ -65,6 +65,7 @@ public class PaginatedResultMyObjectDto {
             super(m);
         }
         public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return PaginatedResultMyObjectDto1.validate(arg, configuration);
         }
     }    
@@ -92,6 +93,7 @@ public class PaginatedResultMyObjectDto {
             return new PaginatedResultMyObjectDtoMap(arg);
         }
         public static PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PaginatedResultMyObjectDto1.class, arg, configuration);
         }
     }

@@ -36,6 +36,7 @@ public class AppleReq {
             super(m);
         }
         public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return AppleReq1.validate(arg, configuration);
         }
     }    
@@ -62,6 +63,7 @@ public class AppleReq {
             return new AppleReqMap(arg);
         }
         public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AppleReq1.class, arg, configuration);
         }
     }

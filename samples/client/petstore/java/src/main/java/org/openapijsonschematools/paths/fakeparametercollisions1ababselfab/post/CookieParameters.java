@@ -32,6 +32,7 @@ public class CookieParameters {
             super(m);
         }
         public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return CookieParameters1.validate(arg, configuration);
         }
     }    
@@ -52,6 +53,7 @@ public class CookieParameters {
             return new CookieParametersMap(arg);
         }
         public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(CookieParameters1.class, arg, configuration);
         }
     }

@@ -32,6 +32,7 @@ public class DanishPig {
             super(m);
         }
         public static DanishPigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return DanishPig1.validate(arg, configuration);
         }
     }    
@@ -56,6 +57,7 @@ public class DanishPig {
             return new DanishPigMap(arg);
         }
         public static DanishPigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(DanishPig1.class, arg, configuration);
         }
     }

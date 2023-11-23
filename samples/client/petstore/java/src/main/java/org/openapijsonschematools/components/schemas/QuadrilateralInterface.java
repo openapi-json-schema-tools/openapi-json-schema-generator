@@ -41,6 +41,7 @@ public class QuadrilateralInterface {
             super(m);
         }
         public static QuadrilateralInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return QuadrilateralInterface1.validate(arg, configuration);
         }
     }    

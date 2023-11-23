@@ -104,6 +104,7 @@ public class Pet {
             super(m);
         }
         public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Pet1.validate(arg, configuration);
         }
     }    
@@ -136,6 +137,7 @@ public class Pet {
             return new PetMap(arg);
         }
         public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Pet1.class, arg, configuration);
         }
     }

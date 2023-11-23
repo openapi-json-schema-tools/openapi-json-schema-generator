@@ -27,6 +27,7 @@ public class Fruit {
             super(m);
         }
         public static FruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Fruit1.validate(arg, configuration);
         }
     }    

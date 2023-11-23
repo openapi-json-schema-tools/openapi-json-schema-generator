@@ -36,6 +36,7 @@ public class Category {
             super(m);
         }
         public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Category1.validate(arg, configuration);
         }
     }    
@@ -61,6 +62,7 @@ public class Category {
             return new CategoryMap(arg);
         }
         public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Category1.class, arg, configuration);
         }
     }

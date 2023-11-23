@@ -30,7 +30,8 @@ public class MyObjectDto {
         MyObjectDtoMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
-        public static MyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return MyObjectDto1.validate(arg, configuration);
         }
     }    
@@ -52,7 +53,8 @@ public class MyObjectDto {
         protected static MyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new MyObjectDtoMap(arg);
         }
-        public static MyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MyObjectDtoMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MyObjectDto1.class, arg, configuration);
         }
     }

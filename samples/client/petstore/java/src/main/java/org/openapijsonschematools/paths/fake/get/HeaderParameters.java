@@ -29,6 +29,7 @@ public class HeaderParameters {
             super(m);
         }
         public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return HeaderParameters1.validate(arg, configuration);
         }
     }    
@@ -46,6 +47,7 @@ public class HeaderParameters {
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }
     }

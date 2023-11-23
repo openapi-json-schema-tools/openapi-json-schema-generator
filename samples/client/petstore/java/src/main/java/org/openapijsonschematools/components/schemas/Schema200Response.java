@@ -31,6 +31,7 @@ public class Schema200Response {
             super(m);
         }
         public static Schema200ResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema200Response1.validate(arg, configuration);
         }
     }    

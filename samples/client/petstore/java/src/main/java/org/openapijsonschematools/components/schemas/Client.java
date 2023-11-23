@@ -24,6 +24,7 @@ public class Client {
             super(m);
         }
         public static ClientMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Client1.validate(arg, configuration);
         }
     }    
@@ -45,6 +46,7 @@ public class Client {
             return new ClientMap(arg);
         }
         public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Client1.class, arg, configuration);
         }
     }

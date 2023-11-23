@@ -27,6 +27,7 @@ public class ObjectWithCollidingProperties {
             super(m);
         }
         public static ObjectWithCollidingPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithCollidingProperties1.validate(arg, configuration);
         }
     }    
@@ -51,6 +52,7 @@ public class ObjectWithCollidingProperties {
             return new ObjectWithCollidingPropertiesMap(arg);
         }
         public static ObjectWithCollidingPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithCollidingProperties1.class, arg, configuration);
         }
     }
