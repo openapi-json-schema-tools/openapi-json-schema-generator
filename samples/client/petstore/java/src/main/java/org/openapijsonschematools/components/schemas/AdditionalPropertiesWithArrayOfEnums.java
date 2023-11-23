@@ -24,8 +24,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             super(m);
         }
-        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) {
-
+        public static AdditionalPropertiesList of(AdditionalPropertiesListInput arg, SchemaConfiguration configuration) {
             return AdditionalProperties.validate(arg, configuration);
         }
     }
@@ -45,8 +44,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             return new AdditionalPropertiesList(arg);
         }
-        public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) {
-
+        public static AdditionalPropertiesList validate(AdditionalPropertiesListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
     }    

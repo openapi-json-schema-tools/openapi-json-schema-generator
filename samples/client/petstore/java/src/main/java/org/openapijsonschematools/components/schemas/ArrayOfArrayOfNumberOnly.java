@@ -29,8 +29,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) {
-
+        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) {
             return Items.validate(arg, configuration);
         }
     }
@@ -50,8 +49,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) {
-
+        public static ItemsList validate(ItemsListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
     }    
@@ -62,8 +60,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayArrayNumberList of(List<ItemsListInput> arg, SchemaConfiguration configuration) {
-
+        public static ArrayArrayNumberList of(ArrayArrayNumberListInput arg, SchemaConfiguration configuration) {
             return ArrayArrayNumber.validate(arg, configuration);
         }
     }
@@ -83,8 +80,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             return new ArrayArrayNumberList(arg);
         }
-        public static ArrayArrayNumberList validate(List<ItemsListInput> arg, SchemaConfiguration configuration) {
-
+        public static ArrayArrayNumberList validate(ArrayArrayNumberListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayNumber.class, arg, configuration);
         }
     }    

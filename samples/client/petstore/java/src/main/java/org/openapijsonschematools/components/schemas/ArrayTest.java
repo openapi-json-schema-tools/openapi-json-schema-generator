@@ -30,8 +30,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) {
-
+        public static ArrayOfStringList of(ArrayOfStringListInput arg, SchemaConfiguration configuration) {
             return ArrayOfString.validate(arg, configuration);
         }
     }
@@ -51,8 +50,7 @@ public class ArrayTest {
 
             return new ArrayOfStringList(arg);
         }
-        public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) {
-
+        public static ArrayOfStringList validate(ArrayOfStringListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
         }
     }    
@@ -66,8 +64,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) {
-
+        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) {
             return Items1.validate(arg, configuration);
         }
     }
@@ -87,8 +84,7 @@ public class ArrayTest {
 
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
-
+        public static ItemsList validate(ItemsListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }    
@@ -99,8 +95,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<ItemsListInput> arg, SchemaConfiguration configuration) {
-
+        public static ArrayArrayOfIntegerList of(ArrayArrayOfIntegerListInput arg, SchemaConfiguration configuration) {
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
     }
@@ -120,8 +115,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<ItemsListInput> arg, SchemaConfiguration configuration) {
-
+        public static ArrayArrayOfIntegerList validate(ArrayArrayOfIntegerListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
     }    
@@ -132,8 +126,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
-
+        public static ItemsList1 of(ItemsListInput1 arg, SchemaConfiguration configuration) {
             return Items3.validate(arg, configuration);
         }
     }
@@ -153,8 +146,7 @@ public class ArrayTest {
 
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
-
+        public static ItemsList1 validate(ItemsListInput1 arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
     }    
@@ -165,8 +157,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<ItemsListInput1> arg, SchemaConfiguration configuration) {
-
+        public static ArrayArrayOfModelList of(ArrayArrayOfModelListInput arg, SchemaConfiguration configuration) {
             return ArrayArrayOfModel.validate(arg, configuration);
         }
     }
@@ -186,8 +177,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<ItemsListInput1> arg, SchemaConfiguration configuration) {
-
+        public static ArrayArrayOfModelList validate(ArrayArrayOfModelListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }
     }    

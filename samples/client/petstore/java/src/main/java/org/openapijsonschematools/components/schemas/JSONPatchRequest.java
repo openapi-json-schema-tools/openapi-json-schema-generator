@@ -76,8 +76,7 @@ public class JSONPatchRequest {
 
             super(m);
         }
-        public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) {
-
+        public static JSONPatchRequestList of(JSONPatchRequestListInput arg, SchemaConfiguration configuration) {
             return JSONPatchRequest1.validate(arg, configuration);
         }
     }
@@ -103,8 +102,7 @@ public class JSONPatchRequest {
 
             return new JSONPatchRequestList(arg);
         }
-        public static JSONPatchRequestList validate(List<Object> arg, SchemaConfiguration configuration) {
-
+        public static JSONPatchRequestList validate(JSONPatchRequestListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(JSONPatchRequest1.class, arg, configuration);
         }
     }}

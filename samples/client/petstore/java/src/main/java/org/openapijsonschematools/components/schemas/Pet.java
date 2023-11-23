@@ -37,8 +37,7 @@ public class Pet {
 
             super(m);
         }
-        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) {
-
+        public static PhotoUrlsList of(PhotoUrlsListInput arg, SchemaConfiguration configuration) {
             return PhotoUrls.validate(arg, configuration);
         }
     }
@@ -58,8 +57,7 @@ public class Pet {
 
             return new PhotoUrlsList(arg);
         }
-        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) {
-
+        public static PhotoUrlsList validate(PhotoUrlsListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(PhotoUrls.class, arg, configuration);
         }
     }    
@@ -81,8 +79,7 @@ public class Pet {
 
             super(m);
         }
-        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
-
+        public static TagsList of(TagsListInput arg, SchemaConfiguration configuration) {
             return Tags.validate(arg, configuration);
         }
     }
@@ -102,8 +99,7 @@ public class Pet {
 
             return new TagsList(arg);
         }
-        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
-
+        public static TagsList validate(TagsListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Tags.class, arg, configuration);
         }
     }    

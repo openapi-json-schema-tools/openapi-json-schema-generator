@@ -36,8 +36,7 @@ public class Schema {
 
             super(m);
         }
-        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) {
-
+        public static EnumFormStringArrayList of(EnumFormStringArrayListInput arg, SchemaConfiguration configuration) {
             return EnumFormStringArray.validate(arg, configuration);
         }
     }
@@ -57,8 +56,7 @@ public class Schema {
 
             return new EnumFormStringArrayList(arg);
         }
-        public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) {
-
+        public static EnumFormStringArrayList validate(EnumFormStringArrayListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumFormStringArray.class, arg, configuration);
         }
     }    

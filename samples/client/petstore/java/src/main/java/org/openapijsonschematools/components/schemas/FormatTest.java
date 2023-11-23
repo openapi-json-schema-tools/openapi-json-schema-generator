@@ -161,8 +161,7 @@ public class FormatTest {
 
             super(m);
         }
-        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) {
-
+        public static ArrayWithUniqueItemsList of(ArrayWithUniqueItemsListInput arg, SchemaConfiguration configuration) {
             return ArrayWithUniqueItems.validate(arg, configuration);
         }
     }
@@ -182,8 +181,7 @@ public class FormatTest {
 
             return new ArrayWithUniqueItemsList(arg);
         }
-        public static ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) {
-
+        public static ArrayWithUniqueItemsList validate(ArrayWithUniqueItemsListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithUniqueItems.class, arg, configuration);
         }
     }    

@@ -4,7 +4,7 @@ public static class {{arrayOutputJsonPathPiece.camelCase}} extends FrozenList<{{
     {{arrayOutputJsonPathPiece.camelCase}}(FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" forceNull=true endChar="> m) {" }}{{/with}}
         super(m);
     }
-    public static {{arrayOutputJsonPathPiece.camelCase}} of(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type fullRefModule="" forceNull=true endChar="> arg, SchemaConfiguration configuration) {" }}{{/with}}
+    public static {{arrayOutputJsonPathPiece.camelCase}} of({{arrayInputJsonPathPiece.camelCase}} arg, SchemaConfiguration configuration) {
         return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
     }
 }

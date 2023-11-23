@@ -50,8 +50,7 @@ public class ArrayWithValidationsInItems {
 
             super(m);
         }
-        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) {
-
+        public static ArrayWithValidationsInItemsList of(ArrayWithValidationsInItemsListInput arg, SchemaConfiguration configuration) {
             return ArrayWithValidationsInItems1.validate(arg, configuration);
         }
     }
@@ -77,8 +76,7 @@ public class ArrayWithValidationsInItems {
 
             return new ArrayWithValidationsInItemsList(arg);
         }
-        public static ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
-
+        public static ArrayWithValidationsInItemsList validate(ArrayWithValidationsInItemsListInput arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayWithValidationsInItems1.class, arg, configuration);
         }
     }}
