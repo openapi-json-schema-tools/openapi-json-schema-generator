@@ -27,8 +27,14 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Strin
             {{/if}}
         {{/eq}}
     {{/eq}}
+        {{#if mapValueSchema}}
     public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true endChar="> arg, SchemaConfiguration configuration) {" }}{{/with}}
         return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
     }
+        {{else}}
+    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
+    }
+        {{/if}}
     {{!> components/schemas/_object_output_properties }}
 }

@@ -149,7 +149,7 @@ public class AdditionalPropertiesClass {
             super(m);
         }
         // map with no key value pairs
-        public static EmptyMapMap of(Map<String, 
+        public static EmptyMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
             return EmptyMap.validate(arg, configuration);
         }
     }    
@@ -162,7 +162,7 @@ public class AdditionalPropertiesClass {
         protected static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
             return new EmptyMapMap(arg);
         }
-        public static EmptyMapMap validate(Map<String, 
+        public static EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EmptyMap.class, arg, configuration);
         }
     }

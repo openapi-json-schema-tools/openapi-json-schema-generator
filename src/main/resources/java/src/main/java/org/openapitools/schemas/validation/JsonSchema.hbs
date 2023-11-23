@@ -250,7 +250,7 @@ public abstract class JsonSchema {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static <T extends FrozenMap> T validate(Class<? extends JsonSchema> cls, Map<String, Object> arg, SchemaConfiguration configuration) {
+   protected static <T extends FrozenMap> T validate(Class<? extends JsonSchema> cls, Map<String, ?> arg, SchemaConfiguration configuration) {
       return (T) validateObject(cls, arg, configuration);
    }
 
