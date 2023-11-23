@@ -22,7 +22,8 @@ public class ArrayOfEnums {
 
             super(m);
         }
-        public static ArrayOfEnumsList of(ArrayOfEnumsListInput arg, SchemaConfiguration configuration) {
+        public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) {
+
             return ArrayOfEnums1.validate(arg, configuration);
         }
     }

@@ -22,7 +22,8 @@ public class SelfReferencingArrayModel {
 
             super(m);
         }
-        public static SelfReferencingArrayModelList of(SelfReferencingArrayModelListInput arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList of(List<List> arg, SchemaConfiguration configuration) {
+
             return SelfReferencingArrayModel1.validate(arg, configuration);
         }
     }

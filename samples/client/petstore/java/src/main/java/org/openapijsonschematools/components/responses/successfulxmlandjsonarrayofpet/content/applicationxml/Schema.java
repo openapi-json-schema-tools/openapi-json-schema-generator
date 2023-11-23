@@ -23,7 +23,8 @@ public class Schema {
 
             super(m);
         }
-        public static SchemaList of(SchemaListInput arg, SchemaConfiguration configuration) {
+        public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return Schema1.validate(arg, configuration);
         }
     }

@@ -26,7 +26,8 @@ public class Drawing {
 
             super(m);
         }
-        public static ShapesList of(ShapesListInput arg, SchemaConfiguration configuration) {
+        public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) {
+
             return Shapes.validate(arg, configuration);
         }
     }

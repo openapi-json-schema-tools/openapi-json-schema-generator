@@ -36,7 +36,8 @@ public class Schema {
 
             super(m);
         }
-        public static EnumFormStringArrayList of(EnumFormStringArrayListInput arg, SchemaConfiguration configuration) {
+        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) {
+
             return EnumFormStringArray.validate(arg, configuration);
         }
     }

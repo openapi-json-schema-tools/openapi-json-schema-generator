@@ -30,7 +30,8 @@ public class Schema {
 
             super(m);
         }
-        public static FilesList of(FilesListInput arg, SchemaConfiguration configuration) {
+        public static FilesList of(List<String> arg, SchemaConfiguration configuration) {
+
             return Files.validate(arg, configuration);
         }
     }

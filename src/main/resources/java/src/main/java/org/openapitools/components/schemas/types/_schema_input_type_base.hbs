@@ -82,15 +82,15 @@ long{{{endChar}}}
                                 {{/eq}}
                             {{else}}
                                 {{#eq this "array"}}
-                                    {{#if arrayInputJsonPathPiece}}
-                                        {{#if fullRefModule}}
-{{fullRefModule}}.{{arrayInputJsonPathPiece.camelCase}}{{{endChar}}}
-                                        {{else}}
-{{arrayInputJsonPathPiece.camelCase}}{{{endChar}}}
-                                        {{/if}}
+                                    {{#eq ../jsonPath sourceJsonPath}}
+List{{{endChar}}}
                                     {{else}}
+                                        {{#with items}}
+List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar="" }}>{{{endChar}}}
+                                        {{else}}
 List<Object>{{{endChar}}}
-                                    {{/if}}
+                                        {{/with}}
+                                    {{/eq}}
                                 {{else}}
                                     {{#eq this "object"}}
                                         {{#if mapInputJsonPathPiece}}

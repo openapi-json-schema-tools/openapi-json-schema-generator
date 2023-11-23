@@ -25,7 +25,8 @@ public class FileSchemaTestClass {
 
             super(m);
         }
-        public static FilesList of(FilesListInput arg, SchemaConfiguration configuration) {
+        public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return Files.validate(arg, configuration);
         }
     }

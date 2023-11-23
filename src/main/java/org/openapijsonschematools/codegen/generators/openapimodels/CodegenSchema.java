@@ -540,6 +540,7 @@ public class CodegenSchema {
             extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
             // needed to invoke Schema validation from the output class
             extraSchema.jsonPathPiece = jsonPathPiece;
+            extraSchema.jsonPath = jsonPath;
             if (items.hasAnyRefs()) {
                 schemaAllAreInline = false;
                 schemasAfterImports.add(extraSchema);

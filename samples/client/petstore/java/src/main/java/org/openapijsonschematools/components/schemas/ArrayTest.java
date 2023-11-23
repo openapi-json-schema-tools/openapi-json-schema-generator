@@ -30,7 +30,8 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayOfStringList of(ArrayOfStringListInput arg, SchemaConfiguration configuration) {
+        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) {
+
             return ArrayOfString.validate(arg, configuration);
         }
     }
@@ -59,7 +60,8 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) {
+        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+
             return Items1.validate(arg, configuration);
         }
     }
@@ -85,7 +87,9 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(ArrayArrayOfIntegerListInput arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList of(List<List<Long
+>> arg, SchemaConfiguration configuration) {
+
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
     }
@@ -111,7 +115,8 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList1 of(ItemsListInput1 arg, SchemaConfiguration configuration) {
+        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return Items3.validate(arg, configuration);
         }
     }
@@ -137,7 +142,9 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfModelList of(ArrayArrayOfModelListInput arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList of(List<List<Map<String, Object>
+>> arg, SchemaConfiguration configuration) {
+
             return ArrayArrayOfModel.validate(arg, configuration);
         }
     }

@@ -29,7 +29,8 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) {
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) {
+
             return Items.validate(arg, configuration);
         }
     }
@@ -55,7 +56,9 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayArrayNumberList of(ArrayArrayNumberListInput arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList of(List<List<Number
+>> arg, SchemaConfiguration configuration) {
+
             return ArrayArrayNumber.validate(arg, configuration);
         }
     }

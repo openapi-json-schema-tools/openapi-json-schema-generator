@@ -49,7 +49,8 @@ public class ComposedOneOfDifferentTypes {
 
             super(m);
         }
-        public static Schema5List of(Schema5ListInput arg, SchemaConfiguration configuration) {
+        public static Schema5List of(List<Object> arg, SchemaConfiguration configuration) {
+
             return Schema5.validate(arg, configuration);
         }
     }

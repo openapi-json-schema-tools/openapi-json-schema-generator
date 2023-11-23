@@ -26,7 +26,8 @@ public class Schema4 {
 
             super(m);
         }
-        public static SchemaList4 of(SchemaListInput4 arg, SchemaConfiguration configuration) {
+        public static SchemaList4 of(List<String> arg, SchemaConfiguration configuration) {
+
             return Schema41.validate(arg, configuration);
         }
     }

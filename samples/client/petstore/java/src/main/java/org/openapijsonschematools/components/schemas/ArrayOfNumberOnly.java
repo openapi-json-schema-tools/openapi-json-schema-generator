@@ -29,7 +29,8 @@ public class ArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayNumberList of(ArrayNumberListInput arg, SchemaConfiguration configuration) {
+        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) {
+
             return ArrayNumber.validate(arg, configuration);
         }
     }

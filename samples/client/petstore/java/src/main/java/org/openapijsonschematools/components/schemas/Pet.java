@@ -37,7 +37,8 @@ public class Pet {
 
             super(m);
         }
-        public static PhotoUrlsList of(PhotoUrlsListInput arg, SchemaConfiguration configuration) {
+        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) {
+
             return PhotoUrls.validate(arg, configuration);
         }
     }
@@ -74,7 +75,8 @@ public class Pet {
 
             super(m);
         }
-        public static TagsList of(TagsListInput arg, SchemaConfiguration configuration) {
+        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return Tags.validate(arg, configuration);
         }
     }

@@ -37,7 +37,8 @@ public class PaginatedResultMyObjectDto {
 
             super(m);
         }
-        public static ResultsList of(ResultsListInput arg, SchemaConfiguration configuration) {
+        public static ResultsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return Results.validate(arg, configuration);
         }
     }

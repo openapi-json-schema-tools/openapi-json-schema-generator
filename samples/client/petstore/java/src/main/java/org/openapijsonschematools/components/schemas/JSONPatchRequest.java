@@ -76,7 +76,8 @@ public class JSONPatchRequest {
 
             super(m);
         }
-        public static JSONPatchRequestList of(JSONPatchRequestListInput arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) {
+
             return JSONPatchRequest1.validate(arg, configuration);
         }
     }

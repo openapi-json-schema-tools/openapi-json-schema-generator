@@ -47,7 +47,8 @@ public class EnumArrays {
 
             super(m);
         }
-        public static ArrayEnumList of(ArrayEnumListInput arg, SchemaConfiguration configuration) {
+        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) {
+
             return ArrayEnum.validate(arg, configuration);
         }
     }
