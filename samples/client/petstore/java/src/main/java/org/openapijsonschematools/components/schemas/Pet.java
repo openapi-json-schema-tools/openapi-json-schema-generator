@@ -43,11 +43,6 @@ public class Pet {
     }
     
     
-    public class PhotoUrlsListInput extends ArrayList<String> {
-
-    }
-    
-    
     public class PhotoUrls extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -82,11 +77,6 @@ public class Pet {
         public static TagsList of(TagsListInput arg, SchemaConfiguration configuration) {
             return Tags.validate(arg, configuration);
         }
-    }
-    
-    
-    public class TagsListInput extends ArrayList<Map<String, Object>> {
-
     }
     
     

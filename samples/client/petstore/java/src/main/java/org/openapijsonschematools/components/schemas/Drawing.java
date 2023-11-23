@@ -32,11 +32,6 @@ public class Drawing {
     }
     
     
-    public class ShapesListInput extends ArrayList<Object> {
-
-    }
-    
-    
     public class Shapes extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

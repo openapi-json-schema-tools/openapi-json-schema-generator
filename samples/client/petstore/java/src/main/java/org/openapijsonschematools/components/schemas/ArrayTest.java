@@ -36,11 +36,6 @@ public class ArrayTest {
     }
     
     
-    public class ArrayOfStringListInput extends ArrayList<String> {
-
-    }
-    
-    
     public class ArrayOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -70,11 +65,6 @@ public class ArrayTest {
     }
     
     
-    public class ItemsListInput extends ArrayList<Long> {
-
-    }
-    
-    
     public class Items1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -98,11 +88,6 @@ public class ArrayTest {
         public static ArrayArrayOfIntegerList of(ArrayArrayOfIntegerListInput arg, SchemaConfiguration configuration) {
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
-    }
-    
-    
-    public class ArrayArrayOfIntegerListInput extends ArrayList<ItemsListInput> {
-
     }
     
     
@@ -132,11 +117,6 @@ public class ArrayTest {
     }
     
     
-    public class ItemsListInput1 extends ArrayList<Map<String, Object>> {
-
-    }
-    
-    
     public class Items3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -160,11 +140,6 @@ public class ArrayTest {
         public static ArrayArrayOfModelList of(ArrayArrayOfModelListInput arg, SchemaConfiguration configuration) {
             return ArrayArrayOfModel.validate(arg, configuration);
         }
-    }
-    
-    
-    public class ArrayArrayOfModelListInput extends ArrayList<ItemsListInput1> {
-
     }
     
     

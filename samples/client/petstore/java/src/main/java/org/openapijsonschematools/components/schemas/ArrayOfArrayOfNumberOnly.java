@@ -35,11 +35,6 @@ public class ArrayOfArrayOfNumberOnly {
     }
     
     
-    public class ItemsListInput extends ArrayList<Number> {
-
-    }
-    
-    
     public class Items extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -63,11 +58,6 @@ public class ArrayOfArrayOfNumberOnly {
         public static ArrayArrayNumberList of(ArrayArrayNumberListInput arg, SchemaConfiguration configuration) {
             return ArrayArrayNumber.validate(arg, configuration);
         }
-    }
-    
-    
-    public class ArrayArrayNumberListInput extends ArrayList<ItemsListInput> {
-
     }
     
     

@@ -43,11 +43,6 @@ public class PaginatedResultMyObjectDto {
     }
     
     
-    public class ResultsListInput extends ArrayList<Map<String, Object>> {
-
-    }
-    
-    
     public class Results extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

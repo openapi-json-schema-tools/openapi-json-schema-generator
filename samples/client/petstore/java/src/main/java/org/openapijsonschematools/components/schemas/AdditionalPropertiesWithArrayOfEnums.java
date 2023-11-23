@@ -30,11 +30,6 @@ public class AdditionalPropertiesWithArrayOfEnums {
     }
     
     
-    public class AdditionalPropertiesListInput extends ArrayList<String> {
-
-    }
-    
-    
     public class AdditionalProperties extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

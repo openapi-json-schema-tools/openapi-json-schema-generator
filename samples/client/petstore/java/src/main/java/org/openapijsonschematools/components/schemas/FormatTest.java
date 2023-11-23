@@ -167,11 +167,6 @@ public class FormatTest {
     }
     
     
-    public class ArrayWithUniqueItemsListInput extends ArrayList<Number> {
-
-    }
-    
-    
     public class ArrayWithUniqueItems extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

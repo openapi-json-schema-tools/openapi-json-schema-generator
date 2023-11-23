@@ -32,11 +32,6 @@ public class Schema4 {
     }
     
     
-    public class SchemaListInput4 extends ArrayList<String> {
-
-    }
-    
-    
     public class Schema41 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

@@ -42,11 +42,6 @@ public class Schema {
     }
     
     
-    public class EnumFormStringArrayListInput extends ArrayList<String> {
-
-    }
-    
-    
     public class EnumFormStringArray extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
