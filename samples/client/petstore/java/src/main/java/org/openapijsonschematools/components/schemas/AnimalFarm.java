@@ -23,6 +23,7 @@ public class AnimalFarm {
         }
         public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
+
             return AnimalFarm1.validate(arg, configuration);
         }
     }
@@ -44,6 +45,7 @@ public class AnimalFarm {
             return new AnimalFarmList(arg);
         }
         public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(AnimalFarm1.class, arg, configuration);
         }

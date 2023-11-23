@@ -88,8 +88,8 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<List<Long
->> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) {
+
 
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
@@ -105,8 +105,8 @@ public class ArrayTest {
 
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<List<Long
->> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
@@ -119,6 +119,7 @@ public class ArrayTest {
             super(m);
         }
         public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return Items3.validate(arg, configuration);
         }
@@ -136,6 +137,7 @@ public class ArrayTest {
         }
         public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
+
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
     }    
@@ -146,8 +148,9 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<List<Map<String, Object>
->> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
+
+
 
             return ArrayArrayOfModel.validate(arg, configuration);
         }
@@ -163,8 +166,9 @@ public class ArrayTest {
 
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<List<Map<String, Object>
->> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
+
+
 
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }

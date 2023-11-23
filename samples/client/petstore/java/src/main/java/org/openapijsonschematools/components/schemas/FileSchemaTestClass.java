@@ -26,6 +26,7 @@ public class FileSchemaTestClass {
         }
         public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
+
             return Files.validate(arg, configuration);
         }
     }
@@ -41,6 +42,7 @@ public class FileSchemaTestClass {
             return new FilesList(arg);
         }
         public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(Files.class, arg, configuration);
         }

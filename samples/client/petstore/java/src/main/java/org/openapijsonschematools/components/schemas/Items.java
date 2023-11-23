@@ -28,6 +28,7 @@ public class Items {
         }
         public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
+
             return Items1.validate(arg, configuration);
         }
     }
@@ -51,6 +52,7 @@ public class Items {
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(Items1.class, arg, configuration);
         }

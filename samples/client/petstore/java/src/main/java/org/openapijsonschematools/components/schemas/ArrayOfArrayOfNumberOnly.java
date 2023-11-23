@@ -56,8 +56,8 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayArrayNumberList of(List<List<Number
->> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList of(List<List<Number>> arg, SchemaConfiguration configuration) {
+
 
             return ArrayArrayNumber.validate(arg, configuration);
         }
@@ -73,8 +73,8 @@ public class ArrayOfArrayOfNumberOnly {
 
             return new ArrayArrayNumberList(arg);
         }
-        public static ArrayArrayNumberList validate(List<List<Number
->> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(ArrayArrayNumber.class, arg, configuration);
         }

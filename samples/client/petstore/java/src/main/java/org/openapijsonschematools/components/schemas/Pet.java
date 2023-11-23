@@ -77,6 +77,7 @@ public class Pet {
         }
         public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
 
+
             return Tags.validate(arg, configuration);
         }
     }
@@ -92,6 +93,7 @@ public class Pet {
             return new TagsList(arg);
         }
         public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(Tags.class, arg, configuration);
         }
