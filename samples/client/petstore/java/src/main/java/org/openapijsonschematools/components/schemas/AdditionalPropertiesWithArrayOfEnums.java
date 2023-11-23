@@ -40,7 +40,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             return new AdditionalPropertiesList(arg);
         }
-        public static AdditionalPropertiesList validate(AdditionalPropertiesListInput arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
     }    

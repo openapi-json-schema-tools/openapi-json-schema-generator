@@ -44,7 +44,8 @@ public class AnimalFarm {
 
             return new AnimalFarmList(arg);
         }
-        public static AnimalFarmList validate(AnimalFarmListInput arg, SchemaConfiguration configuration) {
+        public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AnimalFarm1.class, arg, configuration);
         }
     }}

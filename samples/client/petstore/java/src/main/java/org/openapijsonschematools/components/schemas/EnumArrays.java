@@ -63,7 +63,8 @@ public class EnumArrays {
 
             return new ArrayEnumList(arg);
         }
-        public static ArrayEnumList validate(ArrayEnumListInput arg, SchemaConfiguration configuration) {
+        public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayEnum.class, arg, configuration);
         }
     }    

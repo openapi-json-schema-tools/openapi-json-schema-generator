@@ -98,7 +98,8 @@ public class JSONPatchRequest {
 
             return new JSONPatchRequestList(arg);
         }
-        public static JSONPatchRequestList validate(JSONPatchRequestListInput arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(JSONPatchRequest1.class, arg, configuration);
         }
     }}

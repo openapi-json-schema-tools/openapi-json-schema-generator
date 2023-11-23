@@ -177,7 +177,8 @@ public class FormatTest {
 
             return new ArrayWithUniqueItemsList(arg);
         }
-        public static ArrayWithUniqueItemsList validate(ArrayWithUniqueItemsListInput arg, SchemaConfiguration configuration) {
+        public static ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayWithUniqueItems.class, arg, configuration);
         }
     }    

@@ -46,7 +46,8 @@ public class Schema {
 
             return new FilesList(arg);
         }
-        public static FilesList validate(FilesListInput arg, SchemaConfiguration configuration) {
+        public static FilesList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Files.class, arg, configuration);
         }
     }    

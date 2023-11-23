@@ -53,7 +53,8 @@ public class Pet {
 
             return new PhotoUrlsList(arg);
         }
-        public static PhotoUrlsList validate(PhotoUrlsListInput arg, SchemaConfiguration configuration) {
+        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PhotoUrls.class, arg, configuration);
         }
     }    
@@ -91,7 +92,8 @@ public class Pet {
 
             return new TagsList(arg);
         }
-        public static TagsList validate(TagsListInput arg, SchemaConfiguration configuration) {
+        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Tags.class, arg, configuration);
         }
     }    

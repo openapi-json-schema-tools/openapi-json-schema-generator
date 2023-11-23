@@ -40,7 +40,8 @@ public class Schema {
 
             return new SchemaList(arg);
         }
-        public static SchemaList validate(SchemaListInput arg, SchemaConfiguration configuration) {
+        public static SchemaList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }}

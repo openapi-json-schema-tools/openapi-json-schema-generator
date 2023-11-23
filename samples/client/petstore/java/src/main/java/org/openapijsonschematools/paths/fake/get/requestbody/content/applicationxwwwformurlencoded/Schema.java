@@ -52,7 +52,8 @@ public class Schema {
 
             return new EnumFormStringArrayList(arg);
         }
-        public static EnumFormStringArrayList validate(EnumFormStringArrayListInput arg, SchemaConfiguration configuration) {
+        public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(EnumFormStringArray.class, arg, configuration);
         }
     }    
