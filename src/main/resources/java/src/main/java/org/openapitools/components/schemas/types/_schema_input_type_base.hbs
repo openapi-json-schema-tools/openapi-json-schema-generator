@@ -176,7 +176,7 @@ List<Object>{{{endChar}}}
 Map{{{endChar}}}
                                             {{else}}
                                                 {{#with mapValueSchema}}
-Map<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=(join ">" endChar "") }}>
+Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=(join ">" endChar "") }}
                                                 {{else}}
 Map<String, Object>{{{endChar}}}
                                                 {{/with}}

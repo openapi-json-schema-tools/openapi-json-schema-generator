@@ -216,8 +216,8 @@ public class NullableClass {
 
             super(m);
         }
-        public static ArrayAndItemsNullablePropList of(List<Map<Object>> arg, SchemaConfiguration configuration) {
->
+        public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return ArrayAndItemsNullableProp.validate(arg, configuration);
         }
@@ -235,8 +235,8 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
-        public static ArrayAndItemsNullablePropList validate(List<Map<Object>> arg, SchemaConfiguration configuration) {
->
+        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
@@ -263,8 +263,8 @@ public class NullableClass {
 
             super(m);
         }
-        public static ArrayItemsNullableList of(List<Map<Object>> arg, SchemaConfiguration configuration) {
->
+        public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return ArrayItemsNullable.validate(arg, configuration);
         }
@@ -280,8 +280,8 @@ public class NullableClass {
 
             return new ArrayItemsNullableList(arg);
         }
-        public static ArrayItemsNullableList validate(List<Map<Object>> arg, SchemaConfiguration configuration) {
->
+        public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
 
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
         }
