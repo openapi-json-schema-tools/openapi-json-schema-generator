@@ -18,21 +18,32 @@ public class FileSchemaTestClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FilesList extends FrozenList<Object> {
-        FilesList(FrozenList<Object> m) {
+    public static class FilesList extends FrozenList<File.FileMap> {
+
+        FilesList(FrozenList<File.FileMap> m) {
+
             super(m);
         }
-    }    
+        public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return Files.validate(arg, configuration);
+        }
+    }
+    
     
     public class Files extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(File.File1.class))
         ));
-        protected static FilesList getListOutputInstance(FrozenList<Object> arg) {
+        protected static FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
+
             return new FilesList(arg);
         }
-        public static FilesList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(Files.class, arg, configuration);
         }
     }    

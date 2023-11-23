@@ -20,10 +20,17 @@ public class ComposedArray {
     
     
     public static class ComposedArrayList extends FrozenList<Object> {
+
         ComposedArrayList(FrozenList<Object> m) {
+
             super(m);
         }
-    }    
+        public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return ComposedArray1.validate(arg, configuration);
+        }
+    }
+    
     
     public class ComposedArray1 extends JsonSchema {
         /*
@@ -37,9 +44,11 @@ public class ComposedArray {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
+
             return new ComposedArrayList(arg);
         }
         public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ComposedArray1.class, arg, configuration);
         }
     }}

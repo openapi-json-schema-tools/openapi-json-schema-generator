@@ -51,20 +51,20 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
         }
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, Long.valueOf(arg), configuration);
         }
         
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntegerProp.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
         }
         
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(IntegerProp.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
@@ -81,19 +81,19 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
-        public static Number validate(Integer arg, SchemaConfiguration configuration) {
+        public static Number validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(Long arg, SchemaConfiguration configuration) {
+        public static Number validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(Float arg, SchemaConfiguration configuration) {
+        public static Number validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(Double arg, SchemaConfiguration configuration) {
+        public static Number validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
     }    
@@ -108,7 +108,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
         }
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
         }
     }    
@@ -163,11 +163,19 @@ public class NullableClass {
     public class Items extends MapJsonSchema {}
     
     
-    public static class ArrayNullablePropList extends FrozenList<Object> {
-        ArrayNullablePropList(FrozenList<Object> m) {
+    public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
+
+        ArrayNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
+
             super(m);
         }
-    }    
+        public static ArrayNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return ArrayNullableProp.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -180,7 +188,9 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
-        public static ArrayNullablePropList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
     }    
@@ -200,11 +210,19 @@ public class NullableClass {
         }
     }    
     
-    public static class ArrayAndItemsNullablePropList extends FrozenList<Object> {
-        ArrayAndItemsNullablePropList(FrozenList<Object> m) {
+    public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<String, Object>> {
+
+        ArrayAndItemsNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
+
             super(m);
         }
-    }    
+        public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return ArrayAndItemsNullableProp.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayAndItemsNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -217,7 +235,9 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
-        public static ArrayAndItemsNullablePropList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
     }    
@@ -237,21 +257,32 @@ public class NullableClass {
         }
     }    
     
-    public static class ArrayItemsNullableList extends FrozenList<Object> {
-        ArrayItemsNullableList(FrozenList<Object> m) {
+    public static class ArrayItemsNullableList extends FrozenList<FrozenMap<String, Object>> {
+
+        ArrayItemsNullableList(FrozenList<FrozenMap<String, Object>> m) {
+
             super(m);
         }
-    }    
+        public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return ArrayItemsNullable.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayItemsNullable extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static ArrayItemsNullableList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
+
             return new ArrayItemsNullableList(arg);
         }
-        public static ArrayItemsNullableList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
         }
     }    

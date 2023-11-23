@@ -20,10 +20,17 @@ public class Drawing {
     
     
     public static class ShapesList extends FrozenList<Object> {
+
         ShapesList(FrozenList<Object> m) {
+
             super(m);
         }
-    }    
+        public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return Shapes.validate(arg, configuration);
+        }
+    }
+    
     
     public class Shapes extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -31,9 +38,11 @@ public class Drawing {
             new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
         ));
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
+
             return new ShapesList(arg);
         }
         public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Shapes.class, arg, configuration);
         }
     }    

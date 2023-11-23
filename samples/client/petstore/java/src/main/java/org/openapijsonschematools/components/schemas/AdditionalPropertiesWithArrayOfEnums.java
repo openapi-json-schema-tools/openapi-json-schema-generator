@@ -17,21 +17,30 @@ public class AdditionalPropertiesWithArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalPropertiesList extends FrozenList<Object> {
-        AdditionalPropertiesList(FrozenList<Object> m) {
+    public static class AdditionalPropertiesList extends FrozenList<String> {
+
+        AdditionalPropertiesList(FrozenList<String> m) {
+
             super(m);
         }
-    }    
+        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return AdditionalProperties.validate(arg, configuration);
+        }
+    }
+    
     
     public class AdditionalProperties extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(EnumClass.EnumClass1.class))
         ));
-        protected static AdditionalPropertiesList getListOutputInstance(FrozenList<Object> arg) {
+        protected static AdditionalPropertiesList getListOutputInstance(FrozenList<String> arg) {
+
             return new AdditionalPropertiesList(arg);
         }
-        public static AdditionalPropertiesList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
     }    

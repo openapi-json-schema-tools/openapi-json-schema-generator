@@ -65,10 +65,17 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     
     public static class Schema9List extends FrozenList<Object> {
+
         Schema9List(FrozenList<Object> m) {
+
             super(m);
         }
-    }    
+        public static Schema9List of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return Schema9.validate(arg, configuration);
+        }
+    }
+    
     
     public class Schema9 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -76,9 +83,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
+
             return new Schema9List(arg);
         }
         public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema9.class, arg, configuration);
         }
     }    
@@ -112,23 +121,23 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         

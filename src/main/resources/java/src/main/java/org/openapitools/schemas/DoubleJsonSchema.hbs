@@ -18,7 +18,7 @@ public class DoubleJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("double"))
     ));
 
-    public static Double validate(Double arg, SchemaConfiguration configuration) {
+    public static double validate(double arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(DoubleJsonSchema.class, arg, configuration);
     }
 }

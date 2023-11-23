@@ -29,23 +29,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(UuidSchema.class, arg, configuration);
         }
         
@@ -82,23 +82,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Date.class, arg, configuration);
         }
         
@@ -135,23 +135,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Datetime.class, arg, configuration);
         }
         
@@ -188,23 +188,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
@@ -241,23 +241,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Binary.class, arg, configuration);
         }
         
@@ -294,23 +294,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
@@ -347,23 +347,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Int64.class, arg, configuration);
         }
         
@@ -400,23 +400,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
         
@@ -453,23 +453,23 @@ public class AnyTypeAndFormat {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
         

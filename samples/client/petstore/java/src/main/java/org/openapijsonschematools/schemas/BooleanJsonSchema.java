@@ -16,7 +16,7 @@ public class BooleanJsonSchema extends JsonSchema {
         new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
     ));
 
-    public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+    public static boolean validate(boolean arg, SchemaConfiguration configuration) {
         return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
     }
 }

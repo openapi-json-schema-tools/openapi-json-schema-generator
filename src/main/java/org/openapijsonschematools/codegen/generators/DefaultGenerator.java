@@ -2448,7 +2448,7 @@ public class DefaultGenerator implements Generator {
             }
             if ((property.types == null || property.types.contains("array")) && sourceJsonPath != null && property.items != null) {
                 property.arrayOutputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece, "schemaProperty", sourceJsonPath);
-                property.arrayInputJsonPathPiece = getKey(currentName + "TupleInput", "schemaProperty", sourceJsonPath);
+                property.arrayInputJsonPathPiece = getKey(currentName + arrayIOClassNamePiece+"Input", "schemaProperty", sourceJsonPath);
             }
         }
         Schema propertyNamesSchema = p.getPropertyNames();

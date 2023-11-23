@@ -1,0 +1,206 @@
+{{#if types}}
+    {{#eq types.size 1}}
+        {{#each types}}
+            {{#eq this "boolean"}}
+                {{#if forceNull}}
+Boolean{{{endChar}}}
+                {{else}}
+boolean{{{endChar}}}
+                {{/if}}
+            {{else}}
+                {{#eq this "null"}}
+Void{{{endChar}}}
+                {{else}}
+                    {{#eq this "string"}}
+                        {{#eq format "binary"}}
+{{! todo binary types}}
+String{{{endChar}}}
+                        {{else}}
+String{{{endChar}}}
+                        {{/eq}}
+                    {{else}}
+                        {{#eq this "number"}}
+                            {{#eq ../format null}}
+Number{{{endChar}}}
+                            {{else}}
+                                {{#eq ../format "float"}}
+                                    {{#if forceNull}}
+Float{{{endChar}}}
+                                    {{else}}
+float{{{endChar}}}
+                                    {{/if}}
+                                {{else}}
+                                    {{#eq ../format "double"}}
+                                        {{#if forceNull}}
+Double{{{endChar}}}
+                                        {{else}}
+double{{{endChar}}}
+                                        {{/if}}
+                                    {{else}}
+                                        {{#eq ../format "int32"}}
+                                            {{#if forceNull}}
+Integer{{{endChar}}}
+                                            {{else}}
+int{{{endChar}}}
+                                            {{/if}}
+                                        {{else}}
+                                            {{#eq ../format "int64"}}
+                                                {{#if forceNull}}
+Long{{{endChar}}}
+                                                {{else}}
+long{{{endChar}}}
+                                                {{/if}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{else}}
+                            {{#eq this "integer"}}
+                                {{#eq ../format null}}
+                                    {{#if forceNull}}
+Long{{{endChar}}}
+                                    {{else}}
+long{{{endChar}}}
+                                    {{/if}}
+                                {{else}}
+                                    {{#eq ../format "int32"}}
+                                        {{#if forceNull}}
+Integer{{{endChar}}}
+                                        {{else}}
+int{{{endChar}}}
+                                        {{/if}}
+                                    {{else}}
+                                        {{#eq ../format "int64"}}
+                                            {{#if forceNull}}
+Long{{{endChar}}}
+                                            {{else}}
+long{{{endChar}}}
+                                            {{/if}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{else}}
+                                {{#eq this "array"}}
+                                    {{#eq ../jsonPath sourceJsonPath}}
+List{{{endChar}}}
+                                    {{else}}
+                                        {{#with items}}
+List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=(join ">" endChar "") }}
+                                        {{else}}
+List<Object>{{{endChar}}}
+                                        {{/with}}
+                                    {{/eq}}
+                                {{else}}
+                                    {{#eq this "object"}}
+                                        {{#eq ../jsonPath sourceJsonPath}}
+Map{{{endChar}}}
+                                        {{else}}
+                                            {{#with mapValueSchema}}
+Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=(join ">" endChar "") }}
+                                            {{else}}
+Map<String, Object>{{{endChar}}}
+                                            {{/with}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+    {{else}}
+        {{#eq types.size 2}}
+            {{#contains types "null"}}
+                {{! nullable types }}
+                {{#each types}}
+                    {{#eq this "boolean"}}
+Boolean{{{endChar}}}
+                    {{else}}
+                        {{#eq this "string"}}
+                            {{#eq format "binary"}}
+{{! todo binary types}}
+String{{{endChar}}}
+                            {{else}}
+String{{{endChar}}}
+                            {{/eq}}
+                        {{else}}
+                            {{#eq this "number"}}
+                                {{#eq ../format null}}
+Number{{{endChar}}}
+                                {{else}}
+                                    {{#eq ../format "float"}}
+Float{{{endChar}}}
+                                    {{else}}
+                                        {{#eq ../format "double"}}
+Double{{{endChar}}}
+                                        {{else}}
+                                            {{#eq ../format "int32"}}
+Integer{{{endChar}}}
+                                            {{else}}
+                                                {{#eq ../format "int64"}}
+Long{{{endChar}}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{else}}
+                                {{#eq this "integer"}}
+                                    {{#eq ../format null}}
+Long{{{endChar}}}
+                                    {{else}}
+                                        {{#eq ../format "int32"}}
+Integer{{{endChar}}}
+                                        {{else}}
+                                            {{#eq ../format "int64"}}
+Long{{{endChar}}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{else}}
+                                    {{#eq this "array"}}
+                                        {{#eq ../jsonPath sourceJsonPath}}
+List{{{endChar}}}
+                                        {{else}}
+                                            {{#with items}}
+List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=(join ">" endChar "") }}
+                                            {{else}}
+List<Object>{{{endChar}}}
+                                            {{/with}}
+                                        {{/eq}}
+                                    {{else}}
+                                        {{#eq this "object"}}
+                                            {{#eq ../jsonPath sourceJsonPath}}
+Map{{{endChar}}}
+                                            {{else}}
+                                                {{#with mapValueSchema}}
+Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=(join ">" endChar "") }}
+                                                {{else}}
+Map<String, Object>{{{endChar}}}
+                                                {{/with}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/each}}
+            {{else}}
+                {{! none of the types are null }}
+                {{#and (contains types "integer") (contains types "number") }}
+Number{{{endChar}}}
+                {{else}}
+Object{{{endChar}}}
+                {{/and}}
+            {{/contains}}
+        {{else}}
+            {{! 3 or more types }}
+Object{{{endChar}}}
+        {{/eq}}
+    {{/eq}}
+{{else}}
+Object{{{endChar}}}
+{{/if}}

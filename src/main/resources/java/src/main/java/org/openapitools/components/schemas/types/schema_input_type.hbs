@@ -1,0 +1,13 @@
+{{#if refInfo}}
+    {{#if refInfo.refModule}}
+        {{#with getDeepestRef}}
+{{> src/main/java/org/openapitools/components/schemas/types/_schema_input_type_base }}
+        {{/with}}
+    {{else}}
+        {{#with refInfo.ref}}
+{{> src/main/java/org/openapitools/components/schemas/types/_schema_input_type_base }}
+        {{/with}}
+    {{/if}}
+{{else}}
+{{> src/main/java/org/openapitools/components/schemas/types/_schema_input_type_base }}
+{{/if}}

@@ -15,11 +15,18 @@ public class ArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ArrayOfEnumsList extends FrozenList<Object> {
-        ArrayOfEnumsList(FrozenList<Object> m) {
+    public static class ArrayOfEnumsList extends FrozenList<String> {
+
+        ArrayOfEnumsList(FrozenList<String> m) {
+
             super(m);
         }
-    }    
+        public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return ArrayOfEnums1.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayOfEnums1 extends JsonSchema {
         /*
@@ -32,10 +39,12 @@ public class ArrayOfEnums {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(StringEnum.StringEnum1.class))
         ));
-        protected static ArrayOfEnumsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayOfEnumsList getListOutputInstance(FrozenList<String> arg) {
+
             return new ArrayOfEnumsList(arg);
         }
-        public static ArrayOfEnumsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfEnumsList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayOfEnums1.class, arg, configuration);
         }
     }}

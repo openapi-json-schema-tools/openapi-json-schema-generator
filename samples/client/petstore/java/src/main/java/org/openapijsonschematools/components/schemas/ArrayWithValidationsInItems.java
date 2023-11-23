@@ -26,28 +26,35 @@ public class ArrayWithValidationsInItems {
             ))),
             new KeywordEntry("format", new FormatValidator("int64"))
         ));
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, Long.valueOf(arg), configuration);
         }
         
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Items.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
         
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(Items.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
-    public static class ArrayWithValidationsInItemsList extends FrozenList<Object> {
-        ArrayWithValidationsInItemsList(FrozenList<Object> m) {
+    public static class ArrayWithValidationsInItemsList extends FrozenList<Long> {
+
+        ArrayWithValidationsInItemsList(FrozenList<Long> m) {
+
             super(m);
         }
-    }    
+        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+
+            return ArrayWithValidationsInItems1.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayWithValidationsInItems1 extends JsonSchema {
         /*
@@ -60,10 +67,12 @@ public class ArrayWithValidationsInItems {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
+
             return new ArrayWithValidationsInItemsList(arg);
         }
-        public static ArrayWithValidationsInItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayWithValidationsInItems1.class, arg, configuration);
         }
     }}

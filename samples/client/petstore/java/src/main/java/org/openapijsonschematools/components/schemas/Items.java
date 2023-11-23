@@ -6,6 +6,7 @@ import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -19,11 +20,19 @@ public class Items {
     public class Items2 extends MapJsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<Object> {
-        ItemsList(FrozenList<Object> m) {
+    public static class ItemsList extends FrozenList<FrozenMap<String, Object>> {
+
+        ItemsList(FrozenList<FrozenMap<String, Object>> m) {
+
             super(m);
         }
-    }    
+        public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return Items1.validate(arg, configuration);
+        }
+    }
+    
     
     public class Items1 extends JsonSchema {
         /*
@@ -38,10 +47,13 @@ public class Items {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ItemsList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
+
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }}

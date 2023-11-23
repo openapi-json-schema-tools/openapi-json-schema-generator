@@ -24,23 +24,23 @@ public class JSONPatchRequest {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
         
-        public static Boolean validate(Boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
         
-        public static Integer validate(Integer arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
         
-        public static Float validate(Float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
         
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
         
@@ -70,10 +70,17 @@ public class JSONPatchRequest {
     }    
     
     public static class JSONPatchRequestList extends FrozenList<Object> {
+
         JSONPatchRequestList(FrozenList<Object> m) {
+
             super(m);
         }
-    }    
+        public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return JSONPatchRequest1.validate(arg, configuration);
+        }
+    }
+    
     
     public class JSONPatchRequest1 extends JsonSchema {
         /*
@@ -87,9 +94,11 @@ public class JSONPatchRequest {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static JSONPatchRequestList getListOutputInstance(FrozenList<Object> arg) {
+
             return new JSONPatchRequestList(arg);
         }
         public static JSONPatchRequestList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(JSONPatchRequest1.class, arg, configuration);
         }
     }}

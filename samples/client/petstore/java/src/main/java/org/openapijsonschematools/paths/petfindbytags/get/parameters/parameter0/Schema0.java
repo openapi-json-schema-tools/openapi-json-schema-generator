@@ -19,21 +19,30 @@ public class Schema0 {
     public class Items0 extends StringJsonSchema {}
     
     
-    public static class SchemaList0 extends FrozenList<Object> {
-        SchemaList0(FrozenList<Object> m) {
+    public static class SchemaList0 extends FrozenList<String> {
+
+        SchemaList0(FrozenList<String> m) {
+
             super(m);
         }
-    }    
+        public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) {
+
+            return Schema01.validate(arg, configuration);
+        }
+    }
+    
     
     public class Schema01 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items0.class))
         ));
-        protected static SchemaList0 getListOutputInstance(FrozenList<Object> arg) {
+        protected static SchemaList0 getListOutputInstance(FrozenList<String> arg) {
+
             return new SchemaList0(arg);
         }
-        public static SchemaList0 validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static SchemaList0 validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema01.class, arg, configuration);
         }
     }}

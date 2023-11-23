@@ -49,20 +49,20 @@ public class EnumTest {
             ))),
             new KeywordEntry("format", new FormatValidator("int32"))
         ));
-        public static Long validate(Integer arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumInteger.class, Long.valueOf(arg), configuration);
         }
         
-        public static Long validate(Float arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumInteger.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(float arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static Long validate(Long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumInteger.class, arg, configuration);
         }
         
-        public static Long validate(Double arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(EnumInteger.class, Long.parseLong(arg.toString()), configuration);
+        public static long validate(double arg, SchemaConfiguration configuration) {
+            return JsonSchema.validate(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
@@ -76,7 +76,7 @@ public class EnumTest {
             ))),
             new KeywordEntry("format", new FormatValidator("double"))
         ));
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(EnumNumber.class, arg, configuration);
         }
     }    

@@ -20,10 +20,17 @@ public class ArrayHoldingAnyType {
     
     
     public static class ArrayHoldingAnyTypeList extends FrozenList<Object> {
+
         ArrayHoldingAnyTypeList(FrozenList<Object> m) {
+
             super(m);
         }
-    }    
+        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) {
+
+            return ArrayHoldingAnyType1.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayHoldingAnyType1 extends JsonSchema {
         /*
@@ -37,9 +44,11 @@ public class ArrayHoldingAnyType {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object> arg) {
+
             return new ArrayHoldingAnyTypeList(arg);
         }
         public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayHoldingAnyType1.class, arg, configuration);
         }
     }}

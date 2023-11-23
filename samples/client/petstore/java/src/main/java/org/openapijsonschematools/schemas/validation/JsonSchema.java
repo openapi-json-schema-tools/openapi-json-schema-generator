@@ -214,24 +214,24 @@ public abstract class JsonSchema {
       return (Void) validateObject(cls, arg, configuration);
    }
 
-   protected static Boolean validate(Class<? extends JsonSchema> cls, Boolean arg, SchemaConfiguration configuration) {
-      return (Boolean) validateObject(cls, arg, configuration);
+   protected static boolean validate(Class<? extends JsonSchema> cls, boolean arg, SchemaConfiguration configuration) {
+      return (boolean) validateObject(cls, arg, configuration);
    }
 
-   protected static Integer validate(Class<? extends JsonSchema> cls, Integer arg, SchemaConfiguration configuration) {
-      return (Integer) validateObject(cls, arg, configuration);
+   protected static int validate(Class<? extends JsonSchema> cls, int arg, SchemaConfiguration configuration) {
+      return (int) validateObject(cls, arg, configuration);
    }
 
-   protected static Long validate(Class<? extends JsonSchema> cls, Long arg, SchemaConfiguration configuration) {
-      return (Long) validateObject(cls, arg, configuration);
+   protected static long validate(Class<? extends JsonSchema> cls, long arg, SchemaConfiguration configuration) {
+      return (long) validateObject(cls, arg, configuration);
    }
 
-   protected static Float validate(Class<? extends JsonSchema> cls, Float arg, SchemaConfiguration configuration) {
-      return (Float) validateObject(cls, arg, configuration);
+   protected static float validate(Class<? extends JsonSchema> cls, float arg, SchemaConfiguration configuration) {
+      return (float) validateObject(cls, arg, configuration);
    }
 
-   protected static Double validate(Class<? extends JsonSchema> cls, Double arg, SchemaConfiguration configuration) {
-      return (Double) validateObject(cls, arg, configuration);
+   protected static double validate(Class<? extends JsonSchema> cls, double arg, SchemaConfiguration configuration) {
+      return (double) validateObject(cls, arg, configuration);
    }
 
    protected static String validate(Class<? extends JsonSchema> cls, String arg, SchemaConfiguration configuration) {
@@ -254,7 +254,7 @@ public abstract class JsonSchema {
       return (T) validateObject(cls, arg, configuration);
    }
 
-   protected static <U extends FrozenList> U validate(Class<? extends JsonSchema> cls, List<Object> arg, SchemaConfiguration configuration) {
+   protected static <U extends FrozenList> U validate(Class<? extends JsonSchema> cls, List<?> arg, SchemaConfiguration configuration) {
       return (U) validateObject(cls, arg, configuration);
    }
 

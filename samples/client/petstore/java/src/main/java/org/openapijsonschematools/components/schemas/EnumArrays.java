@@ -40,21 +40,30 @@ public class EnumArrays {
         }
     }    
     
-    public static class ArrayEnumList extends FrozenList<Object> {
-        ArrayEnumList(FrozenList<Object> m) {
+    public static class ArrayEnumList extends FrozenList<String> {
+
+        ArrayEnumList(FrozenList<String> m) {
+
             super(m);
         }
-    }    
+        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return ArrayEnum.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayEnum extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayEnumList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayEnumList getListOutputInstance(FrozenList<String> arg) {
+
             return new ArrayEnumList(arg);
         }
-        public static ArrayEnumList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayEnum.class, arg, configuration);
         }
     }    

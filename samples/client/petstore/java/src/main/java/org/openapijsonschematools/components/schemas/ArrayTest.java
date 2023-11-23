@@ -23,21 +23,30 @@ public class ArrayTest {
     public class Items extends StringJsonSchema {}
     
     
-    public static class ArrayOfStringList extends FrozenList<Object> {
-        ArrayOfStringList(FrozenList<Object> m) {
+    public static class ArrayOfStringList extends FrozenList<String> {
+
+        ArrayOfStringList(FrozenList<String> m) {
+
             super(m);
         }
-    }    
+        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return ArrayOfString.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayOfStringList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
+
             return new ArrayOfStringList(arg);
         }
-        public static ArrayOfStringList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
         }
     }    
@@ -45,78 +54,122 @@ public class ArrayTest {
     public class Items2 extends Int64JsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<Object> {
-        ItemsList(FrozenList<Object> m) {
+    public static class ItemsList extends FrozenList<Long> {
+
+        ItemsList(FrozenList<Long> m) {
+
             super(m);
         }
-    }    
+        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+
+            return Items1.validate(arg, configuration);
+        }
+    }
+    
     
     public class Items1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static ItemsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ItemsList getListOutputInstance(FrozenList<Long> arg) {
+
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }    
     
-    public static class ArrayArrayOfIntegerList extends FrozenList<Object> {
-        ArrayArrayOfIntegerList(FrozenList<Object> m) {
+    public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList> {
+
+        ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
+
             super(m);
         }
-    }    
+        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) {
+
+
+            return ArrayArrayOfInteger.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayArrayOfInteger extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
-        protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
+
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
         }
     }    
     
-    public static class ItemsList1 extends FrozenList<Object> {
-        ItemsList1(FrozenList<Object> m) {
+    public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> {
+
+        ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
+
             super(m);
         }
-    }    
+        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return Items3.validate(arg, configuration);
+        }
+    }
+    
     
     public class Items3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class))
         ));
-        protected static ItemsList1 getListOutputInstance(FrozenList<Object> arg) {
+        protected static ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
+
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(Items3.class, arg, configuration);
         }
     }    
     
-    public static class ArrayArrayOfModelList extends FrozenList<Object> {
-        ArrayArrayOfModelList(FrozenList<Object> m) {
+    public static class ArrayArrayOfModelList extends FrozenList<ItemsList1> {
+
+        ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
+
             super(m);
         }
-    }    
+        public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
+
+
+
+            return ArrayArrayOfModel.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayArrayOfModel extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items3.class))
         ));
-        protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
+
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
+
+
+
             return JsonSchema.validate(ArrayArrayOfModel.class, arg, configuration);
         }
     }    

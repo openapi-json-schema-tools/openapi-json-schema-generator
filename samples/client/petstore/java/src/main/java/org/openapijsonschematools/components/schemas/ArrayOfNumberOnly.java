@@ -22,21 +22,30 @@ public class ArrayOfNumberOnly {
     public class Items extends NumberJsonSchema {}
     
     
-    public static class ArrayNumberList extends FrozenList<Object> {
-        ArrayNumberList(FrozenList<Object> m) {
+    public static class ArrayNumberList extends FrozenList<Number> {
+
+        ArrayNumberList(FrozenList<Number> m) {
+
             super(m);
         }
-    }    
+        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) {
+
+            return ArrayNumber.validate(arg, configuration);
+        }
+    }
+    
     
     public class ArrayNumber extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayNumberList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ArrayNumberList getListOutputInstance(FrozenList<Number> arg) {
+
             return new ArrayNumberList(arg);
         }
-        public static ArrayNumberList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayNumberList validate(List<Number> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayNumber.class, arg, configuration);
         }
     }    

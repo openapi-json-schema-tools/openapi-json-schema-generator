@@ -30,21 +30,32 @@ public class PaginatedResultMyObjectDto {
     public class Count extends IntJsonSchema {}
     
     
-    public static class ResultsList extends FrozenList<Object> {
-        ResultsList(FrozenList<Object> m) {
+    public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {
+
+        ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
+
             super(m);
         }
-    }    
+        public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) {
+
+
+            return Results.validate(arg, configuration);
+        }
+    }
+    
     
     public class Results extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class))
         ));
-        protected static ResultsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap> arg) {
+
             return new ResultsList(arg);
         }
-        public static ResultsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(Results.class, arg, configuration);
         }
     }    

@@ -11,14 +11,14 @@ public class BooleanSchemaTest {
 
     @Test
     public void testValidateTrue() {
-        Boolean validatedValue = BooleanJsonSchema.validate(Boolean.TRUE, configuration);
-        Assert.assertEquals(validatedValue, Boolean.TRUE);
+        boolean validatedValue = BooleanJsonSchema.validate(true, configuration);
+        Assert.assertEquals(validatedValue, true);
     }
 
     @Test
     public void testValidateFalse() {
-        Boolean validatedValue = BooleanJsonSchema.validate(Boolean.FALSE, configuration);
-        Assert.assertEquals(validatedValue, Boolean.FALSE);
+        boolean validatedValue = BooleanJsonSchema.validate(false, configuration);
+        Assert.assertEquals(validatedValue, false);
     }
 
     @Test

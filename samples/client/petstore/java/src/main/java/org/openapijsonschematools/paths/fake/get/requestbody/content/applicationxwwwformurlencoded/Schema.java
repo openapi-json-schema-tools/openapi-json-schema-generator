@@ -29,21 +29,30 @@ public class Schema {
         }
     }    
     
-    public static class EnumFormStringArrayList extends FrozenList<Object> {
-        EnumFormStringArrayList(FrozenList<Object> m) {
+    public static class EnumFormStringArrayList extends FrozenList<String> {
+
+        EnumFormStringArrayList(FrozenList<String> m) {
+
             super(m);
         }
-    }    
+        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return EnumFormStringArray.validate(arg, configuration);
+        }
+    }
+    
     
     public class EnumFormStringArray extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static EnumFormStringArrayList getListOutputInstance(FrozenList<Object> arg) {
+        protected static EnumFormStringArrayList getListOutputInstance(FrozenList<String> arg) {
+
             return new EnumFormStringArrayList(arg);
         }
-        public static EnumFormStringArrayList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(EnumFormStringArray.class, arg, configuration);
         }
     }    

@@ -23,7 +23,7 @@ public class Schema5 {
             ))),
             new KeywordEntry("format", new FormatValidator("double"))
         ));
-        public static Double validate(Double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Schema51.class, arg, configuration);
         }
     }}

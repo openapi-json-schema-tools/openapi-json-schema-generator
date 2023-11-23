@@ -30,21 +30,30 @@ public class Pet {
     public class Items extends StringJsonSchema {}
     
     
-    public static class PhotoUrlsList extends FrozenList<Object> {
-        PhotoUrlsList(FrozenList<Object> m) {
+    public static class PhotoUrlsList extends FrozenList<String> {
+
+        PhotoUrlsList(FrozenList<String> m) {
+
             super(m);
         }
-    }    
+        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) {
+
+            return PhotoUrls.validate(arg, configuration);
+        }
+    }
+    
     
     public class PhotoUrls extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static PhotoUrlsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
+
             return new PhotoUrlsList(arg);
         }
-        public static PhotoUrlsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PhotoUrls.class, arg, configuration);
         }
     }    
@@ -60,21 +69,32 @@ public class Pet {
         }
     }    
     
-    public static class TagsList extends FrozenList<Object> {
-        TagsList(FrozenList<Object> m) {
+    public static class TagsList extends FrozenList<Tag.TagMap> {
+
+        TagsList(FrozenList<Tag.TagMap> m) {
+
             super(m);
         }
-    }    
+        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return Tags.validate(arg, configuration);
+        }
+    }
+    
     
     public class Tags extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
         ));
-        protected static TagsList getListOutputInstance(FrozenList<Object> arg) {
+        protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
+
             return new TagsList(arg);
         }
-        public static TagsList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(Tags.class, arg, configuration);
         }
     }    

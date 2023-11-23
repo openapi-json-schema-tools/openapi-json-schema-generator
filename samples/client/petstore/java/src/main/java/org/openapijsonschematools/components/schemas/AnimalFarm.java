@@ -15,11 +15,19 @@ public class AnimalFarm {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AnimalFarmList extends FrozenList<Object> {
-        AnimalFarmList(FrozenList<Object> m) {
+    public static class AnimalFarmList extends FrozenList<Animal.AnimalMap> {
+
+        AnimalFarmList(FrozenList<Animal.AnimalMap> m) {
+
             super(m);
         }
-    }    
+        public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
+            return AnimalFarm1.validate(arg, configuration);
+        }
+    }
+    
     
     public class AnimalFarm1 extends JsonSchema {
         /*
@@ -32,10 +40,13 @@ public class AnimalFarm {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Animal.Animal1.class))
         ));
-        protected static AnimalFarmList getListOutputInstance(FrozenList<Object> arg) {
+        protected static AnimalFarmList getListOutputInstance(FrozenList<Animal.AnimalMap> arg) {
+
             return new AnimalFarmList(arg);
         }
-        public static AnimalFarmList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(AnimalFarm1.class, arg, configuration);
         }
     }}
