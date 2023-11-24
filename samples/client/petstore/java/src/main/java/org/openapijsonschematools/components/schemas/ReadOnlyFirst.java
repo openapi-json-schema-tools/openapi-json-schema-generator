@@ -28,6 +28,12 @@ public class ReadOnlyFirst {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "bar",
+            "baz"
+        );
         public static ReadOnlyFirstMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ReadOnlyFirst1.validate(arg, configuration);

@@ -44,6 +44,12 @@ public class Apple {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "cultivar"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "origin"
+        );
         public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Apple1.validate(arg, configuration);

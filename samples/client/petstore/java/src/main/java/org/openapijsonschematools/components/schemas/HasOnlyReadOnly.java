@@ -28,6 +28,12 @@ public class HasOnlyReadOnly {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "bar",
+            "foo"
+        );
         public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return HasOnlyReadOnly1.validate(arg, configuration);

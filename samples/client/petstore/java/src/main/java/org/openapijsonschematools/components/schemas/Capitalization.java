@@ -40,6 +40,16 @@ public class Capitalization {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "smallCamel",
+            "CapitalCamel",
+            "small_Snake",
+            "Capital_Snake",
+            "SCA_ETH_Flow_Points",
+            "ATT_NAME"
+        );
         public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Capitalization1.validate(arg, configuration);

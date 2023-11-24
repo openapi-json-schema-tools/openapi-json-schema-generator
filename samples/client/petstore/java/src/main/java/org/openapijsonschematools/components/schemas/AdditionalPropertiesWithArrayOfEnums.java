@@ -51,6 +51,10 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) {
 
 

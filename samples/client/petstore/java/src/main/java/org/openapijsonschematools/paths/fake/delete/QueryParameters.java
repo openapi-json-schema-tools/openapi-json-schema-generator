@@ -33,6 +33,14 @@ public class QueryParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "required_int64_group",
+            "required_string_group"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "int64_group",
+            "string_group"
+        );
         public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return QueryParameters1.validate(arg, configuration);

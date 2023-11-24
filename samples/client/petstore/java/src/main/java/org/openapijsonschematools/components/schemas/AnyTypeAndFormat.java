@@ -504,6 +504,19 @@ public class AnyTypeAndFormat {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "uuid",
+            "date",
+            "date-time",
+            "number",
+            "binary",
+            "int32",
+            "int64",
+            "double",
+            "float"
+        );
         public static AnyTypeAndFormatMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return AnyTypeAndFormat1.validate(arg, configuration);

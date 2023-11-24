@@ -180,6 +180,13 @@ public class ArrayTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "array_of_string",
+            "array_array_of_integer",
+            "array_array_of_model"
+        );
         public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ArrayTest1.validate(arg, configuration);

@@ -30,6 +30,12 @@ public class HeaderParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "enum_header_string",
+            "enum_header_string_array"
+        );
         public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return HeaderParameters1.validate(arg, configuration);

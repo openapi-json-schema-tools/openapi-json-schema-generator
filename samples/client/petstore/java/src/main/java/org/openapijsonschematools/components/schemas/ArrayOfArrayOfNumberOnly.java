@@ -86,6 +86,11 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "ArrayArrayNumber"
+        );
         public static ArrayOfArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ArrayOfArrayOfNumberOnly1.validate(arg, configuration);

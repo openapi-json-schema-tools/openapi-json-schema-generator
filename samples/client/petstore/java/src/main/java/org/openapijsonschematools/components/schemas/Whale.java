@@ -40,6 +40,13 @@ public class Whale {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "className"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "hasBaleen",
+            "hasTeeth"
+        );
         public static WhaleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Whale1.validate(arg, configuration);

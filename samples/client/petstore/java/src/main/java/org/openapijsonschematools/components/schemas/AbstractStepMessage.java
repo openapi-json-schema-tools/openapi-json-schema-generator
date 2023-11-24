@@ -26,6 +26,13 @@ public class AbstractStepMessage {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "description",
+            "discriminator",
+            "sequenceNumber"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return AbstractStepMessage1.validate(arg, configuration);

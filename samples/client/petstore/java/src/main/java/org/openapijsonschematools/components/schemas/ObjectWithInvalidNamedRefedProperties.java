@@ -22,6 +22,12 @@ public class ObjectWithInvalidNamedRefedProperties {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "!reference",
+            "from"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static ObjectWithInvalidNamedRefedPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjectWithInvalidNamedRefedProperties1.validate(arg, configuration);

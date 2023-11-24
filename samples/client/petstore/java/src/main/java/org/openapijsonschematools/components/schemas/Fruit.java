@@ -28,6 +28,11 @@ public class Fruit {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "color"
+        );
         public static FruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Fruit1.validate(arg, configuration);

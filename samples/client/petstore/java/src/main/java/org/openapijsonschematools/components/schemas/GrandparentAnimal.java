@@ -26,6 +26,11 @@ public class GrandparentAnimal {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "pet_type"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static GrandparentAnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return GrandparentAnimal1.validate(arg, configuration);

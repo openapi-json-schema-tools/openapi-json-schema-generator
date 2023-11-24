@@ -256,6 +256,31 @@ public class FormatTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "byte",
+            "date",
+            "number",
+            "password"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "integer",
+            "int32",
+            "int32withValidations",
+            "int64",
+            "float",
+            "float32",
+            "double",
+            "float64",
+            "arrayWithUniqueItems",
+            "string",
+            "binary",
+            "dateTime",
+            "uuid",
+            "uuidNoExample",
+            "pattern_with_digits",
+            "pattern_with_digits_and_delimiter",
+            "noneProp"
+        );
         public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return FormatTest1.validate(arg, configuration);

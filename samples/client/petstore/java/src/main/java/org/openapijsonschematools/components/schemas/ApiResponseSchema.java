@@ -32,6 +32,13 @@ public class ApiResponseSchema {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "code",
+            "type",
+            "message"
+        );
         public static ApiResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ApiResponseSchema1.validate(arg, configuration);

@@ -27,6 +27,10 @@ public class MapTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return AdditionalProperties.validate(arg, configuration);
@@ -67,6 +71,10 @@ public class MapTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static MapMapOfStringMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
 
 
@@ -120,6 +128,10 @@ public class MapTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static MapOfEnumStringMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return MapOfEnumString.validate(arg, configuration);
@@ -163,6 +175,10 @@ public class MapTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static DirectMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) {
 
             return DirectMap.validate(arg, configuration);
@@ -203,6 +219,14 @@ public class MapTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "map_map_of_string",
+            "map_of_enum_string",
+            "direct_map",
+            "indirect_map"
+        );
         public static MapTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return MapTest1.validate(arg, configuration);

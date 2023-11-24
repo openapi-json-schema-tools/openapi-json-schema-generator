@@ -36,6 +36,12 @@ public class NoAdditionalProperties {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "id"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "petId"
+        );
         public static NoAdditionalPropertiesMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
 
             return NoAdditionalProperties1.validate(arg, configuration);

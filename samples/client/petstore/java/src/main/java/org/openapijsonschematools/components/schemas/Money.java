@@ -33,6 +33,12 @@ public class Money {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "amount",
+            "currency"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static MoneyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Money1.validate(arg, configuration);

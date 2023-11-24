@@ -28,6 +28,11 @@ public class ClassModel {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "_class"
+        );
         public static ClassModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ClassModel1.validate(arg, configuration);

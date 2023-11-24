@@ -34,6 +34,15 @@ public class PathParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "1",
+            "A-B",
+            "Ab",
+            "aB",
+            "self"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return PathParameters1.validate(arg, configuration);

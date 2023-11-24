@@ -42,6 +42,12 @@ public class QuadrilateralInterface {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "quadrilateralType",
+            "shapeType"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static QuadrilateralInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return QuadrilateralInterface1.validate(arg, configuration);

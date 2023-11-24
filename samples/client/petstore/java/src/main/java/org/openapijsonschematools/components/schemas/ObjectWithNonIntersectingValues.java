@@ -30,6 +30,11 @@ public class ObjectWithNonIntersectingValues {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "a"
+        );
         public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjectWithNonIntersectingValues1.validate(arg, configuration);

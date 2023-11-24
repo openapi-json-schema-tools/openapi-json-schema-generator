@@ -37,6 +37,12 @@ public class BananaReq {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "lengthCm"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "sweet"
+        );
         public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return BananaReq1.validate(arg, configuration);

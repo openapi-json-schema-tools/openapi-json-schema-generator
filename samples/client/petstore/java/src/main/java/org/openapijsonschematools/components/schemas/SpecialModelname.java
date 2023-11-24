@@ -25,6 +25,11 @@ public class SpecialModelname {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "a"
+        );
         public static SpecialModelnameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return SpecialModelname1.validate(arg, configuration);

@@ -199,6 +199,24 @@ public class Schema {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "byte",
+            "double",
+            "number",
+            "pattern_without_delimiter"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "integer",
+            "int32",
+            "int64",
+            "float",
+            "string",
+            "binary",
+            "date",
+            "dateTime",
+            "password",
+            "callback"
+        );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema1.validate(arg, configuration);

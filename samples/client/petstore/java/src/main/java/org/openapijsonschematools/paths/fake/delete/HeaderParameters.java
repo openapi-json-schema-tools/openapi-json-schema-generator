@@ -31,6 +31,12 @@ public class HeaderParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "required_boolean_group"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "boolean_group"
+        );
         public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return HeaderParameters1.validate(arg, configuration);

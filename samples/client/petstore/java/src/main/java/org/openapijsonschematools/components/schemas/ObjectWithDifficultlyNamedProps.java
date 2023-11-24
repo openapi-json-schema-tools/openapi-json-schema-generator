@@ -34,6 +34,13 @@ public class ObjectWithDifficultlyNamedProps {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "123-list"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "$special[property.name]",
+            "123Number"
+        );
         public static ObjectWithDifficultlyNamedPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjectWithDifficultlyNamedProps1.validate(arg, configuration);

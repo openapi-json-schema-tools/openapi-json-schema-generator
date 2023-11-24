@@ -21,6 +21,11 @@ public class Foo {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "bar"
+        );
         public static FooMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Foo1.validate(arg, configuration);

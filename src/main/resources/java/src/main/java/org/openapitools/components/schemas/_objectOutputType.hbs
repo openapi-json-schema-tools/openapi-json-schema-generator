@@ -11,6 +11,16 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Strin
         super(m);
     }
 {{/if}}
+    public static final Set<String> requiredKeys = Set.of(
+        {{#each requiredProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+    public static final Set<String> optionalKeys = Set.of(
+        {{#each optionalProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
     {{#eq optionalProperties null}}
         {{#eq requiredProperties null}}
             {{#if additionalProperties}}

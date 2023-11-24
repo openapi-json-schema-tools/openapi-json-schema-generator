@@ -87,6 +87,11 @@ public class Schema1 {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "someProp"
+        );
         public static SchemaMap1 of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema11.validate(arg, configuration);

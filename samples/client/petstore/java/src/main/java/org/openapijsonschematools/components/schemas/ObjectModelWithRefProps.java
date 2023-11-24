@@ -21,6 +21,13 @@ public class ObjectModelWithRefProps {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "myNumber",
+            "myString",
+            "myBoolean"
+        );
         public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjectModelWithRefProps1.validate(arg, configuration);

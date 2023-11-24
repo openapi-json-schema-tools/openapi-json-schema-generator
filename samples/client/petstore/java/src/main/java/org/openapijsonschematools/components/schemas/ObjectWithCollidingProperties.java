@@ -28,6 +28,12 @@ public class ObjectWithCollidingProperties {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "someProp",
+            "someprop"
+        );
         public static ObjectWithCollidingPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjectWithCollidingProperties1.validate(arg, configuration);

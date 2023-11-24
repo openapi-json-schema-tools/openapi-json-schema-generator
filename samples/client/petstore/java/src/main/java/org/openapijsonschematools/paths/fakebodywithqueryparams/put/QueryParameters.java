@@ -30,6 +30,11 @@ public class QueryParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "query"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static QueryParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return QueryParameters1.validate(arg, configuration);

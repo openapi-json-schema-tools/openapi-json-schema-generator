@@ -25,6 +25,11 @@ public class Client {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "client"
+        );
         public static ClientMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Client1.validate(arg, configuration);

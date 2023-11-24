@@ -87,6 +87,19 @@ public class EnumTest {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "enum_string_required"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "enum_string",
+            "enum_integer",
+            "enum_number",
+            "stringEnum",
+            "IntegerEnum",
+            "StringEnumWithDefaultValue",
+            "IntegerEnumWithDefaultValue",
+            "IntegerEnumOneValue"
+        );
         public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return EnumTest1.validate(arg, configuration);

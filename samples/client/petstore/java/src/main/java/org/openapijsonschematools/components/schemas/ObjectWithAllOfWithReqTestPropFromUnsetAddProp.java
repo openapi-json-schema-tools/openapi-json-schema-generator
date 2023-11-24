@@ -31,6 +31,12 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "test"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "name"
+        );
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema1.validate(arg, configuration);

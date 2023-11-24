@@ -105,6 +105,16 @@ public class Pet {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "name",
+            "photoUrls"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "id",
+            "category",
+            "tags",
+            "status"
+        );
         public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Pet1.validate(arg, configuration);

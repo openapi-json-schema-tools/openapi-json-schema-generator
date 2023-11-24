@@ -51,6 +51,16 @@ public class Order {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "id",
+            "petId",
+            "quantity",
+            "shipDate",
+            "status",
+            "complete"
+        );
         public static OrderMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Order1.validate(arg, configuration);

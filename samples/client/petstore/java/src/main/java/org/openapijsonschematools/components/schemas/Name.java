@@ -37,6 +37,13 @@ public class Name {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "name"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "snake_case",
+            "property"
+        );
         public static NameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Name1.validate(arg, configuration);

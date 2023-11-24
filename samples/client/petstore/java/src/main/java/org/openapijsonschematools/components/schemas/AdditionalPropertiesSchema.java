@@ -29,6 +29,10 @@ public class AdditionalPropertiesSchema {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema0.validate(arg, configuration);
@@ -119,6 +123,10 @@ public class AdditionalPropertiesSchema {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema1.validate(arg, configuration);
@@ -209,6 +217,10 @@ public class AdditionalPropertiesSchema {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static Schema2Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema2.validate(arg, configuration);

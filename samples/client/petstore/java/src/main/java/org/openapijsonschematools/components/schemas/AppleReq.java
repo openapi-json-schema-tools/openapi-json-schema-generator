@@ -37,6 +37,12 @@ public class AppleReq {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "cultivar"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "mealy"
+        );
         public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return AppleReq1.validate(arg, configuration);

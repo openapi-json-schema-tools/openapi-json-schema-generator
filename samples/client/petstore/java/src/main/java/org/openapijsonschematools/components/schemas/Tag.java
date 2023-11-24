@@ -29,6 +29,12 @@ public class Tag {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "id",
+            "name"
+        );
         public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Tag1.validate(arg, configuration);

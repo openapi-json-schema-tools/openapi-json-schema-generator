@@ -33,6 +33,15 @@ public class CookieParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "1",
+            "aB",
+            "Ab",
+            "A-B",
+            "self"
+        );
         public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return CookieParameters1.validate(arg, configuration);

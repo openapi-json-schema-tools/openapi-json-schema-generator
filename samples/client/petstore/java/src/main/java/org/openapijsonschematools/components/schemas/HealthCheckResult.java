@@ -36,6 +36,11 @@ public class HealthCheckResult {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "NullableMessage"
+        );
         public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return HealthCheckResult1.validate(arg, configuration);

@@ -37,6 +37,12 @@ public class Category {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "name"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "id"
+        );
         public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Category1.validate(arg, configuration);

@@ -29,6 +29,11 @@ public class HeaderParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "someHeader"
+        );
         public static HeaderParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return HeaderParameters1.validate(arg, configuration);

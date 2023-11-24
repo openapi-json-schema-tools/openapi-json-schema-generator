@@ -25,6 +25,12 @@ public class Player {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "name",
+            "enemyPlayer"
+        );
         public static PlayerMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Player1.validate(arg, configuration);

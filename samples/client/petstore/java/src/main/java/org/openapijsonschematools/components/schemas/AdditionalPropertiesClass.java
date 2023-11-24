@@ -29,6 +29,10 @@ public class AdditionalPropertiesClass {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static MapPropertyMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return MapProperty.validate(arg, configuration);
@@ -72,6 +76,10 @@ public class AdditionalPropertiesClass {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return AdditionalProperties1.validate(arg, configuration);
@@ -112,6 +120,10 @@ public class AdditionalPropertiesClass {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static MapOfMapPropertyMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
 
 
@@ -166,6 +178,10 @@ public class AdditionalPropertiesClass {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration);
@@ -208,6 +224,10 @@ public class AdditionalPropertiesClass {
         EmptyMapMap(FrozenMap<? extends String, ?> m) {
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         // map with no key value pairs
         public static EmptyMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
             return EmptyMap.validate(arg, configuration);
@@ -237,6 +257,10 @@ public class AdditionalPropertiesClass {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static MapWithUndeclaredPropertiesStringMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return MapWithUndeclaredPropertiesString.validate(arg, configuration);
@@ -277,6 +301,18 @@ public class AdditionalPropertiesClass {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "map_property",
+            "map_of_map_property",
+            "anytype_1",
+            "map_with_undeclared_properties_anytype_1",
+            "map_with_undeclared_properties_anytype_2",
+            "map_with_undeclared_properties_anytype_3",
+            "empty_map",
+            "map_with_undeclared_properties_string"
+        );
         public static AdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return AdditionalPropertiesClass1.validate(arg, configuration);

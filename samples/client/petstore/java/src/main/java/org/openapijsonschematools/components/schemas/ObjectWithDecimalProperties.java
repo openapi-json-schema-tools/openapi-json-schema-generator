@@ -25,6 +25,13 @@ public class ObjectWithDecimalProperties {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "length",
+            "width",
+            "cost"
+        );
         public static ObjectWithDecimalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjectWithDecimalProperties1.validate(arg, configuration);

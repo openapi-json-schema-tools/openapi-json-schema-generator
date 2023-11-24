@@ -32,6 +32,12 @@ public class Schema200Response {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "name",
+            "class"
+        );
         public static Schema200ResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema200Response1.validate(arg, configuration);

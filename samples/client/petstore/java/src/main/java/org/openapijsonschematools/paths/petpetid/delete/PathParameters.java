@@ -30,6 +30,11 @@ public class PathParameters {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "petId"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static PathParametersMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
 
             return PathParameters1.validate(arg, configuration);

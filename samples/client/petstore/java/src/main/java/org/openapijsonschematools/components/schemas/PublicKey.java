@@ -25,6 +25,11 @@ public class PublicKey {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "key"
+        );
         public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return PublicKey1.validate(arg, configuration);

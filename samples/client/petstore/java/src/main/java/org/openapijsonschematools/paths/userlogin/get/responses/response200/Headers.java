@@ -34,6 +34,15 @@ public class Headers {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "X-Rate-Limit",
+            "int32",
+            "ref-content-schema-header"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "X-Expires-After",
+            "numberHeader"
+        );
         public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Headers1.validate(arg, configuration);

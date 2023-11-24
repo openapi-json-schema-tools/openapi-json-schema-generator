@@ -32,6 +32,11 @@ public class MyObjectDto {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "id"
+        );
         public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return MyObjectDto1.validate(arg, configuration);

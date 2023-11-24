@@ -36,6 +36,12 @@ public class ObjectWithOnlyOptionalProps {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "a",
+            "b"
+        );
         public static ObjectWithOnlyOptionalPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjectWithOnlyOptionalProps1.validate(arg, configuration);

@@ -42,6 +42,12 @@ public class TriangleInterface {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "shapeType",
+            "triangleType"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+        );
         public static TriangleInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return TriangleInterface1.validate(arg, configuration);

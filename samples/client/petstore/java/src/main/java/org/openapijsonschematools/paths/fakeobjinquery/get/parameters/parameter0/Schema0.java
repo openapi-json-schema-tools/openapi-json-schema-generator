@@ -25,6 +25,11 @@ public class Schema0 {
 
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "keyword"
+        );
         public static SchemaMap0 of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema01.validate(arg, configuration);
