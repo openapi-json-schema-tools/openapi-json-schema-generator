@@ -47,8 +47,11 @@ public {{> src/main/java/org/openapitools/components/schemas/types/schema_output
 {{#eq additionalProperties null }}
 
 public Object getAdditionalProperty(String name) {
-    schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-    return self.get(name, schemas.unset)
+    {{#or optionalProperties requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys);
+    {{/or}}
+    throwIfKeyNotPresent(name);
+    return get(name);
 }
 {{else}}
     {{#with additionalProperties}}
@@ -60,18 +63,15 @@ public {{> src/main/java/org/openapitools/components/schemas/types/schema_output
 
 public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=" getAdditionalProperty(String name) {" key="str" optional=true }}
             {{/if}}
-    schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-    val = self.get(name, schemas.unset)
-    if isinstance(val, schemas.Unset):
-        return val
-    return typing.cast(
-            {{#if refInfo.refClass}}
-        {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+            {{#or optionalProperties requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            {{/or}}
+    throwIfKeyNotPresent(name);
+            {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+    return get(name);
             {{else}}
-        {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="," }}
-            {{/if}}
-        val
-    )
+    return ({{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=") get(name);" }}
+            {{/and}}
 }
         {{/unless}}
     {{/with}}

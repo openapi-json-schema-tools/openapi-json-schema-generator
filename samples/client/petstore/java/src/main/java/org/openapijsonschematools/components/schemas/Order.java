@@ -114,8 +114,9 @@ public class Order {
         }
         
         public Object getAdditionalProperty(String name) {
-            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-            return self.get(name, schemas.unset)
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     

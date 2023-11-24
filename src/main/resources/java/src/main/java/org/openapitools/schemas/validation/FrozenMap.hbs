@@ -2,6 +2,7 @@ package {{{packageName}}}.schemas.validation;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
@@ -18,6 +19,12 @@ public class FrozenMap<K, V> extends LinkedHashMap<K, V> {
     protected void throwIfKeyNotPresent(String key) throws RuntimeException {
         if (!containsKey(key)) {
             throw new RuntimeException(key+" is unset");
+        }
+    }
+
+    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws IllegalArgumentException {
+        if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
+            throw new IllegalArgumentException ("The known key " + key + " may not be passed in when getting an additional property");
         }
     }
 

@@ -38,14 +38,8 @@ public class AdditionalPropertiesClass {
         
         public String getAdditionalProperty(String name) {
 
-            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-            val = self.get(name, schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
-                val
-            )
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -83,14 +77,8 @@ public class AdditionalPropertiesClass {
         
         public String getAdditionalProperty(String name) {
 
-            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-            val = self.get(name, schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
-                val
-            )
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -126,14 +114,8 @@ public class AdditionalPropertiesClass {
         
         public AdditionalPropertiesMap getAdditionalProperty(String name) {
 
-            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-            val = self.get(name, schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                AdditionalPropertiesMap,
-                val
-            )
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -181,14 +163,8 @@ public class AdditionalPropertiesClass {
         
         public Object getAdditionalProperty(String name) {
 
-            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-            val = self.get(name, schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Object,
-                val
-            )
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -256,14 +232,8 @@ public class AdditionalPropertiesClass {
         
         public String getAdditionalProperty(String name) {
 
-            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-            val = self.get(name, schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
-                val
-            )
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -369,8 +339,9 @@ public class AdditionalPropertiesClass {
         }
         
         public Object getAdditionalProperty(String name) {
-            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
-            return self.get(name, schemas.unset)
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
