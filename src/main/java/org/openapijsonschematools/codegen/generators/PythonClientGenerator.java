@@ -173,6 +173,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
                         SchemaFeature.PrefixItems,
                         SchemaFeature.Properties,
                         SchemaFeature.PropertyNames,
+                        SchemaFeature.Ref,
                         SchemaFeature.Required,
                         SchemaFeature.Then,
                         SchemaFeature.Type,

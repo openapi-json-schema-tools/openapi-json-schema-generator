@@ -137,6 +137,9 @@ public enum SchemaFeature {
     PropertyNames,
 
     @OAS2 @OAS3
+    Ref,
+
+    @OAS2 @OAS3
     Required,
 
     @OAS3
