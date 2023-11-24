@@ -32,11 +32,34 @@ public class BananaReq {
     
     
     public static class BananaReqMap extends FrozenMap<String, Object> {
-        BananaReqMap(FrozenMap<? extends String, ?> m) {
+
+        BananaReqMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "lengthCm"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "sweet"
+        );
         public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return BananaReq1.validate(arg, configuration);
+        }
+        
+        public Number lengthCm() {
+
+            return (Number) get("lengthCm");
+
+        }
+        
+        public boolean sweet() {
+
+            String key = "sweet";
+            throwIfKeyNotPresent(key);
+            return (boolean) get(key);
+
         }
     }    
     
@@ -58,10 +81,12 @@ public class BananaReq {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static BananaReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static BananaReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new BananaReqMap(arg);
         }
         public static BananaReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(BananaReq1.class, arg, configuration);
         }
     }

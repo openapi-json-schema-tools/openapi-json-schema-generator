@@ -20,11 +20,30 @@ public class ReqPropsFromTrueAddProps {
     
     
     public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object> {
-        ReqPropsFromTrueAddPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ReqPropsFromTrueAddPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "invalid-name",
+            "validName"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ReqPropsFromTrueAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ReqPropsFromTrueAddProps1.validate(arg, configuration);
+        }
+        
+        public Object validName() {
+
+            return get("validName");
+        }
+        
+        public Object getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -43,10 +62,12 @@ public class ReqPropsFromTrueAddProps {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
         public static ReqPropsFromTrueAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ReqPropsFromTrueAddProps1.class, arg, configuration);
         }
     }

@@ -82,11 +82,31 @@ public class Schema1 {
     }    
     
     public static class SchemaMap1 extends FrozenMap<String, Object> {
-        SchemaMap1(FrozenMap<? extends String, ?> m) {
+
+        SchemaMap1(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "someProp"
+        );
         public static SchemaMap1 of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema11.validate(arg, configuration);
+        }
+        
+        public Object someProp() {
+
+            String key = "someProp";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -97,10 +117,12 @@ public class Schema1 {
                 new PropertyEntry("someProp", SomeProp1.class)
             )))
         ));
-        protected static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap1 getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SchemaMap1(arg);
         }
         public static SchemaMap1 validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema11.class, arg, configuration);
         }
     }

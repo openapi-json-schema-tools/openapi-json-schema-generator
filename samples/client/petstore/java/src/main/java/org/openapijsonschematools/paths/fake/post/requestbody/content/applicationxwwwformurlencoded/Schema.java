@@ -194,11 +194,100 @@ public class Schema {
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {
-        SchemaMap(FrozenMap<? extends String, ?> m) {
+
+        SchemaMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "byte",
+            "double",
+            "number",
+            "pattern_without_delimiter"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "integer",
+            "int32",
+            "int64",
+            "float",
+            "string",
+            "binary",
+            "date",
+            "dateTime",
+            "password",
+            "callback"
+        );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema1.validate(arg, configuration);
+        }
+        
+        public String pattern_without_delimiter() {
+
+            return (String) get("pattern_without_delimiter");
+
+        }
+        
+        public int int32() {
+
+            String key = "int32";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public long int64() {
+
+            String key = "int64";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public String binary() {
+
+            String key = "binary";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String date() {
+
+            String key = "date";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String dateTime() {
+
+            String key = "dateTime";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String password() {
+
+            String key = "password";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String callback() {
+
+            String key = "callback";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -228,10 +317,12 @@ public class Schema {
                 "pattern_without_delimiter"
             )))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

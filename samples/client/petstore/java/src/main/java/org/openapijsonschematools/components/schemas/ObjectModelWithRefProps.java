@@ -16,11 +16,50 @@ public class ObjectModelWithRefProps {
     
     
     public static class ObjectModelWithRefPropsMap extends FrozenMap<String, Object> {
-        ObjectModelWithRefPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectModelWithRefPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "myNumber",
+            "myString",
+            "myBoolean"
+        );
         public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectModelWithRefProps1.validate(arg, configuration);
+        }
+        
+        public Number myNumber() {
+
+            String key = "myNumber";
+            throwIfKeyNotPresent(key);
+            return (Number) get(key);
+
+        }
+        
+        public String myString() {
+
+            String key = "myString";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public boolean myBoolean() {
+
+            String key = "myBoolean";
+            throwIfKeyNotPresent(key);
+            return (boolean) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -41,10 +80,12 @@ public class ObjectModelWithRefProps {
                 new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
             )))
         ));
-        protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectModelWithRefPropsMap(arg);
         }
         public static ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectModelWithRefProps1.class, arg, configuration);
         }
     }

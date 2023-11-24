@@ -31,11 +31,32 @@ public class HealthCheckResult {
     }    
     
     public static class HealthCheckResultMap extends FrozenMap<String, Object> {
-        HealthCheckResultMap(FrozenMap<? extends String, ?> m) {
+
+        HealthCheckResultMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "NullableMessage"
+        );
         public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return HealthCheckResult1.validate(arg, configuration);
+        }
+        
+        public String NullableMessage() {
+
+            String key = "NullableMessage";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -54,10 +75,12 @@ public class HealthCheckResult {
                 new PropertyEntry("NullableMessage", NullableMessage.class)
             )))
         ));
-        protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HealthCheckResultMap(arg);
         }
         public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(HealthCheckResult1.class, arg, configuration);
         }
     }

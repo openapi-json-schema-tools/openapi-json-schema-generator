@@ -39,11 +39,40 @@ public class Apple {
     }    
     
     public static class AppleMap extends FrozenMap<String, Object> {
-        AppleMap(FrozenMap<? extends String, ?> m) {
+
+        AppleMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "cultivar"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "origin"
+        );
         public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Apple1.validate(arg, configuration);
+        }
+        
+        public String cultivar() {
+
+            return (String) get("cultivar");
+
+        }
+        
+        public String origin() {
+
+            String key = "origin";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -71,6 +100,7 @@ public class Apple {
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
         public static AppleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
     }}

@@ -63,7 +63,7 @@ public class User {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
     }    
@@ -128,11 +128,137 @@ public class User {
     
     
     public static class UserMap extends FrozenMap<String, Object> {
-        UserMap(FrozenMap<? extends String, ?> m) {
+
+        UserMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "id",
+            "username",
+            "firstName",
+            "lastName",
+            "email",
+            "password",
+            "phone",
+            "userStatus",
+            "objectWithNoDeclaredProps",
+            "objectWithNoDeclaredPropsNullable",
+            "anyTypeProp",
+            "anyTypeExceptNullProp",
+            "anyTypePropNullable"
+        );
         public static UserMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return User1.validate(arg, configuration);
+        }
+        
+        public long id() {
+
+            String key = "id";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public String username() {
+
+            String key = "username";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String firstName() {
+
+            String key = "firstName";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String lastName() {
+
+            String key = "lastName";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String email() {
+
+            String key = "email";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String password() {
+
+            String key = "password";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String phone() {
+
+            String key = "phone";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public int userStatus() {
+
+            String key = "userStatus";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public FrozenMap<String, Object> objectWithNoDeclaredProps() {
+
+            String key = "objectWithNoDeclaredProps";
+            throwIfKeyNotPresent(key);
+            return (FrozenMap<String, Object>) get(key);
+
+        }
+        
+        public FrozenMap<String, Object> objectWithNoDeclaredPropsNullable() {
+
+            String key = "objectWithNoDeclaredPropsNullable";
+            throwIfKeyNotPresent(key);
+            return (FrozenMap<String, Object>) get(key);
+
+        }
+        
+        public Object anyTypeProp() {
+
+            String key = "anyTypeProp";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object anyTypeExceptNullProp() {
+
+            String key = "anyTypeExceptNullProp";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object anyTypePropNullable() {
+
+            String key = "anyTypePropNullable";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -161,10 +287,12 @@ public class User {
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
             )))
         ));
-        protected static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new UserMap(arg);
         }
         public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(User1.class, arg, configuration);
         }
     }

@@ -21,11 +21,30 @@ public class Banana {
     
     
     public static class BananaMap extends FrozenMap<String, Object> {
-        BananaMap(FrozenMap<? extends String, ?> m) {
+
+        BananaMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "lengthCm"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static BananaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Banana1.validate(arg, configuration);
+        }
+        
+        public Number lengthCm() {
+
+            return (Number) get("lengthCm");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -45,10 +64,12 @@ public class Banana {
                 "lengthCm"
             )))
         ));
-        protected static BananaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static BananaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new BananaMap(arg);
         }
         public static BananaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Banana1.class, arg, configuration);
         }
     }

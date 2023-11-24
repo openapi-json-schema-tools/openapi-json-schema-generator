@@ -17,11 +17,33 @@ public class SelfReferencingObjectModel {
     
     
     public static class SelfReferencingObjectModelMap extends FrozenMap<String, Object> {
-        SelfReferencingObjectModelMap(FrozenMap<? extends String, ?> m) {
+
+        SelfReferencingObjectModelMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "selfRef"
+        );
         public static SelfReferencingObjectModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return SelfReferencingObjectModel1.validate(arg, configuration);
+        }
+        
+        public SelfReferencingObjectModelMap selfRef() {
+
+            String key = "selfRef";
+            throwIfKeyNotPresent(key);
+            return (SelfReferencingObjectModelMap) get(key);
+
+        }
+        
+        public SelfReferencingObjectModelMap getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return (SelfReferencingObjectModelMap) get(name);
+
         }
     }    
     
@@ -39,10 +61,12 @@ public class SelfReferencingObjectModel {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(SelfReferencingObjectModel1.class))
         ));
-        protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SelfReferencingObjectModelMap(arg);
         }
         public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(SelfReferencingObjectModel1.class, arg, configuration);
         }
     }

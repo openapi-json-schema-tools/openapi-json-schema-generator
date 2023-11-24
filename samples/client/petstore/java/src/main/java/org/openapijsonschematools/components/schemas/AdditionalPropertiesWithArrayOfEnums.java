@@ -45,12 +45,25 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
     }    
     
-    public static class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<String, Object> {
-        AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<? extends String, ?> m) {
+    public static class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<String, AdditionalPropertiesList> {
+
+        AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<String, AdditionalPropertiesList> m) {
+
             super(m);
         }
-        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
+        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+
+
             return AdditionalPropertiesWithArrayOfEnums1.validate(arg, configuration);
+        }
+        
+        public AdditionalPropertiesList getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return (AdditionalPropertiesList) get(name);
+
         }
     }    
     
@@ -65,10 +78,13 @@ public class AdditionalPropertiesWithArrayOfEnums {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesList> arg) {
+
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
-        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(AdditionalPropertiesWithArrayOfEnums1.class, arg, configuration);
         }
     }

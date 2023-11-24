@@ -16,11 +16,32 @@ public class Foo {
     
     
     public static class FooMap extends FrozenMap<String, Object> {
-        FooMap(FrozenMap<? extends String, ?> m) {
+
+        FooMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "bar"
+        );
         public static FooMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Foo1.validate(arg, configuration);
+        }
+        
+        public String bar() {
+
+            String key = "bar";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -37,10 +58,12 @@ public class Foo {
                 new PropertyEntry("bar", Bar.Bar1.class)
             )))
         ));
-        protected static FooMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FooMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FooMap(arg);
         }
         public static FooMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Foo1.class, arg, configuration);
         }
     }

@@ -23,12 +23,26 @@ public class Headers {
         // NotAnyTypeSchema
     
     
-    public static class HeadersMap extends FrozenMap<String, Object> {
-        HeadersMap(FrozenMap<? extends String, ?> m) {
+    public static class HeadersMap extends FrozenMap<String, String> {
+
+        HeadersMap(FrozenMap<String, String> m) {
+
             super(m);
         }
-        public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "location"
+        );
+        public static HeadersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return Headers1.validate(arg, configuration);
+        }
+        
+        public String location() {
+
+            String key = "location";
+            throwIfKeyNotPresent(key);
+            return get(key);
         }
     }    
     
@@ -40,10 +54,12 @@ public class Headers {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeadersMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new HeadersMap(arg);
         }
-        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeadersMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }

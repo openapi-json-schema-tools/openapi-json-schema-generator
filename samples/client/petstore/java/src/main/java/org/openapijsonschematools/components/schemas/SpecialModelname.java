@@ -20,11 +20,32 @@ public class SpecialModelname {
     
     
     public static class SpecialModelnameMap extends FrozenMap<String, Object> {
-        SpecialModelnameMap(FrozenMap<? extends String, ?> m) {
+
+        SpecialModelnameMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "a"
+        );
         public static SpecialModelnameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return SpecialModelname1.validate(arg, configuration);
+        }
+        
+        public String a() {
+
+            String key = "a";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -43,10 +64,12 @@ public class SpecialModelname {
                 new PropertyEntry("a", A.class)
             )))
         ));
-        protected static SpecialModelnameMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SpecialModelnameMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SpecialModelnameMap(arg);
         }
         public static SpecialModelnameMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(SpecialModelname1.class, arg, configuration);
         }
     }

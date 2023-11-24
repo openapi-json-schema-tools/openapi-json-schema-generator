@@ -61,11 +61,31 @@ public class PaginatedResultMyObjectDto {
     }    
     
     public static class PaginatedResultMyObjectDtoMap extends FrozenMap<String, Object> {
-        PaginatedResultMyObjectDtoMap(FrozenMap<? extends String, ?> m) {
+
+        PaginatedResultMyObjectDtoMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "count",
+            "results"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return PaginatedResultMyObjectDto1.validate(arg, configuration);
+        }
+        
+        public long count() {
+
+            return (long) get("count");
+
+        }
+        
+        public ResultsList results() {
+
+            return (ResultsList) get("results");
+
         }
     }    
     
@@ -88,10 +108,12 @@ public class PaginatedResultMyObjectDto {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PaginatedResultMyObjectDtoMap(arg);
         }
         public static PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PaginatedResultMyObjectDto1.class, arg, configuration);
         }
     }

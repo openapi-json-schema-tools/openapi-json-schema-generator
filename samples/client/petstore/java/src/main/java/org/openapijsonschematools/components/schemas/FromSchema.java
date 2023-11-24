@@ -24,11 +24,41 @@ public class FromSchema {
     
     
     public static class FromSchemaMap extends FrozenMap<String, Object> {
-        FromSchemaMap(FrozenMap<? extends String, ?> m) {
+
+        FromSchemaMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "data",
+            "id"
+        );
         public static FromSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return FromSchema1.validate(arg, configuration);
+        }
+        
+        public String data() {
+
+            String key = "data";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public long id() {
+
+            String key = "id";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -46,10 +76,12 @@ public class FromSchema {
                 new PropertyEntry("id", Id.class)
             )))
         ));
-        protected static FromSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FromSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FromSchemaMap(arg);
         }
         public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(FromSchema1.class, arg, configuration);
         }
     }

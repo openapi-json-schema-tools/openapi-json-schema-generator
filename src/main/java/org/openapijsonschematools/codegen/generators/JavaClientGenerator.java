@@ -185,7 +185,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
-                .includeSchemaFeatures(SchemaFeature.AllOf, SchemaFeature.AnyOf, SchemaFeature.OneOf, SchemaFeature.Not)
+                .includeSchemaFeatures(SchemaFeature.AllOf, SchemaFeature.AnyOf, SchemaFeature.OneOf, SchemaFeature.Not, SchemaFeature.Ref)
         );
 
         outputFolder = "generated-code" + File.separator + "java";
@@ -1116,6 +1116,45 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return true;
     }
 
+    private Set<String> getDeeperImports(String sourceJsonPath, CodegenSchema schema) {
+        /*
+        When a map or list schema contains custom items or properties/additionalProperties
+        Those output types describe List or Map input types, which may be refs
+        All of those refs are referenced and Java types are needed because they are defined in inputs
+         */
+        Set<String> imports = new HashSet<>();
+        if (schema.jsonPath != null && schema.jsonPath.equals(sourceJsonPath)) {
+            return imports;
+        }
+        if (schema.refInfo != null && schema.refInfo.refModule != null) {
+            CodegenSchema ref = schema.refInfo.ref;
+            if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
+                CodegenRefInfo<CodegenSchema> deepestRefInfo = schema.refInfo;
+                while (deepestRefInfo.ref.refInfo != null) {
+                    deepestRefInfo = deepestRefInfo.ref.refInfo;
+                }
+                imports.addAll(getDeeperImports(sourceJsonPath, deepestRefInfo.ref));
+            } else {
+                imports.addAll(getDeeperImports(sourceJsonPath, ref));
+            }
+        }
+        if (schema.types != null) {
+            if (schema.types.contains("array")) {
+                imports.add("import java.util.List;");
+                if (schema.items != null) {
+                    imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
+                }
+            }
+            if (schema.types.contains("object")) {
+                imports.add("import java.util.Map;");
+                if (schema.mapValueSchema != null) {
+                    imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
+                }
+            }
+        }
+        return imports;
+    }
+
     @Override
     public Set<String> getImports(String sourceJsonPath, CodegenSchema schema, FeatureSet featureSet) {
         Set<String> imports = new HashSet<>();
@@ -1159,7 +1198,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             }
         }
         // referenced or inline schemas
-        if (!sourceJsonPath.startsWith("#/components/schemas/") && schema.refInfo != null && schema.refInfo.refModule != null) {
+        if (!sourceJsonPath.startsWith("#/components/schemas/") && schema.refInfo != null && schema.refInfo.refModule != null && featureSet.getSchemaSupportFeatures().contains(SchemaFeature.Ref)) {
             imports.add(getImport(schema.refInfo));
             CodegenSchema ref = schema.refInfo.ref;
             if (ref.refInfo != null && schema.refInfo.refModule != null && deepestRefSchemaImportNeeded) {
@@ -1289,6 +1328,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addMapSchemaImports(imports, schema);
+                        if (schema.mapValueSchema != null) {
+                            imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
+                        }
                     }
                 } else if (schema.types.contains("array")) {
                     if (schema.isSimpleArray()) {
@@ -1304,6 +1346,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addListSchemaImports(imports, schema);
+                        if (schema.items != null) {
+                            imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
+                        }
                     }
                 }
             } else if (schema.types.size() > 1) {
@@ -1348,6 +1393,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     imports.add("import "+packageName + ".schemas.validation.PropertyEntry;");
                     imports.add("import "+packageName + ".schemas.validation.PropertiesValidator;");
                     imports.add("import java.util.Map;");
+                    imports.add("import java.util.Set;");
                 }
                 if (schema.requiredProperties != null) {
                     imports.add("import "+packageName + ".schemas.validation.RequiredValidator;");

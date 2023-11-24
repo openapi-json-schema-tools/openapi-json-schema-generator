@@ -28,11 +28,46 @@ public class QueryParameters {
     
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
-        QueryParametersMap(FrozenMap<? extends String, ?> m) {
+
+        QueryParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "1",
+            "aB",
+            "Ab",
+            "A-B",
+            "self"
+        );
         public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return QueryParameters1.validate(arg, configuration);
+        }
+        
+        public String aB() {
+
+            String key = "aB";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String Ab() {
+
+            String key = "Ab";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String self() {
+
+            String key = "self";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
         }
     }    
     
@@ -48,10 +83,12 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

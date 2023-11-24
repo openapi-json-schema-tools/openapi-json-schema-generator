@@ -44,11 +44,40 @@ public class Zebra {
     }    
     
     public static class ZebraMap extends FrozenMap<String, Object> {
-        ZebraMap(FrozenMap<? extends String, ?> m) {
+
+        ZebraMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "className"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "type"
+        );
         public static ZebraMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Zebra1.validate(arg, configuration);
+        }
+        
+        public String className() {
+
+            return (String) get("className");
+
+        }
+        
+        public String type() {
+
+            String key = "type";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -70,10 +99,12 @@ public class Zebra {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ZebraMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ZebraMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ZebraMap(arg);
         }
         public static ZebraMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Zebra1.class, arg, configuration);
         }
     }

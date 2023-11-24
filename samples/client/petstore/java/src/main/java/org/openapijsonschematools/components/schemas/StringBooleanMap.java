@@ -18,12 +18,23 @@ public class StringBooleanMap {
     public class AdditionalProperties extends BooleanJsonSchema {}
     
     
-    public static class StringBooleanMapMap extends FrozenMap<String, Object> {
-        StringBooleanMapMap(FrozenMap<? extends String, ?> m) {
+    public static class StringBooleanMapMap extends FrozenMap<String, Boolean> {
+
+        StringBooleanMapMap(FrozenMap<String, Boolean> m) {
+
             super(m);
         }
-        public static StringBooleanMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
+        public static StringBooleanMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+
             return StringBooleanMap1.validate(arg, configuration);
+        }
+        
+        public boolean getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -38,10 +49,12 @@ public class StringBooleanMap {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
+
             return new StringBooleanMapMap(arg);
         }
-        public static StringBooleanMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(StringBooleanMap1.class, arg, configuration);
         }
     }

@@ -20,11 +20,50 @@ public class ObjectWithDecimalProperties {
     
     
     public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {
-        ObjectWithDecimalPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithDecimalPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "length",
+            "width",
+            "cost"
+        );
         public static ObjectWithDecimalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithDecimalProperties1.validate(arg, configuration);
+        }
+        
+        public String length() {
+
+            String key = "length";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String width() {
+
+            String key = "width";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Money.MoneyMap cost() {
+
+            String key = "cost";
+            throwIfKeyNotPresent(key);
+            return (Money.MoneyMap) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -43,10 +82,12 @@ public class ObjectWithDecimalProperties {
                 new PropertyEntry("cost", Money.Money1.class)
             )))
         ));
-        protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithDecimalPropertiesMap(arg);
         }
         public static ObjectWithDecimalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithDecimalProperties1.class, arg, configuration);
         }
     }

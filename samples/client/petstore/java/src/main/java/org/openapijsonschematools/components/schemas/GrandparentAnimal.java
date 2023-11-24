@@ -21,11 +21,30 @@ public class GrandparentAnimal {
     
     
     public static class GrandparentAnimalMap extends FrozenMap<String, Object> {
-        GrandparentAnimalMap(FrozenMap<? extends String, ?> m) {
+
+        GrandparentAnimalMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "pet_type"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static GrandparentAnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return GrandparentAnimal1.validate(arg, configuration);
+        }
+        
+        public String pet_type() {
+
+            return (String) get("pet_type");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -45,10 +64,12 @@ public class GrandparentAnimal {
                 "pet_type"
             )))
         ));
-        protected static GrandparentAnimalMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static GrandparentAnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new GrandparentAnimalMap(arg);
         }
         public static GrandparentAnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(GrandparentAnimal1.class, arg, configuration);
         }
     }

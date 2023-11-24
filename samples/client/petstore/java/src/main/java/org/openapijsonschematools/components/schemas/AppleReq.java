@@ -32,11 +32,34 @@ public class AppleReq {
     
     
     public static class AppleReqMap extends FrozenMap<String, Object> {
-        AppleReqMap(FrozenMap<? extends String, ?> m) {
+
+        AppleReqMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "cultivar"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "mealy"
+        );
         public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return AppleReq1.validate(arg, configuration);
+        }
+        
+        public String cultivar() {
+
+            return (String) get("cultivar");
+
+        }
+        
+        public boolean mealy() {
+
+            String key = "mealy";
+            throwIfKeyNotPresent(key);
+            return (boolean) get(key);
+
         }
     }    
     
@@ -58,10 +81,12 @@ public class AppleReq {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AppleReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AppleReqMap(arg);
         }
         public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AppleReq1.class, arg, configuration);
         }
     }

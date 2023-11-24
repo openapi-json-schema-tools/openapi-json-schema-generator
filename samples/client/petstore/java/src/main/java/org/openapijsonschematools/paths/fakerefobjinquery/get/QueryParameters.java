@@ -23,12 +23,27 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    public static class QueryParametersMap extends FrozenMap<String, Object> {
-        QueryParametersMap(FrozenMap<? extends String, ?> m) {
+    public static class QueryParametersMap extends FrozenMap<String, Foo.FooMap> {
+
+        QueryParametersMap(FrozenMap<String, Foo.FooMap> m) {
+
             super(m);
         }
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "mapBean"
+        );
+        public static QueryParametersMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return QueryParameters1.validate(arg, configuration);
+        }
+        
+        public Foo.FooMap mapBean() {
+
+            String key = "mapBean";
+            throwIfKeyNotPresent(key);
+            return get(key);
         }
     }    
     
@@ -40,10 +55,13 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Foo.FooMap> arg) {
+
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

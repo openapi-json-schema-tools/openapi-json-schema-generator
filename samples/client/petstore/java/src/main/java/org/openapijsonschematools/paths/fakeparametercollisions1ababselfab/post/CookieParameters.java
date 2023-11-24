@@ -28,11 +28,46 @@ public class CookieParameters {
     
     
     public static class CookieParametersMap extends FrozenMap<String, Object> {
-        CookieParametersMap(FrozenMap<? extends String, ?> m) {
+
+        CookieParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "1",
+            "aB",
+            "Ab",
+            "A-B",
+            "self"
+        );
         public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return CookieParameters1.validate(arg, configuration);
+        }
+        
+        public String aB() {
+
+            String key = "aB";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String Ab() {
+
+            String key = "Ab";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String self() {
+
+            String key = "self";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
         }
     }    
     
@@ -48,10 +83,12 @@ public class CookieParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static CookieParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static CookieParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new CookieParametersMap(arg);
         }
         public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(CookieParameters1.class, arg, configuration);
         }
     }

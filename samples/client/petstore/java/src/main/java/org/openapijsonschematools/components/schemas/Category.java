@@ -32,11 +32,40 @@ public class Category {
     }    
     
     public static class CategoryMap extends FrozenMap<String, Object> {
-        CategoryMap(FrozenMap<? extends String, ?> m) {
+
+        CategoryMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "name"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "id"
+        );
         public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Category1.validate(arg, configuration);
+        }
+        
+        public String name() {
+
+            return (String) get("name");
+
+        }
+        
+        public long id() {
+
+            String key = "id";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -57,10 +86,12 @@ public class Category {
                 "name"
             )))
         ));
-        protected static CategoryMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static CategoryMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new CategoryMap(arg);
         }
         public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Category1.class, arg, configuration);
         }
     }

@@ -27,11 +27,50 @@ public class ApiResponseSchema {
     
     
     public static class ApiResponseMap extends FrozenMap<String, Object> {
-        ApiResponseMap(FrozenMap<? extends String, ?> m) {
+
+        ApiResponseMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "code",
+            "type",
+            "message"
+        );
         public static ApiResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ApiResponseSchema1.validate(arg, configuration);
+        }
+        
+        public int code() {
+
+            String key = "code";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public String type() {
+
+            String key = "type";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String message() {
+
+            String key = "message";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -50,10 +89,12 @@ public class ApiResponseSchema {
                 new PropertyEntry("message", Message.class)
             )))
         ));
-        protected static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ApiResponseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ApiResponseMap(arg);
         }
         public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ApiResponseSchema1.class, arg, configuration);
         }
     }

@@ -35,11 +35,77 @@ public class Capitalization {
     
     
     public static class CapitalizationMap extends FrozenMap<String, Object> {
-        CapitalizationMap(FrozenMap<? extends String, ?> m) {
+
+        CapitalizationMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "smallCamel",
+            "CapitalCamel",
+            "small_Snake",
+            "Capital_Snake",
+            "SCA_ETH_Flow_Points",
+            "ATT_NAME"
+        );
         public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Capitalization1.validate(arg, configuration);
+        }
+        
+        public String smallCamel() {
+
+            String key = "smallCamel";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String CapitalCamel() {
+
+            String key = "CapitalCamel";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String small_Snake() {
+
+            String key = "small_Snake";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String Capital_Snake() {
+
+            String key = "Capital_Snake";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String SCA_ETH_Flow_Points() {
+
+            String key = "SCA_ETH_Flow_Points";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String ATT_NAME() {
+
+            String key = "ATT_NAME";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -61,10 +127,12 @@ public class Capitalization {
                 new PropertyEntry("ATT_NAME", ATTNAME.class)
             )))
         ));
-        protected static CapitalizationMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static CapitalizationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new CapitalizationMap(arg);
         }
         public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Capitalization1.class, arg, configuration);
         }
     }

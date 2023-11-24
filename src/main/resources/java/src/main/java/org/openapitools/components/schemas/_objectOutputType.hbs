@@ -1,23 +1,34 @@
 
 
 {{#if mapValueSchema}}
-    {{#if mapValueSchema.refInfo.refClass}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="]):" }}{{/with}}Object> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" forceNull=true endChar="> {" }}{{/with}}
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" forceNull=true endChar="> m) {" }}{{/with}}
         super(m);
     }
-    {{else}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}Object> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
-        super(m);
-    }
-    {{/if}}
 {{else}}
 public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, Object> {
     {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
         super(m);
     }
 {{/if}}
+    {{#if requiredProperties}}
+    public static final Set<String> requiredKeys = Set.of(
+        {{#each requiredProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+    {{else}}
+    public static final Set<String> requiredKeys = Set.of();
+    {{/if}}
+    {{#if optionalProperties}}
+    public static final Set<String> optionalKeys = Set.of(
+        {{#each optionalProperties}}
+        "{{{@key.original}}}"{{#unless @last}},{{/unless}}
+        {{/each}}
+    );
+    {{else}}
+    public static final Set<String> optionalKeys = Set.of();
+    {{/if}}
     {{#eq optionalProperties null}}
         {{#eq requiredProperties null}}
             {{#if additionalProperties}}
@@ -27,9 +38,14 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Strin
             {{/if}}
         {{/eq}}
     {{/eq}}
+        {{#if mapValueSchema}}
+    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true endChar="> arg, SchemaConfiguration configuration) {" }}{{/with}}
+        return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
+    }
+        {{else}}
     public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, Object> arg, SchemaConfiguration configuration) {
         return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
     }
-    {{!> components/schemas/__new__ }}
-    {{!> components/schemas/_object_output_properties }}
+        {{/if}}
+    {{> src/main/java/org/openapitools/components/schemas/_objectOutputProperties }}
 }

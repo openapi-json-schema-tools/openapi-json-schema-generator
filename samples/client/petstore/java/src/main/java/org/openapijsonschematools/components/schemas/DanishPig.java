@@ -28,11 +28,30 @@ public class DanishPig {
     }    
     
     public static class DanishPigMap extends FrozenMap<String, Object> {
-        DanishPigMap(FrozenMap<? extends String, ?> m) {
+
+        DanishPigMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "className"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static DanishPigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return DanishPig1.validate(arg, configuration);
+        }
+        
+        public String className() {
+
+            return (String) get("className");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -52,10 +71,12 @@ public class DanishPig {
                 "className"
             )))
         ));
-        protected static DanishPigMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static DanishPigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new DanishPigMap(arg);
         }
         public static DanishPigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(DanishPig1.class, arg, configuration);
         }
     }

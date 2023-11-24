@@ -175,11 +175,50 @@ public class ArrayTest {
     }    
     
     public static class ArrayTestMap extends FrozenMap<String, Object> {
-        ArrayTestMap(FrozenMap<? extends String, ?> m) {
+
+        ArrayTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "array_of_string",
+            "array_array_of_integer",
+            "array_array_of_model"
+        );
         public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ArrayTest1.validate(arg, configuration);
+        }
+        
+        public ArrayOfStringList array_of_string() {
+
+            String key = "array_of_string";
+            throwIfKeyNotPresent(key);
+            return (ArrayOfStringList) get(key);
+
+        }
+        
+        public ArrayArrayOfIntegerList array_array_of_integer() {
+
+            String key = "array_array_of_integer";
+            throwIfKeyNotPresent(key);
+            return (ArrayArrayOfIntegerList) get(key);
+
+        }
+        
+        public ArrayArrayOfModelList array_array_of_model() {
+
+            String key = "array_array_of_model";
+            throwIfKeyNotPresent(key);
+            return (ArrayArrayOfModelList) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -198,10 +237,12 @@ public class ArrayTest {
                 new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
             )))
         ));
-        protected static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ArrayTestMap(arg);
         }
         public static ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayTest1.class, arg, configuration);
         }
     }

@@ -1,0 +1,15 @@
+{{#if required}}
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+return get("{{{@key.original}}}");
+    {{else}}
+return ({{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=(join ") get(\"" @key.original "\");" "") }}
+    {{/and}}
+{{else}}
+String key = "{{{@key.original}}}";
+throwIfKeyNotPresent(key);
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+return get(key);
+    {{else}}
+return ({{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=") get(key);" }}
+    {{/and}}
+{{/if}}

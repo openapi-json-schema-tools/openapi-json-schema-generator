@@ -29,11 +29,37 @@ public class Headers {
     
     
     public static class HeadersMap extends FrozenMap<String, Object> {
-        HeadersMap(FrozenMap<? extends String, ?> m) {
+
+        HeadersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "X-Rate-Limit",
+            "int32",
+            "ref-content-schema-header"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "X-Expires-After",
+            "numberHeader"
+        );
         public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Headers1.validate(arg, configuration);
+        }
+        
+        public int int32() {
+
+            return (int) get("int32");
+
+        }
+        
+        public String numberHeader() {
+
+            String key = "numberHeader";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
         }
     }    
     
@@ -54,10 +80,12 @@ public class Headers {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HeadersMap(arg);
         }
         public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }

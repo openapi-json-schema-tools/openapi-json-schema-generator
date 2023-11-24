@@ -69,11 +69,41 @@ public class EnumArrays {
     }    
     
     public static class EnumArraysMap extends FrozenMap<String, Object> {
-        EnumArraysMap(FrozenMap<? extends String, ?> m) {
+
+        EnumArraysMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "just_symbol",
+            "array_enum"
+        );
         public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return EnumArrays1.validate(arg, configuration);
+        }
+        
+        public String just_symbol() {
+
+            String key = "just_symbol";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public ArrayEnumList array_enum() {
+
+            String key = "array_enum";
+            throwIfKeyNotPresent(key);
+            return (ArrayEnumList) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -91,10 +121,12 @@ public class EnumArrays {
                 new PropertyEntry("array_enum", ArrayEnum.class)
             )))
         ));
-        protected static EnumArraysMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new EnumArraysMap(arg);
         }
         public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(EnumArrays1.class, arg, configuration);
         }
     }

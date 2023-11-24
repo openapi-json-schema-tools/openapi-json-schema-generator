@@ -4,6 +4,7 @@ import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.StringJsonSchema;
@@ -23,11 +24,24 @@ public class ClassModel {
     
     
     public static class ClassModelMap extends FrozenMap<String, Object> {
-        ClassModelMap(FrozenMap<? extends String, ?> m) {
+
+        ClassModelMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "_class"
+        );
         public static ClassModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ClassModel1.validate(arg, configuration);
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     

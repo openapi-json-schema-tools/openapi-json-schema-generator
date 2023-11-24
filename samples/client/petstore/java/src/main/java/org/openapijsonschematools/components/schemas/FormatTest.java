@@ -251,11 +251,153 @@ public class FormatTest {
     
     
     public static class FormatTestMap extends FrozenMap<String, Object> {
-        FormatTestMap(FrozenMap<? extends String, ?> m) {
+
+        FormatTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "byte",
+            "date",
+            "number",
+            "password"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "integer",
+            "int32",
+            "int32withValidations",
+            "int64",
+            "float",
+            "float32",
+            "double",
+            "float64",
+            "arrayWithUniqueItems",
+            "string",
+            "binary",
+            "dateTime",
+            "uuid",
+            "uuidNoExample",
+            "pattern_with_digits",
+            "pattern_with_digits_and_delimiter",
+            "noneProp"
+        );
         public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return FormatTest1.validate(arg, configuration);
+        }
+        
+        public String date() {
+
+            return (String) get("date");
+
+        }
+        
+        public String password() {
+
+            return (String) get("password");
+
+        }
+        
+        public int int32() {
+
+            String key = "int32";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public int int32withValidations() {
+
+            String key = "int32withValidations";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public long int64() {
+
+            String key = "int64";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public float float32() {
+
+            String key = "float32";
+            throwIfKeyNotPresent(key);
+            return (float) get(key);
+
+        }
+        
+        public double float64() {
+
+            String key = "float64";
+            throwIfKeyNotPresent(key);
+            return (double) get(key);
+
+        }
+        
+        public ArrayWithUniqueItemsList arrayWithUniqueItems() {
+
+            String key = "arrayWithUniqueItems";
+            throwIfKeyNotPresent(key);
+            return (ArrayWithUniqueItemsList) get(key);
+
+        }
+        
+        public String binary() {
+
+            String key = "binary";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String dateTime() {
+
+            String key = "dateTime";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String uuidNoExample() {
+
+            String key = "uuidNoExample";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String pattern_with_digits() {
+
+            String key = "pattern_with_digits";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String pattern_with_digits_and_delimiter() {
+
+            String key = "pattern_with_digits_and_delimiter";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Void noneProp() {
+
+            String key = "noneProp";
+            throwIfKeyNotPresent(key);
+            return (Void) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -298,10 +440,12 @@ public class FormatTest {
                 "password"
             )))
         ));
-        protected static FormatTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FormatTestMap(arg);
         }
         public static FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(FormatTest1.class, arg, configuration);
         }
     }

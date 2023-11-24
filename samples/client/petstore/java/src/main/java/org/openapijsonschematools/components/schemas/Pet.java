@@ -100,11 +100,74 @@ public class Pet {
     }    
     
     public static class PetMap extends FrozenMap<String, Object> {
-        PetMap(FrozenMap<? extends String, ?> m) {
+
+        PetMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "name",
+            "photoUrls"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "id",
+            "category",
+            "tags",
+            "status"
+        );
         public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Pet1.validate(arg, configuration);
+        }
+        
+        public String name() {
+
+            return (String) get("name");
+
+        }
+        
+        public PhotoUrlsList photoUrls() {
+
+            return (PhotoUrlsList) get("photoUrls");
+
+        }
+        
+        public long id() {
+
+            String key = "id";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public Category.CategoryMap category() {
+
+            String key = "category";
+            throwIfKeyNotPresent(key);
+            return (Category.CategoryMap) get(key);
+
+        }
+        
+        public TagsList tags() {
+
+            String key = "tags";
+            throwIfKeyNotPresent(key);
+            return (TagsList) get(key);
+
+        }
+        
+        public String status() {
+
+            String key = "status";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -132,10 +195,12 @@ public class Pet {
                 "photoUrls"
             )))
         ));
-        protected static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PetMap(arg);
         }
         public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Pet1.class, arg, configuration);
         }
     }

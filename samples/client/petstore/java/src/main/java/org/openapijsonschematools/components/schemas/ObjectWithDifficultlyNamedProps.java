@@ -29,11 +29,27 @@ public class ObjectWithDifficultlyNamedProps {
     
     
     public static class ObjectWithDifficultlyNamedPropsMap extends FrozenMap<String, Object> {
-        ObjectWithDifficultlyNamedPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithDifficultlyNamedPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "123-list"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "$special[property.name]",
+            "123Number"
+        );
         public static ObjectWithDifficultlyNamedPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithDifficultlyNamedProps1.validate(arg, configuration);
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -57,10 +73,12 @@ public class ObjectWithDifficultlyNamedProps {
                 "123-list"
             )))
         ));
-        protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
         public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
         }
     }

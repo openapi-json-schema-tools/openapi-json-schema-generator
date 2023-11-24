@@ -28,11 +28,31 @@ public class Money {
     
     
     public static class MoneyMap extends FrozenMap<String, Object> {
-        MoneyMap(FrozenMap<? extends String, ?> m) {
+
+        MoneyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "amount",
+            "currency"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static MoneyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Money1.validate(arg, configuration);
+        }
+        
+        public String amount() {
+
+            return (String) get("amount");
+
+        }
+        
+        public String currency() {
+
+            return (String) get("currency");
+
         }
     }    
     
@@ -55,10 +75,12 @@ public class Money {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static MoneyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MoneyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new MoneyMap(arg);
         }
         public static MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Money1.class, arg, configuration);
         }
     }

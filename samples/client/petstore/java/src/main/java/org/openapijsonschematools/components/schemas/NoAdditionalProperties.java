@@ -30,12 +30,33 @@ public class NoAdditionalProperties {
     public class PetId extends Int64JsonSchema {}
     
     
-    public static class NoAdditionalPropertiesMap extends FrozenMap<String, Object> {
-        NoAdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
+    public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long> {
+
+        NoAdditionalPropertiesMap(FrozenMap<String, Long> m) {
+
             super(m);
         }
-        public static NoAdditionalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of(
+            "id"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "petId"
+        );
+        public static NoAdditionalPropertiesMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return NoAdditionalProperties1.validate(arg, configuration);
+        }
+        
+        public long id() {
+
+            return get("id");
+        }
+        
+        public long petId() {
+
+            String key = "petId";
+            throwIfKeyNotPresent(key);
+            return get(key);
         }
     }    
     
@@ -57,10 +78,12 @@ public class NoAdditionalProperties {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long> arg) {
+
             return new NoAdditionalPropertiesMap(arg);
         }
-        public static NoAdditionalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static NoAdditionalPropertiesMap validate(Map<String, Long> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(NoAdditionalProperties1.class, arg, configuration);
         }
     }

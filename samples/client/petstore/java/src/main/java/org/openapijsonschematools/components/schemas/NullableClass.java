@@ -33,7 +33,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
         }
     }    
@@ -205,7 +205,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }    
@@ -252,7 +252,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items2.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(Items2.class, arg, configuration);
         }
     }    
@@ -290,12 +290,24 @@ public class NullableClass {
     public class AdditionalProperties extends MapJsonSchema {}
     
     
-    public static class ObjectNullablePropMap extends FrozenMap<String, Object> {
-        ObjectNullablePropMap(FrozenMap<? extends String, ?> m) {
+    public static class ObjectNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
+
+        ObjectNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
             super(m);
         }
-        public static ObjectNullablePropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
+        public static ObjectNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return ObjectNullableProp.validate(arg, configuration);
+        }
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -310,7 +322,9 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
-        public static ObjectNullablePropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
     }    
@@ -325,17 +339,29 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
     }    
     
-    public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, Object> {
-        ObjectAndItemsNullablePropMap(FrozenMap<? extends String, ?> m) {
+    public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
+
+        ObjectAndItemsNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
             super(m);
         }
-        public static ObjectAndItemsNullablePropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
+        public static ObjectAndItemsNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return ObjectAndItemsNullableProp.validate(arg, configuration);
+        }
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -350,7 +376,9 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
-        public static ObjectAndItemsNullablePropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
     }    
@@ -365,17 +393,29 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
     }    
     
-    public static class ObjectItemsNullableMap extends FrozenMap<String, Object> {
-        ObjectItemsNullableMap(FrozenMap<? extends String, ?> m) {
+    public static class ObjectItemsNullableMap extends FrozenMap<String, FrozenMap<String, Object>> {
+
+        ObjectItemsNullableMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
             super(m);
         }
-        public static ObjectItemsNullableMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
+        public static ObjectItemsNullableMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return ObjectItemsNullable.validate(arg, configuration);
+        }
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -384,21 +424,145 @@ public class NullableClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
+
             return new ObjectItemsNullableMap(arg);
         }
-        public static ObjectItemsNullableMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(ObjectItemsNullable.class, arg, configuration);
         }
     }
     
     
     public static class NullableClassMap extends FrozenMap<String, Object> {
-        NullableClassMap(FrozenMap<? extends String, ?> m) {
+
+        NullableClassMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "integer_prop",
+            "number_prop",
+            "boolean_prop",
+            "string_prop",
+            "date_prop",
+            "datetime_prop",
+            "array_nullable_prop",
+            "array_and_items_nullable_prop",
+            "array_items_nullable",
+            "object_nullable_prop",
+            "object_and_items_nullable_prop",
+            "object_items_nullable"
+        );
         public static NullableClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return NullableClass1.validate(arg, configuration);
+        }
+        
+        public Long integer_prop() {
+
+            String key = "integer_prop";
+            throwIfKeyNotPresent(key);
+            return (Long) get(key);
+
+        }
+        
+        public Number number_prop() {
+
+            String key = "number_prop";
+            throwIfKeyNotPresent(key);
+            return (Number) get(key);
+
+        }
+        
+        public Boolean boolean_prop() {
+
+            String key = "boolean_prop";
+            throwIfKeyNotPresent(key);
+            return (Boolean) get(key);
+
+        }
+        
+        public String string_prop() {
+
+            String key = "string_prop";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String date_prop() {
+
+            String key = "date_prop";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String datetime_prop() {
+
+            String key = "datetime_prop";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public ArrayNullablePropList array_nullable_prop() {
+
+            String key = "array_nullable_prop";
+            throwIfKeyNotPresent(key);
+            return (ArrayNullablePropList) get(key);
+
+        }
+        
+        public ArrayAndItemsNullablePropList array_and_items_nullable_prop() {
+
+            String key = "array_and_items_nullable_prop";
+            throwIfKeyNotPresent(key);
+            return (ArrayAndItemsNullablePropList) get(key);
+
+        }
+        
+        public ArrayItemsNullableList array_items_nullable() {
+
+            String key = "array_items_nullable";
+            throwIfKeyNotPresent(key);
+            return (ArrayItemsNullableList) get(key);
+
+        }
+        
+        public ObjectNullablePropMap object_nullable_prop() {
+
+            String key = "object_nullable_prop";
+            throwIfKeyNotPresent(key);
+            return (ObjectNullablePropMap) get(key);
+
+        }
+        
+        public ObjectAndItemsNullablePropMap object_and_items_nullable_prop() {
+
+            String key = "object_and_items_nullable_prop";
+            throwIfKeyNotPresent(key);
+            return (ObjectAndItemsNullablePropMap) get(key);
+
+        }
+        
+        public ObjectItemsNullableMap object_items_nullable() {
+
+            String key = "object_items_nullable";
+            throwIfKeyNotPresent(key);
+            return (ObjectItemsNullableMap) get(key);
+
+        }
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return (FrozenMap<String, Object>) get(name);
+
         }
     }    
     
@@ -427,10 +591,12 @@ public class NullableClass {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        protected static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new NullableClassMap(arg);
         }
         public static NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(NullableClass1.class, arg, configuration);
         }
     }

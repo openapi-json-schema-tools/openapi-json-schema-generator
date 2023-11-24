@@ -20,11 +20,41 @@ public class Player {
     
     
     public static class PlayerMap extends FrozenMap<String, Object> {
-        PlayerMap(FrozenMap<? extends String, ?> m) {
+
+        PlayerMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "name",
+            "enemyPlayer"
+        );
         public static PlayerMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Player1.validate(arg, configuration);
+        }
+        
+        public String name() {
+
+            String key = "name";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public PlayerMap enemyPlayer() {
+
+            String key = "enemyPlayer";
+            throwIfKeyNotPresent(key);
+            return (PlayerMap) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -44,10 +74,12 @@ public class Player {
                 new PropertyEntry("enemyPlayer", Player1.class)
             )))
         ));
-        protected static PlayerMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PlayerMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PlayerMap(arg);
         }
         public static PlayerMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Player1.class, arg, configuration);
         }
     }

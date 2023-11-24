@@ -48,11 +48,60 @@ public class Drawing {
     }    
     
     public static class DrawingMap extends FrozenMap<String, Object> {
-        DrawingMap(FrozenMap<? extends String, ?> m) {
+
+        DrawingMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "mainShape",
+            "shapeOrNull",
+            "nullableShape",
+            "shapes"
+        );
         public static DrawingMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Drawing1.validate(arg, configuration);
+        }
+        
+        public Object mainShape() {
+
+            String key = "mainShape";
+            throwIfKeyNotPresent(key);
+            return (Object) get(key);
+
+        }
+        
+        public Object shapeOrNull() {
+
+            String key = "shapeOrNull";
+            throwIfKeyNotPresent(key);
+            return (Object) get(key);
+
+        }
+        
+        public Object nullableShape() {
+
+            String key = "nullableShape";
+            throwIfKeyNotPresent(key);
+            return (Object) get(key);
+
+        }
+        
+        public ShapesList shapes() {
+
+            String key = "shapes";
+            throwIfKeyNotPresent(key);
+            return (ShapesList) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return (Object) get(name);
+
         }
     }    
     
@@ -73,10 +122,12 @@ public class Drawing {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
         ));
-        protected static DrawingMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static DrawingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new DrawingMap(arg);
         }
         public static DrawingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Drawing1.class, arg, configuration);
         }
     }

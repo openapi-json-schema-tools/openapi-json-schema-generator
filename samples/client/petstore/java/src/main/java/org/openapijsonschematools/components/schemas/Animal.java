@@ -32,11 +32,40 @@ public class Animal {
     }    
     
     public static class AnimalMap extends FrozenMap<String, Object> {
-        AnimalMap(FrozenMap<? extends String, ?> m) {
+
+        AnimalMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "className"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "color"
+        );
         public static AnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Animal1.validate(arg, configuration);
+        }
+        
+        public String className() {
+
+            return (String) get("className");
+
+        }
+        
+        public String color() {
+
+            String key = "color";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -57,10 +86,12 @@ public class Animal {
                 "className"
             )))
         ));
-        protected static AnimalMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AnimalMap(arg);
         }
         public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Animal1.class, arg, configuration);
         }
     }

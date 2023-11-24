@@ -51,11 +51,32 @@ public class ArrayOfNumberOnly {
     }    
     
     public static class ArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
-        ArrayOfNumberOnlyMap(FrozenMap<? extends String, ?> m) {
+
+        ArrayOfNumberOnlyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "ArrayNumber"
+        );
         public static ArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ArrayOfNumberOnly1.validate(arg, configuration);
+        }
+        
+        public ArrayNumberList ArrayNumber() {
+
+            String key = "ArrayNumber";
+            throwIfKeyNotPresent(key);
+            return (ArrayNumberList) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -72,10 +93,12 @@ public class ArrayOfNumberOnly {
                 new PropertyEntry("ArrayNumber", ArrayNumber.class)
             )))
         ));
-        protected static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ArrayOfNumberOnlyMap(arg);
         }
         public static ArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ArrayOfNumberOnly1.class, arg, configuration);
         }
     }

@@ -26,12 +26,26 @@ public class MyObjectDto {
     public class Id extends UuidJsonSchema {}
     
     
-    public static class MyObjectDtoMap extends FrozenMap<String, Object> {
-        MyObjectDtoMap(FrozenMap<? extends String, ?> m) {
+    public static class MyObjectDtoMap extends FrozenMap<String, String> {
+
+        MyObjectDtoMap(FrozenMap<String, String> m) {
+
             super(m);
         }
-        public static MyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "id"
+        );
+        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return MyObjectDto1.validate(arg, configuration);
+        }
+        
+        public String id() {
+
+            String key = "id";
+            throwIfKeyNotPresent(key);
+            return get(key);
         }
     }    
     
@@ -49,10 +63,12 @@ public class MyObjectDto {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static MyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MyObjectDtoMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new MyObjectDtoMap(arg);
         }
-        public static MyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MyObjectDtoMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(MyObjectDto1.class, arg, configuration);
         }
     }

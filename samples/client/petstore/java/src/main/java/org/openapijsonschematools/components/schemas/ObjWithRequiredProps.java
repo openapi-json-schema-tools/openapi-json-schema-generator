@@ -21,11 +21,30 @@ public class ObjWithRequiredProps {
     
     
     public static class ObjWithRequiredPropsMap extends FrozenMap<String, Object> {
-        ObjWithRequiredPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ObjWithRequiredPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "a"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ObjWithRequiredPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjWithRequiredProps1.validate(arg, configuration);
+        }
+        
+        public String a() {
+
+            return (String) get("a");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -45,10 +64,12 @@ public class ObjWithRequiredProps {
                 "a"
             )))
         ));
-        protected static ObjWithRequiredPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjWithRequiredPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjWithRequiredPropsMap(arg);
         }
         public static ObjWithRequiredPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjWithRequiredProps1.class, arg, configuration);
         }
     }

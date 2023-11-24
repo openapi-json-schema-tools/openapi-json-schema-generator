@@ -24,11 +24,37 @@ public class ObjectModelWithArgAndArgsProperties {
     
     
     public static class ObjectModelWithArgAndArgsPropertiesMap extends FrozenMap<String, Object> {
-        ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "arg",
+            "args"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ObjectModelWithArgAndArgsPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectModelWithArgAndArgsProperties1.validate(arg, configuration);
+        }
+        
+        public String arg() {
+
+            return (String) get("arg");
+
+        }
+        
+        public String args() {
+
+            return (String) get("args");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -50,10 +76,12 @@ public class ObjectModelWithArgAndArgsProperties {
                 "args"
             )))
         ));
-        protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
         public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectModelWithArgAndArgsProperties1.class, arg, configuration);
         }
     }

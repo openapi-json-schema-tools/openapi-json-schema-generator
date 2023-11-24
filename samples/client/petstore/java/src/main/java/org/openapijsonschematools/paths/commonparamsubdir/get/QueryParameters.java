@@ -23,12 +23,26 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    public static class QueryParametersMap extends FrozenMap<String, Object> {
-        QueryParametersMap(FrozenMap<? extends String, ?> m) {
+    public static class QueryParametersMap extends FrozenMap<String, String> {
+
+        QueryParametersMap(FrozenMap<String, String> m) {
+
             super(m);
         }
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "searchStr"
+        );
+        public static QueryParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return QueryParameters1.validate(arg, configuration);
+        }
+        
+        public String searchStr() {
+
+            String key = "searchStr";
+            throwIfKeyNotPresent(key);
+            return get(key);
         }
     }    
     
@@ -40,10 +54,12 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

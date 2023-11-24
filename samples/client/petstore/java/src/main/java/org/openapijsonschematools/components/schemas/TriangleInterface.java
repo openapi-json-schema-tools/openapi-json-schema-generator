@@ -37,11 +37,37 @@ public class TriangleInterface {
     
     
     public static class TriangleInterfaceMap extends FrozenMap<String, Object> {
-        TriangleInterfaceMap(FrozenMap<? extends String, ?> m) {
+
+        TriangleInterfaceMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "shapeType",
+            "triangleType"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static TriangleInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return TriangleInterface1.validate(arg, configuration);
+        }
+        
+        public String shapeType() {
+
+            return (String) get("shapeType");
+
+        }
+        
+        public String triangleType() {
+
+            return (String) get("triangleType");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     

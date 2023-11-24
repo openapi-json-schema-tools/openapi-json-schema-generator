@@ -1,0 +1,66 @@
+{{#if requiredProperties}}
+    {{#each requiredProperties}}
+        {{#if @key.isValid}}
+        {{#with this}}
+            {{#if refInfo.refClass}}
+
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=(join " " @key.original "() {" "") }}
+    {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
+}
+            {{else}}
+                {{#if jsonPathPiece}}
+
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=(join " " @key.original "() {" "") }}
+    {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
+}
+                {{else}}
+                    {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
+
+public Object {{@key.original}}() {
+    {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
+}
+                {{/if}}
+            {{/if}}
+        {{/with}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#if optionalProperties}}
+    {{#each optionalProperties}}
+        {{#if @key.isValid}}
+        {{#with this}}
+
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=(join " " @key.original "() {" "") }}
+    {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=false }}
+}
+        {{/with}}
+        {{/if}}
+    {{/each}}
+{{/if}}
+{{#eq additionalProperties null }}
+
+public Object getAdditionalProperty(String name) {
+    {{#or optionalProperties requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys);
+    {{/or}}
+    throwIfKeyNotPresent(name);
+    return get(name);
+}
+{{else}}
+    {{#with additionalProperties}}
+        {{#unless isBooleanSchemaFalse}}
+
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=" getAdditionalProperty(String name) {" }}
+            {{#or optionalProperties requiredProperties}}
+    throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            {{/or}}
+    throwIfKeyNotPresent(name);
+            {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+    return get(name);
+            {{else}}
+    return ({{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=") get(name);" }}
+            {{/and}}
+}
+        {{/unless}}
+    {{/with}}
+{{/eq}}

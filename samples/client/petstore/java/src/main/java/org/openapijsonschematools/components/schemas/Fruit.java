@@ -4,6 +4,7 @@ import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.StringJsonSchema;
@@ -23,11 +24,32 @@ public class Fruit {
     
     
     public static class FruitMap extends FrozenMap<String, Object> {
-        FruitMap(FrozenMap<? extends String, ?> m) {
+
+        FruitMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "color"
+        );
         public static FruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Fruit1.validate(arg, configuration);
+        }
+        
+        public String color() {
+
+            String key = "color";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     

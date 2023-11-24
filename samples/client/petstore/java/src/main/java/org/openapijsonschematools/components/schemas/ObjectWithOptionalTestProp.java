@@ -20,11 +20,32 @@ public class ObjectWithOptionalTestProp {
     
     
     public static class ObjectWithOptionalTestPropMap extends FrozenMap<String, Object> {
-        ObjectWithOptionalTestPropMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithOptionalTestPropMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "test"
+        );
         public static ObjectWithOptionalTestPropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithOptionalTestProp1.validate(arg, configuration);
+        }
+        
+        public String test() {
+
+            String key = "test";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -41,10 +62,12 @@ public class ObjectWithOptionalTestProp {
                 new PropertyEntry("test", Test.class)
             )))
         ));
-        protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithOptionalTestPropMap(arg);
         }
         public static ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithOptionalTestProp1.class, arg, configuration);
         }
     }

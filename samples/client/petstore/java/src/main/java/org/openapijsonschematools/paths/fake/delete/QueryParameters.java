@@ -28,11 +28,50 @@ public class QueryParameters {
     
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
-        QueryParametersMap(FrozenMap<? extends String, ?> m) {
+
+        QueryParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "required_int64_group",
+            "required_string_group"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "int64_group",
+            "string_group"
+        );
         public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return QueryParameters1.validate(arg, configuration);
+        }
+        
+        public long required_int64_group() {
+
+            return (long) get("required_int64_group");
+
+        }
+        
+        public String required_string_group() {
+
+            return (String) get("required_string_group");
+
+        }
+        
+        public long int64_group() {
+
+            String key = "int64_group";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public String string_group() {
+
+            String key = "string_group";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
         }
     }    
     
@@ -51,10 +90,12 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

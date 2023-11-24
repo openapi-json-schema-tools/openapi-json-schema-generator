@@ -25,11 +25,32 @@ public class Dog {
     
     
     public static class Schema1Map extends FrozenMap<String, Object> {
-        Schema1Map(FrozenMap<? extends String, ?> m) {
+
+        Schema1Map(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "breed"
+        );
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema1.validate(arg, configuration);
+        }
+        
+        public String breed() {
+
+            String key = "breed";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -40,10 +61,12 @@ public class Dog {
                 new PropertyEntry("breed", Breed.class)
             )))
         ));
-        protected static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

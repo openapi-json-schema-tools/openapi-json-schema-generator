@@ -20,11 +20,32 @@ public class PublicKey {
     
     
     public static class PublicKeyMap extends FrozenMap<String, Object> {
-        PublicKeyMap(FrozenMap<? extends String, ?> m) {
+
+        PublicKeyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "key"
+        );
         public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return PublicKey1.validate(arg, configuration);
+        }
+        
+        public String key() {
+
+            String key = "key";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -43,10 +64,12 @@ public class PublicKey {
                 new PropertyEntry("key", Key.class)
             )))
         ));
-        protected static PublicKeyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PublicKeyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PublicKeyMap(arg);
         }
         public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PublicKey1.class, arg, configuration);
         }
     }

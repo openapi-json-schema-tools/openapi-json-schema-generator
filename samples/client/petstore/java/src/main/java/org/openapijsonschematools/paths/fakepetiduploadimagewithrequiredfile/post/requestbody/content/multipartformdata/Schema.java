@@ -26,11 +26,40 @@ public class Schema {
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {
-        SchemaMap(FrozenMap<? extends String, ?> m) {
+
+        SchemaMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "requiredFile"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "additionalMetadata"
+        );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema1.validate(arg, configuration);
+        }
+        
+        public String requiredFile() {
+
+            return (String) get("requiredFile");
+
+        }
+        
+        public String additionalMetadata() {
+
+            String key = "additionalMetadata";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -45,10 +74,12 @@ public class Schema {
                 "requiredFile"
             )))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

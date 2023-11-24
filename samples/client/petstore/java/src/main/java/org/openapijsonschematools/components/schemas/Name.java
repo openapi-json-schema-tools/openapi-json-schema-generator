@@ -32,11 +32,49 @@ public class Name {
     
     
     public static class NameMap extends FrozenMap<String, Object> {
-        NameMap(FrozenMap<? extends String, ?> m) {
+
+        NameMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "name"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "snake_case",
+            "property"
+        );
         public static NameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Name1.validate(arg, configuration);
+        }
+        
+        public int name() {
+
+            return (int) get("name");
+
+        }
+        
+        public int snake_case() {
+
+            String key = "snake_case";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public String property() {
+
+            String key = "property";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     

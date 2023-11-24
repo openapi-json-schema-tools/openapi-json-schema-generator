@@ -29,11 +29,40 @@ public class PathParameters {
     
     
     public static class PathParametersMap extends FrozenMap<String, Object> {
-        PathParametersMap(FrozenMap<? extends String, ?> m) {
+
+        PathParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "1",
+            "A-B",
+            "Ab",
+            "aB",
+            "self"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return PathParameters1.validate(arg, configuration);
+        }
+        
+        public String Ab() {
+
+            return (String) get("Ab");
+
+        }
+        
+        public String aB() {
+
+            return (String) get("aB");
+
+        }
+        
+        public String self() {
+
+            return (String) get("self");
+
         }
     }    
     
@@ -56,10 +85,12 @@ public class PathParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PathParametersMap(arg);
         }
         public static PathParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }

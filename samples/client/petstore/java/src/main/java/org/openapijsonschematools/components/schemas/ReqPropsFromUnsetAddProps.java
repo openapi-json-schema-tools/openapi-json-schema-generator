@@ -15,11 +15,29 @@ public class ReqPropsFromUnsetAddProps {
     
     
     public static class ReqPropsFromUnsetAddPropsMap extends FrozenMap<String, Object> {
-        ReqPropsFromUnsetAddPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ReqPropsFromUnsetAddPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "invalid-name",
+            "validName"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ReqPropsFromUnsetAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ReqPropsFromUnsetAddProps1.validate(arg, configuration);
+        }
+        
+        public Object validName() {
+            return get("validName");
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -37,10 +55,12 @@ public class ReqPropsFromUnsetAddProps {
                 "validName"
             )))
         ));
-        protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
         public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ReqPropsFromUnsetAddProps1.class, arg, configuration);
         }
     }

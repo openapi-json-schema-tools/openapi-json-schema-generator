@@ -23,11 +23,41 @@ public class ObjectWithCollidingProperties {
     
     
     public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {
-        ObjectWithCollidingPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithCollidingPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "someProp",
+            "someprop"
+        );
         public static ObjectWithCollidingPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithCollidingProperties1.validate(arg, configuration);
+        }
+        
+        public FrozenMap<String, Object> someProp() {
+
+            String key = "someProp";
+            throwIfKeyNotPresent(key);
+            return (FrozenMap<String, Object>) get(key);
+
+        }
+        
+        public FrozenMap<String, Object> someprop() {
+
+            String key = "someprop";
+            throwIfKeyNotPresent(key);
+            return (FrozenMap<String, Object>) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -47,10 +77,12 @@ public class ObjectWithCollidingProperties {
                 new PropertyEntry("someprop", Someprop.class)
             )))
         ));
-        protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithCollidingPropertiesMap(arg);
         }
         public static ObjectWithCollidingPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithCollidingProperties1.class, arg, configuration);
         }
     }

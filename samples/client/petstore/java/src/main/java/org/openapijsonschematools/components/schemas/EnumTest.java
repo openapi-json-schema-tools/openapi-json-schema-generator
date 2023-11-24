@@ -82,11 +82,103 @@ public class EnumTest {
     }    
     
     public static class EnumTestMap extends FrozenMap<String, Object> {
-        EnumTestMap(FrozenMap<? extends String, ?> m) {
+
+        EnumTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "enum_string_required"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "enum_string",
+            "enum_integer",
+            "enum_number",
+            "stringEnum",
+            "IntegerEnum",
+            "StringEnumWithDefaultValue",
+            "IntegerEnumWithDefaultValue",
+            "IntegerEnumOneValue"
+        );
         public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return EnumTest1.validate(arg, configuration);
+        }
+        
+        public String enum_string_required() {
+
+            return (String) get("enum_string_required");
+
+        }
+        
+        public String enum_string() {
+
+            String key = "enum_string";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public int enum_integer() {
+
+            String key = "enum_integer";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public double enum_number() {
+
+            String key = "enum_number";
+            throwIfKeyNotPresent(key);
+            return (double) get(key);
+
+        }
+        
+        public String stringEnum() {
+
+            String key = "stringEnum";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public long IntegerEnum() {
+
+            String key = "IntegerEnum";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public String StringEnumWithDefaultValue() {
+
+            String key = "StringEnumWithDefaultValue";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public long IntegerEnumWithDefaultValue() {
+
+            String key = "IntegerEnumWithDefaultValue";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public long IntegerEnumOneValue() {
+
+            String key = "IntegerEnumOneValue";
+            throwIfKeyNotPresent(key);
+            return (long) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -114,10 +206,12 @@ public class EnumTest {
                 "enum_string_required"
             )))
         ));
-        protected static EnumTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new EnumTestMap(arg);
         }
         public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(EnumTest1.class, arg, configuration);
         }
     }

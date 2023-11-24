@@ -1,5 +1,6 @@
 package org.openapijsonschematools.paths.petfindbytags.get;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
@@ -24,12 +25,25 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    public static class QueryParametersMap extends FrozenMap<String, Object> {
-        QueryParametersMap(FrozenMap<? extends String, ?> m) {
+    public static class QueryParametersMap extends FrozenMap<String, Schema0.SchemaList0> {
+
+        QueryParametersMap(FrozenMap<String, Schema0.SchemaList0> m) {
+
             super(m);
         }
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of(
+            "tags"
+        );
+        public static final Set<String> optionalKeys = Set.of();
+        public static QueryParametersMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+
+
             return QueryParameters1.validate(arg, configuration);
+        }
+        
+        public Schema0.SchemaList0 tags() {
+
+            return get("tags");
         }
     }    
     
@@ -44,10 +58,13 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Schema0.SchemaList0> arg) {
+
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

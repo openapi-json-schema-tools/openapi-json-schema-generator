@@ -25,11 +25,33 @@ public class ObjectWithNonIntersectingValues {
     
     
     public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object> {
-        ObjectWithNonIntersectingValuesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithNonIntersectingValuesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "a"
+        );
         public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithNonIntersectingValues1.validate(arg, configuration);
+        }
+        
+        public Number a() {
+
+            String key = "a";
+            throwIfKeyNotPresent(key);
+            return (Number) get(key);
+
+        }
+        
+        public String getAdditionalProperty(String name) {
+
+            throwIfKeyNotPresent(name);
+            return (String) get(name);
+
         }
     }    
     
@@ -47,10 +69,12 @@ public class ObjectWithNonIntersectingValues {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
         public static ObjectWithNonIntersectingValuesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithNonIntersectingValues1.class, arg, configuration);
         }
     }

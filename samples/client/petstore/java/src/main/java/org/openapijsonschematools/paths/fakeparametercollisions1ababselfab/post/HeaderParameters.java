@@ -27,11 +27,37 @@ public class HeaderParameters {
     
     
     public static class HeaderParametersMap extends FrozenMap<String, Object> {
-        HeaderParametersMap(FrozenMap<? extends String, ?> m) {
+
+        HeaderParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "1",
+            "aB",
+            "A-B",
+            "self"
+        );
         public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return HeaderParameters1.validate(arg, configuration);
+        }
+        
+        public String aB() {
+
+            String key = "aB";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String self() {
+
+            String key = "self";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
         }
     }    
     
@@ -46,10 +72,12 @@ public class HeaderParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }
     }

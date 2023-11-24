@@ -499,11 +499,60 @@ public class AnyTypeAndFormat {
     }    
     
     public static class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
-        AnyTypeAndFormatMap(FrozenMap<? extends String, ?> m) {
+
+        AnyTypeAndFormatMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "uuid",
+            "date",
+            "date-time",
+            "number",
+            "binary",
+            "int32",
+            "int64",
+            "double",
+            "float"
+        );
         public static AnyTypeAndFormatMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return AnyTypeAndFormat1.validate(arg, configuration);
+        }
+        
+        public Object date() {
+
+            String key = "date";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object binary() {
+
+            String key = "binary";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object int32() {
+
+            String key = "int32";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object int64() {
+
+            String key = "int64";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -528,10 +577,12 @@ public class AnyTypeAndFormat {
                 new PropertyEntry("float", FloatSchema.class)
             )))
         ));
-        protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AnyTypeAndFormatMap(arg);
         }
         public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AnyTypeAndFormat1.class, arg, configuration);
         }
     }

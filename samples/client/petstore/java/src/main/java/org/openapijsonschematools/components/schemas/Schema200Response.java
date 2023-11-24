@@ -4,6 +4,7 @@ import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
@@ -27,11 +28,33 @@ public class Schema200Response {
     
     
     public static class Schema200ResponseMap extends FrozenMap<String, Object> {
-        Schema200ResponseMap(FrozenMap<? extends String, ?> m) {
+
+        Schema200ResponseMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "name",
+            "class"
+        );
         public static Schema200ResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Schema200Response1.validate(arg, configuration);
+        }
+        
+        public int name() {
+
+            String key = "name";
+            throwIfKeyNotPresent(key);
+            return (int) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     

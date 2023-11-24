@@ -37,11 +37,37 @@ public class QuadrilateralInterface {
     
     
     public static class QuadrilateralInterfaceMap extends FrozenMap<String, Object> {
-        QuadrilateralInterfaceMap(FrozenMap<? extends String, ?> m) {
+
+        QuadrilateralInterfaceMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "quadrilateralType",
+            "shapeType"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static QuadrilateralInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return QuadrilateralInterface1.validate(arg, configuration);
+        }
+        
+        public String quadrilateralType() {
+
+            return (String) get("quadrilateralType");
+
+        }
+        
+        public String shapeType() {
+
+            return (String) get("shapeType");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     

@@ -21,11 +21,40 @@ public class AbstractStepMessage {
     
     
     public static class AbstractStepMessageMap extends FrozenMap<String, Object> {
-        AbstractStepMessageMap(FrozenMap<? extends String, ?> m) {
+
+        AbstractStepMessageMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "description",
+            "discriminator",
+            "sequenceNumber"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return AbstractStepMessage1.validate(arg, configuration);
+        }
+        
+        public Object description() {
+            return get("description");
+        }
+        
+        public String discriminator() {
+
+            return (String) get("discriminator");
+
+        }
+        
+        public Object sequenceNumber() {
+            return get("sequenceNumber");
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -49,10 +78,12 @@ public class AbstractStepMessage {
                 "sequenceNumber"
             )))
         ));
-        protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AbstractStepMessageMap(arg);
         }
         public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(AbstractStepMessage1.class, arg, configuration);
         }
     }

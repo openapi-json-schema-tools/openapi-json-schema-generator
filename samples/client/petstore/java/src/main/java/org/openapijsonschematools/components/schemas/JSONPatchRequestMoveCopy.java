@@ -41,12 +41,37 @@ public class JSONPatchRequestMoveCopy {
         }
     }    
     
-    public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String, Object> {
-        JSONPatchRequestMoveCopyMap(FrozenMap<? extends String, ?> m) {
+    public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String, String> {
+
+        JSONPatchRequestMoveCopyMap(FrozenMap<String, String> m) {
+
             super(m);
         }
-        public static JSONPatchRequestMoveCopyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static final Set<String> requiredKeys = Set.of(
+            "from",
+            "op",
+            "path"
+        );
+        public static final Set<String> optionalKeys = Set.of();
+        public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JSONPatchRequestMoveCopy1.validate(arg, configuration);
+        }
+        
+        public String from() {
+
+            return get("from");
+        }
+        
+        public String op() {
+
+            return (String) get("op");
+
+        }
+        
+        public String path() {
+
+            return get("path");
         }
     }    
     
@@ -71,10 +96,12 @@ public class JSONPatchRequestMoveCopy {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new JSONPatchRequestMoveCopyMap(arg);
         }
-        public static JSONPatchRequestMoveCopyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestMoveCopyMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(JSONPatchRequestMoveCopy1.class, arg, configuration);
         }
     }

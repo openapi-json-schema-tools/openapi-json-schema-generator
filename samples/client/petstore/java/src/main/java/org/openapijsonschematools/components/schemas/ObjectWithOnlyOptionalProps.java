@@ -31,11 +31,35 @@ public class ObjectWithOnlyOptionalProps {
     
     
     public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object> {
-        ObjectWithOnlyOptionalPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithOnlyOptionalPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "a",
+            "b"
+        );
         public static ObjectWithOnlyOptionalPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithOnlyOptionalProps1.validate(arg, configuration);
+        }
+        
+        public String a() {
+
+            String key = "a";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Number b() {
+
+            String key = "b";
+            throwIfKeyNotPresent(key);
+            return (Number) get(key);
+
         }
     }    
     
@@ -54,10 +78,12 @@ public class ObjectWithOnlyOptionalProps {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithOnlyOptionalPropsMap(arg);
         }
         public static ObjectWithOnlyOptionalPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithOnlyOptionalProps1.class, arg, configuration);
         }
     }

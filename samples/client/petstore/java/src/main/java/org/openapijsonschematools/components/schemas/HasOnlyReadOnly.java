@@ -23,11 +23,41 @@ public class HasOnlyReadOnly {
     
     
     public static class HasOnlyReadOnlyMap extends FrozenMap<String, Object> {
-        HasOnlyReadOnlyMap(FrozenMap<? extends String, ?> m) {
+
+        HasOnlyReadOnlyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "bar",
+            "foo"
+        );
         public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return HasOnlyReadOnly1.validate(arg, configuration);
+        }
+        
+        public String bar() {
+
+            String key = "bar";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public String foo() {
+
+            String key = "foo";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -45,10 +75,12 @@ public class HasOnlyReadOnly {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
-        protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HasOnlyReadOnlyMap(arg);
         }
         public static HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(HasOnlyReadOnly1.class, arg, configuration);
         }
     }

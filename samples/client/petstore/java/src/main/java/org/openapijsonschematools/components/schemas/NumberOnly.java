@@ -20,11 +20,32 @@ public class NumberOnly {
     
     
     public static class NumberOnlyMap extends FrozenMap<String, Object> {
-        NumberOnlyMap(FrozenMap<? extends String, ?> m) {
+
+        NumberOnlyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "JustNumber"
+        );
         public static NumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return NumberOnly1.validate(arg, configuration);
+        }
+        
+        public Number JustNumber() {
+
+            String key = "JustNumber";
+            throwIfKeyNotPresent(key);
+            return (Number) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -41,10 +62,12 @@ public class NumberOnly {
                 new PropertyEntry("JustNumber", JustNumber.class)
             )))
         ));
-        protected static NumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static NumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new NumberOnlyMap(arg);
         }
         public static NumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(NumberOnly1.class, arg, configuration);
         }
     }

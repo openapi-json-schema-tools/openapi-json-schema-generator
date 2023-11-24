@@ -42,11 +42,37 @@ public class JSONPatchRequestAddReplaceTest {
     }    
     
     public static class JSONPatchRequestAddReplaceTestMap extends FrozenMap<String, Object> {
-        JSONPatchRequestAddReplaceTestMap(FrozenMap<? extends String, ?> m) {
+
+        JSONPatchRequestAddReplaceTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "op",
+            "path",
+            "value"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);
+        }
+        
+        public String op() {
+
+            return (String) get("op");
+
+        }
+        
+        public String path() {
+
+            return (String) get("path");
+
+        }
+        
+        public Object value() {
+
+            return get("value");
         }
     }    
     
@@ -71,10 +97,12 @@ public class JSONPatchRequestAddReplaceTest {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
         public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(JSONPatchRequestAddReplaceTest1.class, arg, configuration);
         }
     }

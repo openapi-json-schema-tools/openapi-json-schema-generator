@@ -30,11 +30,59 @@ public class QueryParameters {
     
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
-        QueryParametersMap(FrozenMap<? extends String, ?> m) {
+
+        QueryParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "context",
+            "http",
+            "ioutil",
+            "pipe",
+            "refParam",
+            "url"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return QueryParameters1.validate(arg, configuration);
+        }
+        
+        public Schema4.SchemaList4 context() {
+
+            return (Schema4.SchemaList4) get("context");
+
+        }
+        
+        public Schema2.SchemaList2 http() {
+
+            return (Schema2.SchemaList2) get("http");
+
+        }
+        
+        public Schema1.SchemaList1 ioutil() {
+
+            return (Schema1.SchemaList1) get("ioutil");
+
+        }
+        
+        public Schema0.SchemaList0 pipe() {
+
+            return (Schema0.SchemaList0) get("pipe");
+
+        }
+        
+        public String refParam() {
+
+            return (String) get("refParam");
+
+        }
+        
+        public Schema3.SchemaList3 url() {
+
+            return (Schema3.SchemaList3) get("url");
+
         }
     }    
     
@@ -59,10 +107,12 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

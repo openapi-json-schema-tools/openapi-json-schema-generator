@@ -82,11 +82,31 @@ public class ObjectWithInlineCompositionProperty {
     }    
     
     public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<String, Object> {
-        ObjectWithInlineCompositionPropertyMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithInlineCompositionPropertyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "someProp"
+        );
         public static ObjectWithInlineCompositionPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithInlineCompositionProperty1.validate(arg, configuration);
+        }
+        
+        public Object someProp() {
+
+            String key = "someProp";
+            throwIfKeyNotPresent(key);
+            return get(key);
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -103,10 +123,12 @@ public class ObjectWithInlineCompositionProperty {
                 new PropertyEntry("someProp", SomeProp.class)
             )))
         ));
-        protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithInlineCompositionPropertyMap(arg);
         }
         public static ObjectWithInlineCompositionPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithInlineCompositionProperty1.class, arg, configuration);
         }
     }

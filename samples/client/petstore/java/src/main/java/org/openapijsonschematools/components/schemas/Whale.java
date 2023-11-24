@@ -35,11 +35,49 @@ public class Whale {
     }    
     
     public static class WhaleMap extends FrozenMap<String, Object> {
-        WhaleMap(FrozenMap<? extends String, ?> m) {
+
+        WhaleMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "className"
+        );
+        public static final Set<String> optionalKeys = Set.of(
+            "hasBaleen",
+            "hasTeeth"
+        );
         public static WhaleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return Whale1.validate(arg, configuration);
+        }
+        
+        public String className() {
+
+            return (String) get("className");
+
+        }
+        
+        public boolean hasBaleen() {
+
+            String key = "hasBaleen";
+            throwIfKeyNotPresent(key);
+            return (boolean) get(key);
+
+        }
+        
+        public boolean hasTeeth() {
+
+            String key = "hasTeeth";
+            throwIfKeyNotPresent(key);
+            return (boolean) get(key);
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -61,10 +99,12 @@ public class Whale {
                 "className"
             )))
         ));
-        protected static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new WhaleMap(arg);
         }
         public static WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(Whale1.class, arg, configuration);
         }
     }

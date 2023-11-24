@@ -17,11 +17,31 @@ public class ObjectWithInvalidNamedRefedProperties {
     
     
     public static class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<String, Object> {
-        ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of(
+            "!reference",
+            "from"
+        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ObjectWithInvalidNamedRefedPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return ObjectWithInvalidNamedRefedProperties1.validate(arg, configuration);
+        }
+        
+        public FromSchema.FromSchemaMap from() {
+
+            return (FromSchema.FromSchemaMap) get("from");
+
+        }
+        
+        public Object getAdditionalProperty(String name) {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
+            throwIfKeyNotPresent(name);
+            return get(name);
         }
     }    
     
@@ -43,10 +63,12 @@ public class ObjectWithInvalidNamedRefedProperties {
                 "from"
             )))
         ));
-        protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
         public static ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(ObjectWithInvalidNamedRefedProperties1.class, arg, configuration);
         }
     }

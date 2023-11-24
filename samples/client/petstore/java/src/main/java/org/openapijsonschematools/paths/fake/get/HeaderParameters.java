@@ -25,11 +25,35 @@ public class HeaderParameters {
     
     
     public static class HeaderParametersMap extends FrozenMap<String, Object> {
-        HeaderParametersMap(FrozenMap<? extends String, ?> m) {
+
+        HeaderParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of(
+            "enum_header_string",
+            "enum_header_string_array"
+        );
         public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return HeaderParameters1.validate(arg, configuration);
+        }
+        
+        public String enum_header_string() {
+
+            String key = "enum_header_string";
+            throwIfKeyNotPresent(key);
+            return (String) get(key);
+
+        }
+        
+        public Schema0.SchemaList0 enum_header_string_array() {
+
+            String key = "enum_header_string_array";
+            throwIfKeyNotPresent(key);
+            return (Schema0.SchemaList0) get(key);
+
         }
     }    
     
@@ -42,10 +66,12 @@ public class HeaderParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }
     }
