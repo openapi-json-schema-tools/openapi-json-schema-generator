@@ -29,7 +29,9 @@ public class CookieParameters {
     
     public static class CookieParametersMap extends FrozenMap<String, Object> {
 
+
         CookieParametersMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -37,6 +39,39 @@ public class CookieParameters {
 
             return CookieParameters1.validate(arg, configuration);
         }
+        
+        public String aB() {
+
+            val = self.get("aB", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String Ab() {
+
+            val = self.get("Ab", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String self() {
+
+            val = self.get("self", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
     }    
     
     public class CookieParameters1 extends JsonSchema {
@@ -52,6 +87,7 @@ public class CookieParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static CookieParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new CookieParametersMap(arg);
         }

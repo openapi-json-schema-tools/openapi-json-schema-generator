@@ -17,7 +17,9 @@ public class ArrayOfEnums {
     
     public static class ArrayOfEnumsList extends FrozenList<String> {
 
+
         ArrayOfEnumsList(FrozenList<String> m) {
+
 
             super(m);
         }
@@ -40,6 +42,7 @@ public class ArrayOfEnums {
             new KeywordEntry("items", new ItemsValidator(StringEnum.StringEnum1.class))
         ));
         protected static ArrayOfEnumsList getListOutputInstance(FrozenList<String> arg) {
+
 
             return new ArrayOfEnumsList(arg);
         }

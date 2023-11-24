@@ -21,7 +21,9 @@ public class ReqPropsFromExplicitAddProps {
     
     public static class ReqPropsFromExplicitAddPropsMap extends FrozenMap<String, String> {
 
+
         ReqPropsFromExplicitAddPropsMap(FrozenMap<String, String> m) {
+
 
             super(m);
         }
@@ -29,6 +31,22 @@ public class ReqPropsFromExplicitAddProps {
 
             return ReqPropsFromExplicitAddProps1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return self.__getitem__("validName")
+        
+        public String getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
     }    
     
     public class ReqPropsFromExplicitAddProps1 extends JsonSchema {
@@ -47,6 +65,7 @@ public class ReqPropsFromExplicitAddProps {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
 
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }

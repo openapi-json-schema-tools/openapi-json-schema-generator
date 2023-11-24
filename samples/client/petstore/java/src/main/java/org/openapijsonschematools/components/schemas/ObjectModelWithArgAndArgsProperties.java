@@ -25,7 +25,9 @@ public class ObjectModelWithArgAndArgsProperties {
     
     public static class ObjectModelWithArgAndArgsPropertiesMap extends FrozenMap<String, Object> {
 
+
         ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -33,6 +35,26 @@ public class ObjectModelWithArgAndArgsProperties {
 
             return ObjectModelWithArgAndArgsProperties1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("arg")
+            )
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("args")
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ObjectModelWithArgAndArgsProperties1 extends JsonSchema {
@@ -54,6 +76,7 @@ public class ObjectModelWithArgAndArgsProperties {
             )))
         ));
         protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }

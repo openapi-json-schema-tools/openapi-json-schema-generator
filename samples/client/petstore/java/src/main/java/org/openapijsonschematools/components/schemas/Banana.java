@@ -22,7 +22,9 @@ public class Banana {
     
     public static class BananaMap extends FrozenMap<String, Object> {
 
+
         BananaMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -30,6 +32,18 @@ public class Banana {
 
             return Banana1.validate(arg, configuration);
         }
+        
+        public Number:
+
+            return typing.cast(
+                Number,
+
+                self.__getitem__("lengthCm")
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Banana1 extends JsonSchema {
@@ -49,6 +63,7 @@ public class Banana {
             )))
         ));
         protected static BananaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new BananaMap(arg);
         }

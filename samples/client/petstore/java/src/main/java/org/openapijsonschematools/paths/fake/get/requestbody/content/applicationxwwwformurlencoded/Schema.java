@@ -31,7 +31,9 @@ public class Schema {
     
     public static class EnumFormStringArrayList extends FrozenList<String> {
 
+
         EnumFormStringArrayList(FrozenList<String> m) {
+
 
             super(m);
         }
@@ -48,6 +50,7 @@ public class Schema {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static EnumFormStringArrayList getListOutputInstance(FrozenList<String> arg) {
+
 
             return new EnumFormStringArrayList(arg);
         }
@@ -70,7 +73,9 @@ public class Schema {
     
     public static class SchemaMap extends FrozenMap<String, Object> {
 
+
         SchemaMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -78,6 +83,32 @@ public class Schema {
 
             return Schema1.validate(arg, configuration);
         }
+        
+        public EnumFormStringArrayList:
+
+            val = self.get("enum_form_string_array", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                EnumFormStringArrayList,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("enum_form_string", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Schema1 extends JsonSchema {
@@ -89,6 +120,7 @@ public class Schema {
             )))
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new SchemaMap(arg);
         }

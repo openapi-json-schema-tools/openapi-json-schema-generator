@@ -21,7 +21,9 @@ public class Schema0 {
     
     public static class SchemaMap0 extends FrozenMap<String, Object> {
 
+
         SchemaMap0(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -29,6 +31,21 @@ public class Schema0 {
 
             return Schema01.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("keyword", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Schema01 extends JsonSchema {
@@ -39,6 +56,7 @@ public class Schema0 {
             )))
         ));
         protected static SchemaMap0 getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new SchemaMap0(arg);
         }

@@ -21,7 +21,9 @@ public class Drawing {
     
     public static class ShapesList extends FrozenList<Object> {
 
+
         ShapesList(FrozenList<Object> m) {
+
 
             super(m);
         }
@@ -39,6 +41,7 @@ public class Drawing {
         ));
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
 
+
             return new ShapesList(arg);
         }
         public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -49,7 +52,9 @@ public class Drawing {
     
     public static class DrawingMap extends FrozenMap<String, Object> {
 
+
         DrawingMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -57,6 +62,62 @@ public class Drawing {
 
             return Drawing1.validate(arg, configuration);
         }
+        
+        public Object mainShape() {
+
+            val = self.get("mainShape", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Object,
+
+                val
+            )
+        
+        public Object shapeOrNull() {
+
+            val = self.get("shapeOrNull", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Object,
+
+                val
+            )
+        
+        public Object nullableShape() {
+
+            val = self.get("nullableShape", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Object,
+
+                val
+            )
+        
+        public ShapesList:
+
+            val = self.get("shapes", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ShapesList,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {}
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Object,
+
+                val
+            )
     }    
     
     public class Drawing1 extends JsonSchema {
@@ -77,6 +138,7 @@ public class Drawing {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
         ));
         protected static DrawingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new DrawingMap(arg);
         }

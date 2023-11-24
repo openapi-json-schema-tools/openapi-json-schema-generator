@@ -17,7 +17,9 @@ public class SelfReferencingArrayModel {
     
     public static class SelfReferencingArrayModelList extends FrozenList<SelfReferencingArrayModelList> {
 
+
         SelfReferencingArrayModelList(FrozenList<SelfReferencingArrayModelList> m) {
+
 
             super(m);
         }
@@ -40,6 +42,7 @@ public class SelfReferencingArrayModel {
             new KeywordEntry("items", new ItemsValidator(SelfReferencingArrayModel1.class))
         ));
         protected static SelfReferencingArrayModelList getListOutputInstance(FrozenList<SelfReferencingArrayModelList> arg) {
+
 
             return new SelfReferencingArrayModelList(arg);
         }

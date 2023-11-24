@@ -33,7 +33,9 @@ public class AppleReq {
     
     public static class AppleReqMap extends FrozenMap<String, Object> {
 
+
         AppleReqMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -41,6 +43,25 @@ public class AppleReq {
 
             return AppleReq1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("cultivar")
+            )
+        
+        public boolean:
+
+            val = self.get("mealy", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                boolean,
+
+                val
+            )
     }    
     
     public class AppleReq1 extends JsonSchema {
@@ -62,6 +83,7 @@ public class AppleReq {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static AppleReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new AppleReqMap(arg);
         }

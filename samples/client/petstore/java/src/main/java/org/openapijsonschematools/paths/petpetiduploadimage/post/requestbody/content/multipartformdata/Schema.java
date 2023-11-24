@@ -26,7 +26,9 @@ public class Schema {
     
     public static class SchemaMap extends FrozenMap<String, Object> {
 
+
         SchemaMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -34,6 +36,32 @@ public class Schema {
 
             return Schema1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("additionalMetadata", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("file", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Schema1 extends JsonSchema {
@@ -45,6 +73,7 @@ public class Schema {
             )))
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new SchemaMap(arg);
         }

@@ -71,7 +71,9 @@ public class JSONPatchRequest {
     
     public static class JSONPatchRequestList extends FrozenList<Object> {
 
+
         JSONPatchRequestList(FrozenList<Object> m) {
+
 
             super(m);
         }
@@ -94,6 +96,7 @@ public class JSONPatchRequest {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static JSONPatchRequestList getListOutputInstance(FrozenList<Object> arg) {
+
 
             return new JSONPatchRequestList(arg);
         }

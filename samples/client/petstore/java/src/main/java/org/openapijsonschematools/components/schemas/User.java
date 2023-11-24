@@ -129,7 +129,9 @@ public class User {
     
     public static class UserMap extends FrozenMap<String, Object> {
 
+
         UserMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -137,6 +139,141 @@ public class User {
 
             return User1.validate(arg, configuration);
         }
+        
+        public long:
+
+            val = self.get("id", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                long,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("username", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("firstName", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("lastName", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("email", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("password", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("phone", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public int:
+
+            val = self.get("userStatus", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                int,
+
+                val
+            )
+        
+        public FrozenMap<String, Object>:
+
+            val = self.get("objectWithNoDeclaredProps", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
+        
+        public FrozenMap<String, Object>:
+
+            val = self.get("objectWithNoDeclaredPropsNullable", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
+        
+        public Object:
+
+            val = self.get("anyTypeProp", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public Object:
+
+            val = self.get("anyTypeExceptNullProp", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public Object:
+
+            val = self.get("anyTypePropNullable", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class User1 extends JsonSchema {
@@ -165,6 +302,7 @@ public class User {
             )))
         ));
         protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new UserMap(arg);
         }

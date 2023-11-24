@@ -29,7 +29,9 @@ public class BasquePig {
     
     public static class BasquePigMap extends FrozenMap<String, Object> {
 
+
         BasquePigMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -37,6 +39,18 @@ public class BasquePig {
 
             return BasquePig1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("className")
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class BasquePig1 extends JsonSchema {
@@ -56,6 +70,7 @@ public class BasquePig {
             )))
         ));
         protected static BasquePigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new BasquePigMap(arg);
         }

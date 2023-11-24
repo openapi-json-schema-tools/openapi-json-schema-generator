@@ -18,7 +18,9 @@ public class SelfReferencingObjectModel {
     
     public static class SelfReferencingObjectModelMap extends FrozenMap<String, Object> {
 
+
         SelfReferencingObjectModelMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -26,6 +28,29 @@ public class SelfReferencingObjectModel {
 
             return SelfReferencingObjectModel1.validate(arg, configuration);
         }
+        
+        public SelfReferencingObjectModelMap selfRef() {
+
+            val = self.get("selfRef", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                SelfReferencingObjectModelMap,
+
+                val
+            )
+        
+        public SelfReferencingObjectModelMap getAdditionalProperty(String name) {}
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                SelfReferencingObjectModelMap,
+
+                val
+            )
     }    
     
     public class SelfReferencingObjectModel1 extends JsonSchema {
@@ -43,6 +68,7 @@ public class SelfReferencingObjectModel {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(SelfReferencingObjectModel1.class))
         ));
         protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new SelfReferencingObjectModelMap(arg);
         }

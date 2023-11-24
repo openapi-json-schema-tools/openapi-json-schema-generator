@@ -40,7 +40,9 @@ public class Apple {
     
     public static class AppleMap extends FrozenMap<String, Object> {
 
+
         AppleMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -48,6 +50,29 @@ public class Apple {
 
             return Apple1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("cultivar")
+            )
+        
+        public String:
+
+            val = self.get("origin", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Apple1 extends JsonSchema {

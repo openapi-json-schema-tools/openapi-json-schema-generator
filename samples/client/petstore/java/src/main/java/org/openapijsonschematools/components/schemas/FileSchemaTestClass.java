@@ -20,7 +20,9 @@ public class FileSchemaTestClass {
     
     public static class FilesList extends FrozenList<File.FileMap> {
 
+
         FilesList(FrozenList<File.FileMap> m) {
+
 
             super(m);
         }
@@ -39,6 +41,7 @@ public class FileSchemaTestClass {
         ));
         protected static FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
 
+
             return new FilesList(arg);
         }
         public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -50,7 +53,9 @@ public class FileSchemaTestClass {
     
     public static class FileSchemaTestClassMap extends FrozenMap<String, Object> {
 
+
         FileSchemaTestClassMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -58,6 +63,32 @@ public class FileSchemaTestClass {
 
             return FileSchemaTestClass1.validate(arg, configuration);
         }
+        
+        public File.FileMap file() {
+
+            val = self.get("file", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                File.FileMap,
+
+                val
+            )
+        
+        public FilesList:
+
+            val = self.get("files", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FilesList,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class FileSchemaTestClass1 extends JsonSchema {
@@ -75,6 +106,7 @@ public class FileSchemaTestClass {
             )))
         ));
         protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new FileSchemaTestClassMap(arg);
         }

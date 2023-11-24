@@ -33,7 +33,9 @@ public class SimpleQuadrilateral {
     
     public static class Schema1Map extends FrozenMap<String, Object> {
 
+
         Schema1Map(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -41,6 +43,21 @@ public class SimpleQuadrilateral {
 
             return Schema1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("quadrilateralType", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Schema1 extends JsonSchema {
@@ -51,6 +68,7 @@ public class SimpleQuadrilateral {
             )))
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new Schema1Map(arg);
         }

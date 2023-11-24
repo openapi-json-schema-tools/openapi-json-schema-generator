@@ -25,7 +25,9 @@ public class AdditionalPropertiesClass {
     
     public static class MapPropertyMap extends FrozenMap<String, String> {
 
+
         MapPropertyMap(FrozenMap<String, String> m) {
+
 
             super(m);
         }
@@ -33,6 +35,18 @@ public class AdditionalPropertiesClass {
 
             return MapProperty.validate(arg, configuration);
         }
+        
+        public String getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
     }    
     
     public class MapProperty extends JsonSchema {
@@ -41,6 +55,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static MapPropertyMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
 
             return new MapPropertyMap(arg);
         }
@@ -56,7 +71,9 @@ public class AdditionalPropertiesClass {
     
     public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
 
+
         AdditionalPropertiesMap(FrozenMap<String, String> m) {
+
 
             super(m);
         }
@@ -64,6 +81,18 @@ public class AdditionalPropertiesClass {
 
             return AdditionalProperties1.validate(arg, configuration);
         }
+        
+        public String getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
     }    
     
     public class AdditionalProperties1 extends JsonSchema {
@@ -72,6 +101,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
 
             return new AdditionalPropertiesMap(arg);
         }
@@ -84,7 +114,9 @@ public class AdditionalPropertiesClass {
     
     public static class MapOfMapPropertyMap extends FrozenMap<String, AdditionalPropertiesMap> {
 
+
         MapOfMapPropertyMap(FrozenMap<String, AdditionalPropertiesMap> m) {
+
 
             super(m);
         }
@@ -93,6 +125,18 @@ public class AdditionalPropertiesClass {
 
             return MapOfMapProperty.validate(arg, configuration);
         }
+        
+        public AdditionalPropertiesMap getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                AdditionalPropertiesMap,
+
+                val
+            )
     }    
     
     public class MapOfMapProperty extends JsonSchema {
@@ -101,6 +145,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
         protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
+
 
             return new MapOfMapPropertyMap(arg);
         }
@@ -126,7 +171,9 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
 
+
         MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -134,6 +181,18 @@ public class AdditionalPropertiesClass {
 
             return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration);
         }
+        
+        public Object getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Object,
+
+                val
+            )
     }    
     
     public class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema {
@@ -142,6 +201,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
         protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
@@ -185,7 +245,9 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, String> {
 
+
         MapWithUndeclaredPropertiesStringMap(FrozenMap<String, String> m) {
+
 
             super(m);
         }
@@ -193,6 +255,18 @@ public class AdditionalPropertiesClass {
 
             return MapWithUndeclaredPropertiesString.validate(arg, configuration);
         }
+        
+        public String getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
     }    
     
     public class MapWithUndeclaredPropertiesString extends JsonSchema {
@@ -201,6 +275,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
         ));
         protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
 
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
@@ -213,7 +288,9 @@ public class AdditionalPropertiesClass {
     
     public static class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
 
+
         AdditionalPropertiesClassMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -221,6 +298,94 @@ public class AdditionalPropertiesClass {
 
             return AdditionalPropertiesClass1.validate(arg, configuration);
         }
+        
+        public MapPropertyMap:
+
+            val = self.get("map_property", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                MapPropertyMap,
+
+                val
+            )
+        
+        public MapOfMapPropertyMap:
+
+            val = self.get("map_of_map_property", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                MapOfMapPropertyMap,
+
+                val
+            )
+        
+        public Object:
+
+            val = self.get("anytype_1", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public FrozenMap<String, Object>:
+
+            val = self.get("map_with_undeclared_properties_anytype_1", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
+        
+        public FrozenMap<String, Object>:
+
+            val = self.get("map_with_undeclared_properties_anytype_2", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
+        
+        public MapWithUndeclaredPropertiesAnytype3Map:
+
+            val = self.get("map_with_undeclared_properties_anytype_3", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                MapWithUndeclaredPropertiesAnytype3Map,
+
+                val
+            )
+        
+        public EmptyMapMap:
+
+            val = self.get("empty_map", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                EmptyMapMap,
+
+                val
+            )
+        
+        public MapWithUndeclaredPropertiesStringMap:
+
+            val = self.get("map_with_undeclared_properties_string", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                MapWithUndeclaredPropertiesStringMap,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class AdditionalPropertiesClass1 extends JsonSchema {
@@ -244,6 +409,7 @@ public class AdditionalPropertiesClass {
             )))
         ));
         protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new AdditionalPropertiesClassMap(arg);
         }

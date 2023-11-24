@@ -1,22 +1,21 @@
 {{#if required}}
+String key = "{{{@key.original}}}";
     {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
-return self.__getitem__("{{{@key.original}}}")
+return get(key);
     {{else}}
-return typing.cast(
-    {{> components/schemas/types/schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
-    self.__getitem__("{{{@key.original}}}")
-)
+return {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=" get(key);" }}
     {{/and}}
 {{else}}
+String key = "{{{@key.original}}}";
+if (!containsKey(key) {
+    throw new RuntimeException("{{{@key.original}}} is unset");
+}
+return get(key);
 val = self.get("{{{@key.original}}}", schemas.unset)
-if isinstance(val, schemas.Unset):
-    return val
     {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
-return val
+return get(key);
     {{else}}
-return typing.cast(
-    {{> components/schemas/types/schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
-    val
-)
+return {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=" get(key);" }}
     {{/and}}
 {{/if}}
+}

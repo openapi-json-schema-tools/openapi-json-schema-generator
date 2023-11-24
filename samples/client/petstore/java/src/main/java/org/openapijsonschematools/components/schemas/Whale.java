@@ -36,7 +36,9 @@ public class Whale {
     
     public static class WhaleMap extends FrozenMap<String, Object> {
 
+
         WhaleMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -44,6 +46,40 @@ public class Whale {
 
             return Whale1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("className")
+            )
+        
+        public boolean:
+
+            val = self.get("hasBaleen", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                boolean,
+
+                val
+            )
+        
+        public boolean:
+
+            val = self.get("hasTeeth", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                boolean,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Whale1 extends JsonSchema {
@@ -65,6 +101,7 @@ public class Whale {
             )))
         ));
         protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new WhaleMap(arg);
         }

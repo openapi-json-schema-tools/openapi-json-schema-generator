@@ -17,7 +17,9 @@ public class ObjectModelWithRefProps {
     
     public static class ObjectModelWithRefPropsMap extends FrozenMap<String, Object> {
 
+
         ObjectModelWithRefPropsMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -25,6 +27,43 @@ public class ObjectModelWithRefProps {
 
             return ObjectModelWithRefProps1.validate(arg, configuration);
         }
+        
+        public Number myNumber() {
+
+            val = self.get("myNumber", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Number,
+
+                val
+            )
+        
+        public String myString() {
+
+            val = self.get("myString", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public boolean myBoolean() {
+
+            val = self.get("myBoolean", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                boolean,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ObjectModelWithRefProps1 extends JsonSchema {
@@ -45,6 +84,7 @@ public class ObjectModelWithRefProps {
             )))
         ));
         protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ObjectModelWithRefPropsMap(arg);
         }

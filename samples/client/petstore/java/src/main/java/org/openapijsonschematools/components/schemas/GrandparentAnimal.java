@@ -22,7 +22,9 @@ public class GrandparentAnimal {
     
     public static class GrandparentAnimalMap extends FrozenMap<String, Object> {
 
+
         GrandparentAnimalMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -30,6 +32,18 @@ public class GrandparentAnimal {
 
             return GrandparentAnimal1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("pet_type")
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class GrandparentAnimal1 extends JsonSchema {
@@ -49,6 +63,7 @@ public class GrandparentAnimal {
             )))
         ));
         protected static GrandparentAnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new GrandparentAnimalMap(arg);
         }

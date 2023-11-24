@@ -32,7 +32,9 @@ public class NoAdditionalProperties {
     
     public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long> {
 
+
         NoAdditionalPropertiesMap(FrozenMap<String, Long> m) {
+
 
             super(m);
         }
@@ -40,6 +42,17 @@ public class NoAdditionalProperties {
 
             return NoAdditionalProperties1.validate(arg, configuration);
         }
+        
+        public long:
+
+            return self.__getitem__("id")
+        
+        public long:
+
+            val = self.get("petId", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
     }    
     
     public class NoAdditionalProperties1 extends JsonSchema {
@@ -61,6 +74,7 @@ public class NoAdditionalProperties {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long> arg) {
+
 
             return new NoAdditionalPropertiesMap(arg);
         }

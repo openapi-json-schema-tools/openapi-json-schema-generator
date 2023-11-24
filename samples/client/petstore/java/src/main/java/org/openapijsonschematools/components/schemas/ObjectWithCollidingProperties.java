@@ -24,7 +24,9 @@ public class ObjectWithCollidingProperties {
     
     public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {
 
+
         ObjectWithCollidingPropertiesMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -32,6 +34,32 @@ public class ObjectWithCollidingProperties {
 
             return ObjectWithCollidingProperties1.validate(arg, configuration);
         }
+        
+        public FrozenMap<String, Object>:
+
+            val = self.get("someProp", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
+        
+        public FrozenMap<String, Object>:
+
+            val = self.get("someprop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ObjectWithCollidingProperties1 extends JsonSchema {
@@ -51,6 +79,7 @@ public class ObjectWithCollidingProperties {
             )))
         ));
         protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ObjectWithCollidingPropertiesMap(arg);
         }

@@ -47,7 +47,9 @@ public class Order {
     
     public static class OrderMap extends FrozenMap<String, Object> {
 
+
         OrderMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -55,6 +57,76 @@ public class Order {
 
             return Order1.validate(arg, configuration);
         }
+        
+        public long:
+
+            val = self.get("id", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                long,
+
+                val
+            )
+        
+        public long:
+
+            val = self.get("petId", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                long,
+
+                val
+            )
+        
+        public int:
+
+            val = self.get("quantity", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                int,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("shipDate", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("status", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public boolean:
+
+            val = self.get("complete", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                boolean,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Order1 extends JsonSchema {
@@ -76,6 +148,7 @@ public class Order {
             )))
         ));
         protected static OrderMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new OrderMap(arg);
         }

@@ -20,7 +20,9 @@ public class Address {
     
     public static class AddressMap extends FrozenMap<String, Long> {
 
+
         AddressMap(FrozenMap<String, Long> m) {
+
 
             super(m);
         }
@@ -28,6 +30,18 @@ public class Address {
 
             return Address1.validate(arg, configuration);
         }
+        
+        public long getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                long,
+
+                val
+            )
     }    
     
     public class Address1 extends JsonSchema {
@@ -42,6 +56,7 @@ public class Address {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static AddressMap getMapOutputInstance(FrozenMap<String, Long> arg) {
+
 
             return new AddressMap(arg);
         }

@@ -28,7 +28,9 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
 
+
         QueryParametersMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -36,6 +38,50 @@ public class QueryParameters {
 
             return QueryParameters1.validate(arg, configuration);
         }
+        
+        public double enum_query_double() {
+
+            val = self.get("enum_query_double", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                double,
+
+                val
+            )
+        
+        public String enum_query_string() {
+
+            val = self.get("enum_query_string", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public int enum_query_integer() {
+
+            val = self.get("enum_query_integer", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                int,
+
+                val
+            )
+        
+        public Schema2.SchemaList2 enum_query_string_array() {
+
+            val = self.get("enum_query_string_array", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Schema2.SchemaList2,
+
+                val
+            )
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -50,6 +96,7 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new QueryParametersMap(arg);
         }

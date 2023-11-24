@@ -25,13 +25,27 @@ public class Headers {
     
     public static class HeadersMap extends FrozenMap<String, String> {
 
+
         HeadersMap(FrozenMap<String, String> m) {
+
 
             super(m);
         }
         public static HeadersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return Headers1.validate(arg, configuration);
+        }
+        
+        public String someHeader() {
+            if (!containsKey("someHeader")) {
+                throw new RuntimeException("someHeader is unset");
+            }
+            get
+
+            val = self.get("someHeader", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
         }
     }    
     
@@ -44,6 +58,7 @@ public class Headers {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeadersMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
 
             return new HeadersMap(arg);
         }

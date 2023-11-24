@@ -22,7 +22,9 @@ public class Items {
     
     public static class ItemsList extends FrozenList<FrozenMap<String, Object>> {
 
+
         ItemsList(FrozenList<FrozenMap<String, Object>> m) {
+
 
             super(m);
         }
@@ -48,6 +50,7 @@ public class Items {
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
         protected static ItemsList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
+
 
             return new ItemsList(arg);
         }

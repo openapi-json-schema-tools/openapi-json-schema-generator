@@ -32,7 +32,9 @@ public class Pet {
     
     public static class PhotoUrlsList extends FrozenList<String> {
 
+
         PhotoUrlsList(FrozenList<String> m) {
+
 
             super(m);
         }
@@ -49,6 +51,7 @@ public class Pet {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
+
 
             return new PhotoUrlsList(arg);
         }
@@ -71,7 +74,9 @@ public class Pet {
     
     public static class TagsList extends FrozenList<Tag.TagMap> {
 
+
         TagsList(FrozenList<Tag.TagMap> m) {
+
 
             super(m);
         }
@@ -90,6 +95,7 @@ public class Pet {
         ));
         protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
 
+
             return new TagsList(arg);
         }
         public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -101,7 +107,9 @@ public class Pet {
     
     public static class PetMap extends FrozenMap<String, Object> {
 
+
         PetMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -109,6 +117,70 @@ public class Pet {
 
             return Pet1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("name")
+            )
+        
+        public PhotoUrlsList:
+
+            return typing.cast(
+                PhotoUrlsList,
+
+                self.__getitem__("photoUrls")
+            )
+        
+        public long:
+
+            val = self.get("id", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                long,
+
+                val
+            )
+        
+        public Category.CategoryMap category() {
+
+            val = self.get("category", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Category.CategoryMap,
+
+                val
+            )
+        
+        public TagsList:
+
+            val = self.get("tags", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                TagsList,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("status", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Pet1 extends JsonSchema {
@@ -136,6 +208,7 @@ public class Pet {
             )))
         ));
         protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new PetMap(arg);
         }

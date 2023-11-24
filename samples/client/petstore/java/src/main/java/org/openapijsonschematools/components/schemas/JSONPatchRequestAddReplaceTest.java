@@ -43,7 +43,9 @@ public class JSONPatchRequestAddReplaceTest {
     
     public static class JSONPatchRequestAddReplaceTestMap extends FrozenMap<String, Object> {
 
+
         JSONPatchRequestAddReplaceTestMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -51,6 +53,26 @@ public class JSONPatchRequestAddReplaceTest {
 
             return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("op")
+            )
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("path")
+            )
+        
+        public Object:
+
+            return self.__getitem__("value")
     }    
     
     public class JSONPatchRequestAddReplaceTest1 extends JsonSchema {
@@ -75,6 +97,7 @@ public class JSONPatchRequestAddReplaceTest {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }

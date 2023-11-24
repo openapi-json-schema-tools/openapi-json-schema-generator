@@ -24,7 +24,9 @@ public class ArrayOfNumberOnly {
     
     public static class ArrayNumberList extends FrozenList<Number> {
 
+
         ArrayNumberList(FrozenList<Number> m) {
+
 
             super(m);
         }
@@ -42,6 +44,7 @@ public class ArrayOfNumberOnly {
         ));
         protected static ArrayNumberList getListOutputInstance(FrozenList<Number> arg) {
 
+
             return new ArrayNumberList(arg);
         }
         public static ArrayNumberList validate(List<Number> arg, SchemaConfiguration configuration) {
@@ -52,7 +55,9 @@ public class ArrayOfNumberOnly {
     
     public static class ArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
 
+
         ArrayOfNumberOnlyMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -60,6 +65,21 @@ public class ArrayOfNumberOnly {
 
             return ArrayOfNumberOnly1.validate(arg, configuration);
         }
+        
+        public ArrayNumberList:
+
+            val = self.get("ArrayNumber", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayNumberList,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ArrayOfNumberOnly1 extends JsonSchema {
@@ -76,6 +96,7 @@ public class ArrayOfNumberOnly {
             )))
         ));
         protected static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ArrayOfNumberOnlyMap(arg);
         }

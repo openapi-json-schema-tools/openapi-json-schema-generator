@@ -24,7 +24,9 @@ public class ReadOnlyFirst {
     
     public static class ReadOnlyFirstMap extends FrozenMap<String, Object> {
 
+
         ReadOnlyFirstMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -32,6 +34,32 @@ public class ReadOnlyFirst {
 
             return ReadOnlyFirst1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("bar", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("baz", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ReadOnlyFirst1 extends JsonSchema {
@@ -49,6 +77,7 @@ public class ReadOnlyFirst {
             )))
         ));
         protected static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ReadOnlyFirstMap(arg);
         }

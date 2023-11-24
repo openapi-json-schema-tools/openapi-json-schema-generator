@@ -500,7 +500,9 @@ public class AnyTypeAndFormat {
     
     public static class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
 
+
         AnyTypeAndFormatMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -508,6 +510,38 @@ public class AnyTypeAndFormat {
 
             return AnyTypeAndFormat1.validate(arg, configuration);
         }
+        
+        public Object:
+
+            val = self.get("date", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public Object:
+
+            val = self.get("binary", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public Object:
+
+            val = self.get("int32", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public Object:
+
+            val = self.get("int64", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class AnyTypeAndFormat1 extends JsonSchema {
@@ -532,6 +566,7 @@ public class AnyTypeAndFormat {
             )))
         ));
         protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new AnyTypeAndFormatMap(arg);
         }

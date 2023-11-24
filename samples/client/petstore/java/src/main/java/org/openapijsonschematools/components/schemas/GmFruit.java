@@ -24,7 +24,9 @@ public class GmFruit {
     
     public static class GmFruitMap extends FrozenMap<String, Object> {
 
+
         GmFruitMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -32,6 +34,21 @@ public class GmFruit {
 
             return GmFruit1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("color", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class GmFruit1 extends JsonSchema {

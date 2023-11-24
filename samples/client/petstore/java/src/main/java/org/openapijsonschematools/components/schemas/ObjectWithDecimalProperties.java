@@ -21,7 +21,9 @@ public class ObjectWithDecimalProperties {
     
     public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {
 
+
         ObjectWithDecimalPropertiesMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -29,6 +31,43 @@ public class ObjectWithDecimalProperties {
 
             return ObjectWithDecimalProperties1.validate(arg, configuration);
         }
+        
+        public String length() {
+
+            val = self.get("length", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("width", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Money.MoneyMap cost() {
+
+            val = self.get("cost", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Money.MoneyMap,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ObjectWithDecimalProperties1 extends JsonSchema {
@@ -47,6 +86,7 @@ public class ObjectWithDecimalProperties {
             )))
         ));
         protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ObjectWithDecimalPropertiesMap(arg);
         }

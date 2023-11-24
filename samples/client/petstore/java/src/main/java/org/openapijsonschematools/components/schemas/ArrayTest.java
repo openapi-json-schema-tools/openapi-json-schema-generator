@@ -25,7 +25,9 @@ public class ArrayTest {
     
     public static class ArrayOfStringList extends FrozenList<String> {
 
+
         ArrayOfStringList(FrozenList<String> m) {
+
 
             super(m);
         }
@@ -43,6 +45,7 @@ public class ArrayTest {
         ));
         protected static ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
 
+
             return new ArrayOfStringList(arg);
         }
         public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) {
@@ -56,7 +59,9 @@ public class ArrayTest {
     
     public static class ItemsList extends FrozenList<Long> {
 
+
         ItemsList(FrozenList<Long> m) {
+
 
             super(m);
         }
@@ -74,6 +79,7 @@ public class ArrayTest {
         ));
         protected static ItemsList getListOutputInstance(FrozenList<Long> arg) {
 
+
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
@@ -84,7 +90,9 @@ public class ArrayTest {
     
     public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList> {
 
+
         ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
+
 
             super(m);
         }
@@ -103,6 +111,7 @@ public class ArrayTest {
         ));
         protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
 
+
             return new ArrayArrayOfIntegerList(arg);
         }
         public static ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) {
@@ -114,7 +123,9 @@ public class ArrayTest {
     
     public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> {
 
+
         ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
+
 
             super(m);
         }
@@ -133,6 +144,7 @@ public class ArrayTest {
         ));
         protected static ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
 
+
             return new ItemsList1(arg);
         }
         public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -144,7 +156,9 @@ public class ArrayTest {
     
     public static class ArrayArrayOfModelList extends FrozenList<ItemsList1> {
 
+
         ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
+
 
             super(m);
         }
@@ -164,6 +178,7 @@ public class ArrayTest {
         ));
         protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
 
+
             return new ArrayArrayOfModelList(arg);
         }
         public static ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
@@ -176,7 +191,9 @@ public class ArrayTest {
     
     public static class ArrayTestMap extends FrozenMap<String, Object> {
 
+
         ArrayTestMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -184,6 +201,43 @@ public class ArrayTest {
 
             return ArrayTest1.validate(arg, configuration);
         }
+        
+        public ArrayOfStringList:
+
+            val = self.get("array_of_string", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayOfStringList,
+
+                val
+            )
+        
+        public ArrayArrayOfIntegerList:
+
+            val = self.get("array_array_of_integer", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayArrayOfIntegerList,
+
+                val
+            )
+        
+        public ArrayArrayOfModelList:
+
+            val = self.get("array_array_of_model", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayArrayOfModelList,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ArrayTest1 extends JsonSchema {
@@ -202,6 +256,7 @@ public class ArrayTest {
             )))
         ));
         protected static ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ArrayTestMap(arg);
         }

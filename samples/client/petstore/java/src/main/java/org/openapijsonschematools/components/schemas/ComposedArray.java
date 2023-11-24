@@ -21,7 +21,9 @@ public class ComposedArray {
     
     public static class ComposedArrayList extends FrozenList<Object> {
 
+
         ComposedArrayList(FrozenList<Object> m) {
+
 
             super(m);
         }
@@ -44,6 +46,7 @@ public class ComposedArray {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
+
 
             return new ComposedArrayList(arg);
         }

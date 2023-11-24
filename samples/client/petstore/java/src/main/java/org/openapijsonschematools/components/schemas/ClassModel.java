@@ -24,7 +24,9 @@ public class ClassModel {
     
     public static class ClassModelMap extends FrozenMap<String, Object> {
 
+
         ClassModelMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -32,6 +34,10 @@ public class ClassModel {
 
             return ClassModel1.validate(arg, configuration);
         }
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class ClassModel1 extends JsonSchema {

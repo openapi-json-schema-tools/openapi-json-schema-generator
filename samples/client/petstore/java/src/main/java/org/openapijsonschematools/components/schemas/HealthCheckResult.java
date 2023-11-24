@@ -32,7 +32,9 @@ public class HealthCheckResult {
     
     public static class HealthCheckResultMap extends FrozenMap<String, Object> {
 
+
         HealthCheckResultMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -40,6 +42,21 @@ public class HealthCheckResult {
 
             return HealthCheckResult1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("NullableMessage", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class HealthCheckResult1 extends JsonSchema {
@@ -58,6 +75,7 @@ public class HealthCheckResult {
             )))
         ));
         protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new HealthCheckResultMap(arg);
         }

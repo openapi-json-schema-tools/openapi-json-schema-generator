@@ -20,7 +20,9 @@ public class Schema {
     
     public static class SchemaMap extends FrozenMap<String, String> {
 
+
         SchemaMap(FrozenMap<String, String> m) {
+
 
             super(m);
         }
@@ -28,6 +30,18 @@ public class Schema {
 
             return Schema1.validate(arg, configuration);
         }
+        
+        public String getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
     }    
     
     public class Schema1 extends JsonSchema {
@@ -36,6 +50,7 @@ public class Schema {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
 
             return new SchemaMap(arg);
         }

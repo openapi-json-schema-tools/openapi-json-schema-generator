@@ -21,7 +21,9 @@ public class Schema3 {
     
     public static class SchemaList3 extends FrozenList<String> {
 
+
         SchemaList3(FrozenList<String> m) {
+
 
             super(m);
         }
@@ -38,6 +40,7 @@ public class Schema3 {
             new KeywordEntry("items", new ItemsValidator(Items3.class))
         ));
         protected static SchemaList3 getListOutputInstance(FrozenList<String> arg) {
+
 
             return new SchemaList3(arg);
         }

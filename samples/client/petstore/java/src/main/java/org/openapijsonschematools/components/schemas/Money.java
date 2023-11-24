@@ -29,7 +29,9 @@ public class Money {
     
     public static class MoneyMap extends FrozenMap<String, Object> {
 
+
         MoneyMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -37,6 +39,22 @@ public class Money {
 
             return Money1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("amount")
+            )
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("currency")
+            )
     }    
     
     public class Money1 extends JsonSchema {
@@ -59,6 +77,7 @@ public class Money {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static MoneyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new MoneyMap(arg);
         }

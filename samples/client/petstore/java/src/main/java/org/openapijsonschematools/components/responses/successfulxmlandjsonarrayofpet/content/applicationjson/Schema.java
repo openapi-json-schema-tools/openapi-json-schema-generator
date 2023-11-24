@@ -19,7 +19,9 @@ public class Schema {
     
     public static class SchemaList extends FrozenList<Pet.PetMap> {
 
+
         SchemaList(FrozenList<Pet.PetMap> m) {
+
 
             super(m);
         }
@@ -37,6 +39,7 @@ public class Schema {
             new KeywordEntry("items", new ItemsValidator(RefPet.RefPet1.class))
         ));
         protected static SchemaList getListOutputInstance(FrozenList<Pet.PetMap> arg) {
+
 
             return new SchemaList(arg);
         }

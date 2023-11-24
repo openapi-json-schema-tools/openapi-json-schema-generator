@@ -165,7 +165,9 @@ public class NullableClass {
     
     public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
 
+
         ArrayNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
+
 
             super(m);
         }
@@ -212,7 +214,9 @@ public class NullableClass {
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<String, Object>> {
 
+
         ArrayAndItemsNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
+
 
             super(m);
         }
@@ -259,7 +263,9 @@ public class NullableClass {
     
     public static class ArrayItemsNullableList extends FrozenList<FrozenMap<String, Object>> {
 
+
         ArrayItemsNullableList(FrozenList<FrozenMap<String, Object>> m) {
+
 
             super(m);
         }
@@ -278,6 +284,7 @@ public class NullableClass {
         ));
         protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
 
+
             return new ArrayItemsNullableList(arg);
         }
         public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -292,7 +299,9 @@ public class NullableClass {
     
     public static class ObjectNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
 
+
         ObjectNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
 
             super(m);
         }
@@ -301,6 +310,18 @@ public class NullableClass {
 
             return ObjectNullableProp.validate(arg, configuration);
         }
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
     }    
     
     public class ObjectNullableProp extends JsonSchema {
@@ -338,7 +359,9 @@ public class NullableClass {
     
     public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
 
+
         ObjectAndItemsNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
 
             super(m);
         }
@@ -347,6 +370,18 @@ public class NullableClass {
 
             return ObjectAndItemsNullableProp.validate(arg, configuration);
         }
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
     }    
     
     public class ObjectAndItemsNullableProp extends JsonSchema {
@@ -384,7 +419,9 @@ public class NullableClass {
     
     public static class ObjectItemsNullableMap extends FrozenMap<String, FrozenMap<String, Object>> {
 
+
         ObjectItemsNullableMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
 
             super(m);
         }
@@ -393,6 +430,18 @@ public class NullableClass {
 
             return ObjectItemsNullable.validate(arg, configuration);
         }
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
     }    
     
     public class ObjectItemsNullable extends JsonSchema {
@@ -401,6 +450,7 @@ public class NullableClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
         protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
+
 
             return new ObjectItemsNullableMap(arg);
         }
@@ -414,7 +464,9 @@ public class NullableClass {
     
     public static class NullableClassMap extends FrozenMap<String, Object> {
 
+
         NullableClassMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -422,6 +474,150 @@ public class NullableClass {
 
             return NullableClass1.validate(arg, configuration);
         }
+        
+        public Long:
+
+            val = self.get("integer_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Long,
+
+                val
+            )
+        
+        public Number:
+
+            val = self.get("number_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Number,
+
+                val
+            )
+        
+        public Boolean:
+
+            val = self.get("boolean_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Boolean,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("string_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("date_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("datetime_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public ArrayNullablePropList:
+
+            val = self.get("array_nullable_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayNullablePropList,
+
+                val
+            )
+        
+        public ArrayAndItemsNullablePropList:
+
+            val = self.get("array_and_items_nullable_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayAndItemsNullablePropList,
+
+                val
+            )
+        
+        public ArrayItemsNullableList:
+
+            val = self.get("array_items_nullable", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayItemsNullableList,
+
+                val
+            )
+        
+        public ObjectNullablePropMap:
+
+            val = self.get("object_nullable_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ObjectNullablePropMap,
+
+                val
+            )
+        
+        public ObjectAndItemsNullablePropMap:
+
+            val = self.get("object_and_items_nullable_prop", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ObjectAndItemsNullablePropMap,
+
+                val
+            )
+        
+        public ObjectItemsNullableMap:
+
+            val = self.get("object_items_nullable", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ObjectItemsNullableMap,
+
+                val
+            )
+        
+        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                FrozenMap<String, Object>,
+
+                val
+            )
     }    
     
     public class NullableClass1 extends JsonSchema {
@@ -450,6 +646,7 @@ public class NullableClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
         protected static NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new NullableClassMap(arg);
         }

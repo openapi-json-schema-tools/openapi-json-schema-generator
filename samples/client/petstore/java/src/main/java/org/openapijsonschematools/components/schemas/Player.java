@@ -21,7 +21,9 @@ public class Player {
     
     public static class PlayerMap extends FrozenMap<String, Object> {
 
+
         PlayerMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -29,6 +31,32 @@ public class Player {
 
             return Player1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("name", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public PlayerMap enemyPlayer() {
+
+            val = self.get("enemyPlayer", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                PlayerMap,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Player1 extends JsonSchema {
@@ -48,6 +76,7 @@ public class Player {
             )))
         ));
         protected static PlayerMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new PlayerMap(arg);
         }

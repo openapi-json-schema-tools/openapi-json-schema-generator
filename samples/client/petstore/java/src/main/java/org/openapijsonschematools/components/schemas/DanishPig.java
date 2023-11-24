@@ -29,7 +29,9 @@ public class DanishPig {
     
     public static class DanishPigMap extends FrozenMap<String, Object> {
 
+
         DanishPigMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -37,6 +39,18 @@ public class DanishPig {
 
             return DanishPig1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("className")
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class DanishPig1 extends JsonSchema {
@@ -56,6 +70,7 @@ public class DanishPig {
             )))
         ));
         protected static DanishPigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new DanishPigMap(arg);
         }

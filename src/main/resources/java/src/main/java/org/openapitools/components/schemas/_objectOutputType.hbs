@@ -29,5 +29,5 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Strin
         return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
     }
         {{/if}}
-    {{!> components/schemas/_object_output_properties }}
+    {{> src/main/java/org/openapitools/components/schemas/_objectOutputProperties }}
 }

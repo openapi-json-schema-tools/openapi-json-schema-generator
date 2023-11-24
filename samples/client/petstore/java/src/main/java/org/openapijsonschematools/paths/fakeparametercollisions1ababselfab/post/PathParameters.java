@@ -30,7 +30,9 @@ public class PathParameters {
     
     public static class PathParametersMap extends FrozenMap<String, Object> {
 
+
         PathParametersMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -38,6 +40,30 @@ public class PathParameters {
 
             return PathParameters1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("Ab")
+            )
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("aB")
+            )
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("self")
+            )
     }    
     
     public class PathParameters1 extends JsonSchema {
@@ -60,6 +86,7 @@ public class PathParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new PathParametersMap(arg);
         }

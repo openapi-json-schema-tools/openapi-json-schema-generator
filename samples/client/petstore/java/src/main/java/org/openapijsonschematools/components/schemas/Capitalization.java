@@ -36,7 +36,9 @@ public class Capitalization {
     
     public static class CapitalizationMap extends FrozenMap<String, Object> {
 
+
         CapitalizationMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -44,6 +46,76 @@ public class Capitalization {
 
             return Capitalization1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("smallCamel", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("CapitalCamel", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("small_Snake", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("Capital_Snake", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("SCA_ETH_Flow_Points", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("ATT_NAME", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class Capitalization1 extends JsonSchema {
@@ -65,6 +137,7 @@ public class Capitalization {
             )))
         ));
         protected static CapitalizationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new CapitalizationMap(arg);
         }

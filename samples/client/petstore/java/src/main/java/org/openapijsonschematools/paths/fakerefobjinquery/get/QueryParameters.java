@@ -25,7 +25,9 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Foo.FooMap> {
 
+
         QueryParametersMap(FrozenMap<String, Foo.FooMap> m) {
+
 
             super(m);
         }
@@ -34,6 +36,13 @@ public class QueryParameters {
 
             return QueryParameters1.validate(arg, configuration);
         }
+        
+        public Foo.FooMap mapBean() {
+
+            val = self.get("mapBean", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return val
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -45,6 +54,7 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Foo.FooMap> arg) {
+
 
             return new QueryParametersMap(arg);
         }

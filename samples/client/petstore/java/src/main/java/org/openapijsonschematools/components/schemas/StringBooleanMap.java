@@ -20,7 +20,9 @@ public class StringBooleanMap {
     
     public static class StringBooleanMapMap extends FrozenMap<String, Boolean> {
 
+
         StringBooleanMapMap(FrozenMap<String, Boolean> m) {
+
 
             super(m);
         }
@@ -28,6 +30,18 @@ public class StringBooleanMap {
 
             return StringBooleanMap1.validate(arg, configuration);
         }
+        
+        public boolean getAdditionalProperty(String name) {
+
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            val = self.get(name, schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                boolean,
+
+                val
+            )
     }    
     
     public class StringBooleanMap1 extends JsonSchema {
@@ -42,6 +56,7 @@ public class StringBooleanMap {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
+
 
             return new StringBooleanMapMap(arg);
         }

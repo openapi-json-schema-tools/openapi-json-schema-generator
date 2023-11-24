@@ -156,7 +156,9 @@ public class FormatTest {
     
     public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
 
+
         ArrayWithUniqueItemsList(FrozenList<Number> m) {
+
 
             super(m);
         }
@@ -173,6 +175,7 @@ public class FormatTest {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
+
 
             return new ArrayWithUniqueItemsList(arg);
         }
@@ -252,7 +255,9 @@ public class FormatTest {
     
     public static class FormatTestMap extends FrozenMap<String, Object> {
 
+
         FormatTestMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -260,6 +265,158 @@ public class FormatTest {
 
             return FormatTest1.validate(arg, configuration);
         }
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("date")
+            )
+        
+        public String:
+
+            return typing.cast(
+                String,
+
+                self.__getitem__("password")
+            )
+        
+        public int:
+
+            val = self.get("int32", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                int,
+
+                val
+            )
+        
+        public int:
+
+            val = self.get("int32withValidations", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                int,
+
+                val
+            )
+        
+        public long:
+
+            val = self.get("int64", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                long,
+
+                val
+            )
+        
+        public float:
+
+            val = self.get("float32", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                float,
+
+                val
+            )
+        
+        public double:
+
+            val = self.get("float64", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                double,
+
+                val
+            )
+        
+        public ArrayWithUniqueItemsList:
+
+            val = self.get("arrayWithUniqueItems", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                ArrayWithUniqueItemsList,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("binary", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("dateTime", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("uuidNoExample", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("pattern_with_digits", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public String:
+
+            val = self.get("pattern_with_digits_and_delimiter", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Void:
+
+            val = self.get("noneProp", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Void,
+
+                val
+            )
+        
+        public Object getAdditionalProperty(String name) {
+            schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
+            return self.get(name, schemas.unset)
     }    
     
     public class FormatTest1 extends JsonSchema {
@@ -302,6 +459,7 @@ public class FormatTest {
             )))
         ));
         protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new FormatTestMap(arg);
         }

@@ -32,7 +32,9 @@ public class ObjectWithOnlyOptionalProps {
     
     public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object> {
 
+
         ObjectWithOnlyOptionalPropsMap(FrozenMap<String, Object> m) {
+
 
             super(m);
         }
@@ -40,6 +42,28 @@ public class ObjectWithOnlyOptionalProps {
 
             return ObjectWithOnlyOptionalProps1.validate(arg, configuration);
         }
+        
+        public String:
+
+            val = self.get("a", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                String,
+
+                val
+            )
+        
+        public Number:
+
+            val = self.get("b", schemas.unset)
+            if isinstance(val, schemas.Unset):
+                return val
+            return typing.cast(
+                Number,
+
+                val
+            )
     }    
     
     public class ObjectWithOnlyOptionalProps1 extends JsonSchema {
@@ -58,6 +82,7 @@ public class ObjectWithOnlyOptionalProps {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
 
             return new ObjectWithOnlyOptionalPropsMap(arg);
         }
