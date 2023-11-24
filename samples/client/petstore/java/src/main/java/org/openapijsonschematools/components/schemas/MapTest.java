@@ -226,9 +226,7 @@ public class MapTest {
         public MapMapOfStringMap map_map_of_string() {
 
             String key = "map_map_of_string";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_map_of_string is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (MapMapOfStringMap) get(key);
 
         }
@@ -236,9 +234,7 @@ public class MapTest {
         public MapOfEnumStringMap map_of_enum_string() {
 
             String key = "map_of_enum_string";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_of_enum_string is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (MapOfEnumStringMap) get(key);
 
         }
@@ -246,9 +242,7 @@ public class MapTest {
         public DirectMapMap direct_map() {
 
             String key = "direct_map";
-            if (!containsKey(key)) {
-                throw new RuntimeException("direct_map is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (DirectMapMap) get(key);
 
         }
@@ -256,9 +250,7 @@ public class MapTest {
         public StringBooleanMap.StringBooleanMapMap indirect_map() {
 
             String key = "indirect_map";
-            if (!containsKey(key)) {
-                throw new RuntimeException("indirect_map is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (StringBooleanMap.StringBooleanMapMap) get(key);
 
         }

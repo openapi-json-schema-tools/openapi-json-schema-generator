@@ -61,9 +61,7 @@ public class QueryParameters {
         public long int64_group() {
 
             String key = "int64_group";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int64_group is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -71,9 +69,7 @@ public class QueryParameters {
         public String string_group() {
 
             String key = "string_group";
-            if (!containsKey(key)) {
-                throw new RuntimeException("string_group is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

@@ -35,9 +35,7 @@ public class ObjectModelWithRefProps {
         public Number myNumber() {
 
             String key = "myNumber";
-            if (!containsKey(key)) {
-                throw new RuntimeException("myNumber is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Number) get(key);
 
         }
@@ -45,9 +43,7 @@ public class ObjectModelWithRefProps {
         public String myString() {
 
             String key = "myString";
-            if (!containsKey(key)) {
-                throw new RuntimeException("myString is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -55,9 +51,7 @@ public class ObjectModelWithRefProps {
         public boolean myBoolean() {
 
             String key = "myBoolean";
-            if (!containsKey(key)) {
-                throw new RuntimeException("myBoolean is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (boolean) get(key);
 
         }

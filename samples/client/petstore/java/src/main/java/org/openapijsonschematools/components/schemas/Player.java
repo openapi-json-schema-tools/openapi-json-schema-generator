@@ -38,9 +38,7 @@ public class Player {
         public String name() {
 
             String key = "name";
-            if (!containsKey(key)) {
-                throw new RuntimeException("name is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -48,9 +46,7 @@ public class Player {
         public PlayerMap enemyPlayer() {
 
             String key = "enemyPlayer";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enemyPlayer is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (PlayerMap) get(key);
 
         }

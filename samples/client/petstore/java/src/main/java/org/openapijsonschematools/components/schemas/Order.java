@@ -68,9 +68,7 @@ public class Order {
         public long id() {
 
             String key = "id";
-            if (!containsKey(key)) {
-                throw new RuntimeException("id is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -78,9 +76,7 @@ public class Order {
         public long petId() {
 
             String key = "petId";
-            if (!containsKey(key)) {
-                throw new RuntimeException("petId is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -88,9 +84,7 @@ public class Order {
         public int quantity() {
 
             String key = "quantity";
-            if (!containsKey(key)) {
-                throw new RuntimeException("quantity is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -98,9 +92,7 @@ public class Order {
         public String shipDate() {
 
             String key = "shipDate";
-            if (!containsKey(key)) {
-                throw new RuntimeException("shipDate is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -108,9 +100,7 @@ public class Order {
         public String status() {
 
             String key = "status";
-            if (!containsKey(key)) {
-                throw new RuntimeException("status is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -118,9 +108,7 @@ public class Order {
         public boolean complete() {
 
             String key = "complete";
-            if (!containsKey(key)) {
-                throw new RuntimeException("complete is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (boolean) get(key);
 
         }

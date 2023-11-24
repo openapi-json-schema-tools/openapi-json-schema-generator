@@ -67,9 +67,7 @@ public class FileSchemaTestClass {
         public File.FileMap file() {
 
             String key = "file";
-            if (!containsKey(key)) {
-                throw new RuntimeException("file is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (File.FileMap) get(key);
 
         }
@@ -77,9 +75,7 @@ public class FileSchemaTestClass {
         public FilesList files() {
 
             String key = "files";
-            if (!containsKey(key)) {
-                throw new RuntimeException("files is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FilesList) get(key);
 
         }

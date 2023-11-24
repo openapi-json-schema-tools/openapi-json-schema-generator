@@ -58,9 +58,7 @@ public class Name {
         public int snake_case() {
 
             String key = "snake_case";
-            if (!containsKey(key)) {
-                throw new RuntimeException("snake_case is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -68,9 +66,7 @@ public class Name {
         public String property() {
 
             String key = "property";
-            if (!containsKey(key)) {
-                throw new RuntimeException("property is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

@@ -42,9 +42,7 @@ public class QueryParameters {
         public Schema0.SchemaMap0 mapBean() {
 
             String key = "mapBean";
-            if (!containsKey(key)) {
-                throw new RuntimeException("mapBean is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
     }    

@@ -15,6 +15,12 @@ public class FrozenMap<K, V> extends LinkedHashMap<K, V> {
         super(m);
     }
 
+    protected void throwIfKeyNotPresent(String key) throws RuntimeException {
+        if (!containsKey(key)) {
+            throw new RuntimeException(key+" is unset");
+        }
+    }
+
     public V put(K key, V value) {
         throw new UnsupportedOperationException();
     }

@@ -41,9 +41,7 @@ public class Headers {
         public String location() {
 
             String key = "location";
-            if (!containsKey(key)) {
-                throw new RuntimeException("location is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
     }    

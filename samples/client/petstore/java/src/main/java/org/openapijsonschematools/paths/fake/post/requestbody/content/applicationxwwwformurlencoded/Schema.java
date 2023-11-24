@@ -231,9 +231,7 @@ public class Schema {
         public int int32() {
 
             String key = "int32";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int32 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -241,9 +239,7 @@ public class Schema {
         public long int64() {
 
             String key = "int64";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int64 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -251,9 +247,7 @@ public class Schema {
         public String binary() {
 
             String key = "binary";
-            if (!containsKey(key)) {
-                throw new RuntimeException("binary is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -261,9 +255,7 @@ public class Schema {
         public String date() {
 
             String key = "date";
-            if (!containsKey(key)) {
-                throw new RuntimeException("date is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -271,9 +263,7 @@ public class Schema {
         public String dateTime() {
 
             String key = "dateTime";
-            if (!containsKey(key)) {
-                throw new RuntimeException("dateTime is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -281,9 +271,7 @@ public class Schema {
         public String password() {
 
             String key = "password";
-            if (!containsKey(key)) {
-                throw new RuntimeException("password is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -291,9 +279,7 @@ public class Schema {
         public String callback() {
 
             String key = "callback";
-            if (!containsKey(key)) {
-                throw new RuntimeException("callback is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

@@ -57,9 +57,7 @@ public class BananaReq {
         public boolean sweet() {
 
             String key = "sweet";
-            if (!containsKey(key)) {
-                throw new RuntimeException("sweet is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (boolean) get(key);
 
         }

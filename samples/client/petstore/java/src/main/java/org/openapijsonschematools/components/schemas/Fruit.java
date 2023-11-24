@@ -40,9 +40,7 @@ public class Fruit {
         public String color() {
 
             String key = "color";
-            if (!containsKey(key)) {
-                throw new RuntimeException("color is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

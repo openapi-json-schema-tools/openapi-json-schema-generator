@@ -51,9 +51,7 @@ public class HeaderParameters {
         public String boolean_group() {
 
             String key = "boolean_group";
-            if (!containsKey(key)) {
-                throw new RuntimeException("boolean_group is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

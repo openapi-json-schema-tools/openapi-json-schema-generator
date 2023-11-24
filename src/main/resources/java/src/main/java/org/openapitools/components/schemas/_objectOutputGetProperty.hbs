@@ -6,9 +6,7 @@ return ({{> src/main/java/org/openapitools/components/schemas/types/schema_outpu
     {{/and}}
 {{else}}
 String key = "{{{@key.original}}}";
-if (!containsKey(key)) {
-    throw new RuntimeException("{{{@key.original}}} is unset");
-}
+throwIfKeyNotPresent(key);
     {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
 return get(key);
     {{else}}

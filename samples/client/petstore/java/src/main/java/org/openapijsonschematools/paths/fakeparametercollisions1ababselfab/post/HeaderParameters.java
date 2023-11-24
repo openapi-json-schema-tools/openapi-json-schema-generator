@@ -47,9 +47,7 @@ public class HeaderParameters {
         public String aB() {
 
             String key = "aB";
-            if (!containsKey(key)) {
-                throw new RuntimeException("aB is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -57,9 +55,7 @@ public class HeaderParameters {
         public String self() {
 
             String key = "self";
-            if (!containsKey(key)) {
-                throw new RuntimeException("self is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

@@ -37,9 +37,7 @@ public class PublicKey {
         public String key() {
 
             String key = "key";
-            if (!containsKey(key)) {
-                throw new RuntimeException("key is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

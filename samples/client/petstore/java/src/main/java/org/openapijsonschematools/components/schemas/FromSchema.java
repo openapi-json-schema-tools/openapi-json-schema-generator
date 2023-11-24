@@ -42,9 +42,7 @@ public class FromSchema {
         public String data() {
 
             String key = "data";
-            if (!containsKey(key)) {
-                throw new RuntimeException("data is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -52,9 +50,7 @@ public class FromSchema {
         public long id() {
 
             String key = "id";
-            if (!containsKey(key)) {
-                throw new RuntimeException("id is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }

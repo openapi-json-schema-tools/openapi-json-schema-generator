@@ -57,9 +57,7 @@ public class Capitalization {
         public String smallCamel() {
 
             String key = "smallCamel";
-            if (!containsKey(key)) {
-                throw new RuntimeException("smallCamel is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -67,9 +65,7 @@ public class Capitalization {
         public String CapitalCamel() {
 
             String key = "CapitalCamel";
-            if (!containsKey(key)) {
-                throw new RuntimeException("CapitalCamel is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -77,9 +73,7 @@ public class Capitalization {
         public String small_Snake() {
 
             String key = "small_Snake";
-            if (!containsKey(key)) {
-                throw new RuntimeException("small_Snake is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -87,9 +81,7 @@ public class Capitalization {
         public String Capital_Snake() {
 
             String key = "Capital_Snake";
-            if (!containsKey(key)) {
-                throw new RuntimeException("Capital_Snake is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -97,9 +89,7 @@ public class Capitalization {
         public String SCA_ETH_Flow_Points() {
 
             String key = "SCA_ETH_Flow_Points";
-            if (!containsKey(key)) {
-                throw new RuntimeException("SCA_ETH_Flow_Points is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -107,9 +97,7 @@ public class Capitalization {
         public String ATT_NAME() {
 
             String key = "ATT_NAME";
-            if (!containsKey(key)) {
-                throw new RuntimeException("ATT_NAME is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

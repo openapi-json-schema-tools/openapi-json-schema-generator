@@ -157,9 +157,7 @@ public class User {
         public long id() {
 
             String key = "id";
-            if (!containsKey(key)) {
-                throw new RuntimeException("id is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -167,9 +165,7 @@ public class User {
         public String username() {
 
             String key = "username";
-            if (!containsKey(key)) {
-                throw new RuntimeException("username is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -177,9 +173,7 @@ public class User {
         public String firstName() {
 
             String key = "firstName";
-            if (!containsKey(key)) {
-                throw new RuntimeException("firstName is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -187,9 +181,7 @@ public class User {
         public String lastName() {
 
             String key = "lastName";
-            if (!containsKey(key)) {
-                throw new RuntimeException("lastName is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -197,9 +189,7 @@ public class User {
         public String email() {
 
             String key = "email";
-            if (!containsKey(key)) {
-                throw new RuntimeException("email is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -207,9 +197,7 @@ public class User {
         public String password() {
 
             String key = "password";
-            if (!containsKey(key)) {
-                throw new RuntimeException("password is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -217,9 +205,7 @@ public class User {
         public String phone() {
 
             String key = "phone";
-            if (!containsKey(key)) {
-                throw new RuntimeException("phone is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -227,9 +213,7 @@ public class User {
         public int userStatus() {
 
             String key = "userStatus";
-            if (!containsKey(key)) {
-                throw new RuntimeException("userStatus is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -237,9 +221,7 @@ public class User {
         public FrozenMap<String, Object> objectWithNoDeclaredProps() {
 
             String key = "objectWithNoDeclaredProps";
-            if (!containsKey(key)) {
-                throw new RuntimeException("objectWithNoDeclaredProps is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
 
         }
@@ -247,9 +229,7 @@ public class User {
         public FrozenMap<String, Object> objectWithNoDeclaredPropsNullable() {
 
             String key = "objectWithNoDeclaredPropsNullable";
-            if (!containsKey(key)) {
-                throw new RuntimeException("objectWithNoDeclaredPropsNullable is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
 
         }
@@ -257,27 +237,21 @@ public class User {
         public Object anyTypeProp() {
 
             String key = "anyTypeProp";
-            if (!containsKey(key)) {
-                throw new RuntimeException("anyTypeProp is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object anyTypeExceptNullProp() {
 
             String key = "anyTypeExceptNullProp";
-            if (!containsKey(key)) {
-                throw new RuntimeException("anyTypeExceptNullProp is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object anyTypePropNullable() {
 
             String key = "anyTypePropNullable";
-            if (!containsKey(key)) {
-                throw new RuntimeException("anyTypePropNullable is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         

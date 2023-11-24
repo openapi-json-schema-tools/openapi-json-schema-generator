@@ -39,9 +39,7 @@ public class ObjectWithDecimalProperties {
         public String length() {
 
             String key = "length";
-            if (!containsKey(key)) {
-                throw new RuntimeException("length is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -49,9 +47,7 @@ public class ObjectWithDecimalProperties {
         public String width() {
 
             String key = "width";
-            if (!containsKey(key)) {
-                throw new RuntimeException("width is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -59,9 +55,7 @@ public class ObjectWithDecimalProperties {
         public Money.MoneyMap cost() {
 
             String key = "cost";
-            if (!containsKey(key)) {
-                throw new RuntimeException("cost is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Money.MoneyMap) get(key);
 
         }

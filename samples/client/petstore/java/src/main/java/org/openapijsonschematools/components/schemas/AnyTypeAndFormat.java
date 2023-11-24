@@ -524,36 +524,28 @@ public class AnyTypeAndFormat {
         public Object date() {
 
             String key = "date";
-            if (!containsKey(key)) {
-                throw new RuntimeException("date is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object binary() {
 
             String key = "binary";
-            if (!containsKey(key)) {
-                throw new RuntimeException("binary is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object int32() {
 
             String key = "int32";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int32 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object int64() {
 
             String key = "int64";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int64 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         

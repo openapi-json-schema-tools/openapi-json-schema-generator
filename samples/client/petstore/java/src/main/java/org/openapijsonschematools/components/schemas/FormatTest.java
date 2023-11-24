@@ -301,9 +301,7 @@ public class FormatTest {
         public int int32() {
 
             String key = "int32";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int32 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -311,9 +309,7 @@ public class FormatTest {
         public int int32withValidations() {
 
             String key = "int32withValidations";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int32withValidations is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -321,9 +317,7 @@ public class FormatTest {
         public long int64() {
 
             String key = "int64";
-            if (!containsKey(key)) {
-                throw new RuntimeException("int64 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -331,9 +325,7 @@ public class FormatTest {
         public float float32() {
 
             String key = "float32";
-            if (!containsKey(key)) {
-                throw new RuntimeException("float32 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (float) get(key);
 
         }
@@ -341,9 +333,7 @@ public class FormatTest {
         public double float64() {
 
             String key = "float64";
-            if (!containsKey(key)) {
-                throw new RuntimeException("float64 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (double) get(key);
 
         }
@@ -351,9 +341,7 @@ public class FormatTest {
         public ArrayWithUniqueItemsList arrayWithUniqueItems() {
 
             String key = "arrayWithUniqueItems";
-            if (!containsKey(key)) {
-                throw new RuntimeException("arrayWithUniqueItems is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ArrayWithUniqueItemsList) get(key);
 
         }
@@ -361,9 +349,7 @@ public class FormatTest {
         public String binary() {
 
             String key = "binary";
-            if (!containsKey(key)) {
-                throw new RuntimeException("binary is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -371,9 +357,7 @@ public class FormatTest {
         public String dateTime() {
 
             String key = "dateTime";
-            if (!containsKey(key)) {
-                throw new RuntimeException("dateTime is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -381,9 +365,7 @@ public class FormatTest {
         public String uuidNoExample() {
 
             String key = "uuidNoExample";
-            if (!containsKey(key)) {
-                throw new RuntimeException("uuidNoExample is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -391,9 +373,7 @@ public class FormatTest {
         public String pattern_with_digits() {
 
             String key = "pattern_with_digits";
-            if (!containsKey(key)) {
-                throw new RuntimeException("pattern_with_digits is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -401,9 +381,7 @@ public class FormatTest {
         public String pattern_with_digits_and_delimiter() {
 
             String key = "pattern_with_digits_and_delimiter";
-            if (!containsKey(key)) {
-                throw new RuntimeException("pattern_with_digits_and_delimiter is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -411,9 +389,7 @@ public class FormatTest {
         public Void noneProp() {
 
             String key = "noneProp";
-            if (!containsKey(key)) {
-                throw new RuntimeException("noneProp is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Void) get(key);
 
         }

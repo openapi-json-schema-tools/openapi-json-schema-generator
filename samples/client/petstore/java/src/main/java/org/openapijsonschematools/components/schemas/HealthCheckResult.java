@@ -48,9 +48,7 @@ public class HealthCheckResult {
         public String NullableMessage() {
 
             String key = "NullableMessage";
-            if (!containsKey(key)) {
-                throw new RuntimeException("NullableMessage is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

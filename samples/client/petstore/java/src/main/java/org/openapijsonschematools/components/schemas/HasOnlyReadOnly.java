@@ -41,9 +41,7 @@ public class HasOnlyReadOnly {
         public String bar() {
 
             String key = "bar";
-            if (!containsKey(key)) {
-                throw new RuntimeException("bar is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -51,9 +49,7 @@ public class HasOnlyReadOnly {
         public String foo() {
 
             String key = "foo";
-            if (!containsKey(key)) {
-                throw new RuntimeException("foo is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

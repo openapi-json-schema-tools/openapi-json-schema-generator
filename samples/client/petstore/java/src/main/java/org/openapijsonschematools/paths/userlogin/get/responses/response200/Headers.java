@@ -57,9 +57,7 @@ public class Headers {
         public String numberHeader() {
 
             String key = "numberHeader";
-            if (!containsKey(key)) {
-                throw new RuntimeException("numberHeader is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

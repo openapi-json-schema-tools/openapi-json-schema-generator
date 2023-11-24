@@ -57,9 +57,7 @@ public class Category {
         public long id() {
 
             String key = "id";
-            if (!containsKey(key)) {
-                throw new RuntimeException("id is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }

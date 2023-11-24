@@ -37,9 +37,7 @@ public class Client {
         public String client() {
 
             String key = "client";
-            if (!containsKey(key)) {
-                throw new RuntimeException("client is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

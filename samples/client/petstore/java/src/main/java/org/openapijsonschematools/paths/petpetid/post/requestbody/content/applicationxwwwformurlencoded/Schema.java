@@ -41,9 +41,7 @@ public class Schema {
         public String name() {
 
             String key = "name";
-            if (!containsKey(key)) {
-                throw new RuntimeException("name is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -51,9 +49,7 @@ public class Schema {
         public String status() {
 
             String key = "status";
-            if (!containsKey(key)) {
-                throw new RuntimeException("status is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

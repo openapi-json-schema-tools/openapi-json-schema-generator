@@ -37,9 +37,7 @@ public class ObjectWithOptionalTestProp {
         public String test() {
 
             String key = "test";
-            if (!containsKey(key)) {
-                throw new RuntimeException("test is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

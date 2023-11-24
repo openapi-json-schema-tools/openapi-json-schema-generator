@@ -49,9 +49,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
         public String name() {
 
             String key = "name";
-            if (!containsKey(key)) {
-                throw new RuntimeException("name is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

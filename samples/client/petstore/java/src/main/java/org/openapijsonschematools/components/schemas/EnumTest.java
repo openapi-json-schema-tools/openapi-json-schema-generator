@@ -114,9 +114,7 @@ public class EnumTest {
         public String enum_string() {
 
             String key = "enum_string";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enum_string is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -124,9 +122,7 @@ public class EnumTest {
         public int enum_integer() {
 
             String key = "enum_integer";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enum_integer is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -134,9 +130,7 @@ public class EnumTest {
         public double enum_number() {
 
             String key = "enum_number";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enum_number is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (double) get(key);
 
         }
@@ -144,9 +138,7 @@ public class EnumTest {
         public String stringEnum() {
 
             String key = "stringEnum";
-            if (!containsKey(key)) {
-                throw new RuntimeException("stringEnum is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -154,9 +146,7 @@ public class EnumTest {
         public long IntegerEnum() {
 
             String key = "IntegerEnum";
-            if (!containsKey(key)) {
-                throw new RuntimeException("IntegerEnum is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -164,9 +154,7 @@ public class EnumTest {
         public String StringEnumWithDefaultValue() {
 
             String key = "StringEnumWithDefaultValue";
-            if (!containsKey(key)) {
-                throw new RuntimeException("StringEnumWithDefaultValue is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -174,9 +162,7 @@ public class EnumTest {
         public long IntegerEnumWithDefaultValue() {
 
             String key = "IntegerEnumWithDefaultValue";
-            if (!containsKey(key)) {
-                throw new RuntimeException("IntegerEnumWithDefaultValue is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -184,9 +170,7 @@ public class EnumTest {
         public long IntegerEnumOneValue() {
 
             String key = "IntegerEnumOneValue";
-            if (!containsKey(key)) {
-                throw new RuntimeException("IntegerEnumOneValue is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }

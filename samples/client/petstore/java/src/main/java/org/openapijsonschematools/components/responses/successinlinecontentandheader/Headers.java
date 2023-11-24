@@ -41,9 +41,7 @@ public class Headers {
         public String someHeader() {
 
             String key = "someHeader";
-            if (!containsKey(key)) {
-                throw new RuntimeException("someHeader is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
     }    

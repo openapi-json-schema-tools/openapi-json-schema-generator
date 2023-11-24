@@ -37,9 +37,7 @@ public class Schema0 {
         public String keyword() {
 
             String key = "keyword";
-            if (!containsKey(key)) {
-                throw new RuntimeException("keyword is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

@@ -61,9 +61,7 @@ public class Whale {
         public boolean hasBaleen() {
 
             String key = "hasBaleen";
-            if (!containsKey(key)) {
-                throw new RuntimeException("hasBaleen is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (boolean) get(key);
 
         }
@@ -71,9 +69,7 @@ public class Whale {
         public boolean hasTeeth() {
 
             String key = "hasTeeth";
-            if (!containsKey(key)) {
-                throw new RuntimeException("hasTeeth is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (boolean) get(key);
 
         }

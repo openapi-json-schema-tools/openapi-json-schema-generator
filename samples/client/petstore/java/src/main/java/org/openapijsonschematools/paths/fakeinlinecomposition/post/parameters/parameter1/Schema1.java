@@ -99,9 +99,7 @@ public class Schema1 {
         public Object someProp() {
 
             String key = "someProp";
-            if (!containsKey(key)) {
-                throw new RuntimeException("someProp is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         

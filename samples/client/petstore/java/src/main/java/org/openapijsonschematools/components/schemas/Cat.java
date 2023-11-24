@@ -42,9 +42,7 @@ public class Cat {
         public boolean declawed() {
 
             String key = "declawed";
-            if (!containsKey(key)) {
-                throw new RuntimeException("declawed is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (boolean) get(key);
 
         }

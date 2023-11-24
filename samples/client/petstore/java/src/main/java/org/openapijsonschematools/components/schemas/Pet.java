@@ -135,9 +135,7 @@ public class Pet {
         public long id() {
 
             String key = "id";
-            if (!containsKey(key)) {
-                throw new RuntimeException("id is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -145,9 +143,7 @@ public class Pet {
         public Category.CategoryMap category() {
 
             String key = "category";
-            if (!containsKey(key)) {
-                throw new RuntimeException("category is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Category.CategoryMap) get(key);
 
         }
@@ -155,9 +151,7 @@ public class Pet {
         public TagsList tags() {
 
             String key = "tags";
-            if (!containsKey(key)) {
-                throw new RuntimeException("tags is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (TagsList) get(key);
 
         }
@@ -165,9 +159,7 @@ public class Pet {
         public String status() {
 
             String key = "status";
-            if (!containsKey(key)) {
-                throw new RuntimeException("status is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

@@ -41,9 +41,7 @@ public class HeaderParameters {
         public String api_key() {
 
             String key = "api_key";
-            if (!containsKey(key)) {
-                throw new RuntimeException("api_key is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
     }    

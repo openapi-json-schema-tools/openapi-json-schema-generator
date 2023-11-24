@@ -45,9 +45,7 @@ public class Schema200Response {
         public int name() {
 
             String key = "name";
-            if (!containsKey(key)) {
-                throw new RuntimeException("name is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }

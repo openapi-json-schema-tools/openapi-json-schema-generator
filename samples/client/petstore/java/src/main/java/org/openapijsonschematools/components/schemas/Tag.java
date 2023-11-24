@@ -42,9 +42,7 @@ public class Tag {
         public long id() {
 
             String key = "id";
-            if (!containsKey(key)) {
-                throw new RuntimeException("id is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (long) get(key);
 
         }
@@ -52,9 +50,7 @@ public class Tag {
         public String name() {
 
             String key = "name";
-            if (!containsKey(key)) {
-                throw new RuntimeException("name is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

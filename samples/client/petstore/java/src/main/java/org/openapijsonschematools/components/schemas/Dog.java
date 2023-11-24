@@ -42,9 +42,7 @@ public class Dog {
         public String breed() {
 
             String key = "breed";
-            if (!containsKey(key)) {
-                throw new RuntimeException("breed is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

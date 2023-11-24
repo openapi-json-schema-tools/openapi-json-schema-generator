@@ -68,9 +68,7 @@ public class Drawing {
         public Object mainShape() {
 
             String key = "mainShape";
-            if (!containsKey(key)) {
-                throw new RuntimeException("mainShape is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Object) get(key);
 
         }
@@ -78,9 +76,7 @@ public class Drawing {
         public Object shapeOrNull() {
 
             String key = "shapeOrNull";
-            if (!containsKey(key)) {
-                throw new RuntimeException("shapeOrNull is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Object) get(key);
 
         }
@@ -88,9 +84,7 @@ public class Drawing {
         public Object nullableShape() {
 
             String key = "nullableShape";
-            if (!containsKey(key)) {
-                throw new RuntimeException("nullableShape is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Object) get(key);
 
         }
@@ -98,9 +92,7 @@ public class Drawing {
         public ShapesList shapes() {
 
             String key = "shapes";
-            if (!containsKey(key)) {
-                throw new RuntimeException("shapes is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ShapesList) get(key);
 
         }

@@ -69,9 +69,7 @@ public class Schema {
         public FilesList files() {
 
             String key = "files";
-            if (!containsKey(key)) {
-                throw new RuntimeException("files is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FilesList) get(key);
 
         }

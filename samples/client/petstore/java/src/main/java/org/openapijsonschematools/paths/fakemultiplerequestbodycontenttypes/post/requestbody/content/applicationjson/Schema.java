@@ -37,9 +37,7 @@ public class Schema {
         public String a() {
 
             String key = "a";
-            if (!containsKey(key)) {
-                throw new RuntimeException("a is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

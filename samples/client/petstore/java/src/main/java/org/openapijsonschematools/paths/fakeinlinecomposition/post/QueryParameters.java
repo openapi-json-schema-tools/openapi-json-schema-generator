@@ -43,9 +43,7 @@ public class QueryParameters {
         public Object compositionAtRoot() {
 
             String key = "compositionAtRoot";
-            if (!containsKey(key)) {
-                throw new RuntimeException("compositionAtRoot is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Object) get(key);
 
         }
@@ -53,9 +51,7 @@ public class QueryParameters {
         public Schema1.SchemaMap1 compositionInProperty() {
 
             String key = "compositionInProperty";
-            if (!containsKey(key)) {
-                throw new RuntimeException("compositionInProperty is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Schema1.SchemaMap1) get(key);
 
         }

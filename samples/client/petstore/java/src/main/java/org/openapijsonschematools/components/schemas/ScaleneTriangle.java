@@ -49,9 +49,7 @@ public class ScaleneTriangle {
         public String triangleType() {
 
             String key = "triangleType";
-            if (!containsKey(key)) {
-                throw new RuntimeException("triangleType is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

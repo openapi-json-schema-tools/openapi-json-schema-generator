@@ -88,9 +88,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         public String dateTime() {
 
             String key = "dateTime";
-            if (!containsKey(key)) {
-                throw new RuntimeException("dateTime is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

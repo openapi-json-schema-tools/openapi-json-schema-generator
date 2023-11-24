@@ -41,9 +41,7 @@ public class ObjectWithCollidingProperties {
         public FrozenMap<String, Object> someProp() {
 
             String key = "someProp";
-            if (!containsKey(key)) {
-                throw new RuntimeException("someProp is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
 
         }
@@ -51,9 +49,7 @@ public class ObjectWithCollidingProperties {
         public FrozenMap<String, Object> someprop() {
 
             String key = "someprop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("someprop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
 
         }

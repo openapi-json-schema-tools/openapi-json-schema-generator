@@ -55,9 +55,7 @@ public class NoAdditionalProperties {
         public long petId() {
 
             String key = "petId";
-            if (!containsKey(key)) {
-                throw new RuntimeException("petId is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
     }    

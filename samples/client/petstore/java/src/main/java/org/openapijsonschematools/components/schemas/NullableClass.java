@@ -483,9 +483,7 @@ public class NullableClass {
         public Long integer_prop() {
 
             String key = "integer_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("integer_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Long) get(key);
 
         }
@@ -493,9 +491,7 @@ public class NullableClass {
         public Number number_prop() {
 
             String key = "number_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("number_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Number) get(key);
 
         }
@@ -503,9 +499,7 @@ public class NullableClass {
         public Boolean boolean_prop() {
 
             String key = "boolean_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("boolean_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Boolean) get(key);
 
         }
@@ -513,9 +507,7 @@ public class NullableClass {
         public String string_prop() {
 
             String key = "string_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("string_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -523,9 +515,7 @@ public class NullableClass {
         public String date_prop() {
 
             String key = "date_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("date_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -533,9 +523,7 @@ public class NullableClass {
         public String datetime_prop() {
 
             String key = "datetime_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("datetime_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -543,9 +531,7 @@ public class NullableClass {
         public ArrayNullablePropList array_nullable_prop() {
 
             String key = "array_nullable_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("array_nullable_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ArrayNullablePropList) get(key);
 
         }
@@ -553,9 +539,7 @@ public class NullableClass {
         public ArrayAndItemsNullablePropList array_and_items_nullable_prop() {
 
             String key = "array_and_items_nullable_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("array_and_items_nullable_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ArrayAndItemsNullablePropList) get(key);
 
         }
@@ -563,9 +547,7 @@ public class NullableClass {
         public ArrayItemsNullableList array_items_nullable() {
 
             String key = "array_items_nullable";
-            if (!containsKey(key)) {
-                throw new RuntimeException("array_items_nullable is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ArrayItemsNullableList) get(key);
 
         }
@@ -573,9 +555,7 @@ public class NullableClass {
         public ObjectNullablePropMap object_nullable_prop() {
 
             String key = "object_nullable_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("object_nullable_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ObjectNullablePropMap) get(key);
 
         }
@@ -583,9 +563,7 @@ public class NullableClass {
         public ObjectAndItemsNullablePropMap object_and_items_nullable_prop() {
 
             String key = "object_and_items_nullable_prop";
-            if (!containsKey(key)) {
-                throw new RuntimeException("object_and_items_nullable_prop is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ObjectAndItemsNullablePropMap) get(key);
 
         }
@@ -593,9 +571,7 @@ public class NullableClass {
         public ObjectItemsNullableMap object_items_nullable() {
 
             String key = "object_items_nullable";
-            if (!containsKey(key)) {
-                throw new RuntimeException("object_items_nullable is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ObjectItemsNullableMap) get(key);
 
         }

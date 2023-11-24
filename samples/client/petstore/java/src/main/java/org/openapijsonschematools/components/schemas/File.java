@@ -37,9 +37,7 @@ public class File {
         public String sourceURI() {
 
             String key = "sourceURI";
-            if (!containsKey(key)) {
-                throw new RuntimeException("sourceURI is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

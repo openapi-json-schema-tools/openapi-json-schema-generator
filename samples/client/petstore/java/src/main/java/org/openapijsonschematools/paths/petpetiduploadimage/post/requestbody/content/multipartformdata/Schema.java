@@ -43,9 +43,7 @@ public class Schema {
         public String additionalMetadata() {
 
             String key = "additionalMetadata";
-            if (!containsKey(key)) {
-                throw new RuntimeException("additionalMetadata is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -53,9 +51,7 @@ public class Schema {
         public String file() {
 
             String key = "file";
-            if (!containsKey(key)) {
-                throw new RuntimeException("file is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

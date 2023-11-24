@@ -57,9 +57,7 @@ public class AppleReq {
         public boolean mealy() {
 
             String key = "mealy";
-            if (!containsKey(key)) {
-                throw new RuntimeException("mealy is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (boolean) get(key);
 
         }

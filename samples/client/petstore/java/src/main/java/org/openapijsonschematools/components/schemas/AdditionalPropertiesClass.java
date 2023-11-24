@@ -308,9 +308,7 @@ public class AdditionalPropertiesClass {
         public MapPropertyMap map_property() {
 
             String key = "map_property";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_property is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (MapPropertyMap) get(key);
 
         }
@@ -318,9 +316,7 @@ public class AdditionalPropertiesClass {
         public MapOfMapPropertyMap map_of_map_property() {
 
             String key = "map_of_map_property";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_of_map_property is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (MapOfMapPropertyMap) get(key);
 
         }
@@ -328,18 +324,14 @@ public class AdditionalPropertiesClass {
         public Object anytype_1() {
 
             String key = "anytype_1";
-            if (!containsKey(key)) {
-                throw new RuntimeException("anytype_1 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public FrozenMap<String, Object> map_with_undeclared_properties_anytype_1() {
 
             String key = "map_with_undeclared_properties_anytype_1";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_with_undeclared_properties_anytype_1 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
 
         }
@@ -347,9 +339,7 @@ public class AdditionalPropertiesClass {
         public FrozenMap<String, Object> map_with_undeclared_properties_anytype_2() {
 
             String key = "map_with_undeclared_properties_anytype_2";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_with_undeclared_properties_anytype_2 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
 
         }
@@ -357,9 +347,7 @@ public class AdditionalPropertiesClass {
         public MapWithUndeclaredPropertiesAnytype3Map map_with_undeclared_properties_anytype_3() {
 
             String key = "map_with_undeclared_properties_anytype_3";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_with_undeclared_properties_anytype_3 is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (MapWithUndeclaredPropertiesAnytype3Map) get(key);
 
         }
@@ -367,9 +355,7 @@ public class AdditionalPropertiesClass {
         public EmptyMapMap empty_map() {
 
             String key = "empty_map";
-            if (!containsKey(key)) {
-                throw new RuntimeException("empty_map is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (EmptyMapMap) get(key);
 
         }
@@ -377,9 +363,7 @@ public class AdditionalPropertiesClass {
         public MapWithUndeclaredPropertiesStringMap map_with_undeclared_properties_string() {
 
             String key = "map_with_undeclared_properties_string";
-            if (!containsKey(key)) {
-                throw new RuntimeException("map_with_undeclared_properties_string is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (MapWithUndeclaredPropertiesStringMap) get(key);
 
         }

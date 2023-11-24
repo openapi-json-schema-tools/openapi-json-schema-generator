@@ -69,9 +69,7 @@ public class Zebra {
         public String type() {
 
             String key = "type";
-            if (!containsKey(key)) {
-                throw new RuntimeException("type is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

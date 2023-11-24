@@ -33,9 +33,7 @@ public class Foo {
         public String bar() {
 
             String key = "bar";
-            if (!containsKey(key)) {
-                throw new RuntimeException("bar is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

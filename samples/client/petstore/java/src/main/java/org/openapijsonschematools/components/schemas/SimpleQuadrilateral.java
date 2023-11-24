@@ -49,9 +49,7 @@ public class SimpleQuadrilateral {
         public String quadrilateralType() {
 
             String key = "quadrilateralType";
-            if (!containsKey(key)) {
-                throw new RuntimeException("quadrilateralType is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

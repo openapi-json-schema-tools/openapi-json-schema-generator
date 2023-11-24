@@ -47,9 +47,7 @@ public class QueryParameters {
         public double enum_query_double() {
 
             String key = "enum_query_double";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enum_query_double is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (double) get(key);
 
         }
@@ -57,9 +55,7 @@ public class QueryParameters {
         public String enum_query_string() {
 
             String key = "enum_query_string";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enum_query_string is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -67,9 +63,7 @@ public class QueryParameters {
         public int enum_query_integer() {
 
             String key = "enum_query_integer";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enum_query_integer is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (int) get(key);
 
         }
@@ -77,9 +71,7 @@ public class QueryParameters {
         public Schema2.SchemaList2 enum_query_string_array() {
 
             String key = "enum_query_string_array";
-            if (!containsKey(key)) {
-                throw new RuntimeException("enum_query_string_array is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (Schema2.SchemaList2) get(key);
 
         }

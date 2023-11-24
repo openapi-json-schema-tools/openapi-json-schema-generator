@@ -49,9 +49,7 @@ public class QueryParameters {
         public String aB() {
 
             String key = "aB";
-            if (!containsKey(key)) {
-                throw new RuntimeException("aB is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -59,9 +57,7 @@ public class QueryParameters {
         public String Ab() {
 
             String key = "Ab";
-            if (!containsKey(key)) {
-                throw new RuntimeException("Ab is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }
@@ -69,9 +65,7 @@ public class QueryParameters {
         public String self() {
 
             String key = "self";
-            if (!containsKey(key)) {
-                throw new RuntimeException("self is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

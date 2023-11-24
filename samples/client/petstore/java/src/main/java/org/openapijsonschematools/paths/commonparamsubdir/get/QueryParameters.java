@@ -41,9 +41,7 @@ public class QueryParameters {
         public String searchStr() {
 
             String key = "searchStr";
-            if (!containsKey(key)) {
-                throw new RuntimeException("searchStr is unset");
-            }
+            throwIfKeyNotPresent(key);
             return get(key);
         }
     }    

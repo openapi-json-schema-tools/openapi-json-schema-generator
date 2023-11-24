@@ -64,9 +64,7 @@ public class Apple {
         public String origin() {
 
             String key = "origin";
-            if (!containsKey(key)) {
-                throw new RuntimeException("origin is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (String) get(key);
 
         }

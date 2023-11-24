@@ -194,9 +194,7 @@ public class ArrayTest {
         public ArrayOfStringList array_of_string() {
 
             String key = "array_of_string";
-            if (!containsKey(key)) {
-                throw new RuntimeException("array_of_string is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ArrayOfStringList) get(key);
 
         }
@@ -204,9 +202,7 @@ public class ArrayTest {
         public ArrayArrayOfIntegerList array_array_of_integer() {
 
             String key = "array_array_of_integer";
-            if (!containsKey(key)) {
-                throw new RuntimeException("array_array_of_integer is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ArrayArrayOfIntegerList) get(key);
 
         }
@@ -214,9 +210,7 @@ public class ArrayTest {
         public ArrayArrayOfModelList array_array_of_model() {
 
             String key = "array_array_of_model";
-            if (!containsKey(key)) {
-                throw new RuntimeException("array_array_of_model is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (ArrayArrayOfModelList) get(key);
 
         }

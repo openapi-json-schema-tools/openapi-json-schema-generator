@@ -34,9 +34,7 @@ public class SelfReferencingObjectModel {
         public SelfReferencingObjectModelMap selfRef() {
 
             String key = "selfRef";
-            if (!containsKey(key)) {
-                throw new RuntimeException("selfRef is unset");
-            }
+            throwIfKeyNotPresent(key);
             return (SelfReferencingObjectModelMap) get(key);
 
         }
