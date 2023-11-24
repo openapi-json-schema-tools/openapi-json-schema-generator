@@ -44,8 +44,7 @@ public class BananaReq {
         
         public Number lengthCm() {
 
-            String key = "lengthCm";
-            return Number get(key);
+            return (Number) get("lengthCm");
 
         }
         
@@ -55,7 +54,7 @@ public class BananaReq {
             if (!containsKey(key)) {
                 throw new RuntimeException("sweet is unset");
             }
-            return boolean get(key);
+            return (boolean) get(key);
 
         }
     }    

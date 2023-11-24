@@ -33,7 +33,7 @@ public class SelfReferencingObjectModel {
             if (!containsKey(key)) {
                 throw new RuntimeException("selfRef is unset");
             }
-            return SelfReferencingObjectModelMap get(key);
+            return (SelfReferencingObjectModelMap) get(key);
 
         }
         

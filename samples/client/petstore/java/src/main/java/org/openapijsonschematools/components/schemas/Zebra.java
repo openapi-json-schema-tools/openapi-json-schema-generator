@@ -56,8 +56,7 @@ public class Zebra {
         
         public String className() {
 
-            String key = "className";
-            return String get(key);
+            return (String) get("className");
 
         }
         
@@ -67,7 +66,7 @@ public class Zebra {
             if (!containsKey(key)) {
                 throw new RuntimeException("type is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

@@ -48,7 +48,7 @@ public class EquilateralTriangle {
             if (!containsKey(key)) {
                 throw new RuntimeException("triangleType is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

@@ -36,7 +36,7 @@ public class SpecialModelname {
             if (!containsKey(key)) {
                 throw new RuntimeException("a is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

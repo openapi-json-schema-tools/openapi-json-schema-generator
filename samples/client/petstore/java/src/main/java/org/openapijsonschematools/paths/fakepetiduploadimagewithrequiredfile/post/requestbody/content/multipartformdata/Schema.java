@@ -38,8 +38,7 @@ public class Schema {
         
         public String requiredFile() {
 
-            String key = "requiredFile";
-            return String get(key);
+            return (String) get("requiredFile");
 
         }
         
@@ -49,7 +48,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("additionalMetadata is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

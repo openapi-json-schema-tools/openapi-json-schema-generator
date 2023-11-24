@@ -33,8 +33,7 @@ public class Banana {
         
         public Number lengthCm() {
 
-            String key = "lengthCm";
-            return Number get(key);
+            return (Number) get("lengthCm");
 
         }
         

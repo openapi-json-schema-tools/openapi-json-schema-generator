@@ -40,7 +40,7 @@ public class Tag {
             if (!containsKey(key)) {
                 throw new RuntimeException("id is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -50,7 +50,7 @@ public class Tag {
             if (!containsKey(key)) {
                 throw new RuntimeException("name is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

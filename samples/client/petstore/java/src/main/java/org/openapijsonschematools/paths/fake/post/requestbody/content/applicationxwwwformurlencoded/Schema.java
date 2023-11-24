@@ -206,8 +206,7 @@ public class Schema {
         
         public String pattern_without_delimiter() {
 
-            String key = "pattern_without_delimiter";
-            return String get(key);
+            return (String) get("pattern_without_delimiter");
 
         }
         
@@ -217,7 +216,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("int32 is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -227,7 +226,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("int64 is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -237,7 +236,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("binary is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -247,7 +246,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("date is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -257,7 +256,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("dateTime is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -267,7 +266,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("password is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -277,7 +276,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("callback is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

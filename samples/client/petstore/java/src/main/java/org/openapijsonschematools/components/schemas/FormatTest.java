@@ -263,15 +263,13 @@ public class FormatTest {
         
         public String date() {
 
-            String key = "date";
-            return String get(key);
+            return (String) get("date");
 
         }
         
         public String password() {
 
-            String key = "password";
-            return String get(key);
+            return (String) get("password");
 
         }
         
@@ -281,7 +279,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("int32 is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -291,7 +289,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("int32withValidations is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -301,7 +299,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("int64 is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -311,7 +309,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("float32 is unset");
             }
-            return float get(key);
+            return (float) get(key);
 
         }
         
@@ -321,7 +319,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("float64 is unset");
             }
-            return double get(key);
+            return (double) get(key);
 
         }
         
@@ -331,7 +329,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("arrayWithUniqueItems is unset");
             }
-            return ArrayWithUniqueItemsList get(key);
+            return (ArrayWithUniqueItemsList) get(key);
 
         }
         
@@ -341,7 +339,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("binary is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -351,7 +349,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("dateTime is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -361,7 +359,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("uuidNoExample is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -371,7 +369,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("pattern_with_digits is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -381,7 +379,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("pattern_with_digits_and_delimiter is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -391,7 +389,7 @@ public class FormatTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("noneProp is unset");
             }
-            return Void get(key);
+            return (Void) get(key);
 
         }
         

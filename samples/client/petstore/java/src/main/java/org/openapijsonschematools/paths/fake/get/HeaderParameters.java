@@ -41,7 +41,7 @@ public class HeaderParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_header_string is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -51,7 +51,7 @@ public class HeaderParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_header_string_array is unset");
             }
-            return Schema0.SchemaList0 get(key);
+            return (Schema0.SchemaList0) get(key);
 
         }
     }    

@@ -144,7 +144,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("id is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -154,7 +154,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("username is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -164,7 +164,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("firstName is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -174,7 +174,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("lastName is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -184,7 +184,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("email is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -194,7 +194,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("password is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -204,7 +204,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("phone is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -214,7 +214,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("userStatus is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -224,7 +224,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("objectWithNoDeclaredProps is unset");
             }
-            return FrozenMap<String, Object> get(key);
+            return (FrozenMap<String, Object>) get(key);
 
         }
         
@@ -234,7 +234,7 @@ public class User {
             if (!containsKey(key)) {
                 throw new RuntimeException("objectWithNoDeclaredPropsNullable is unset");
             }
-            return FrozenMap<String, Object> get(key);
+            return (FrozenMap<String, Object>) get(key);
 
         }
         

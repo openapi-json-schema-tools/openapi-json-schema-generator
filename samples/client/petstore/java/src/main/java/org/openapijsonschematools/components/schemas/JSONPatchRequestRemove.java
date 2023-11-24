@@ -51,15 +51,13 @@ public class JSONPatchRequestRemove {
         
         public String op() {
 
-            String key = "op";
-            return String get(key);
+            return (String) get("op");
 
         }
         
         public String path() {
 
-            String key = "path";
-            return get(key);
+            return get("path");
         }
     }    
     

@@ -191,7 +191,7 @@ public class ArrayTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("array_of_string is unset");
             }
-            return ArrayOfStringList get(key);
+            return (ArrayOfStringList) get(key);
 
         }
         
@@ -201,7 +201,7 @@ public class ArrayTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("array_array_of_integer is unset");
             }
-            return ArrayArrayOfIntegerList get(key);
+            return (ArrayArrayOfIntegerList) get(key);
 
         }
         
@@ -211,7 +211,7 @@ public class ArrayTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("array_array_of_model is unset");
             }
-            return ArrayArrayOfModelList get(key);
+            return (ArrayArrayOfModelList) get(key);
 
         }
         

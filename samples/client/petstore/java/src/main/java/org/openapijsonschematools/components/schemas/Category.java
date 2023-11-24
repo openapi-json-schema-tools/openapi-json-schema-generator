@@ -44,8 +44,7 @@ public class Category {
         
         public String name() {
 
-            String key = "name";
-            return String get(key);
+            return (String) get("name");
 
         }
         
@@ -55,7 +54,7 @@ public class Category {
             if (!containsKey(key)) {
                 throw new RuntimeException("id is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         

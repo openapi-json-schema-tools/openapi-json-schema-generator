@@ -47,8 +47,7 @@ public class Whale {
         
         public String className() {
 
-            String key = "className";
-            return String get(key);
+            return (String) get("className");
 
         }
         
@@ -58,7 +57,7 @@ public class Whale {
             if (!containsKey(key)) {
                 throw new RuntimeException("hasBaleen is unset");
             }
-            return boolean get(key);
+            return (boolean) get(key);
 
         }
         
@@ -68,7 +67,7 @@ public class Whale {
             if (!containsKey(key)) {
                 throw new RuntimeException("hasTeeth is unset");
             }
-            return boolean get(key);
+            return (boolean) get(key);
 
         }
         

@@ -43,7 +43,7 @@ public class Schema200Response {
             if (!containsKey(key)) {
                 throw new RuntimeException("name is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         

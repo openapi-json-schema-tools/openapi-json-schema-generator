@@ -37,8 +37,7 @@ public class PathParameters {
         
         public long order_id() {
 
-            String key = "order_id";
-            return get(key);
+            return get("order_id");
         }
     }    
     

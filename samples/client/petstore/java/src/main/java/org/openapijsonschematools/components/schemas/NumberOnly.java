@@ -36,7 +36,7 @@ public class NumberOnly {
             if (!containsKey(key)) {
                 throw new RuntimeException("JustNumber is unset");
             }
-            return Number get(key);
+            return (Number) get(key);
 
         }
         

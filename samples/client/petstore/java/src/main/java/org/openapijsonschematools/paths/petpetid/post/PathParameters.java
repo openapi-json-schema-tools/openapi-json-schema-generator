@@ -37,8 +37,7 @@ public class PathParameters {
         
         public long petId() {
 
-            String key = "petId";
-            return get(key);
+            return get("petId");
         }
     }    
     

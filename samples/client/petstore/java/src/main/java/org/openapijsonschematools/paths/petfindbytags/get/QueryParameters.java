@@ -39,8 +39,7 @@ public class QueryParameters {
         
         public Schema0.SchemaList0 tags() {
 
-            String key = "tags";
-            return get(key);
+            return get("tags");
         }
     }    
     

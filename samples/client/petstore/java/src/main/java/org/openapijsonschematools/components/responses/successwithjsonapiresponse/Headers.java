@@ -40,15 +40,13 @@ public class Headers {
         
         public int int32() {
 
-            String key = "int32";
-            return int get(key);
+            return (int) get("int32");
 
         }
         
         public String stringHeader() {
 
-            String key = "stringHeader";
-            return String get(key);
+            return (String) get("stringHeader");
 
         }
         
@@ -58,7 +56,7 @@ public class Headers {
             if (!containsKey(key)) {
                 throw new RuntimeException("numberHeader is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
     }    

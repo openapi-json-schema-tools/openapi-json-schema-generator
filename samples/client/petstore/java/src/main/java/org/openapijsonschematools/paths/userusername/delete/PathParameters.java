@@ -37,8 +37,7 @@ public class PathParameters {
         
         public String username() {
 
-            String key = "username";
-            return get(key);
+            return get("username");
         }
     }    
     

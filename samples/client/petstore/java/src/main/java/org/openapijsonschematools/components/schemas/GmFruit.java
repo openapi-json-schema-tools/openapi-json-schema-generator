@@ -39,7 +39,7 @@ public class GmFruit {
             if (!containsKey(key)) {
                 throw new RuntimeException("color is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

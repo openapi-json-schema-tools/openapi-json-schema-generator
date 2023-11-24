@@ -36,15 +36,13 @@ public class ObjectModelWithArgAndArgsProperties {
         
         public String arg() {
 
-            String key = "arg";
-            return String get(key);
+            return (String) get("arg");
 
         }
         
         public String args() {
 
-            String key = "args";
-            return String get(key);
+            return (String) get("args");
 
         }
         

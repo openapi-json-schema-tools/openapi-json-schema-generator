@@ -97,7 +97,7 @@ public class ArrayOfArrayOfNumberOnly {
             if (!containsKey(key)) {
                 throw new RuntimeException("ArrayArrayNumber is unset");
             }
-            return ArrayArrayNumberList get(key);
+            return (ArrayArrayNumberList) get(key);
 
         }
         

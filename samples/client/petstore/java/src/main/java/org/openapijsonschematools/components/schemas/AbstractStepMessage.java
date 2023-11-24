@@ -32,20 +32,17 @@ public class AbstractStepMessage {
         }
         
         public Object description() {
-            String key = "description";
-            return get(key);
+            return get("description");
         }
         
         public String discriminator() {
 
-            String key = "discriminator";
-            return String get(key);
+            return (String) get("discriminator");
 
         }
         
         public Object sequenceNumber() {
-            String key = "sequenceNumber";
-            return get(key);
+            return get("sequenceNumber");
         }
         
         public Object getAdditionalProperty(String name) {

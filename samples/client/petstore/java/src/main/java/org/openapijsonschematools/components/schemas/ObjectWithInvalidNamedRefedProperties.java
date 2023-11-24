@@ -29,8 +29,7 @@ public class ObjectWithInvalidNamedRefedProperties {
         
         public FromSchema.FromSchemaMap from() {
 
-            String key = "from";
-            return FromSchema.FromSchemaMap get(key);
+            return (FromSchema.FromSchemaMap) get("from");
 
         }
         

@@ -32,8 +32,7 @@ public class ReqPropsFromExplicitAddProps {
         
         public String validName() {
 
-            String key = "validName";
-            return get(key);
+            return get("validName");
         }
         
         public String getAdditionalProperty(String name) {

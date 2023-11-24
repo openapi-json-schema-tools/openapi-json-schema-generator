@@ -37,8 +37,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
         }
         
         public Object test() {
-            String key = "test";
-            return get(key);
+            return get("test");
         }
         
         public String name() {
@@ -47,7 +46,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             if (!containsKey(key)) {
                 throw new RuntimeException("name is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

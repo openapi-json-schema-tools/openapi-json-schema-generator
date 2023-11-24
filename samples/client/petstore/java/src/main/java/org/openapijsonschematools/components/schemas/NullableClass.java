@@ -465,7 +465,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("integer_prop is unset");
             }
-            return Long get(key);
+            return (Long) get(key);
 
         }
         
@@ -475,7 +475,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("number_prop is unset");
             }
-            return Number get(key);
+            return (Number) get(key);
 
         }
         
@@ -485,7 +485,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("boolean_prop is unset");
             }
-            return Boolean get(key);
+            return (Boolean) get(key);
 
         }
         
@@ -495,7 +495,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("string_prop is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -505,7 +505,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("date_prop is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -515,7 +515,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("datetime_prop is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -525,7 +525,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("array_nullable_prop is unset");
             }
-            return ArrayNullablePropList get(key);
+            return (ArrayNullablePropList) get(key);
 
         }
         
@@ -535,7 +535,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("array_and_items_nullable_prop is unset");
             }
-            return ArrayAndItemsNullablePropList get(key);
+            return (ArrayAndItemsNullablePropList) get(key);
 
         }
         
@@ -545,7 +545,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("array_items_nullable is unset");
             }
-            return ArrayItemsNullableList get(key);
+            return (ArrayItemsNullableList) get(key);
 
         }
         
@@ -555,7 +555,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("object_nullable_prop is unset");
             }
-            return ObjectNullablePropMap get(key);
+            return (ObjectNullablePropMap) get(key);
 
         }
         
@@ -565,7 +565,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("object_and_items_nullable_prop is unset");
             }
-            return ObjectAndItemsNullablePropMap get(key);
+            return (ObjectAndItemsNullablePropMap) get(key);
 
         }
         
@@ -575,7 +575,7 @@ public class NullableClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("object_items_nullable is unset");
             }
-            return ObjectItemsNullableMap get(key);
+            return (ObjectItemsNullableMap) get(key);
 
         }
         

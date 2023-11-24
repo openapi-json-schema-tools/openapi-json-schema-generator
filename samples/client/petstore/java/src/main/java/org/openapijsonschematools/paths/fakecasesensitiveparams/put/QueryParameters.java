@@ -39,22 +39,19 @@ public class QueryParameters {
         
         public String SomeVar() {
 
-            String key = "SomeVar";
-            return String get(key);
+            return (String) get("SomeVar");
 
         }
         
         public String someVar() {
 
-            String key = "someVar";
-            return String get(key);
+            return (String) get("someVar");
 
         }
         
         public String some_var() {
 
-            String key = "some_var";
-            return String get(key);
+            return (String) get("some_var");
 
         }
     }    

@@ -37,8 +37,7 @@ public class QueryParameters {
         
         public Object someParam() {
 
-            String key = "someParam";
-            return get(key);
+            return get("someParam");
         }
     }    
     

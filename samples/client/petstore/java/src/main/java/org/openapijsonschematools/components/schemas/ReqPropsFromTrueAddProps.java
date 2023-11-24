@@ -32,8 +32,7 @@ public class ReqPropsFromTrueAddProps {
         
         public Object validName() {
 
-            String key = "validName";
-            return get(key);
+            return get("validName");
         }
         
         public Object getAdditionalProperty(String name) {

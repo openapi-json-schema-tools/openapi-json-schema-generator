@@ -85,7 +85,7 @@ public class EnumArrays {
             if (!containsKey(key)) {
                 throw new RuntimeException("just_symbol is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -95,7 +95,7 @@ public class EnumArrays {
             if (!containsKey(key)) {
                 throw new RuntimeException("array_enum is unset");
             }
-            return ArrayEnumList get(key);
+            return (ArrayEnumList) get(key);
 
         }
         

@@ -48,7 +48,7 @@ public class ComplexQuadrilateral {
             if (!containsKey(key)) {
                 throw new RuntimeException("quadrilateralType is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

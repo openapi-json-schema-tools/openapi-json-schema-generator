@@ -41,7 +41,7 @@ public class ChildCat {
             if (!containsKey(key)) {
                 throw new RuntimeException("name is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

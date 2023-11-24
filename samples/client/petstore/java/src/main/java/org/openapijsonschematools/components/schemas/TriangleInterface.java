@@ -49,15 +49,13 @@ public class TriangleInterface {
         
         public String shapeType() {
 
-            String key = "shapeType";
-            return String get(key);
+            return (String) get("shapeType");
 
         }
         
         public String triangleType() {
 
-            String key = "triangleType";
-            return String get(key);
+            return (String) get("triangleType");
 
         }
         

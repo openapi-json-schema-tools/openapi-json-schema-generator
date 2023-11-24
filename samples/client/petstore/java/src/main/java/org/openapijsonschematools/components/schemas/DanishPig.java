@@ -40,8 +40,7 @@ public class DanishPig {
         
         public String className() {
 
-            String key = "className";
-            return String get(key);
+            return (String) get("className");
 
         }
         

@@ -33,8 +33,7 @@ public class ObjWithRequiredPropsBase {
         
         public String b() {
 
-            String key = "b";
-            return String get(key);
+            return (String) get("b");
 
         }
         

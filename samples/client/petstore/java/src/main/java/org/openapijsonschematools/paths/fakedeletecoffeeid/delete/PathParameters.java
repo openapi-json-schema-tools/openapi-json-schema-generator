@@ -37,8 +37,7 @@ public class PathParameters {
         
         public String id() {
 
-            String key = "id";
-            return get(key);
+            return get("id");
         }
     }    
     

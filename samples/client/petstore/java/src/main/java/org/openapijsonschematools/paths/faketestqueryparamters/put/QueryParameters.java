@@ -42,43 +42,37 @@ public class QueryParameters {
         
         public Schema4.SchemaList4 context() {
 
-            String key = "context";
-            return Schema4.SchemaList4 get(key);
+            return (Schema4.SchemaList4) get("context");
 
         }
         
         public Schema2.SchemaList2 http() {
 
-            String key = "http";
-            return Schema2.SchemaList2 get(key);
+            return (Schema2.SchemaList2) get("http");
 
         }
         
         public Schema1.SchemaList1 ioutil() {
 
-            String key = "ioutil";
-            return Schema1.SchemaList1 get(key);
+            return (Schema1.SchemaList1) get("ioutil");
 
         }
         
         public Schema0.SchemaList0 pipe() {
 
-            String key = "pipe";
-            return Schema0.SchemaList0 get(key);
+            return (Schema0.SchemaList0) get("pipe");
 
         }
         
         public String refParam() {
 
-            String key = "refParam";
-            return String get(key);
+            return (String) get("refParam");
 
         }
         
         public Schema3.SchemaList3 url() {
 
-            String key = "url";
-            return Schema3.SchemaList3 get(key);
+            return (Schema3.SchemaList3) get("url");
 
         }
     }    

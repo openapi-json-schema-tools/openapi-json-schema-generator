@@ -214,7 +214,7 @@ public class MapTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_map_of_string is unset");
             }
-            return MapMapOfStringMap get(key);
+            return (MapMapOfStringMap) get(key);
 
         }
         
@@ -224,7 +224,7 @@ public class MapTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_of_enum_string is unset");
             }
-            return MapOfEnumStringMap get(key);
+            return (MapOfEnumStringMap) get(key);
 
         }
         
@@ -234,7 +234,7 @@ public class MapTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("direct_map is unset");
             }
-            return DirectMapMap get(key);
+            return (DirectMapMap) get(key);
 
         }
         
@@ -244,7 +244,7 @@ public class MapTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("indirect_map is unset");
             }
-            return StringBooleanMap.StringBooleanMapMap get(key);
+            return (StringBooleanMap.StringBooleanMapMap) get(key);
 
         }
         

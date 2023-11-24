@@ -41,7 +41,7 @@ public class Cat {
             if (!containsKey(key)) {
                 throw new RuntimeException("declawed is unset");
             }
-            return boolean get(key);
+            return (boolean) get(key);
 
         }
         

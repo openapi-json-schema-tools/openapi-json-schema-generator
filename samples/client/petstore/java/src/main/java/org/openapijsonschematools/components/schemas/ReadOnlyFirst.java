@@ -39,7 +39,7 @@ public class ReadOnlyFirst {
             if (!containsKey(key)) {
                 throw new RuntimeException("bar is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -49,7 +49,7 @@ public class ReadOnlyFirst {
             if (!containsKey(key)) {
                 throw new RuntimeException("baz is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

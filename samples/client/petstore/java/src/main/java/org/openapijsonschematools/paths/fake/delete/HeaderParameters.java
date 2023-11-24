@@ -38,8 +38,7 @@ public class HeaderParameters {
         
         public String required_boolean_group() {
 
-            String key = "required_boolean_group";
-            return String get(key);
+            return (String) get("required_boolean_group");
 
         }
         
@@ -49,7 +48,7 @@ public class HeaderParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("boolean_group is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
     }    

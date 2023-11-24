@@ -40,15 +40,13 @@ public class Money {
         
         public String amount() {
 
-            String key = "amount";
-            return String get(key);
+            return (String) get("amount");
 
         }
         
         public String currency() {
 
-            String key = "currency";
-            return String get(key);
+            return (String) get("currency");
 
         }
     }    

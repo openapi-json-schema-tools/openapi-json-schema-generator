@@ -43,8 +43,7 @@ public class NoAdditionalProperties {
         
         public long id() {
 
-            String key = "id";
-            return get(key);
+            return get("id");
         }
         
         public long petId() {

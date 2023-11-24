@@ -43,7 +43,7 @@ public class HeaderParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("aB is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -53,7 +53,7 @@ public class HeaderParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("self is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
     }    

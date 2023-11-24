@@ -49,15 +49,13 @@ public class QuadrilateralInterface {
         
         public String quadrilateralType() {
 
-            String key = "quadrilateralType";
-            return String get(key);
+            return (String) get("quadrilateralType");
 
         }
         
         public String shapeType() {
 
-            String key = "shapeType";
-            return String get(key);
+            return (String) get("shapeType");
 
         }
         

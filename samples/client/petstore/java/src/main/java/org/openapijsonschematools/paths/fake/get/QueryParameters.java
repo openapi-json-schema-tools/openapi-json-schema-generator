@@ -43,7 +43,7 @@ public class QueryParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_query_double is unset");
             }
-            return double get(key);
+            return (double) get(key);
 
         }
         
@@ -53,7 +53,7 @@ public class QueryParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_query_string is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -63,7 +63,7 @@ public class QueryParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_query_integer is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -73,7 +73,7 @@ public class QueryParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_query_string_array is unset");
             }
-            return Schema2.SchemaList2 get(key);
+            return (Schema2.SchemaList2) get(key);
 
         }
     }    

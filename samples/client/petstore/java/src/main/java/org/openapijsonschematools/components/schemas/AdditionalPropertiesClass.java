@@ -288,7 +288,7 @@ public class AdditionalPropertiesClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_property is unset");
             }
-            return MapPropertyMap get(key);
+            return (MapPropertyMap) get(key);
 
         }
         
@@ -298,7 +298,7 @@ public class AdditionalPropertiesClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_of_map_property is unset");
             }
-            return MapOfMapPropertyMap get(key);
+            return (MapOfMapPropertyMap) get(key);
 
         }
         
@@ -317,7 +317,7 @@ public class AdditionalPropertiesClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_with_undeclared_properties_anytype_1 is unset");
             }
-            return FrozenMap<String, Object> get(key);
+            return (FrozenMap<String, Object>) get(key);
 
         }
         
@@ -327,7 +327,7 @@ public class AdditionalPropertiesClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_with_undeclared_properties_anytype_2 is unset");
             }
-            return FrozenMap<String, Object> get(key);
+            return (FrozenMap<String, Object>) get(key);
 
         }
         
@@ -337,7 +337,7 @@ public class AdditionalPropertiesClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_with_undeclared_properties_anytype_3 is unset");
             }
-            return MapWithUndeclaredPropertiesAnytype3Map get(key);
+            return (MapWithUndeclaredPropertiesAnytype3Map) get(key);
 
         }
         
@@ -347,7 +347,7 @@ public class AdditionalPropertiesClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("empty_map is unset");
             }
-            return EmptyMapMap get(key);
+            return (EmptyMapMap) get(key);
 
         }
         
@@ -357,7 +357,7 @@ public class AdditionalPropertiesClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("map_with_undeclared_properties_string is unset");
             }
-            return MapWithUndeclaredPropertiesStringMap get(key);
+            return (MapWithUndeclaredPropertiesStringMap) get(key);
 
         }
         

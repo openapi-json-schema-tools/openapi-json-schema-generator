@@ -85,7 +85,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_form_string_array is unset");
             }
-            return EnumFormStringArrayList get(key);
+            return (EnumFormStringArrayList) get(key);
 
         }
         
@@ -95,7 +95,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_form_string is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

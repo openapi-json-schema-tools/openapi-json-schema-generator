@@ -64,7 +64,7 @@ public class Drawing {
             if (!containsKey(key)) {
                 throw new RuntimeException("mainShape is unset");
             }
-            return Object get(key);
+            return (Object) get(key);
 
         }
         
@@ -74,7 +74,7 @@ public class Drawing {
             if (!containsKey(key)) {
                 throw new RuntimeException("shapeOrNull is unset");
             }
-            return Object get(key);
+            return (Object) get(key);
 
         }
         
@@ -84,7 +84,7 @@ public class Drawing {
             if (!containsKey(key)) {
                 throw new RuntimeException("nullableShape is unset");
             }
-            return Object get(key);
+            return (Object) get(key);
 
         }
         
@@ -94,7 +94,7 @@ public class Drawing {
             if (!containsKey(key)) {
                 throw new RuntimeException("shapes is unset");
             }
-            return ShapesList get(key);
+            return (ShapesList) get(key);
 
         }
         

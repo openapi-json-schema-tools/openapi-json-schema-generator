@@ -41,7 +41,7 @@ public class ObjectWithNonIntersectingValues {
             if (!containsKey(key)) {
                 throw new RuntimeException("a is unset");
             }
-            return Number get(key);
+            return (Number) get(key);
 
         }
         

@@ -44,8 +44,7 @@ public class Animal {
         
         public String className() {
 
-            String key = "className";
-            return String get(key);
+            return (String) get("className");
 
         }
         
@@ -55,7 +54,7 @@ public class Animal {
             if (!containsKey(key)) {
                 throw new RuntimeException("color is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

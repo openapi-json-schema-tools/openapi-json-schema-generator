@@ -62,7 +62,7 @@ public class Order {
             if (!containsKey(key)) {
                 throw new RuntimeException("id is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -72,7 +72,7 @@ public class Order {
             if (!containsKey(key)) {
                 throw new RuntimeException("petId is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -82,7 +82,7 @@ public class Order {
             if (!containsKey(key)) {
                 throw new RuntimeException("quantity is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -92,7 +92,7 @@ public class Order {
             if (!containsKey(key)) {
                 throw new RuntimeException("shipDate is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -102,7 +102,7 @@ public class Order {
             if (!containsKey(key)) {
                 throw new RuntimeException("status is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -112,7 +112,7 @@ public class Order {
             if (!containsKey(key)) {
                 throw new RuntimeException("complete is unset");
             }
-            return boolean get(key);
+            return (boolean) get(key);
 
         }
         

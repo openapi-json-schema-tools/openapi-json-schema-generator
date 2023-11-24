@@ -39,8 +39,7 @@ public class QueryParameters {
         
         public Schema0.SchemaList0 status() {
 
-            String key = "status";
-            return get(key);
+            return get("status");
         }
     }    
     

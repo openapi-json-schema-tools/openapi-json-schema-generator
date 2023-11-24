@@ -32,7 +32,7 @@ public class ObjectModelWithRefProps {
             if (!containsKey(key)) {
                 throw new RuntimeException("myNumber is unset");
             }
-            return Number get(key);
+            return (Number) get(key);
 
         }
         
@@ -42,7 +42,7 @@ public class ObjectModelWithRefProps {
             if (!containsKey(key)) {
                 throw new RuntimeException("myString is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -52,7 +52,7 @@ public class ObjectModelWithRefProps {
             if (!containsKey(key)) {
                 throw new RuntimeException("myBoolean is unset");
             }
-            return boolean get(key);
+            return (boolean) get(key);
 
         }
         

@@ -32,7 +32,7 @@ public class Foo {
             if (!containsKey(key)) {
                 throw new RuntimeException("bar is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

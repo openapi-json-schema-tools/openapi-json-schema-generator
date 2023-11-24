@@ -73,15 +73,13 @@ public class PaginatedResultMyObjectDto {
         
         public long count() {
 
-            String key = "count";
-            return long get(key);
+            return (long) get("count");
 
         }
         
         public ResultsList results() {
 
-            String key = "results";
-            return ResultsList get(key);
+            return (ResultsList) get("results");
 
         }
     }    

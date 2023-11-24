@@ -94,8 +94,7 @@ public class EnumTest {
         
         public String enum_string_required() {
 
-            String key = "enum_string_required";
-            return String get(key);
+            return (String) get("enum_string_required");
 
         }
         
@@ -105,7 +104,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_string is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -115,7 +114,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_integer is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -125,7 +124,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("enum_number is unset");
             }
-            return double get(key);
+            return (double) get(key);
 
         }
         
@@ -135,7 +134,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("stringEnum is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -145,7 +144,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("IntegerEnum is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -155,7 +154,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("StringEnumWithDefaultValue is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -165,7 +164,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("IntegerEnumWithDefaultValue is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -175,7 +174,7 @@ public class EnumTest {
             if (!containsKey(key)) {
                 throw new RuntimeException("IntegerEnumOneValue is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         

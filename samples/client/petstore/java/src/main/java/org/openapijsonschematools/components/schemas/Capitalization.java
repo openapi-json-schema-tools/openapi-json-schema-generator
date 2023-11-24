@@ -51,7 +51,7 @@ public class Capitalization {
             if (!containsKey(key)) {
                 throw new RuntimeException("smallCamel is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -61,7 +61,7 @@ public class Capitalization {
             if (!containsKey(key)) {
                 throw new RuntimeException("CapitalCamel is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -71,7 +71,7 @@ public class Capitalization {
             if (!containsKey(key)) {
                 throw new RuntimeException("small_Snake is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -81,7 +81,7 @@ public class Capitalization {
             if (!containsKey(key)) {
                 throw new RuntimeException("Capital_Snake is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -91,7 +91,7 @@ public class Capitalization {
             if (!containsKey(key)) {
                 throw new RuntimeException("SCA_ETH_Flow_Points is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -101,7 +101,7 @@ public class Capitalization {
             if (!containsKey(key)) {
                 throw new RuntimeException("ATT_NAME is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

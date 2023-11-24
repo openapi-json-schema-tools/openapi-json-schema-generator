@@ -44,8 +44,7 @@ public class Name {
         
         public int name() {
 
-            String key = "name";
-            return int get(key);
+            return (int) get("name");
 
         }
         
@@ -55,7 +54,7 @@ public class Name {
             if (!containsKey(key)) {
                 throw new RuntimeException("snake_case is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -65,7 +64,7 @@ public class Name {
             if (!containsKey(key)) {
                 throw new RuntimeException("property is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

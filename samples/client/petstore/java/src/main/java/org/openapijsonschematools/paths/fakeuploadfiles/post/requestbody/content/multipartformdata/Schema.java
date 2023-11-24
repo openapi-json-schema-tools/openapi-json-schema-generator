@@ -68,7 +68,7 @@ public class Schema {
             if (!containsKey(key)) {
                 throw new RuntimeException("files is unset");
             }
-            return FilesList get(key);
+            return (FilesList) get(key);
 
         }
         

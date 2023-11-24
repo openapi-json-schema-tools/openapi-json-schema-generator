@@ -51,8 +51,7 @@ public class Apple {
         
         public String cultivar() {
 
-            String key = "cultivar";
-            return String get(key);
+            return (String) get("cultivar");
 
         }
         
@@ -62,7 +61,7 @@ public class Apple {
             if (!containsKey(key)) {
                 throw new RuntimeException("origin is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

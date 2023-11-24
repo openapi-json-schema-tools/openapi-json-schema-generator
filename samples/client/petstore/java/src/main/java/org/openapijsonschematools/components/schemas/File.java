@@ -36,7 +36,7 @@ public class File {
             if (!containsKey(key)) {
                 throw new RuntimeException("sourceURI is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

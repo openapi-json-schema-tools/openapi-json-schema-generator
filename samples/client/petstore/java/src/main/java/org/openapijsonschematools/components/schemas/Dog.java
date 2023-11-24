@@ -41,7 +41,7 @@ public class Dog {
             if (!containsKey(key)) {
                 throw new RuntimeException("breed is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

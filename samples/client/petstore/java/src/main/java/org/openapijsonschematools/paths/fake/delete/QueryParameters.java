@@ -40,15 +40,13 @@ public class QueryParameters {
         
         public long required_int64_group() {
 
-            String key = "required_int64_group";
-            return long get(key);
+            return (long) get("required_int64_group");
 
         }
         
         public String required_string_group() {
 
-            String key = "required_string_group";
-            return String get(key);
+            return (String) get("required_string_group");
 
         }
         
@@ -58,7 +56,7 @@ public class QueryParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("int64_group is unset");
             }
-            return long get(key);
+            return (long) get(key);
 
         }
         
@@ -68,7 +66,7 @@ public class QueryParameters {
             if (!containsKey(key)) {
                 throw new RuntimeException("string_group is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
     }    

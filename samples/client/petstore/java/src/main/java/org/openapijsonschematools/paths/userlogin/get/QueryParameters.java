@@ -38,15 +38,13 @@ public class QueryParameters {
         
         public String password() {
 
-            String key = "password";
-            return String get(key);
+            return (String) get("password");
 
         }
         
         public String username() {
 
-            String key = "username";
-            return String get(key);
+            return (String) get("username");
 
         }
     }    

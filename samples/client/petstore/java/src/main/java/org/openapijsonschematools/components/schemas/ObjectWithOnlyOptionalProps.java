@@ -47,7 +47,7 @@ public class ObjectWithOnlyOptionalProps {
             if (!containsKey(key)) {
                 throw new RuntimeException("a is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -57,7 +57,7 @@ public class ObjectWithOnlyOptionalProps {
             if (!containsKey(key)) {
                 throw new RuntimeException("b is unset");
             }
-            return Number get(key);
+            return (Number) get(key);
 
         }
     }    

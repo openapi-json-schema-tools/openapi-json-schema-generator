@@ -37,8 +37,7 @@ public class PathParameters {
         
         public String subDir() {
 
-            String key = "subDir";
-            return get(key);
+            return get("subDir");
         }
     }    
     

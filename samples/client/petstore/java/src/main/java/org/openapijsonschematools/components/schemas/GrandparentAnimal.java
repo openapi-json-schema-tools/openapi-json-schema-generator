@@ -33,8 +33,7 @@ public class GrandparentAnimal {
         
         public String pet_type() {
 
-            String key = "pet_type";
-            return String get(key);
+            return (String) get("pet_type");
 
         }
         

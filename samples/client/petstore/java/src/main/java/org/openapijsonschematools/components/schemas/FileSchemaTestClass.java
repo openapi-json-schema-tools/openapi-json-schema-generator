@@ -65,7 +65,7 @@ public class FileSchemaTestClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("file is unset");
             }
-            return File.FileMap get(key);
+            return (File.FileMap) get(key);
 
         }
         
@@ -75,7 +75,7 @@ public class FileSchemaTestClass {
             if (!containsKey(key)) {
                 throw new RuntimeException("files is unset");
             }
-            return FilesList get(key);
+            return (FilesList) get(key);
 
         }
         

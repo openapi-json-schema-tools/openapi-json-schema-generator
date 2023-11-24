@@ -41,22 +41,19 @@ public class PathParameters {
         
         public String Ab() {
 
-            String key = "Ab";
-            return String get(key);
+            return (String) get("Ab");
 
         }
         
         public String aB() {
 
-            String key = "aB";
-            return String get(key);
+            return (String) get("aB");
 
         }
         
         public String self() {
 
-            String key = "self";
-            return String get(key);
+            return (String) get("self");
 
         }
     }    

@@ -43,7 +43,7 @@ public class ApiResponseSchema {
             if (!containsKey(key)) {
                 throw new RuntimeException("code is unset");
             }
-            return int get(key);
+            return (int) get(key);
 
         }
         
@@ -53,7 +53,7 @@ public class ApiResponseSchema {
             if (!containsKey(key)) {
                 throw new RuntimeException("type is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         
@@ -63,7 +63,7 @@ public class ApiResponseSchema {
             if (!containsKey(key)) {
                 throw new RuntimeException("message is unset");
             }
-            return String get(key);
+            return (String) get(key);
 
         }
         

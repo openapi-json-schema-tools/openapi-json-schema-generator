@@ -36,15 +36,13 @@ public class Schema {
         
         public String param() {
 
-            String key = "param";
-            return String get(key);
+            return (String) get("param");
 
         }
         
         public String param2() {
 
-            String key = "param2";
-            return String get(key);
+            return (String) get("param2");
 
         }
         

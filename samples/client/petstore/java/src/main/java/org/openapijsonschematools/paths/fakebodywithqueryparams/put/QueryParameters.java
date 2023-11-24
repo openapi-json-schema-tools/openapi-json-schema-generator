@@ -37,8 +37,7 @@ public class QueryParameters {
         
         public String query() {
 
-            String key = "query";
-            return get(key);
+            return get("query");
         }
     }    
     
