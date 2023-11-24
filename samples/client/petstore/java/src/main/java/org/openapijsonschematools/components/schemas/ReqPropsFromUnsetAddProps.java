@@ -24,8 +24,7 @@ public class ReqPropsFromUnsetAddProps {
             "invalid-name",
             "validName"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ReqPropsFromUnsetAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ReqPropsFromUnsetAddProps1.validate(arg, configuration);

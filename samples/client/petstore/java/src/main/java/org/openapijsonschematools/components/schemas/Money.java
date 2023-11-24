@@ -37,8 +37,7 @@ public class Money {
             "amount",
             "currency"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static MoneyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Money1.validate(arg, configuration);

@@ -29,8 +29,7 @@ public class Banana {
         public static final Set<String> requiredKeys = Set.of(
             "lengthCm"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static BananaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Banana1.validate(arg, configuration);

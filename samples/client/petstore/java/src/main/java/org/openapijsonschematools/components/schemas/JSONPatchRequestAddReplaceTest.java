@@ -52,8 +52,7 @@ public class JSONPatchRequestAddReplaceTest {
             "path",
             "value"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);

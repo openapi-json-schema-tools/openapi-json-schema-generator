@@ -29,8 +29,7 @@ public class ReqPropsFromExplicitAddProps {
             "invalid-name",
             "validName"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ReqPropsFromExplicitAddPropsMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return ReqPropsFromExplicitAddProps1.validate(arg, configuration);

@@ -32,8 +32,7 @@ public class QueryParameters {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "enum_query_double",
             "enum_query_string",

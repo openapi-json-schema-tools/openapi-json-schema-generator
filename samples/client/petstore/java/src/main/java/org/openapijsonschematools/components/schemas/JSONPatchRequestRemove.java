@@ -48,8 +48,7 @@ public class JSONPatchRequestRemove {
             "op",
             "path"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static JSONPatchRequestRemoveMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return JSONPatchRequestRemove1.validate(arg, configuration);

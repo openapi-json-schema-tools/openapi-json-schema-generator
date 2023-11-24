@@ -180,8 +180,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "array_of_string",
             "array_array_of_integer",

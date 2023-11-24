@@ -31,8 +31,7 @@ public class AbstractStepMessage {
             "discriminator",
             "sequenceNumber"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return AbstractStepMessage1.validate(arg, configuration);

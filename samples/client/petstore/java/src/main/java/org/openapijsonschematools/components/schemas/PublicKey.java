@@ -25,8 +25,7 @@ public class PublicKey {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "key"
         );

@@ -30,10 +30,8 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
         public static MapMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
 
 
@@ -76,8 +74,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "uuid",
             "dateTime",

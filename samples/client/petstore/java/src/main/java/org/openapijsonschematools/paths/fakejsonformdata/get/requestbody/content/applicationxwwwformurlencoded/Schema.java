@@ -33,8 +33,7 @@ public class Schema {
             "param",
             "param2"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return Schema1.validate(arg, configuration);

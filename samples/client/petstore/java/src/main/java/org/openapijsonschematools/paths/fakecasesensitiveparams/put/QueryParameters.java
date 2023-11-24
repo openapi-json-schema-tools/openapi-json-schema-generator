@@ -37,8 +37,7 @@ public class QueryParameters {
             "someVar",
             "some_var"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return QueryParameters1.validate(arg, configuration);

@@ -24,10 +24,8 @@ public class StringBooleanMap {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
         public static StringBooleanMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) {
 
             return StringBooleanMap1.validate(arg, configuration);

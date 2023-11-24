@@ -74,8 +74,7 @@ public class Schema {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "enum_form_string_array",
             "enum_form_string"

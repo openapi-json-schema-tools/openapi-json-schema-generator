@@ -33,8 +33,7 @@ public class PathParameters {
         public static final Set<String> requiredKeys = Set.of(
             "username"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static PathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
 
             return PathParameters1.validate(arg, configuration);

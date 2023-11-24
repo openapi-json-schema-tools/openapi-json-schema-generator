@@ -296,10 +296,8 @@ public class NullableClass {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
         public static ObjectNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
 
 
@@ -358,10 +356,8 @@ public class NullableClass {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
         public static ObjectAndItemsNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
 
 
@@ -420,10 +416,8 @@ public class NullableClass {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
+        public static final Set<String> optionalKeys = Set.of();
         public static ObjectItemsNullableMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
 
 
@@ -466,8 +460,7 @@ public class NullableClass {
 
             super(m);
         }
-        public static final Set<String> requiredKeys = Set.of(
-        );
+        public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "integer_prop",
             "number_prop",

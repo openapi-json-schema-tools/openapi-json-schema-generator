@@ -29,8 +29,7 @@ public class ObjWithRequiredPropsBase {
         public static final Set<String> requiredKeys = Set.of(
             "b"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static ObjWithRequiredPropsBaseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return ObjWithRequiredPropsBase1.validate(arg, configuration);

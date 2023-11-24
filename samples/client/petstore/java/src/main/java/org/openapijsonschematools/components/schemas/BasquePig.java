@@ -36,8 +36,7 @@ public class BasquePig {
         public static final Set<String> requiredKeys = Set.of(
             "className"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static BasquePigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return BasquePig1.validate(arg, configuration);

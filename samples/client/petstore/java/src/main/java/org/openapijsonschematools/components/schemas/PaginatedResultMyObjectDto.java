@@ -70,8 +70,7 @@ public class PaginatedResultMyObjectDto {
             "count",
             "results"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return PaginatedResultMyObjectDto1.validate(arg, configuration);

@@ -36,8 +36,7 @@ public class DanishPig {
         public static final Set<String> requiredKeys = Set.of(
             "className"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static DanishPigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
 
             return DanishPig1.validate(arg, configuration);

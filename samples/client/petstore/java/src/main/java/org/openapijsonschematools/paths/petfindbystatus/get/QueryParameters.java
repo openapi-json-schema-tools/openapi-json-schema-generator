@@ -34,8 +34,7 @@ public class QueryParameters {
         public static final Set<String> requiredKeys = Set.of(
             "status"
         );
-        public static final Set<String> optionalKeys = Set.of(
-        );
+        public static final Set<String> optionalKeys = Set.of();
         public static QueryParametersMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) {
 
 
