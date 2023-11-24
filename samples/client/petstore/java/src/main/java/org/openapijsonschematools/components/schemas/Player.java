@@ -21,9 +21,7 @@ public class Player {
     
     public static class PlayerMap extends FrozenMap<String, Object> {
 
-
         PlayerMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -32,31 +30,30 @@ public class Player {
             return Player1.validate(arg, configuration);
         }
         
-        public String:
+        public String name() {
 
-            val = self.get("name", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "name";
+            if (!containsKey(key)) {
+                throw new RuntimeException("name is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public PlayerMap enemyPlayer() {
 
-            val = self.get("enemyPlayer", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                PlayerMap,
+            String key = "enemyPlayer";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enemyPlayer is unset");
+            }
+            return PlayerMap get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Player1 extends JsonSchema {
@@ -76,7 +73,6 @@ public class Player {
             )))
         ));
         protected static PlayerMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new PlayerMap(arg);
         }

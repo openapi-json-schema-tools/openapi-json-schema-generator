@@ -31,9 +31,7 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
 
-
         QueryParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -42,53 +40,47 @@ public class QueryParameters {
             return QueryParameters1.validate(arg, configuration);
         }
         
-        public Schema4.SchemaList4:
+        public Schema4.SchemaList4 context() {
 
-            return typing.cast(
-                Schema4.SchemaList4,
+            String key = "context";
+            return Schema4.SchemaList4 get(key);
 
-                self.__getitem__("context")
-            )
+        }
         
-        public Schema2.SchemaList2:
+        public Schema2.SchemaList2 http() {
 
-            return typing.cast(
-                Schema2.SchemaList2,
+            String key = "http";
+            return Schema2.SchemaList2 get(key);
 
-                self.__getitem__("http")
-            )
+        }
         
-        public Schema1.SchemaList1:
+        public Schema1.SchemaList1 ioutil() {
 
-            return typing.cast(
-                Schema1.SchemaList1,
+            String key = "ioutil";
+            return Schema1.SchemaList1 get(key);
 
-                self.__getitem__("ioutil")
-            )
+        }
         
-        public Schema0.SchemaList0:
+        public Schema0.SchemaList0 pipe() {
 
-            return typing.cast(
-                Schema0.SchemaList0,
+            String key = "pipe";
+            return Schema0.SchemaList0 get(key);
 
-                self.__getitem__("pipe")
-            )
+        }
         
-        public String:
+        public String refParam() {
 
-            return typing.cast(
-                String,
+            String key = "refParam";
+            return String get(key);
 
-                self.__getitem__("refParam")
-            )
+        }
         
-        public Schema3.SchemaList3:
+        public Schema3.SchemaList3 url() {
 
-            return typing.cast(
-                Schema3.SchemaList3,
+            String key = "url";
+            return Schema3.SchemaList3 get(key);
 
-                self.__getitem__("url")
-            )
+        }
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -113,7 +105,6 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new QueryParametersMap(arg);
         }

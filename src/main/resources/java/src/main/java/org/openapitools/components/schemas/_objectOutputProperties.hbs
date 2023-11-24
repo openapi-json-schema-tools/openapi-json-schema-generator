@@ -4,18 +4,21 @@
         {{#with this}}
             {{#if refInfo.refClass}}
 
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" mode="getter" endChar=":" }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=(join " " @key.original "() {" "") }}
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
+}
             {{else}}
                 {{#if jsonPathPiece}}
 
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type  mode="getter" fullRefModule=null endChar=":" }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=(join " " @key.original "() {" "") }}
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
+}
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
 public Object {{@key.original}}() {
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
+}
                 {{/if}}
             {{/if}}
         {{/with}}
@@ -28,12 +31,14 @@ public Object {{@key.original}}() {
         {{#with this}}
             {{#if refInfo.refClass}}
 
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" mode="getter" endChar=(join " " @key.original "() {" "") optional=true }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=(join " " @key.original "() {" "") optional=true }}
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=false }}
+}
             {{else}}
 
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="getter" fullRefModule=null endChar=":" optional=true }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=(join " " @key.original "() {" "") optional=true }}
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=false }}
+}
             {{/if}}
         {{/with}}
         {{/if}}
@@ -50,10 +55,10 @@ public Object getAdditionalProperty(String name) {
         {{#unless isBooleanSchemaFalse}}
             {{#if refInfo.refClass}}
 
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="getter" fullRefModule="" endChar=" getAdditionalProperty(String name) {}" key="str" optional=true }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=" getAdditionalProperty(String name) {}" key="str" optional=true }}
             {{else}}
 
-{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="getter" fullRefModule=null endChar=" getAdditionalProperty(String name) {" key="str" optional=true }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=" getAdditionalProperty(String name) {" key="str" optional=true }}
             {{/if}}
     schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
     val = self.get(name, schemas.unset)

@@ -33,9 +33,7 @@ public class BananaReq {
     
     public static class BananaReqMap extends FrozenMap<String, Object> {
 
-
         BananaReqMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -44,24 +42,22 @@ public class BananaReq {
             return BananaReq1.validate(arg, configuration);
         }
         
-        public Number:
+        public Number lengthCm() {
 
-            return typing.cast(
-                Number,
+            String key = "lengthCm";
+            return Number get(key);
 
-                self.__getitem__("lengthCm")
-            )
+        }
         
-        public boolean:
+        public boolean sweet() {
 
-            val = self.get("sweet", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                boolean,
+            String key = "sweet";
+            if (!containsKey(key)) {
+                throw new RuntimeException("sweet is unset");
+            }
+            return boolean get(key);
 
-                val
-            )
+        }
     }    
     
     public class BananaReq1 extends JsonSchema {
@@ -83,7 +79,6 @@ public class BananaReq {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static BananaReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new BananaReqMap(arg);
         }

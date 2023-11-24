@@ -27,9 +27,7 @@ public class HeaderParameters {
     
     public static class HeaderParametersMap extends FrozenMap<String, Object> {
 
-
         HeaderParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -38,24 +36,22 @@ public class HeaderParameters {
             return HeaderParameters1.validate(arg, configuration);
         }
         
-        public String:
+        public String required_boolean_group() {
 
-            return typing.cast(
-                String,
+            String key = "required_boolean_group";
+            return String get(key);
 
-                self.__getitem__("required_boolean_group")
-            )
+        }
         
         public String boolean_group() {
 
-            val = self.get("boolean_group", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "boolean_group";
+            if (!containsKey(key)) {
+                throw new RuntimeException("boolean_group is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
     }    
     
     public class HeaderParameters1 extends JsonSchema {
@@ -71,7 +67,6 @@ public class HeaderParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new HeaderParametersMap(arg);
         }

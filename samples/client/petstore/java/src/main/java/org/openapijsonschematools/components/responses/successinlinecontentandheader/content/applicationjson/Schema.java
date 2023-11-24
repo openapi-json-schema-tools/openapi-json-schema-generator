@@ -20,9 +20,7 @@ public class Schema {
     
     public static class SchemaMap extends FrozenMap<String, Integer> {
 
-
         SchemaMap(FrozenMap<String, Integer> m) {
-
 
             super(m);
         }
@@ -39,9 +37,9 @@ public class Schema {
                 return val
             return typing.cast(
                 int,
-
                 val
             )
+        }
     }    
     
     public class Schema1 extends JsonSchema {
@@ -50,7 +48,6 @@ public class Schema {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Integer> arg) {
-
 
             return new SchemaMap(arg);
         }

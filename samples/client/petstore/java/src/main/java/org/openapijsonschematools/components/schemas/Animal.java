@@ -33,9 +33,7 @@ public class Animal {
     
     public static class AnimalMap extends FrozenMap<String, Object> {
 
-
         AnimalMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -44,28 +42,27 @@ public class Animal {
             return Animal1.validate(arg, configuration);
         }
         
-        public String:
+        public String className() {
 
-            return typing.cast(
-                String,
+            String key = "className";
+            return String get(key);
 
-                self.__getitem__("className")
-            )
+        }
         
-        public String:
+        public String color() {
 
-            val = self.get("color", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "color";
+            if (!containsKey(key)) {
+                throw new RuntimeException("color is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Animal1 extends JsonSchema {
@@ -86,7 +83,6 @@ public class Animal {
             )))
         ));
         protected static AnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new AnimalMap(arg);
         }

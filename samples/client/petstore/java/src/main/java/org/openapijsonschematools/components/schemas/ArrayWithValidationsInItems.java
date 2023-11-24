@@ -45,9 +45,7 @@ public class ArrayWithValidationsInItems {
     
     public static class ArrayWithValidationsInItemsList extends FrozenList<Long> {
 
-
         ArrayWithValidationsInItemsList(FrozenList<Long> m) {
-
 
             super(m);
         }
@@ -70,7 +68,6 @@ public class ArrayWithValidationsInItems {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
-
 
             return new ArrayWithValidationsInItemsList(arg);
         }

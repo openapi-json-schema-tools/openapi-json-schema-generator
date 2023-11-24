@@ -33,9 +33,7 @@ public class Name {
     
     public static class NameMap extends FrozenMap<String, Object> {
 
-
         NameMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -44,39 +42,37 @@ public class Name {
             return Name1.validate(arg, configuration);
         }
         
-        public int:
+        public int name() {
 
-            return typing.cast(
-                int,
+            String key = "name";
+            return int get(key);
 
-                self.__getitem__("name")
-            )
+        }
         
-        public int:
+        public int snake_case() {
 
-            val = self.get("snake_case", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "snake_case";
+            if (!containsKey(key)) {
+                throw new RuntimeException("snake_case is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String property() {
 
-            val = self.get("property", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "property";
+            if (!containsKey(key)) {
+                throw new RuntimeException("property is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Name1 extends JsonSchema {

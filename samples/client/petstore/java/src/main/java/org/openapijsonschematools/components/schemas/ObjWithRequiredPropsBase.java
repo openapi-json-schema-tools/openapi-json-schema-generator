@@ -22,9 +22,7 @@ public class ObjWithRequiredPropsBase {
     
     public static class ObjWithRequiredPropsBaseMap extends FrozenMap<String, Object> {
 
-
         ObjWithRequiredPropsBaseMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -33,17 +31,17 @@ public class ObjWithRequiredPropsBase {
             return ObjWithRequiredPropsBase1.validate(arg, configuration);
         }
         
-        public String:
+        public String b() {
 
-            return typing.cast(
-                String,
+            String key = "b";
+            return String get(key);
 
-                self.__getitem__("b")
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class ObjWithRequiredPropsBase1 extends JsonSchema {
@@ -63,7 +61,6 @@ public class ObjWithRequiredPropsBase {
             )))
         ));
         protected static ObjWithRequiredPropsBaseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ObjWithRequiredPropsBaseMap(arg);
         }

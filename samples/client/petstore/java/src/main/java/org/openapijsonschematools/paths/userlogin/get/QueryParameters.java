@@ -27,9 +27,7 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
 
-
         QueryParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -38,21 +36,19 @@ public class QueryParameters {
             return QueryParameters1.validate(arg, configuration);
         }
         
-        public String:
+        public String password() {
 
-            return typing.cast(
-                String,
+            String key = "password";
+            return String get(key);
 
-                self.__getitem__("password")
-            )
+        }
         
-        public String:
+        public String username() {
 
-            return typing.cast(
-                String,
+            String key = "username";
+            return String get(key);
 
-                self.__getitem__("username")
-            )
+        }
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -69,7 +65,6 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new QueryParametersMap(arg);
         }

@@ -32,9 +32,7 @@ public class NoAdditionalProperties {
     
     public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long> {
 
-
         NoAdditionalPropertiesMap(FrozenMap<String, Long> m) {
-
 
             super(m);
         }
@@ -43,16 +41,20 @@ public class NoAdditionalProperties {
             return NoAdditionalProperties1.validate(arg, configuration);
         }
         
-        public long:
+        public long id() {
 
-            return self.__getitem__("id")
+            String key = "id";
+            return get(key);
+        }
         
-        public long:
+        public long petId() {
 
-            val = self.get("petId", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "petId";
+            if (!containsKey(key)) {
+                throw new RuntimeException("petId is unset");
+            }
+            return get(key);
+        }
     }    
     
     public class NoAdditionalProperties1 extends JsonSchema {
@@ -74,7 +76,6 @@ public class NoAdditionalProperties {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long> arg) {
-
 
             return new NoAdditionalPropertiesMap(arg);
         }

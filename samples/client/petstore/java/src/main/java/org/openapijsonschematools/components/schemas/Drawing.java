@@ -21,9 +21,7 @@ public class Drawing {
     
     public static class ShapesList extends FrozenList<Object> {
 
-
         ShapesList(FrozenList<Object> m) {
-
 
             super(m);
         }
@@ -41,7 +39,6 @@ public class Drawing {
         ));
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
 
-
             return new ShapesList(arg);
         }
         public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -52,9 +49,7 @@ public class Drawing {
     
     public static class DrawingMap extends FrozenMap<String, Object> {
 
-
         DrawingMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -65,47 +60,43 @@ public class Drawing {
         
         public Object mainShape() {
 
-            val = self.get("mainShape", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Object,
+            String key = "mainShape";
+            if (!containsKey(key)) {
+                throw new RuntimeException("mainShape is unset");
+            }
+            return Object get(key);
 
-                val
-            )
+        }
         
         public Object shapeOrNull() {
 
-            val = self.get("shapeOrNull", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Object,
+            String key = "shapeOrNull";
+            if (!containsKey(key)) {
+                throw new RuntimeException("shapeOrNull is unset");
+            }
+            return Object get(key);
 
-                val
-            )
+        }
         
         public Object nullableShape() {
 
-            val = self.get("nullableShape", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Object,
+            String key = "nullableShape";
+            if (!containsKey(key)) {
+                throw new RuntimeException("nullableShape is unset");
+            }
+            return Object get(key);
 
-                val
-            )
+        }
         
-        public ShapesList:
+        public ShapesList shapes() {
 
-            val = self.get("shapes", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ShapesList,
+            String key = "shapes";
+            if (!containsKey(key)) {
+                throw new RuntimeException("shapes is unset");
+            }
+            return ShapesList get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {}
 
@@ -115,9 +106,9 @@ public class Drawing {
                 return val
             return typing.cast(
                 Object,
-
                 val
             )
+        }
     }    
     
     public class Drawing1 extends JsonSchema {
@@ -138,7 +129,6 @@ public class Drawing {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
         ));
         protected static DrawingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new DrawingMap(arg);
         }

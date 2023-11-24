@@ -32,9 +32,7 @@ public class Pet {
     
     public static class PhotoUrlsList extends FrozenList<String> {
 
-
         PhotoUrlsList(FrozenList<String> m) {
-
 
             super(m);
         }
@@ -51,7 +49,6 @@ public class Pet {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
-
 
             return new PhotoUrlsList(arg);
         }
@@ -74,9 +71,7 @@ public class Pet {
     
     public static class TagsList extends FrozenList<Tag.TagMap> {
 
-
         TagsList(FrozenList<Tag.TagMap> m) {
-
 
             super(m);
         }
@@ -95,7 +90,6 @@ public class Pet {
         ));
         protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
 
-
             return new TagsList(arg);
         }
         public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -107,9 +101,7 @@ public class Pet {
     
     public static class PetMap extends FrozenMap<String, Object> {
 
-
         PetMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -118,69 +110,64 @@ public class Pet {
             return Pet1.validate(arg, configuration);
         }
         
-        public String:
+        public String name() {
 
-            return typing.cast(
-                String,
+            String key = "name";
+            return String get(key);
 
-                self.__getitem__("name")
-            )
+        }
         
-        public PhotoUrlsList:
+        public PhotoUrlsList photoUrls() {
 
-            return typing.cast(
-                PhotoUrlsList,
+            String key = "photoUrls";
+            return PhotoUrlsList get(key);
 
-                self.__getitem__("photoUrls")
-            )
+        }
         
-        public long:
+        public long id() {
 
-            val = self.get("id", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "id";
+            if (!containsKey(key)) {
+                throw new RuntimeException("id is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
         public Category.CategoryMap category() {
 
-            val = self.get("category", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Category.CategoryMap,
+            String key = "category";
+            if (!containsKey(key)) {
+                throw new RuntimeException("category is unset");
+            }
+            return Category.CategoryMap get(key);
 
-                val
-            )
+        }
         
-        public TagsList:
+        public TagsList tags() {
 
-            val = self.get("tags", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                TagsList,
+            String key = "tags";
+            if (!containsKey(key)) {
+                throw new RuntimeException("tags is unset");
+            }
+            return TagsList get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String status() {
 
-            val = self.get("status", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "status";
+            if (!containsKey(key)) {
+                throw new RuntimeException("status is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Pet1 extends JsonSchema {
@@ -208,7 +195,6 @@ public class Pet {
             )))
         ));
         protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new PetMap(arg);
         }

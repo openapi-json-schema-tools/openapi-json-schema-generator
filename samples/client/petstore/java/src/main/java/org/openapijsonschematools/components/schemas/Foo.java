@@ -17,9 +17,7 @@ public class Foo {
     
     public static class FooMap extends FrozenMap<String, Object> {
 
-
         FooMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -30,18 +28,18 @@ public class Foo {
         
         public String bar() {
 
-            val = self.get("bar", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "bar";
+            if (!containsKey(key)) {
+                throw new RuntimeException("bar is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Foo1 extends JsonSchema {
@@ -58,7 +56,6 @@ public class Foo {
             )))
         ));
         protected static FooMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new FooMap(arg);
         }

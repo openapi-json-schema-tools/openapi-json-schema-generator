@@ -43,9 +43,7 @@ public class JSONPatchRequestMoveCopy {
     
     public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String, String> {
 
-
         JSONPatchRequestMoveCopyMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -54,21 +52,24 @@ public class JSONPatchRequestMoveCopy {
             return JSONPatchRequestMoveCopy1.validate(arg, configuration);
         }
         
-        public String:
+        public String from() {
 
-            return self.__getitem__("from")
+            String key = "from";
+            return get(key);
+        }
         
-        public String:
+        public String op() {
 
-            return typing.cast(
-                String,
+            String key = "op";
+            return String get(key);
 
-                self.__getitem__("op")
-            )
+        }
         
-        public String:
+        public String path() {
 
-            return self.__getitem__("path")
+            String key = "path";
+            return get(key);
+        }
     }    
     
     public class JSONPatchRequestMoveCopy1 extends JsonSchema {
@@ -93,7 +94,6 @@ public class JSONPatchRequestMoveCopy {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new JSONPatchRequestMoveCopyMap(arg);
         }

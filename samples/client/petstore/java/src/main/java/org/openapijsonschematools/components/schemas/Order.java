@@ -47,9 +47,7 @@ public class Order {
     
     public static class OrderMap extends FrozenMap<String, Object> {
 
-
         OrderMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -58,75 +56,70 @@ public class Order {
             return Order1.validate(arg, configuration);
         }
         
-        public long:
+        public long id() {
 
-            val = self.get("id", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "id";
+            if (!containsKey(key)) {
+                throw new RuntimeException("id is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
-        public long:
+        public long petId() {
 
-            val = self.get("petId", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "petId";
+            if (!containsKey(key)) {
+                throw new RuntimeException("petId is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
-        public int:
+        public int quantity() {
 
-            val = self.get("quantity", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "quantity";
+            if (!containsKey(key)) {
+                throw new RuntimeException("quantity is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String shipDate() {
 
-            val = self.get("shipDate", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "shipDate";
+            if (!containsKey(key)) {
+                throw new RuntimeException("shipDate is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String status() {
 
-            val = self.get("status", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "status";
+            if (!containsKey(key)) {
+                throw new RuntimeException("status is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public boolean:
+        public boolean complete() {
 
-            val = self.get("complete", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                boolean,
+            String key = "complete";
+            if (!containsKey(key)) {
+                throw new RuntimeException("complete is unset");
+            }
+            return boolean get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Order1 extends JsonSchema {
@@ -148,7 +141,6 @@ public class Order {
             )))
         ));
         protected static OrderMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new OrderMap(arg);
         }

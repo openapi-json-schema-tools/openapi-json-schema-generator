@@ -22,9 +22,7 @@ public class AbstractStepMessage {
     
     public static class AbstractStepMessageMap extends FrozenMap<String, Object> {
 
-
         AbstractStepMessageMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -34,22 +32,26 @@ public class AbstractStepMessage {
         }
         
         public Object description() {
-            return self.__getitem__("description")
+            String key = "description";
+            return get(key);
+        }
         
-        public String:
+        public String discriminator() {
 
-            return typing.cast(
-                String,
+            String key = "discriminator";
+            return String get(key);
 
-                self.__getitem__("discriminator")
-            )
+        }
         
         public Object sequenceNumber() {
-            return self.__getitem__("sequenceNumber")
+            String key = "sequenceNumber";
+            return get(key);
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class AbstractStepMessage1 extends JsonSchema {
@@ -73,7 +75,6 @@ public class AbstractStepMessage {
             )))
         ));
         protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new AbstractStepMessageMap(arg);
         }

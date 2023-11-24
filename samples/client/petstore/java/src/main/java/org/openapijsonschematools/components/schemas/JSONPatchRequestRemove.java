@@ -40,9 +40,7 @@ public class JSONPatchRequestRemove {
     
     public static class JSONPatchRequestRemoveMap extends FrozenMap<String, String> {
 
-
         JSONPatchRequestRemoveMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -51,17 +49,18 @@ public class JSONPatchRequestRemove {
             return JSONPatchRequestRemove1.validate(arg, configuration);
         }
         
-        public String:
+        public String op() {
 
-            return typing.cast(
-                String,
+            String key = "op";
+            return String get(key);
 
-                self.__getitem__("op")
-            )
+        }
         
-        public String:
+        public String path() {
 
-            return self.__getitem__("path")
+            String key = "path";
+            return get(key);
+        }
     }    
     
     public class JSONPatchRequestRemove1 extends JsonSchema {
@@ -84,7 +83,6 @@ public class JSONPatchRequestRemove {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new JSONPatchRequestRemoveMap(arg);
         }

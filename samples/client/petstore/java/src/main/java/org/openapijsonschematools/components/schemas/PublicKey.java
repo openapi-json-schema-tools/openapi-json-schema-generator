@@ -21,9 +21,7 @@ public class PublicKey {
     
     public static class PublicKeyMap extends FrozenMap<String, Object> {
 
-
         PublicKeyMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -32,20 +30,20 @@ public class PublicKey {
             return PublicKey1.validate(arg, configuration);
         }
         
-        public String:
+        public String key() {
 
-            val = self.get("key", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "key";
+            if (!containsKey(key)) {
+                throw new RuntimeException("key is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class PublicKey1 extends JsonSchema {
@@ -64,7 +62,6 @@ public class PublicKey {
             )))
         ));
         protected static PublicKeyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new PublicKeyMap(arg);
         }

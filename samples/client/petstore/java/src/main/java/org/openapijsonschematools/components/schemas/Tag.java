@@ -25,9 +25,7 @@ public class Tag {
     
     public static class TagMap extends FrozenMap<String, Object> {
 
-
         TagMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -36,31 +34,30 @@ public class Tag {
             return Tag1.validate(arg, configuration);
         }
         
-        public long:
+        public long id() {
 
-            val = self.get("id", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "id";
+            if (!containsKey(key)) {
+                throw new RuntimeException("id is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String name() {
 
-            val = self.get("name", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "name";
+            if (!containsKey(key)) {
+                throw new RuntimeException("name is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Tag1 extends JsonSchema {
@@ -78,7 +75,6 @@ public class Tag {
             )))
         ));
         protected static TagMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new TagMap(arg);
         }

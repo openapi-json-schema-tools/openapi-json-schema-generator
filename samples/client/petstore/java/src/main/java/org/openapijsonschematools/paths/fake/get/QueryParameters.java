@@ -28,9 +28,7 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
 
-
         QueryParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -41,47 +39,43 @@ public class QueryParameters {
         
         public double enum_query_double() {
 
-            val = self.get("enum_query_double", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                double,
+            String key = "enum_query_double";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_query_double is unset");
+            }
+            return double get(key);
 
-                val
-            )
+        }
         
         public String enum_query_string() {
 
-            val = self.get("enum_query_string", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "enum_query_string";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_query_string is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public int enum_query_integer() {
 
-            val = self.get("enum_query_integer", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "enum_query_integer";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_query_integer is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
         public Schema2.SchemaList2 enum_query_string_array() {
 
-            val = self.get("enum_query_string_array", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Schema2.SchemaList2,
+            String key = "enum_query_string_array";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_query_string_array is unset");
+            }
+            return Schema2.SchemaList2 get(key);
 
-                val
-            )
+        }
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -96,7 +90,6 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new QueryParametersMap(arg);
         }

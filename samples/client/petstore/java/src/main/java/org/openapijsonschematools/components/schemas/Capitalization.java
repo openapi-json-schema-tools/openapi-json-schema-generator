@@ -36,9 +36,7 @@ public class Capitalization {
     
     public static class CapitalizationMap extends FrozenMap<String, Object> {
 
-
         CapitalizationMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -47,75 +45,70 @@ public class Capitalization {
             return Capitalization1.validate(arg, configuration);
         }
         
-        public String:
+        public String smallCamel() {
 
-            val = self.get("smallCamel", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "smallCamel";
+            if (!containsKey(key)) {
+                throw new RuntimeException("smallCamel is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String CapitalCamel() {
 
-            val = self.get("CapitalCamel", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "CapitalCamel";
+            if (!containsKey(key)) {
+                throw new RuntimeException("CapitalCamel is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String small_Snake() {
 
-            val = self.get("small_Snake", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "small_Snake";
+            if (!containsKey(key)) {
+                throw new RuntimeException("small_Snake is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String Capital_Snake() {
 
-            val = self.get("Capital_Snake", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "Capital_Snake";
+            if (!containsKey(key)) {
+                throw new RuntimeException("Capital_Snake is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String SCA_ETH_Flow_Points() {
 
-            val = self.get("SCA_ETH_Flow_Points", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "SCA_ETH_Flow_Points";
+            if (!containsKey(key)) {
+                throw new RuntimeException("SCA_ETH_Flow_Points is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String ATT_NAME() {
 
-            val = self.get("ATT_NAME", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "ATT_NAME";
+            if (!containsKey(key)) {
+                throw new RuntimeException("ATT_NAME is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Capitalization1 extends JsonSchema {
@@ -137,7 +130,6 @@ public class Capitalization {
             )))
         ));
         protected static CapitalizationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new CapitalizationMap(arg);
         }

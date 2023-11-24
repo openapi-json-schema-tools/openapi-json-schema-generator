@@ -38,9 +38,7 @@ public class TriangleInterface {
     
     public static class TriangleInterfaceMap extends FrozenMap<String, Object> {
 
-
         TriangleInterfaceMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -49,25 +47,24 @@ public class TriangleInterface {
             return TriangleInterface1.validate(arg, configuration);
         }
         
-        public String:
+        public String shapeType() {
 
-            return typing.cast(
-                String,
+            String key = "shapeType";
+            return String get(key);
 
-                self.__getitem__("shapeType")
-            )
+        }
         
-        public String:
+        public String triangleType() {
 
-            return typing.cast(
-                String,
+            String key = "triangleType";
+            return String get(key);
 
-                self.__getitem__("triangleType")
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class TriangleInterface1 extends JsonSchema {

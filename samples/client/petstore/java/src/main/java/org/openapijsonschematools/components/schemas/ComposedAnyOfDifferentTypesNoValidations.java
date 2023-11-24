@@ -66,9 +66,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     public static class Schema9List extends FrozenList<Object> {
 
-
         Schema9List(FrozenList<Object> m) {
-
 
             super(m);
         }
@@ -85,7 +83,6 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
-
 
             return new Schema9List(arg);
         }

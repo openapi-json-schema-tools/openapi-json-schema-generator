@@ -30,9 +30,7 @@ public class ObjectWithDifficultlyNamedProps {
     
     public static class ObjectWithDifficultlyNamedPropsMap extends FrozenMap<String, Object> {
 
-
         ObjectWithDifficultlyNamedPropsMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -44,6 +42,7 @@ public class ObjectWithDifficultlyNamedProps {
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class ObjectWithDifficultlyNamedProps1 extends JsonSchema {
@@ -67,7 +66,6 @@ public class ObjectWithDifficultlyNamedProps {
             )))
         ));
         protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }

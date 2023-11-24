@@ -21,9 +21,7 @@ public class ReqPropsFromTrueAddProps {
     
     public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object> {
 
-
         ReqPropsFromTrueAddPropsMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -32,9 +30,11 @@ public class ReqPropsFromTrueAddProps {
             return ReqPropsFromTrueAddProps1.validate(arg, configuration);
         }
         
-        public Object:
+        public Object validName() {
 
-            return self.__getitem__("validName")
+            String key = "validName";
+            return get(key);
+        }
         
         public Object getAdditionalProperty(String name) {
 
@@ -44,9 +44,9 @@ public class ReqPropsFromTrueAddProps {
                 return val
             return typing.cast(
                 Object,
-
                 val
             )
+        }
     }    
     
     public class ReqPropsFromTrueAddProps1 extends JsonSchema {
@@ -65,7 +65,6 @@ public class ReqPropsFromTrueAddProps {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ReqPropsFromTrueAddPropsMap(arg);
         }

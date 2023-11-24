@@ -45,9 +45,7 @@ public class Zebra {
     
     public static class ZebraMap extends FrozenMap<String, Object> {
 
-
         ZebraMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -56,24 +54,22 @@ public class Zebra {
             return Zebra1.validate(arg, configuration);
         }
         
-        public String:
+        public String className() {
 
-            return typing.cast(
-                String,
+            String key = "className";
+            return String get(key);
 
-                self.__getitem__("className")
-            )
+        }
         
-        public String:
+        public String type() {
 
-            val = self.get("type", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "type";
+            if (!containsKey(key)) {
+                throw new RuntimeException("type is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
 
@@ -83,9 +79,9 @@ public class Zebra {
                 return val
             return typing.cast(
                 Object,
-
                 val
             )
+        }
     }    
     
     public class Zebra1 extends JsonSchema {
@@ -107,7 +103,6 @@ public class Zebra {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static ZebraMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ZebraMap(arg);
         }

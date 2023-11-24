@@ -18,9 +18,7 @@ public class ObjectWithInvalidNamedRefedProperties {
     
     public static class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<String, Object> {
 
-
         ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -29,17 +27,17 @@ public class ObjectWithInvalidNamedRefedProperties {
             return ObjectWithInvalidNamedRefedProperties1.validate(arg, configuration);
         }
         
-        public FromSchema.FromSchemaMap:
+        public FromSchema.FromSchemaMap from() {
 
-            return typing.cast(
-                FromSchema.FromSchemaMap,
+            String key = "from";
+            return FromSchema.FromSchemaMap get(key);
 
-                self.__getitem__("from")
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class ObjectWithInvalidNamedRefedProperties1 extends JsonSchema {
@@ -61,7 +59,6 @@ public class ObjectWithInvalidNamedRefedProperties {
             )))
         ));
         protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }

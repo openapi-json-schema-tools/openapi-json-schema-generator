@@ -28,9 +28,7 @@ public class ApiResponseSchema {
     
     public static class ApiResponseMap extends FrozenMap<String, Object> {
 
-
         ApiResponseMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -39,42 +37,40 @@ public class ApiResponseSchema {
             return ApiResponseSchema1.validate(arg, configuration);
         }
         
-        public int:
+        public int code() {
 
-            val = self.get("code", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "code";
+            if (!containsKey(key)) {
+                throw new RuntimeException("code is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String type() {
 
-            val = self.get("type", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "type";
+            if (!containsKey(key)) {
+                throw new RuntimeException("type is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String message() {
 
-            val = self.get("message", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "message";
+            if (!containsKey(key)) {
+                throw new RuntimeException("message is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class ApiResponseSchema1 extends JsonSchema {
@@ -93,7 +89,6 @@ public class ApiResponseSchema {
             )))
         ));
         protected static ApiResponseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ApiResponseMap(arg);
         }

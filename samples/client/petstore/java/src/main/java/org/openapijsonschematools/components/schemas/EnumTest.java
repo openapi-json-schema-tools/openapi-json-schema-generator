@@ -83,9 +83,7 @@ public class EnumTest {
     
     public static class EnumTestMap extends FrozenMap<String, Object> {
 
-
         EnumTestMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -94,105 +92,97 @@ public class EnumTest {
             return EnumTest1.validate(arg, configuration);
         }
         
-        public String:
+        public String enum_string_required() {
 
-            return typing.cast(
-                String,
+            String key = "enum_string_required";
+            return String get(key);
 
-                self.__getitem__("enum_string_required")
-            )
+        }
         
-        public String:
+        public String enum_string() {
 
-            val = self.get("enum_string", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "enum_string";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_string is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public int:
+        public int enum_integer() {
 
-            val = self.get("enum_integer", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "enum_integer";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_integer is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public double:
+        public double enum_number() {
 
-            val = self.get("enum_number", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                double,
+            String key = "enum_number";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_number is unset");
+            }
+            return double get(key);
 
-                val
-            )
+        }
         
         public String stringEnum() {
 
-            val = self.get("stringEnum", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "stringEnum";
+            if (!containsKey(key)) {
+                throw new RuntimeException("stringEnum is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public long IntegerEnum() {
 
-            val = self.get("IntegerEnum", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "IntegerEnum";
+            if (!containsKey(key)) {
+                throw new RuntimeException("IntegerEnum is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
         public String StringEnumWithDefaultValue() {
 
-            val = self.get("StringEnumWithDefaultValue", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "StringEnumWithDefaultValue";
+            if (!containsKey(key)) {
+                throw new RuntimeException("StringEnumWithDefaultValue is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public long IntegerEnumWithDefaultValue() {
 
-            val = self.get("IntegerEnumWithDefaultValue", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "IntegerEnumWithDefaultValue";
+            if (!containsKey(key)) {
+                throw new RuntimeException("IntegerEnumWithDefaultValue is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
         public long IntegerEnumOneValue() {
 
-            val = self.get("IntegerEnumOneValue", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "IntegerEnumOneValue";
+            if (!containsKey(key)) {
+                throw new RuntimeException("IntegerEnumOneValue is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class EnumTest1 extends JsonSchema {
@@ -220,7 +210,6 @@ public class EnumTest {
             )))
         ));
         protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new EnumTestMap(arg);
         }

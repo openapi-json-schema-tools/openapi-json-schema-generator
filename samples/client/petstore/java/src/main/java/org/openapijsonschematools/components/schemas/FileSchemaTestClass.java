@@ -20,9 +20,7 @@ public class FileSchemaTestClass {
     
     public static class FilesList extends FrozenList<File.FileMap> {
 
-
         FilesList(FrozenList<File.FileMap> m) {
-
 
             super(m);
         }
@@ -41,7 +39,6 @@ public class FileSchemaTestClass {
         ));
         protected static FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
 
-
             return new FilesList(arg);
         }
         public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -53,9 +50,7 @@ public class FileSchemaTestClass {
     
     public static class FileSchemaTestClassMap extends FrozenMap<String, Object> {
 
-
         FileSchemaTestClassMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -66,29 +61,28 @@ public class FileSchemaTestClass {
         
         public File.FileMap file() {
 
-            val = self.get("file", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                File.FileMap,
+            String key = "file";
+            if (!containsKey(key)) {
+                throw new RuntimeException("file is unset");
+            }
+            return File.FileMap get(key);
 
-                val
-            )
+        }
         
-        public FilesList:
+        public FilesList files() {
 
-            val = self.get("files", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                FilesList,
+            String key = "files";
+            if (!containsKey(key)) {
+                throw new RuntimeException("files is unset");
+            }
+            return FilesList get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class FileSchemaTestClass1 extends JsonSchema {
@@ -106,7 +100,6 @@ public class FileSchemaTestClass {
             )))
         ));
         protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new FileSchemaTestClassMap(arg);
         }

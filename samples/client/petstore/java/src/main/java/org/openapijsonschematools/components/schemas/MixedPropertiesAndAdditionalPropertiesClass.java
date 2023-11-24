@@ -26,9 +26,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     public static class MapMap extends FrozenMap<String, Animal.AnimalMap> {
 
-
         MapMap(FrozenMap<String, Animal.AnimalMap> m) {
-
 
             super(m);
         }
@@ -46,9 +44,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
                 return val
             return typing.cast(
                 Animal.AnimalMap,
-
                 val
             )
+        }
     }    
     
     public class MapSchema extends JsonSchema {
@@ -57,7 +55,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
         ));
         protected static MapMap getMapOutputInstance(FrozenMap<String, Animal.AnimalMap> arg) {
-
 
             return new MapMap(arg);
         }
@@ -71,9 +68,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     public static class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object> {
 
-
         MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -82,20 +77,20 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return MixedPropertiesAndAdditionalPropertiesClass1.validate(arg, configuration);
         }
         
-        public String:
+        public String dateTime() {
 
-            val = self.get("dateTime", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "dateTime";
+            if (!containsKey(key)) {
+                throw new RuntimeException("dateTime is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class MixedPropertiesAndAdditionalPropertiesClass1 extends JsonSchema {
@@ -114,7 +109,6 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             )))
         ));
         protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }

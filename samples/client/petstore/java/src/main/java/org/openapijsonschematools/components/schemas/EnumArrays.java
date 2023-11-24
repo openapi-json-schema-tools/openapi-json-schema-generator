@@ -42,9 +42,7 @@ public class EnumArrays {
     
     public static class ArrayEnumList extends FrozenList<String> {
 
-
         ArrayEnumList(FrozenList<String> m) {
-
 
             super(m);
         }
@@ -62,7 +60,6 @@ public class EnumArrays {
         ));
         protected static ArrayEnumList getListOutputInstance(FrozenList<String> arg) {
 
-
             return new ArrayEnumList(arg);
         }
         public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) {
@@ -73,9 +70,7 @@ public class EnumArrays {
     
     public static class EnumArraysMap extends FrozenMap<String, Object> {
 
-
         EnumArraysMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -84,31 +79,30 @@ public class EnumArrays {
             return EnumArrays1.validate(arg, configuration);
         }
         
-        public String:
+        public String just_symbol() {
 
-            val = self.get("just_symbol", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "just_symbol";
+            if (!containsKey(key)) {
+                throw new RuntimeException("just_symbol is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public ArrayEnumList:
+        public ArrayEnumList array_enum() {
 
-            val = self.get("array_enum", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ArrayEnumList,
+            String key = "array_enum";
+            if (!containsKey(key)) {
+                throw new RuntimeException("array_enum is unset");
+            }
+            return ArrayEnumList get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class EnumArrays1 extends JsonSchema {
@@ -126,7 +120,6 @@ public class EnumArrays {
             )))
         ));
         protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new EnumArraysMap(arg);
         }

@@ -25,9 +25,7 @@ public class HeaderParameters {
     
     public static class HeaderParametersMap extends FrozenMap<String, String> {
 
-
         HeaderParametersMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -38,10 +36,12 @@ public class HeaderParameters {
         
         public String api_key() {
 
-            val = self.get("api_key", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "api_key";
+            if (!containsKey(key)) {
+                throw new RuntimeException("api_key is unset");
+            }
+            return get(key);
+        }
     }    
     
     public class HeaderParameters1 extends JsonSchema {
@@ -53,7 +53,6 @@ public class HeaderParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new HeaderParametersMap(arg);
         }

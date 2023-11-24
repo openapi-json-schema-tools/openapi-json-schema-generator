@@ -26,9 +26,7 @@ public class Cat {
     
     public static class Schema1Map extends FrozenMap<String, Object> {
 
-
         Schema1Map(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -37,20 +35,20 @@ public class Cat {
             return Schema1.validate(arg, configuration);
         }
         
-        public boolean:
+        public boolean declawed() {
 
-            val = self.get("declawed", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                boolean,
+            String key = "declawed";
+            if (!containsKey(key)) {
+                throw new RuntimeException("declawed is unset");
+            }
+            return boolean get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Schema1 extends JsonSchema {
@@ -61,7 +59,6 @@ public class Cat {
             )))
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new Schema1Map(arg);
         }

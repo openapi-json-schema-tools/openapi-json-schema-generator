@@ -21,9 +21,7 @@ public class ArrayHoldingAnyType {
     
     public static class ArrayHoldingAnyTypeList extends FrozenList<Object> {
 
-
         ArrayHoldingAnyTypeList(FrozenList<Object> m) {
-
 
             super(m);
         }
@@ -46,7 +44,6 @@ public class ArrayHoldingAnyType {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object> arg) {
-
 
             return new ArrayHoldingAnyTypeList(arg);
         }

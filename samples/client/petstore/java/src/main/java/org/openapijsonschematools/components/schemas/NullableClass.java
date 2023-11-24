@@ -165,9 +165,7 @@ public class NullableClass {
     
     public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
 
-
         ArrayNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -214,9 +212,7 @@ public class NullableClass {
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<String, Object>> {
 
-
         ArrayAndItemsNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -263,9 +259,7 @@ public class NullableClass {
     
     public static class ArrayItemsNullableList extends FrozenList<FrozenMap<String, Object>> {
 
-
         ArrayItemsNullableList(FrozenList<FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -284,7 +278,6 @@ public class NullableClass {
         ));
         protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
 
-
             return new ArrayItemsNullableList(arg);
         }
         public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -299,9 +292,7 @@ public class NullableClass {
     
     public static class ObjectNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
 
-
         ObjectNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -319,9 +310,9 @@ public class NullableClass {
                 return val
             return typing.cast(
                 FrozenMap<String, Object>,
-
                 val
             )
+        }
     }    
     
     public class ObjectNullableProp extends JsonSchema {
@@ -359,9 +350,7 @@ public class NullableClass {
     
     public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
 
-
         ObjectAndItemsNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -379,9 +368,9 @@ public class NullableClass {
                 return val
             return typing.cast(
                 FrozenMap<String, Object>,
-
                 val
             )
+        }
     }    
     
     public class ObjectAndItemsNullableProp extends JsonSchema {
@@ -419,9 +408,7 @@ public class NullableClass {
     
     public static class ObjectItemsNullableMap extends FrozenMap<String, FrozenMap<String, Object>> {
 
-
         ObjectItemsNullableMap(FrozenMap<String, FrozenMap<String, Object>> m) {
-
 
             super(m);
         }
@@ -439,9 +426,9 @@ public class NullableClass {
                 return val
             return typing.cast(
                 FrozenMap<String, Object>,
-
                 val
             )
+        }
     }    
     
     public class ObjectItemsNullable extends JsonSchema {
@@ -450,7 +437,6 @@ public class NullableClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
         protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
-
 
             return new ObjectItemsNullableMap(arg);
         }
@@ -464,9 +450,7 @@ public class NullableClass {
     
     public static class NullableClassMap extends FrozenMap<String, Object> {
 
-
         NullableClassMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -475,137 +459,125 @@ public class NullableClass {
             return NullableClass1.validate(arg, configuration);
         }
         
-        public Long:
+        public Long integer_prop() {
 
-            val = self.get("integer_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Long,
+            String key = "integer_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("integer_prop is unset");
+            }
+            return Long get(key);
 
-                val
-            )
+        }
         
-        public Number:
+        public Number number_prop() {
 
-            val = self.get("number_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Number,
+            String key = "number_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("number_prop is unset");
+            }
+            return Number get(key);
 
-                val
-            )
+        }
         
-        public Boolean:
+        public Boolean boolean_prop() {
 
-            val = self.get("boolean_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Boolean,
+            String key = "boolean_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("boolean_prop is unset");
+            }
+            return Boolean get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String string_prop() {
 
-            val = self.get("string_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "string_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("string_prop is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String date_prop() {
 
-            val = self.get("date_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "date_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("date_prop is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String datetime_prop() {
 
-            val = self.get("datetime_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "datetime_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("datetime_prop is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public ArrayNullablePropList:
+        public ArrayNullablePropList array_nullable_prop() {
 
-            val = self.get("array_nullable_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ArrayNullablePropList,
+            String key = "array_nullable_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("array_nullable_prop is unset");
+            }
+            return ArrayNullablePropList get(key);
 
-                val
-            )
+        }
         
-        public ArrayAndItemsNullablePropList:
+        public ArrayAndItemsNullablePropList array_and_items_nullable_prop() {
 
-            val = self.get("array_and_items_nullable_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ArrayAndItemsNullablePropList,
+            String key = "array_and_items_nullable_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("array_and_items_nullable_prop is unset");
+            }
+            return ArrayAndItemsNullablePropList get(key);
 
-                val
-            )
+        }
         
-        public ArrayItemsNullableList:
+        public ArrayItemsNullableList array_items_nullable() {
 
-            val = self.get("array_items_nullable", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ArrayItemsNullableList,
+            String key = "array_items_nullable";
+            if (!containsKey(key)) {
+                throw new RuntimeException("array_items_nullable is unset");
+            }
+            return ArrayItemsNullableList get(key);
 
-                val
-            )
+        }
         
-        public ObjectNullablePropMap:
+        public ObjectNullablePropMap object_nullable_prop() {
 
-            val = self.get("object_nullable_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ObjectNullablePropMap,
+            String key = "object_nullable_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("object_nullable_prop is unset");
+            }
+            return ObjectNullablePropMap get(key);
 
-                val
-            )
+        }
         
-        public ObjectAndItemsNullablePropMap:
+        public ObjectAndItemsNullablePropMap object_and_items_nullable_prop() {
 
-            val = self.get("object_and_items_nullable_prop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ObjectAndItemsNullablePropMap,
+            String key = "object_and_items_nullable_prop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("object_and_items_nullable_prop is unset");
+            }
+            return ObjectAndItemsNullablePropMap get(key);
 
-                val
-            )
+        }
         
-        public ObjectItemsNullableMap:
+        public ObjectItemsNullableMap object_items_nullable() {
 
-            val = self.get("object_items_nullable", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ObjectItemsNullableMap,
+            String key = "object_items_nullable";
+            if (!containsKey(key)) {
+                throw new RuntimeException("object_items_nullable is unset");
+            }
+            return ObjectItemsNullableMap get(key);
 
-                val
-            )
+        }
         
         public FrozenMap<String, Object> getAdditionalProperty(String name) {
 
@@ -615,9 +587,9 @@ public class NullableClass {
                 return val
             return typing.cast(
                 FrozenMap<String, Object>,
-
                 val
             )
+        }
     }    
     
     public class NullableClass1 extends JsonSchema {
@@ -646,7 +618,6 @@ public class NullableClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
         protected static NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new NullableClassMap(arg);
         }

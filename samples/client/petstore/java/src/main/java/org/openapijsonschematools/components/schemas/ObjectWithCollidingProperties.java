@@ -24,9 +24,7 @@ public class ObjectWithCollidingProperties {
     
     public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {
 
-
         ObjectWithCollidingPropertiesMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -35,31 +33,30 @@ public class ObjectWithCollidingProperties {
             return ObjectWithCollidingProperties1.validate(arg, configuration);
         }
         
-        public FrozenMap<String, Object>:
+        public FrozenMap<String, Object> someProp() {
 
-            val = self.get("someProp", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                FrozenMap<String, Object>,
+            String key = "someProp";
+            if (!containsKey(key)) {
+                throw new RuntimeException("someProp is unset");
+            }
+            return FrozenMap<String, Object> get(key);
 
-                val
-            )
+        }
         
-        public FrozenMap<String, Object>:
+        public FrozenMap<String, Object> someprop() {
 
-            val = self.get("someprop", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                FrozenMap<String, Object>,
+            String key = "someprop";
+            if (!containsKey(key)) {
+                throw new RuntimeException("someprop is unset");
+            }
+            return FrozenMap<String, Object> get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class ObjectWithCollidingProperties1 extends JsonSchema {
@@ -79,7 +76,6 @@ public class ObjectWithCollidingProperties {
             )))
         ));
         protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ObjectWithCollidingPropertiesMap(arg);
         }

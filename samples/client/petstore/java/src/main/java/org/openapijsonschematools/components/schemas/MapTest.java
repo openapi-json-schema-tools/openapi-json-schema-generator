@@ -23,9 +23,7 @@ public class MapTest {
     
     public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
 
-
         AdditionalPropertiesMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -42,9 +40,9 @@ public class MapTest {
                 return val
             return typing.cast(
                 String,
-
                 val
             )
+        }
     }    
     
     public class AdditionalProperties extends JsonSchema {
@@ -53,7 +51,6 @@ public class MapTest {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new AdditionalPropertiesMap(arg);
         }
@@ -66,9 +63,7 @@ public class MapTest {
     
     public static class MapMapOfStringMap extends FrozenMap<String, AdditionalPropertiesMap> {
 
-
         MapMapOfStringMap(FrozenMap<String, AdditionalPropertiesMap> m) {
-
 
             super(m);
         }
@@ -86,9 +81,9 @@ public class MapTest {
                 return val
             return typing.cast(
                 AdditionalPropertiesMap,
-
                 val
             )
+        }
     }    
     
     public class MapMapOfString extends JsonSchema {
@@ -97,7 +92,6 @@ public class MapTest {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
-
 
             return new MapMapOfStringMap(arg);
         }
@@ -122,9 +116,7 @@ public class MapTest {
     
     public static class MapOfEnumStringMap extends FrozenMap<String, String> {
 
-
         MapOfEnumStringMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -141,9 +133,9 @@ public class MapTest {
                 return val
             return typing.cast(
                 String,
-
                 val
             )
+        }
     }    
     
     public class MapOfEnumString extends JsonSchema {
@@ -152,7 +144,6 @@ public class MapTest {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
         protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new MapOfEnumStringMap(arg);
         }
@@ -168,9 +159,7 @@ public class MapTest {
     
     public static class DirectMapMap extends FrozenMap<String, Boolean> {
 
-
         DirectMapMap(FrozenMap<String, Boolean> m) {
-
 
             super(m);
         }
@@ -187,9 +176,9 @@ public class MapTest {
                 return val
             return typing.cast(
                 boolean,
-
                 val
             )
+        }
     }    
     
     public class DirectMap extends JsonSchema {
@@ -198,7 +187,6 @@ public class MapTest {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
         protected static DirectMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
-
 
             return new DirectMapMap(arg);
         }
@@ -211,9 +199,7 @@ public class MapTest {
     
     public static class MapTestMap extends FrozenMap<String, Object> {
 
-
         MapTestMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -222,53 +208,50 @@ public class MapTest {
             return MapTest1.validate(arg, configuration);
         }
         
-        public MapMapOfStringMap:
+        public MapMapOfStringMap map_map_of_string() {
 
-            val = self.get("map_map_of_string", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                MapMapOfStringMap,
+            String key = "map_map_of_string";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_map_of_string is unset");
+            }
+            return MapMapOfStringMap get(key);
 
-                val
-            )
+        }
         
-        public MapOfEnumStringMap:
+        public MapOfEnumStringMap map_of_enum_string() {
 
-            val = self.get("map_of_enum_string", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                MapOfEnumStringMap,
+            String key = "map_of_enum_string";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_of_enum_string is unset");
+            }
+            return MapOfEnumStringMap get(key);
 
-                val
-            )
+        }
         
-        public DirectMapMap:
+        public DirectMapMap direct_map() {
 
-            val = self.get("direct_map", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                DirectMapMap,
+            String key = "direct_map";
+            if (!containsKey(key)) {
+                throw new RuntimeException("direct_map is unset");
+            }
+            return DirectMapMap get(key);
 
-                val
-            )
+        }
         
         public StringBooleanMap.StringBooleanMapMap indirect_map() {
 
-            val = self.get("indirect_map", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                StringBooleanMap.StringBooleanMapMap,
+            String key = "indirect_map";
+            if (!containsKey(key)) {
+                throw new RuntimeException("indirect_map is unset");
+            }
+            return StringBooleanMap.StringBooleanMapMap get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class MapTest1 extends JsonSchema {
@@ -288,7 +271,6 @@ public class MapTest {
             )))
         ));
         protected static MapTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new MapTestMap(arg);
         }

@@ -21,9 +21,7 @@ public class File {
     
     public static class FileMap extends FrozenMap<String, Object> {
 
-
         FileMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -32,20 +30,20 @@ public class File {
             return File1.validate(arg, configuration);
         }
         
-        public String:
+        public String sourceURI() {
 
-            val = self.get("sourceURI", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "sourceURI";
+            if (!containsKey(key)) {
+                throw new RuntimeException("sourceURI is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class File1 extends JsonSchema {
@@ -64,7 +62,6 @@ public class File {
             )))
         ));
         protected static FileMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new FileMap(arg);
         }

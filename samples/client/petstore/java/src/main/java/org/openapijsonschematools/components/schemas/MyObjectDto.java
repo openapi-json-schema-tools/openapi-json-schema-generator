@@ -28,9 +28,7 @@ public class MyObjectDto {
     
     public static class MyObjectDtoMap extends FrozenMap<String, String> {
 
-
         MyObjectDtoMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -39,12 +37,14 @@ public class MyObjectDto {
             return MyObjectDto1.validate(arg, configuration);
         }
         
-        public String:
+        public String id() {
 
-            val = self.get("id", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "id";
+            if (!containsKey(key)) {
+                throw new RuntimeException("id is unset");
+            }
+            return get(key);
+        }
     }    
     
     public class MyObjectDto1 extends JsonSchema {
@@ -62,7 +62,6 @@ public class MyObjectDto {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static MyObjectDtoMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new MyObjectDtoMap(arg);
         }

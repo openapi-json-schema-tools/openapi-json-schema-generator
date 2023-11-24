@@ -26,9 +26,7 @@ public class HeaderParameters {
     
     public static class HeaderParametersMap extends FrozenMap<String, Object> {
 
-
         HeaderParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -39,25 +37,23 @@ public class HeaderParameters {
         
         public String enum_header_string() {
 
-            val = self.get("enum_header_string", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "enum_header_string";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_header_string is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Schema0.SchemaList0 enum_header_string_array() {
 
-            val = self.get("enum_header_string_array", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Schema0.SchemaList0,
+            String key = "enum_header_string_array";
+            if (!containsKey(key)) {
+                throw new RuntimeException("enum_header_string_array is unset");
+            }
+            return Schema0.SchemaList0 get(key);
 
-                val
-            )
+        }
     }    
     
     public class HeaderParameters1 extends JsonSchema {
@@ -70,7 +66,6 @@ public class HeaderParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new HeaderParametersMap(arg);
         }

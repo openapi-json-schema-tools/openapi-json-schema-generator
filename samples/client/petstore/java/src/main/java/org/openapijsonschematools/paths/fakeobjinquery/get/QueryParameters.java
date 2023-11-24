@@ -25,9 +25,7 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Schema0.SchemaMap0> {
 
-
         QueryParametersMap(FrozenMap<String, Schema0.SchemaMap0> m) {
-
 
             super(m);
         }
@@ -39,10 +37,12 @@ public class QueryParameters {
         
         public Schema0.SchemaMap0 mapBean() {
 
-            val = self.get("mapBean", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "mapBean";
+            if (!containsKey(key)) {
+                throw new RuntimeException("mapBean is unset");
+            }
+            return get(key);
+        }
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -54,7 +54,6 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Schema0.SchemaMap0> arg) {
-
 
             return new QueryParametersMap(arg);
         }

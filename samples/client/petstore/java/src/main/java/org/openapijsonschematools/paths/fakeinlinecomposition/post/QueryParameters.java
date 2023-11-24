@@ -26,9 +26,7 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
 
-
         QueryParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -39,25 +37,23 @@ public class QueryParameters {
         
         public Object compositionAtRoot() {
 
-            val = self.get("compositionAtRoot", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Object,
+            String key = "compositionAtRoot";
+            if (!containsKey(key)) {
+                throw new RuntimeException("compositionAtRoot is unset");
+            }
+            return Object get(key);
 
-                val
-            )
+        }
         
         public Schema1.SchemaMap1 compositionInProperty() {
 
-            val = self.get("compositionInProperty", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Schema1.SchemaMap1,
+            String key = "compositionInProperty";
+            if (!containsKey(key)) {
+                throw new RuntimeException("compositionInProperty is unset");
+            }
+            return Schema1.SchemaMap1 get(key);
 
-                val
-            )
+        }
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -70,7 +66,6 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new QueryParametersMap(arg);
         }

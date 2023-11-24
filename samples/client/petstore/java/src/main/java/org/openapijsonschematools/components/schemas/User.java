@@ -129,9 +129,7 @@ public class User {
     
     public static class UserMap extends FrozenMap<String, Object> {
 
-
         UserMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -140,140 +138,137 @@ public class User {
             return User1.validate(arg, configuration);
         }
         
-        public long:
+        public long id() {
 
-            val = self.get("id", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "id";
+            if (!containsKey(key)) {
+                throw new RuntimeException("id is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String username() {
 
-            val = self.get("username", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "username";
+            if (!containsKey(key)) {
+                throw new RuntimeException("username is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String firstName() {
 
-            val = self.get("firstName", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "firstName";
+            if (!containsKey(key)) {
+                throw new RuntimeException("firstName is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String lastName() {
 
-            val = self.get("lastName", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "lastName";
+            if (!containsKey(key)) {
+                throw new RuntimeException("lastName is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String email() {
 
-            val = self.get("email", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "email";
+            if (!containsKey(key)) {
+                throw new RuntimeException("email is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String password() {
 
-            val = self.get("password", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "password";
+            if (!containsKey(key)) {
+                throw new RuntimeException("password is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String phone() {
 
-            val = self.get("phone", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "phone";
+            if (!containsKey(key)) {
+                throw new RuntimeException("phone is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public int:
+        public int userStatus() {
 
-            val = self.get("userStatus", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "userStatus";
+            if (!containsKey(key)) {
+                throw new RuntimeException("userStatus is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public FrozenMap<String, Object>:
+        public FrozenMap<String, Object> objectWithNoDeclaredProps() {
 
-            val = self.get("objectWithNoDeclaredProps", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                FrozenMap<String, Object>,
+            String key = "objectWithNoDeclaredProps";
+            if (!containsKey(key)) {
+                throw new RuntimeException("objectWithNoDeclaredProps is unset");
+            }
+            return FrozenMap<String, Object> get(key);
 
-                val
-            )
+        }
         
-        public FrozenMap<String, Object>:
+        public FrozenMap<String, Object> objectWithNoDeclaredPropsNullable() {
 
-            val = self.get("objectWithNoDeclaredPropsNullable", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                FrozenMap<String, Object>,
+            String key = "objectWithNoDeclaredPropsNullable";
+            if (!containsKey(key)) {
+                throw new RuntimeException("objectWithNoDeclaredPropsNullable is unset");
+            }
+            return FrozenMap<String, Object> get(key);
 
-                val
-            )
+        }
         
-        public Object:
+        public Object anyTypeProp() {
 
-            val = self.get("anyTypeProp", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "anyTypeProp";
+            if (!containsKey(key)) {
+                throw new RuntimeException("anyTypeProp is unset");
+            }
+            return get(key);
+        }
         
-        public Object:
+        public Object anyTypeExceptNullProp() {
 
-            val = self.get("anyTypeExceptNullProp", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "anyTypeExceptNullProp";
+            if (!containsKey(key)) {
+                throw new RuntimeException("anyTypeExceptNullProp is unset");
+            }
+            return get(key);
+        }
         
-        public Object:
+        public Object anyTypePropNullable() {
 
-            val = self.get("anyTypePropNullable", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "anyTypePropNullable";
+            if (!containsKey(key)) {
+                throw new RuntimeException("anyTypePropNullable is unset");
+            }
+            return get(key);
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class User1 extends JsonSchema {
@@ -302,7 +297,6 @@ public class User {
             )))
         ));
         protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new UserMap(arg);
         }

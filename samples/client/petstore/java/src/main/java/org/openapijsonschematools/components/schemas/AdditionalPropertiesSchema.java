@@ -25,9 +25,7 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema0Map extends FrozenMap<String, Object> {
 
-
         Schema0Map(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -44,9 +42,9 @@ public class AdditionalPropertiesSchema {
                 return val
             return typing.cast(
                 Object,
-
                 val
             )
+        }
     }    
     
     public class Schema0 extends JsonSchema {
@@ -55,7 +53,6 @@ public class AdditionalPropertiesSchema {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new Schema0Map(arg);
         }
@@ -118,9 +115,7 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema1Map extends FrozenMap<String, Object> {
 
-
         Schema1Map(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -137,9 +132,9 @@ public class AdditionalPropertiesSchema {
                 return val
             return typing.cast(
                 Object,
-
                 val
             )
+        }
     }    
     
     public class Schema1 extends JsonSchema {
@@ -148,7 +143,6 @@ public class AdditionalPropertiesSchema {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new Schema1Map(arg);
         }
@@ -211,9 +205,7 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema2Map extends FrozenMap<String, Object> {
 
-
         Schema2Map(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -230,9 +222,9 @@ public class AdditionalPropertiesSchema {
                 return val
             return typing.cast(
                 Object,
-
                 val
             )
+        }
     }    
     
     public class Schema2 extends JsonSchema {
@@ -241,7 +233,6 @@ public class AdditionalPropertiesSchema {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
         protected static Schema2Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new Schema2Map(arg);
         }

@@ -20,9 +20,7 @@ public class Address {
     
     public static class AddressMap extends FrozenMap<String, Long> {
 
-
         AddressMap(FrozenMap<String, Long> m) {
-
 
             super(m);
         }
@@ -39,9 +37,9 @@ public class Address {
                 return val
             return typing.cast(
                 long,
-
                 val
             )
+        }
     }    
     
     public class Address1 extends JsonSchema {
@@ -56,7 +54,6 @@ public class Address {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static AddressMap getMapOutputInstance(FrozenMap<String, Long> arg) {
-
 
             return new AddressMap(arg);
         }

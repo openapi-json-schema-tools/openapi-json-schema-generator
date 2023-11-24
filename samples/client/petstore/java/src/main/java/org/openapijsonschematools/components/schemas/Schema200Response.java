@@ -28,9 +28,7 @@ public class Schema200Response {
     
     public static class Schema200ResponseMap extends FrozenMap<String, Object> {
 
-
         Schema200ResponseMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -39,20 +37,20 @@ public class Schema200Response {
             return Schema200Response1.validate(arg, configuration);
         }
         
-        public int:
+        public int name() {
 
-            val = self.get("name", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "name";
+            if (!containsKey(key)) {
+                throw new RuntimeException("name is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Schema200Response1 extends JsonSchema {

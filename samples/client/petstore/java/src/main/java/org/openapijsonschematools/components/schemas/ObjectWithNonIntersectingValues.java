@@ -26,9 +26,7 @@ public class ObjectWithNonIntersectingValues {
     
     public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object> {
 
-
         ObjectWithNonIntersectingValuesMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -37,16 +35,15 @@ public class ObjectWithNonIntersectingValues {
             return ObjectWithNonIntersectingValues1.validate(arg, configuration);
         }
         
-        public Number:
+        public Number a() {
 
-            val = self.get("a", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Number,
+            String key = "a";
+            if (!containsKey(key)) {
+                throw new RuntimeException("a is unset");
+            }
+            return Number get(key);
 
-                val
-            )
+        }
         
         public String getAdditionalProperty(String name) {
 
@@ -56,9 +53,9 @@ public class ObjectWithNonIntersectingValues {
                 return val
             return typing.cast(
                 String,
-
                 val
             )
+        }
     }    
     
     public class ObjectWithNonIntersectingValues1 extends JsonSchema {
@@ -76,7 +73,6 @@ public class ObjectWithNonIntersectingValues {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ObjectWithNonIntersectingValuesMap(arg);
         }

@@ -32,9 +32,7 @@ public class PaginatedResultMyObjectDto {
     
     public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {
 
-
         ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
-
 
             super(m);
         }
@@ -53,7 +51,6 @@ public class PaginatedResultMyObjectDto {
         ));
         protected static ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap> arg) {
 
-
             return new ResultsList(arg);
         }
         public static ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) {
@@ -65,9 +62,7 @@ public class PaginatedResultMyObjectDto {
     
     public static class PaginatedResultMyObjectDtoMap extends FrozenMap<String, Object> {
 
-
         PaginatedResultMyObjectDtoMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -76,21 +71,19 @@ public class PaginatedResultMyObjectDto {
             return PaginatedResultMyObjectDto1.validate(arg, configuration);
         }
         
-        public long:
+        public long count() {
 
-            return typing.cast(
-                long,
+            String key = "count";
+            return long get(key);
 
-                self.__getitem__("count")
-            )
+        }
         
-        public ResultsList:
+        public ResultsList results() {
 
-            return typing.cast(
-                ResultsList,
+            String key = "results";
+            return ResultsList get(key);
 
-                self.__getitem__("results")
-            )
+        }
     }    
     
     public class PaginatedResultMyObjectDto1 extends JsonSchema {
@@ -113,7 +106,6 @@ public class PaginatedResultMyObjectDto {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new PaginatedResultMyObjectDtoMap(arg);
         }

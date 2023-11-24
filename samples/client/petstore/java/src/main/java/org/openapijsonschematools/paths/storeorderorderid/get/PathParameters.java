@@ -26,9 +26,7 @@ public class PathParameters {
     
     public static class PathParametersMap extends FrozenMap<String, Long> {
 
-
         PathParametersMap(FrozenMap<String, Long> m) {
-
 
             super(m);
         }
@@ -37,9 +35,11 @@ public class PathParameters {
             return PathParameters1.validate(arg, configuration);
         }
         
-        public long:
+        public long order_id() {
 
-            return self.__getitem__("order_id")
+            String key = "order_id";
+            return get(key);
+        }
     }    
     
     public class PathParameters1 extends JsonSchema {
@@ -54,7 +54,6 @@ public class PathParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Long> arg) {
-
 
             return new PathParametersMap(arg);
         }

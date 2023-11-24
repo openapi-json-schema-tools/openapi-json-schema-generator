@@ -29,9 +29,7 @@ public class Headers {
     
     public static class HeadersMap extends FrozenMap<String, Object> {
 
-
         HeadersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -40,32 +38,29 @@ public class Headers {
             return Headers1.validate(arg, configuration);
         }
         
-        public int:
+        public int int32() {
 
-            return typing.cast(
-                int,
+            String key = "int32";
+            return int get(key);
 
-                self.__getitem__("int32")
-            )
+        }
         
-        public String:
+        public String stringHeader() {
 
-            return typing.cast(
-                String,
+            String key = "stringHeader";
+            return String get(key);
 
-                self.__getitem__("stringHeader")
-            )
+        }
         
         public String numberHeader() {
 
-            val = self.get("numberHeader", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "numberHeader";
+            if (!containsKey(key)) {
+                throw new RuntimeException("numberHeader is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
     }    
     
     public class Headers1 extends JsonSchema {
@@ -87,7 +82,6 @@ public class Headers {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new HeadersMap(arg);
         }

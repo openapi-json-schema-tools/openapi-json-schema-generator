@@ -21,9 +21,7 @@ public class SpecialModelname {
     
     public static class SpecialModelnameMap extends FrozenMap<String, Object> {
 
-
         SpecialModelnameMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -32,20 +30,20 @@ public class SpecialModelname {
             return SpecialModelname1.validate(arg, configuration);
         }
         
-        public String:
+        public String a() {
 
-            val = self.get("a", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "a";
+            if (!containsKey(key)) {
+                throw new RuntimeException("a is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class SpecialModelname1 extends JsonSchema {
@@ -64,7 +62,6 @@ public class SpecialModelname {
             )))
         ));
         protected static SpecialModelnameMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new SpecialModelnameMap(arg);
         }

@@ -24,9 +24,7 @@ public class ArrayOfArrayOfNumberOnly {
     
     public static class ItemsList extends FrozenList<Number> {
 
-
         ItemsList(FrozenList<Number> m) {
-
 
             super(m);
         }
@@ -44,7 +42,6 @@ public class ArrayOfArrayOfNumberOnly {
         ));
         protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
 
-
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) {
@@ -55,9 +52,7 @@ public class ArrayOfArrayOfNumberOnly {
     
     public static class ArrayArrayNumberList extends FrozenList<ItemsList> {
 
-
         ArrayArrayNumberList(FrozenList<ItemsList> m) {
-
 
             super(m);
         }
@@ -76,7 +71,6 @@ public class ArrayOfArrayOfNumberOnly {
         ));
         protected static ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList> arg) {
 
-
             return new ArrayArrayNumberList(arg);
         }
         public static ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) {
@@ -88,9 +82,7 @@ public class ArrayOfArrayOfNumberOnly {
     
     public static class ArrayOfArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
 
-
         ArrayOfArrayOfNumberOnlyMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -99,20 +91,20 @@ public class ArrayOfArrayOfNumberOnly {
             return ArrayOfArrayOfNumberOnly1.validate(arg, configuration);
         }
         
-        public ArrayArrayNumberList:
+        public ArrayArrayNumberList ArrayArrayNumber() {
 
-            val = self.get("ArrayArrayNumber", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ArrayArrayNumberList,
+            String key = "ArrayArrayNumber";
+            if (!containsKey(key)) {
+                throw new RuntimeException("ArrayArrayNumber is unset");
+            }
+            return ArrayArrayNumberList get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class ArrayOfArrayOfNumberOnly1 extends JsonSchema {
@@ -129,7 +121,6 @@ public class ArrayOfArrayOfNumberOnly {
             )))
         ));
         protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ArrayOfArrayOfNumberOnlyMap(arg);
         }

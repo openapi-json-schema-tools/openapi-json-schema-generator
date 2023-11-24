@@ -500,9 +500,7 @@ public class AnyTypeAndFormat {
     
     public static class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
 
-
         AnyTypeAndFormatMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -511,37 +509,46 @@ public class AnyTypeAndFormat {
             return AnyTypeAndFormat1.validate(arg, configuration);
         }
         
-        public Object:
+        public Object date() {
 
-            val = self.get("date", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "date";
+            if (!containsKey(key)) {
+                throw new RuntimeException("date is unset");
+            }
+            return get(key);
+        }
         
-        public Object:
+        public Object binary() {
 
-            val = self.get("binary", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "binary";
+            if (!containsKey(key)) {
+                throw new RuntimeException("binary is unset");
+            }
+            return get(key);
+        }
         
-        public Object:
+        public Object int32() {
 
-            val = self.get("int32", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "int32";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int32 is unset");
+            }
+            return get(key);
+        }
         
-        public Object:
+        public Object int64() {
 
-            val = self.get("int64", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "int64";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int64 is unset");
+            }
+            return get(key);
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class AnyTypeAndFormat1 extends JsonSchema {
@@ -566,7 +573,6 @@ public class AnyTypeAndFormat {
             )))
         ));
         protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new AnyTypeAndFormatMap(arg);
         }

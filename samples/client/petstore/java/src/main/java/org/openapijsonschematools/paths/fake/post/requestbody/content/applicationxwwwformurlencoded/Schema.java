@@ -195,9 +195,7 @@ public class Schema {
     
     public static class SchemaMap extends FrozenMap<String, Object> {
 
-
         SchemaMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -206,94 +204,87 @@ public class Schema {
             return Schema1.validate(arg, configuration);
         }
         
-        public String:
+        public String pattern_without_delimiter() {
 
-            return typing.cast(
-                String,
+            String key = "pattern_without_delimiter";
+            return String get(key);
 
-                self.__getitem__("pattern_without_delimiter")
-            )
+        }
         
-        public int:
+        public int int32() {
 
-            val = self.get("int32", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "int32";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int32 is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public long:
+        public long int64() {
 
-            val = self.get("int64", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "int64";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int64 is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String binary() {
 
-            val = self.get("binary", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "binary";
+            if (!containsKey(key)) {
+                throw new RuntimeException("binary is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String date() {
 
-            val = self.get("date", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "date";
+            if (!containsKey(key)) {
+                throw new RuntimeException("date is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String dateTime() {
 
-            val = self.get("dateTime", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "dateTime";
+            if (!containsKey(key)) {
+                throw new RuntimeException("dateTime is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String password() {
 
-            val = self.get("password", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "password";
+            if (!containsKey(key)) {
+                throw new RuntimeException("password is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String callback() {
 
-            val = self.get("callback", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "callback";
+            if (!containsKey(key)) {
+                throw new RuntimeException("callback is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Schema1 extends JsonSchema {
@@ -323,7 +314,6 @@ public class Schema {
             )))
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new SchemaMap(arg);
         }

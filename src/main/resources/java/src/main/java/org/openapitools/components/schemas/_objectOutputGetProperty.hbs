@@ -7,15 +7,12 @@ return {{> src/main/java/org/openapitools/components/schemas/types/schema_output
     {{/and}}
 {{else}}
 String key = "{{{@key.original}}}";
-if (!containsKey(key) {
+if (!containsKey(key)) {
     throw new RuntimeException("{{{@key.original}}} is unset");
 }
-return get(key);
-val = self.get("{{{@key.original}}}", schemas.unset)
     {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
 return get(key);
     {{else}}
 return {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=" get(key);" }}
     {{/and}}
 {{/if}}
-}

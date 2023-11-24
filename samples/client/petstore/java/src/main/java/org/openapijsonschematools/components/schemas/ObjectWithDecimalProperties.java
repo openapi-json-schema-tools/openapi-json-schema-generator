@@ -21,9 +21,7 @@ public class ObjectWithDecimalProperties {
     
     public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {
 
-
         ObjectWithDecimalPropertiesMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -34,40 +32,38 @@ public class ObjectWithDecimalProperties {
         
         public String length() {
 
-            val = self.get("length", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "length";
+            if (!containsKey(key)) {
+                throw new RuntimeException("length is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String width() {
 
-            val = self.get("width", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "width";
+            if (!containsKey(key)) {
+                throw new RuntimeException("width is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Money.MoneyMap cost() {
 
-            val = self.get("cost", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Money.MoneyMap,
+            String key = "cost";
+            if (!containsKey(key)) {
+                throw new RuntimeException("cost is unset");
+            }
+            return Money.MoneyMap get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class ObjectWithDecimalProperties1 extends JsonSchema {
@@ -86,7 +82,6 @@ public class ObjectWithDecimalProperties {
             )))
         ));
         protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new ObjectWithDecimalPropertiesMap(arg);
         }

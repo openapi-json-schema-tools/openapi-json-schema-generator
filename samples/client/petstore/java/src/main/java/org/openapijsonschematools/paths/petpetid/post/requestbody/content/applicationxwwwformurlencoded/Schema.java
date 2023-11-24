@@ -24,9 +24,7 @@ public class Schema {
     
     public static class SchemaMap extends FrozenMap<String, Object> {
 
-
         SchemaMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -35,31 +33,30 @@ public class Schema {
             return Schema1.validate(arg, configuration);
         }
         
-        public String:
+        public String name() {
 
-            val = self.get("name", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "name";
+            if (!containsKey(key)) {
+                throw new RuntimeException("name is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String status() {
 
-            val = self.get("status", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "status";
+            if (!containsKey(key)) {
+                throw new RuntimeException("status is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Schema1 extends JsonSchema {
@@ -71,7 +68,6 @@ public class Schema {
             )))
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new SchemaMap(arg);
         }

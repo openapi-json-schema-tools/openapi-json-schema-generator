@@ -27,9 +27,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
     
     public static class Schema1Map extends FrozenMap<String, Object> {
 
-
         Schema1Map(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -39,22 +37,24 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
         }
         
         public Object test() {
-            return self.__getitem__("test")
+            String key = "test";
+            return get(key);
+        }
         
-        public String:
+        public String name() {
 
-            val = self.get("name", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "name";
+            if (!containsKey(key)) {
+                throw new RuntimeException("name is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Schema1 extends JsonSchema {
@@ -68,7 +68,6 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             )))
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new Schema1Map(arg);
         }

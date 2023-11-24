@@ -156,9 +156,7 @@ public class FormatTest {
     
     public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
 
-
         ArrayWithUniqueItemsList(FrozenList<Number> m) {
-
 
             super(m);
         }
@@ -175,7 +173,6 @@ public class FormatTest {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
-
 
             return new ArrayWithUniqueItemsList(arg);
         }
@@ -255,9 +252,7 @@ public class FormatTest {
     
     public static class FormatTestMap extends FrozenMap<String, Object> {
 
-
         FormatTestMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -266,157 +261,144 @@ public class FormatTest {
             return FormatTest1.validate(arg, configuration);
         }
         
-        public String:
+        public String date() {
 
-            return typing.cast(
-                String,
+            String key = "date";
+            return String get(key);
 
-                self.__getitem__("date")
-            )
+        }
         
-        public String:
+        public String password() {
 
-            return typing.cast(
-                String,
+            String key = "password";
+            return String get(key);
 
-                self.__getitem__("password")
-            )
+        }
         
-        public int:
+        public int int32() {
 
-            val = self.get("int32", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "int32";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int32 is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public int:
+        public int int32withValidations() {
 
-            val = self.get("int32withValidations", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                int,
+            String key = "int32withValidations";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int32withValidations is unset");
+            }
+            return int get(key);
 
-                val
-            )
+        }
         
-        public long:
+        public long int64() {
 
-            val = self.get("int64", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "int64";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int64 is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
-        public float:
+        public float float32() {
 
-            val = self.get("float32", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                float,
+            String key = "float32";
+            if (!containsKey(key)) {
+                throw new RuntimeException("float32 is unset");
+            }
+            return float get(key);
 
-                val
-            )
+        }
         
-        public double:
+        public double float64() {
 
-            val = self.get("float64", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                double,
+            String key = "float64";
+            if (!containsKey(key)) {
+                throw new RuntimeException("float64 is unset");
+            }
+            return double get(key);
 
-                val
-            )
+        }
         
-        public ArrayWithUniqueItemsList:
+        public ArrayWithUniqueItemsList arrayWithUniqueItems() {
 
-            val = self.get("arrayWithUniqueItems", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                ArrayWithUniqueItemsList,
+            String key = "arrayWithUniqueItems";
+            if (!containsKey(key)) {
+                throw new RuntimeException("arrayWithUniqueItems is unset");
+            }
+            return ArrayWithUniqueItemsList get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String binary() {
 
-            val = self.get("binary", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "binary";
+            if (!containsKey(key)) {
+                throw new RuntimeException("binary is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String dateTime() {
 
-            val = self.get("dateTime", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "dateTime";
+            if (!containsKey(key)) {
+                throw new RuntimeException("dateTime is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String uuidNoExample() {
 
-            val = self.get("uuidNoExample", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "uuidNoExample";
+            if (!containsKey(key)) {
+                throw new RuntimeException("uuidNoExample is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String pattern_with_digits() {
 
-            val = self.get("pattern_with_digits", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "pattern_with_digits";
+            if (!containsKey(key)) {
+                throw new RuntimeException("pattern_with_digits is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public String:
+        public String pattern_with_digits_and_delimiter() {
 
-            val = self.get("pattern_with_digits_and_delimiter", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "pattern_with_digits_and_delimiter";
+            if (!containsKey(key)) {
+                throw new RuntimeException("pattern_with_digits_and_delimiter is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
-        public Void:
+        public Void noneProp() {
 
-            val = self.get("noneProp", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                Void,
+            String key = "noneProp";
+            if (!containsKey(key)) {
+                throw new RuntimeException("noneProp is unset");
+            }
+            return Void get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class FormatTest1 extends JsonSchema {
@@ -459,7 +441,6 @@ public class FormatTest {
             )))
         ));
         protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new FormatTestMap(arg);
         }

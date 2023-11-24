@@ -25,9 +25,7 @@ public class AdditionalPropertiesClass {
     
     public static class MapPropertyMap extends FrozenMap<String, String> {
 
-
         MapPropertyMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -44,9 +42,9 @@ public class AdditionalPropertiesClass {
                 return val
             return typing.cast(
                 String,
-
                 val
             )
+        }
     }    
     
     public class MapProperty extends JsonSchema {
@@ -55,7 +53,6 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static MapPropertyMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new MapPropertyMap(arg);
         }
@@ -71,9 +68,7 @@ public class AdditionalPropertiesClass {
     
     public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
 
-
         AdditionalPropertiesMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -90,9 +85,9 @@ public class AdditionalPropertiesClass {
                 return val
             return typing.cast(
                 String,
-
                 val
             )
+        }
     }    
     
     public class AdditionalProperties1 extends JsonSchema {
@@ -101,7 +96,6 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new AdditionalPropertiesMap(arg);
         }
@@ -114,9 +108,7 @@ public class AdditionalPropertiesClass {
     
     public static class MapOfMapPropertyMap extends FrozenMap<String, AdditionalPropertiesMap> {
 
-
         MapOfMapPropertyMap(FrozenMap<String, AdditionalPropertiesMap> m) {
-
 
             super(m);
         }
@@ -134,9 +126,9 @@ public class AdditionalPropertiesClass {
                 return val
             return typing.cast(
                 AdditionalPropertiesMap,
-
                 val
             )
+        }
     }    
     
     public class MapOfMapProperty extends JsonSchema {
@@ -145,7 +137,6 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
         protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
-
 
             return new MapOfMapPropertyMap(arg);
         }
@@ -171,9 +162,7 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
 
-
         MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -190,9 +179,9 @@ public class AdditionalPropertiesClass {
                 return val
             return typing.cast(
                 Object,
-
                 val
             )
+        }
     }    
     
     public class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema {
@@ -201,7 +190,6 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
         protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
@@ -245,9 +233,7 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, String> {
 
-
         MapWithUndeclaredPropertiesStringMap(FrozenMap<String, String> m) {
-
 
             super(m);
         }
@@ -264,9 +250,9 @@ public class AdditionalPropertiesClass {
                 return val
             return typing.cast(
                 String,
-
                 val
             )
+        }
     }    
     
     public class MapWithUndeclaredPropertiesString extends JsonSchema {
@@ -275,7 +261,6 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
         ));
         protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
 
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
@@ -288,9 +273,7 @@ public class AdditionalPropertiesClass {
     
     public static class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
 
-
         AdditionalPropertiesClassMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -299,93 +282,89 @@ public class AdditionalPropertiesClass {
             return AdditionalPropertiesClass1.validate(arg, configuration);
         }
         
-        public MapPropertyMap:
+        public MapPropertyMap map_property() {
 
-            val = self.get("map_property", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                MapPropertyMap,
+            String key = "map_property";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_property is unset");
+            }
+            return MapPropertyMap get(key);
 
-                val
-            )
+        }
         
-        public MapOfMapPropertyMap:
+        public MapOfMapPropertyMap map_of_map_property() {
 
-            val = self.get("map_of_map_property", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                MapOfMapPropertyMap,
+            String key = "map_of_map_property";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_of_map_property is unset");
+            }
+            return MapOfMapPropertyMap get(key);
 
-                val
-            )
+        }
         
-        public Object:
+        public Object anytype_1() {
 
-            val = self.get("anytype_1", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return val
+            String key = "anytype_1";
+            if (!containsKey(key)) {
+                throw new RuntimeException("anytype_1 is unset");
+            }
+            return get(key);
+        }
         
-        public FrozenMap<String, Object>:
+        public FrozenMap<String, Object> map_with_undeclared_properties_anytype_1() {
 
-            val = self.get("map_with_undeclared_properties_anytype_1", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                FrozenMap<String, Object>,
+            String key = "map_with_undeclared_properties_anytype_1";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_with_undeclared_properties_anytype_1 is unset");
+            }
+            return FrozenMap<String, Object> get(key);
 
-                val
-            )
+        }
         
-        public FrozenMap<String, Object>:
+        public FrozenMap<String, Object> map_with_undeclared_properties_anytype_2() {
 
-            val = self.get("map_with_undeclared_properties_anytype_2", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                FrozenMap<String, Object>,
+            String key = "map_with_undeclared_properties_anytype_2";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_with_undeclared_properties_anytype_2 is unset");
+            }
+            return FrozenMap<String, Object> get(key);
 
-                val
-            )
+        }
         
-        public MapWithUndeclaredPropertiesAnytype3Map:
+        public MapWithUndeclaredPropertiesAnytype3Map map_with_undeclared_properties_anytype_3() {
 
-            val = self.get("map_with_undeclared_properties_anytype_3", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                MapWithUndeclaredPropertiesAnytype3Map,
+            String key = "map_with_undeclared_properties_anytype_3";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_with_undeclared_properties_anytype_3 is unset");
+            }
+            return MapWithUndeclaredPropertiesAnytype3Map get(key);
 
-                val
-            )
+        }
         
-        public EmptyMapMap:
+        public EmptyMapMap empty_map() {
 
-            val = self.get("empty_map", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                EmptyMapMap,
+            String key = "empty_map";
+            if (!containsKey(key)) {
+                throw new RuntimeException("empty_map is unset");
+            }
+            return EmptyMapMap get(key);
 
-                val
-            )
+        }
         
-        public MapWithUndeclaredPropertiesStringMap:
+        public MapWithUndeclaredPropertiesStringMap map_with_undeclared_properties_string() {
 
-            val = self.get("map_with_undeclared_properties_string", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                MapWithUndeclaredPropertiesStringMap,
+            String key = "map_with_undeclared_properties_string";
+            if (!containsKey(key)) {
+                throw new RuntimeException("map_with_undeclared_properties_string is unset");
+            }
+            return MapWithUndeclaredPropertiesStringMap get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class AdditionalPropertiesClass1 extends JsonSchema {
@@ -409,7 +388,6 @@ public class AdditionalPropertiesClass {
             )))
         ));
         protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new AdditionalPropertiesClassMap(arg);
         }

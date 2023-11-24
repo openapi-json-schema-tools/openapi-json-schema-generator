@@ -29,9 +29,7 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
 
-
         QueryParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -42,36 +40,33 @@ public class QueryParameters {
         
         public String aB() {
 
-            val = self.get("aB", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "aB";
+            if (!containsKey(key)) {
+                throw new RuntimeException("aB is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public String Ab() {
 
-            val = self.get("Ab", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "Ab";
+            if (!containsKey(key)) {
+                throw new RuntimeException("Ab is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
         
         public String self() {
 
-            val = self.get("self", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "self";
+            if (!containsKey(key)) {
+                throw new RuntimeException("self is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -87,7 +82,6 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new QueryParametersMap(arg);
         }

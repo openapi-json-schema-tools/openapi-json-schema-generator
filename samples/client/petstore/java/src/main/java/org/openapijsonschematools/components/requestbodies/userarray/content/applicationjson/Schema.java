@@ -18,9 +18,7 @@ public class Schema {
     
     public static class SchemaList extends FrozenList<User.UserMap> {
 
-
         SchemaList(FrozenList<User.UserMap> m) {
-
 
             super(m);
         }
@@ -38,7 +36,6 @@ public class Schema {
             new KeywordEntry("items", new ItemsValidator(User.User1.class))
         ));
         protected static SchemaList getListOutputInstance(FrozenList<User.UserMap> arg) {
-
 
             return new SchemaList(arg);
         }

@@ -29,9 +29,7 @@ public class QueryParameters {
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
 
-
         QueryParametersMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -40,43 +38,39 @@ public class QueryParameters {
             return QueryParameters1.validate(arg, configuration);
         }
         
-        public long:
+        public long required_int64_group() {
 
-            return typing.cast(
-                long,
+            String key = "required_int64_group";
+            return long get(key);
 
-                self.__getitem__("required_int64_group")
-            )
+        }
         
-        public String:
+        public String required_string_group() {
 
-            return typing.cast(
-                String,
+            String key = "required_string_group";
+            return String get(key);
 
-                self.__getitem__("required_string_group")
-            )
+        }
         
         public long int64_group() {
 
-            val = self.get("int64_group", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                long,
+            String key = "int64_group";
+            if (!containsKey(key)) {
+                throw new RuntimeException("int64_group is unset");
+            }
+            return long get(key);
 
-                val
-            )
+        }
         
         public String string_group() {
 
-            val = self.get("string_group", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                String,
+            String key = "string_group";
+            if (!containsKey(key)) {
+                throw new RuntimeException("string_group is unset");
+            }
+            return String get(key);
 
-                val
-            )
+        }
     }    
     
     public class QueryParameters1 extends JsonSchema {
@@ -95,7 +89,6 @@ public class QueryParameters {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new QueryParametersMap(arg);
         }

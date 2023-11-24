@@ -36,9 +36,7 @@ public class Whale {
     
     public static class WhaleMap extends FrozenMap<String, Object> {
 
-
         WhaleMap(FrozenMap<String, Object> m) {
-
 
             super(m);
         }
@@ -47,39 +45,37 @@ public class Whale {
             return Whale1.validate(arg, configuration);
         }
         
-        public String:
+        public String className() {
 
-            return typing.cast(
-                String,
+            String key = "className";
+            return String get(key);
 
-                self.__getitem__("className")
-            )
+        }
         
-        public boolean:
+        public boolean hasBaleen() {
 
-            val = self.get("hasBaleen", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                boolean,
+            String key = "hasBaleen";
+            if (!containsKey(key)) {
+                throw new RuntimeException("hasBaleen is unset");
+            }
+            return boolean get(key);
 
-                val
-            )
+        }
         
-        public boolean:
+        public boolean hasTeeth() {
 
-            val = self.get("hasTeeth", schemas.unset)
-            if isinstance(val, schemas.Unset):
-                return val
-            return typing.cast(
-                boolean,
+            String key = "hasTeeth";
+            if (!containsKey(key)) {
+                throw new RuntimeException("hasTeeth is unset");
+            }
+            return boolean get(key);
 
-                val
-            )
+        }
         
         public Object getAdditionalProperty(String name) {
             schemas.raise_if_key_known(name, self.__required_keys__, self.__optional_keys__)
             return self.get(name, schemas.unset)
+        }
     }    
     
     public class Whale1 extends JsonSchema {
@@ -101,7 +97,6 @@ public class Whale {
             )))
         ));
         protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
 
             return new WhaleMap(arg);
         }
