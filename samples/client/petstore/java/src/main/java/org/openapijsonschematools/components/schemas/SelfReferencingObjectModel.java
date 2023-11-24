@@ -39,7 +39,7 @@ public class SelfReferencingObjectModel {
 
         }
         
-        public SelfReferencingObjectModelMap getAdditionalProperty(String name) {}
+        public SelfReferencingObjectModelMap getAdditionalProperty(String name) {
 
             throwIfKeyNotPresent(name);
             return (SelfReferencingObjectModelMap) get(name);

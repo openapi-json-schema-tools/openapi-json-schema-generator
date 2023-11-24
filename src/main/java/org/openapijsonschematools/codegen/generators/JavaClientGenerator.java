@@ -1393,6 +1393,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     imports.add("import "+packageName + ".schemas.validation.PropertyEntry;");
                     imports.add("import "+packageName + ".schemas.validation.PropertiesValidator;");
                     imports.add("import java.util.Map;");
+                    imports.add("import java.util.Set;");
                 }
                 if (schema.requiredProperties != null) {
                     imports.add("import "+packageName + ".schemas.validation.RequiredValidator;");

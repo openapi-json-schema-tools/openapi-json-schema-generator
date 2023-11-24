@@ -97,7 +97,7 @@ public class Drawing {
 
         }
         
-        public Object getAdditionalProperty(String name) {}
+        public Object getAdditionalProperty(String name) {
 
             throwIfKeyNotPresent(name);
             return (Object) get(name);

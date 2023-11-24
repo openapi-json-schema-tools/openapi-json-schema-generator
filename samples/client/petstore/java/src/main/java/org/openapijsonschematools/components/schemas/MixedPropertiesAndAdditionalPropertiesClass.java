@@ -38,7 +38,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return MapSchema.validate(arg, configuration);
         }
         
-        public Animal.AnimalMap getAdditionalProperty(String name) {}
+        public Animal.AnimalMap getAdditionalProperty(String name) {
 
             throwIfKeyNotPresent(name);
             return get(name);

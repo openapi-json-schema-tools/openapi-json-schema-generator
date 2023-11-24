@@ -29,17 +29,10 @@ public Object {{@key.original}}() {
     {{#each optionalProperties}}
         {{#if @key.isValid}}
         {{#with this}}
-            {{#if refInfo.refClass}}
 
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=(join " " @key.original "() {" "") optional=true }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=(join " " @key.original "() {" "") }}
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=false }}
 }
-            {{else}}
-
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=(join " " @key.original "() {" "") optional=true }}
-    {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=false }}
-}
-            {{/if}}
         {{/with}}
         {{/if}}
     {{/each}}
@@ -56,13 +49,8 @@ public Object getAdditionalProperty(String name) {
 {{else}}
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
-            {{#if refInfo.refClass}}
 
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=" getAdditionalProperty(String name) {}" key="str" optional=true }}
-            {{else}}
-
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=" getAdditionalProperty(String name) {" key="str" optional=true }}
-            {{/if}}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=" getAdditionalProperty(String name) {" }}
             {{#or optionalProperties requiredProperties}}
     throwIfKeyKnown(name, requiredKeys, optionalKeys);
             {{/or}}
