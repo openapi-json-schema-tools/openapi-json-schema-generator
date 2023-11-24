@@ -28,7 +28,9 @@ public class CookieParameters {
     
     
     public static class CookieParametersMap extends FrozenMap<String, Object> {
-        CookieParametersMap(FrozenMap<? extends String, ?> m) {
+
+        CookieParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -49,7 +51,8 @@ public class CookieParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static CookieParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static CookieParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new CookieParametersMap(arg);
         }
         public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

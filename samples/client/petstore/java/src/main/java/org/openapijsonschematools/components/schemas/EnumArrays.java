@@ -69,7 +69,9 @@ public class EnumArrays {
     }    
     
     public static class EnumArraysMap extends FrozenMap<String, Object> {
-        EnumArraysMap(FrozenMap<? extends String, ?> m) {
+
+        EnumArraysMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -92,7 +94,8 @@ public class EnumArrays {
                 new PropertyEntry("array_enum", ArrayEnum.class)
             )))
         ));
-        protected static EnumArraysMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new EnumArraysMap(arg);
         }
         public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

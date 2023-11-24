@@ -82,7 +82,9 @@ public class Schema1 {
     }    
     
     public static class SchemaMap1 extends FrozenMap<String, Object> {
-        SchemaMap1(FrozenMap<? extends String, ?> m) {
+
+        SchemaMap1(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static SchemaMap1 of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -98,7 +100,8 @@ public class Schema1 {
                 new PropertyEntry("someProp", SomeProp1.class)
             )))
         ));
-        protected static SchemaMap1 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap1 getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SchemaMap1(arg);
         }
         public static SchemaMap1 validate(Map<String, Object> arg, SchemaConfiguration configuration) {

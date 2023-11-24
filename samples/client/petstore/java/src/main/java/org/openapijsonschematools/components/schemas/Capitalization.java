@@ -35,7 +35,9 @@ public class Capitalization {
     
     
     public static class CapitalizationMap extends FrozenMap<String, Object> {
-        CapitalizationMap(FrozenMap<? extends String, ?> m) {
+
+        CapitalizationMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -62,7 +64,8 @@ public class Capitalization {
                 new PropertyEntry("ATT_NAME", ATTNAME.class)
             )))
         ));
-        protected static CapitalizationMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static CapitalizationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new CapitalizationMap(arg);
         }
         public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -20,7 +20,9 @@ public class ObjectWithDecimalProperties {
     
     
     public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {
-        ObjectWithDecimalPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithDecimalPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithDecimalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -44,7 +46,8 @@ public class ObjectWithDecimalProperties {
                 new PropertyEntry("cost", Money.Money1.class)
             )))
         ));
-        protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithDecimalPropertiesMap(arg);
         }
         public static ObjectWithDecimalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

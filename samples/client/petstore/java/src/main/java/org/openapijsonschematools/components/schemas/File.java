@@ -20,7 +20,9 @@ public class File {
     
     
     public static class FileMap extends FrozenMap<String, Object> {
-        FileMap(FrozenMap<? extends String, ?> m) {
+
+        FileMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static FileMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -44,7 +46,8 @@ public class File {
                 new PropertyEntry("sourceURI", SourceURI.class)
             )))
         ));
-        protected static FileMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FileMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FileMap(arg);
         }
         public static FileMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

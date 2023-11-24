@@ -23,7 +23,9 @@ public class ObjectWithCollidingProperties {
     
     
     public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {
-        ObjectWithCollidingPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithCollidingPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithCollidingPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -48,7 +50,8 @@ public class ObjectWithCollidingProperties {
                 new PropertyEntry("someprop", Someprop.class)
             )))
         ));
-        protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithCollidingPropertiesMap(arg);
         }
         public static ObjectWithCollidingPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

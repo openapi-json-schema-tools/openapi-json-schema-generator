@@ -24,7 +24,9 @@ public class ObjectModelWithArgAndArgsProperties {
     
     
     public static class ObjectModelWithArgAndArgsPropertiesMap extends FrozenMap<String, Object> {
-        ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectModelWithArgAndArgsPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -51,7 +53,8 @@ public class ObjectModelWithArgAndArgsProperties {
                 "args"
             )))
         ));
-        protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
         public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

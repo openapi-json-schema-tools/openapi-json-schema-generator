@@ -25,7 +25,9 @@ public class HeaderParameters {
     
     
     public static class HeaderParametersMap extends FrozenMap<String, Object> {
-        HeaderParametersMap(FrozenMap<? extends String, ?> m) {
+
+        HeaderParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -43,7 +45,8 @@ public class HeaderParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

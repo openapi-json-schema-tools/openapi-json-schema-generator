@@ -27,7 +27,9 @@ public class Schema200Response {
     
     
     public static class Schema200ResponseMap extends FrozenMap<String, Object> {
-        Schema200ResponseMap(FrozenMap<? extends String, ?> m) {
+
+        Schema200ResponseMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static Schema200ResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

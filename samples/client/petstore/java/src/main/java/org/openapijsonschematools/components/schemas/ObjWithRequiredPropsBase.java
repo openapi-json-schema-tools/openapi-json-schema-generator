@@ -21,7 +21,9 @@ public class ObjWithRequiredPropsBase {
     
     
     public static class ObjWithRequiredPropsBaseMap extends FrozenMap<String, Object> {
-        ObjWithRequiredPropsBaseMap(FrozenMap<? extends String, ?> m) {
+
+        ObjWithRequiredPropsBaseMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjWithRequiredPropsBaseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -46,7 +48,8 @@ public class ObjWithRequiredPropsBase {
                 "b"
             )))
         ));
-        protected static ObjWithRequiredPropsBaseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjWithRequiredPropsBaseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjWithRequiredPropsBaseMap(arg);
         }
         public static ObjWithRequiredPropsBaseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

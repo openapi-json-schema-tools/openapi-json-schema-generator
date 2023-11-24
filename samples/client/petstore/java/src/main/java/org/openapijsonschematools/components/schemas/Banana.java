@@ -21,7 +21,9 @@ public class Banana {
     
     
     public static class BananaMap extends FrozenMap<String, Object> {
-        BananaMap(FrozenMap<? extends String, ?> m) {
+
+        BananaMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static BananaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -46,7 +48,8 @@ public class Banana {
                 "lengthCm"
             )))
         ));
-        protected static BananaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static BananaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new BananaMap(arg);
         }
         public static BananaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

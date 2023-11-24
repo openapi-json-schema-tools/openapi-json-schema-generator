@@ -25,7 +25,9 @@ public class Cat {
     
     
     public static class Schema1Map extends FrozenMap<String, Object> {
-        Schema1Map(FrozenMap<? extends String, ?> m) {
+
+        Schema1Map(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -41,7 +43,8 @@ public class Cat {
                 new PropertyEntry("declawed", Declawed.class)
             )))
         ));
-        protected static Schema1Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -28,7 +28,9 @@ public class BasquePig {
     }    
     
     public static class BasquePigMap extends FrozenMap<String, Object> {
-        BasquePigMap(FrozenMap<? extends String, ?> m) {
+
+        BasquePigMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static BasquePigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -53,7 +55,8 @@ public class BasquePig {
                 "className"
             )))
         ));
-        protected static BasquePigMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static BasquePigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new BasquePigMap(arg);
         }
         public static BasquePigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

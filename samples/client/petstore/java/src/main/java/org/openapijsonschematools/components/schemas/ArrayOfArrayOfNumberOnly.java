@@ -81,7 +81,9 @@ public class ArrayOfArrayOfNumberOnly {
     }    
     
     public static class ArrayOfArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
-        ArrayOfArrayOfNumberOnlyMap(FrozenMap<? extends String, ?> m) {
+
+        ArrayOfArrayOfNumberOnlyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ArrayOfArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -103,7 +105,8 @@ public class ArrayOfArrayOfNumberOnly {
                 new PropertyEntry("ArrayArrayNumber", ArrayArrayNumber.class)
             )))
         ));
-        protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ArrayOfArrayOfNumberOnlyMap(arg);
         }
         public static ArrayOfArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

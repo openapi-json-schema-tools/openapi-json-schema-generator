@@ -29,7 +29,9 @@ public class PathParameters {
     
     
     public static class PathParametersMap extends FrozenMap<String, Object> {
-        PathParametersMap(FrozenMap<? extends String, ?> m) {
+
+        PathParametersMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -57,7 +59,8 @@ public class PathParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static PathParametersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PathParametersMap(arg);
         }
         public static PathParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

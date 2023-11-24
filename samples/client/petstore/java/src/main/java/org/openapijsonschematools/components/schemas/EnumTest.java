@@ -82,7 +82,9 @@ public class EnumTest {
     }    
     
     public static class EnumTestMap extends FrozenMap<String, Object> {
-        EnumTestMap(FrozenMap<? extends String, ?> m) {
+
+        EnumTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -115,7 +117,8 @@ public class EnumTest {
                 "enum_string_required"
             )))
         ));
-        protected static EnumTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new EnumTestMap(arg);
         }
         public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

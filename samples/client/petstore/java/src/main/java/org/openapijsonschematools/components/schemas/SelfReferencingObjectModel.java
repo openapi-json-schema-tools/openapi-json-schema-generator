@@ -17,7 +17,9 @@ public class SelfReferencingObjectModel {
     
     
     public static class SelfReferencingObjectModelMap extends FrozenMap<String, Object> {
-        SelfReferencingObjectModelMap(FrozenMap<? extends String, ?> m) {
+
+        SelfReferencingObjectModelMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static SelfReferencingObjectModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -40,7 +42,8 @@ public class SelfReferencingObjectModel {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(SelfReferencingObjectModel1.class))
         ));
-        protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SelfReferencingObjectModelMap(arg);
         }
         public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

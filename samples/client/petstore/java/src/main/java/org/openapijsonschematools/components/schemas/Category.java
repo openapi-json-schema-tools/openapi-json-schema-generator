@@ -32,7 +32,9 @@ public class Category {
     }    
     
     public static class CategoryMap extends FrozenMap<String, Object> {
-        CategoryMap(FrozenMap<? extends String, ?> m) {
+
+        CategoryMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -58,7 +60,8 @@ public class Category {
                 "name"
             )))
         ));
-        protected static CategoryMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static CategoryMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new CategoryMap(arg);
         }
         public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

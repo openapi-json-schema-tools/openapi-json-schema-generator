@@ -37,7 +37,9 @@ public class QuadrilateralInterface {
     
     
     public static class QuadrilateralInterfaceMap extends FrozenMap<String, Object> {
-        QuadrilateralInterfaceMap(FrozenMap<? extends String, ?> m) {
+
+        QuadrilateralInterfaceMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static QuadrilateralInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

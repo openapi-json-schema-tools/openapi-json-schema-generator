@@ -175,7 +175,9 @@ public class ArrayTest {
     }    
     
     public static class ArrayTestMap extends FrozenMap<String, Object> {
-        ArrayTestMap(FrozenMap<? extends String, ?> m) {
+
+        ArrayTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -199,7 +201,8 @@ public class ArrayTest {
                 new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
             )))
         ));
-        protected static ArrayTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ArrayTestMap(arg);
         }
         public static ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -15,7 +15,9 @@ public class ReqPropsFromUnsetAddProps {
     
     
     public static class ReqPropsFromUnsetAddPropsMap extends FrozenMap<String, Object> {
-        ReqPropsFromUnsetAddPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ReqPropsFromUnsetAddPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ReqPropsFromUnsetAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -38,7 +40,8 @@ public class ReqPropsFromUnsetAddProps {
                 "validName"
             )))
         ));
-        protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
         public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

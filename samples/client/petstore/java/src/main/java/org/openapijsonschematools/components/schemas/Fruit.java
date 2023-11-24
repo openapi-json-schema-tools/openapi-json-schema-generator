@@ -23,7 +23,9 @@ public class Fruit {
     
     
     public static class FruitMap extends FrozenMap<String, Object> {
-        FruitMap(FrozenMap<? extends String, ?> m) {
+
+        FruitMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static FruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

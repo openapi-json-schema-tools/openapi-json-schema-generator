@@ -26,7 +26,9 @@ public class Schema {
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {
-        SchemaMap(FrozenMap<? extends String, ?> m) {
+
+        SchemaMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -46,7 +48,8 @@ public class Schema {
                 "file"
             )))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

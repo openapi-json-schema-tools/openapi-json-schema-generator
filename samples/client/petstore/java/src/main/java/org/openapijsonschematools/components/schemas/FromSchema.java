@@ -24,7 +24,9 @@ public class FromSchema {
     
     
     public static class FromSchemaMap extends FrozenMap<String, Object> {
-        FromSchemaMap(FrozenMap<? extends String, ?> m) {
+
+        FromSchemaMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static FromSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -47,7 +49,8 @@ public class FromSchema {
                 new PropertyEntry("id", Id.class)
             )))
         ));
-        protected static FromSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FromSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FromSchemaMap(arg);
         }
         public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

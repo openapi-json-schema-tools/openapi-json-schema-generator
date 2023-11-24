@@ -31,7 +31,9 @@ public class HealthCheckResult {
     }    
     
     public static class HealthCheckResultMap extends FrozenMap<String, Object> {
-        HealthCheckResultMap(FrozenMap<? extends String, ?> m) {
+
+        HealthCheckResultMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -55,7 +57,8 @@ public class HealthCheckResult {
                 new PropertyEntry("NullableMessage", NullableMessage.class)
             )))
         ));
-        protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HealthCheckResultMap(arg);
         }
         public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -20,7 +20,9 @@ public class NumberOnly {
     
     
     public static class NumberOnlyMap extends FrozenMap<String, Object> {
-        NumberOnlyMap(FrozenMap<? extends String, ?> m) {
+
+        NumberOnlyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static NumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -42,7 +44,8 @@ public class NumberOnly {
                 new PropertyEntry("JustNumber", JustNumber.class)
             )))
         ));
-        protected static NumberOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static NumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new NumberOnlyMap(arg);
         }
         public static NumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

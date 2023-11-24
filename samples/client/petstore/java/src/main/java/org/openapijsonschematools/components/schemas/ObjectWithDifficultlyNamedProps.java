@@ -29,7 +29,9 @@ public class ObjectWithDifficultlyNamedProps {
     
     
     public static class ObjectWithDifficultlyNamedPropsMap extends FrozenMap<String, Object> {
-        ObjectWithDifficultlyNamedPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithDifficultlyNamedPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithDifficultlyNamedPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -58,7 +60,8 @@ public class ObjectWithDifficultlyNamedProps {
                 "123-list"
             )))
         ));
-        protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
         public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -28,7 +28,9 @@ public class DanishPig {
     }    
     
     public static class DanishPigMap extends FrozenMap<String, Object> {
-        DanishPigMap(FrozenMap<? extends String, ?> m) {
+
+        DanishPigMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static DanishPigMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -53,7 +55,8 @@ public class DanishPig {
                 "className"
             )))
         ));
-        protected static DanishPigMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static DanishPigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new DanishPigMap(arg);
         }
         public static DanishPigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

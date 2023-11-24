@@ -32,7 +32,9 @@ public class Name {
     
     
     public static class NameMap extends FrozenMap<String, Object> {
-        NameMap(FrozenMap<? extends String, ?> m) {
+
+        NameMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static NameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

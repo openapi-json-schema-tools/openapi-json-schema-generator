@@ -23,7 +23,9 @@ public class GmFruit {
     
     
     public static class GmFruitMap extends FrozenMap<String, Object> {
-        GmFruitMap(FrozenMap<? extends String, ?> m) {
+
+        GmFruitMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static GmFruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

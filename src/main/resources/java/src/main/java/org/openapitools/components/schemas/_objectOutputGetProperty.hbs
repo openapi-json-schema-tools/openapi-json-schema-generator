@@ -1,0 +1,22 @@
+{{#if required}}
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+return self.__getitem__("{{{@key.original}}}")
+    {{else}}
+return typing.cast(
+    {{> components/schemas/types/schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
+    self.__getitem__("{{{@key.original}}}")
+)
+    {{/and}}
+{{else}}
+val = self.get("{{{@key.original}}}", schemas.unset)
+if isinstance(val, schemas.Unset):
+    return val
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+return val
+    {{else}}
+return typing.cast(
+    {{> components/schemas/types/schema_output_type fullRefModule="" mode="unprefixed" endChar="," }}
+    val
+)
+    {{/and}}
+{{/if}}

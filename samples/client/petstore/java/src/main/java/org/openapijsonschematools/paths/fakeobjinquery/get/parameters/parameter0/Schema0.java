@@ -20,7 +20,9 @@ public class Schema0 {
     
     
     public static class SchemaMap0 extends FrozenMap<String, Object> {
-        SchemaMap0(FrozenMap<? extends String, ?> m) {
+
+        SchemaMap0(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static SchemaMap0 of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -36,7 +38,8 @@ public class Schema0 {
                 new PropertyEntry("keyword", Keyword0.class)
             )))
         ));
-        protected static SchemaMap0 getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap0 getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new SchemaMap0(arg);
         }
         public static SchemaMap0 validate(Map<String, Object> arg, SchemaConfiguration configuration) {

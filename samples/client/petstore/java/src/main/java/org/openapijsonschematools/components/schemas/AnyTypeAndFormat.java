@@ -499,7 +499,9 @@ public class AnyTypeAndFormat {
     }    
     
     public static class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
-        AnyTypeAndFormatMap(FrozenMap<? extends String, ?> m) {
+
+        AnyTypeAndFormatMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static AnyTypeAndFormatMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -529,7 +531,8 @@ public class AnyTypeAndFormat {
                 new PropertyEntry("float", FloatSchema.class)
             )))
         ));
-        protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AnyTypeAndFormatMap(arg);
         }
         public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

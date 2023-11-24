@@ -35,7 +35,9 @@ public class Whale {
     }    
     
     public static class WhaleMap extends FrozenMap<String, Object> {
-        WhaleMap(FrozenMap<? extends String, ?> m) {
+
+        WhaleMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static WhaleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -62,7 +64,8 @@ public class Whale {
                 "className"
             )))
         ));
-        protected static WhaleMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new WhaleMap(arg);
         }
         public static WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -16,7 +16,9 @@ public class ObjectModelWithRefProps {
     
     
     public static class ObjectModelWithRefPropsMap extends FrozenMap<String, Object> {
-        ObjectModelWithRefPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectModelWithRefPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -42,7 +44,8 @@ public class ObjectModelWithRefProps {
                 new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
             )))
         ));
-        protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectModelWithRefPropsMap(arg);
         }
         public static ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

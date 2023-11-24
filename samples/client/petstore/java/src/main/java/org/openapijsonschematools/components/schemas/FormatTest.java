@@ -251,7 +251,9 @@ public class FormatTest {
     
     
     public static class FormatTestMap extends FrozenMap<String, Object> {
-        FormatTestMap(FrozenMap<? extends String, ?> m) {
+
+        FormatTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -299,7 +301,8 @@ public class FormatTest {
                 "password"
             )))
         ));
-        protected static FormatTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FormatTestMap(arg);
         }
         public static FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

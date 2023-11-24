@@ -32,7 +32,9 @@ public class Animal {
     }    
     
     public static class AnimalMap extends FrozenMap<String, Object> {
-        AnimalMap(FrozenMap<? extends String, ?> m) {
+
+        AnimalMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static AnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -58,7 +60,8 @@ public class Animal {
                 "className"
             )))
         ));
-        protected static AnimalMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AnimalMap(arg);
         }
         public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -41,8 +41,10 @@ public class JSONPatchRequestMoveCopy {
         }
     }    
     
-    public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String, Object> {
-        JSONPatchRequestMoveCopyMap(FrozenMap<? extends String, ?> m) {
+    public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String, String> {
+
+        JSONPatchRequestMoveCopyMap(FrozenMap<String, String> m) {
+
             super(m);
         }
         public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -72,7 +74,8 @@ public class JSONPatchRequestMoveCopy {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new JSONPatchRequestMoveCopyMap(arg);
         }
         public static JSONPatchRequestMoveCopyMap validate(Map<String, String> arg, SchemaConfiguration configuration) {

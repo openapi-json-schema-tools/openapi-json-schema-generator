@@ -21,7 +21,9 @@ public class AbstractStepMessage {
     
     
     public static class AbstractStepMessageMap extends FrozenMap<String, Object> {
-        AbstractStepMessageMap(FrozenMap<? extends String, ?> m) {
+
+        AbstractStepMessageMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -50,7 +52,8 @@ public class AbstractStepMessage {
                 "sequenceNumber"
             )))
         ));
-        protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AbstractStepMessageMap(arg);
         }
         public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

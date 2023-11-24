@@ -1,17 +1,10 @@
 
 
 {{#if mapValueSchema}}
-    {{#if mapValueSchema.refInfo.refClass}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="]):" }}{{/with}}Object> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" forceNull=true endChar="> {" }}{{/with}}
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" forceNull=true endChar="> m) {" }}{{/with}}
         super(m);
     }
-    {{else}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]):" }}{{/with}}Object> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
-        super(m);
-    }
-    {{/if}}
 {{else}}
 public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, Object> {
     {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {

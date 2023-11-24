@@ -42,7 +42,9 @@ public class JSONPatchRequestAddReplaceTest {
     }    
     
     public static class JSONPatchRequestAddReplaceTestMap extends FrozenMap<String, Object> {
-        JSONPatchRequestAddReplaceTestMap(FrozenMap<? extends String, ?> m) {
+
+        JSONPatchRequestAddReplaceTestMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -72,7 +74,8 @@ public class JSONPatchRequestAddReplaceTest {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
         public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

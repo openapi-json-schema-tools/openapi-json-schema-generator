@@ -290,8 +290,10 @@ public class NullableClass {
     public class AdditionalProperties extends MapJsonSchema {}
     
     
-    public static class ObjectNullablePropMap extends FrozenMap<String, Object> {
-        ObjectNullablePropMap(FrozenMap<? extends String, ?> m) {
+    public static class ObjectNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
+
+        ObjectNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
             super(m);
         }
         public static ObjectNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -334,8 +336,10 @@ public class NullableClass {
         }
     }    
     
-    public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, Object> {
-        ObjectAndItemsNullablePropMap(FrozenMap<? extends String, ?> m) {
+    public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
+
+        ObjectAndItemsNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
             super(m);
         }
         public static ObjectAndItemsNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -378,8 +382,10 @@ public class NullableClass {
         }
     }    
     
-    public static class ObjectItemsNullableMap extends FrozenMap<String, Object> {
-        ObjectItemsNullableMap(FrozenMap<? extends String, ?> m) {
+    public static class ObjectItemsNullableMap extends FrozenMap<String, FrozenMap<String, Object>> {
+
+        ObjectItemsNullableMap(FrozenMap<String, FrozenMap<String, Object>> m) {
+
             super(m);
         }
         public static ObjectItemsNullableMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -394,7 +400,8 @@ public class NullableClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
+
             return new ObjectItemsNullableMap(arg);
         }
         public static ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -406,7 +413,9 @@ public class NullableClass {
     
     
     public static class NullableClassMap extends FrozenMap<String, Object> {
-        NullableClassMap(FrozenMap<? extends String, ?> m) {
+
+        NullableClassMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static NullableClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -440,7 +449,8 @@ public class NullableClass {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        protected static NullableClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new NullableClassMap(arg);
         }
         public static NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

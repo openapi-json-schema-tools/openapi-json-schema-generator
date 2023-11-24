@@ -23,7 +23,9 @@ public class HasOnlyReadOnly {
     
     
     public static class HasOnlyReadOnlyMap extends FrozenMap<String, Object> {
-        HasOnlyReadOnlyMap(FrozenMap<? extends String, ?> m) {
+
+        HasOnlyReadOnlyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -46,7 +48,8 @@ public class HasOnlyReadOnly {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
-        protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new HasOnlyReadOnlyMap(arg);
         }
         public static HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

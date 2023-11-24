@@ -28,7 +28,9 @@ public class Money {
     
     
     public static class MoneyMap extends FrozenMap<String, Object> {
-        MoneyMap(FrozenMap<? extends String, ?> m) {
+
+        MoneyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static MoneyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -56,7 +58,8 @@ public class Money {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static MoneyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MoneyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new MoneyMap(arg);
         }
         public static MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

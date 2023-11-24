@@ -128,7 +128,9 @@ public class User {
     
     
     public static class UserMap extends FrozenMap<String, Object> {
-        UserMap(FrozenMap<? extends String, ?> m) {
+
+        UserMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static UserMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -162,7 +164,8 @@ public class User {
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
             )))
         ));
-        protected static UserMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new UserMap(arg);
         }
         public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -20,7 +20,9 @@ public class Player {
     
     
     public static class PlayerMap extends FrozenMap<String, Object> {
-        PlayerMap(FrozenMap<? extends String, ?> m) {
+
+        PlayerMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static PlayerMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -45,7 +47,8 @@ public class Player {
                 new PropertyEntry("enemyPlayer", Player1.class)
             )))
         ));
-        protected static PlayerMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PlayerMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PlayerMap(arg);
         }
         public static PlayerMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

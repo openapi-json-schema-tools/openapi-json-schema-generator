@@ -16,7 +16,9 @@ public class Foo {
     
     
     public static class FooMap extends FrozenMap<String, Object> {
-        FooMap(FrozenMap<? extends String, ?> m) {
+
+        FooMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static FooMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -38,7 +40,8 @@ public class Foo {
                 new PropertyEntry("bar", Bar.Bar1.class)
             )))
         ));
-        protected static FooMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FooMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FooMap(arg);
         }
         public static FooMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

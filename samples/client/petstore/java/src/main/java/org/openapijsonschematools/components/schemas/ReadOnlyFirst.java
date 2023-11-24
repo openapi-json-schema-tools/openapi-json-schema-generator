@@ -23,7 +23,9 @@ public class ReadOnlyFirst {
     
     
     public static class ReadOnlyFirstMap extends FrozenMap<String, Object> {
-        ReadOnlyFirstMap(FrozenMap<? extends String, ?> m) {
+
+        ReadOnlyFirstMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ReadOnlyFirstMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -46,7 +48,8 @@ public class ReadOnlyFirst {
                 new PropertyEntry("baz", Baz.class)
             )))
         ));
-        protected static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ReadOnlyFirstMap(arg);
         }
         public static ReadOnlyFirstMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

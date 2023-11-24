@@ -18,8 +18,10 @@ public class Schema {
     public class AdditionalProperties extends StringJsonSchema {}
     
     
-    public static class SchemaMap extends FrozenMap<String, Object> {
-        SchemaMap(FrozenMap<? extends String, ?> m) {
+    public static class SchemaMap extends FrozenMap<String, String> {
+
+        SchemaMap(FrozenMap<String, String> m) {
+
             super(m);
         }
         public static SchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -33,7 +35,8 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, String> arg, SchemaConfiguration configuration) {

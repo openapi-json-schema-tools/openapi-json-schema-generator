@@ -37,7 +37,9 @@ public class TriangleInterface {
     
     
     public static class TriangleInterfaceMap extends FrozenMap<String, Object> {
-        TriangleInterfaceMap(FrozenMap<? extends String, ?> m) {
+
+        TriangleInterfaceMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static TriangleInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -24,8 +24,10 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     public class DateTime extends DateTimeJsonSchema {}
     
     
-    public static class MapMap extends FrozenMap<String, Object> {
-        MapMap(FrozenMap<? extends String, ?> m) {
+    public static class MapMap extends FrozenMap<String, Animal.AnimalMap> {
+
+        MapMap(FrozenMap<String, Animal.AnimalMap> m) {
+
             super(m);
         }
         public static MapMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -40,7 +42,8 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
         ));
-        protected static MapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapMap getMapOutputInstance(FrozenMap<String, Animal.AnimalMap> arg) {
+
             return new MapMap(arg);
         }
         public static MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
@@ -52,7 +55,9 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     
     public static class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object> {
-        MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
+
+        MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static MixedPropertiesAndAdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -76,7 +81,8 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
                 new PropertyEntry("map", MapSchema.class)
             )))
         ));
-        protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }
         public static MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

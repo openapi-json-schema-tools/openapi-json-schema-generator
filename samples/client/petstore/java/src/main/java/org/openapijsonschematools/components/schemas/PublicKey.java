@@ -20,7 +20,9 @@ public class PublicKey {
     
     
     public static class PublicKeyMap extends FrozenMap<String, Object> {
-        PublicKeyMap(FrozenMap<? extends String, ?> m) {
+
+        PublicKeyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -44,7 +46,8 @@ public class PublicKey {
                 new PropertyEntry("key", Key.class)
             )))
         ));
-        protected static PublicKeyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PublicKeyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PublicKeyMap(arg);
         }
         public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

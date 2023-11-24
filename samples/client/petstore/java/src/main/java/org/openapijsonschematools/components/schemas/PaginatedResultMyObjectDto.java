@@ -61,7 +61,9 @@ public class PaginatedResultMyObjectDto {
     }    
     
     public static class PaginatedResultMyObjectDtoMap extends FrozenMap<String, Object> {
-        PaginatedResultMyObjectDtoMap(FrozenMap<? extends String, ?> m) {
+
+        PaginatedResultMyObjectDtoMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -89,7 +91,8 @@ public class PaginatedResultMyObjectDto {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PaginatedResultMyObjectDtoMap(arg);
         }
         public static PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

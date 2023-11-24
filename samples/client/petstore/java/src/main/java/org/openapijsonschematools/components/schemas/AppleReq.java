@@ -32,7 +32,9 @@ public class AppleReq {
     
     
     public static class AppleReqMap extends FrozenMap<String, Object> {
-        AppleReqMap(FrozenMap<? extends String, ?> m) {
+
+        AppleReqMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -59,7 +61,8 @@ public class AppleReq {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static AppleReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AppleReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AppleReqMap(arg);
         }
         public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

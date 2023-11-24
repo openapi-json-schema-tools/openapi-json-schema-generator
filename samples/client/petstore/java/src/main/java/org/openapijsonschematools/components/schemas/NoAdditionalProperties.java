@@ -30,8 +30,10 @@ public class NoAdditionalProperties {
     public class PetId extends Int64JsonSchema {}
     
     
-    public static class NoAdditionalPropertiesMap extends FrozenMap<String, Object> {
-        NoAdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
+    public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long> {
+
+        NoAdditionalPropertiesMap(FrozenMap<String, Long> m) {
+
             super(m);
         }
         public static NoAdditionalPropertiesMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
@@ -58,7 +60,8 @@ public class NoAdditionalProperties {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long> arg) {
+
             return new NoAdditionalPropertiesMap(arg);
         }
         public static NoAdditionalPropertiesMap validate(Map<String, Long> arg, SchemaConfiguration configuration) {

@@ -20,7 +20,9 @@ public class ObjectWithOptionalTestProp {
     
     
     public static class ObjectWithOptionalTestPropMap extends FrozenMap<String, Object> {
-        ObjectWithOptionalTestPropMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithOptionalTestPropMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithOptionalTestPropMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -42,7 +44,8 @@ public class ObjectWithOptionalTestProp {
                 new PropertyEntry("test", Test.class)
             )))
         ));
-        protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithOptionalTestPropMap(arg);
         }
         public static ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

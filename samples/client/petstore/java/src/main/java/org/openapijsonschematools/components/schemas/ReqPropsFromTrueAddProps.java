@@ -20,7 +20,9 @@ public class ReqPropsFromTrueAddProps {
     
     
     public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object> {
-        ReqPropsFromTrueAddPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ReqPropsFromTrueAddPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ReqPropsFromTrueAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -44,7 +46,8 @@ public class ReqPropsFromTrueAddProps {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
         public static ReqPropsFromTrueAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

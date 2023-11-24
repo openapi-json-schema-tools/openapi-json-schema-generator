@@ -24,7 +24,9 @@ public class Tag {
     
     
     public static class TagMap extends FrozenMap<String, Object> {
-        TagMap(FrozenMap<? extends String, ?> m) {
+
+        TagMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -47,7 +49,8 @@ public class Tag {
                 new PropertyEntry("name", Name.class)
             )))
         ));
-        protected static TagMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static TagMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new TagMap(arg);
         }
         public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -23,8 +23,10 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties extends StringJsonSchema {}
     
     
-    public static class MapPropertyMap extends FrozenMap<String, Object> {
-        MapPropertyMap(FrozenMap<? extends String, ?> m) {
+    public static class MapPropertyMap extends FrozenMap<String, String> {
+
+        MapPropertyMap(FrozenMap<String, String> m) {
+
             super(m);
         }
         public static MapPropertyMap of(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -38,7 +40,8 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static MapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapPropertyMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new MapPropertyMap(arg);
         }
         public static MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -51,8 +54,10 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties2 extends StringJsonSchema {}
     
     
-    public static class AdditionalPropertiesMap extends FrozenMap<String, Object> {
-        AdditionalPropertiesMap(FrozenMap<? extends String, ?> m) {
+    public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
+
+        AdditionalPropertiesMap(FrozenMap<String, String> m) {
+
             super(m);
         }
         public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -66,7 +71,8 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new AdditionalPropertiesMap(arg);
         }
         public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -76,8 +82,10 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapOfMapPropertyMap extends FrozenMap<String, Object> {
-        MapOfMapPropertyMap(FrozenMap<? extends String, ?> m) {
+    public static class MapOfMapPropertyMap extends FrozenMap<String, AdditionalPropertiesMap> {
+
+        MapOfMapPropertyMap(FrozenMap<String, AdditionalPropertiesMap> m) {
+
             super(m);
         }
         public static MapOfMapPropertyMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
@@ -92,7 +100,8 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
-        protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
+
             return new MapOfMapPropertyMap(arg);
         }
         public static MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
@@ -116,7 +125,9 @@ public class AdditionalPropertiesClass {
     
     
     public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
-        MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<? extends String, ?> m) {
+
+        MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -130,7 +141,8 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
         public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -159,7 +171,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties4.class))
         ));
-        protected static EmptyMapMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static EmptyMapMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EmptyMapMap(arg);
         }
         public static EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -171,8 +183,10 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties5 extends StringJsonSchema {}
     
     
-    public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, Object> {
-        MapWithUndeclaredPropertiesStringMap(FrozenMap<? extends String, ?> m) {
+    public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, String> {
+
+        MapWithUndeclaredPropertiesStringMap(FrozenMap<String, String> m) {
+
             super(m);
         }
         public static MapWithUndeclaredPropertiesStringMap of(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -186,7 +200,8 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
         ));
-        protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
         public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -197,7 +212,9 @@ public class AdditionalPropertiesClass {
     
     
     public static class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
-        AdditionalPropertiesClassMap(FrozenMap<? extends String, ?> m) {
+
+        AdditionalPropertiesClassMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static AdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -226,7 +243,8 @@ public class AdditionalPropertiesClass {
                 new PropertyEntry("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
             )))
         ));
-        protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new AdditionalPropertiesClassMap(arg);
         }
         public static AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

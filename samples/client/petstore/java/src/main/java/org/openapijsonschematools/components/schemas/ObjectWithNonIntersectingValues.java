@@ -25,7 +25,9 @@ public class ObjectWithNonIntersectingValues {
     
     
     public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object> {
-        ObjectWithNonIntersectingValuesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithNonIntersectingValuesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -48,7 +50,8 @@ public class ObjectWithNonIntersectingValues {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
         public static ObjectWithNonIntersectingValuesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

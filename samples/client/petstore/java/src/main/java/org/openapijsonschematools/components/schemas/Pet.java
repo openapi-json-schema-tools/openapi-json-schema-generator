@@ -100,7 +100,9 @@ public class Pet {
     }    
     
     public static class PetMap extends FrozenMap<String, Object> {
-        PetMap(FrozenMap<? extends String, ?> m) {
+
+        PetMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -133,7 +135,8 @@ public class Pet {
                 "photoUrls"
             )))
         ));
-        protected static PetMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new PetMap(arg);
         }
         public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

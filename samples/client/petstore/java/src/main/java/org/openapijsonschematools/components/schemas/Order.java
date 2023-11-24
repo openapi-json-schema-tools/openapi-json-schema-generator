@@ -46,7 +46,9 @@ public class Order {
     
     
     public static class OrderMap extends FrozenMap<String, Object> {
-        OrderMap(FrozenMap<? extends String, ?> m) {
+
+        OrderMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static OrderMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -73,7 +75,8 @@ public class Order {
                 new PropertyEntry("complete", Complete.class)
             )))
         ));
-        protected static OrderMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static OrderMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new OrderMap(arg);
         }
         public static OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

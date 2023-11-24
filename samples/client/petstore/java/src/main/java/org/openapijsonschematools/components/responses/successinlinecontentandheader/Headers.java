@@ -23,8 +23,10 @@ public class Headers {
         // NotAnyTypeSchema
     
     
-    public static class HeadersMap extends FrozenMap<String, Object> {
-        HeadersMap(FrozenMap<? extends String, ?> m) {
+    public static class HeadersMap extends FrozenMap<String, String> {
+
+        HeadersMap(FrozenMap<String, String> m) {
+
             super(m);
         }
         public static HeadersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
@@ -41,7 +43,8 @@ public class Headers {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeadersMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static HeadersMap getMapOutputInstance(FrozenMap<String, String> arg) {
+
             return new HeadersMap(arg);
         }
         public static HeadersMap validate(Map<String, String> arg, SchemaConfiguration configuration) {

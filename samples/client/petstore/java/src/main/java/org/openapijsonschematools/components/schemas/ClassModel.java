@@ -23,7 +23,9 @@ public class ClassModel {
     
     
     public static class ClassModelMap extends FrozenMap<String, Object> {
-        ClassModelMap(FrozenMap<? extends String, ?> m) {
+
+        ClassModelMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ClassModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

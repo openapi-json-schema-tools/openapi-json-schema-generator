@@ -79,9 +79,15 @@ public class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{!> components/schemas/schema_cls/_unevaluated_properties }}
     {{/if}}
     {{#if mapOutputJsonPathPiece}}
-    protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        {{#if mapValueSchema}}
+    protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" forceNull=true endChar="> arg) {" }}{{/with}}
         return new {{mapOutputJsonPathPiece.camelCase}}(arg);
     }
+        {{else}}
+    protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, Object> arg) {
+        return new {{mapOutputJsonPathPiece.camelCase}}(arg);
+    }
+        {{/if}}
     {{/if}}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
 }

@@ -31,7 +31,9 @@ public class ObjectWithOnlyOptionalProps {
     
     
     public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object> {
-        ObjectWithOnlyOptionalPropsMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithOnlyOptionalPropsMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithOnlyOptionalPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -55,7 +57,8 @@ public class ObjectWithOnlyOptionalProps {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithOnlyOptionalPropsMap(arg);
         }
         public static ObjectWithOnlyOptionalPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

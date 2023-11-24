@@ -27,7 +27,9 @@ public class ApiResponseSchema {
     
     
     public static class ApiResponseMap extends FrozenMap<String, Object> {
-        ApiResponseMap(FrozenMap<? extends String, ?> m) {
+
+        ApiResponseMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ApiResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -51,7 +53,8 @@ public class ApiResponseSchema {
                 new PropertyEntry("message", Message.class)
             )))
         ));
-        protected static ApiResponseMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ApiResponseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ApiResponseMap(arg);
         }
         public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

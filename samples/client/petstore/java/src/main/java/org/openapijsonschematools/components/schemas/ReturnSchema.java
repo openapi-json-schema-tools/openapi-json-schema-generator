@@ -23,7 +23,9 @@ public class ReturnSchema {
     
     
     public static class ReturnMap extends FrozenMap<String, Object> {
-        ReturnMap(FrozenMap<? extends String, ?> m) {
+
+        ReturnMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ReturnMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

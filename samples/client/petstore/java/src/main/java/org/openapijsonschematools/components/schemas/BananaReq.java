@@ -32,7 +32,9 @@ public class BananaReq {
     
     
     public static class BananaReqMap extends FrozenMap<String, Object> {
-        BananaReqMap(FrozenMap<? extends String, ?> m) {
+
+        BananaReqMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -59,7 +61,8 @@ public class BananaReq {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static BananaReqMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static BananaReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new BananaReqMap(arg);
         }
         public static BananaReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

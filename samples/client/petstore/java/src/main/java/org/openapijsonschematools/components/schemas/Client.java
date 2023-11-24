@@ -20,7 +20,9 @@ public class Client {
     
     
     public static class ClientMap extends FrozenMap<String, Object> {
-        ClientMap(FrozenMap<? extends String, ?> m) {
+
+        ClientMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ClientMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -42,7 +44,8 @@ public class Client {
                 new PropertyEntry("client", Client2.class)
             )))
         ));
-        protected static ClientMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ClientMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ClientMap(arg);
         }
         public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

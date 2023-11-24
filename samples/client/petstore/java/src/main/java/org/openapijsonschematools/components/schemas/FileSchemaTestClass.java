@@ -49,7 +49,9 @@ public class FileSchemaTestClass {
     }    
     
     public static class FileSchemaTestClassMap extends FrozenMap<String, Object> {
-        FileSchemaTestClassMap(FrozenMap<? extends String, ?> m) {
+
+        FileSchemaTestClassMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static FileSchemaTestClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -72,7 +74,8 @@ public class FileSchemaTestClass {
                 new PropertyEntry("files", Files.class)
             )))
         ));
-        protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new FileSchemaTestClassMap(arg);
         }
         public static FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

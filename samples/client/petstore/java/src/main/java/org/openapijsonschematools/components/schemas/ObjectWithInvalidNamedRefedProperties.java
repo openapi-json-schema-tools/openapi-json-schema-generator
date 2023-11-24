@@ -17,7 +17,9 @@ public class ObjectWithInvalidNamedRefedProperties {
     
     
     public static class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<String, Object> {
-        ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithInvalidNamedRefedPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -44,7 +46,8 @@ public class ObjectWithInvalidNamedRefedProperties {
                 "from"
             )))
         ));
-        protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
         public static ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

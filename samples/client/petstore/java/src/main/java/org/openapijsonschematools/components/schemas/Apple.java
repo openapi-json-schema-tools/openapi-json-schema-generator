@@ -39,7 +39,9 @@ public class Apple {
     }    
     
     public static class AppleMap extends FrozenMap<String, Object> {
-        AppleMap(FrozenMap<? extends String, ?> m) {
+
+        AppleMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {

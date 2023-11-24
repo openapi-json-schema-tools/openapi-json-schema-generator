@@ -82,7 +82,9 @@ public class ObjectWithInlineCompositionProperty {
     }    
     
     public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<String, Object> {
-        ObjectWithInlineCompositionPropertyMap(FrozenMap<? extends String, ?> m) {
+
+        ObjectWithInlineCompositionPropertyMap(FrozenMap<String, Object> m) {
+
             super(m);
         }
         public static ObjectWithInlineCompositionPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -104,7 +106,8 @@ public class ObjectWithInlineCompositionProperty {
                 new PropertyEntry("someProp", SomeProp.class)
             )))
         ));
-        protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
+        protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+
             return new ObjectWithInlineCompositionPropertyMap(arg);
         }
         public static ObjectWithInlineCompositionPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
