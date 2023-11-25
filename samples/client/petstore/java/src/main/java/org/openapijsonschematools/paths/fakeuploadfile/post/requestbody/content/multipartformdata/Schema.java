@@ -18,10 +18,10 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalMetadata extends StringJsonSchema {}
+    public static class AdditionalMetadata extends StringJsonSchema {}
     
     
-    public class File extends JsonSchema {
+    public static class File extends JsonSchema {
         // BinarySchema
     }
     

@@ -17,10 +17,10 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name extends StringJsonSchema {}
+    public static class Name extends StringJsonSchema {}
     
     
-    public class Status extends StringJsonSchema {}
+    public static class Status extends StringJsonSchema {}
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {

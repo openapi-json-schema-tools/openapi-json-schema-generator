@@ -17,22 +17,22 @@ public class Capitalization {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class SmallCamel extends StringJsonSchema {}
+    public static class SmallCamel extends StringJsonSchema {}
     
     
-    public class CapitalCamel extends StringJsonSchema {}
+    public static class CapitalCamel extends StringJsonSchema {}
     
     
-    public class SmallSnake extends StringJsonSchema {}
+    public static class SmallSnake extends StringJsonSchema {}
     
     
-    public class CapitalSnake extends StringJsonSchema {}
+    public static class CapitalSnake extends StringJsonSchema {}
     
     
-    public class SCAETHFlowPoints extends StringJsonSchema {}
+    public static class SCAETHFlowPoints extends StringJsonSchema {}
     
     
-    public class ATTNAME extends StringJsonSchema {}
+    public static class ATTNAME extends StringJsonSchema {}
     
     
     public static class CapitalizationMap extends FrozenMap<String, Object> {

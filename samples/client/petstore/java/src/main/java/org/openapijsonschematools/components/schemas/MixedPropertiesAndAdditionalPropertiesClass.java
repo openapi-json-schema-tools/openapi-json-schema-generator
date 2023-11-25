@@ -19,10 +19,10 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class UuidSchema extends UuidJsonSchema {}
+    public static class UuidSchema extends UuidJsonSchema {}
     
     
-    public class DateTime extends DateTimeJsonSchema {}
+    public static class DateTime extends DateTimeJsonSchema {}
     
     
     public static class MapMap extends FrozenMap<String, Animal.AnimalMap> {

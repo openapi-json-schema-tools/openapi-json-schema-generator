@@ -7,5 +7,5 @@ public class Schema extends RefPet {
     // $refed class
     
     
-    public class Schema1 extends Pet1 {}
+    public static class Schema1 extends Pet1 {}
 }

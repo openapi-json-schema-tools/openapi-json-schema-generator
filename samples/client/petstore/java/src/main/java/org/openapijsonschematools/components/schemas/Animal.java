@@ -18,7 +18,7 @@ public class Animal {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class ClassName extends StringJsonSchema {}
+    public static class ClassName extends StringJsonSchema {}
     
     
     public class Color extends JsonSchema {

@@ -16,7 +16,7 @@ public class StringBooleanMap {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends BooleanJsonSchema {}
+    public static class AdditionalProperties extends BooleanJsonSchema {}
     
     
     public static class StringBooleanMapMap extends FrozenMap<String, Boolean> {

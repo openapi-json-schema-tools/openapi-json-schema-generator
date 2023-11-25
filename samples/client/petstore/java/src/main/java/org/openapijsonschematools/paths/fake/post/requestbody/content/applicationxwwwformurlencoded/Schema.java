@@ -75,7 +75,7 @@ public class Schema {
         }
     }    
     
-    public class Int64 extends Int64JsonSchema {}
+    public static class Int64 extends Int64JsonSchema {}
     
     
     public class NumberSchema extends JsonSchema {
@@ -156,15 +156,15 @@ public class Schema {
         }
     }    
     
-    public class ByteSchema extends StringJsonSchema {}
+    public static class ByteSchema extends StringJsonSchema {}
     
     
-    public class Binary extends JsonSchema {
+    public static class Binary extends JsonSchema {
         // BinarySchema
     }
     
     
-    public class Date extends DateJsonSchema {}
+    public static class Date extends DateJsonSchema {}
     
     
     public class DateTime extends JsonSchema {
@@ -191,7 +191,7 @@ public class Schema {
         }
     }    
     
-    public class Callback extends StringJsonSchema {}
+    public static class Callback extends StringJsonSchema {}
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {

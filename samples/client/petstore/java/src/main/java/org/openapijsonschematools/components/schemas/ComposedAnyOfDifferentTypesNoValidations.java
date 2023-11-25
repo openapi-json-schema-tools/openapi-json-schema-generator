@@ -33,36 +33,36 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 extends MapJsonSchema {}
+    public static class Schema0 extends MapJsonSchema {}
     
     
-    public class Schema1 extends DateJsonSchema {}
+    public static class Schema1 extends DateJsonSchema {}
     
     
-    public class Schema2 extends DateTimeJsonSchema {}
+    public static class Schema2 extends DateTimeJsonSchema {}
     
     
-    public class Schema3 extends JsonSchema {
+    public static class Schema3 extends JsonSchema {
         // BinarySchema
     }
     
     
-    public class Schema4 extends StringJsonSchema {}
+    public static class Schema4 extends StringJsonSchema {}
     
     
-    public class Schema5 extends StringJsonSchema {}
+    public static class Schema5 extends StringJsonSchema {}
     
     
-    public class Schema6 extends MapJsonSchema {}
+    public static class Schema6 extends MapJsonSchema {}
     
     
-    public class Schema7 extends BooleanJsonSchema {}
+    public static class Schema7 extends BooleanJsonSchema {}
     
     
-    public class Schema8 extends NullJsonSchema {}
+    public static class Schema8 extends NullJsonSchema {}
     
     
-    public class Items extends AnyTypeJsonSchema {}
+    public static class Items extends AnyTypeJsonSchema {}
     
     
     public static class Schema9List extends FrozenList<Object> {
@@ -88,22 +88,22 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }    
     
-    public class Schema10 extends NumberJsonSchema {}
+    public static class Schema10 extends NumberJsonSchema {}
     
     
-    public class Schema11 extends FloatJsonSchema {}
+    public static class Schema11 extends FloatJsonSchema {}
     
     
-    public class Schema12 extends DoubleJsonSchema {}
+    public static class Schema12 extends DoubleJsonSchema {}
     
     
-    public class Schema13 extends IntJsonSchema {}
+    public static class Schema13 extends IntJsonSchema {}
     
     
-    public class Schema14 extends Int32JsonSchema {}
+    public static class Schema14 extends Int32JsonSchema {}
     
     
-    public class Schema15 extends Int64JsonSchema {}
+    public static class Schema15 extends Int64JsonSchema {}
     
     
     public class ComposedAnyOfDifferentTypesNoValidations1 extends JsonSchema {

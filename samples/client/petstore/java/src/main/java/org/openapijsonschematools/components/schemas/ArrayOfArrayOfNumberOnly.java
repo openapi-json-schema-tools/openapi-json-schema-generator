@@ -20,7 +20,7 @@ public class ArrayOfArrayOfNumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items1 extends NumberJsonSchema {}
+    public static class Items1 extends NumberJsonSchema {}
     
     
     public static class ItemsList extends FrozenList<Number> {

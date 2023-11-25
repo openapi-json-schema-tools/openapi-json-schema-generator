@@ -18,7 +18,7 @@ public class ObjWithRequiredProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class A extends StringJsonSchema {}
+    public static class A extends StringJsonSchema {}
     
     
     public static class ObjWithRequiredPropsMap extends FrozenMap<String, Object> {

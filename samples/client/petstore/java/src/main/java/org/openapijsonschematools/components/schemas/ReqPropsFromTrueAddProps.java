@@ -17,7 +17,7 @@ public class ReqPropsFromTrueAddProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends AnyTypeJsonSchema {}
+    public static class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
     public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object> {

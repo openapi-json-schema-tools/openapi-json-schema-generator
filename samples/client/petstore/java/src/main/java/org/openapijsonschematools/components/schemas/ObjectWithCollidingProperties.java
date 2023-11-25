@@ -17,10 +17,10 @@ public class ObjectWithCollidingProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class SomeProp extends MapJsonSchema {}
+    public static class SomeProp extends MapJsonSchema {}
     
     
-    public class Someprop extends MapJsonSchema {}
+    public static class Someprop extends MapJsonSchema {}
     
     
     public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {

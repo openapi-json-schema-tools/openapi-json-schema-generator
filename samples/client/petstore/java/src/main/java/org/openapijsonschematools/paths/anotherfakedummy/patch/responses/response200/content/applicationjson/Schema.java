@@ -6,5 +6,5 @@ public class Schema extends Client {
     // $refed class
     
     
-    public class Schema1 extends Client1 {}
+    public static class Schema1 extends Client1 {}
 }

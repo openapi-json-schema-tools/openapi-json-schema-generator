@@ -17,7 +17,7 @@ public class ObjectWithDecimalProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Width extends DecimalJsonSchema {}
+    public static class Width extends DecimalJsonSchema {}
     
     
     public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {

@@ -5,5 +5,5 @@ public class SomeHeaderSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class SomeHeaderSchema1 extends StringJsonSchema {}
+    public static class SomeHeaderSchema1 extends StringJsonSchema {}
 }

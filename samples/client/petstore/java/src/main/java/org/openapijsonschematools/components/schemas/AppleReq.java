@@ -22,14 +22,14 @@ public class AppleReq {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class Cultivar extends StringJsonSchema {}
+    public static class Cultivar extends StringJsonSchema {}
     
     
-    public class Mealy extends BooleanJsonSchema {}
+    public static class Mealy extends BooleanJsonSchema {}
     
     
     public static class AppleReqMap extends FrozenMap<String, Object> {

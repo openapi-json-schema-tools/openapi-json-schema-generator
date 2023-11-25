@@ -17,7 +17,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class A extends StringJsonSchema {}
+    public static class A extends StringJsonSchema {}
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {

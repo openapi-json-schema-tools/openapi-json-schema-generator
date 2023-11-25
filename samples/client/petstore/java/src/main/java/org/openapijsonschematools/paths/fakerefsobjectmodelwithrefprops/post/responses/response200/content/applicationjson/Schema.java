@@ -6,5 +6,5 @@ public class Schema extends ObjectModelWithRefProps {
     // $refed class
     
     
-    public class Schema1 extends ObjectModelWithRefProps1 {}
+    public static class Schema1 extends ObjectModelWithRefProps1 {}
 }

@@ -21,14 +21,14 @@ public class JSONPatchRequestMoveCopy {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class From extends StringJsonSchema {}
+    public static class From extends StringJsonSchema {}
     
     
-    public class Path extends StringJsonSchema {}
+    public static class Path extends StringJsonSchema {}
     
     
     public class Op extends JsonSchema {

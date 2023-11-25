@@ -21,14 +21,14 @@ public class NoAdditionalProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class Id extends Int64JsonSchema {}
+    public static class Id extends Int64JsonSchema {}
     
     
-    public class PetId extends Int64JsonSchema {}
+    public static class PetId extends Int64JsonSchema {}
     
     
     public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long> {

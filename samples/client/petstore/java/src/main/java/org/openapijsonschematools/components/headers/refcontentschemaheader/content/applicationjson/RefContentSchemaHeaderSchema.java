@@ -6,5 +6,5 @@ public class RefContentSchemaHeaderSchema extends StringWithValidation {
     // $refed class
     
     
-    public class RefContentSchemaHeaderSchema1 extends StringWithValidation1 {}
+    public static class RefContentSchemaHeaderSchema1 extends StringWithValidation1 {}
 }

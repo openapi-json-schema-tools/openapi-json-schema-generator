@@ -17,7 +17,7 @@ public class ObjectWithOptionalTestProp {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Test extends StringJsonSchema {}
+    public static class Test extends StringJsonSchema {}
     
     
     public static class ObjectWithOptionalTestPropMap extends FrozenMap<String, Object> {

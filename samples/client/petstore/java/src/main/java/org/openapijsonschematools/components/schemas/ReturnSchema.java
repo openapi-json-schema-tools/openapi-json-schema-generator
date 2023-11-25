@@ -21,7 +21,7 @@ public class ReturnSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class ReturnSchema2 extends Int32JsonSchema {}
+    public static class ReturnSchema2 extends Int32JsonSchema {}
     
     
     public static class ReturnMap extends FrozenMap<String, Object> {

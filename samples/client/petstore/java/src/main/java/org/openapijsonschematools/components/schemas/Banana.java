@@ -18,7 +18,7 @@ public class Banana {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class LengthCm extends NumberJsonSchema {}
+    public static class LengthCm extends NumberJsonSchema {}
     
     
     public static class BananaMap extends FrozenMap<String, Object> {

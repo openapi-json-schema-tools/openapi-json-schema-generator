@@ -21,7 +21,7 @@ public class AdditionalPropertiesClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends StringJsonSchema {}
+    public static class AdditionalProperties extends StringJsonSchema {}
     
     
     public static class MapPropertyMap extends FrozenMap<String, String> {
@@ -54,7 +54,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties2 extends StringJsonSchema {}
+    public static class AdditionalProperties2 extends StringJsonSchema {}
     
     
     public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
@@ -117,16 +117,16 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class Anytype1 extends AnyTypeJsonSchema {}
+    public static class Anytype1 extends AnyTypeJsonSchema {}
     
     
-    public class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema {}
+    public static class MapWithUndeclaredPropertiesAnytype1 extends MapJsonSchema {}
     
     
-    public class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema {}
+    public static class MapWithUndeclaredPropertiesAnytype2 extends MapJsonSchema {}
     
     
-    public class AdditionalProperties3 extends AnyTypeJsonSchema {}
+    public static class AdditionalProperties3 extends AnyTypeJsonSchema {}
     
     
     public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
@@ -159,7 +159,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties4 extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties4 extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
@@ -189,7 +189,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public class AdditionalProperties5 extends StringJsonSchema {}
+    public static class AdditionalProperties5 extends StringJsonSchema {}
     
     
     public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, String> {

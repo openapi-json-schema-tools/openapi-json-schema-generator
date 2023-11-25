@@ -18,10 +18,10 @@ public class Tag {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {}
+    public static class Id extends Int64JsonSchema {}
     
     
-    public class Name extends StringJsonSchema {}
+    public static class Name extends StringJsonSchema {}
     
     
     public static class TagMap extends FrozenMap<String, Object> {

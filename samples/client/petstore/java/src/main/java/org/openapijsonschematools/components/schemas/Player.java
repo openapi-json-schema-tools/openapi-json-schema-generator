@@ -17,7 +17,7 @@ public class Player {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name extends StringJsonSchema {}
+    public static class Name extends StringJsonSchema {}
     
     
     public static class PlayerMap extends FrozenMap<String, Object> {

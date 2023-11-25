@@ -27,31 +27,31 @@ public class User {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {}
+    public static class Id extends Int64JsonSchema {}
     
     
-    public class Username extends StringJsonSchema {}
+    public static class Username extends StringJsonSchema {}
     
     
-    public class FirstName extends StringJsonSchema {}
+    public static class FirstName extends StringJsonSchema {}
     
     
-    public class LastName extends StringJsonSchema {}
+    public static class LastName extends StringJsonSchema {}
     
     
-    public class Email extends StringJsonSchema {}
+    public static class Email extends StringJsonSchema {}
     
     
-    public class Password extends StringJsonSchema {}
+    public static class Password extends StringJsonSchema {}
     
     
-    public class Phone extends StringJsonSchema {}
+    public static class Phone extends StringJsonSchema {}
     
     
-    public class UserStatus extends Int32JsonSchema {}
+    public static class UserStatus extends Int32JsonSchema {}
     
     
-    public class ObjectWithNoDeclaredProps extends MapJsonSchema {}
+    public static class ObjectWithNoDeclaredProps extends MapJsonSchema {}
     
     
     public class ObjectWithNoDeclaredPropsNullable extends JsonSchema {
@@ -69,10 +69,10 @@ public class User {
         }
     }    
     
-    public class AnyTypeProp extends AnyTypeJsonSchema {}
+    public static class AnyTypeProp extends AnyTypeJsonSchema {}
     
     
-    public class Not extends NullJsonSchema {}
+    public static class Not extends NullJsonSchema {}
     
     
     public class AnyTypeExceptNullProp extends JsonSchema {
@@ -125,7 +125,7 @@ public class User {
         }
     }    
     
-    public class AnyTypePropNullable extends AnyTypeJsonSchema {}
+    public static class AnyTypePropNullable extends AnyTypeJsonSchema {}
     
     
     public static class UserMap extends FrozenMap<String, Object> {

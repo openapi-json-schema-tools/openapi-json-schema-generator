@@ -17,7 +17,7 @@ public class NumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class JustNumber extends NumberJsonSchema {}
+    public static class JustNumber extends NumberJsonSchema {}
     
     
     public static class NumberOnlyMap extends FrozenMap<String, Object> {

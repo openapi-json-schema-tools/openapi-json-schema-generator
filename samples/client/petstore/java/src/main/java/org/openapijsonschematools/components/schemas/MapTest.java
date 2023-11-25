@@ -19,7 +19,7 @@ public class MapTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties1 extends StringJsonSchema {}
+    public static class AdditionalProperties1 extends StringJsonSchema {}
     
     
     public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
@@ -123,7 +123,7 @@ public class MapTest {
     }
     
     
-    public class AdditionalProperties3 extends BooleanJsonSchema {}
+    public static class AdditionalProperties3 extends BooleanJsonSchema {}
     
     
     public static class DirectMapMap extends FrozenMap<String, Boolean> {

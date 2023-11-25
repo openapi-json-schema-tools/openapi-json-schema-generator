@@ -21,7 +21,7 @@ public class AdditionalPropertiesSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends AnyTypeJsonSchema {}
+    public static class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
     public static class Schema0Map extends FrozenMap<String, Object> {

@@ -6,5 +6,5 @@ public class Schema0 extends Foo {
     // $refed class
     
     
-    public class Schema01 extends Foo1 {}
+    public static class Schema01 extends Foo1 {}
 }

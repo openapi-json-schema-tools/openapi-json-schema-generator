@@ -20,16 +20,16 @@ public class Order {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {}
+    public static class Id extends Int64JsonSchema {}
     
     
-    public class PetId extends Int64JsonSchema {}
+    public static class PetId extends Int64JsonSchema {}
     
     
-    public class Quantity extends Int32JsonSchema {}
+    public static class Quantity extends Int32JsonSchema {}
     
     
-    public class ShipDate extends DateTimeJsonSchema {}
+    public static class ShipDate extends DateTimeJsonSchema {}
     
     
     public class Status extends JsonSchema {
@@ -43,7 +43,7 @@ public class Order {
         }
     }    
     
-    public class Complete extends BooleanJsonSchema {}
+    public static class Complete extends BooleanJsonSchema {}
     
     
     public static class OrderMap extends FrozenMap<String, Object> {

@@ -22,7 +22,7 @@ public class Dog {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Breed extends StringJsonSchema {}
+    public static class Breed extends StringJsonSchema {}
     
     
     public static class Schema1Map extends FrozenMap<String, Object> {

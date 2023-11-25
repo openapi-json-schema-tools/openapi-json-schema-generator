@@ -23,13 +23,13 @@ public class Name {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name2 extends Int32JsonSchema {}
+    public static class Name2 extends Int32JsonSchema {}
     
     
-    public class SnakeCase extends Int32JsonSchema {}
+    public static class SnakeCase extends Int32JsonSchema {}
     
     
-    public class Property extends StringJsonSchema {}
+    public static class Property extends StringJsonSchema {}
     
     
     public static class NameMap extends FrozenMap<String, Object> {

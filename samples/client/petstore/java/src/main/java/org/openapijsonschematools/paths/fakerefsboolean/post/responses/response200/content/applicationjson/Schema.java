@@ -6,5 +6,5 @@ public class Schema extends BooleanSchema {
     // $refed class
     
     
-    public class Schema1 extends BooleanSchema1 {}
+    public static class Schema1 extends BooleanSchema1 {}
 }

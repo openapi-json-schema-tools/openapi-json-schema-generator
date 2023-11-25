@@ -18,7 +18,7 @@ public class AbstractStepMessage {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Discriminator extends StringJsonSchema {}
+    public static class Discriminator extends StringJsonSchema {}
     
     
     public static class AbstractStepMessageMap extends FrozenMap<String, Object> {

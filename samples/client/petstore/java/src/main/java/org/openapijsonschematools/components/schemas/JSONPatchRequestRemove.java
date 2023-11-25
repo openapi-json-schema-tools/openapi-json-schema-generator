@@ -21,11 +21,11 @@ public class JSONPatchRequestRemove {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class Path extends StringJsonSchema {}
+    public static class Path extends StringJsonSchema {}
     
     
     public class Op extends JsonSchema {

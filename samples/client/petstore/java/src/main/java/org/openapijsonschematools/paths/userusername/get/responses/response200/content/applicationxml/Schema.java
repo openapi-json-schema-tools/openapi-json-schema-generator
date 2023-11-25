@@ -6,5 +6,5 @@ public class Schema extends User {
     // $refed class
     
     
-    public class Schema1 extends User1 {}
+    public static class Schema1 extends User1 {}
 }

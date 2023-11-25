@@ -17,7 +17,7 @@ public class SpecialModelname {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class A extends StringJsonSchema {}
+    public static class A extends StringJsonSchema {}
     
     
     public static class SpecialModelnameMap extends FrozenMap<String, Object> {

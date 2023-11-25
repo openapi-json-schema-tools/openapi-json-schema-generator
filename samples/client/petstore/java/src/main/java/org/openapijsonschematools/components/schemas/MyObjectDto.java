@@ -20,11 +20,11 @@ public class MyObjectDto {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class Id extends UuidJsonSchema {}
+    public static class Id extends UuidJsonSchema {}
     
     
     public static class MyObjectDtoMap extends FrozenMap<String, String> {

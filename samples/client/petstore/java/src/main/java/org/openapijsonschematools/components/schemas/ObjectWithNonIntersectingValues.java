@@ -19,10 +19,10 @@ public class ObjectWithNonIntersectingValues {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends StringJsonSchema {}
+    public static class AdditionalProperties extends StringJsonSchema {}
     
     
-    public class A extends NumberJsonSchema {}
+    public static class A extends NumberJsonSchema {}
     
     
     public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object> {

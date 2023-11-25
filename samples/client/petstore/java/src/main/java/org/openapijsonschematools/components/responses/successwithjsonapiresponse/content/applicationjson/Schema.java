@@ -6,5 +6,5 @@ public class Schema extends ApiResponseSchema {
     // $refed class
     
     
-    public class Schema1 extends ApiResponseSchema1 {}
+    public static class Schema1 extends ApiResponseSchema1 {}
 }

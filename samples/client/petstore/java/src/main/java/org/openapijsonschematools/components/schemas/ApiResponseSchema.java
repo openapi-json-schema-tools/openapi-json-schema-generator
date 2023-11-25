@@ -18,13 +18,13 @@ public class ApiResponseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Code extends Int32JsonSchema {}
+    public static class Code extends Int32JsonSchema {}
     
     
-    public class Type extends StringJsonSchema {}
+    public static class Type extends StringJsonSchema {}
     
     
-    public class Message extends StringJsonSchema {}
+    public static class Message extends StringJsonSchema {}
     
     
     public static class ApiResponseMap extends FrozenMap<String, Object> {

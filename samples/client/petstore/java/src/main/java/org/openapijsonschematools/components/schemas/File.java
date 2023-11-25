@@ -17,7 +17,7 @@ public class File {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class SourceURI extends StringJsonSchema {}
+    public static class SourceURI extends StringJsonSchema {}
     
     
     public static class FileMap extends FrozenMap<String, Object> {

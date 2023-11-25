@@ -21,11 +21,11 @@ public class Money {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class Amount extends DecimalJsonSchema {}
+    public static class Amount extends DecimalJsonSchema {}
     
     
     public static class MoneyMap extends FrozenMap<String, Object> {

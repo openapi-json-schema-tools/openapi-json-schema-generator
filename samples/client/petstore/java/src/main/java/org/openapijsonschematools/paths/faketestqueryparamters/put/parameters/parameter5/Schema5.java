@@ -6,5 +6,5 @@ public class Schema5 extends StringWithValidation {
     // $refed class
     
     
-    public class Schema51 extends StringWithValidation1 {}
+    public static class Schema51 extends StringWithValidation1 {}
 }

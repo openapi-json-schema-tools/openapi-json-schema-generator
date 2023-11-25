@@ -6,5 +6,5 @@ public class Schema extends StringSchema {
     // $refed class
     
     
-    public class Schema1 extends StringSchema1 {}
+    public static class Schema1 extends StringSchema1 {}
 }

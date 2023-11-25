@@ -24,11 +24,11 @@ public class PaginatedResultMyObjectDto {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class Count extends IntJsonSchema {}
+    public static class Count extends IntJsonSchema {}
     
     
     public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {

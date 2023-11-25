@@ -22,10 +22,10 @@ public class Schema200Response {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name extends Int32JsonSchema {}
+    public static class Name extends Int32JsonSchema {}
     
     
-    public class ClassSchema extends StringJsonSchema {}
+    public static class ClassSchema extends StringJsonSchema {}
     
     
     public static class Schema200ResponseMap extends FrozenMap<String, Object> {

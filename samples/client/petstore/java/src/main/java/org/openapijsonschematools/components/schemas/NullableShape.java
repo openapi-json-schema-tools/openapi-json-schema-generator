@@ -18,7 +18,7 @@ public class NullableShape {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema2 extends NullJsonSchema {}
+    public static class Schema2 extends NullJsonSchema {}
     
     
     public class NullableShape1 extends JsonSchema {

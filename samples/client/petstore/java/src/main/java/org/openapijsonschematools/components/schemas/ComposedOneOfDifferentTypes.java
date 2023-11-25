@@ -24,10 +24,10 @@ public class ComposedOneOfDifferentTypes {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema2 extends NullJsonSchema {}
+    public static class Schema2 extends NullJsonSchema {}
     
     
-    public class Schema3 extends DateJsonSchema {}
+    public static class Schema3 extends DateJsonSchema {}
     
     
     public class Schema4 extends JsonSchema {
@@ -40,7 +40,7 @@ public class ComposedOneOfDifferentTypes {
     }
     
     
-    public class Items extends AnyTypeJsonSchema {}
+    public static class Items extends AnyTypeJsonSchema {}
     
     
     public static class Schema5List extends FrozenList<Object> {

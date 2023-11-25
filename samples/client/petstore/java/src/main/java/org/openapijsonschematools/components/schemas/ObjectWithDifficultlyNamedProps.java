@@ -20,13 +20,13 @@ public class ObjectWithDifficultlyNamedProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Specialpropertyname extends Int64JsonSchema {}
+    public static class Specialpropertyname extends Int64JsonSchema {}
     
     
-    public class Schema123list extends StringJsonSchema {}
+    public static class Schema123list extends StringJsonSchema {}
     
     
-    public class Schema123Number extends IntJsonSchema {}
+    public static class Schema123Number extends IntJsonSchema {}
     
     
     public static class ObjectWithDifficultlyNamedPropsMap extends FrozenMap<String, Object> {

@@ -22,7 +22,7 @@ public class Cat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Declawed extends BooleanJsonSchema {}
+    public static class Declawed extends BooleanJsonSchema {}
     
     
     public static class Schema1Map extends FrozenMap<String, Object> {

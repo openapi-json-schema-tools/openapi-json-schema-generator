@@ -161,7 +161,7 @@ public class NullableClass {
         }
     }    
     
-    public class Items extends MapJsonSchema {}
+    public static class Items extends MapJsonSchema {}
     
     
     public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
@@ -269,7 +269,7 @@ public class NullableClass {
         }
     }    
     
-    public class AdditionalProperties extends MapJsonSchema {}
+    public static class AdditionalProperties extends MapJsonSchema {}
     
     
     public static class ObjectNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {

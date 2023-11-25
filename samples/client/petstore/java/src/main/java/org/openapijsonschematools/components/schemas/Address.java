@@ -16,7 +16,7 @@ public class Address {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends IntJsonSchema {}
+    public static class AdditionalProperties extends IntJsonSchema {}
     
     
     public static class AddressMap extends FrozenMap<String, Long> {

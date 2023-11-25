@@ -6,5 +6,5 @@ public class Schema extends HealthCheckResult {
     // $refed class
     
     
-    public class Schema1 extends HealthCheckResult1 {}
+    public static class Schema1 extends HealthCheckResult1 {}
 }

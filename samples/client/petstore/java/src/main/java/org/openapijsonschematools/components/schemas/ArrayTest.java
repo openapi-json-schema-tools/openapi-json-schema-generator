@@ -21,7 +21,7 @@ public class ArrayTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items extends StringJsonSchema {}
+    public static class Items extends StringJsonSchema {}
     
     
     public static class ArrayOfStringList extends FrozenList<String> {
@@ -47,7 +47,7 @@ public class ArrayTest {
         }
     }    
     
-    public class Items2 extends Int64JsonSchema {}
+    public static class Items2 extends Int64JsonSchema {}
     
     
     public static class ItemsList extends FrozenList<Long> {

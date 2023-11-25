@@ -21,7 +21,7 @@ public class GmFruit {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Color extends StringJsonSchema {}
+    public static class Color extends StringJsonSchema {}
     
     
     public static class GmFruitMap extends FrozenMap<String, Object> {

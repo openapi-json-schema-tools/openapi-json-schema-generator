@@ -34,7 +34,7 @@ public class QuadrilateralInterface {
         }
     }    
     
-    public class QuadrilateralType extends StringJsonSchema {}
+    public static class QuadrilateralType extends StringJsonSchema {}
     
     
     public static class QuadrilateralInterfaceMap extends FrozenMap<String, Object> {

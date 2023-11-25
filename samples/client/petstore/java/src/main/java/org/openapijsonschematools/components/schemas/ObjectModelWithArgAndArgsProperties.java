@@ -18,10 +18,10 @@ public class ObjectModelWithArgAndArgsProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Arg extends StringJsonSchema {}
+    public static class Arg extends StringJsonSchema {}
     
     
-    public class Args extends StringJsonSchema {}
+    public static class Args extends StringJsonSchema {}
     
     
     public static class ObjectModelWithArgAndArgsPropertiesMap extends FrozenMap<String, Object> {

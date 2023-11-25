@@ -17,7 +17,7 @@ public class ArrayHoldingAnyType {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items extends AnyTypeJsonSchema {}
+    public static class Items extends AnyTypeJsonSchema {}
     
     
     public static class ArrayHoldingAnyTypeList extends FrozenList<Object> {

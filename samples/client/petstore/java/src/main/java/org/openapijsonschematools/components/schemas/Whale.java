@@ -18,10 +18,10 @@ public class Whale {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class HasBaleen extends BooleanJsonSchema {}
+    public static class HasBaleen extends BooleanJsonSchema {}
     
     
-    public class HasTeeth extends BooleanJsonSchema {}
+    public static class HasTeeth extends BooleanJsonSchema {}
     
     
     public class ClassName extends JsonSchema {

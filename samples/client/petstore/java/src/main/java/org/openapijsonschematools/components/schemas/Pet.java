@@ -22,13 +22,13 @@ public class Pet {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {}
+    public static class Id extends Int64JsonSchema {}
     
     
-    public class Name extends StringJsonSchema {}
+    public static class Name extends StringJsonSchema {}
     
     
-    public class Items extends StringJsonSchema {}
+    public static class Items extends StringJsonSchema {}
     
     
     public static class PhotoUrlsList extends FrozenList<String> {

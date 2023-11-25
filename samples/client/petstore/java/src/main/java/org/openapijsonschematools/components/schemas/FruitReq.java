@@ -18,7 +18,7 @@ public class FruitReq {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 extends NullJsonSchema {}
+    public static class Schema0 extends NullJsonSchema {}
     
     
     public class FruitReq1 extends JsonSchema {

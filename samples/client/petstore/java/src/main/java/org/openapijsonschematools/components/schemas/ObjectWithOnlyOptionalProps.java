@@ -21,14 +21,14 @@ public class ObjectWithOnlyOptionalProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
-    public class A extends StringJsonSchema {}
+    public static class A extends StringJsonSchema {}
     
     
-    public class B extends NumberJsonSchema {}
+    public static class B extends NumberJsonSchema {}
     
     
     public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object> {

@@ -17,10 +17,10 @@ public class ReadOnlyFirst {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Bar extends StringJsonSchema {}
+    public static class Bar extends StringJsonSchema {}
     
     
-    public class Baz extends StringJsonSchema {}
+    public static class Baz extends StringJsonSchema {}
     
     
     public static class ReadOnlyFirstMap extends FrozenMap<String, Object> {

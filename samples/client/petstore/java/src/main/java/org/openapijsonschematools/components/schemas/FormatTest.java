@@ -57,7 +57,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int32 extends Int32JsonSchema {}
+    public static class Int32 extends Int32JsonSchema {}
     
     
     public class Int32withValidations extends JsonSchema {
@@ -87,7 +87,7 @@ public class FormatTest {
         }
     }    
     
-    public class Int64 extends Int64JsonSchema {}
+    public static class Int64 extends Int64JsonSchema {}
     
     
     public class NumberSchema extends JsonSchema {
@@ -131,7 +131,7 @@ public class FormatTest {
         }
     }    
     
-    public class Float32 extends FloatJsonSchema {}
+    public static class Float32 extends FloatJsonSchema {}
     
     
     public class DoubleSchema extends JsonSchema {
@@ -149,10 +149,10 @@ public class FormatTest {
         }
     }    
     
-    public class Float64 extends DoubleJsonSchema {}
+    public static class Float64 extends DoubleJsonSchema {}
     
     
-    public class Items extends NumberJsonSchema {}
+    public static class Items extends NumberJsonSchema {}
     
     
     public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
@@ -189,24 +189,24 @@ public class FormatTest {
         }
     }    
     
-    public class ByteSchema extends StringJsonSchema {}
+    public static class ByteSchema extends StringJsonSchema {}
     
     
-    public class Binary extends JsonSchema {
+    public static class Binary extends JsonSchema {
         // BinarySchema
     }
     
     
-    public class Date extends DateJsonSchema {}
+    public static class Date extends DateJsonSchema {}
     
     
-    public class DateTime extends DateTimeJsonSchema {}
+    public static class DateTime extends DateTimeJsonSchema {}
     
     
-    public class UuidSchema extends UuidJsonSchema {}
+    public static class UuidSchema extends UuidJsonSchema {}
     
     
-    public class UuidNoExample extends UuidJsonSchema {}
+    public static class UuidNoExample extends UuidJsonSchema {}
     
     
     public class Password extends JsonSchema {
@@ -243,7 +243,7 @@ public class FormatTest {
         }
     }    
     
-    public class NoneProp extends NullJsonSchema {}
+    public static class NoneProp extends NullJsonSchema {}
     
     
     public static class FormatTestMap extends FrozenMap<String, Object> {

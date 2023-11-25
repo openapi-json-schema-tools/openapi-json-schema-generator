@@ -18,7 +18,7 @@ public class Items {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items2 extends MapJsonSchema {}
+    public static class Items2 extends MapJsonSchema {}
     
     
     public static class ItemsList extends FrozenList<FrozenMap<String, Object>> {

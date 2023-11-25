@@ -5,5 +5,5 @@ public class DecimalPayload {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class DecimalPayload1 extends DecimalJsonSchema {}
+    public static class DecimalPayload1 extends DecimalJsonSchema {}
 }

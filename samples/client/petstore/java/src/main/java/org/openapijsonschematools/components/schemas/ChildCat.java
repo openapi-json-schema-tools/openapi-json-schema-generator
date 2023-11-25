@@ -22,7 +22,7 @@ public class ChildCat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Name extends StringJsonSchema {}
+    public static class Name extends StringJsonSchema {}
     
     
     public static class Schema1Map extends FrozenMap<String, Object> {

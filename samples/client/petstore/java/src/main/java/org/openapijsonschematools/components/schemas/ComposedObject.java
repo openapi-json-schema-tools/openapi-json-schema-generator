@@ -15,7 +15,7 @@ public class ComposedObject {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 extends AnyTypeJsonSchema {}
+    public static class Schema0 extends AnyTypeJsonSchema {}
     
     
     public class ComposedObject1 extends JsonSchema {
