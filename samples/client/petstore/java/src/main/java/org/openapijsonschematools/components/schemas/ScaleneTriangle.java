@@ -42,7 +42,7 @@ public class ScaleneTriangle {
         public static final Set<String> optionalKeys = Set.of(
             "triangleType"
         );
-        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema1.validate(arg, configuration);
         }

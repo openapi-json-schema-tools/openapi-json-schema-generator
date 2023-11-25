@@ -30,7 +30,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) {
+        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayOfString.validate(arg, configuration);
         }
@@ -61,7 +61,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Items1.validate(arg, configuration);
         }
@@ -89,7 +89,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return ArrayArrayOfInteger.validate(arg, configuration);
@@ -119,7 +119,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return Items3.validate(arg, configuration);
@@ -149,7 +149,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
 
@@ -187,7 +187,7 @@ public class ArrayTest {
             "array_array_of_integer",
             "array_array_of_model"
         );
-        public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayTest1.validate(arg, configuration);
         }

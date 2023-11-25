@@ -26,7 +26,7 @@ public class ComposedArray {
 
             super(m);
         }
-        public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) {
+        public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ComposedArray1.validate(arg, configuration);
         }

@@ -36,7 +36,7 @@ public class QueryParameters {
             "status"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static QueryParametersMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return QueryParameters1.validate(arg, configuration);

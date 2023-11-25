@@ -36,7 +36,7 @@ public class QueryParameters {
             "compositionAtRoot",
             "compositionInProperty"
         );
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return QueryParameters1.validate(arg, configuration);
         }

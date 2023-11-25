@@ -43,7 +43,7 @@ public class PathParameters {
             "self"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return PathParameters1.validate(arg, configuration);
         }

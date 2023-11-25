@@ -31,7 +31,7 @@ public class ReqPropsFromTrueAddProps {
             "validName"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ReqPropsFromTrueAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ReqPropsFromTrueAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ReqPropsFromTrueAddProps1.validate(arg, configuration);
         }

@@ -50,7 +50,7 @@ public class ArrayWithValidationsInItems {
 
             super(m);
         }
-        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayWithValidationsInItems1.validate(arg, configuration);
         }

@@ -37,7 +37,7 @@ public class Pet {
 
             super(m);
         }
-        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) {
+        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return PhotoUrls.validate(arg, configuration);
         }
@@ -76,7 +76,7 @@ public class Pet {
 
             super(m);
         }
-        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return Tags.validate(arg, configuration);
@@ -116,7 +116,7 @@ public class Pet {
             "tags",
             "status"
         );
-        public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Pet1.validate(arg, configuration);
         }

@@ -26,7 +26,7 @@ public class ArrayHoldingAnyType {
 
             super(m);
         }
-        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayHoldingAnyType1.validate(arg, configuration);
         }

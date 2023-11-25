@@ -48,7 +48,7 @@ public class Whale {
             "hasBaleen",
             "hasTeeth"
         );
-        public static WhaleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static WhaleMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Whale1.validate(arg, configuration);
         }

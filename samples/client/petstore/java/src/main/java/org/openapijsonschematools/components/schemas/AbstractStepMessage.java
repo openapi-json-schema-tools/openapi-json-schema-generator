@@ -33,7 +33,7 @@ public class AbstractStepMessage {
             "sequenceNumber"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return AbstractStepMessage1.validate(arg, configuration);
         }

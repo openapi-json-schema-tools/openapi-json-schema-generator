@@ -161,7 +161,7 @@ public class FormatTest {
 
             super(m);
         }
-        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) {
+        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayWithUniqueItems.validate(arg, configuration);
         }
@@ -282,7 +282,7 @@ public class FormatTest {
             "pattern_with_digits_and_delimiter",
             "noneProp"
         );
-        public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return FormatTest1.validate(arg, configuration);
         }

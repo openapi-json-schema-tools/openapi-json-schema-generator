@@ -36,7 +36,7 @@ public class Schema {
             "additionalMetadata",
             "file"
         );
-        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema1.validate(arg, configuration);
         }

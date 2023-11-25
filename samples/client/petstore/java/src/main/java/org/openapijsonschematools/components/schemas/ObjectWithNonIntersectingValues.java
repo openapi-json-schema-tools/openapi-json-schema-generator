@@ -35,7 +35,7 @@ public class ObjectWithNonIntersectingValues {
         public static final Set<String> optionalKeys = Set.of(
             "a"
         );
-        public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ObjectWithNonIntersectingValues1.validate(arg, configuration);
         }

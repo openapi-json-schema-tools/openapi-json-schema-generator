@@ -61,7 +61,7 @@ public class Order {
             "status",
             "complete"
         );
-        public static OrderMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static OrderMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Order1.validate(arg, configuration);
         }

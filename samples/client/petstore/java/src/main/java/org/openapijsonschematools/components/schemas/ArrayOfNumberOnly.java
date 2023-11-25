@@ -29,7 +29,7 @@ public class ArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) {
+        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayNumber.validate(arg, configuration);
         }
@@ -61,7 +61,7 @@ public class ArrayOfNumberOnly {
         public static final Set<String> optionalKeys = Set.of(
             "ArrayNumber"
         );
-        public static ArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayOfNumberOnly1.validate(arg, configuration);
         }

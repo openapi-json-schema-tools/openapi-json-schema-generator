@@ -218,7 +218,7 @@ public class Schema {
             "password",
             "callback"
         );
-        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema1.validate(arg, configuration);
         }

@@ -50,7 +50,7 @@ public class Capitalization {
             "SCA_ETH_Flow_Points",
             "ATT_NAME"
         );
-        public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Capitalization1.validate(arg, configuration);
         }

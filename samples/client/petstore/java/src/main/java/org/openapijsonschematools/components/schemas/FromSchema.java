@@ -35,7 +35,7 @@ public class FromSchema {
             "data",
             "id"
         );
-        public static FromSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FromSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return FromSchema1.validate(arg, configuration);
         }

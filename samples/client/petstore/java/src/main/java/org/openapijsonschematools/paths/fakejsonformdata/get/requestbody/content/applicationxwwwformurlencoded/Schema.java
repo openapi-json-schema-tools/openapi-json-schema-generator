@@ -35,7 +35,7 @@ public class Schema {
             "param2"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema1.validate(arg, configuration);
         }

@@ -30,7 +30,7 @@ public class NumberOnly {
         public static final Set<String> optionalKeys = Set.of(
             "JustNumber"
         );
-        public static NumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static NumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return NumberOnly1.validate(arg, configuration);
         }

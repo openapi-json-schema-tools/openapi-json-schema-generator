@@ -22,7 +22,7 @@ public class ArrayOfEnums {
 
             super(m);
         }
-        public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) {
+        public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayOfEnums1.validate(arg, configuration);
         }

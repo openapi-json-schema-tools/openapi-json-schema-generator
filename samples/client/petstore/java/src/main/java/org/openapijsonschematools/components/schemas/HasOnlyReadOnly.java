@@ -34,7 +34,7 @@ public class HasOnlyReadOnly {
             "bar",
             "foo"
         );
-        public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return HasOnlyReadOnly1.validate(arg, configuration);
         }

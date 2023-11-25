@@ -36,7 +36,7 @@ public class Schema {
 
             super(m);
         }
-        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) {
+        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return EnumFormStringArray.validate(arg, configuration);
         }
@@ -80,7 +80,7 @@ public class Schema {
             "enum_form_string_array",
             "enum_form_string"
         );
-        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema1.validate(arg, configuration);
         }

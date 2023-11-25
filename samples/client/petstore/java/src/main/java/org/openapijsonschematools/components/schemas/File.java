@@ -30,7 +30,7 @@ public class File {
         public static final Set<String> optionalKeys = Set.of(
             "sourceURI"
         );
-        public static FileMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FileMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return File1.validate(arg, configuration);
         }

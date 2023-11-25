@@ -23,7 +23,7 @@ public class Schema {
 
             super(m);
         }
-        public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return Schema1.validate(arg, configuration);

@@ -22,7 +22,7 @@ public class AnimalFarm {
 
             super(m);
         }
-        public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return AnimalFarm1.validate(arg, configuration);

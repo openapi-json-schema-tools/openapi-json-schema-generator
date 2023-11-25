@@ -35,7 +35,7 @@ public class Tag {
             "id",
             "name"
         );
-        public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Tag1.validate(arg, configuration);
         }

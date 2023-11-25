@@ -44,7 +44,7 @@ public class AppleReq {
         public static final Set<String> optionalKeys = Set.of(
             "mealy"
         );
-        public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return AppleReq1.validate(arg, configuration);
         }

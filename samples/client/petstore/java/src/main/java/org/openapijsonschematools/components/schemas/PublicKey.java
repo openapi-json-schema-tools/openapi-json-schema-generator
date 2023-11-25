@@ -30,7 +30,7 @@ public class PublicKey {
         public static final Set<String> optionalKeys = Set.of(
             "key"
         );
-        public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return PublicKey1.validate(arg, configuration);
         }

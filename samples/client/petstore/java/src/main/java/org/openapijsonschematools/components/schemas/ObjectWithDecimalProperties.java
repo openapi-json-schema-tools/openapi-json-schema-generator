@@ -32,7 +32,7 @@ public class ObjectWithDecimalProperties {
             "width",
             "cost"
         );
-        public static ObjectWithDecimalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithDecimalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ObjectWithDecimalProperties1.validate(arg, configuration);
         }

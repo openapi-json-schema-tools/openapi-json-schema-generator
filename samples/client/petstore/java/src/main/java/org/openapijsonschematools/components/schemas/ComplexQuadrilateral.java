@@ -42,7 +42,7 @@ public class ComplexQuadrilateral {
         public static final Set<String> optionalKeys = Set.of(
             "quadrilateralType"
         );
-        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema1.validate(arg, configuration);
         }

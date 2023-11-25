@@ -34,7 +34,7 @@ public class ReadOnlyFirst {
             "bar",
             "baz"
         );
-        public static ReadOnlyFirstMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ReadOnlyFirstMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ReadOnlyFirst1.validate(arg, configuration);
         }

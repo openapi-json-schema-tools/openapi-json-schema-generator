@@ -26,7 +26,7 @@ public class Schema0 {
 
             super(m);
         }
-        public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) {
+        public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema01.validate(arg, configuration);
         }

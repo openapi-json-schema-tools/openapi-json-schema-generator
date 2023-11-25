@@ -51,7 +51,7 @@ public class Apple {
         public static final Set<String> optionalKeys = Set.of(
             "origin"
         );
-        public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Apple1.validate(arg, configuration);
         }

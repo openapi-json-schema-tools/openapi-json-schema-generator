@@ -34,7 +34,7 @@ public class GmFruit {
         public static final Set<String> optionalKeys = Set.of(
             "color"
         );
-        public static GmFruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static GmFruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return GmFruit1.validate(arg, configuration);
         }

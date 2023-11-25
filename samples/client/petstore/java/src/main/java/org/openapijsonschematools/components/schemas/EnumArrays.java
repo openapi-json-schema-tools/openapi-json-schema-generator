@@ -47,7 +47,7 @@ public class EnumArrays {
 
             super(m);
         }
-        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) {
+        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayEnum.validate(arg, configuration);
         }
@@ -80,7 +80,7 @@ public class EnumArrays {
             "just_symbol",
             "array_enum"
         );
-        public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return EnumArrays1.validate(arg, configuration);
         }

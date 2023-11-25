@@ -37,7 +37,7 @@ public class MyObjectDto {
         public static final Set<String> optionalKeys = Set.of(
             "id"
         );
-        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return MyObjectDto1.validate(arg, configuration);
         }

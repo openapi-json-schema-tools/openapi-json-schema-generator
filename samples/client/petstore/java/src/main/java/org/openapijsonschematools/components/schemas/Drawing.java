@@ -26,7 +26,7 @@ public class Drawing {
 
             super(m);
         }
-        public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) {
+        public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Shapes.validate(arg, configuration);
         }
@@ -61,7 +61,7 @@ public class Drawing {
             "nullableShape",
             "shapes"
         );
-        public static DrawingMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static DrawingMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Drawing1.validate(arg, configuration);
         }

@@ -30,7 +30,7 @@ public class SpecialModelname {
         public static final Set<String> optionalKeys = Set.of(
             "a"
         );
-        public static SpecialModelnameMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SpecialModelnameMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return SpecialModelname1.validate(arg, configuration);
         }

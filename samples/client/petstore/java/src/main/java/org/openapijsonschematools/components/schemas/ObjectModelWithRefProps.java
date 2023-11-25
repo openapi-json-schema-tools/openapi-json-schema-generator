@@ -28,7 +28,7 @@ public class ObjectModelWithRefProps {
             "myString",
             "myBoolean"
         );
-        public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ObjectModelWithRefProps1.validate(arg, configuration);
         }

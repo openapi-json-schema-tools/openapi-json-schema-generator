@@ -30,7 +30,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return AdditionalProperties.validate(arg, configuration);
         }
@@ -66,7 +66,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapMapOfStringMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
+        public static MapMapOfStringMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return MapMapOfString.validate(arg, configuration);
@@ -115,7 +115,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapOfEnumStringMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static MapOfEnumStringMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return MapOfEnumString.validate(arg, configuration);
         }
@@ -154,7 +154,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static DirectMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+        public static DirectMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return DirectMap.validate(arg, configuration);
         }
@@ -195,7 +195,7 @@ public class MapTest {
             "direct_map",
             "indirect_map"
         );
-        public static MapTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return MapTest1.validate(arg, configuration);
         }

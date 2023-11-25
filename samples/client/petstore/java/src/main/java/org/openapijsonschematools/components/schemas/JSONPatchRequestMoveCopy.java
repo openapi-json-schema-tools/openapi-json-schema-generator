@@ -54,7 +54,7 @@ public class JSONPatchRequestMoveCopy {
             "path"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JSONPatchRequestMoveCopy1.validate(arg, configuration);
         }

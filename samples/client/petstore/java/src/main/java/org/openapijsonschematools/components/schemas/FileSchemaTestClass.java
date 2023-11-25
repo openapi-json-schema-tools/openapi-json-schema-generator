@@ -25,7 +25,7 @@ public class FileSchemaTestClass {
 
             super(m);
         }
-        public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return Files.validate(arg, configuration);
@@ -60,7 +60,7 @@ public class FileSchemaTestClass {
             "file",
             "files"
         );
-        public static FileSchemaTestClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FileSchemaTestClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return FileSchemaTestClass1.validate(arg, configuration);
         }

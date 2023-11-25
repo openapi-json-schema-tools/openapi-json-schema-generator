@@ -42,7 +42,7 @@ public class ObjectWithOnlyOptionalProps {
             "a",
             "b"
         );
-        public static ObjectWithOnlyOptionalPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithOnlyOptionalPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ObjectWithOnlyOptionalProps1.validate(arg, configuration);
         }

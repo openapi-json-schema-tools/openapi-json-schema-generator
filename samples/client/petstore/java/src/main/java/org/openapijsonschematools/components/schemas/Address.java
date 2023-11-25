@@ -27,7 +27,7 @@ public class Address {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AddressMap of(Map<String, Long> arg, SchemaConfiguration configuration) {
+        public static AddressMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Address1.validate(arg, configuration);
         }

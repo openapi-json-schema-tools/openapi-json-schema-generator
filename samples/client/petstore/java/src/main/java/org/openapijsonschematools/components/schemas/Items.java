@@ -27,7 +27,7 @@ public class Items {
 
             super(m);
         }
-        public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return Items1.validate(arg, configuration);

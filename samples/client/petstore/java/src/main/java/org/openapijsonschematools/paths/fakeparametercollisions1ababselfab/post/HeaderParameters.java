@@ -40,7 +40,7 @@ public class HeaderParameters {
             "A-B",
             "self"
         );
-        public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return HeaderParameters1.validate(arg, configuration);
         }

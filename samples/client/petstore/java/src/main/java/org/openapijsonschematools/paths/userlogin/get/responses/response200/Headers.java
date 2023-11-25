@@ -44,7 +44,7 @@ public class Headers {
             "X-Expires-After",
             "numberHeader"
         );
-        public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Headers1.validate(arg, configuration);
         }

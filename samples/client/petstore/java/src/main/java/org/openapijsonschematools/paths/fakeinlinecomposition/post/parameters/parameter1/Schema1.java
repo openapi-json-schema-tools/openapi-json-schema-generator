@@ -92,7 +92,7 @@ public class Schema1 {
         public static final Set<String> optionalKeys = Set.of(
             "someProp"
         );
-        public static SchemaMap1 of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap1 of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema11.validate(arg, configuration);
         }
