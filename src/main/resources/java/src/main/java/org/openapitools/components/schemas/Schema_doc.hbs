@@ -71,7 +71,7 @@ Key | Type |  Description | Notes
     {{/if}}
 ```
     {{#if mapValueSchema}}
-base class: FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}{{/with}}>
+base class: FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{/with}}>
     {{else}}
 base class: FrozenMap<String, Object>
     {{/if}}
@@ -144,12 +144,12 @@ base class: FrozenList<
             {{#if refInfo.refClass}}
                 {{#eq refModule null}}
                     {{! self reference }}
-    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" selfReference=true }}
+    {{!> components/schemas/types/schema_output_type fullRefModule="" selfReference=true }}
                 {{else}}
-    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" }}
+    {{!> components/schemas/types/schema_output_type fullRefModule="" }}
                 {{/eq}}
             {{else}}
-    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" }}
+    {{!> components/schemas/types/schema_output_type fullRefModule="" }}
             {{/if}}
         {{/with}}
     ...

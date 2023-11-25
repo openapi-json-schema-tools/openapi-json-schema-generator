@@ -19,7 +19,7 @@ Key | Type |  Description | Notes
 
 ## SchemaMap
 ```
-base class: FrozenMap<String, int>
+base class: FrozenMap<String, Integer>
 ```
 
 ### methods

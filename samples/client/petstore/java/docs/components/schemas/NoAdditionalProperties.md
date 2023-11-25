@@ -20,7 +20,7 @@ Key | Type |  Description | Notes
 
 ## NoAdditionalPropertiesMap
 ```
-base class: FrozenMap<String, long>
+base class: FrozenMap<String, Long>
 ```
 
 ### properties

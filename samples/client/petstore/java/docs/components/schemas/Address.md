@@ -19,7 +19,7 @@ Key | Type |  Description | Notes
 
 ## AddressMap
 ```
-base class: FrozenMap<String, long>
+base class: FrozenMap<String, Long>
 ```
 
 ### methods
