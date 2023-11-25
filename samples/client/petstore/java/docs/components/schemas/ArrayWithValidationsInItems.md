@@ -7,7 +7,7 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| List<long> | ArrayWithValidationsInItemsList | |
+| List<Long> | ArrayWithValidationsInItemsList | |
 
 ```
 type: List<
