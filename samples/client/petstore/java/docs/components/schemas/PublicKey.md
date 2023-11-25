@@ -10,8 +10,7 @@ schema that contains a property named key
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object>
- | PublicKeyMap | |
+| Map<String, Object> | PublicKeyMap | |
 
 ```
 type: Map<String, Object>

@@ -10,8 +10,7 @@ Just a string to inform instance is up and running. Make it nullable in hope to 
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object>
- | HealthCheckResultMap | |
+| Map<String, Object> | HealthCheckResultMap | |
 
 ```
 type: Map<String, Object>

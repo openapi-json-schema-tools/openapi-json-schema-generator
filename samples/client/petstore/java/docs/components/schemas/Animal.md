@@ -7,8 +7,7 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object>
- | AnimalMap | |
+| Map<String, Object> | AnimalMap | |
 
 ```
 type: Map<String, Object>

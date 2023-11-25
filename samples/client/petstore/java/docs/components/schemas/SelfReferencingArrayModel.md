@@ -7,8 +7,7 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| List<List>
- | SelfReferencingArrayModelList | |
+| List<List> | SelfReferencingArrayModelList | |
 
 ```
 type: List<

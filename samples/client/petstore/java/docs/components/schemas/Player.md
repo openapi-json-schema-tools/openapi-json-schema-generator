@@ -10,8 +10,7 @@ a model that includes a self reference this forces properties and additionalProp
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object>
- | PlayerMap | |
+| Map<String, Object> | PlayerMap | |
 
 ```
 type: Map<String, Object>

@@ -66,14 +66,14 @@
                         {{else}}
                             {{#eq this "array"}}
                                 {{#with ../items}}
-| List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=">" sourceJsonPath=../../jsonPath }} | {{../../arrayOutputJsonPathPiece.camelCase}} | |
+| List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment sourceJsonPath=../../jsonPath }}> | {{../../arrayOutputJsonPathPiece.camelCase}} | |
                                 {{else}}
 | List<Object> | FrozenList<Object> | |
                                 {{/with}}
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#with ../mapValueSchema}}
-| Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=">" sourceJsonPath=../../jsonPath }} | {{../../mapOutputJsonPathPiece.camelCase}} | |
+| Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment sourceJsonPath=../../jsonPath }}> | {{../../mapOutputJsonPathPiece.camelCase}} | |
                                     {{else}}
 | Map<String, Object> | FrozenMap<String, Object> | |
                                     {{/with}}
