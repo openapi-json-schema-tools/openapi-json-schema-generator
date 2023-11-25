@@ -5,6 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class NullJsonSchema extends JsonSchema {
         new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))
     ));
 
-    public static Void validate(Void arg, SchemaConfiguration configuration) {
+    public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(NullJsonSchema.class, arg, configuration);
     }
 }

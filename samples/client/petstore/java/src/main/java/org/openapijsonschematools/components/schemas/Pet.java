@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
@@ -36,7 +37,7 @@ public class Pet {
 
             super(m);
         }
-        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) {
+        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return PhotoUrls.validate(arg, configuration);
         }
@@ -52,7 +53,7 @@ public class Pet {
 
             return new PhotoUrlsList(arg);
         }
-        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) {
+        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(PhotoUrls.class, arg, configuration);
         }
@@ -64,7 +65,7 @@ public class Pet {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Status.class, arg, configuration);
         }
     }    
@@ -75,7 +76,7 @@ public class Pet {
 
             super(m);
         }
-        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return Tags.validate(arg, configuration);
@@ -92,7 +93,7 @@ public class Pet {
 
             return new TagsList(arg);
         }
-        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(Tags.class, arg, configuration);
@@ -115,7 +116,7 @@ public class Pet {
             "tags",
             "status"
         );
-        public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Pet1.validate(arg, configuration);
         }
@@ -199,7 +200,7 @@ public class Pet {
 
             return new PetMap(arg);
         }
-        public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Pet1.class, arg, configuration);
         }

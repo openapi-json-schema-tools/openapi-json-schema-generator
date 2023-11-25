@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -49,7 +50,7 @@ public class Capitalization {
             "SCA_ETH_Flow_Points",
             "ATT_NAME"
         );
-        public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Capitalization1.validate(arg, configuration);
         }
@@ -131,7 +132,7 @@ public class Capitalization {
 
             return new CapitalizationMap(arg);
         }
-        public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Capitalization1.class, arg, configuration);
         }

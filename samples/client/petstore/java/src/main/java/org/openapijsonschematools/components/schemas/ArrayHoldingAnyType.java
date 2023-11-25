@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
@@ -25,7 +26,7 @@ public class ArrayHoldingAnyType {
 
             super(m);
         }
-        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayHoldingAnyType1.validate(arg, configuration);
         }
@@ -47,7 +48,7 @@ public class ArrayHoldingAnyType {
 
             return new ArrayHoldingAnyTypeList(arg);
         }
-        public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ArrayHoldingAnyType1.class, arg, configuration);
         }

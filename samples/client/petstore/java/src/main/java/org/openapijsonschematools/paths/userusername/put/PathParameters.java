@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.parameters.pathusername.Schema;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
@@ -34,7 +35,7 @@ public class PathParameters {
             "username"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return PathParameters1.validate(arg, configuration);
         }
@@ -60,7 +61,7 @@ public class PathParameters {
 
             return new PathParametersMap(arg);
         }
-        public static PathParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }

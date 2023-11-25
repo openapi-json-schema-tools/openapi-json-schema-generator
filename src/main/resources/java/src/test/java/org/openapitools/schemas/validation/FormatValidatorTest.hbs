@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -33,7 +34,7 @@ public class FormatValidatorTest {
     @Test
     public void testIntFormatFailsWithFloat() {
         final FormatValidator validator = new FormatValidator("int");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 3.14f,
                 validationMetadata,
@@ -56,7 +57,7 @@ public class FormatValidatorTest {
     @Test
     public void testInt32UnderMinFails() {
         final FormatValidator validator = new FormatValidator("int32");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 -2147483649L,
                 validationMetadata,
@@ -91,7 +92,7 @@ public class FormatValidatorTest {
     @Test
     public void testInt32OverMaxFails() {
         final FormatValidator validator = new FormatValidator("int32");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 2147483648L,
                 validationMetadata,
@@ -103,7 +104,7 @@ public class FormatValidatorTest {
     public void testInt64UnderMinFails() {
         final FormatValidator validator = new FormatValidator("int64");
 
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 new BigInteger("-9223372036854775809"),
                 validationMetadata,
@@ -139,7 +140,7 @@ public class FormatValidatorTest {
     public void testInt64OverMaxFails() {
         final FormatValidator validator = new FormatValidator("int64");
 
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 new BigInteger("9223372036854775808"),
                 validationMetadata,
@@ -150,7 +151,7 @@ public class FormatValidatorTest {
     @Test
     public void testFloatUnderMinFails() {
         final FormatValidator validator = new FormatValidator("float");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 -3.402823466385289e+38d,
                 validationMetadata,
@@ -185,7 +186,7 @@ public class FormatValidatorTest {
     @Test
     public void testFloatOverMaxFails() {
         final FormatValidator validator = new FormatValidator("float");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 3.402823466385289e+38d,
                 validationMetadata,
@@ -196,7 +197,7 @@ public class FormatValidatorTest {
     @Test
     public void testDoubleUnderMinFails() {
         final FormatValidator validator = new FormatValidator("double");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 new BigDecimal("-1.7976931348623157082e+308"),
                 validationMetadata,
@@ -231,7 +232,7 @@ public class FormatValidatorTest {
     @Test
     public void testDoubleOverMaxFails() {
         final FormatValidator validator = new FormatValidator("double");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 new BigDecimal("1.7976931348623157082e+308"),
                 validationMetadata,
@@ -242,7 +243,7 @@ public class FormatValidatorTest {
     @Test
     public void testInvalidNumberStringFails() {
         final FormatValidator validator = new FormatValidator("number");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 "abc",
                 validationMetadata,
@@ -277,7 +278,7 @@ public class FormatValidatorTest {
     @Test
     public void testInvalidDateStringFails() {
         final FormatValidator validator = new FormatValidator("date");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 "abc",
                 validationMetadata,
@@ -300,7 +301,7 @@ public class FormatValidatorTest {
     @Test
     public void testInvalidDateTimeStringFails() {
         final FormatValidator validator = new FormatValidator("date-time");
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 "abc",
                 validationMetadata,

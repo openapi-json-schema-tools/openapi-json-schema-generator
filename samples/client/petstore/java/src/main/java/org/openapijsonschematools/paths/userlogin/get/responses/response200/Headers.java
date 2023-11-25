@@ -6,6 +6,7 @@ import org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.
 import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema;
 import org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
@@ -43,7 +44,7 @@ public class Headers {
             "X-Expires-After",
             "numberHeader"
         );
-        public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Headers1.validate(arg, configuration);
         }
@@ -84,7 +85,7 @@ public class Headers {
 
             return new HeadersMap(arg);
         }
-        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }

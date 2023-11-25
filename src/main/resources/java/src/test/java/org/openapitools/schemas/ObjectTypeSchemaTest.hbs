@@ -12,6 +12,7 @@ import {{{packageName}}}.schemas.validation.KeywordValidator;
 import {{{packageName}}}.schemas.validation.PropertiesValidator;
 import {{{packageName}}}.schemas.validation.PropertyEntry;
 import {{{packageName}}}.schemas.validation.TypeValidator;
+import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -89,7 +90,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
                 ObjectWithPropsSchema.class, (Void) null, configuration
         ));
     }
@@ -118,7 +119,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(RuntimeException.class, () -> ObjectWithPropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> ObjectWithPropsSchema.validate(
                 finalInMap, configuration
         ));
     }
@@ -147,7 +148,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(RuntimeException.class, () -> ObjectWithAddpropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> ObjectWithAddpropsSchema.validate(
                 finalInMap, configuration
         ));
     }
@@ -176,7 +177,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> invalidPropMap = inMap;
-        Assert.assertThrows(RuntimeException.class, () -> ObjectWithPropsAndAddpropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> ObjectWithPropsAndAddpropsSchema.validate(
                 invalidPropMap, configuration
         ));
 
@@ -184,7 +185,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someAddProp", 1);
         Map<String, Object> invalidAddpropMap = inMap;
-        Assert.assertThrows(RuntimeException.class, () -> ObjectWithPropsAndAddpropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> ObjectWithPropsAndAddpropsSchema.validate(
                 invalidAddpropMap, configuration
         ));
     }
@@ -213,7 +214,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(RuntimeException.class, () -> ObjectWithOutputTypeSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> ObjectWithOutputTypeSchema.validate(
                 finalInMap, configuration
         ));
 

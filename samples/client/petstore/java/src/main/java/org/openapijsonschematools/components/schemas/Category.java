@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -26,7 +27,7 @@ public class Category {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name.class, arg, configuration);
         }
     }    
@@ -43,7 +44,7 @@ public class Category {
         public static final Set<String> optionalKeys = Set.of(
             "id"
         );
-        public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Category1.validate(arg, configuration);
         }
@@ -90,7 +91,7 @@ public class Category {
 
             return new CategoryMap(arg);
         }
-        public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Category1.class, arg, configuration);
         }

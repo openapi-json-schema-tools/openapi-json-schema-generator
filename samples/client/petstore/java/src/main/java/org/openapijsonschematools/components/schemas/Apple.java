@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -22,7 +23,7 @@ public class Apple {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Cultivar.class, arg, configuration);
         }
     }    
@@ -33,7 +34,7 @@ public class Apple {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Origin.class, arg, configuration);
         }
     }    
@@ -50,7 +51,7 @@ public class Apple {
         public static final Set<String> optionalKeys = Set.of(
             "origin"
         );
-        public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Apple1.validate(arg, configuration);
         }
@@ -96,10 +97,10 @@ public class Apple {
                 "cultivar"
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }
-        public static AppleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Apple1.class, arg, configuration);
         }

@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -32,7 +33,7 @@ public class AbstractStepMessage {
             "sequenceNumber"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return AbstractStepMessage1.validate(arg, configuration);
         }
@@ -82,7 +83,7 @@ public class AbstractStepMessage {
 
             return new AbstractStepMessageMap(arg);
         }
-        public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(AbstractStepMessage1.class, arg, configuration);
         }

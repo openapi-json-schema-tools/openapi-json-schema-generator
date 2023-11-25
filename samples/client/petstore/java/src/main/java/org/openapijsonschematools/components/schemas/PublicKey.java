@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -29,7 +30,7 @@ public class PublicKey {
         public static final Set<String> optionalKeys = Set.of(
             "key"
         );
-        public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return PublicKey1.validate(arg, configuration);
         }
@@ -68,7 +69,7 @@ public class PublicKey {
 
             return new PublicKeyMap(arg);
         }
-        public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(PublicKey1.class, arg, configuration);
         }

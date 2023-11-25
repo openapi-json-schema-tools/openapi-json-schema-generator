@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
@@ -30,19 +31,19 @@ public class Schema {
                 Double.class
             )))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerSchema.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) {
+        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerSchema.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) {
+        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
@@ -57,19 +58,19 @@ public class Schema {
             ))),
             new KeywordEntry("format", new FormatValidator("int32"))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Int32.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) {
+        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Int32.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Int32.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) {
+        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Int32.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
@@ -86,19 +87,19 @@ public class Schema {
                 Double.class
             )))
         ));
-        public static Number validate(int arg, SchemaConfiguration configuration) {
+        public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Number validate(long arg, SchemaConfiguration configuration) {
+        public static Number validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Number validate(float arg, SchemaConfiguration configuration) {
+        public static Number validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
         
-        public static Number validate(double arg, SchemaConfiguration configuration) {
+        public static Number validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
         }
     }    
@@ -113,7 +114,7 @@ public class Schema {
             ))),
             new KeywordEntry("format", new FormatValidator("float"))
         ));
-        public static float validate(float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
         }
     }    
@@ -128,7 +129,7 @@ public class Schema {
             ))),
             new KeywordEntry("format", new FormatValidator("double"))
         ));
-        public static double validate(double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
         }
     }    
@@ -139,7 +140,7 @@ public class Schema {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(StringSchema.class, arg, configuration);
         }
     }    
@@ -150,7 +151,7 @@ public class Schema {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PatternWithoutDelimiter.class, arg, configuration);
         }
     }    
@@ -173,7 +174,7 @@ public class Schema {
             ))),
             new KeywordEntry("format", new FormatValidator("date-time"))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(DateTime.class, arg, configuration);
         }
     }    
@@ -185,7 +186,7 @@ public class Schema {
             ))),
             new KeywordEntry("format", new FormatValidator("password"))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Password.class, arg, configuration);
         }
     }    
@@ -217,7 +218,7 @@ public class Schema {
             "password",
             "callback"
         );
-        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema1.validate(arg, configuration);
         }
@@ -321,7 +322,7 @@ public class Schema {
 
             return new SchemaMap(arg);
         }
-        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

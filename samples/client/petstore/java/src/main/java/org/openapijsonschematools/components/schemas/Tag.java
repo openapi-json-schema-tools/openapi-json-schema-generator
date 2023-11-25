@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -34,7 +35,7 @@ public class Tag {
             "id",
             "name"
         );
-        public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Tag1.validate(arg, configuration);
         }
@@ -80,7 +81,7 @@ public class Tag {
 
             return new TagMap(arg);
         }
-        public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Tag1.class, arg, configuration);
         }

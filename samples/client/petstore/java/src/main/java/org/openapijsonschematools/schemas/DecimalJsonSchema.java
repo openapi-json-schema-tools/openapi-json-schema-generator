@@ -6,6 +6,7 @@ import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class DecimalJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("number"))
     ));
 
-    public static String validate(String arg, SchemaConfiguration configuration) {
+    public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(DecimalJsonSchema.class, arg, configuration);
     }
 }

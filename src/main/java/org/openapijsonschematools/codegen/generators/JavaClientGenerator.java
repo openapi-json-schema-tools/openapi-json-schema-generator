@@ -382,6 +382,21 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     keywordValidatorTestFile + ".java"));
         }
 
+        // exceptions
+        List<String> exceptionClasses = new ArrayList<>();
+        exceptionClasses.add("BaseException");
+        exceptionClasses.add("InvalidAdditionalPropertyException");
+        exceptionClasses.add("InvalidTypeException");
+        exceptionClasses.add("UnsetPropertyException");
+        exceptionClasses.add("ValidationException");
+        for (String exceptionClass: exceptionClasses) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/org/openapitools/exceptions/"+exceptionClass+".hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    exceptionClass + ".java"));
+        }
+
+
         // configuration
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/configurations/JsonSchemaKeywordFlags.hbs",
@@ -1413,6 +1428,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addCustomSchemaImports(Set<String> imports) {
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
+        imports.add("import "+packageName + ".exceptions.ValidationException;");
     }
 
 

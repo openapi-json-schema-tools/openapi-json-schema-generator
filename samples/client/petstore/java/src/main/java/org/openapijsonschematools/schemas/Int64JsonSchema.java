@@ -6,6 +6,7 @@ import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -23,19 +24,19 @@ public class Int64JsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("int64"))
     ));
 
-    public static long validate(int arg, SchemaConfiguration configuration) {
+    public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
     }
 
-    public static long validate(float arg, SchemaConfiguration configuration) {
+    public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
     }
 
-    public static long validate(long arg, SchemaConfiguration configuration) {
+    public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
     }
 
-    public static long validate(double arg, SchemaConfiguration configuration) {
+    public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
     }
 }

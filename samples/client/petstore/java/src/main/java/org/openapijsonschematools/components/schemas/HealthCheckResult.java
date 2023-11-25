@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -22,10 +23,10 @@ public class HealthCheckResult {
                 String.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NullableMessage.class, arg, configuration);
         }
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NullableMessage.class, arg, configuration);
         }
     }    
@@ -40,7 +41,7 @@ public class HealthCheckResult {
         public static final Set<String> optionalKeys = Set.of(
             "NullableMessage"
         );
-        public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return HealthCheckResult1.validate(arg, configuration);
         }
@@ -79,7 +80,7 @@ public class HealthCheckResult {
 
             return new HealthCheckResultMap(arg);
         }
-        public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(HealthCheckResult1.class, arg, configuration);
         }

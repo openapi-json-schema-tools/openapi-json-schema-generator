@@ -5,6 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -18,19 +19,19 @@ public class StringJsonSchema extends JsonSchema {
         new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
     ));
 
-    public static String validate(String arg, SchemaConfiguration configuration) {
+    public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
 
-    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
 
-    public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+    public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
 
-    public static String validate(UUID arg, SchemaConfiguration configuration) {
+    public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
     }
 }

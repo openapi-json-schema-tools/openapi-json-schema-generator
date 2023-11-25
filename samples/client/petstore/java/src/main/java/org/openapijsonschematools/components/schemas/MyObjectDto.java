@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.UuidJsonSchema;
@@ -36,7 +37,7 @@ public class MyObjectDto {
         public static final Set<String> optionalKeys = Set.of(
             "id"
         );
-        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static MyObjectDtoMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return MyObjectDto1.validate(arg, configuration);
         }
@@ -67,7 +68,7 @@ public class MyObjectDto {
 
             return new MyObjectDtoMap(arg);
         }
-        public static MyObjectDtoMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static MyObjectDtoMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(MyObjectDto1.class, arg, configuration);
         }

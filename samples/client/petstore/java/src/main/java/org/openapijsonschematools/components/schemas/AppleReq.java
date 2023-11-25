@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
@@ -43,7 +44,7 @@ public class AppleReq {
         public static final Set<String> optionalKeys = Set.of(
             "mealy"
         );
-        public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return AppleReq1.validate(arg, configuration);
         }
@@ -85,7 +86,7 @@ public class AppleReq {
 
             return new AppleReqMap(arg);
         }
-        public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(AppleReq1.class, arg, configuration);
         }

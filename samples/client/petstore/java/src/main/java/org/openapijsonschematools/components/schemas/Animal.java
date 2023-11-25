@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -26,7 +27,7 @@ public class Animal {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Color.class, arg, configuration);
         }
     }    
@@ -43,7 +44,7 @@ public class Animal {
         public static final Set<String> optionalKeys = Set.of(
             "color"
         );
-        public static AnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Animal1.validate(arg, configuration);
         }
@@ -90,7 +91,7 @@ public class Animal {
 
             return new AnimalMap(arg);
         }
-        public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Animal1.class, arg, configuration);
         }

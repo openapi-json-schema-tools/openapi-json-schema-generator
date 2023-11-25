@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -28,7 +29,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) {
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Items.validate(arg, configuration);
         }
@@ -44,7 +45,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Items.class, arg, configuration);
         }
@@ -56,7 +57,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayArrayNumberList of(List<List<Number>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return ArrayArrayNumber.validate(arg, configuration);
@@ -73,7 +74,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             return new ArrayArrayNumberList(arg);
         }
-        public static ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ArrayArrayNumber.class, arg, configuration);
@@ -90,7 +91,7 @@ public class ArrayOfArrayOfNumberOnly {
         public static final Set<String> optionalKeys = Set.of(
             "ArrayArrayNumber"
         );
-        public static ArrayOfArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayOfArrayOfNumberOnly1.validate(arg, configuration);
         }
@@ -127,7 +128,7 @@ public class ArrayOfArrayOfNumberOnly {
 
             return new ArrayOfArrayOfNumberOnlyMap(arg);
         }
-        public static ArrayOfArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ArrayOfArrayOfNumberOnly1.class, arg, configuration);
         }

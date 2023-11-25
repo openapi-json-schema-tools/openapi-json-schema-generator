@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -23,7 +24,7 @@ public class EnumTest {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumString.class, arg, configuration);
         }
     }    
@@ -34,7 +35,7 @@ public class EnumTest {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumStringRequired.class, arg, configuration);
         }
     }    
@@ -49,19 +50,19 @@ public class EnumTest {
             ))),
             new KeywordEntry("format", new FormatValidator("int32"))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumInteger.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) {
+        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumInteger.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) {
+        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
@@ -76,7 +77,7 @@ public class EnumTest {
             ))),
             new KeywordEntry("format", new FormatValidator("double"))
         ));
-        public static double validate(double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumNumber.class, arg, configuration);
         }
     }    
@@ -100,7 +101,7 @@ public class EnumTest {
             "IntegerEnumWithDefaultValue",
             "IntegerEnumOneValue"
         );
-        public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return EnumTest1.validate(arg, configuration);
         }
@@ -210,7 +211,7 @@ public class EnumTest {
 
             return new EnumTestMap(arg);
         }
-        public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(EnumTest1.class, arg, configuration);
         }

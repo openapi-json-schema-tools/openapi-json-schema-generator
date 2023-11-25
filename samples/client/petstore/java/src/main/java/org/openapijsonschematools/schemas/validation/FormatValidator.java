@@ -1,5 +1,7 @@
 package org.openapijsonschematools.schemas.validation;
 
+import org.openapijsonschematools.exceptions.ValidationException;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.time.format.DateTimeParseException;
@@ -38,7 +40,7 @@ public class FormatValidator implements KeywordValidator {
                     doubleArg = (Double) arg;
                 }
                 if (Math.floor(doubleArg) != doubleArg) {
-                    throw new RuntimeException(
+                    throw new ValidationException(
                             "Invalid non-integer value " + arg + " for format " + format + " at " + validationMetadata.pathToItem()
                     );
                 }
@@ -57,14 +59,14 @@ public class FormatValidator implements KeywordValidator {
             }
             if (format.equals("int32")) {
                 if (intArg.compareTo(int32InclusiveMinimum) < 0 || intArg.compareTo(int32InclusiveMaximum) > 0) {
-                    throw new RuntimeException(
+                    throw new ValidationException(
                             "Invalid value " + arg + " for format int32 at " + validationMetadata.pathToItem()
                     );
                 }
                 return null;
             } else if (format.equals("int64")) {
                 if (intArg.compareTo(int64InclusiveMinimum) < 0 || intArg.compareTo(int64InclusiveMaximum) > 0) {
-                    throw new RuntimeException(
+                    throw new ValidationException(
                             "Invalid value " + arg + " for format int64 at " + validationMetadata.pathToItem()
                     );
                 }
@@ -82,14 +84,14 @@ public class FormatValidator implements KeywordValidator {
         }
         if (format.equals("float")) {
             if (decimalArg.compareTo(floatInclusiveMinimum) < 0  || decimalArg.compareTo(floatInclusiveMaximum) > 0 ){
-                throw new RuntimeException(
+                throw new ValidationException(
                     "Invalid value "+arg+" for format float at "+validationMetadata.pathToItem()
                 );
             }
             return null;
         } else if (format.equals("double")) {
             if (decimalArg.compareTo(doubleInclusiveMinimum) < 0  || decimalArg.compareTo(doubleInclusiveMaximum) > 0 ){
-                throw new RuntimeException(
+                throw new ValidationException(
                     "Invalid value "+arg+" for format double at "+validationMetadata.pathToItem()
                 );
             }
@@ -103,7 +105,7 @@ public class FormatValidator implements KeywordValidator {
             try {
                 UUID.fromString(arg);
             } catch (IllegalArgumentException  e) {
-                throw new RuntimeException(
+                throw new ValidationException(
                     "Value cannot be converted to a UUID. Invalid value "+
                             arg+" for format uuid at "+validationMetadata.pathToItem()
                 );
@@ -113,7 +115,7 @@ public class FormatValidator implements KeywordValidator {
             try {
                 new BigDecimal(arg);
             } catch (NumberFormatException e) {
-                throw new RuntimeException(
+                throw new ValidationException(
                     "Value cannot be converted to a decimal. Invalid value "+
                             arg+" for format number at "+validationMetadata.pathToItem()
                 );
@@ -123,7 +125,7 @@ public class FormatValidator implements KeywordValidator {
             try {
                 new CustomIsoparser().parseIsodate(arg);
             } catch (DateTimeParseException e) {
-                throw new RuntimeException(
+                throw new ValidationException(
                         "Value does not conform to the required ISO-8601 date format. "+
                         "Invalid value "+arg+" for format date at "+validationMetadata.pathToItem()
                 );
@@ -133,7 +135,7 @@ public class FormatValidator implements KeywordValidator {
             try {
                 new CustomIsoparser().parseIsodatetime(arg);
             } catch (DateTimeParseException e) {
-                throw new RuntimeException(
+                throw new ValidationException(
                         "Value does not conform to the required ISO-8601 datetime format. "+
                                 "Invalid value "+arg+" for format datetime at "+validationMetadata.pathToItem()
                 );

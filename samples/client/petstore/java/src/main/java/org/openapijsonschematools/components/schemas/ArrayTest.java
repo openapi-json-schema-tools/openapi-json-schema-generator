@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
@@ -29,7 +30,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) {
+        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayOfString.validate(arg, configuration);
         }
@@ -45,7 +46,7 @@ public class ArrayTest {
 
             return new ArrayOfStringList(arg);
         }
-        public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) {
+        public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ArrayOfString.class, arg, configuration);
         }
@@ -60,7 +61,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) {
+        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Items1.validate(arg, configuration);
         }
@@ -76,7 +77,7 @@ public class ArrayTest {
 
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) {
+        public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
@@ -88,7 +89,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return ArrayArrayOfInteger.validate(arg, configuration);
@@ -105,7 +106,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ArrayArrayOfInteger.class, arg, configuration);
@@ -118,7 +119,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return Items3.validate(arg, configuration);
@@ -135,7 +136,7 @@ public class ArrayTest {
 
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(Items3.class, arg, configuration);
@@ -148,7 +149,7 @@ public class ArrayTest {
 
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
 
@@ -166,7 +167,7 @@ public class ArrayTest {
 
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) {
+        public static ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
 
@@ -186,7 +187,7 @@ public class ArrayTest {
             "array_array_of_integer",
             "array_array_of_model"
         );
-        public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayTest1.validate(arg, configuration);
         }
@@ -241,7 +242,7 @@ public class ArrayTest {
 
             return new ArrayTestMap(arg);
         }
-        public static ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ArrayTest1.class, arg, configuration);
         }

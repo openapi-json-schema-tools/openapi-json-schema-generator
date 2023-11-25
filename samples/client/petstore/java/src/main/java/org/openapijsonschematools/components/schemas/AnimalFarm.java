@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -21,7 +22,7 @@ public class AnimalFarm {
 
             super(m);
         }
-        public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return AnimalFarm1.validate(arg, configuration);
@@ -44,7 +45,7 @@ public class AnimalFarm {
 
             return new AnimalFarmList(arg);
         }
-        public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(AnimalFarm1.class, arg, configuration);

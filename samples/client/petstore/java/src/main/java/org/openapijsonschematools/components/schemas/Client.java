@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -29,7 +30,7 @@ public class Client {
         public static final Set<String> optionalKeys = Set.of(
             "client"
         );
-        public static ClientMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ClientMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Client1.validate(arg, configuration);
         }
@@ -66,7 +67,7 @@ public class Client {
 
             return new ClientMap(arg);
         }
-        public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Client1.class, arg, configuration);
         }

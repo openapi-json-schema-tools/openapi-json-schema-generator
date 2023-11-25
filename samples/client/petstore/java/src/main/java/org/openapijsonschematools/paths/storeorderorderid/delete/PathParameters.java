@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.storeorderorderid.delete.parameters.parameter0.Schema0;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
@@ -34,7 +35,7 @@ public class PathParameters {
             "order_id"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return PathParameters1.validate(arg, configuration);
         }
@@ -60,7 +61,7 @@ public class PathParameters {
 
             return new PathParametersMap(arg);
         }
-        public static PathParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static PathParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }

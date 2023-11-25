@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.fake.delete.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.fake.delete.parameters.parameter4.Schema4;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
@@ -37,7 +38,7 @@ public class HeaderParameters {
         public static final Set<String> optionalKeys = Set.of(
             "boolean_group"
         );
-        public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return HeaderParameters1.validate(arg, configuration);
         }
@@ -73,7 +74,7 @@ public class HeaderParameters {
 
             return new HeaderParametersMap(arg);
         }
-        public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }

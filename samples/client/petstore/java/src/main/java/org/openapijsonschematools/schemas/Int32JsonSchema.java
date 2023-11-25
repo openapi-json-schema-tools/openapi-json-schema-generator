@@ -6,6 +6,7 @@ import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -21,11 +22,11 @@ public class Int32JsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("int32"))
     ));
 
-    public static int validate(int arg, SchemaConfiguration configuration) {
+    public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(Int32JsonSchema.class, arg, configuration);
     }
 
-    public static int validate(float arg, SchemaConfiguration configuration) {
+    public static int validate(float arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(Int32JsonSchema.class, Integer.parseInt(String.valueOf(arg)), configuration);
     }
 }

@@ -1,11 +1,13 @@
 package {{{packageName}}}.schemas.validation;
 
+import {{{packageName}}}.exceptions.ValidationException;
+
 public interface KeywordValidator {
     PathToSchemasMap validate(
             Class<? extends JsonSchema> cls,
             Object arg,
             ValidationMetadata validationMetadata,
-            Object extra);
+            Object extra) throws ValidationException;
 
     Object getConstraint();
 }

@@ -161,6 +161,11 @@ src/main/java/org/openapijsonschematools/components/schemas/Whale.java
 src/main/java/org/openapijsonschematools/components/schemas/Zebra.java
 src/main/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlags.java
 src/main/java/org/openapijsonschematools/configurations/SchemaConfiguration.java
+src/main/java/org/openapijsonschematools/exceptions/BaseException.java
+src/main/java/org/openapijsonschematools/exceptions/InvalidAdditionalPropertyException.java
+src/main/java/org/openapijsonschematools/exceptions/InvalidTypeException.java
+src/main/java/org/openapijsonschematools/exceptions/UnsetPropertyException.java
+src/main/java/org/openapijsonschematools/exceptions/ValidationException.java
 src/main/java/org/openapijsonschematools/paths/anotherfakedummy/patch/responses/response200/content/applicationjson/Schema.java
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/delete/HeaderParameters.java
 src/main/java/org/openapijsonschematools/paths/commonparamsubdir/delete/PathParameters.java

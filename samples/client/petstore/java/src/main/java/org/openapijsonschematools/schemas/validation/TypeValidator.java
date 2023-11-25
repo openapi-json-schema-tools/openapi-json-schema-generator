@@ -1,5 +1,7 @@
 package org.openapijsonschematools.schemas.validation;
 
+import org.openapijsonschematools.exceptions.ValidationException;
+
 import java.util.Set;
 
 public class TypeValidator implements KeywordValidator {
@@ -23,7 +25,7 @@ public class TypeValidator implements KeywordValidator {
             argClass = arg.getClass();
         }
         if (!type.contains(argClass)) {
-            throw new RuntimeException("invalid type");
+            throw new ValidationException("invalid type");
         }
         return null;
     }

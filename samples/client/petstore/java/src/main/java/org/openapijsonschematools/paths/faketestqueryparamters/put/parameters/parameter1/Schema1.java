@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
@@ -25,7 +26,7 @@ public class Schema1 {
 
             super(m);
         }
-        public static SchemaList1 of(List<String> arg, SchemaConfiguration configuration) {
+        public static SchemaList1 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Schema11.validate(arg, configuration);
         }
@@ -41,7 +42,7 @@ public class Schema1 {
 
             return new SchemaList1(arg);
         }
-        public static SchemaList1 validate(List<String> arg, SchemaConfiguration configuration) {
+        public static SchemaList1 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Schema11.class, arg, configuration);
         }

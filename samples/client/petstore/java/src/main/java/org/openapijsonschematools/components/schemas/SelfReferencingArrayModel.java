@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -21,7 +22,7 @@ public class SelfReferencingArrayModel {
 
             super(m);
         }
-        public static SelfReferencingArrayModelList of(List<List> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList of(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return SelfReferencingArrayModel1.validate(arg, configuration);
         }
@@ -43,7 +44,7 @@ public class SelfReferencingArrayModel {
 
             return new SelfReferencingArrayModelList(arg);
         }
-        public static SelfReferencingArrayModelList validate(List<List> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingArrayModelList validate(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
         }

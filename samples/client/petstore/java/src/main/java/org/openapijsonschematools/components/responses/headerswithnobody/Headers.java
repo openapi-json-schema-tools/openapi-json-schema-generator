@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.responses.headerswithnobody.headers.location.LocationSchema;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
@@ -33,7 +34,7 @@ public class Headers {
         public static final Set<String> optionalKeys = Set.of(
             "location"
         );
-        public static HeadersMap of(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static HeadersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return Headers1.validate(arg, configuration);
         }
@@ -58,7 +59,7 @@ public class Headers {
 
             return new HeadersMap(arg);
         }
-        public static HeadersMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static HeadersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }

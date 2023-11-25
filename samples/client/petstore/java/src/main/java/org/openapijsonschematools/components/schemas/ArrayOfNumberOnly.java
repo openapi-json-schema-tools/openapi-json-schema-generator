@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -28,7 +29,7 @@ public class ArrayOfNumberOnly {
 
             super(m);
         }
-        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) {
+        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayNumber.validate(arg, configuration);
         }
@@ -44,7 +45,7 @@ public class ArrayOfNumberOnly {
 
             return new ArrayNumberList(arg);
         }
-        public static ArrayNumberList validate(List<Number> arg, SchemaConfiguration configuration) {
+        public static ArrayNumberList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ArrayNumber.class, arg, configuration);
         }
@@ -60,7 +61,7 @@ public class ArrayOfNumberOnly {
         public static final Set<String> optionalKeys = Set.of(
             "ArrayNumber"
         );
-        public static ArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ArrayOfNumberOnly1.validate(arg, configuration);
         }
@@ -97,7 +98,7 @@ public class ArrayOfNumberOnly {
 
             return new ArrayOfNumberOnlyMap(arg);
         }
-        public static ArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ArrayOfNumberOnly1.class, arg, configuration);
         }

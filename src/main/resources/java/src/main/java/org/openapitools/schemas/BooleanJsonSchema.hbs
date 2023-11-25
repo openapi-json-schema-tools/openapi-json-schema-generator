@@ -5,6 +5,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.KeywordValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
+import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class BooleanJsonSchema extends JsonSchema {
         new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
     ));
 
-    public static boolean validate(boolean arg, SchemaConfiguration configuration) {
+    public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
     }
 }

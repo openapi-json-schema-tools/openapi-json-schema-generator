@@ -6,6 +6,7 @@ import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class DoubleJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("double"))
     ));
 
-    public static double validate(double arg, SchemaConfiguration configuration) {
+    public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(DoubleJsonSchema.class, arg, configuration);
     }
 }

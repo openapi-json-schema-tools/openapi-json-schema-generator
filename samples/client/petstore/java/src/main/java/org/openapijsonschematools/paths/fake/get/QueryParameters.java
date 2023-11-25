@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter2.Schema2;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter3.Schema3;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter4.Schema4;
@@ -39,7 +40,7 @@ public class QueryParameters {
             "enum_query_integer",
             "enum_query_string_array"
         );
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return QueryParameters1.validate(arg, configuration);
         }
@@ -92,7 +93,7 @@ public class QueryParameters {
 
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }

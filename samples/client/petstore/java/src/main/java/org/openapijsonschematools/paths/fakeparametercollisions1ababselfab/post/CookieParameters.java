@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter14.Schema14;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter15.Schema15;
 import org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter16.Schema16;
@@ -41,7 +42,7 @@ public class CookieParameters {
             "A-B",
             "self"
         );
-        public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return CookieParameters1.validate(arg, configuration);
         }
@@ -87,7 +88,7 @@ public class CookieParameters {
 
             return new CookieParametersMap(arg);
         }
-        public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(CookieParameters1.class, arg, configuration);
         }

@@ -2,15 +2,15 @@ package org.openapijsonschematools.schemas.validation;
 
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.exceptions.InvalidTypeException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
-import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -25,7 +25,7 @@ public abstract class JsonSchema {
             Class<? extends JsonSchema> schemaCls,
             Object arg,
             ValidationMetadata validationMetadata
-    ) {
+    ) throws ValidationException {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         Class<? extends JsonSchema> usedSchemaCls = schemaCls;
         Class<?> superclass = schemaCls.getSuperclass();
@@ -34,11 +34,12 @@ public abstract class JsonSchema {
             usedSchemaCls = (Class<? extends JsonSchema>) superclass;
         }
         LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
-       try {
-          Field keywordToValidatorField = usedSchemaCls.getField("keywordToValidator");
-          LinkedHashMap<String, KeywordValidator> entries = (LinkedHashMap<String, KeywordValidator>) keywordToValidatorField.get(null);
-          keywordToValidator.putAll(entries);
-       } catch (NoSuchFieldException | IllegalAccessException ignore) {}
+        try {
+            Field keywordToValidatorField = usedSchemaCls.getField("keywordToValidator");
+            LinkedHashMap<String, KeywordValidator> entries = (LinkedHashMap<String, KeywordValidator>) keywordToValidatorField.get(null);
+            keywordToValidator.putAll(entries);
+            keywordToValidator.keySet().removeAll(disabledKeywords);
+        } catch (NoSuchFieldException | IllegalAccessException ignore) {}
         Object extra = null;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for (Map.Entry<String, KeywordValidator> entry: keywordToValidator.entrySet()) {
@@ -124,7 +125,7 @@ public abstract class JsonSchema {
          return arg.toString();
       } else {
          Class<?> argClass = arg.getClass();
-         throw new RuntimeException("Invalid type passed in got input="+arg+" type="+argClass);
+         throw new InvalidTypeException("Invalid type passed in for input="+arg+" type="+argClass);
       }
    }
 
@@ -210,57 +211,57 @@ public abstract class JsonSchema {
       return arg;
    }
 
-   protected static Void validate(Class<? extends JsonSchema> cls, Void arg, SchemaConfiguration configuration) {
+   protected static Void validate(Class<? extends JsonSchema> cls, Void arg, SchemaConfiguration configuration) throws ValidationException {
       return (Void) validateObject(cls, arg, configuration);
    }
 
-   protected static boolean validate(Class<? extends JsonSchema> cls, boolean arg, SchemaConfiguration configuration) {
+   protected static boolean validate(Class<? extends JsonSchema> cls, boolean arg, SchemaConfiguration configuration) throws ValidationException {
       return (boolean) validateObject(cls, arg, configuration);
    }
 
-   protected static int validate(Class<? extends JsonSchema> cls, int arg, SchemaConfiguration configuration) {
+   protected static int validate(Class<? extends JsonSchema> cls, int arg, SchemaConfiguration configuration) throws ValidationException {
       return (int) validateObject(cls, arg, configuration);
    }
 
-   protected static long validate(Class<? extends JsonSchema> cls, long arg, SchemaConfiguration configuration) {
+   protected static long validate(Class<? extends JsonSchema> cls, long arg, SchemaConfiguration configuration) throws ValidationException {
       return (long) validateObject(cls, arg, configuration);
    }
 
-   protected static float validate(Class<? extends JsonSchema> cls, float arg, SchemaConfiguration configuration) {
+   protected static float validate(Class<? extends JsonSchema> cls, float arg, SchemaConfiguration configuration) throws ValidationException {
       return (float) validateObject(cls, arg, configuration);
    }
 
-   protected static double validate(Class<? extends JsonSchema> cls, double arg, SchemaConfiguration configuration) {
+   protected static double validate(Class<? extends JsonSchema> cls, double arg, SchemaConfiguration configuration) throws ValidationException {
       return (double) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<? extends JsonSchema> cls, String arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, String arg, SchemaConfiguration configuration) throws ValidationException {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<? extends JsonSchema> cls, ZonedDateTime arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<? extends JsonSchema> cls, LocalDate arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static String validate(Class<? extends JsonSchema> cls, UUID arg, SchemaConfiguration configuration) {
+   protected static String validate(Class<? extends JsonSchema> cls, UUID arg, SchemaConfiguration configuration) throws ValidationException {
       return (String) validateObject(cls, arg, configuration);
    }
 
-   protected static <T extends FrozenMap> T validate(Class<? extends JsonSchema> cls, Map<String, ?> arg, SchemaConfiguration configuration) {
+   protected static <T extends FrozenMap> T validate(Class<? extends JsonSchema> cls, Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException {
       return (T) validateObject(cls, arg, configuration);
    }
 
-   protected static <U extends FrozenList> U validate(Class<? extends JsonSchema> cls, List<?> arg, SchemaConfiguration configuration) {
+   protected static <U extends FrozenList> U validate(Class<? extends JsonSchema> cls, List<?> arg, SchemaConfiguration configuration) throws ValidationException {
       return (U) validateObject(cls, arg, configuration);
    }
 
    // todo add bytes and FileIO
 
-   public static Object validateObject(Class<? extends JsonSchema> cls, Object arg, SchemaConfiguration configuration) {
+   public static Object validateObject(Class<? extends JsonSchema> cls, Object arg, SchemaConfiguration configuration) throws ValidationException {
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types
       }

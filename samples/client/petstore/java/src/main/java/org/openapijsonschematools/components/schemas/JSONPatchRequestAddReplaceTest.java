@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
@@ -36,7 +37,7 @@ public class JSONPatchRequestAddReplaceTest {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Op.class, arg, configuration);
         }
     }    
@@ -53,7 +54,7 @@ public class JSONPatchRequestAddReplaceTest {
             "value"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);
         }
@@ -101,7 +102,7 @@ public class JSONPatchRequestAddReplaceTest {
 
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
-        public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(JSONPatchRequestAddReplaceTest1.class, arg, configuration);
         }

@@ -6,6 +6,7 @@ import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.KeywordValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
+import {{{packageName}}}.exceptions.ValidationException;
 
 import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
@@ -19,11 +20,11 @@ public class DateTimeJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("date-time"))
     ));
 
-    public static String validate(String arg, SchemaConfiguration configuration) {
+    public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
     }
 
-    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
     }
 }

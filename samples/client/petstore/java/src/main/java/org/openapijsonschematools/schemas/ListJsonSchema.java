@@ -6,6 +6,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -18,7 +19,7 @@ public class ListJsonSchema extends JsonSchema {
         new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))
     ));
 
-    public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
+    public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(ListJsonSchema.class, arg, configuration);
     }
 }

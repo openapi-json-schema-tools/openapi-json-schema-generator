@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
@@ -25,7 +26,7 @@ public class ComposedArray {
 
             super(m);
         }
-        public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) {
+        public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return ComposedArray1.validate(arg, configuration);
         }
@@ -47,7 +48,7 @@ public class ComposedArray {
 
             return new ComposedArrayList(arg);
         }
-        public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ComposedArray1.class, arg, configuration);
         }
