@@ -10,7 +10,8 @@ Abstract Step
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object> | AbstractStepMessageMap | |
+| Map<String, Object
+> | AbstractStepMessageMap | |
 
 ## Input Map Keys
 ```

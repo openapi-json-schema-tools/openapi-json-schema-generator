@@ -7,7 +7,8 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object> | BasquePigMap | |
+| Map<String, Object
+> | BasquePigMap | |
 
 ## Input Map Keys
 ```

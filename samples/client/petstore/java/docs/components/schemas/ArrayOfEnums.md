@@ -7,7 +7,8 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| List<String> | ArrayOfEnumsList | |
+| List<String
+> | ArrayOfEnumsList | |
 
 ```
 type: List<

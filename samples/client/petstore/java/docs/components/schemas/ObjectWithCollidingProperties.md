@@ -10,7 +10,8 @@ component with properties that have name collisions
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object> | ObjectWithCollidingPropertiesMap | |
+| Map<String, Object
+> | ObjectWithCollidingPropertiesMap | |
 
 ## Input Map Keys
 ```

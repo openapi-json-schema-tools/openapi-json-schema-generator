@@ -8,7 +8,8 @@ type: JsonSchema
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
 | null | null | |
-| Map<String, Object> | AppleMap | |
+| Map<String, Object
+> | AppleMap | |
 
 ## Input Map Keys
 ```

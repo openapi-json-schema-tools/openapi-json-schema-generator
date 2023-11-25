@@ -7,7 +7,8 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| List<Object> | JSONPatchRequestList | |
+| List<Object
+> | JSONPatchRequestList | |
 
 ```
 type: List<

@@ -10,7 +10,8 @@ a model that includes properties which should stay primitive (String + Boolean) 
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object> | ObjectModelWithRefPropsMap | |
+| Map<String, Object
+> | ObjectModelWithRefPropsMap | |
 
 ## Input Map Keys
 ```

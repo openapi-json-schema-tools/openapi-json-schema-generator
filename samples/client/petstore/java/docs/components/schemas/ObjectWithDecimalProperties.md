@@ -7,7 +7,8 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object> | ObjectWithDecimalPropertiesMap | |
+| Map<String, Object
+> | ObjectWithDecimalPropertiesMap | |
 
 ## Input Map Keys
 ```
