@@ -31,18 +31,14 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**date** |  |  | [optional]
-**binary** |  |  | [optional]
-**int32** |  |  | [optional]
-**int64** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | AnyTypeAndFormatMap | a constructor
+**date** | | Object | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**binary** | | Object | [optional]
+**int32** | | Object | [optional] value must be a 32 bit integer
+**int64** | | Object | [optional] value must be a 64 bit integer
 get | String | Object | This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"], 
 getAdditionalProperty | String | Object | provides type safety for additional properties
 

@@ -24,16 +24,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**bar** |  |  | [optional]
-**foo** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | HasOnlyReadOnlyMap | a constructor
+**bar** | | String | [optional]
+**foo** | | String | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

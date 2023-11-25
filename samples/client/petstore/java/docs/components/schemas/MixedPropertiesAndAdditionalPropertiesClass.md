@@ -25,15 +25,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**dateTime** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | MixedPropertiesAndAdditionalPropertiesClassMap | a constructor
+**dateTime** | | String | [optional] value must conform to RFC-3339 date-time
 get | String | Object | This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["map"], 
 getAdditionalProperty | String | Object | provides type safety for additional properties
 

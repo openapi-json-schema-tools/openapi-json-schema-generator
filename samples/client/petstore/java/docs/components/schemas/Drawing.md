@@ -26,18 +26,14 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**mainShape** |  |  | [optional]
-**shapeOrNull** |  |  | [optional]
-**nullableShape** |  |  | [optional]
-**shapes** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | DrawingMap | a constructor
+**mainShape** | | Object | [optional]
+**shapeOrNull** | | Object | [optional]
+**nullableShape** | | Object | [optional]
+**shapes** | | ShapesList | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 

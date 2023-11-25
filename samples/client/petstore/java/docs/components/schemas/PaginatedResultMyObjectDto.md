@@ -23,16 +23,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**count** |  |  |
-**results** |  |  |
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | PaginatedResultMyObjectDtoMap | a constructor
+**count** | | long |
+**results** | | ResultsList |
 
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

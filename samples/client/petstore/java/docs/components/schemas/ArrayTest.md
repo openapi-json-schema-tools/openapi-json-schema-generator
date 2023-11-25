@@ -25,17 +25,13 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**array_of_string** |  |  | [optional]
-**array_array_of_integer** |  |  | [optional]
-**array_array_of_model** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | ArrayTestMap | a constructor
+**array_of_string** | | ArrayOfStringList | [optional]
+**array_array_of_integer** | | ArrayArrayOfIntegerList | [optional]
+**array_array_of_model** | | ArrayArrayOfModelList | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 

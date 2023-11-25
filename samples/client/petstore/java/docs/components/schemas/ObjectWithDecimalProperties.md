@@ -25,17 +25,13 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**length** |  |  | [optional]
-**width** |  |  | [optional]
-**cost** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | ObjectWithDecimalPropertiesMap | a constructor
+**length** | | String | [optional]
+**width** | | String | [optional] value must be int or float numeric
+**cost** | | Money.MoneyMap | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

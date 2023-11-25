@@ -28,20 +28,16 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**id** |  |  | [optional]
-**petId** |  |  | [optional]
-**quantity** |  |  | [optional]
-**shipDate** |  |  | [optional]
-**status** |  | Order Status | [optional]
-**complete** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | OrderMap | a constructor
+**id** | | long | [optional] value must be a 64 bit integer
+**petId** | | long | [optional] value must be a 64 bit integer
+**quantity** | | int | [optional] value must be a 32 bit integer
+**shipDate** | | String | [optional] value must conform to RFC-3339 date-time
+**status** | | String | [optional] must be one of ["placed", "approved", "delivered"]
+**complete** | | boolean | [optional] if omitted the server will use the default value of false
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

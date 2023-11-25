@@ -22,14 +22,10 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, String>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**id** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, String> | MyObjectDtoMap | a constructor
+**id** | | String | [optional] value must be a uuid
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

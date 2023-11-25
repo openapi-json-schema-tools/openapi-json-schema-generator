@@ -23,15 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, String>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, String> | JSONPatchRequestRemoveMap | a constructor
+**op** | | String | must be one of ["remove"]
+**path** | | String |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

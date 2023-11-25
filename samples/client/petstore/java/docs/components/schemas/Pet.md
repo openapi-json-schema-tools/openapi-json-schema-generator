@@ -31,20 +31,16 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**name** |  |  |
-**photoUrls** |  |  |
-**id** |  |  | [optional]
-**category** |  |  | [optional]
-**tags** |  |  | [optional]
-**status** |  | pet status in the store | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | PetMap | a constructor
+**name** | | String |
+**photoUrls** | | PhotoUrlsList |
+**id** | | long | [optional] value must be a 64 bit integer
+**category** | | Category.CategoryMap | [optional]
+**tags** | | TagsList | [optional]
+**status** | | String | [optional] must be one of ["available", "pending", "sold"]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 

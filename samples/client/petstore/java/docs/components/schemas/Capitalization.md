@@ -28,20 +28,16 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**smallCamel** |  |  | [optional]
-**CapitalCamel** |  |  | [optional]
-**small_Snake** |  |  | [optional]
-**Capital_Snake** |  |  | [optional]
-**SCA_ETH_Flow_Points** |  |  | [optional]
-**ATT_NAME** |  | Name of the pet  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | CapitalizationMap | a constructor
+**smallCamel** | | String | [optional]
+**CapitalCamel** | | String | [optional]
+**small_Snake** | | String | [optional]
+**Capital_Snake** | | String | [optional]
+**SCA_ETH_Flow_Points** | | String | [optional]
+**ATT_NAME** | | String | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -36,17 +36,13 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**name** |  |  |
-**snake_case** |  |  | [optional]
-**property** |  | this is a reserved python keyword | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | NameMap | a constructor
+**name** | | int | value must be a 32 bit integer
+**snake_case** | | int | [optional] value must be a 32 bit integer
+**property** | | String | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

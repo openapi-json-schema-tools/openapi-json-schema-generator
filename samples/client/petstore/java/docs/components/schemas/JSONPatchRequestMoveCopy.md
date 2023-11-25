@@ -24,16 +24,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, String>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**from** |  | A JSON Pointer path. |
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, String> | JSONPatchRequestMoveCopyMap | a constructor
+**from** | | String |
+**op** | | String | must be one of ["move", "copy"]
+**path** | | String |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

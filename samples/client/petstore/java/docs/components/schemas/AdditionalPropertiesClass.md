@@ -30,22 +30,18 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**map_property** |  |  | [optional]
-**map_of_map_property** |  |  | [optional]
-**anytype_1** |  |  | [optional]
-**map_with_undeclared_properties_anytype_1** |  |  | [optional]
-**map_with_undeclared_properties_anytype_2** |  |  | [optional]
-**map_with_undeclared_properties_anytype_3** |  |  | [optional]
-**empty_map** |  | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | AdditionalPropertiesClassMap | a constructor
+**map_property** | | MapPropertyMap | [optional]
+**map_of_map_property** | | MapOfMapPropertyMap | [optional]
+**anytype_1** | | Object | [optional]
+**map_with_undeclared_properties_anytype_1** | | FrozenMap<String, Object> | [optional]
+**map_with_undeclared_properties_anytype_2** | | FrozenMap<String, Object> | [optional]
+**map_with_undeclared_properties_anytype_3** | | MapWithUndeclaredPropertiesAnytype3Map | [optional]
+**empty_map** | | EmptyMapMap | [optional]
+**map_with_undeclared_properties_string** | | MapWithUndeclaredPropertiesStringMap | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 

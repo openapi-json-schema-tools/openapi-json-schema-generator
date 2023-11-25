@@ -24,15 +24,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, String>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**validName** |  |  |
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, String> | ReqPropsFromExplicitAddPropsMap | a constructor
+**validName** | | String |
 get | String | String | This model has invalid python names so this method is used under the hood when you access instance["invalid-name"], 
 getAdditionalProperty | String | String | provides type safety for additional properties
 

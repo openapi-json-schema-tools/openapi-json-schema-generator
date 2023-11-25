@@ -28,17 +28,13 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**myNumber** |  |  | [optional]
-**myString** |  |  | [optional]
-**myBoolean** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | ObjectModelWithRefPropsMap | a constructor
+**myNumber** | | Number | [optional]
+**myString** | | String | [optional]
+**myBoolean** | | boolean | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

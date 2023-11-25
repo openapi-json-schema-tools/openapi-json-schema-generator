@@ -24,15 +24,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**enum_form_string_array** |  | Form parameter enum test (string array) | [optional]
-**enum_form_string** |  | Form parameter enum test (string) | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | SchemaMap | a constructor
+**enum_form_string_array** | | EnumFormStringArrayList | [optional]
+**enum_form_string** | | String | [optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg
 getAdditionalProperty | String | Object | provides type safety for additional properties
 

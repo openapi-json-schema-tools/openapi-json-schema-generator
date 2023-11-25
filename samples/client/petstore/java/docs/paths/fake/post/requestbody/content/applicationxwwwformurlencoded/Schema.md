@@ -36,21 +36,17 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**pattern_without_delimiter** |  | None |
-**int32** |  | None | [optional]
-**int64** |  | None | [optional]
-**binary** |  | None | [optional]
-**date** |  | None | [optional]
-**dateTime** |  | None | [optional]
-**password** |  | None | [optional]
-**callback** |  | None | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | SchemaMap | a constructor
+**pattern_without_delimiter** | | String |
+**int32** | | int | [optional] value must be a 32 bit integer
+**int64** | | long | [optional] value must be a 64 bit integer
+**binary** | | String | [optional]
+**date** | | String | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**dateTime** | | String | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
+**password** | | String | [optional]
+**callback** | | String | [optional]
 get | String | Object | This model has invalid python names so this method is used under the hood when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"], 
 getAdditionalProperty | String | Object | provides type safety for additional properties

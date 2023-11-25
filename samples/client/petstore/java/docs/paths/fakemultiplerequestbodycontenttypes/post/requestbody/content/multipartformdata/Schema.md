@@ -23,13 +23,9 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**b** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | SchemaMap | a constructor
+**b** | | String | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties

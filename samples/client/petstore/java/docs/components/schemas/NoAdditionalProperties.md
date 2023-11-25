@@ -23,15 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Long>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**id** |  |  |
-**petId** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Long> | NoAdditionalPropertiesMap | a constructor
+**id** | | long | value must be a 64 bit integer
+**petId** | | long | [optional] value must be a 64 bit integer
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

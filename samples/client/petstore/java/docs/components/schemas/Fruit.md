@@ -31,15 +31,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**color** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | FruitMap | a constructor
+**color** | | String | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)

@@ -24,16 +24,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**file** |  |  | [optional]
-**files** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | FileSchemaTestClassMap | a constructor
+**file** | | File.FileMap | [optional]
+**files** | | FilesList | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 

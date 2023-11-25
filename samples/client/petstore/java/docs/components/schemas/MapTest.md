@@ -26,18 +26,14 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**map_map_of_string** |  |  | [optional]
-**map_of_enum_string** |  |  | [optional]
-**direct_map** |  |  | [optional]
-**indirect_map** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | MapTestMap | a constructor
+**map_map_of_string** | | MapMapOfStringMap | [optional]
+**map_of_enum_string** | | MapOfEnumStringMap | [optional]
+**direct_map** | | DirectMapMap | [optional]
+**indirect_map** | | StringBooleanMap.StringBooleanMapMap | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 

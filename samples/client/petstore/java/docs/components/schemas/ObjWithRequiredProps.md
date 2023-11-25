@@ -23,15 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**a** |  |  |
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | ObjWithRequiredPropsMap | a constructor
+**a** | | String |
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)

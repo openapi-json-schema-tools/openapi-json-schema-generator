@@ -24,16 +24,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
-**value** |  | The value to add, replace or test. |
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | JSONPatchRequestAddReplaceTestMap | a constructor
+**op** | | String | must be one of ["add", "replace", "test"]
+**path** | | String |
+**value** | | Object |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -24,15 +24,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**from** |  |  |
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | ObjectWithInvalidNamedRefedPropertiesMap | a constructor
+**from** | | FromSchema.FromSchemaMap |
 get | String | Object | This model has invalid python names so this method is used under the hood when you access instance["!reference"], 
 getAdditionalProperty | String | Object | provides type safety for additional properties
 

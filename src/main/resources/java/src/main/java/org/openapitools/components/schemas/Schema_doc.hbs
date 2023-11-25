@@ -76,34 +76,28 @@ base class: FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/open
 base class: FrozenMap<String, Object>
     {{/if}}
 ```
-        {{#or (and requiredProperties requiredProperties.hasValidKey) (and optionalProperties optionalProperties.hasValidKey) }}
-
-{{headerSize}}## properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-            {{#each requiredProperties}}
-                {{#if @key.isValid}}
-**{{@key.original}}** | {{!> components/schemas/types/docschema_output_types }} | {{#if description}}{{description}}{{/if}} |{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
-                {{/if}}
-            {{/each}}
-            {{#each optionalProperties}}
-                {{#if @key.isValid}}
-**{{@key.original}}** | {{!> components/schemas/types/docschema_output_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
-                {{/if}}
-            {{/each}}
-        {{/or}}
 
 {{headerSize}}## methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> | {{mapOutputJsonPathPiece.camelCase}} | a constructor
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+**{{@key.original}}** | | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+                {{/if}}
+            {{/each}}
+            {{#each optionalProperties}}
+                {{#if @key.isValid}}
+**{{@key.original}}** | | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+                {{/if}}
+            {{/each}}
         {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
 get | String | {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}{{else}}Object{{/with}} | This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}
         {{/or}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-getAdditionalProperty | String | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | provides type safety for additional properties
+getAdditionalProperty | String | Object | provides type safety for additional properties
             {{else}}
 getAdditionalProperty | String | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | provides type safety for additional properties
                 {{/if}}

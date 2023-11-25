@@ -24,16 +24,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**just_symbol** |  |  | [optional]
-**array_enum** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | EnumArraysMap | a constructor
+**just_symbol** | | String | [optional] must be one of [">=", "$"]
+**array_enum** | | ArrayEnumList | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 

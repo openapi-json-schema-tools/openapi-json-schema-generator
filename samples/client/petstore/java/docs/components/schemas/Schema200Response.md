@@ -35,15 +35,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**name** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | Schema200ResponseMap | a constructor
+**name** | | int | [optional] value must be a 32 bit integer
 get | String | Object | This model has invalid python names so this method is used under the hood when you access instance["class"], 
 getAdditionalProperty | String | Object | provides type safety for additional properties
 

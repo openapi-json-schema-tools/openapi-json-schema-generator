@@ -24,14 +24,10 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**name** |  | Updated name of the pet | [optional]
-**status** |  | Updated status of the pet | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | SchemaMap | a constructor
+**name** | | String | [optional]
+**status** | | String | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties

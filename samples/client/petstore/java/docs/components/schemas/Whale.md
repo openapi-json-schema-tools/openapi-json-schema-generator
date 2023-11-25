@@ -25,17 +25,13 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### properties
-Property | Type | Description | Notes
--------- | ---- | ----------- | -----
-**className** |  |  |
-**hasBaleen** |  |  | [optional]
-**hasTeeth** |  |  | [optional]
-
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 of | Map<String, Object> | WhaleMap | a constructor
+**className** | | String | must be one of ["whale"]
+**hasBaleen** | | boolean | [optional]
+**hasTeeth** | | boolean | [optional]
 getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
