@@ -1,5 +1,13 @@
-# ComposedNumber1
+# ComposedNumber
 org.openapijsonschematools.components.schemas.ComposedNumber.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ComposedNumber.Schema0<br> schema class |
+| static class | ComposedNumber.ComposedNumber1<br> schema class |
+
+## ComposedNumber1
 ```
 type: JsonSchema
 ```

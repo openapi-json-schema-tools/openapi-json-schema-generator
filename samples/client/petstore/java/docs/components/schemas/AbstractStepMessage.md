@@ -1,5 +1,14 @@
-# AbstractStepMessage1
+# AbstractStepMessage
 org.openapijsonschematools.components.schemas.AbstractStepMessage.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | AbstractStepMessage.Discriminator<br> schema class |
+| static class | AbstractStepMessage.AbstractStepMessageMap<br> output class for Map payloads |
+| static class | AbstractStepMessage.AbstractStepMessage1<br> schema class |
+
+## AbstractStepMessage1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,12 @@
-# DecimalPayload1
+# DecimalPayload
 org.openapijsonschematools.components.schemas.DecimalPayload.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | DecimalPayload.DecimalPayload1<br> schema class |
+
+## DecimalPayload1
 ```
 type: JsonSchema
 ```

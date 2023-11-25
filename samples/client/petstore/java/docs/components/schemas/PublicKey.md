@@ -1,5 +1,14 @@
-# PublicKey1
+# PublicKey
 org.openapijsonschematools.components.schemas.PublicKey.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | PublicKey.Key<br> schema class |
+| static class | PublicKey.PublicKeyMap<br> output class for Map payloads |
+| static class | PublicKey.PublicKey1<br> schema class |
+
+## PublicKey1
 ```
 type: JsonSchema
 ```

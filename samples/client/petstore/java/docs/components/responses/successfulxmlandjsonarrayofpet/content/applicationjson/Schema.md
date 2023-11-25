@@ -1,5 +1,13 @@
-# Schema1
+# Schema
 org.openapijsonschematools.components.responses.successfulxmlandjsonarrayofpet.content.applicationjson.Schema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema.SchemaList<br> output class for List payloads |
+| static class | Schema.Schema1<br> schema class |
+
+## Schema1
 ```
 type: JsonSchema
 ```

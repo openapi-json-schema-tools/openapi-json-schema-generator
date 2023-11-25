@@ -1,5 +1,14 @@
-# ReqPropsFromTrueAddProps1
+# ReqPropsFromTrueAddProps
 org.openapijsonschematools.components.schemas.ReqPropsFromTrueAddProps.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ReqPropsFromTrueAddProps.AdditionalProperties<br> schema class |
+| static class | ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap<br> output class for Map payloads |
+| static class | ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1<br> schema class |
+
+## ReqPropsFromTrueAddProps1
 ```
 type: JsonSchema
 ```

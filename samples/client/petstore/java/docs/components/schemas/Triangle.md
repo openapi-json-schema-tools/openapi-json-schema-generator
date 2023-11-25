@@ -1,5 +1,12 @@
-# Triangle1
+# Triangle
 org.openapijsonschematools.components.schemas.Triangle.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Triangle.Triangle1<br> schema class |
+
+## Triangle1
 ```
 type: JsonSchema
 ```

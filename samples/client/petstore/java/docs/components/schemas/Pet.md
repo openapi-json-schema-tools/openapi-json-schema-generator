@@ -1,5 +1,21 @@
-# Pet1
+# Pet
 org.openapijsonschematools.components.schemas.Pet.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Pet.Id<br> schema class |
+| static class | Pet.Name<br> schema class |
+| static class | Pet.Items<br> schema class |
+| static class | Pet.PhotoUrlsList<br> output class for List payloads |
+| static class | Pet.PhotoUrls<br> schema class |
+| static class | Pet.Status<br> schema class |
+| static class | Pet.TagsList<br> output class for List payloads |
+| static class | Pet.Tags<br> schema class |
+| static class | Pet.PetMap<br> output class for Map payloads |
+| static class | Pet.Pet1<br> schema class |
+
+## Pet1
 ```
 type: JsonSchema
 ```

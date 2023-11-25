@@ -1,5 +1,12 @@
-# UUIDString1
+# UUIDString
 org.openapijsonschematools.components.schemas.UUIDString.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | UUIDString.UUIDString1<br> schema class |
+
+## UUIDString1
 ```
 type: JsonSchema
 ```

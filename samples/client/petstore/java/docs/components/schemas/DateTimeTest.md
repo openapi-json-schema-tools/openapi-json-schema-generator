@@ -1,5 +1,12 @@
-# DateTimeTest1
+# DateTimeTest
 org.openapijsonschematools.components.schemas.DateTimeTest.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | DateTimeTest.DateTimeTest1<br> schema class |
+
+## DateTimeTest1
 ```
 type: JsonSchema
 ```

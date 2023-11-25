@@ -1,5 +1,14 @@
-# Address1
+# Address
 org.openapijsonschematools.components.schemas.Address.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Address.AdditionalProperties<br> schema class |
+| static class | Address.AddressMap<br> output class for Map payloads |
+| static class | Address.Address1<br> schema class |
+
+## Address1
 ```
 type: JsonSchema
 ```

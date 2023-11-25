@@ -1,5 +1,36 @@
-# FormatTest1
+# FormatTest
 org.openapijsonschematools.components.schemas.FormatTest.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | FormatTest.IntegerSchema<br> schema class |
+| static class | FormatTest.Int32<br> schema class |
+| static class | FormatTest.Int32withValidations<br> schema class |
+| static class | FormatTest.Int64<br> schema class |
+| static class | FormatTest.NumberSchema<br> schema class |
+| static class | FormatTest.FloatSchema<br> schema class |
+| static class | FormatTest.Float32<br> schema class |
+| static class | FormatTest.DoubleSchema<br> schema class |
+| static class | FormatTest.Float64<br> schema class |
+| static class | FormatTest.Items<br> schema class |
+| static class | FormatTest.ArrayWithUniqueItemsList<br> output class for List payloads |
+| static class | FormatTest.ArrayWithUniqueItems<br> schema class |
+| static class | FormatTest.StringSchema<br> schema class |
+| static class | FormatTest.ByteSchema<br> schema class |
+| static class | FormatTest.Binary<br> schema class |
+| static class | FormatTest.Date<br> schema class |
+| static class | FormatTest.DateTime<br> schema class |
+| static class | FormatTest.UuidSchema<br> schema class |
+| static class | FormatTest.UuidNoExample<br> schema class |
+| static class | FormatTest.Password<br> schema class |
+| static class | FormatTest.PatternWithDigits<br> schema class |
+| static class | FormatTest.PatternWithDigitsAndDelimiter<br> schema class |
+| static class | FormatTest.NoneProp<br> schema class |
+| static class | FormatTest.FormatTestMap<br> output class for Map payloads |
+| static class | FormatTest.FormatTest1<br> schema class |
+
+## FormatTest1
 ```
 type: JsonSchema
 ```

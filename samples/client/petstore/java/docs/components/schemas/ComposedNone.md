@@ -1,5 +1,13 @@
-# ComposedNone1
+# ComposedNone
 org.openapijsonschematools.components.schemas.ComposedNone.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ComposedNone.Schema0<br> schema class |
+| static class | ComposedNone.ComposedNone1<br> schema class |
+
+## ComposedNone1
 ```
 type: JsonSchema
 ```

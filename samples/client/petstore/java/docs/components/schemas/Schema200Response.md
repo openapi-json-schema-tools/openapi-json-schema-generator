@@ -1,5 +1,15 @@
-# Schema200Response1
+# Schema200Response
 org.openapijsonschematools.components.schemas.Schema200Response.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema200Response.Name<br> schema class |
+| static class | Schema200Response.ClassSchema<br> schema class |
+| static class | Schema200Response.Schema200ResponseMap<br> output class for Map payloads |
+| static class | Schema200Response.Schema200Response1<br> schema class |
+
+## Schema200Response1
 ```
 type: JsonSchema
 ```

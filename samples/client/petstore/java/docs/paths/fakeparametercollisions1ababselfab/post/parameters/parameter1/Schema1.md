@@ -1,5 +1,12 @@
-# Schema11
+# Schema1
 org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter1.Schema1.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema1.Schema11<br> schema class |
+
+## Schema11
 ```
 type: JsonSchema
 ```

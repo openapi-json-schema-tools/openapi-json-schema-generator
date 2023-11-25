@@ -1,5 +1,12 @@
-# StringEnum1
+# StringEnum
 org.openapijsonschematools.components.schemas.StringEnum.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | StringEnum.StringEnum1<br> schema class |
+
+## StringEnum1
 ```
 type: JsonSchema
 ```

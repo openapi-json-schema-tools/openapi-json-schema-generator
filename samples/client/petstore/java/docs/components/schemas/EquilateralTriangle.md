@@ -1,5 +1,15 @@
-# EquilateralTriangle1
+# EquilateralTriangle
 org.openapijsonschematools.components.schemas.EquilateralTriangle.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | EquilateralTriangle.TriangleType<br> schema class |
+| static class | EquilateralTriangle.Schema1Map<br> output class for Map payloads |
+| static class | EquilateralTriangle.Schema1<br> schema class |
+| static class | EquilateralTriangle.EquilateralTriangle1<br> schema class |
+
+## EquilateralTriangle1
 ```
 type: JsonSchema
 ```

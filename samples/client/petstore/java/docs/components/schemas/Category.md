@@ -1,5 +1,15 @@
-# Category1
+# Category
 org.openapijsonschematools.components.schemas.Category.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Category.Id<br> schema class |
+| static class | Category.Name<br> schema class |
+| static class | Category.CategoryMap<br> output class for Map payloads |
+| static class | Category.Category1<br> schema class |
+
+## Category1
 ```
 type: JsonSchema
 ```

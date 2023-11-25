@@ -1,5 +1,21 @@
-# AdditionalPropertiesSchema1
+# AdditionalPropertiesSchema
 org.openapijsonschematools.components.schemas.AdditionalPropertiesSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | AdditionalPropertiesSchema.AdditionalProperties<br> schema class |
+| static class | AdditionalPropertiesSchema.Schema0Map<br> output class for Map payloads |
+| static class | AdditionalPropertiesSchema.Schema0<br> schema class |
+| static class | AdditionalPropertiesSchema.AdditionalProperties1<br> schema class |
+| static class | AdditionalPropertiesSchema.Schema1Map<br> output class for Map payloads |
+| static class | AdditionalPropertiesSchema.Schema1<br> schema class |
+| static class | AdditionalPropertiesSchema.AdditionalProperties2<br> schema class |
+| static class | AdditionalPropertiesSchema.Schema2Map<br> output class for Map payloads |
+| static class | AdditionalPropertiesSchema.Schema2<br> schema class |
+| static class | AdditionalPropertiesSchema.AdditionalPropertiesSchema1<br> schema class |
+
+## AdditionalPropertiesSchema1
 ```
 type: JsonSchema
 ```

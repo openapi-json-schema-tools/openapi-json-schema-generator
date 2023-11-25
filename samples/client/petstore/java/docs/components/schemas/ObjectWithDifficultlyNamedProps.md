@@ -1,5 +1,16 @@
-# ObjectWithDifficultlyNamedProps1
+# ObjectWithDifficultlyNamedProps
 org.openapijsonschematools.components.schemas.ObjectWithDifficultlyNamedProps.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectWithDifficultlyNamedProps.Specialpropertyname<br> schema class |
+| static class | ObjectWithDifficultlyNamedProps.Schema123list<br> schema class |
+| static class | ObjectWithDifficultlyNamedProps.Schema123Number<br> schema class |
+| static class | ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap<br> output class for Map payloads |
+| static class | ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1<br> schema class |
+
+## ObjectWithDifficultlyNamedProps1
 ```
 type: JsonSchema
 ```

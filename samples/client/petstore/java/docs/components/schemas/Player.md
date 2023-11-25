@@ -1,5 +1,14 @@
-# Player1
+# Player
 org.openapijsonschematools.components.schemas.Player.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Player.Name<br> schema class |
+| static class | Player.PlayerMap<br> output class for Map payloads |
+| static class | Player.Player1<br> schema class |
+
+## Player1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,12 @@
-# ObjectInterface1
+# ObjectInterface
 org.openapijsonschematools.components.schemas.ObjectInterface.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectInterface.ObjectInterface1<br> schema class |
+
+## ObjectInterface1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,16 @@
-# Whale1
+# Whale
 org.openapijsonschematools.components.schemas.Whale.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Whale.HasBaleen<br> schema class |
+| static class | Whale.HasTeeth<br> schema class |
+| static class | Whale.ClassName<br> schema class |
+| static class | Whale.WhaleMap<br> output class for Map payloads |
+| static class | Whale.Whale1<br> schema class |
+
+## Whale1
 ```
 type: JsonSchema
 ```

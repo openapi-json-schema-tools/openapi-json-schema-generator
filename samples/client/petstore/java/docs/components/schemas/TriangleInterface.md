@@ -1,5 +1,15 @@
-# TriangleInterface1
+# TriangleInterface
 org.openapijsonschematools.components.schemas.TriangleInterface.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | TriangleInterface.ShapeType<br> schema class |
+| static class | TriangleInterface.TriangleType<br> schema class |
+| static class | TriangleInterface.TriangleInterfaceMap<br> output class for Map payloads |
+| static class | TriangleInterface.TriangleInterface1<br> schema class |
+
+## TriangleInterface1
 ```
 type: JsonSchema
 ```

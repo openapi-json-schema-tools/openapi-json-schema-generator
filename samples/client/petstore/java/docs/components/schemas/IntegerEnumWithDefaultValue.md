@@ -1,5 +1,12 @@
-# IntegerEnumWithDefaultValue1
+# IntegerEnumWithDefaultValue
 org.openapijsonschematools.components.schemas.IntegerEnumWithDefaultValue.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1<br> schema class |
+
+## IntegerEnumWithDefaultValue1
 ```
 type: JsonSchema
 ```

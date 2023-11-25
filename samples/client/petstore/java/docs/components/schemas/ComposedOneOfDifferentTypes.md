@@ -1,5 +1,19 @@
-# ComposedOneOfDifferentTypes1
+# ComposedOneOfDifferentTypes
 org.openapijsonschematools.components.schemas.ComposedOneOfDifferentTypes.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ComposedOneOfDifferentTypes.Schema2<br> schema class |
+| static class | ComposedOneOfDifferentTypes.Schema3<br> schema class |
+| static class | ComposedOneOfDifferentTypes.Schema4<br> schema class |
+| static class | ComposedOneOfDifferentTypes.Items<br> schema class |
+| static class | ComposedOneOfDifferentTypes.Schema5List<br> output class for List payloads |
+| static class | ComposedOneOfDifferentTypes.Schema5<br> schema class |
+| static class | ComposedOneOfDifferentTypes.Schema6<br> schema class |
+| static class | ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1<br> schema class |
+
+## ComposedOneOfDifferentTypes1
 ```
 type: JsonSchema
 ```

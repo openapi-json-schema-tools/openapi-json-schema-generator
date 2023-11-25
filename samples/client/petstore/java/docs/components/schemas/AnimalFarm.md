@@ -1,5 +1,13 @@
-# AnimalFarm1
+# AnimalFarm
 org.openapijsonschematools.components.schemas.AnimalFarm.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | AnimalFarm.AnimalFarmList<br> output class for List payloads |
+| static class | AnimalFarm.AnimalFarm1<br> schema class |
+
+## AnimalFarm1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,15 @@
-# SimpleQuadrilateral1
+# SimpleQuadrilateral
 org.openapijsonschematools.components.schemas.SimpleQuadrilateral.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | SimpleQuadrilateral.QuadrilateralType<br> schema class |
+| static class | SimpleQuadrilateral.Schema1Map<br> output class for Map payloads |
+| static class | SimpleQuadrilateral.Schema1<br> schema class |
+| static class | SimpleQuadrilateral.SimpleQuadrilateral1<br> schema class |
+
+## SimpleQuadrilateral1
 ```
 type: JsonSchema
 ```

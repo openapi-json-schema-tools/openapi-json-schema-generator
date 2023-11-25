@@ -1,5 +1,17 @@
-# Schema1
+# Schema
 org.openapijsonschematools.paths.fake.get.requestbody.content.applicationxwwwformurlencoded.Schema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema.Items<br> schema class |
+| static class | Schema.EnumFormStringArrayList<br> output class for List payloads |
+| static class | Schema.EnumFormStringArray<br> schema class |
+| static class | Schema.EnumFormString<br> schema class |
+| static class | Schema.SchemaMap<br> output class for Map payloads |
+| static class | Schema.Schema1<br> schema class |
+
+## Schema1
 ```
 type: JsonSchema
 ```

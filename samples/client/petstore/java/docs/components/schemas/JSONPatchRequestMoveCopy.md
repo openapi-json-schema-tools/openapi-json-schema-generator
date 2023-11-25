@@ -1,5 +1,17 @@
-# JSONPatchRequestMoveCopy1
+# JSONPatchRequestMoveCopy
 org.openapijsonschematools.components.schemas.JSONPatchRequestMoveCopy.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | JSONPatchRequestMoveCopy.AdditionalProperties<br> schema class |
+| static class | JSONPatchRequestMoveCopy.From<br> schema class |
+| static class | JSONPatchRequestMoveCopy.Path<br> schema class |
+| static class | JSONPatchRequestMoveCopy.Op<br> schema class |
+| static class | JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap<br> output class for Map payloads |
+| static class | JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1<br> schema class |
+
+## JSONPatchRequestMoveCopy1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,12 @@
-# BooleanEnum1
+# BooleanEnum
 org.openapijsonschematools.components.schemas.BooleanEnum.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | BooleanEnum.BooleanEnum1<br> schema class |
+
+## BooleanEnum1
 ```
 type: JsonSchema
 ```

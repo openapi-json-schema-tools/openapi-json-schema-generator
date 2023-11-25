@@ -1,5 +1,15 @@
-# Schema1
+# Schema
 org.openapijsonschematools.paths.petpetid.post.requestbody.content.applicationxwwwformurlencoded.Schema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema.Name<br> schema class |
+| static class | Schema.Status<br> schema class |
+| static class | Schema.SchemaMap<br> output class for Map payloads |
+| static class | Schema.Schema1<br> schema class |
+
+## Schema1
 ```
 type: JsonSchema
 ```

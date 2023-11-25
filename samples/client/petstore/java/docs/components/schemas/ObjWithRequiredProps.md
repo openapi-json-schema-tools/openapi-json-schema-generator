@@ -1,5 +1,14 @@
-# ObjWithRequiredProps1
+# ObjWithRequiredProps
 org.openapijsonschematools.components.schemas.ObjWithRequiredProps.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjWithRequiredProps.A<br> schema class |
+| static class | ObjWithRequiredProps.ObjWithRequiredPropsMap<br> output class for Map payloads |
+| static class | ObjWithRequiredProps.ObjWithRequiredProps1<br> schema class |
+
+## ObjWithRequiredProps1
 ```
 type: JsonSchema
 ```

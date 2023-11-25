@@ -1,5 +1,15 @@
-# Schema11
+# Schema1
 org.openapijsonschematools.paths.fakeinlinecomposition.post.parameters.parameter1.Schema1.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema1.Schema01<br> schema class |
+| static class | Schema1.SomeProp1<br> schema class |
+| static class | Schema1.SchemaMap1<br> output class for Map payloads |
+| static class | Schema1.Schema11<br> schema class |
+
+## Schema11
 ```
 type: JsonSchema
 ```

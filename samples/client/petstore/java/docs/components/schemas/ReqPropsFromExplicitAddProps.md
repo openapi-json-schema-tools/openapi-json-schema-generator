@@ -1,5 +1,14 @@
-# ReqPropsFromExplicitAddProps1
+# ReqPropsFromExplicitAddProps
 org.openapijsonschematools.components.schemas.ReqPropsFromExplicitAddProps.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ReqPropsFromExplicitAddProps.AdditionalProperties<br> schema class |
+| static class | ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap<br> output class for Map payloads |
+| static class | ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1<br> schema class |
+
+## ReqPropsFromExplicitAddProps1
 ```
 type: JsonSchema
 ```

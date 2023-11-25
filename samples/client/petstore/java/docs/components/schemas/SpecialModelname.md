@@ -1,5 +1,14 @@
-# SpecialModelname1
+# SpecialModelname
 org.openapijsonschematools.components.schemas.SpecialModelname.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | SpecialModelname.A<br> schema class |
+| static class | SpecialModelname.SpecialModelnameMap<br> output class for Map payloads |
+| static class | SpecialModelname.SpecialModelname1<br> schema class |
+
+## SpecialModelname1
 ```
 type: JsonSchema
 ```

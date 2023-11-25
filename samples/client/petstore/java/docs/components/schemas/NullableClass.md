@@ -1,5 +1,38 @@
-# NullableClass1
+# NullableClass
 org.openapijsonschematools.components.schemas.NullableClass.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | NullableClass.AdditionalProperties3<br> schema class |
+| static class | NullableClass.IntegerProp<br> schema class |
+| static class | NullableClass.NumberProp<br> schema class |
+| static class | NullableClass.BooleanProp<br> schema class |
+| static class | NullableClass.StringProp<br> schema class |
+| static class | NullableClass.DateProp<br> schema class |
+| static class | NullableClass.DatetimeProp<br> schema class |
+| static class | NullableClass.Items<br> schema class |
+| static class | NullableClass.ArrayNullablePropList<br> output class for List payloads |
+| static class | NullableClass.ArrayNullableProp<br> schema class |
+| static class | NullableClass.Items1<br> schema class |
+| static class | NullableClass.ArrayAndItemsNullablePropList<br> output class for List payloads |
+| static class | NullableClass.ArrayAndItemsNullableProp<br> schema class |
+| static class | NullableClass.Items2<br> schema class |
+| static class | NullableClass.ArrayItemsNullableList<br> output class for List payloads |
+| static class | NullableClass.ArrayItemsNullable<br> schema class |
+| static class | NullableClass.AdditionalProperties<br> schema class |
+| static class | NullableClass.ObjectNullablePropMap<br> output class for Map payloads |
+| static class | NullableClass.ObjectNullableProp<br> schema class |
+| static class | NullableClass.AdditionalProperties1<br> schema class |
+| static class | NullableClass.ObjectAndItemsNullablePropMap<br> output class for Map payloads |
+| static class | NullableClass.ObjectAndItemsNullableProp<br> schema class |
+| static class | NullableClass.AdditionalProperties2<br> schema class |
+| static class | NullableClass.ObjectItemsNullableMap<br> output class for Map payloads |
+| static class | NullableClass.ObjectItemsNullable<br> schema class |
+| static class | NullableClass.NullableClassMap<br> output class for Map payloads |
+| static class | NullableClass.NullableClass1<br> schema class |
+
+## NullableClass1
 ```
 type: JsonSchema
 ```

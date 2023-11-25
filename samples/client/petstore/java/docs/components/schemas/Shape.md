@@ -1,5 +1,12 @@
-# Shape1
+# Shape
 org.openapijsonschematools.components.schemas.Shape.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Shape.Shape1<br> schema class |
+
+## Shape1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,12 @@
-# NullableString1
+# NullableString
 org.openapijsonschematools.components.schemas.NullableString.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | NullableString.NullableString1<br> schema class |
+
+## NullableString1
 ```
 type: JsonSchema
 ```

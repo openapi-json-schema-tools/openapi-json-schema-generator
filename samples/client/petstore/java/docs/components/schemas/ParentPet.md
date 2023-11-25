@@ -1,5 +1,12 @@
-# ParentPet1
+# ParentPet
 org.openapijsonschematools.components.schemas.ParentPet.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ParentPet.ParentPet1<br> schema class |
+
+## ParentPet1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,15 @@
-# ScaleneTriangle1
+# ScaleneTriangle
 org.openapijsonschematools.components.schemas.ScaleneTriangle.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ScaleneTriangle.TriangleType<br> schema class |
+| static class | ScaleneTriangle.Schema1Map<br> output class for Map payloads |
+| static class | ScaleneTriangle.Schema1<br> schema class |
+| static class | ScaleneTriangle.ScaleneTriangle1<br> schema class |
+
+## ScaleneTriangle1
 ```
 type: JsonSchema
 ```

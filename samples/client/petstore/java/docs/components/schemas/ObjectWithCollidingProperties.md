@@ -1,5 +1,15 @@
-# ObjectWithCollidingProperties1
+# ObjectWithCollidingProperties
 org.openapijsonschematools.components.schemas.ObjectWithCollidingProperties.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectWithCollidingProperties.SomeProp<br> schema class |
+| static class | ObjectWithCollidingProperties.Someprop<br> schema class |
+| static class | ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap<br> output class for Map payloads |
+| static class | ObjectWithCollidingProperties.ObjectWithCollidingProperties1<br> schema class |
+
+## ObjectWithCollidingProperties1
 ```
 type: JsonSchema
 ```

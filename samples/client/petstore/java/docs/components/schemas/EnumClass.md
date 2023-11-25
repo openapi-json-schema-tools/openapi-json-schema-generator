@@ -1,5 +1,12 @@
-# EnumClass1
+# EnumClass
 org.openapijsonschematools.components.schemas.EnumClass.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | EnumClass.EnumClass1<br> schema class |
+
+## EnumClass1
 ```
 type: JsonSchema
 ```

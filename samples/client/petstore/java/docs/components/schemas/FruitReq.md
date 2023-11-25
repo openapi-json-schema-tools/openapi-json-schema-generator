@@ -1,5 +1,13 @@
-# FruitReq1
+# FruitReq
 org.openapijsonschematools.components.schemas.FruitReq.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | FruitReq.Schema0<br> schema class |
+| static class | FruitReq.FruitReq1<br> schema class |
+
+## FruitReq1
 ```
 type: JsonSchema
 ```

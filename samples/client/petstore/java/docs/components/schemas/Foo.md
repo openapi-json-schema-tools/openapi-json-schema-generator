@@ -1,5 +1,13 @@
-# Foo1
+# Foo
 org.openapijsonschematools.components.schemas.Foo.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Foo.FooMap<br> output class for Map payloads |
+| static class | Foo.Foo1<br> schema class |
+
+## Foo1
 ```
 type: JsonSchema
 ```

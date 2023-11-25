@@ -1,5 +1,13 @@
-# ShapeOrNull1
+# ShapeOrNull
 org.openapijsonschematools.components.schemas.ShapeOrNull.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ShapeOrNull.Schema0<br> schema class |
+| static class | ShapeOrNull.ShapeOrNull1<br> schema class |
+
+## ShapeOrNull1
 ```
 type: JsonSchema
 ```

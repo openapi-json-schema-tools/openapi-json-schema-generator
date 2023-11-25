@@ -1,5 +1,14 @@
-# Banana1
+# Banana
 org.openapijsonschematools.components.schemas.Banana.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Banana.LengthCm<br> schema class |
+| static class | Banana.BananaMap<br> output class for Map payloads |
+| static class | Banana.Banana1<br> schema class |
+
+## Banana1
 ```
 type: JsonSchema
 ```

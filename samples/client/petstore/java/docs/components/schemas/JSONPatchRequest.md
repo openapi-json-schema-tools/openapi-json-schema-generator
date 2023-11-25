@@ -1,5 +1,14 @@
-# JSONPatchRequest1
+# JSONPatchRequest
 org.openapijsonschematools.components.schemas.JSONPatchRequest.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | JSONPatchRequest.Items<br> schema class |
+| static class | JSONPatchRequest.JSONPatchRequestList<br> output class for List payloads |
+| static class | JSONPatchRequest.JSONPatchRequest1<br> schema class |
+
+## JSONPatchRequest1
 ```
 type: JsonSchema
 ```

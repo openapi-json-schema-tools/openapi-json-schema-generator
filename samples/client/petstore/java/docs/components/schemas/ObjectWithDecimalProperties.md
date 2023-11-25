@@ -1,5 +1,14 @@
-# ObjectWithDecimalProperties1
+# ObjectWithDecimalProperties
 org.openapijsonschematools.components.schemas.ObjectWithDecimalProperties.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectWithDecimalProperties.Width<br> schema class |
+| static class | ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap<br> output class for Map payloads |
+| static class | ObjectWithDecimalProperties.ObjectWithDecimalProperties1<br> schema class |
+
+## ObjectWithDecimalProperties1
 ```
 type: JsonSchema
 ```

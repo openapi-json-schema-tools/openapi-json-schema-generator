@@ -1,5 +1,24 @@
-# MapTest1
+# MapTest
 org.openapijsonschematools.components.schemas.MapTest.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | MapTest.AdditionalProperties1<br> schema class |
+| static class | MapTest.AdditionalPropertiesMap<br> output class for Map payloads |
+| static class | MapTest.AdditionalProperties<br> schema class |
+| static class | MapTest.MapMapOfStringMap<br> output class for Map payloads |
+| static class | MapTest.MapMapOfString<br> schema class |
+| static class | MapTest.AdditionalProperties2<br> schema class |
+| static class | MapTest.MapOfEnumStringMap<br> output class for Map payloads |
+| static class | MapTest.MapOfEnumString<br> schema class |
+| static class | MapTest.AdditionalProperties3<br> schema class |
+| static class | MapTest.DirectMapMap<br> output class for Map payloads |
+| static class | MapTest.DirectMap<br> schema class |
+| static class | MapTest.MapTestMap<br> output class for Map payloads |
+| static class | MapTest.MapTest1<br> schema class |
+
+## MapTest1
 ```
 type: JsonSchema
 ```

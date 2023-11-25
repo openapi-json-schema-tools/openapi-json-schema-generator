@@ -1,5 +1,17 @@
-# MixedPropertiesAndAdditionalPropertiesClass1
+# MixedPropertiesAndAdditionalPropertiesClass
 org.openapijsonschematools.components.schemas.MixedPropertiesAndAdditionalPropertiesClass.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | MixedPropertiesAndAdditionalPropertiesClass.UuidSchema<br> schema class |
+| static class | MixedPropertiesAndAdditionalPropertiesClass.DateTime<br> schema class |
+| static class | MixedPropertiesAndAdditionalPropertiesClass.MapMap<br> output class for Map payloads |
+| static class | MixedPropertiesAndAdditionalPropertiesClass.MapSchema<br> schema class |
+| static class | MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap<br> output class for Map payloads |
+| static class | MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1<br> schema class |
+
+## MixedPropertiesAndAdditionalPropertiesClass1
 ```
 type: JsonSchema
 ```

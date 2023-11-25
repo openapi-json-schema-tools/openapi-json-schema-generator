@@ -1,5 +1,13 @@
-# ArrayOfEnums1
+# ArrayOfEnums
 org.openapijsonschematools.components.schemas.ArrayOfEnums.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ArrayOfEnums.ArrayOfEnumsList<br> output class for List payloads |
+| static class | ArrayOfEnums.ArrayOfEnums1<br> schema class |
+
+## ArrayOfEnums1
 ```
 type: JsonSchema
 ```

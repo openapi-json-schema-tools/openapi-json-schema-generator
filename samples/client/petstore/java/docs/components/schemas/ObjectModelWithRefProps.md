@@ -1,5 +1,13 @@
-# ObjectModelWithRefProps1
+# ObjectModelWithRefProps
 org.openapijsonschematools.components.schemas.ObjectModelWithRefProps.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectModelWithRefProps.ObjectModelWithRefPropsMap<br> output class for Map payloads |
+| static class | ObjectModelWithRefProps.ObjectModelWithRefProps1<br> schema class |
+
+## ObjectModelWithRefProps1
 ```
 type: JsonSchema
 ```

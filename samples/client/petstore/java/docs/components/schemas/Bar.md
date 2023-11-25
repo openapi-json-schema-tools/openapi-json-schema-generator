@@ -1,5 +1,12 @@
-# Bar1
+# Bar
 org.openapijsonschematools.components.schemas.Bar.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Bar.Bar1<br> schema class |
+
+## Bar1
 ```
 type: JsonSchema
 ```

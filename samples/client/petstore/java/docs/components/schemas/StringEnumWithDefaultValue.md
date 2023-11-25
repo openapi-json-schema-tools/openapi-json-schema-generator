@@ -1,5 +1,12 @@
-# StringEnumWithDefaultValue1
+# StringEnumWithDefaultValue
 org.openapijsonschematools.components.schemas.StringEnumWithDefaultValue.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | StringEnumWithDefaultValue.StringEnumWithDefaultValue1<br> schema class |
+
+## StringEnumWithDefaultValue1
 ```
 type: JsonSchema
 ```

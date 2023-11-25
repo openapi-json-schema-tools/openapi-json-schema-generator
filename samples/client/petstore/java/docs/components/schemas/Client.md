@@ -1,5 +1,14 @@
-# Client1
+# Client
 org.openapijsonschematools.components.schemas.Client.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Client.Client2<br> schema class |
+| static class | Client.ClientMap<br> output class for Map payloads |
+| static class | Client.Client1<br> schema class |
+
+## Client1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,14 @@
-# ArrayHoldingAnyType1
+# ArrayHoldingAnyType
 org.openapijsonschematools.components.schemas.ArrayHoldingAnyType.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ArrayHoldingAnyType.Items<br> schema class |
+| static class | ArrayHoldingAnyType.ArrayHoldingAnyTypeList<br> output class for List payloads |
+| static class | ArrayHoldingAnyType.ArrayHoldingAnyType1<br> schema class |
+
+## ArrayHoldingAnyType1
 ```
 type: JsonSchema
 ```

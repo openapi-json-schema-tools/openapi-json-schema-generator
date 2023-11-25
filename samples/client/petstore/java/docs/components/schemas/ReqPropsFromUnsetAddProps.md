@@ -1,5 +1,13 @@
-# ReqPropsFromUnsetAddProps1
+# ReqPropsFromUnsetAddProps
 org.openapijsonschematools.components.schemas.ReqPropsFromUnsetAddProps.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap<br> output class for Map payloads |
+| static class | ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddProps1<br> schema class |
+
+## ReqPropsFromUnsetAddProps1
 ```
 type: JsonSchema
 ```

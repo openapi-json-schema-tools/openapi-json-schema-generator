@@ -1,5 +1,15 @@
-# QuadrilateralInterface1
+# QuadrilateralInterface
 org.openapijsonschematools.components.schemas.QuadrilateralInterface.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | QuadrilateralInterface.ShapeType<br> schema class |
+| static class | QuadrilateralInterface.QuadrilateralType<br> schema class |
+| static class | QuadrilateralInterface.QuadrilateralInterfaceMap<br> output class for Map payloads |
+| static class | QuadrilateralInterface.QuadrilateralInterface1<br> schema class |
+
+## QuadrilateralInterface1
 ```
 type: JsonSchema
 ```

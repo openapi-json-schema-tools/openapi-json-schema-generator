@@ -1,5 +1,16 @@
-# BananaReq1
+# BananaReq
 org.openapijsonschematools.components.schemas.BananaReq.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | BananaReq.AdditionalProperties<br> schema class |
+| static class | BananaReq.LengthCm<br> schema class |
+| static class | BananaReq.Sweet<br> schema class |
+| static class | BananaReq.BananaReqMap<br> output class for Map payloads |
+| static class | BananaReq.BananaReq1<br> schema class |
+
+## BananaReq1
 ```
 type: JsonSchema
 ```

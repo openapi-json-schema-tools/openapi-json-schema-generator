@@ -1,5 +1,15 @@
-# FileSchemaTestClass1
+# FileSchemaTestClass
 org.openapijsonschematools.components.schemas.FileSchemaTestClass.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | FileSchemaTestClass.FilesList<br> output class for List payloads |
+| static class | FileSchemaTestClass.Files<br> schema class |
+| static class | FileSchemaTestClass.FileSchemaTestClassMap<br> output class for Map payloads |
+| static class | FileSchemaTestClass.FileSchemaTestClass1<br> schema class |
+
+## FileSchemaTestClass1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,14 @@
-# Schema01
+# Schema0
 org.openapijsonschematools.paths.petfindbytags.get.parameters.parameter0.Schema0.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema0.Items0<br> schema class |
+| static class | Schema0.SchemaList0<br> output class for List payloads |
+| static class | Schema0.Schema01<br> schema class |
+
+## Schema01
 ```
 type: JsonSchema
 ```

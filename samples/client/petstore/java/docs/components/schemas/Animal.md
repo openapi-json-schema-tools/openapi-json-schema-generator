@@ -1,5 +1,15 @@
-# Animal1
+# Animal
 org.openapijsonschematools.components.schemas.Animal.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Animal.ClassName<br> schema class |
+| static class | Animal.Color<br> schema class |
+| static class | Animal.AnimalMap<br> output class for Map payloads |
+| static class | Animal.Animal1<br> schema class |
+
+## Animal1
 ```
 type: JsonSchema
 ```

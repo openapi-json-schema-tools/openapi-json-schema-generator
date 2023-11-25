@@ -1,5 +1,16 @@
-# Name1
+# Name
 org.openapijsonschematools.components.schemas.Name.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Name.Name2<br> schema class |
+| static class | Name.SnakeCase<br> schema class |
+| static class | Name.Property<br> schema class |
+| static class | Name.NameMap<br> output class for Map payloads |
+| static class | Name.Name1<br> schema class |
+
+## Name1
 ```
 type: JsonSchema
 ```

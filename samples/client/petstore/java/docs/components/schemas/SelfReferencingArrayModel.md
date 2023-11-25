@@ -1,5 +1,13 @@
-# SelfReferencingArrayModel1
+# SelfReferencingArrayModel
 org.openapijsonschematools.components.schemas.SelfReferencingArrayModel.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | SelfReferencingArrayModel.SelfReferencingArrayModelList<br> output class for List payloads |
+| static class | SelfReferencingArrayModel.SelfReferencingArrayModel1<br> schema class |
+
+## SelfReferencingArrayModel1
 ```
 type: JsonSchema
 ```

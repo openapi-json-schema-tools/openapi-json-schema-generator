@@ -1,5 +1,12 @@
-# RefPet1
+# RefPet
 org.openapijsonschematools.components.schemas.RefPet.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | RefPet.RefPet1<br> schema class |
+
+## RefPet1
 ```
 type: JsonSchema
 ```

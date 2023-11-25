@@ -1,5 +1,19 @@
-# Order1
+# Order
 org.openapijsonschematools.components.schemas.Order.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Order.Id<br> schema class |
+| static class | Order.PetId<br> schema class |
+| static class | Order.Quantity<br> schema class |
+| static class | Order.ShipDate<br> schema class |
+| static class | Order.Status<br> schema class |
+| static class | Order.Complete<br> schema class |
+| static class | Order.OrderMap<br> output class for Map payloads |
+| static class | Order.Order1<br> schema class |
+
+## Order1
 ```
 type: JsonSchema
 ```

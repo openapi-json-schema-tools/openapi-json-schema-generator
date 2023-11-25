@@ -1,5 +1,13 @@
-# ComposedBool1
+# ComposedBool
 org.openapijsonschematools.components.schemas.ComposedBool.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ComposedBool.Schema0<br> schema class |
+| static class | ComposedBool.ComposedBool1<br> schema class |
+
+## ComposedBool1
 ```
 type: JsonSchema
 ```

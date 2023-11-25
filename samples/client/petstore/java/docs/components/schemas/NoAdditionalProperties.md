@@ -1,5 +1,16 @@
-# NoAdditionalProperties1
+# NoAdditionalProperties
 org.openapijsonschematools.components.schemas.NoAdditionalProperties.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | NoAdditionalProperties.AdditionalProperties<br> schema class |
+| static class | NoAdditionalProperties.Id<br> schema class |
+| static class | NoAdditionalProperties.PetId<br> schema class |
+| static class | NoAdditionalProperties.NoAdditionalPropertiesMap<br> output class for Map payloads |
+| static class | NoAdditionalProperties.NoAdditionalProperties1<br> schema class |
+
+## NoAdditionalProperties1
 ```
 type: JsonSchema
 ```

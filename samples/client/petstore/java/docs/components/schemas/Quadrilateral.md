@@ -1,5 +1,12 @@
-# Quadrilateral1
+# Quadrilateral
 org.openapijsonschematools.components.schemas.Quadrilateral.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Quadrilateral.Quadrilateral1<br> schema class |
+
+## Quadrilateral1
 ```
 type: JsonSchema
 ```

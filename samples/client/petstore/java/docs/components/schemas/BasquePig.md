@@ -1,5 +1,14 @@
-# BasquePig1
+# BasquePig
 org.openapijsonschematools.components.schemas.BasquePig.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | BasquePig.ClassName<br> schema class |
+| static class | BasquePig.BasquePigMap<br> output class for Map payloads |
+| static class | BasquePig.BasquePig1<br> schema class |
+
+## BasquePig1
 ```
 type: JsonSchema
 ```

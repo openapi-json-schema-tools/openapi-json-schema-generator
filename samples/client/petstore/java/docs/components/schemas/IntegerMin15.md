@@ -1,5 +1,12 @@
-# IntegerMin151
+# IntegerMin15
 org.openapijsonschematools.components.schemas.IntegerMin15.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | IntegerMin15.IntegerMin151<br> schema class |
+
+## IntegerMin151
 ```
 type: JsonSchema
 ```

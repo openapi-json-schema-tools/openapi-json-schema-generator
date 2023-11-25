@@ -1,5 +1,16 @@
-# AppleReq1
+# AppleReq
 org.openapijsonschematools.components.schemas.AppleReq.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | AppleReq.AdditionalProperties<br> schema class |
+| static class | AppleReq.Cultivar<br> schema class |
+| static class | AppleReq.Mealy<br> schema class |
+| static class | AppleReq.AppleReqMap<br> output class for Map payloads |
+| static class | AppleReq.AppleReq1<br> schema class |
+
+## AppleReq1
 ```
 type: JsonSchema
 ```

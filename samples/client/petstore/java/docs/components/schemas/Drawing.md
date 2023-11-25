@@ -1,5 +1,15 @@
-# Drawing1
+# Drawing
 org.openapijsonschematools.components.schemas.Drawing.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Drawing.ShapesList<br> output class for List payloads |
+| static class | Drawing.Shapes<br> schema class |
+| static class | Drawing.DrawingMap<br> output class for Map payloads |
+| static class | Drawing.Drawing1<br> schema class |
+
+## Drawing1
 ```
 type: JsonSchema
 ```

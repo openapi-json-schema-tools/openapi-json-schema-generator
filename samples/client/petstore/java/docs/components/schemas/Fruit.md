@@ -1,5 +1,14 @@
-# Fruit1
+# Fruit
 org.openapijsonschematools.components.schemas.Fruit.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Fruit.Color<br> schema class |
+| static class | Fruit.FruitMap<br> output class for Map payloads |
+| static class | Fruit.Fruit1<br> schema class |
+
+## Fruit1
 ```
 type: JsonSchema
 ```

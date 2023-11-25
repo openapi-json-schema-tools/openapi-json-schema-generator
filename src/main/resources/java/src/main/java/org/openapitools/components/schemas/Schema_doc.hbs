@@ -1,6 +1,6 @@
 {{#with schema}}
 {{#eq identifierPieces.size 0}}
-{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces containerJsonPathPiece) }}
 {{else}}
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces }}
 {{/eq}}
@@ -11,6 +11,25 @@
 {{moduleLocation}}.java
     {{/unless}}
 {{/if}}
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+{{#each getSchemas}}
+    {{#eq instanceType "schema"}}
+| static class | {{../containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}<br> schema class |
+        {{else}}
+        {{#eq instanceType "propertiesOutputType"}}
+| static class | {{../containerJsonPathPiece.camelCase}}.{{mapOutputJsonPathPiece.camelCase}}<br> output class for Map payloads |
+        {{else}}
+            {{#eq instanceType "arrayOutputType"}}
+| static class | {{../containerJsonPathPiece.camelCase}}.{{arrayOutputJsonPathPiece.camelCase}}<br> output class for List payloads |
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}
+
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
 ```
 type: JsonSchema
 ```

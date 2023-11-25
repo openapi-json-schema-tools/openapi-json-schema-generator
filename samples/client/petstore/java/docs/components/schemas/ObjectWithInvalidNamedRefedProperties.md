@@ -1,5 +1,13 @@
-# ObjectWithInvalidNamedRefedProperties1
+# ObjectWithInvalidNamedRefedProperties
 org.openapijsonschematools.components.schemas.ObjectWithInvalidNamedRefedProperties.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap<br> output class for Map payloads |
+| static class | ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1<br> schema class |
+
+## ObjectWithInvalidNamedRefedProperties1
 ```
 type: JsonSchema
 ```

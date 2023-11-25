@@ -1,5 +1,12 @@
-# SomeHeaderSchema1
+# SomeHeaderSchema
 org.openapijsonschematools.components.responses.successinlinecontentandheader.headers.someheader.SomeHeaderSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | SomeHeaderSchema.SomeHeaderSchema1<br> schema class |
+
+## SomeHeaderSchema1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,14 @@
-# DanishPig1
+# DanishPig
 org.openapijsonschematools.components.schemas.DanishPig.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | DanishPig.ClassName<br> schema class |
+| static class | DanishPig.DanishPigMap<br> output class for Map payloads |
+| static class | DanishPig.DanishPig1<br> schema class |
+
+## DanishPig1
 ```
 type: JsonSchema
 ```

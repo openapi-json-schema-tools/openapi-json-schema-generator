@@ -1,5 +1,12 @@
-# StringSchema1
+# StringSchema
 org.openapijsonschematools.components.schemas.StringSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | StringSchema.StringSchema1<br> schema class |
+
+## StringSchema1
 ```
 type: JsonSchema
 ```

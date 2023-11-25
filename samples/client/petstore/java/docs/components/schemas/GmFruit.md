@@ -1,5 +1,14 @@
-# GmFruit1
+# GmFruit
 org.openapijsonschematools.components.schemas.GmFruit.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | GmFruit.Color<br> schema class |
+| static class | GmFruit.GmFruitMap<br> output class for Map payloads |
+| static class | GmFruit.GmFruit1<br> schema class |
+
+## GmFruit1
 ```
 type: JsonSchema
 ```

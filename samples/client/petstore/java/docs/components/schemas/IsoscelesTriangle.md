@@ -1,5 +1,15 @@
-# IsoscelesTriangle1
+# IsoscelesTriangle
 org.openapijsonschematools.components.schemas.IsoscelesTriangle.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | IsoscelesTriangle.TriangleType<br> schema class |
+| static class | IsoscelesTriangle.Schema1Map<br> output class for Map payloads |
+| static class | IsoscelesTriangle.Schema1<br> schema class |
+| static class | IsoscelesTriangle.IsoscelesTriangle1<br> schema class |
+
+## IsoscelesTriangle1
 ```
 type: JsonSchema
 ```

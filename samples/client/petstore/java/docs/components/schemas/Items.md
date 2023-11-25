@@ -1,5 +1,14 @@
-# Items1
+# Items
 org.openapijsonschematools.components.schemas.Items.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Items.Items2<br> schema class |
+| static class | Items.ItemsList<br> output class for List payloads |
+| static class | Items.Items1<br> schema class |
+
+## Items1
 ```
 type: JsonSchema
 ```

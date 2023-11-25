@@ -1,5 +1,12 @@
-# DateTimeWithValidations1
+# DateTimeWithValidations
 org.openapijsonschematools.components.schemas.DateTimeWithValidations.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | DateTimeWithValidations.DateTimeWithValidations1<br> schema class |
+
+## DateTimeWithValidations1
 ```
 type: JsonSchema
 ```

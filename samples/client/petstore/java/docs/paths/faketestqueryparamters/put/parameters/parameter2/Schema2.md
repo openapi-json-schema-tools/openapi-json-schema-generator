@@ -1,5 +1,14 @@
-# Schema21
+# Schema2
 org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter2.Schema2.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema2.Items2<br> schema class |
+| static class | Schema2.SchemaList2<br> output class for List payloads |
+| static class | Schema2.Schema21<br> schema class |
+
+## Schema21
 ```
 type: JsonSchema
 ```

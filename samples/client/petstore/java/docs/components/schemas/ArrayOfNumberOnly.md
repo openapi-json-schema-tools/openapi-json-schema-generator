@@ -1,5 +1,16 @@
-# ArrayOfNumberOnly1
+# ArrayOfNumberOnly
 org.openapijsonschematools.components.schemas.ArrayOfNumberOnly.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ArrayOfNumberOnly.Items<br> schema class |
+| static class | ArrayOfNumberOnly.ArrayNumberList<br> output class for List payloads |
+| static class | ArrayOfNumberOnly.ArrayNumber<br> schema class |
+| static class | ArrayOfNumberOnly.ArrayOfNumberOnlyMap<br> output class for Map payloads |
+| static class | ArrayOfNumberOnly.ArrayOfNumberOnly1<br> schema class |
+
+## ArrayOfNumberOnly1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,12 @@
-# Mammal1
+# Mammal
 org.openapijsonschematools.components.schemas.Mammal.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Mammal.Mammal1<br> schema class |
+
+## Mammal1
 ```
 type: JsonSchema
 ```

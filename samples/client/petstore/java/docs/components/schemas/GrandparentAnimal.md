@@ -1,5 +1,14 @@
-# GrandparentAnimal1
+# GrandparentAnimal
 org.openapijsonschematools.components.schemas.GrandparentAnimal.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | GrandparentAnimal.PetType<br> schema class |
+| static class | GrandparentAnimal.GrandparentAnimalMap<br> output class for Map payloads |
+| static class | GrandparentAnimal.GrandparentAnimal1<br> schema class |
+
+## GrandparentAnimal1
 ```
 type: JsonSchema
 ```

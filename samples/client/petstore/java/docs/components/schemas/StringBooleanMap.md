@@ -1,5 +1,14 @@
-# StringBooleanMap1
+# StringBooleanMap
 org.openapijsonschematools.components.schemas.StringBooleanMap.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | StringBooleanMap.AdditionalProperties<br> schema class |
+| static class | StringBooleanMap.StringBooleanMapMap<br> output class for Map payloads |
+| static class | StringBooleanMap.StringBooleanMap1<br> schema class |
+
+## StringBooleanMap1
 ```
 type: JsonSchema
 ```

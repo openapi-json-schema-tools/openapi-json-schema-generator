@@ -1,5 +1,16 @@
-# ApiResponseSchema1
+# ApiResponseSchema
 org.openapijsonschematools.components.schemas.ApiResponseSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ApiResponseSchema.Code<br> schema class |
+| static class | ApiResponseSchema.Type<br> schema class |
+| static class | ApiResponseSchema.Message<br> schema class |
+| static class | ApiResponseSchema.ApiResponseMap<br> output class for Map payloads |
+| static class | ApiResponseSchema.ApiResponseSchema1<br> schema class |
+
+## ApiResponseSchema1
 ```
 type: JsonSchema
 ```

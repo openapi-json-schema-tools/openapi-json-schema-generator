@@ -1,5 +1,14 @@
-# ReturnSchema1
+# ReturnSchema
 org.openapijsonschematools.components.schemas.ReturnSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ReturnSchema.ReturnSchema2<br> schema class |
+| static class | ReturnSchema.ReturnMap<br> output class for Map payloads |
+| static class | ReturnSchema.ReturnSchema1<br> schema class |
+
+## ReturnSchema1
 ```
 type: JsonSchema
 ```

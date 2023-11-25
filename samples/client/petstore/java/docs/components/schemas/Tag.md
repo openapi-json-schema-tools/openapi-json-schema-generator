@@ -1,5 +1,15 @@
-# Tag1
+# Tag
 org.openapijsonschematools.components.schemas.Tag.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Tag.Id<br> schema class |
+| static class | Tag.Name<br> schema class |
+| static class | Tag.TagMap<br> output class for Map payloads |
+| static class | Tag.Tag1<br> schema class |
+
+## Tag1
 ```
 type: JsonSchema
 ```

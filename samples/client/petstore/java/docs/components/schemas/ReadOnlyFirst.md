@@ -1,5 +1,15 @@
-# ReadOnlyFirst1
+# ReadOnlyFirst
 org.openapijsonschematools.components.schemas.ReadOnlyFirst.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ReadOnlyFirst.Bar<br> schema class |
+| static class | ReadOnlyFirst.Baz<br> schema class |
+| static class | ReadOnlyFirst.ReadOnlyFirstMap<br> output class for Map payloads |
+| static class | ReadOnlyFirst.ReadOnlyFirst1<br> schema class |
+
+## ReadOnlyFirst1
 ```
 type: JsonSchema
 ```

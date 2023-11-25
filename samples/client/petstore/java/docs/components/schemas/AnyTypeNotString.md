@@ -1,5 +1,13 @@
-# AnyTypeNotString1
+# AnyTypeNotString
 org.openapijsonschematools.components.schemas.AnyTypeNotString.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | AnyTypeNotString.Not<br> schema class |
+| static class | AnyTypeNotString.AnyTypeNotString1<br> schema class |
+
+## AnyTypeNotString1
 ```
 type: JsonSchema
 ```

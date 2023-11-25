@@ -1,5 +1,15 @@
-# FromSchema1
+# FromSchema
 org.openapijsonschematools.components.schemas.FromSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | FromSchema.Data<br> schema class |
+| static class | FromSchema.Id<br> schema class |
+| static class | FromSchema.FromSchemaMap<br> output class for Map payloads |
+| static class | FromSchema.FromSchema1<br> schema class |
+
+## FromSchema1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,15 @@
-# Money1
+# Money
 org.openapijsonschematools.components.schemas.Money.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Money.AdditionalProperties<br> schema class |
+| static class | Money.Amount<br> schema class |
+| static class | Money.MoneyMap<br> output class for Map payloads |
+| static class | Money.Money1<br> schema class |
+
+## Money1
 ```
 type: JsonSchema
 ```

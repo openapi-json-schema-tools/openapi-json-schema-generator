@@ -1,5 +1,16 @@
-# Schema1
+# Schema
 org.openapijsonschematools.paths.fakeuploadfiles.post.requestbody.content.multipartformdata.Schema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema.Items<br> schema class |
+| static class | Schema.FilesList<br> output class for List payloads |
+| static class | Schema.Files<br> schema class |
+| static class | Schema.SchemaMap<br> output class for Map payloads |
+| static class | Schema.Schema1<br> schema class |
+
+## Schema1
 ```
 type: JsonSchema
 ```

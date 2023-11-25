@@ -1,5 +1,12 @@
-# IntegerMax101
+# IntegerMax10
 org.openapijsonschematools.components.schemas.IntegerMax10.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | IntegerMax10.IntegerMax101<br> schema class |
+
+## IntegerMax101
 ```
 type: JsonSchema
 ```

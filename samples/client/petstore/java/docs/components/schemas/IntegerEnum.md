@@ -1,5 +1,12 @@
-# IntegerEnum1
+# IntegerEnum
 org.openapijsonschematools.components.schemas.IntegerEnum.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | IntegerEnum.IntegerEnum1<br> schema class |
+
+## IntegerEnum1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,14 @@
-# File1
+# File
 org.openapijsonschematools.components.schemas.File.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | File.SourceURI<br> schema class |
+| static class | File.FileMap<br> output class for Map payloads |
+| static class | File.File1<br> schema class |
+
+## File1
 ```
 type: JsonSchema
 ```

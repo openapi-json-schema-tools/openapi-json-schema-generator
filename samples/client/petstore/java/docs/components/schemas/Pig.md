@@ -1,5 +1,12 @@
-# Pig1
+# Pig
 org.openapijsonschematools.components.schemas.Pig.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Pig.Pig1<br> schema class |
+
+## Pig1
 ```
 type: JsonSchema
 ```

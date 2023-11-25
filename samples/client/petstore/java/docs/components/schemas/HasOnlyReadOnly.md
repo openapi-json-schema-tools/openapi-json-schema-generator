@@ -1,5 +1,15 @@
-# HasOnlyReadOnly1
+# HasOnlyReadOnly
 org.openapijsonschematools.components.schemas.HasOnlyReadOnly.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | HasOnlyReadOnly.Bar<br> schema class |
+| static class | HasOnlyReadOnly.Foo<br> schema class |
+| static class | HasOnlyReadOnly.HasOnlyReadOnlyMap<br> output class for Map payloads |
+| static class | HasOnlyReadOnly.HasOnlyReadOnly1<br> schema class |
+
+## HasOnlyReadOnly1
 ```
 type: JsonSchema
 ```

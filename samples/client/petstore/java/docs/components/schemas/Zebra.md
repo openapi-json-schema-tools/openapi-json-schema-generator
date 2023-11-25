@@ -1,5 +1,16 @@
-# Zebra1
+# Zebra
 org.openapijsonschematools.components.schemas.Zebra.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Zebra.AdditionalProperties<br> schema class |
+| static class | Zebra.Type<br> schema class |
+| static class | Zebra.ClassName<br> schema class |
+| static class | Zebra.ZebraMap<br> output class for Map payloads |
+| static class | Zebra.Zebra1<br> schema class |
+
+## Zebra1
 ```
 type: JsonSchema
 ```

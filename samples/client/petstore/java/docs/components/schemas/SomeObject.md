@@ -1,5 +1,12 @@
-# SomeObject1
+# SomeObject
 org.openapijsonschematools.components.schemas.SomeObject.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | SomeObject.SomeObject1<br> schema class |
+
+## SomeObject1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,22 @@
-# AnyTypeAndFormat1
+# AnyTypeAndFormat
 org.openapijsonschematools.components.schemas.AnyTypeAndFormat.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | AnyTypeAndFormat.UuidSchema<br> schema class |
+| static class | AnyTypeAndFormat.Date<br> schema class |
+| static class | AnyTypeAndFormat.Datetime<br> schema class |
+| static class | AnyTypeAndFormat.NumberSchema<br> schema class |
+| static class | AnyTypeAndFormat.Binary<br> schema class |
+| static class | AnyTypeAndFormat.Int32<br> schema class |
+| static class | AnyTypeAndFormat.Int64<br> schema class |
+| static class | AnyTypeAndFormat.DoubleSchema<br> schema class |
+| static class | AnyTypeAndFormat.FloatSchema<br> schema class |
+| static class | AnyTypeAndFormat.AnyTypeAndFormatMap<br> output class for Map payloads |
+| static class | AnyTypeAndFormat.AnyTypeAndFormat1<br> schema class |
+
+## AnyTypeAndFormat1
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,15 @@
-# ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
+# ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 org.openapijsonschematools.components.schemas.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name<br> schema class |
+| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map<br> output class for Map payloads |
+| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1<br> schema class |
+| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1<br> schema class |
+
+## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
 ```
 type: JsonSchema
 ```

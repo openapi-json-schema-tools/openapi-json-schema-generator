@@ -1,5 +1,12 @@
-# Schema01
+# Schema0
 org.openapijsonschematools.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Schema0.Schema01<br> schema class |
+
+## Schema01
 ```
 type: JsonSchema
 ```

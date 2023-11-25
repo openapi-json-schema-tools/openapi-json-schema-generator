@@ -1,5 +1,12 @@
-# StringWithValidation1
+# StringWithValidation
 org.openapijsonschematools.components.schemas.StringWithValidation.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | StringWithValidation.StringWithValidation1<br> schema class |
+
+## StringWithValidation1
 ```
 type: JsonSchema
 ```

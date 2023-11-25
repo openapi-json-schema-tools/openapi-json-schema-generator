@@ -1,5 +1,12 @@
-# Currency1
+# Currency
 org.openapijsonschematools.components.schemas.Currency.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Currency.Currency1<br> schema class |
+
+## Currency1
 ```
 type: JsonSchema
 ```

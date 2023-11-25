@@ -1,5 +1,12 @@
-# NumberWithValidations1
+# NumberWithValidations
 org.openapijsonschematools.components.schemas.NumberWithValidations.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | NumberWithValidations.NumberWithValidations1<br> schema class |
+
+## NumberWithValidations1
 ```
 type: JsonSchema
 ```

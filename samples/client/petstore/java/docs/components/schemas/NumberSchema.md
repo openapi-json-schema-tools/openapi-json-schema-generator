@@ -1,5 +1,12 @@
-# NumberSchema1
+# NumberSchema
 org.openapijsonschematools.components.schemas.NumberSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | NumberSchema.NumberSchema1<br> schema class |
+
+## NumberSchema1
 ```
 type: JsonSchema
 ```

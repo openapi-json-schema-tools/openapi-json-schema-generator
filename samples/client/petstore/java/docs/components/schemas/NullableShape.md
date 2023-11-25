@@ -1,5 +1,13 @@
-# NullableShape1
+# NullableShape
 org.openapijsonschematools.components.schemas.NullableShape.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | NullableShape.Schema2<br> schema class |
+| static class | NullableShape.NullableShape1<br> schema class |
+
+## NullableShape1
 ```
 type: JsonSchema
 ```

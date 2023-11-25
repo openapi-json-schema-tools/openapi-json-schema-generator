@@ -1,5 +1,15 @@
-# ChildCat1
+# ChildCat
 org.openapijsonschematools.components.schemas.ChildCat.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ChildCat.Name<br> schema class |
+| static class | ChildCat.Schema1Map<br> output class for Map payloads |
+| static class | ChildCat.Schema1<br> schema class |
+| static class | ChildCat.ChildCat1<br> schema class |
+
+## ChildCat1
 ```
 type: JsonSchema
 ```

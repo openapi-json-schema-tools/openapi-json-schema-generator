@@ -1,5 +1,17 @@
-# EnumArrays1
+# EnumArrays
 org.openapijsonschematools.components.schemas.EnumArrays.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | EnumArrays.JustSymbol<br> schema class |
+| static class | EnumArrays.Items<br> schema class |
+| static class | EnumArrays.ArrayEnumList<br> output class for List payloads |
+| static class | EnumArrays.ArrayEnum<br> schema class |
+| static class | EnumArrays.EnumArraysMap<br> output class for Map payloads |
+| static class | EnumArrays.EnumArrays1<br> schema class |
+
+## EnumArrays1
 ```
 type: JsonSchema
 ```

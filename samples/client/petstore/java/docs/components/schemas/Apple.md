@@ -1,5 +1,15 @@
-# Apple1
+# Apple
 org.openapijsonschematools.components.schemas.Apple.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | Apple.Cultivar<br> schema class |
+| static class | Apple.Origin<br> schema class |
+| static class | Apple.AppleMap<br> output class for Map payloads |
+| static class | Apple.Apple1<br> schema class |
+
+## Apple1
 ```
 type: JsonSchema
 ```

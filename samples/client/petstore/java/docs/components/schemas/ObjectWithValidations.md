@@ -1,5 +1,12 @@
-# ObjectWithValidations1
+# ObjectWithValidations
 org.openapijsonschematools.components.schemas.ObjectWithValidations.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectWithValidations.ObjectWithValidations1<br> schema class |
+
+## ObjectWithValidations1
 ```
 type: JsonSchema
 ```

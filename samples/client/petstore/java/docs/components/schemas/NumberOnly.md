@@ -1,5 +1,14 @@
-# NumberOnly1
+# NumberOnly
 org.openapijsonschematools.components.schemas.NumberOnly.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | NumberOnly.JustNumber<br> schema class |
+| static class | NumberOnly.NumberOnlyMap<br> output class for Map payloads |
+| static class | NumberOnly.NumberOnly1<br> schema class |
+
+## NumberOnly1
 ```
 type: JsonSchema
 ```

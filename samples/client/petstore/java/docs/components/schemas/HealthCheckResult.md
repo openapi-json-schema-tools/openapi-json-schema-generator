@@ -1,5 +1,14 @@
-# HealthCheckResult1
+# HealthCheckResult
 org.openapijsonschematools.components.schemas.HealthCheckResult.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | HealthCheckResult.NullableMessage<br> schema class |
+| static class | HealthCheckResult.HealthCheckResultMap<br> output class for Map payloads |
+| static class | HealthCheckResult.HealthCheckResult1<br> schema class |
+
+## HealthCheckResult1
 ```
 type: JsonSchema
 ```

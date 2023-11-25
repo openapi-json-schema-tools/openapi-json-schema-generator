@@ -1,5 +1,15 @@
-# ObjectModelWithArgAndArgsProperties1
+# ObjectModelWithArgAndArgsProperties
 org.openapijsonschematools.components.schemas.ObjectModelWithArgAndArgsProperties.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ObjectModelWithArgAndArgsProperties.Arg<br> schema class |
+| static class | ObjectModelWithArgAndArgsProperties.Args<br> schema class |
+| static class | ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap<br> output class for Map payloads |
+| static class | ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1<br> schema class |
+
+## ObjectModelWithArgAndArgsProperties1
 ```
 type: JsonSchema
 ```

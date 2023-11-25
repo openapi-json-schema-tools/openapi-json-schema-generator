@@ -1,5 +1,14 @@
-# ComposedArray1
+# ComposedArray
 org.openapijsonschematools.components.schemas.ComposedArray.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | ComposedArray.Items<br> schema class |
+| static class | ComposedArray.ComposedArrayList<br> output class for List payloads |
+| static class | ComposedArray.ComposedArray1<br> schema class |
+
+## ComposedArray1
 ```
 type: JsonSchema
 ```

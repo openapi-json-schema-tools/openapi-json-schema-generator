@@ -1,5 +1,12 @@
-# LocationSchema1
+# LocationSchema
 org.openapijsonschematools.components.responses.headerswithnobody.headers.location.LocationSchema.java
+
+## Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+| static class | LocationSchema.LocationSchema1<br> schema class |
+
+## LocationSchema1
 ```
 type: JsonSchema
 ```
