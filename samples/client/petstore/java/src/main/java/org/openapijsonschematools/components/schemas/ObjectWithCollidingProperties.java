@@ -23,8 +23,8 @@ public class ObjectWithCollidingProperties {
     public class Someprop extends MapJsonSchema {}
     
     
-    public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object
-        ObjectWithCollidingPropertiesMap(FrozenMap<String, Object
+    public static class ObjectWithCollidingPropertiesMap extends FrozenMap<String, Object> {
+        ObjectWithCollidingPropertiesMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -36,16 +36,16 @@ public class ObjectWithCollidingProperties {
             return ObjectWithCollidingProperties1.validate(arg, configuration);
         }
         
-        public FrozenMap<String, Object>
+        public FrozenMap<String, Object> someProp() {
             String key = "someProp";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>
+            return (FrozenMap<String, Object>) get(key);
         }
         
-        public FrozenMap<String, Object>
+        public FrozenMap<String, Object> someprop() {
             String key = "someprop";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>
+            return (FrozenMap<String, Object>) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -71,7 +71,7 @@ public class ObjectWithCollidingProperties {
                 new PropertyEntry("someprop", Someprop.class)
             )))
         ));
-        protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithCollidingPropertiesMap(arg);
         }
         public static ObjectWithCollidingPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

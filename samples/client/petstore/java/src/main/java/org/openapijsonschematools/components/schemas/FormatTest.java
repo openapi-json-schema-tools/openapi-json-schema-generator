@@ -155,8 +155,8 @@ public class FormatTest {
     public class Items extends NumberJsonSchema {}
     
     
-    public static class ArrayWithUniqueItemsList extends FrozenList<Number
-        ArrayWithUniqueItemsList(FrozenList<Number
+    public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
+        ArrayWithUniqueItemsList(FrozenList<Number> m) {
             super(m);
         }
         public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -170,7 +170,7 @@ public class FormatTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number
+        protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);
         }
         public static ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -246,8 +246,8 @@ public class FormatTest {
     public class NoneProp extends NullJsonSchema {}
     
     
-    public static class FormatTestMap extends FrozenMap<String, Object
-        FormatTestMap(FrozenMap<String, Object
+    public static class FormatTestMap extends FrozenMap<String, Object> {
+        FormatTestMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -279,84 +279,84 @@ public class FormatTest {
             return FormatTest1.validate(arg, configuration);
         }
         
-        public String
-            return (String
+        public String date() {
+            return (String) get("date");
         }
         
-        public String
-            return (String
+        public String password() {
+            return (String) get("password");
         }
         
-        public int
+        public int int32() {
             String key = "int32";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
-        public int
+        public int int32withValidations() {
             String key = "int32withValidations";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
-        public long
+        public long int64() {
             String key = "int64";
             throwIfKeyNotPresent(key);
-            return (long
+            return (long) get(key);
         }
         
-        public float
+        public float float32() {
             String key = "float32";
             throwIfKeyNotPresent(key);
-            return (float
+            return (float) get(key);
         }
         
-        public double
+        public double float64() {
             String key = "float64";
             throwIfKeyNotPresent(key);
-            return (double
+            return (double) get(key);
         }
         
-        public ArrayWithUniqueItemsList
+        public ArrayWithUniqueItemsList arrayWithUniqueItems() {
             String key = "arrayWithUniqueItems";
             throwIfKeyNotPresent(key);
-            return (ArrayWithUniqueItemsList
+            return (ArrayWithUniqueItemsList) get(key);
         }
         
-        public String
+        public String binary() {
             String key = "binary";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String dateTime() {
             String key = "dateTime";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String uuidNoExample() {
             String key = "uuidNoExample";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String pattern_with_digits() {
             String key = "pattern_with_digits";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String pattern_with_digits_and_delimiter() {
             String key = "pattern_with_digits_and_delimiter";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public Void
+        public Void noneProp() {
             String key = "noneProp";
             throwIfKeyNotPresent(key);
-            return (Void
+            return (Void) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -405,7 +405,7 @@ public class FormatTest {
                 "password"
             )))
         ));
-        protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object
+        protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FormatTestMap(arg);
         }
         public static FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

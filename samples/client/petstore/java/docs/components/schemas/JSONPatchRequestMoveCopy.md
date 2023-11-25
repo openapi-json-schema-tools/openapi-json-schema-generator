@@ -21,7 +21,7 @@ Key | Type |  Description | Notes
 
 ## JSONPatchRequestMoveCopyMap
 ```
-base class: FrozenMap<String, String
+base class: FrozenMap<String, String>
 ```
 
 ### properties

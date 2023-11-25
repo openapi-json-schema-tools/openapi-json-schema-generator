@@ -27,8 +27,8 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    public static class QueryParametersMap extends FrozenMap<String, Object
-        QueryParametersMap(FrozenMap<String, Object
+    public static class QueryParametersMap extends FrozenMap<String, Object> {
+        QueryParametersMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -42,28 +42,28 @@ public class QueryParameters {
             return QueryParameters1.validate(arg, configuration);
         }
         
-        public double
+        public double enum_query_double() {
             String key = "enum_query_double";
             throwIfKeyNotPresent(key);
-            return (double
+            return (double) get(key);
         }
         
-        public String
+        public String enum_query_string() {
             String key = "enum_query_string";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public int
+        public int enum_query_integer() {
             String key = "enum_query_integer";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
-        public Schema2.SchemaList2
+        public Schema2.SchemaList2 enum_query_string_array() {
             String key = "enum_query_string_array";
             throwIfKeyNotPresent(key);
-            return (Schema2.SchemaList2
+            return (Schema2.SchemaList2) get(key);
         }
     }    
     
@@ -78,7 +78,7 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -30,8 +30,8 @@ public class Schema {
         }
     }    
     
-    public static class EnumFormStringArrayList extends FrozenList<String
-        EnumFormStringArrayList(FrozenList<String
+    public static class EnumFormStringArrayList extends FrozenList<String> {
+        EnumFormStringArrayList(FrozenList<String> m) {
             super(m);
         }
         public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -45,7 +45,7 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static EnumFormStringArrayList getListOutputInstance(FrozenList<String
+        protected static EnumFormStringArrayList getListOutputInstance(FrozenList<String> arg) {
             return new EnumFormStringArrayList(arg);
         }
         public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -64,8 +64,8 @@ public class Schema {
         }
     }    
     
-    public static class SchemaMap extends FrozenMap<String, Object
-        SchemaMap(FrozenMap<String, Object
+    public static class SchemaMap extends FrozenMap<String, Object> {
+        SchemaMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -77,16 +77,16 @@ public class Schema {
             return Schema1.validate(arg, configuration);
         }
         
-        public EnumFormStringArrayList
+        public EnumFormStringArrayList enum_form_string_array() {
             String key = "enum_form_string_array";
             throwIfKeyNotPresent(key);
-            return (EnumFormStringArrayList
+            return (EnumFormStringArrayList) get(key);
         }
         
-        public String
+        public String enum_form_string() {
             String key = "enum_form_string";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -104,7 +104,7 @@ public class Schema {
                 new PropertyEntry("enum_form_string", EnumFormString.class)
             )))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

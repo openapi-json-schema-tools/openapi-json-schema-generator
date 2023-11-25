@@ -17,8 +17,8 @@ public class SelfReferencingObjectModel {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SelfReferencingObjectModelMap extends FrozenMap<String, Object
-        SelfReferencingObjectModelMap(FrozenMap<String, Object
+    public static class SelfReferencingObjectModelMap extends FrozenMap<String, Object> {
+        SelfReferencingObjectModelMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -29,15 +29,15 @@ public class SelfReferencingObjectModel {
             return SelfReferencingObjectModel1.validate(arg, configuration);
         }
         
-        public SelfReferencingObjectModelMap
+        public SelfReferencingObjectModelMap selfRef() {
             String key = "selfRef";
             throwIfKeyNotPresent(key);
-            return (SelfReferencingObjectModelMap
+            return (SelfReferencingObjectModelMap) get(key);
         }
         
-        public SelfReferencingObjectModelMap
+        public SelfReferencingObjectModelMap getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
-            return (SelfReferencingObjectModelMap
+            return (SelfReferencingObjectModelMap) get(name);
         }
     }    
     
@@ -55,7 +55,7 @@ public class SelfReferencingObjectModel {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(SelfReferencingObjectModel1.class))
         ));
-        protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object
+        protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SelfReferencingObjectModelMap(arg);
         }
         public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

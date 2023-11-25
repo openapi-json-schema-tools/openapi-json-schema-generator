@@ -20,8 +20,8 @@ public class ReqPropsFromTrueAddProps {
     public class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
-    public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object
-        ReqPropsFromTrueAddPropsMap(FrozenMap<String, Object
+    public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<String, Object> {
+        ReqPropsFromTrueAddPropsMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -33,11 +33,11 @@ public class ReqPropsFromTrueAddProps {
             return ReqPropsFromTrueAddProps1.validate(arg, configuration);
         }
         
-        public Object
+        public Object validName() {
             return get("validName");
         }
         
-        public Object
+        public Object getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -58,7 +58,7 @@ public class ReqPropsFromTrueAddProps {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ReqPropsFromTrueAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
         public static ReqPropsFromTrueAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

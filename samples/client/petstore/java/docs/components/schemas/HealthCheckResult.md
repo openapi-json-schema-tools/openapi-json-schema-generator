@@ -23,7 +23,7 @@ Key | Type |  Description | Notes
 
 ## HealthCheckResultMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

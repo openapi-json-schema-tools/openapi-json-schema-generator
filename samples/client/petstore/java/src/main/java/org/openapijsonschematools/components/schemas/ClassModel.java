@@ -24,8 +24,8 @@ public class ClassModel {
     public class ClassSchema extends StringJsonSchema {}
     
     
-    public static class ClassModelMap extends FrozenMap<String, Object
-        ClassModelMap(FrozenMap<String, Object
+    public static class ClassModelMap extends FrozenMap<String, Object> {
+        ClassModelMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -20,8 +20,8 @@ public class NumberOnly {
     public class JustNumber extends NumberJsonSchema {}
     
     
-    public static class NumberOnlyMap extends FrozenMap<String, Object
-        NumberOnlyMap(FrozenMap<String, Object
+    public static class NumberOnlyMap extends FrozenMap<String, Object> {
+        NumberOnlyMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -32,10 +32,10 @@ public class NumberOnly {
             return NumberOnly1.validate(arg, configuration);
         }
         
-        public Number
+        public Number JustNumber() {
             String key = "JustNumber";
             throwIfKeyNotPresent(key);
-            return (Number
+            return (Number) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -58,7 +58,7 @@ public class NumberOnly {
                 new PropertyEntry("JustNumber", JustNumber.class)
             )))
         ));
-        protected static NumberOnlyMap getMapOutputInstance(FrozenMap<String, Object
+        protected static NumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new NumberOnlyMap(arg);
         }
         public static NumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

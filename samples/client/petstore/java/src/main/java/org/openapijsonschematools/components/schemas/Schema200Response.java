@@ -28,8 +28,8 @@ public class Schema200Response {
     public class ClassSchema extends StringJsonSchema {}
     
     
-    public static class Schema200ResponseMap extends FrozenMap<String, Object
-        Schema200ResponseMap(FrozenMap<String, Object
+    public static class Schema200ResponseMap extends FrozenMap<String, Object> {
+        Schema200ResponseMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -41,10 +41,10 @@ public class Schema200Response {
             return Schema200Response1.validate(arg, configuration);
         }
         
-        public int
+        public int name() {
             String key = "name";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
         public Object getAdditionalProperty(String name) {

@@ -23,8 +23,8 @@ public class ReadOnlyFirst {
     public class Baz extends StringJsonSchema {}
     
     
-    public static class ReadOnlyFirstMap extends FrozenMap<String, Object
-        ReadOnlyFirstMap(FrozenMap<String, Object
+    public static class ReadOnlyFirstMap extends FrozenMap<String, Object> {
+        ReadOnlyFirstMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -36,16 +36,16 @@ public class ReadOnlyFirst {
             return ReadOnlyFirst1.validate(arg, configuration);
         }
         
-        public String
+        public String bar() {
             String key = "bar";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String baz() {
             String key = "baz";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -69,7 +69,7 @@ public class ReadOnlyFirst {
                 new PropertyEntry("baz", Baz.class)
             )))
         ));
-        protected static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ReadOnlyFirstMap(arg);
         }
         public static ReadOnlyFirstMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

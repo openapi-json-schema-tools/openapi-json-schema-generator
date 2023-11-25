@@ -35,8 +35,8 @@ public class Whale {
         }
     }    
     
-    public static class WhaleMap extends FrozenMap<String, Object
-        WhaleMap(FrozenMap<String, Object
+    public static class WhaleMap extends FrozenMap<String, Object> {
+        WhaleMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -50,20 +50,20 @@ public class Whale {
             return Whale1.validate(arg, configuration);
         }
         
-        public String
-            return (String
+        public String className() {
+            return (String) get("className");
         }
         
-        public boolean
+        public boolean hasBaleen() {
             String key = "hasBaleen";
             throwIfKeyNotPresent(key);
-            return (boolean
+            return (boolean) get(key);
         }
         
-        public boolean
+        public boolean hasTeeth() {
             String key = "hasTeeth";
             throwIfKeyNotPresent(key);
-            return (boolean
+            return (boolean) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -91,7 +91,7 @@ public class Whale {
                 "className"
             )))
         ));
-        protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object
+        protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new WhaleMap(arg);
         }
         public static WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -20,8 +20,8 @@ public class PublicKey {
     public class Key extends StringJsonSchema {}
     
     
-    public static class PublicKeyMap extends FrozenMap<String, Object
-        PublicKeyMap(FrozenMap<String, Object
+    public static class PublicKeyMap extends FrozenMap<String, Object> {
+        PublicKeyMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -32,10 +32,10 @@ public class PublicKey {
             return PublicKey1.validate(arg, configuration);
         }
         
-        public String
+        public String key() {
             String key = "key";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -60,7 +60,7 @@ public class PublicKey {
                 new PropertyEntry("key", Key.class)
             )))
         ));
-        protected static PublicKeyMap getMapOutputInstance(FrozenMap<String, Object
+        protected static PublicKeyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PublicKeyMap(arg);
         }
         public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

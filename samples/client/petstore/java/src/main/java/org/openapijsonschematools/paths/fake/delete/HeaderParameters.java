@@ -26,8 +26,8 @@ public class HeaderParameters {
         // NotAnyTypeSchema
     
     
-    public static class HeaderParametersMap extends FrozenMap<String, Object
-        HeaderParametersMap(FrozenMap<String, Object
+    public static class HeaderParametersMap extends FrozenMap<String, Object> {
+        HeaderParametersMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -40,14 +40,14 @@ public class HeaderParameters {
             return HeaderParameters1.validate(arg, configuration);
         }
         
-        public String
-            return (String
+        public String required_boolean_group() {
+            return (String) get("required_boolean_group");
         }
         
-        public String
+        public String boolean_group() {
             String key = "boolean_group";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
     }    
     
@@ -63,7 +63,7 @@ public class HeaderParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object
+        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

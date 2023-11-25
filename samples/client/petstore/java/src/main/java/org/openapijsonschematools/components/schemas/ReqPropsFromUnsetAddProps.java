@@ -15,8 +15,8 @@ public class ReqPropsFromUnsetAddProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ReqPropsFromUnsetAddPropsMap extends FrozenMap<String, Object
-        ReqPropsFromUnsetAddPropsMap(FrozenMap<String, Object
+    public static class ReqPropsFromUnsetAddPropsMap extends FrozenMap<String, Object> {
+        ReqPropsFromUnsetAddPropsMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -53,7 +53,7 @@ public class ReqPropsFromUnsetAddProps {
                 "validName"
             )))
         ));
-        protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
         public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

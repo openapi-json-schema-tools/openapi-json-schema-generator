@@ -20,7 +20,7 @@ Key | Type |  Description | Notes
 
 ## JSONPatchRequestRemoveMap
 ```
-base class: FrozenMap<String, String
+base class: FrozenMap<String, String>
 ```
 
 ### properties

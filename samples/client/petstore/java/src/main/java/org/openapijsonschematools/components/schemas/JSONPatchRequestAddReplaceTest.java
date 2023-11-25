@@ -42,8 +42,8 @@ public class JSONPatchRequestAddReplaceTest {
         }
     }    
     
-    public static class JSONPatchRequestAddReplaceTestMap extends FrozenMap<String, Object
-        JSONPatchRequestAddReplaceTestMap(FrozenMap<String, Object
+    public static class JSONPatchRequestAddReplaceTestMap extends FrozenMap<String, Object> {
+        JSONPatchRequestAddReplaceTestMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -56,15 +56,15 @@ public class JSONPatchRequestAddReplaceTest {
             return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);
         }
         
-        public String
-            return (String
+        public String op() {
+            return (String) get("op");
         }
         
-        public String
-            return (String
+        public String path() {
+            return (String) get("path");
         }
         
-        public Object
+        public Object value() {
             return get("value");
         }
     }    
@@ -90,7 +90,7 @@ public class JSONPatchRequestAddReplaceTest {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<String, Object
+        protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
         public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

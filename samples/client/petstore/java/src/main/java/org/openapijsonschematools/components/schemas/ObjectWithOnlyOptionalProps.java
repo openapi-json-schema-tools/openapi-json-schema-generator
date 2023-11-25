@@ -31,8 +31,8 @@ public class ObjectWithOnlyOptionalProps {
     public class B extends NumberJsonSchema {}
     
     
-    public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object
-        ObjectWithOnlyOptionalPropsMap(FrozenMap<String, Object
+    public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<String, Object> {
+        ObjectWithOnlyOptionalPropsMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -44,16 +44,16 @@ public class ObjectWithOnlyOptionalProps {
             return ObjectWithOnlyOptionalProps1.validate(arg, configuration);
         }
         
-        public String
+        public String a() {
             String key = "a";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public Number
+        public Number b() {
             String key = "b";
             throwIfKeyNotPresent(key);
-            return (Number
+            return (Number) get(key);
         }
     }    
     
@@ -72,7 +72,7 @@ public class ObjectWithOnlyOptionalProps {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithOnlyOptionalPropsMap(arg);
         }
         public static ObjectWithOnlyOptionalPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

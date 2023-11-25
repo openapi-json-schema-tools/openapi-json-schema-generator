@@ -20,7 +20,7 @@ Key | Type |  Description | Notes
 
 ## ObjectWithNonIntersectingValuesMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

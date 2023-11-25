@@ -46,8 +46,8 @@ public class Order {
     public class Complete extends BooleanJsonSchema {}
     
     
-    public static class OrderMap extends FrozenMap<String, Object
-        OrderMap(FrozenMap<String, Object
+    public static class OrderMap extends FrozenMap<String, Object> {
+        OrderMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -63,40 +63,40 @@ public class Order {
             return Order1.validate(arg, configuration);
         }
         
-        public long
+        public long id() {
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long
+            return (long) get(key);
         }
         
-        public long
+        public long petId() {
             String key = "petId";
             throwIfKeyNotPresent(key);
-            return (long
+            return (long) get(key);
         }
         
-        public int
+        public int quantity() {
             String key = "quantity";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
-        public String
+        public String shipDate() {
             String key = "shipDate";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String status() {
             String key = "status";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public boolean
+        public boolean complete() {
             String key = "complete";
             throwIfKeyNotPresent(key);
-            return (boolean
+            return (boolean) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -124,7 +124,7 @@ public class Order {
                 new PropertyEntry("complete", Complete.class)
             )))
         ));
-        protected static OrderMap getMapOutputInstance(FrozenMap<String, Object
+        protected static OrderMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new OrderMap(arg);
         }
         public static OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

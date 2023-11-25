@@ -17,8 +17,8 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SchemaList extends FrozenList<User.UserMap
-        SchemaList(FrozenList<User.UserMap
+    public static class SchemaList extends FrozenList<User.UserMap> {
+        SchemaList(FrozenList<User.UserMap> m) {
             super(m);
         }
         public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -32,7 +32,7 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(User.User1.class))
         ));
-        protected static SchemaList getListOutputInstance(FrozenList<User.UserMap
+        protected static SchemaList getListOutputInstance(FrozenList<User.UserMap> arg) {
             return new SchemaList(arg);
         }
         public static SchemaList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {

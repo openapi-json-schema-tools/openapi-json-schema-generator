@@ -21,7 +21,7 @@ Key | Type |  Description | Notes
 
 ## ObjectModelWithArgAndArgsPropertiesMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

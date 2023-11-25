@@ -20,8 +20,8 @@ public class Player {
     public class Name extends StringJsonSchema {}
     
     
-    public static class PlayerMap extends FrozenMap<String, Object
-        PlayerMap(FrozenMap<String, Object
+    public static class PlayerMap extends FrozenMap<String, Object> {
+        PlayerMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -33,16 +33,16 @@ public class Player {
             return Player1.validate(arg, configuration);
         }
         
-        public String
+        public String name() {
             String key = "name";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public PlayerMap
+        public PlayerMap enemyPlayer() {
             String key = "enemyPlayer";
             throwIfKeyNotPresent(key);
-            return (PlayerMap
+            return (PlayerMap) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -68,7 +68,7 @@ public class Player {
                 new PropertyEntry("enemyPlayer", Player1.class)
             )))
         ));
-        protected static PlayerMap getMapOutputInstance(FrozenMap<String, Object
+        protected static PlayerMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PlayerMap(arg);
         }
         public static PlayerMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -21,7 +21,7 @@ Key | Type |  Description | Notes
 
 ## ZebraMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

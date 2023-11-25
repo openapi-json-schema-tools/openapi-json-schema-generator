@@ -32,8 +32,8 @@ public class Name {
     public class Property extends StringJsonSchema {}
     
     
-    public static class NameMap extends FrozenMap<String, Object
-        NameMap(FrozenMap<String, Object
+    public static class NameMap extends FrozenMap<String, Object> {
+        NameMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -47,20 +47,20 @@ public class Name {
             return Name1.validate(arg, configuration);
         }
         
-        public int
-            return (int
+        public int name() {
+            return (int) get("name");
         }
         
-        public int
+        public int snake_case() {
             String key = "snake_case";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
-        public String
+        public String property() {
             String key = "property";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {

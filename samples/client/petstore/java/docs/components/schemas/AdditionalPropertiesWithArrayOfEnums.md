@@ -19,7 +19,7 @@ Key | Type |  Description | Notes
 
 ## AdditionalPropertiesWithArrayOfEnumsMap
 ```
-base class: FrozenMap<String, AdditionalPropertiesList
+base class: FrozenMap<String, AdditionalPropertiesList>
 ```
 
 ### methods

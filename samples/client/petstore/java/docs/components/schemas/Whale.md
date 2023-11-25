@@ -22,7 +22,7 @@ Key | Type |  Description | Notes
 
 ## WhaleMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

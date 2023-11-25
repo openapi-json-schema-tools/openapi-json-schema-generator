@@ -21,8 +21,8 @@ public class AbstractStepMessage {
     public class Discriminator extends StringJsonSchema {}
     
     
-    public static class AbstractStepMessageMap extends FrozenMap<String, Object
-        AbstractStepMessageMap(FrozenMap<String, Object
+    public static class AbstractStepMessageMap extends FrozenMap<String, Object> {
+        AbstractStepMessageMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -39,8 +39,8 @@ public class AbstractStepMessage {
             return get("description");
         }
         
-        public String
-            return (String
+        public String discriminator() {
+            return (String) get("discriminator");
         }
         
         public Object sequenceNumber() {
@@ -74,7 +74,7 @@ public class AbstractStepMessage {
                 "sequenceNumber"
             )))
         ));
-        protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object
+        protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AbstractStepMessageMap(arg);
         }
         public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

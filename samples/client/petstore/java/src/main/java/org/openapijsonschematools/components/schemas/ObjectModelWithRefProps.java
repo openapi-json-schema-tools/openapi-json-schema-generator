@@ -16,8 +16,8 @@ public class ObjectModelWithRefProps {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ObjectModelWithRefPropsMap extends FrozenMap<String, Object
-        ObjectModelWithRefPropsMap(FrozenMap<String, Object
+    public static class ObjectModelWithRefPropsMap extends FrozenMap<String, Object> {
+        ObjectModelWithRefPropsMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -30,22 +30,22 @@ public class ObjectModelWithRefProps {
             return ObjectModelWithRefProps1.validate(arg, configuration);
         }
         
-        public Number
+        public Number myNumber() {
             String key = "myNumber";
             throwIfKeyNotPresent(key);
-            return (Number
+            return (Number) get(key);
         }
         
-        public String
+        public String myString() {
             String key = "myString";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public boolean
+        public boolean myBoolean() {
             String key = "myBoolean";
             throwIfKeyNotPresent(key);
-            return (boolean
+            return (boolean) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -72,7 +72,7 @@ public class ObjectModelWithRefProps {
                 new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
             )))
         ));
-        protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectModelWithRefPropsMap(arg);
         }
         public static ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

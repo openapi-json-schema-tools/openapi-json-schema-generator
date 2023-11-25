@@ -25,8 +25,8 @@ public class Cat {
     public class Declawed extends BooleanJsonSchema {}
     
     
-    public static class Schema1Map extends FrozenMap<String, Object
-        Schema1Map(FrozenMap<String, Object
+    public static class Schema1Map extends FrozenMap<String, Object> {
+        Schema1Map(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -37,10 +37,10 @@ public class Cat {
             return Schema1.validate(arg, configuration);
         }
         
-        public boolean
+        public boolean declawed() {
             String key = "declawed";
             throwIfKeyNotPresent(key);
-            return (boolean
+            return (boolean) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -57,7 +57,7 @@ public class Cat {
                 new PropertyEntry("declawed", Declawed.class)
             )))
         ));
-        protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object
+        protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

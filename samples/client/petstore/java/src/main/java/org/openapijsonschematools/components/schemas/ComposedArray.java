@@ -20,8 +20,8 @@ public class ComposedArray {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class ComposedArrayList extends FrozenList<Object
-        ComposedArrayList(FrozenList<Object
+    public static class ComposedArrayList extends FrozenList<Object> {
+        ComposedArrayList(FrozenList<Object> m) {
             super(m);
         }
         public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -41,7 +41,7 @@ public class ComposedArray {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ComposedArrayList getListOutputInstance(FrozenList<Object
+        protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
             return new ComposedArrayList(arg);
         }
         public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

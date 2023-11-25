@@ -28,8 +28,8 @@ public class BasquePig {
         }
     }    
     
-    public static class BasquePigMap extends FrozenMap<String, Object
-        BasquePigMap(FrozenMap<String, Object
+    public static class BasquePigMap extends FrozenMap<String, Object> {
+        BasquePigMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -40,8 +40,8 @@ public class BasquePig {
             return BasquePig1.validate(arg, configuration);
         }
         
-        public String
-            return (String
+        public String className() {
+            return (String) get("className");
         }
         
         public Object getAdditionalProperty(String name) {
@@ -67,7 +67,7 @@ public class BasquePig {
                 "className"
             )))
         ));
-        protected static BasquePigMap getMapOutputInstance(FrozenMap<String, Object
+        protected static BasquePigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BasquePigMap(arg);
         }
         public static BasquePigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

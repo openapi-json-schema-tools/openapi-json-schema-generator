@@ -128,8 +128,8 @@ public class User {
     public class AnyTypePropNullable extends AnyTypeJsonSchema {}
     
     
-    public static class UserMap extends FrozenMap<String, Object
-        UserMap(FrozenMap<String, Object
+    public static class UserMap extends FrozenMap<String, Object> {
+        UserMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -152,79 +152,79 @@ public class User {
             return User1.validate(arg, configuration);
         }
         
-        public long
+        public long id() {
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long
+            return (long) get(key);
         }
         
-        public String
+        public String username() {
             String key = "username";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String firstName() {
             String key = "firstName";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String lastName() {
             String key = "lastName";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String email() {
             String key = "email";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String password() {
             String key = "password";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String phone() {
             String key = "phone";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public int
+        public int userStatus() {
             String key = "userStatus";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
-        public FrozenMap<String, Object>
+        public FrozenMap<String, Object> objectWithNoDeclaredProps() {
             String key = "objectWithNoDeclaredProps";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>
+            return (FrozenMap<String, Object>) get(key);
         }
         
-        public FrozenMap<String, Object>
+        public FrozenMap<String, Object> objectWithNoDeclaredPropsNullable() {
             String key = "objectWithNoDeclaredPropsNullable";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>
+            return (FrozenMap<String, Object>) get(key);
         }
         
-        public Object
+        public Object anyTypeProp() {
             String key = "anyTypeProp";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public Object
+        public Object anyTypeExceptNullProp() {
             String key = "anyTypeExceptNullProp";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public Object
+        public Object anyTypePropNullable() {
             String key = "anyTypePropNullable";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -262,7 +262,7 @@ public class User {
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
             )))
         ));
-        protected static UserMap getMapOutputInstance(FrozenMap<String, Object
+        protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new UserMap(arg);
         }
         public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

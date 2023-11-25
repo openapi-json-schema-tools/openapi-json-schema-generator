@@ -24,8 +24,8 @@ public class FromSchema {
     public class Id extends IntJsonSchema {}
     
     
-    public static class FromSchemaMap extends FrozenMap<String, Object
-        FromSchemaMap(FrozenMap<String, Object
+    public static class FromSchemaMap extends FrozenMap<String, Object> {
+        FromSchemaMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -37,16 +37,16 @@ public class FromSchema {
             return FromSchema1.validate(arg, configuration);
         }
         
-        public String
+        public String data() {
             String key = "data";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public long
+        public long id() {
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long
+            return (long) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -70,7 +70,7 @@ public class FromSchema {
                 new PropertyEntry("id", Id.class)
             )))
         ));
-        protected static FromSchemaMap getMapOutputInstance(FrozenMap<String, Object
+        protected static FromSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FromSchemaMap(arg);
         }
         public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

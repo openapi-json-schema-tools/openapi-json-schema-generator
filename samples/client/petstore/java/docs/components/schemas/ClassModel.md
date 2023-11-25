@@ -31,7 +31,7 @@ Key | Type |  Description | Notes
 
 ## ClassModelMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### methods

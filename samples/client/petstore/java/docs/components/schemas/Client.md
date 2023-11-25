@@ -20,7 +20,7 @@ Key | Type |  Description | Notes
 
 ## ClientMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

@@ -25,7 +25,7 @@ Key | Type |  Description | Notes
 
 ## CapitalizationMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

@@ -70,7 +70,7 @@ public class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{!> components/schemas/schema_cls/_unevaluated_items }}
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
-    protected static {{arrayOutputJsonPathPiece.camelCase}} getListOutputInstance(FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" forceNull=true endChar="> arg) {" }}{{/with}}
+    protected static {{arrayOutputJsonPathPiece.camelCase}} getListOutputInstance(FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> arg) {
         return new {{arrayOutputJsonPathPiece.camelCase}}(arg);
     }
     {{/if}}

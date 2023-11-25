@@ -65,8 +65,8 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class Schema9List extends FrozenList<Object
-        Schema9List(FrozenList<Object
+    public static class Schema9List extends FrozenList<Object> {
+        Schema9List(FrozenList<Object> m) {
             super(m);
         }
         public static Schema9List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -80,7 +80,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static Schema9List getListOutputInstance(FrozenList<Object
+        protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema9List(arg);
         }
         public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

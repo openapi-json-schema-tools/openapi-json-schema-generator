@@ -26,8 +26,8 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    public static class QueryParametersMap extends FrozenMap<String, Schema0.SchemaList0
-        QueryParametersMap(FrozenMap<String, Schema0.SchemaList0
+    public static class QueryParametersMap extends FrozenMap<String, Schema0.SchemaList0> {
+        QueryParametersMap(FrozenMap<String, Schema0.SchemaList0> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -38,7 +38,7 @@ public class QueryParameters {
             return QueryParameters1.validate(arg, configuration);
         }
         
-        public Schema0.SchemaList0
+        public Schema0.SchemaList0 status() {
             return get("status");
         }
     }    
@@ -54,7 +54,7 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Schema0.SchemaList0
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Schema0.SchemaList0> arg) {
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {

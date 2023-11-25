@@ -71,7 +71,7 @@ Key | Type |  Description | Notes
     {{/if}}
 ```
     {{#if mapValueSchema}}
-base class: FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=">" }}{{/with}}
+base class: FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}{{/with}}>
     {{else}}
 base class: FrozenMap<String, Object>
     {{/if}}
@@ -122,7 +122,7 @@ get_additional_property_ | String | FrozenMap, FrozenList, float, int, String, b
 ```
 type: List<
     {{#with items}}
-    {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../arrayInputJsonPathPiece.camelCase }}
+    {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" rootClass=../arrayInputJsonPathPiece.camelCase }}
     ...
     {{/with}}
 >
@@ -144,12 +144,12 @@ base class: FrozenList<
             {{#if refInfo.refClass}}
                 {{#eq refModule null}}
                     {{! self reference }}
-    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," selfReference=true }}
+    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" selfReference=true }}
                 {{else}}
-    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" }}
                 {{/eq}}
             {{else}}
-    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" endChar="," }}
+    {{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule="" }}
             {{/if}}
         {{/with}}
     ...

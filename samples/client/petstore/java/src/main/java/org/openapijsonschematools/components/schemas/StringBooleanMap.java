@@ -19,8 +19,8 @@ public class StringBooleanMap {
     public class AdditionalProperties extends BooleanJsonSchema {}
     
     
-    public static class StringBooleanMapMap extends FrozenMap<String, Boolean
-        StringBooleanMapMap(FrozenMap<String, Boolean
+    public static class StringBooleanMapMap extends FrozenMap<String, Boolean> {
+        StringBooleanMapMap(FrozenMap<String, Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -29,7 +29,7 @@ public class StringBooleanMap {
             return StringBooleanMap1.validate(arg, configuration);
         }
         
-        public boolean
+        public boolean getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -46,7 +46,7 @@ public class StringBooleanMap {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<String, Boolean
+        protected static StringBooleanMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
             return new StringBooleanMapMap(arg);
         }
         public static StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {

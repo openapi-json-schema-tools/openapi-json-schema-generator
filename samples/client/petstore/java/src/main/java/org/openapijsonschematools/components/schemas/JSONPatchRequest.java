@@ -70,8 +70,8 @@ public class JSONPatchRequest {
         }
     }    
     
-    public static class JSONPatchRequestList extends FrozenList<Object
-        JSONPatchRequestList(FrozenList<Object
+    public static class JSONPatchRequestList extends FrozenList<Object> {
+        JSONPatchRequestList(FrozenList<Object> m) {
             super(m);
         }
         public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -91,7 +91,7 @@ public class JSONPatchRequest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static JSONPatchRequestList getListOutputInstance(FrozenList<Object
+        protected static JSONPatchRequestList getListOutputInstance(FrozenList<Object> arg) {
             return new JSONPatchRequestList(arg);
         }
         public static JSONPatchRequestList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

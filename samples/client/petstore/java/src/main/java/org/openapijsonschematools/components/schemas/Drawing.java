@@ -20,8 +20,8 @@ public class Drawing {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ShapesList extends FrozenList<Object
-        ShapesList(FrozenList<Object
+    public static class ShapesList extends FrozenList<Object> {
+        ShapesList(FrozenList<Object> m) {
             super(m);
         }
         public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -35,7 +35,7 @@ public class Drawing {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
         ));
-        protected static ShapesList getListOutputInstance(FrozenList<Object
+        protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
             return new ShapesList(arg);
         }
         public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -43,8 +43,8 @@ public class Drawing {
         }
     }    
     
-    public static class DrawingMap extends FrozenMap<String, Object
-        DrawingMap(FrozenMap<String, Object
+    public static class DrawingMap extends FrozenMap<String, Object> {
+        DrawingMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -58,33 +58,33 @@ public class Drawing {
             return Drawing1.validate(arg, configuration);
         }
         
-        public Object
+        public Object mainShape() {
             String key = "mainShape";
             throwIfKeyNotPresent(key);
-            return (Object
+            return (Object) get(key);
         }
         
-        public Object
+        public Object shapeOrNull() {
             String key = "shapeOrNull";
             throwIfKeyNotPresent(key);
-            return (Object
+            return (Object) get(key);
         }
         
-        public Object
+        public Object nullableShape() {
             String key = "nullableShape";
             throwIfKeyNotPresent(key);
-            return (Object
+            return (Object) get(key);
         }
         
-        public ShapesList
+        public ShapesList shapes() {
             String key = "shapes";
             throwIfKeyNotPresent(key);
-            return (ShapesList
+            return (ShapesList) get(key);
         }
         
-        public Object
+        public Object getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
-            return (Object
+            return (Object) get(name);
         }
     }    
     
@@ -105,7 +105,7 @@ public class Drawing {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
         ));
-        protected static DrawingMap getMapOutputInstance(FrozenMap<String, Object
+        protected static DrawingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new DrawingMap(arg);
         }
         public static DrawingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

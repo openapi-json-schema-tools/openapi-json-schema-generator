@@ -24,8 +24,8 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties extends StringJsonSchema {}
     
     
-    public static class MapPropertyMap extends FrozenMap<String, String
-        MapPropertyMap(FrozenMap<String, String
+    public static class MapPropertyMap extends FrozenMap<String, String> {
+        MapPropertyMap(FrozenMap<String, String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -34,7 +34,7 @@ public class AdditionalPropertiesClass {
             return MapProperty.validate(arg, configuration);
         }
         
-        public String
+        public String getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -45,7 +45,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static MapPropertyMap getMapOutputInstance(FrozenMap<String, String
+        protected static MapPropertyMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapPropertyMap(arg);
         }
         public static MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -57,8 +57,8 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties2 extends StringJsonSchema {}
     
     
-    public static class AdditionalPropertiesMap extends FrozenMap<String, String
-        AdditionalPropertiesMap(FrozenMap<String, String
+    public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
+        AdditionalPropertiesMap(FrozenMap<String, String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -67,7 +67,7 @@ public class AdditionalPropertiesClass {
             return AdditionalProperties1.validate(arg, configuration);
         }
         
-        public String
+        public String getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -78,7 +78,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String
+        protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new AdditionalPropertiesMap(arg);
         }
         public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -87,8 +87,8 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapOfMapPropertyMap extends FrozenMap<String, AdditionalPropertiesMap
-        MapOfMapPropertyMap(FrozenMap<String, AdditionalPropertiesMap
+    public static class MapOfMapPropertyMap extends FrozenMap<String, AdditionalPropertiesMap> {
+        MapOfMapPropertyMap(FrozenMap<String, AdditionalPropertiesMap> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -97,7 +97,7 @@ public class AdditionalPropertiesClass {
             return MapOfMapProperty.validate(arg, configuration);
         }
         
-        public AdditionalPropertiesMap
+        public AdditionalPropertiesMap getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -108,7 +108,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
-        protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap
+        protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
             return new MapOfMapPropertyMap(arg);
         }
         public static MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -129,8 +129,8 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties3 extends AnyTypeJsonSchema {}
     
     
-    public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object
-        MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<String, Object
+    public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<String, Object> {
+        MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -139,7 +139,7 @@ public class AdditionalPropertiesClass {
             return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration);
         }
         
-        public Object
+        public Object getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -150,7 +150,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object
+        protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
         public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -192,8 +192,8 @@ public class AdditionalPropertiesClass {
     public class AdditionalProperties5 extends StringJsonSchema {}
     
     
-    public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, String
-        MapWithUndeclaredPropertiesStringMap(FrozenMap<String, String
+    public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String, String> {
+        MapWithUndeclaredPropertiesStringMap(FrozenMap<String, String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -202,7 +202,7 @@ public class AdditionalPropertiesClass {
             return MapWithUndeclaredPropertiesString.validate(arg, configuration);
         }
         
-        public String
+        public String getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -213,7 +213,7 @@ public class AdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
         ));
-        protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String
+        protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
         public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -222,8 +222,8 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalPropertiesClassMap extends FrozenMap<String, Object
-        AdditionalPropertiesClassMap(FrozenMap<String, Object
+    public static class AdditionalPropertiesClassMap extends FrozenMap<String, Object> {
+        AdditionalPropertiesClassMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -241,52 +241,52 @@ public class AdditionalPropertiesClass {
             return AdditionalPropertiesClass1.validate(arg, configuration);
         }
         
-        public MapPropertyMap
+        public MapPropertyMap map_property() {
             String key = "map_property";
             throwIfKeyNotPresent(key);
-            return (MapPropertyMap
+            return (MapPropertyMap) get(key);
         }
         
-        public MapOfMapPropertyMap
+        public MapOfMapPropertyMap map_of_map_property() {
             String key = "map_of_map_property";
             throwIfKeyNotPresent(key);
-            return (MapOfMapPropertyMap
+            return (MapOfMapPropertyMap) get(key);
         }
         
-        public Object
+        public Object anytype_1() {
             String key = "anytype_1";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public FrozenMap<String, Object>
+        public FrozenMap<String, Object> map_with_undeclared_properties_anytype_1() {
             String key = "map_with_undeclared_properties_anytype_1";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>
+            return (FrozenMap<String, Object>) get(key);
         }
         
-        public FrozenMap<String, Object>
+        public FrozenMap<String, Object> map_with_undeclared_properties_anytype_2() {
             String key = "map_with_undeclared_properties_anytype_2";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>
+            return (FrozenMap<String, Object>) get(key);
         }
         
-        public MapWithUndeclaredPropertiesAnytype3Map
+        public MapWithUndeclaredPropertiesAnytype3Map map_with_undeclared_properties_anytype_3() {
             String key = "map_with_undeclared_properties_anytype_3";
             throwIfKeyNotPresent(key);
-            return (MapWithUndeclaredPropertiesAnytype3Map
+            return (MapWithUndeclaredPropertiesAnytype3Map) get(key);
         }
         
-        public EmptyMapMap
+        public EmptyMapMap empty_map() {
             String key = "empty_map";
             throwIfKeyNotPresent(key);
-            return (EmptyMapMap
+            return (EmptyMapMap) get(key);
         }
         
-        public MapWithUndeclaredPropertiesStringMap
+        public MapWithUndeclaredPropertiesStringMap map_with_undeclared_properties_string() {
             String key = "map_with_undeclared_properties_string";
             throwIfKeyNotPresent(key);
-            return (MapWithUndeclaredPropertiesStringMap
+            return (MapWithUndeclaredPropertiesStringMap) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -316,7 +316,7 @@ public class AdditionalPropertiesClass {
                 new PropertyEntry("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
             )))
         ));
-        protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object
+        protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AdditionalPropertiesClassMap(arg);
         }
         public static AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

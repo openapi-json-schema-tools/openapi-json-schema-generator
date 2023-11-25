@@ -19,7 +19,7 @@ Key | Type |  Description | Notes
 
 ## MyObjectDtoMap
 ```
-base class: FrozenMap<String, String
+base class: FrozenMap<String, String>
 ```
 
 ### properties

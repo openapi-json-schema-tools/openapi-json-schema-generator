@@ -32,8 +32,8 @@ public class ScaleneTriangle {
         }
     }    
     
-    public static class Schema1Map extends FrozenMap<String, Object
-        Schema1Map(FrozenMap<String, Object
+    public static class Schema1Map extends FrozenMap<String, Object> {
+        Schema1Map(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -44,10 +44,10 @@ public class ScaleneTriangle {
             return Schema1.validate(arg, configuration);
         }
         
-        public String
+        public String triangleType() {
             String key = "triangleType";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -64,7 +64,7 @@ public class ScaleneTriangle {
                 new PropertyEntry("triangleType", TriangleType.class)
             )))
         ));
-        protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object
+        protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -42,8 +42,8 @@ public class JSONPatchRequestMoveCopy {
         }
     }    
     
-    public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String, String
-        JSONPatchRequestMoveCopyMap(FrozenMap<String, String
+    public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String, String> {
+        JSONPatchRequestMoveCopyMap(FrozenMap<String, String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -56,15 +56,15 @@ public class JSONPatchRequestMoveCopy {
             return JSONPatchRequestMoveCopy1.validate(arg, configuration);
         }
         
-        public String
+        public String from() {
             return get("from");
         }
         
-        public String
-            return (String
+        public String op() {
+            return (String) get("op");
         }
         
-        public String
+        public String path() {
             return get("path");
         }
     }    
@@ -90,7 +90,7 @@ public class JSONPatchRequestMoveCopy {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<String, String
+        protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new JSONPatchRequestMoveCopyMap(arg);
         }
         public static JSONPatchRequestMoveCopyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {

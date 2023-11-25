@@ -24,7 +24,7 @@ Key | Type |  Description | Notes
 
 ## PlayerMap
 ```
-base class: FrozenMap<String, Object
+base class: FrozenMap<String, Object>
 ```
 
 ### properties

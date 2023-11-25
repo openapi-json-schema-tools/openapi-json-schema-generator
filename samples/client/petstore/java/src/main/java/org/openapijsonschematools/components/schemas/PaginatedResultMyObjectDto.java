@@ -31,8 +31,8 @@ public class PaginatedResultMyObjectDto {
     public class Count extends IntJsonSchema {}
     
     
-    public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap
-        ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap
+    public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {
+        ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
             super(m);
         }
         public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -46,7 +46,7 @@ public class PaginatedResultMyObjectDto {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class))
         ));
-        protected static ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap
+        protected static ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap> arg) {
             return new ResultsList(arg);
         }
         public static ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -54,8 +54,8 @@ public class PaginatedResultMyObjectDto {
         }
     }    
     
-    public static class PaginatedResultMyObjectDtoMap extends FrozenMap<String, Object
-        PaginatedResultMyObjectDtoMap(FrozenMap<String, Object
+    public static class PaginatedResultMyObjectDtoMap extends FrozenMap<String, Object> {
+        PaginatedResultMyObjectDtoMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -67,12 +67,12 @@ public class PaginatedResultMyObjectDto {
             return PaginatedResultMyObjectDto1.validate(arg, configuration);
         }
         
-        public long
-            return (long
+        public long count() {
+            return (long) get("count");
         }
         
-        public ResultsList
-            return (ResultsList
+        public ResultsList results() {
+            return (ResultsList) get("results");
         }
     }    
     
@@ -95,7 +95,7 @@ public class PaginatedResultMyObjectDto {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<String, Object
+        protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PaginatedResultMyObjectDtoMap(arg);
         }
         public static PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -23,8 +23,8 @@ public class ArrayOfNumberOnly {
     public class Items extends NumberJsonSchema {}
     
     
-    public static class ArrayNumberList extends FrozenList<Number
-        ArrayNumberList(FrozenList<Number
+    public static class ArrayNumberList extends FrozenList<Number> {
+        ArrayNumberList(FrozenList<Number> m) {
             super(m);
         }
         public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -38,7 +38,7 @@ public class ArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayNumberList getListOutputInstance(FrozenList<Number
+        protected static ArrayNumberList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayNumberList(arg);
         }
         public static ArrayNumberList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -46,8 +46,8 @@ public class ArrayOfNumberOnly {
         }
     }    
     
-    public static class ArrayOfNumberOnlyMap extends FrozenMap<String, Object
-        ArrayOfNumberOnlyMap(FrozenMap<String, Object
+    public static class ArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
+        ArrayOfNumberOnlyMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -58,10 +58,10 @@ public class ArrayOfNumberOnly {
             return ArrayOfNumberOnly1.validate(arg, configuration);
         }
         
-        public ArrayNumberList
+        public ArrayNumberList ArrayNumber() {
             String key = "ArrayNumber";
             throwIfKeyNotPresent(key);
-            return (ArrayNumberList
+            return (ArrayNumberList) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -84,7 +84,7 @@ public class ArrayOfNumberOnly {
                 new PropertyEntry("ArrayNumber", ArrayNumber.class)
             )))
         ));
-        protected static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayOfNumberOnlyMap(arg);
         }
         public static ArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

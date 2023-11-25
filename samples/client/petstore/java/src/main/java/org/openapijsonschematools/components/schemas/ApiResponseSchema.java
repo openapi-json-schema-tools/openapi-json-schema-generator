@@ -27,8 +27,8 @@ public class ApiResponseSchema {
     public class Message extends StringJsonSchema {}
     
     
-    public static class ApiResponseMap extends FrozenMap<String, Object
-        ApiResponseMap(FrozenMap<String, Object
+    public static class ApiResponseMap extends FrozenMap<String, Object> {
+        ApiResponseMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -41,22 +41,22 @@ public class ApiResponseSchema {
             return ApiResponseSchema1.validate(arg, configuration);
         }
         
-        public int
+        public int code() {
             String key = "code";
             throwIfKeyNotPresent(key);
-            return (int
+            return (int) get(key);
         }
         
-        public String
+        public String type() {
             String key = "type";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
-        public String
+        public String message() {
             String key = "message";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -81,7 +81,7 @@ public class ApiResponseSchema {
                 new PropertyEntry("message", Message.class)
             )))
         ));
-        protected static ApiResponseMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ApiResponseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ApiResponseMap(arg);
         }
         public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

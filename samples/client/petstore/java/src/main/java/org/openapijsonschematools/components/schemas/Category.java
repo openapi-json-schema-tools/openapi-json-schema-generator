@@ -32,8 +32,8 @@ public class Category {
         }
     }    
     
-    public static class CategoryMap extends FrozenMap<String, Object
-        CategoryMap(FrozenMap<String, Object
+    public static class CategoryMap extends FrozenMap<String, Object> {
+        CategoryMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -46,14 +46,14 @@ public class Category {
             return Category1.validate(arg, configuration);
         }
         
-        public String
-            return (String
+        public String name() {
+            return (String) get("name");
         }
         
-        public long
+        public long id() {
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long
+            return (long) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -80,7 +80,7 @@ public class Category {
                 "name"
             )))
         ));
-        protected static CategoryMap getMapOutputInstance(FrozenMap<String, Object
+        protected static CategoryMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CategoryMap(arg);
         }
         public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

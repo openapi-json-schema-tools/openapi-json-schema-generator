@@ -20,8 +20,8 @@ public class File {
     public class SourceURI extends StringJsonSchema {}
     
     
-    public static class FileMap extends FrozenMap<String, Object
-        FileMap(FrozenMap<String, Object
+    public static class FileMap extends FrozenMap<String, Object> {
+        FileMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -32,10 +32,10 @@ public class File {
             return File1.validate(arg, configuration);
         }
         
-        public String
+        public String sourceURI() {
             String key = "sourceURI";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -60,7 +60,7 @@ public class File {
                 new PropertyEntry("sourceURI", SourceURI.class)
             )))
         ));
-        protected static FileMap getMapOutputInstance(FrozenMap<String, Object
+        protected static FileMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FileMap(arg);
         }
         public static FileMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

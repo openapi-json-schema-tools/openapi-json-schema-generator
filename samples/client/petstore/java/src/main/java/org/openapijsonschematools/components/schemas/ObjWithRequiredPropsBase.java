@@ -21,8 +21,8 @@ public class ObjWithRequiredPropsBase {
     public class B extends StringJsonSchema {}
     
     
-    public static class ObjWithRequiredPropsBaseMap extends FrozenMap<String, Object
-        ObjWithRequiredPropsBaseMap(FrozenMap<String, Object
+    public static class ObjWithRequiredPropsBaseMap extends FrozenMap<String, Object> {
+        ObjWithRequiredPropsBaseMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -33,8 +33,8 @@ public class ObjWithRequiredPropsBase {
             return ObjWithRequiredPropsBase1.validate(arg, configuration);
         }
         
-        public String
-            return (String
+        public String b() {
+            return (String) get("b");
         }
         
         public Object getAdditionalProperty(String name) {
@@ -60,7 +60,7 @@ public class ObjWithRequiredPropsBase {
                 "b"
             )))
         ));
-        protected static ObjWithRequiredPropsBaseMap getMapOutputInstance(FrozenMap<String, Object
+        protected static ObjWithRequiredPropsBaseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjWithRequiredPropsBaseMap(arg);
         }
         public static ObjWithRequiredPropsBaseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

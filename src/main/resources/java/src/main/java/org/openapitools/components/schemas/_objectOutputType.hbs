@@ -1,8 +1,8 @@
 
 
 {{#if mapValueSchema}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" forceNull=true endChar="> {" }}{{/with}}
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type mode="unprefixed" forceNull=true endChar="> m) {" }}{{/with}}
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> {
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
         super(m);
     }
 {{else}}

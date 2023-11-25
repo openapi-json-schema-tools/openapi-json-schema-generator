@@ -19,8 +19,8 @@ public class FileSchemaTestClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FilesList extends FrozenList<File.FileMap
-        FilesList(FrozenList<File.FileMap
+    public static class FilesList extends FrozenList<File.FileMap> {
+        FilesList(FrozenList<File.FileMap> m) {
             super(m);
         }
         public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -34,7 +34,7 @@ public class FileSchemaTestClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(File.File1.class))
         ));
-        protected static FilesList getListOutputInstance(FrozenList<File.FileMap
+        protected static FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
             return new FilesList(arg);
         }
         public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -42,8 +42,8 @@ public class FileSchemaTestClass {
         }
     }    
     
-    public static class FileSchemaTestClassMap extends FrozenMap<String, Object
-        FileSchemaTestClassMap(FrozenMap<String, Object
+    public static class FileSchemaTestClassMap extends FrozenMap<String, Object> {
+        FileSchemaTestClassMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -55,16 +55,16 @@ public class FileSchemaTestClass {
             return FileSchemaTestClass1.validate(arg, configuration);
         }
         
-        public File.FileMap
+        public File.FileMap file() {
             String key = "file";
             throwIfKeyNotPresent(key);
-            return (File.FileMap
+            return (File.FileMap) get(key);
         }
         
-        public FilesList
+        public FilesList files() {
             String key = "files";
             throwIfKeyNotPresent(key);
-            return (FilesList
+            return (FilesList) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -88,7 +88,7 @@ public class FileSchemaTestClass {
                 new PropertyEntry("files", Files.class)
             )))
         ));
-        protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object
+        protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FileSchemaTestClassMap(arg);
         }
         public static FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

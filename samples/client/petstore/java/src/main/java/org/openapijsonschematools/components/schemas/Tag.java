@@ -24,8 +24,8 @@ public class Tag {
     public class Name extends StringJsonSchema {}
     
     
-    public static class TagMap extends FrozenMap<String, Object
-        TagMap(FrozenMap<String, Object
+    public static class TagMap extends FrozenMap<String, Object> {
+        TagMap(FrozenMap<String, Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -37,16 +37,16 @@ public class Tag {
             return Tag1.validate(arg, configuration);
         }
         
-        public long
+        public long id() {
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long
+            return (long) get(key);
         }
         
-        public String
+        public String name() {
             String key = "name";
             throwIfKeyNotPresent(key);
-            return (String
+            return (String) get(key);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -70,7 +70,7 @@ public class Tag {
                 new PropertyEntry("name", Name.class)
             )))
         ));
-        protected static TagMap getMapOutputInstance(FrozenMap<String, Object
+        protected static TagMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new TagMap(arg);
         }
         public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
