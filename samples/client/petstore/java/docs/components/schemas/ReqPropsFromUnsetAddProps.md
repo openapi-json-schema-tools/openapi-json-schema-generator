@@ -32,8 +32,8 @@ Property | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ |  |  | a constructor
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | String |  | This model has invalid python names so this method is used under the hood when you access instance["invalid-name"], 
-get_additional_property_ | String | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
+of | Map<String, Object> | ReqPropsFromUnsetAddPropsMap | a constructor
+get | String | Object | This model has invalid python names so this method is used under the hood when you access instance["invalid-name"], 
+getAdditionalProperty | String | Object | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

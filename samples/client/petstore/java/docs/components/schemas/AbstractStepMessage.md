@@ -38,8 +38,8 @@ Property | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ |  |  | a constructor
-get_additional_property_ | String | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
+of | Map<String, Object> | AbstractStepMessageMap | a constructor
+getAdditionalProperty | String | Object | provides type safety for additional properties
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## anyOf

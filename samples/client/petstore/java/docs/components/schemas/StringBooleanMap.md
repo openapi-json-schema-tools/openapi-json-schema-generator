@@ -25,7 +25,7 @@ base class: FrozenMap<String, Boolean>
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ |  |  | a constructor
-get_additional_property_ | String |  | provides type safety for additional properties
+of | Map<String, Boolean> | StringBooleanMapMap | a constructor
+getAdditionalProperty | String | boolean | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

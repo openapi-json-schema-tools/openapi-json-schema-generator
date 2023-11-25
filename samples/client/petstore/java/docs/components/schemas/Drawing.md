@@ -37,8 +37,8 @@ Property | Type | Description | Notes
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ |  |  | a constructor
-get_additional_property_ | String |  | provides type safety for additional properties
+of | Map<String, Object> | DrawingMap | a constructor
+getAdditionalProperty | String | Object | provides type safety for additional properties
 
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

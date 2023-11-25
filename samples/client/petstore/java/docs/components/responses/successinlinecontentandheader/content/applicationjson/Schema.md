@@ -25,5 +25,5 @@ base class: FrozenMap<String, Integer>
 ### methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
-from_dict_ |  |  | a constructor
-get_additional_property_ | String |  | provides type safety for additional properties
+of | Map<String, Integer> | SchemaMap | a constructor
+getAdditionalProperty | String | int | provides type safety for additional properties
