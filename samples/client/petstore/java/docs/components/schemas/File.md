@@ -12,6 +12,7 @@ Must be named &#x60;File&#x60; for test.
 | ---------- | ----------- | ----- |
 | Map<String, Object> | FileMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

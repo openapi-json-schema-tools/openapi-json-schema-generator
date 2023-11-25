@@ -9,10 +9,9 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, List<String>> | AdditionalPropertiesWithArrayOfEnumsMap | |
 
+## Input Map Keys
 ```
-type: Map<
-    String,
->
+type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------

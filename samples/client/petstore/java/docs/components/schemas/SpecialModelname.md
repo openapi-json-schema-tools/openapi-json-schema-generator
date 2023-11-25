@@ -12,6 +12,7 @@ model with an invalid class name for python
 | ---------- | ----------- | ----- |
 | Map<String, Object> | SpecialModelnameMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

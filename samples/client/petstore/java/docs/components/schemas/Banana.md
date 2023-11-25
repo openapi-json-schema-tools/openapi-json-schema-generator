@@ -9,6 +9,7 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, Object> | BananaMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

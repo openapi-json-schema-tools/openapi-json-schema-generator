@@ -12,6 +12,7 @@ a model that includes properties which should stay primitive (String + Boolean) 
 | ---------- | ----------- | ----- |
 | Map<String, Object> | ObjectModelWithRefPropsMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

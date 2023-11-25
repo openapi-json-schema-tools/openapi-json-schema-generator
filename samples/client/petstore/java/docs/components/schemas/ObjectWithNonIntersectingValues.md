@@ -9,12 +9,9 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, Object> | ObjectWithNonIntersectingValuesMap | |
 
+## Input Map Keys
 ```
-type: Map<
-    String,
-    Union<
-    >
->
+type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------

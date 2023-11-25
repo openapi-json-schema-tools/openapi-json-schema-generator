@@ -20,6 +20,7 @@ Model for testing reserved words
 | Map<String, Object> | ReturnMap | |
 | List<Object> | FrozenList<Object> | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

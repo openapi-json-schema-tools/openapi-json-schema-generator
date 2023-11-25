@@ -32,85 +32,17 @@ Ref Schema | Input Type | Output Type
 {{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}
     {{#or properties additionalProperties requiredProperties}}
 
-    {{#if mapInputJsonPathPiece}}
-{{!> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
-    {{else}}
 {{headerSize}}# Input Map Keys
-    {{/if}}
 ```
-    {{#if additionalProperties}}
-        {{#if additionalProperties.isBooleanSchemaFalse}}
-            {{#or requiredProperties optionalProperties}}
-type: Map
-            {{else}}
-type: Map (empty)
-            {{/or}}
+        {{#eq types null}}
+type: Map<String, Object>
         {{else}}
-            {{#if additionalProperties.isBooleanSchemaTrue }}
-                {{! addProps True, does not matter what properties are because they are always covered by base types }}
-type: Map<String, Object>
+            {{#with ../mapValueSchema}}
+type: Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment sourceJsonPath=../../jsonPath forceNull=true }}>
             {{else}}
-                {{! addProps schema }}
-                {{#and requiredProperties optionalProperties}}
-type: Map<
-    String,
-    Union<
-                    {{#each requiredProperties}}
-        {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                    {{/each}}
-                    {{#each optionalProperties}}
-        {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                    {{/each}}
-                    {{#with additionalProperties}}
-        {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                    {{/with}}
-    >
->
-                {{else}}
-                    {{! no requiredProperties or optionalProperties or just one of them }}
-                    {{#if requiredProperties}}
-                        {{! requiredProperties + addProp }}
-type: Map<
-    String,
-    Union<
-                        {{#each requiredProperties}}
-        {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                        {{/each}}
-                        {{#with additionalProperties}}
-        {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                        {{/with}}
-    >
->
-                    {{else}}
-                        {{#if optionalProperties}}
-                            {{! optionalProperties + addProp }}
-type: Map<
-    String,
-    Union<
-                            {{#each optionalProperties}}
-        {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                            {{/each}}
-                            {{#with additionalProperties}}
-        {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                            {{/with}}
-    >
->
-                        {{else}}
-                            {{! only addProp }}
-type: Map<
-    String,
-                            {{#with additionalProperties}}
-    {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" endChar="," rootClass=../mapInputJsonPathPiece.camelCase }}
-                            {{/with}}
->
-                        {{/if}}
-                    {{/if}}
-                {{/and}}
-            {{/if}}
-        {{/if}}
-    {{else}}
 type: Map<String, Object>
-    {{/if}}
+            {{/with}}
+        {{/eq}}
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -133,41 +65,17 @@ Key | Type |  Description | Notes
         {{/with}}
 
     {{#if mapOutputJsonPathPiece}}
-{{!> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
     {{else}}
 {{headerSize}}# Output FrozenMap Keys
     {{/if}}
 ```
     {{#if mapValueSchema}}
-base class: FrozenMap<String, {{#with mapValueSchema}}{{!> components/schemas/types/schema_output_type mode="unprefixed" fullRefModule=null endChar="]" }}{{/with}}
+base class: FrozenMap<String, {{#with mapValueSchema}}{{!> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=">" }}{{/with}}
     {{else}}
 base class: FrozenMap<String, Object>
     {{/if}}
 ```
-{{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-        {{#each requiredProperties}}
-            {{#if @key.isValid}}
-**{{@key.original}}** | {{!> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
-            {{/if}}
-        {{/each}}
-        {{#each optionalProperties}}
-            {{#if @key.isValid}}
-**{{@key.original}}** | {{!> components/schemas/types/docschema_io_types optional=true }} | {{#if description}}{{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
-            {{/if}}
-        {{/each}}
-        {{#with additionalProperties}}
-            {{#unless isBooleanSchemaFalse}}
-                {{#if isBooleanSchemaTrue}}
-**kwargs** | {{!> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
-            {{else}}
-**kwargs** | {{!> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
-                {{/if}}
-            {{/unless}}
-        {{else}}
-**kwargs** | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
-        {{/with}}
         {{#or (and requiredProperties requiredProperties.hasValidKey) (and optionalProperties optionalProperties.hasValidKey) }}
 
 {{headerSize}}## properties

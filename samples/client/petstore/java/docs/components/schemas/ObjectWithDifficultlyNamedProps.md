@@ -12,6 +12,7 @@ model with properties that have invalid names for python
 | ---------- | ----------- | ----- |
 | Map<String, Object> | ObjectWithDifficultlyNamedPropsMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

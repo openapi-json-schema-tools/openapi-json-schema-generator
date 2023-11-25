@@ -9,6 +9,7 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, Object> | ObjectWithInvalidNamedRefedPropertiesMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

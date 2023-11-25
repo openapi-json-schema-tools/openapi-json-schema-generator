@@ -20,6 +20,7 @@ Model for testing model name same as property name
 | Map<String, Object> | NameMap | |
 | List<Object> | FrozenList<Object> | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

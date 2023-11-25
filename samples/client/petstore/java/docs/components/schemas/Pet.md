@@ -12,6 +12,7 @@ Pet object that needs to be added to the store
 | ---------- | ----------- | ----- |
 | Map<String, Object> | PetMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

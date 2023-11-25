@@ -9,6 +9,7 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, Object> | ObjWithRequiredPropsBaseMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

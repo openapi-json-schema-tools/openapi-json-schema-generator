@@ -20,6 +20,7 @@ model with an invalid class name for python, starts with a number
 | Map<String, Object> | Schema200ResponseMap | |
 | List<Object> | FrozenList<Object> | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

@@ -12,6 +12,7 @@ component with properties that have name collisions
 | ---------- | ----------- | ----- |
 | Map<String, Object> | ObjectWithCollidingPropertiesMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

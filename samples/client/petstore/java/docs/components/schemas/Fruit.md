@@ -17,6 +17,7 @@ type: JsonSchema
 | Map<String, Object> | FruitMap | |
 | List<Object> | FrozenList<Object> | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

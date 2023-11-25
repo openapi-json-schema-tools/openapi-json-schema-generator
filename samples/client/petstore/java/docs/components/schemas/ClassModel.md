@@ -20,6 +20,7 @@ Model for testing model with \&quot;_class\&quot; property
 | Map<String, Object> | ClassModelMap | |
 | List<Object> | FrozenList<Object> | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

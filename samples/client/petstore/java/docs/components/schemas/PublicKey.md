@@ -12,6 +12,7 @@ schema that contains a property named key
 | ---------- | ----------- | ----- |
 | Map<String, Object> | PublicKeyMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

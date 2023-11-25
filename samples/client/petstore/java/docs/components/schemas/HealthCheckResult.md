@@ -12,6 +12,7 @@ Just a string to inform instance is up and running. Make it nullable in hope to 
 | ---------- | ----------- | ----- |
 | Map<String, Object> | HealthCheckResultMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

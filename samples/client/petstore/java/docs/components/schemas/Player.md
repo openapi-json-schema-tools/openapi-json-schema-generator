@@ -12,6 +12,7 @@ a model that includes a self reference this forces properties and additionalProp
 | ---------- | ----------- | ----- |
 | Map<String, Object> | PlayerMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

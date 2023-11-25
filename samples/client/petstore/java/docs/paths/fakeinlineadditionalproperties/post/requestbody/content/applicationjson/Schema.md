@@ -9,10 +9,9 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, String> | SchemaMap | |
 
+## Input Map Keys
 ```
-type: Map<
-    String,
->
+type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------

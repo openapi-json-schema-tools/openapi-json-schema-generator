@@ -9,8 +9,9 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, Object> | PaginatedResultMyObjectDtoMap | |
 
+## Input Map Keys
 ```
-type: Map
+type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------

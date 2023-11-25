@@ -10,6 +10,7 @@ type: JsonSchema
 | null | null | |
 | Map<String, Object> | AppleMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```

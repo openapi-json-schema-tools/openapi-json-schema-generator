@@ -9,6 +9,7 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | Map<String, Object> | ApiResponseMap | |
 
+## Input Map Keys
 ```
 type: Map<String, Object>
 ```
