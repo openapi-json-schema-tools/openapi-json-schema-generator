@@ -9,19 +9,17 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | List<Long> | ArrayWithValidationsInItemsList | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<Long>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## ArrayWithValidationsInItemsList
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<Long>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

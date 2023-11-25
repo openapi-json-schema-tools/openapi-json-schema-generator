@@ -12,19 +12,17 @@ component&#x27;s name collides with the inner schema name
 | ---------- | ----------- | ----- |
 | List<Map<String, Object>> | ItemsList | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<Map<String, Object>>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## ItemsList
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<FrozenMap<String, Object>>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

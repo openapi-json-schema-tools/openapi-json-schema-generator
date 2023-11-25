@@ -9,19 +9,17 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | List<String> | ArrayOfEnumsList | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<String>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## ArrayOfEnumsList
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<String>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

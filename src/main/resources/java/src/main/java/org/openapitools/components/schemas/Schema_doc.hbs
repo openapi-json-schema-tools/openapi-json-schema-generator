@@ -108,18 +108,9 @@ getAdditionalProperty | String | Object | provides type safety for additional pr
     {{/or}}
     {{#if items}}
 
-        {{#if arrayInputJsonPathPiece}}
-{{!> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
-        {{else}}
 {{headerSize}}# Input List Items
-        {{/if}}
 ```
-type: List<
-    {{#with items}}
-    {{!> components/schemas/types/schema_io_type paramName=false fullRefModule="" rootClass=../arrayInputJsonPathPiece.camelCase }}
-    ...
-    {{/with}}
->
+type: List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
@@ -128,26 +119,12 @@ List Item Type | Description | Notes
         {{/with}}
 
         {{#if arrayOutputJsonPathPiece}}
-{{!> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
         {{else}}
 {{headerSize}}# Output FrozenList Items
         {{/if}}
 ```
-base class: FrozenList<
-        {{#with items}}
-            {{#if refInfo.refClass}}
-                {{#eq refModule null}}
-                    {{! self reference }}
-    {{!> components/schemas/types/schema_output_type fullRefModule="" selfReference=true }}
-                {{else}}
-    {{!> components/schemas/types/schema_output_type fullRefModule="" }}
-                {{/eq}}
-            {{else}}
-    {{!> components/schemas/types/schema_output_type fullRefModule="" }}
-            {{/if}}
-        {{/with}}
-    ...
->
+base class: FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
 ```
 {{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

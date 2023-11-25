@@ -9,19 +9,17 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | List<String> | SchemaList3 | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<String>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## SchemaList3
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<String>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

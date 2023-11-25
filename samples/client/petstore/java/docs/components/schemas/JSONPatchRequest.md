@@ -9,19 +9,17 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | List<Object> | JSONPatchRequestList | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<Object>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## JSONPatchRequestList
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<Object>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

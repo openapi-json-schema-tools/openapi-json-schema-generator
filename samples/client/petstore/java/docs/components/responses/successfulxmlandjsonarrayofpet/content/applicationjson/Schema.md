@@ -9,19 +9,17 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | List<Map<String, Object>> | SchemaList | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<Map<String, Object>>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## SchemaList
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<Pet.PetMap>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

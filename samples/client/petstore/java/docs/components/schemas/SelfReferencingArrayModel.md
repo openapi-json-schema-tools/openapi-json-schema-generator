@@ -9,19 +9,17 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | List<List> | SelfReferencingArrayModelList | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<List>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## SelfReferencingArrayModelList
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<SelfReferencingArrayModelList>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type

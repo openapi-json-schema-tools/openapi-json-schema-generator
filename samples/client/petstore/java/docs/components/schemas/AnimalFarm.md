@@ -9,19 +9,17 @@ type: JsonSchema
 | ---------- | ----------- | ----- |
 | List<Map<String, Object>> | AnimalFarmList | |
 
+## Input List Items
 ```
-type: List<
-    ...
->
+type: List<Map<String, Object>>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
+## AnimalFarmList
 ```
-base class: FrozenList<
-    ...
->
+base class: FrozenList<Animal.AnimalMap>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
