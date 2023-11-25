@@ -29,13 +29,10 @@ Key | Type |  Description | Notes
 **return** |  | this is a reserved python keyword | [optional]
 **any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
+## ReturnMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**kwargs** | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO | any string name can be used but the value must be the correct type Model for testing reserved words | [optional] typed value is accessed with the get_additional_property_ method
 
 ### methods
 Method | Input Type | Return Type | Notes

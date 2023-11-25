@@ -25,21 +25,10 @@ Key | Type |  Description | Notes
 **map_with_undeclared_properties_string** |  |  | [optional]
 **any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
+## AdditionalPropertiesClassMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**map_property** |  |  | [optional]
-**map_of_map_property** |  |  | [optional]
-**anytype_1** |  |  | [optional]
-**map_with_undeclared_properties_anytype_1** |  |  | [optional]
-**map_with_undeclared_properties_anytype_2** |  |  | [optional]
-**map_with_undeclared_properties_anytype_3** |  |  | [optional]
-**empty_map** |  | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** |  |  | [optional]
-**kwargs** | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

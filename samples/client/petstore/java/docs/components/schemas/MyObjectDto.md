@@ -17,13 +17,10 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** |  |  | [optional]
 
+## MyObjectDtoMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**id** |  |  | [optional]
 
 ### properties
 Property | Type | Description | Notes

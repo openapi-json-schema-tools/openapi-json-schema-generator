@@ -31,21 +31,10 @@ Key | Type |  Description | Notes
 **callback** |  | None | [optional]
 **any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
+## SchemaMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**pattern_without_delimiter** |  | None |
-**int32** |  | None | [optional]
-**int64** |  | None | [optional]
-**binary** |  | None | [optional]
-**date** |  | None | [optional]
-**dateTime** |  | None | [optional]
-**password** |  | None | [optional]
-**callback** |  | None | [optional]
-**kwargs** | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

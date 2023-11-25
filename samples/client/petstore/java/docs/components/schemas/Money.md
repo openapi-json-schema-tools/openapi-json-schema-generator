@@ -18,14 +18,10 @@ Key | Type |  Description | Notes
 **amount** |  |  |
 **currency** |  |  |
 
+## MoneyMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**amount** |  |  |
-**currency** |  |  |
 
 ### properties
 Property | Type | Description | Notes

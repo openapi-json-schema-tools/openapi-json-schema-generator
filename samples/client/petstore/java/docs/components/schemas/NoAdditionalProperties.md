@@ -18,14 +18,10 @@ Key | Type |  Description | Notes
 **id** |  |  |
 **petId** |  |  | [optional]
 
+## NoAdditionalPropertiesMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**id** |  |  |
-**petId** |  |  | [optional]
 
 ### properties
 Property | Type | Description | Notes

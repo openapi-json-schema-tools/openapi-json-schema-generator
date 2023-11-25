@@ -19,15 +19,10 @@ Key | Type |  Description | Notes
 **op** |  | The operation to perform. |
 **path** |  | A JSON Pointer path. |
 
+## JSONPatchRequestMoveCopyMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**from** |  | A JSON Pointer path. |
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
 
 ### properties
 Property | Type | Description | Notes

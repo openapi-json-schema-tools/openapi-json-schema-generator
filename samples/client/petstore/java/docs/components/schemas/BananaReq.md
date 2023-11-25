@@ -18,14 +18,10 @@ Key | Type |  Description | Notes
 **lengthCm** |  |  |
 **sweet** |  |  | [optional]
 
+## BananaReqMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**lengthCm** |  |  |
-**sweet** |  |  | [optional]
 
 ### properties
 Property | Type | Description | Notes

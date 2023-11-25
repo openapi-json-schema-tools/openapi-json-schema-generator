@@ -38,27 +38,10 @@ Key | Type |  Description | Notes
 **noneProp** |  |  | [optional]
 **any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
+## FormatTestMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**date** |  |  |
-**password** |  |  |
-**int32** |  |  | [optional]
-**int32withValidations** |  |  | [optional]
-**int64** |  |  | [optional]
-**float32** |  |  | [optional]
-**float64** |  |  | [optional]
-**arrayWithUniqueItems** |  |  | [optional]
-**binary** |  |  | [optional]
-**dateTime** |  |  | [optional]
-**uuidNoExample** |  |  | [optional]
-**pattern_with_digits** |  | A string that is a 10 digit number. Can have leading zeros. | [optional]
-**pattern_with_digits_and_delimiter** |  | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
-**noneProp** |  |  | [optional]
-**kwargs** | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

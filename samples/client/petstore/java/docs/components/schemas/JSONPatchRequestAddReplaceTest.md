@@ -19,15 +19,10 @@ Key | Type |  Description | Notes
 **path** |  | A JSON Pointer path. |
 **value** |  | The value to add, replace or test. |
 
+## JSONPatchRequestAddReplaceTestMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
-**value** |  | The value to add, replace or test. |
 
 ### properties
 Property | Type | Description | Notes

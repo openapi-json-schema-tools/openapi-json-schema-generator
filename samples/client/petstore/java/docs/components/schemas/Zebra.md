@@ -19,15 +19,10 @@ Key | Type |  Description | Notes
 **type** |  |  | [optional]
 **any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
 
+## ZebraMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**className** |  |  |
-**type** |  |  | [optional]
-**kwargs** |  | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

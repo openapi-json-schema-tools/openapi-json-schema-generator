@@ -23,16 +23,10 @@ Key | Type |  Description | Notes
 **myBoolean** |  |  | [optional]
 **any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectModelWithRefPropsMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**myNumber** |  |  | [optional]
-**myString** |  |  | [optional]
-**myBoolean** |  |  | [optional]
-**kwargs** | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO | any string name can be used but the value must be the correct type a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

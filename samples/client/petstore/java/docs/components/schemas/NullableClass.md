@@ -29,25 +29,10 @@ Key | Type |  Description | Notes
 **object_items_nullable** |  |  | [optional]
 **any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
 
+## NullableClassMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**integer_prop** |  |  | [optional]
-**number_prop** |  |  | [optional]
-**boolean_prop** |  |  | [optional]
-**string_prop** |  |  | [optional]
-**date_prop** |  |  | [optional]
-**datetime_prop** |  |  | [optional]
-**array_nullable_prop** |  |  | [optional]
-**array_and_items_nullable_prop** |  |  | [optional]
-**array_items_nullable** |  |  | [optional]
-**object_nullable_prop** |  |  | [optional]
-**object_and_items_nullable_prop** |  |  | [optional]
-**object_items_nullable** |  |  | [optional]
-**kwargs** |  | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes

@@ -18,14 +18,10 @@ Key | Type |  Description | Notes
 **cultivar** |  |  |
 **mealy** |  |  | [optional]
 
+## AppleReqMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**cultivar** |  |  |
-**mealy** |  |  | [optional]
 
 ### properties
 Property | Type | Description | Notes

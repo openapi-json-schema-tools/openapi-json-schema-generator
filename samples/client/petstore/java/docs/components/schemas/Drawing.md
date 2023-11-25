@@ -21,17 +21,10 @@ Key | Type |  Description | Notes
 **shapes** |  |  | [optional]
 **any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
 
+## DrawingMap
 ```
 base class: FrozenMap<String, 
 ```
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Keyword Argument | Type | Description | Notes
----------------- | ---- | ----------- | -----
-**mainShape** |  |  | [optional]
-**shapeOrNull** |  |  | [optional]
-**nullableShape** |  |  | [optional]
-**shapes** |  |  | [optional]
-**kwargs** |  | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
