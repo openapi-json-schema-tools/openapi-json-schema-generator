@@ -386,6 +386,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<String> exceptionClasses = new ArrayList<>();
         exceptionClasses.add("BaseException");
         exceptionClasses.add("InvalidAdditionalPropertyException");
+        exceptionClasses.add("InvalidTypeException");
         exceptionClasses.add("UnsetPropertyException");
         exceptionClasses.add("ValidationException");
         for (String exceptionClass: exceptionClasses) {

@@ -3,6 +3,7 @@ package {{{packageName}}}.schemas.validation;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.InvalidTypeException;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -124,7 +125,7 @@ public abstract class JsonSchema {
          return arg.toString();
       } else {
          Class<?> argClass = arg.getClass();
-         throw new RuntimeException("Invalid type passed in got input="+arg+" type="+argClass);
+         throw new InvalidTypeException("Invalid type passed in for input="+arg+" type="+argClass);
       }
    }
 

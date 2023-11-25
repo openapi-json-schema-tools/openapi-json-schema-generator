@@ -6,6 +6,7 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.FrozenList;
+import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class ListSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
                 ListJsonSchema.class, (Void) null, configuration
         ));
     }

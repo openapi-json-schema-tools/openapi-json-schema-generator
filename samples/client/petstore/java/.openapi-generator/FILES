@@ -163,6 +163,7 @@ src/main/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlags.j
 src/main/java/org/openapijsonschematools/configurations/SchemaConfiguration.java
 src/main/java/org/openapijsonschematools/exceptions/BaseException.java
 src/main/java/org/openapijsonschematools/exceptions/InvalidAdditionalPropertyException.java
+src/main/java/org/openapijsonschematools/exceptions/InvalidTypeException.java
 src/main/java/org/openapijsonschematools/exceptions/UnsetPropertyException.java
 src/main/java/org/openapijsonschematools/exceptions/ValidationException.java
 src/main/java/org/openapijsonschematools/paths/anotherfakedummy/patch/responses/response200/content/applicationjson/Schema.java

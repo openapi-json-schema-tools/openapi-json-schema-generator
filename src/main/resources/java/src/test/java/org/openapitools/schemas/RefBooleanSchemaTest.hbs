@@ -5,6 +5,7 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.exceptions.ValidationException;
 
 class RefBooleanSchema {
     public class RefBooleanSchema1 extends BooleanJsonSchema{}
@@ -27,7 +28,7 @@ public class RefBooleanSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
                 RefBooleanSchema.RefBooleanSchema1.class, (Void) null, configuration
         ));
     }

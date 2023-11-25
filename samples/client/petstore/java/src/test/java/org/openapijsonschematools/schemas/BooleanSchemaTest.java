@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 public class BooleanSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
@@ -23,7 +24,7 @@ public class BooleanSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
                 BooleanJsonSchema.class, (Void) null, configuration
         ));
     }

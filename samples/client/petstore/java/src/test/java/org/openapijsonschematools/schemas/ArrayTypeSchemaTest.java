@@ -10,6 +10,7 @@ import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -59,7 +60,7 @@ public class ArrayTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
                 ArrayWithItemsSchema.class, (Void) null, configuration
         ));
     }
@@ -84,7 +85,7 @@ public class ArrayTypeSchemaTest {
         inList = new ArrayList<>();
         inList.add(1);
         List<Object> finalInList = inList;
-        Assert.assertThrows(RuntimeException.class, () -> ArrayWithItemsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> ArrayWithItemsSchema.validate(
                 finalInList, configuration
         ));
     }
@@ -109,7 +110,7 @@ public class ArrayTypeSchemaTest {
         inList = new ArrayList<>();
         inList.add(1);
         List<Object> finalInList = inList;
-        Assert.assertThrows(RuntimeException.class, () -> ArrayWithOutputClsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> ArrayWithOutputClsSchema.validate(
                 finalInList, configuration
         ));
     }

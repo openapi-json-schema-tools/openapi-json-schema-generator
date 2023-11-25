@@ -6,6 +6,7 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class ListSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(RuntimeException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
                 ListJsonSchema.class, (Void) null, configuration
         ));
     }
