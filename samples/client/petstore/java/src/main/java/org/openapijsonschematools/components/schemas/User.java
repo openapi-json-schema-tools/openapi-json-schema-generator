@@ -128,10 +128,8 @@ public class User {
     public class AnyTypePropNullable extends AnyTypeJsonSchema {}
     
     
-    public static class UserMap extends FrozenMap<String, Object> {
-
-        UserMap(FrozenMap<String, Object> m) {
-
+    public static class UserMap extends FrozenMap<String, Object
+        UserMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -154,102 +152,79 @@ public class User {
             return User1.validate(arg, configuration);
         }
         
-        public long id() {
-
+        public long
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
-
+            return (long
         }
         
-        public String username() {
-
+        public String
             String key = "username";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String firstName() {
-
+        public String
             String key = "firstName";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String lastName() {
-
+        public String
             String key = "lastName";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String email() {
-
+        public String
             String key = "email";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String password() {
-
+        public String
             String key = "password";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String phone() {
-
+        public String
             String key = "phone";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public int userStatus() {
-
+        public int
             String key = "userStatus";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
-
+            return (int
         }
         
-        public FrozenMap<String, Object> objectWithNoDeclaredProps() {
-
+        public FrozenMap<String, Object>
             String key = "objectWithNoDeclaredProps";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
-
+            return (FrozenMap<String, Object>
         }
         
-        public FrozenMap<String, Object> objectWithNoDeclaredPropsNullable() {
-
+        public FrozenMap<String, Object>
             String key = "objectWithNoDeclaredPropsNullable";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
-
+            return (FrozenMap<String, Object>
         }
         
-        public Object anyTypeProp() {
-
+        public Object
             String key = "anyTypeProp";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public Object anyTypeExceptNullProp() {
-
+        public Object
             String key = "anyTypeExceptNullProp";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public Object anyTypePropNullable() {
-
+        public Object
             String key = "anyTypePropNullable";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -287,8 +262,7 @@ public class User {
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
             )))
         ));
-        protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static UserMap getMapOutputInstance(FrozenMap<String, Object
             return new UserMap(arg);
         }
         public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

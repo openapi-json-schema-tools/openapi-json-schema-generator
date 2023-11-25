@@ -19,10 +19,8 @@ public class Address {
     public class AdditionalProperties extends IntJsonSchema {}
     
     
-    public static class AddressMap extends FrozenMap<String, Long> {
-
-        AddressMap(FrozenMap<String, Long> m) {
-
+    public static class AddressMap extends FrozenMap<String, Long
+        AddressMap(FrozenMap<String, Long
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -31,8 +29,7 @@ public class Address {
             return Address1.validate(arg, configuration);
         }
         
-        public long getAdditionalProperty(String name) {
-
+        public long
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -49,8 +46,7 @@ public class Address {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static AddressMap getMapOutputInstance(FrozenMap<String, Long> arg) {
-
+        protected static AddressMap getMapOutputInstance(FrozenMap<String, Long
             return new AddressMap(arg);
         }
         public static AddressMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -25,10 +25,8 @@ public class ObjectWithNonIntersectingValues {
     public class A extends NumberJsonSchema {}
     
     
-    public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object> {
-
-        ObjectWithNonIntersectingValuesMap(FrozenMap<String, Object> m) {
-
+    public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<String, Object
+        ObjectWithNonIntersectingValuesMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -39,19 +37,15 @@ public class ObjectWithNonIntersectingValues {
             return ObjectWithNonIntersectingValues1.validate(arg, configuration);
         }
         
-        public Number a() {
-
+        public Number
             String key = "a";
             throwIfKeyNotPresent(key);
-            return (Number) get(key);
-
+            return (Number
         }
         
-        public String getAdditionalProperty(String name) {
-
+        public String
             throwIfKeyNotPresent(name);
-            return (String) get(name);
-
+            return (String
         }
     }    
     
@@ -69,8 +63,7 @@ public class ObjectWithNonIntersectingValues {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<String, Object
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
         public static ObjectWithNonIntersectingValuesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

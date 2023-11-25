@@ -23,10 +23,8 @@ public class ArrayOfArrayOfNumberOnly {
     public class Items1 extends NumberJsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<Number> {
-
-        ItemsList(FrozenList<Number> m) {
-
+    public static class ItemsList extends FrozenList<Number
+        ItemsList(FrozenList<Number
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -40,8 +38,7 @@ public class ArrayOfArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
-        protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
-
+        protected static ItemsList getListOutputInstance(FrozenList<Number
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -49,10 +46,8 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }    
     
-    public static class ArrayArrayNumberList extends FrozenList<ItemsList> {
-
-        ArrayArrayNumberList(FrozenList<ItemsList> m) {
-
+    public static class ArrayArrayNumberList extends FrozenList<ItemsList
+        ArrayArrayNumberList(FrozenList<ItemsList
             super(m);
         }
         public static ArrayArrayNumberList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -66,8 +61,7 @@ public class ArrayOfArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList> arg) {
-
+        protected static ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList
             return new ArrayArrayNumberList(arg);
         }
         public static ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -75,10 +69,8 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }    
     
-    public static class ArrayOfArrayOfNumberOnlyMap extends FrozenMap<String, Object> {
-
-        ArrayOfArrayOfNumberOnlyMap(FrozenMap<String, Object> m) {
-
+    public static class ArrayOfArrayOfNumberOnlyMap extends FrozenMap<String, Object
+        ArrayOfArrayOfNumberOnlyMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -89,12 +81,10 @@ public class ArrayOfArrayOfNumberOnly {
             return ArrayOfArrayOfNumberOnly1.validate(arg, configuration);
         }
         
-        public ArrayArrayNumberList ArrayArrayNumber() {
-
+        public ArrayArrayNumberList
             String key = "ArrayArrayNumber";
             throwIfKeyNotPresent(key);
-            return (ArrayArrayNumberList) get(key);
-
+            return (ArrayArrayNumberList
         }
         
         public Object getAdditionalProperty(String name) {
@@ -117,8 +107,7 @@ public class ArrayOfArrayOfNumberOnly {
                 new PropertyEntry("ArrayArrayNumber", ArrayArrayNumber.class)
             )))
         ));
-        protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object
             return new ArrayOfArrayOfNumberOnlyMap(arg);
         }
         public static ArrayOfArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

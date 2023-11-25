@@ -82,10 +82,8 @@ public class EnumTest {
         }
     }    
     
-    public static class EnumTestMap extends FrozenMap<String, Object> {
-
-        EnumTestMap(FrozenMap<String, Object> m) {
-
+    public static class EnumTestMap extends FrozenMap<String, Object
+        EnumTestMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -105,74 +103,56 @@ public class EnumTest {
             return EnumTest1.validate(arg, configuration);
         }
         
-        public String enum_string_required() {
-
-            return (String) get("enum_string_required");
-
+        public String
+            return (String
         }
         
-        public String enum_string() {
-
+        public String
             String key = "enum_string";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public int enum_integer() {
-
+        public int
             String key = "enum_integer";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
-
+            return (int
         }
         
-        public double enum_number() {
-
+        public double
             String key = "enum_number";
             throwIfKeyNotPresent(key);
-            return (double) get(key);
-
+            return (double
         }
         
-        public String stringEnum() {
-
+        public String
             String key = "stringEnum";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public long IntegerEnum() {
-
+        public long
             String key = "IntegerEnum";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
-
+            return (long
         }
         
-        public String StringEnumWithDefaultValue() {
-
+        public String
             String key = "StringEnumWithDefaultValue";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public long IntegerEnumWithDefaultValue() {
-
+        public long
             String key = "IntegerEnumWithDefaultValue";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
-
+            return (long
         }
         
-        public long IntegerEnumOneValue() {
-
+        public long
             String key = "IntegerEnumOneValue";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
-
+            return (long
         }
         
         public Object getAdditionalProperty(String name) {
@@ -206,8 +186,7 @@ public class EnumTest {
                 "enum_string_required"
             )))
         ));
-        protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object
             return new EnumTestMap(arg);
         }
         public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

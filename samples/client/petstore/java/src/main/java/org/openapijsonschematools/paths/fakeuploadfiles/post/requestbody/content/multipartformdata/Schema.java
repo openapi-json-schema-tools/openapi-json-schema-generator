@@ -24,10 +24,8 @@ public class Schema {
     }
     
     
-    public static class FilesList extends FrozenList<String> {
-
-        FilesList(FrozenList<String> m) {
-
+    public static class FilesList extends FrozenList<String
+        FilesList(FrozenList<String
             super(m);
         }
         public static FilesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -41,8 +39,7 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static FilesList getListOutputInstance(FrozenList<String> arg) {
-
+        protected static FilesList getListOutputInstance(FrozenList<String
             return new FilesList(arg);
         }
         public static FilesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -50,10 +47,8 @@ public class Schema {
         }
     }    
     
-    public static class SchemaMap extends FrozenMap<String, Object> {
-
-        SchemaMap(FrozenMap<String, Object> m) {
-
+    public static class SchemaMap extends FrozenMap<String, Object
+        SchemaMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -64,12 +59,10 @@ public class Schema {
             return Schema1.validate(arg, configuration);
         }
         
-        public FilesList files() {
-
+        public FilesList
             String key = "files";
             throwIfKeyNotPresent(key);
-            return (FilesList) get(key);
-
+            return (FilesList
         }
         
         public Object getAdditionalProperty(String name) {
@@ -86,8 +79,7 @@ public class Schema {
                 new PropertyEntry("files", Files.class)
             )))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

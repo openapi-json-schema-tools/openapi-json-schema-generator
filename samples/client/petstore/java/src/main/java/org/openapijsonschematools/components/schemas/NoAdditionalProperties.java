@@ -31,10 +31,8 @@ public class NoAdditionalProperties {
     public class PetId extends Int64JsonSchema {}
     
     
-    public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long> {
-
-        NoAdditionalPropertiesMap(FrozenMap<String, Long> m) {
-
+    public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long
+        NoAdditionalPropertiesMap(FrozenMap<String, Long
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -47,13 +45,11 @@ public class NoAdditionalProperties {
             return NoAdditionalProperties1.validate(arg, configuration);
         }
         
-        public long id() {
-
+        public long
             return get("id");
         }
         
-        public long petId() {
-
+        public long
             String key = "petId";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -78,8 +74,7 @@ public class NoAdditionalProperties {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long> arg) {
-
+        protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long
             return new NoAdditionalPropertiesMap(arg);
         }
         public static NoAdditionalPropertiesMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -24,10 +24,8 @@ public class ReturnSchema {
     public class ReturnSchema2 extends Int32JsonSchema {}
     
     
-    public static class ReturnMap extends FrozenMap<String, Object> {
-
-        ReturnMap(FrozenMap<String, Object> m) {
-
+    public static class ReturnMap extends FrozenMap<String, Object
+        ReturnMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

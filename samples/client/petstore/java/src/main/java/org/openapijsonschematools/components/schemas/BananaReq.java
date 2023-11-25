@@ -32,10 +32,8 @@ public class BananaReq {
     public class Sweet extends BooleanJsonSchema {}
     
     
-    public static class BananaReqMap extends FrozenMap<String, Object> {
-
-        BananaReqMap(FrozenMap<String, Object> m) {
-
+    public static class BananaReqMap extends FrozenMap<String, Object
+        BananaReqMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -48,18 +46,14 @@ public class BananaReq {
             return BananaReq1.validate(arg, configuration);
         }
         
-        public Number lengthCm() {
-
-            return (Number) get("lengthCm");
-
+        public Number
+            return (Number
         }
         
-        public boolean sweet() {
-
+        public boolean
             String key = "sweet";
             throwIfKeyNotPresent(key);
-            return (boolean) get(key);
-
+            return (boolean
         }
     }    
     
@@ -81,8 +75,7 @@ public class BananaReq {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static BananaReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static BananaReqMap getMapOutputInstance(FrozenMap<String, Object
             return new BananaReqMap(arg);
         }
         public static BananaReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

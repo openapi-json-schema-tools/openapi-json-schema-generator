@@ -21,10 +21,8 @@ public class GrandparentAnimal {
     public class PetType extends StringJsonSchema {}
     
     
-    public static class GrandparentAnimalMap extends FrozenMap<String, Object> {
-
-        GrandparentAnimalMap(FrozenMap<String, Object> m) {
-
+    public static class GrandparentAnimalMap extends FrozenMap<String, Object
+        GrandparentAnimalMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -35,10 +33,8 @@ public class GrandparentAnimal {
             return GrandparentAnimal1.validate(arg, configuration);
         }
         
-        public String pet_type() {
-
-            return (String) get("pet_type");
-
+        public String
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -64,8 +60,7 @@ public class GrandparentAnimal {
                 "pet_type"
             )))
         ));
-        protected static GrandparentAnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static GrandparentAnimalMap getMapOutputInstance(FrozenMap<String, Object
             return new GrandparentAnimalMap(arg);
         }
         public static GrandparentAnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

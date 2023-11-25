@@ -24,10 +24,8 @@ public class ArrayTest {
     public class Items extends StringJsonSchema {}
     
     
-    public static class ArrayOfStringList extends FrozenList<String> {
-
-        ArrayOfStringList(FrozenList<String> m) {
-
+    public static class ArrayOfStringList extends FrozenList<String
+        ArrayOfStringList(FrozenList<String
             super(m);
         }
         public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -41,8 +39,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
-
+        protected static ArrayOfStringList getListOutputInstance(FrozenList<String
             return new ArrayOfStringList(arg);
         }
         public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -53,10 +50,8 @@ public class ArrayTest {
     public class Items2 extends Int64JsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<Long> {
-
-        ItemsList(FrozenList<Long> m) {
-
+    public static class ItemsList extends FrozenList<Long
+        ItemsList(FrozenList<Long
             super(m);
         }
         public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -70,8 +65,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static ItemsList getListOutputInstance(FrozenList<Long> arg) {
-
+        protected static ItemsList getListOutputInstance(FrozenList<Long
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -79,10 +73,8 @@ public class ArrayTest {
         }
     }    
     
-    public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList> {
-
-        ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
-
+    public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList
+        ArrayArrayOfIntegerList(FrozenList<ItemsList
             super(m);
         }
         public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -96,8 +88,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
-        protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
-
+        protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList
             return new ArrayArrayOfIntegerList(arg);
         }
         public static ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -105,10 +96,8 @@ public class ArrayTest {
         }
     }    
     
-    public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> {
-
-        ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
-
+    public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap
+        ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap
             super(m);
         }
         public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -122,8 +111,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class))
         ));
-        protected static ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
-
+        protected static ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap
             return new ItemsList1(arg);
         }
         public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -131,10 +119,8 @@ public class ArrayTest {
         }
     }    
     
-    public static class ArrayArrayOfModelList extends FrozenList<ItemsList1> {
-
-        ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
-
+    public static class ArrayArrayOfModelList extends FrozenList<ItemsList1
+        ArrayArrayOfModelList(FrozenList<ItemsList1
             super(m);
         }
         public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -148,8 +134,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items3.class))
         ));
-        protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
-
+        protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1
             return new ArrayArrayOfModelList(arg);
         }
         public static ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -157,10 +142,8 @@ public class ArrayTest {
         }
     }    
     
-    public static class ArrayTestMap extends FrozenMap<String, Object> {
-
-        ArrayTestMap(FrozenMap<String, Object> m) {
-
+    public static class ArrayTestMap extends FrozenMap<String, Object
+        ArrayTestMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -173,28 +156,22 @@ public class ArrayTest {
             return ArrayTest1.validate(arg, configuration);
         }
         
-        public ArrayOfStringList array_of_string() {
-
+        public ArrayOfStringList
             String key = "array_of_string";
             throwIfKeyNotPresent(key);
-            return (ArrayOfStringList) get(key);
-
+            return (ArrayOfStringList
         }
         
-        public ArrayArrayOfIntegerList array_array_of_integer() {
-
+        public ArrayArrayOfIntegerList
             String key = "array_array_of_integer";
             throwIfKeyNotPresent(key);
-            return (ArrayArrayOfIntegerList) get(key);
-
+            return (ArrayArrayOfIntegerList
         }
         
-        public ArrayArrayOfModelList array_array_of_model() {
-
+        public ArrayArrayOfModelList
             String key = "array_array_of_model";
             throwIfKeyNotPresent(key);
-            return (ArrayArrayOfModelList) get(key);
-
+            return (ArrayArrayOfModelList
         }
         
         public Object getAdditionalProperty(String name) {
@@ -219,8 +196,7 @@ public class ArrayTest {
                 new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
             )))
         ));
-        protected static ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ArrayTestMap getMapOutputInstance(FrozenMap<String, Object
             return new ArrayTestMap(arg);
         }
         public static ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

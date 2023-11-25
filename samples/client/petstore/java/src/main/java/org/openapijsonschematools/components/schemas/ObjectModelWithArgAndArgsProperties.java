@@ -24,10 +24,8 @@ public class ObjectModelWithArgAndArgsProperties {
     public class Args extends StringJsonSchema {}
     
     
-    public static class ObjectModelWithArgAndArgsPropertiesMap extends FrozenMap<String, Object> {
-
-        ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<String, Object> m) {
-
+    public static class ObjectModelWithArgAndArgsPropertiesMap extends FrozenMap<String, Object
+        ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -39,16 +37,12 @@ public class ObjectModelWithArgAndArgsProperties {
             return ObjectModelWithArgAndArgsProperties1.validate(arg, configuration);
         }
         
-        public String arg() {
-
-            return (String) get("arg");
-
+        public String
+            return (String
         }
         
-        public String args() {
-
-            return (String) get("args");
-
+        public String
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -76,8 +70,7 @@ public class ObjectModelWithArgAndArgsProperties {
                 "args"
             )))
         ));
-        protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
         public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

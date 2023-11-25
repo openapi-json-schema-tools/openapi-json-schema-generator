@@ -20,8 +20,7 @@ Key | Type |  Description | Notes
 
 ## MoneyMap
 ```
-base class: FrozenMap<String, Object>
-
+base class: FrozenMap<String, Object
 ```
 
 ### properties

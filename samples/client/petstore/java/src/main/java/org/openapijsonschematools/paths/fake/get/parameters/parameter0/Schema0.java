@@ -27,10 +27,8 @@ public class Schema0 {
         }
     }    
     
-    public static class SchemaList0 extends FrozenList<String> {
-
-        SchemaList0(FrozenList<String> m) {
-
+    public static class SchemaList0 extends FrozenList<String
+        SchemaList0(FrozenList<String
             super(m);
         }
         public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -44,8 +42,7 @@ public class Schema0 {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items0.class))
         ));
-        protected static SchemaList0 getListOutputInstance(FrozenList<String> arg) {
-
+        protected static SchemaList0 getListOutputInstance(FrozenList<String
             return new SchemaList0(arg);
         }
         public static SchemaList0 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {

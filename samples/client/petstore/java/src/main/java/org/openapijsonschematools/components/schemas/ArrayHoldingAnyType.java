@@ -20,10 +20,8 @@ public class ArrayHoldingAnyType {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class ArrayHoldingAnyTypeList extends FrozenList<Object> {
-
-        ArrayHoldingAnyTypeList(FrozenList<Object> m) {
-
+    public static class ArrayHoldingAnyTypeList extends FrozenList<Object
+        ArrayHoldingAnyTypeList(FrozenList<Object
             super(m);
         }
         public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -43,8 +41,7 @@ public class ArrayHoldingAnyType {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object> arg) {
-
+        protected static ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object
             return new ArrayHoldingAnyTypeList(arg);
         }
         public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

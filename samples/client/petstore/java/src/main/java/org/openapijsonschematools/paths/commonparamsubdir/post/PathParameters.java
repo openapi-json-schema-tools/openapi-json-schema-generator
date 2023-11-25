@@ -25,10 +25,8 @@ public class PathParameters {
         // NotAnyTypeSchema
     
     
-    public static class PathParametersMap extends FrozenMap<String, String> {
-
-        PathParametersMap(FrozenMap<String, String> m) {
-
+    public static class PathParametersMap extends FrozenMap<String, String
+        PathParametersMap(FrozenMap<String, String
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -39,8 +37,7 @@ public class PathParameters {
             return PathParameters1.validate(arg, configuration);
         }
         
-        public String subDir() {
-
+        public String
             return get("subDir");
         }
     }    
@@ -56,8 +53,7 @@ public class PathParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static PathParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
+        protected static PathParametersMap getMapOutputInstance(FrozenMap<String, String
             return new PathParametersMap(arg);
         }
         public static PathParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {

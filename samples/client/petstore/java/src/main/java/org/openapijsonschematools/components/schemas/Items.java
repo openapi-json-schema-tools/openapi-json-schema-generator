@@ -21,10 +21,8 @@ public class Items {
     public class Items2 extends MapJsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<FrozenMap<String, Object>> {
-
-        ItemsList(FrozenList<FrozenMap<String, Object>> m) {
-
+    public static class ItemsList extends FrozenList<FrozenMap<String, Object>
+        ItemsList(FrozenList<FrozenMap<String, Object>
             super(m);
         }
         public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -46,8 +44,7 @@ public class Items {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static ItemsList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
-
+        protected static ItemsList getListOutputInstance(FrozenList<FrozenMap<String, Object>
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -16,10 +16,8 @@ public class ArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ArrayOfEnumsList extends FrozenList<String> {
-
-        ArrayOfEnumsList(FrozenList<String> m) {
-
+    public static class ArrayOfEnumsList extends FrozenList<String
+        ArrayOfEnumsList(FrozenList<String
             super(m);
         }
         public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -39,8 +37,7 @@ public class ArrayOfEnums {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(StringEnum.StringEnum1.class))
         ));
-        protected static ArrayOfEnumsList getListOutputInstance(FrozenList<String> arg) {
-
+        protected static ArrayOfEnumsList getListOutputInstance(FrozenList<String
             return new ArrayOfEnumsList(arg);
         }
         public static ArrayOfEnumsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {

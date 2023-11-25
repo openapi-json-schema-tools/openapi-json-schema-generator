@@ -39,10 +39,8 @@ public class Apple {
         }
     }    
     
-    public static class AppleMap extends FrozenMap<String, Object> {
-
-        AppleMap(FrozenMap<String, Object> m) {
-
+    public static class AppleMap extends FrozenMap<String, Object
+        AppleMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -55,18 +53,14 @@ public class Apple {
             return Apple1.validate(arg, configuration);
         }
         
-        public String cultivar() {
-
-            return (String) get("cultivar");
-
+        public String
+            return (String
         }
         
-        public String origin() {
-
+        public String
             String key = "origin";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {

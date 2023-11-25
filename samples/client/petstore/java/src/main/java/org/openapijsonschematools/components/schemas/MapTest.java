@@ -22,10 +22,8 @@ public class MapTest {
     public class AdditionalProperties1 extends StringJsonSchema {}
     
     
-    public static class AdditionalPropertiesMap extends FrozenMap<String, String> {
-
-        AdditionalPropertiesMap(FrozenMap<String, String> m) {
-
+    public static class AdditionalPropertiesMap extends FrozenMap<String, String
+        AdditionalPropertiesMap(FrozenMap<String, String
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -34,8 +32,7 @@ public class MapTest {
             return AdditionalProperties.validate(arg, configuration);
         }
         
-        public String getAdditionalProperty(String name) {
-
+        public String
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -46,8 +43,7 @@ public class MapTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
-        protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
+        protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String
             return new AdditionalPropertiesMap(arg);
         }
         public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -56,10 +52,8 @@ public class MapTest {
     }
     
     
-    public static class MapMapOfStringMap extends FrozenMap<String, AdditionalPropertiesMap> {
-
-        MapMapOfStringMap(FrozenMap<String, AdditionalPropertiesMap> m) {
-
+    public static class MapMapOfStringMap extends FrozenMap<String, AdditionalPropertiesMap
+        MapMapOfStringMap(FrozenMap<String, AdditionalPropertiesMap
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -68,8 +62,7 @@ public class MapTest {
             return MapMapOfString.validate(arg, configuration);
         }
         
-        public AdditionalPropertiesMap getAdditionalProperty(String name) {
-
+        public AdditionalPropertiesMap
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -80,8 +73,7 @@ public class MapTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
-
+        protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap
             return new MapMapOfStringMap(arg);
         }
         public static MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -101,10 +93,8 @@ public class MapTest {
         }
     }    
     
-    public static class MapOfEnumStringMap extends FrozenMap<String, String> {
-
-        MapOfEnumStringMap(FrozenMap<String, String> m) {
-
+    public static class MapOfEnumStringMap extends FrozenMap<String, String
+        MapOfEnumStringMap(FrozenMap<String, String
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -113,8 +103,7 @@ public class MapTest {
             return MapOfEnumString.validate(arg, configuration);
         }
         
-        public String getAdditionalProperty(String name) {
-
+        public String
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -125,8 +114,7 @@ public class MapTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
         ));
-        protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
+        protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<String, String
             return new MapOfEnumStringMap(arg);
         }
         public static MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -138,10 +126,8 @@ public class MapTest {
     public class AdditionalProperties3 extends BooleanJsonSchema {}
     
     
-    public static class DirectMapMap extends FrozenMap<String, Boolean> {
-
-        DirectMapMap(FrozenMap<String, Boolean> m) {
-
+    public static class DirectMapMap extends FrozenMap<String, Boolean
+        DirectMapMap(FrozenMap<String, Boolean
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -150,8 +136,7 @@ public class MapTest {
             return DirectMap.validate(arg, configuration);
         }
         
-        public boolean getAdditionalProperty(String name) {
-
+        public boolean
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -162,8 +147,7 @@ public class MapTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
-        protected static DirectMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
-
+        protected static DirectMapMap getMapOutputInstance(FrozenMap<String, Boolean
             return new DirectMapMap(arg);
         }
         public static DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -172,10 +156,8 @@ public class MapTest {
     }
     
     
-    public static class MapTestMap extends FrozenMap<String, Object> {
-
-        MapTestMap(FrozenMap<String, Object> m) {
-
+    public static class MapTestMap extends FrozenMap<String, Object
+        MapTestMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -189,36 +171,28 @@ public class MapTest {
             return MapTest1.validate(arg, configuration);
         }
         
-        public MapMapOfStringMap map_map_of_string() {
-
+        public MapMapOfStringMap
             String key = "map_map_of_string";
             throwIfKeyNotPresent(key);
-            return (MapMapOfStringMap) get(key);
-
+            return (MapMapOfStringMap
         }
         
-        public MapOfEnumStringMap map_of_enum_string() {
-
+        public MapOfEnumStringMap
             String key = "map_of_enum_string";
             throwIfKeyNotPresent(key);
-            return (MapOfEnumStringMap) get(key);
-
+            return (MapOfEnumStringMap
         }
         
-        public DirectMapMap direct_map() {
-
+        public DirectMapMap
             String key = "direct_map";
             throwIfKeyNotPresent(key);
-            return (DirectMapMap) get(key);
-
+            return (DirectMapMap
         }
         
-        public StringBooleanMap.StringBooleanMapMap indirect_map() {
-
+        public StringBooleanMap.StringBooleanMapMap
             String key = "indirect_map";
             throwIfKeyNotPresent(key);
-            return (StringBooleanMap.StringBooleanMapMap) get(key);
-
+            return (StringBooleanMap.StringBooleanMapMap
         }
         
         public Object getAdditionalProperty(String name) {
@@ -244,8 +218,7 @@ public class MapTest {
                 new PropertyEntry("indirect_map", StringBooleanMap.StringBooleanMap1.class)
             )))
         ));
-        protected static MapTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static MapTestMap getMapOutputInstance(FrozenMap<String, Object
             return new MapTestMap(arg);
         }
         public static MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

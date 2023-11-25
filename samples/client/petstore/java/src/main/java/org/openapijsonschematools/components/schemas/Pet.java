@@ -31,10 +31,8 @@ public class Pet {
     public class Items extends StringJsonSchema {}
     
     
-    public static class PhotoUrlsList extends FrozenList<String> {
-
-        PhotoUrlsList(FrozenList<String> m) {
-
+    public static class PhotoUrlsList extends FrozenList<String
+        PhotoUrlsList(FrozenList<String
             super(m);
         }
         public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -48,8 +46,7 @@ public class Pet {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
-
+        protected static PhotoUrlsList getListOutputInstance(FrozenList<String
             return new PhotoUrlsList(arg);
         }
         public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -68,10 +65,8 @@ public class Pet {
         }
     }    
     
-    public static class TagsList extends FrozenList<Tag.TagMap> {
-
-        TagsList(FrozenList<Tag.TagMap> m) {
-
+    public static class TagsList extends FrozenList<Tag.TagMap
+        TagsList(FrozenList<Tag.TagMap
             super(m);
         }
         public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -85,8 +80,7 @@ public class Pet {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
         ));
-        protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
-
+        protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap
             return new TagsList(arg);
         }
         public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -94,10 +88,8 @@ public class Pet {
         }
     }    
     
-    public static class PetMap extends FrozenMap<String, Object> {
-
-        PetMap(FrozenMap<String, Object> m) {
-
+    public static class PetMap extends FrozenMap<String, Object
+        PetMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -114,48 +106,36 @@ public class Pet {
             return Pet1.validate(arg, configuration);
         }
         
-        public String name() {
-
-            return (String) get("name");
-
+        public String
+            return (String
         }
         
-        public PhotoUrlsList photoUrls() {
-
-            return (PhotoUrlsList) get("photoUrls");
-
+        public PhotoUrlsList
+            return (PhotoUrlsList
         }
         
-        public long id() {
-
+        public long
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
-
+            return (long
         }
         
-        public Category.CategoryMap category() {
-
+        public Category.CategoryMap
             String key = "category";
             throwIfKeyNotPresent(key);
-            return (Category.CategoryMap) get(key);
-
+            return (Category.CategoryMap
         }
         
-        public TagsList tags() {
-
+        public TagsList
             String key = "tags";
             throwIfKeyNotPresent(key);
-            return (TagsList) get(key);
-
+            return (TagsList
         }
         
-        public String status() {
-
+        public String
             String key = "status";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -189,8 +169,7 @@ public class Pet {
                 "photoUrls"
             )))
         ));
-        protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static PetMap getMapOutputInstance(FrozenMap<String, Object
             return new PetMap(arg);
         }
         public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

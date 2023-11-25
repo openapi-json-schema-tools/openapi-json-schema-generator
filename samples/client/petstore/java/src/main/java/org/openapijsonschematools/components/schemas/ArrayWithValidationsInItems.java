@@ -44,10 +44,8 @@ public class ArrayWithValidationsInItems {
         }
     }    
     
-    public static class ArrayWithValidationsInItemsList extends FrozenList<Long> {
-
-        ArrayWithValidationsInItemsList(FrozenList<Long> m) {
-
+    public static class ArrayWithValidationsInItemsList extends FrozenList<Long
+        ArrayWithValidationsInItemsList(FrozenList<Long
             super(m);
         }
         public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -67,8 +65,7 @@ public class ArrayWithValidationsInItems {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
-
+        protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long
             return new ArrayWithValidationsInItemsList(arg);
         }
         public static ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {

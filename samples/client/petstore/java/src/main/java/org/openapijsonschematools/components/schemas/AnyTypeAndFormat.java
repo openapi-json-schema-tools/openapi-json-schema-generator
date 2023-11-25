@@ -499,10 +499,8 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
-
-        AnyTypeAndFormatMap(FrozenMap<String, Object> m) {
-
+    public static class AnyTypeAndFormatMap extends FrozenMap<String, Object
+        AnyTypeAndFormatMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -521,29 +519,25 @@ public class AnyTypeAndFormat {
             return AnyTypeAndFormat1.validate(arg, configuration);
         }
         
-        public Object date() {
-
+        public Object
             String key = "date";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public Object binary() {
-
+        public Object
             String key = "binary";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public Object int32() {
-
+        public Object
             String key = "int32";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public Object int64() {
-
+        public Object
             String key = "int64";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -577,8 +571,7 @@ public class AnyTypeAndFormat {
                 new PropertyEntry("float", FloatSchema.class)
             )))
         ));
-        protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object
             return new AnyTypeAndFormatMap(arg);
         }
         public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

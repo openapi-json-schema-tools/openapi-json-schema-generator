@@ -17,10 +17,8 @@ public class ObjectWithInvalidNamedRefedProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<String, Object> {
-
-        ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<String, Object> m) {
-
+    public static class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<String, Object
+        ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -32,10 +30,8 @@ public class ObjectWithInvalidNamedRefedProperties {
             return ObjectWithInvalidNamedRefedProperties1.validate(arg, configuration);
         }
         
-        public FromSchema.FromSchemaMap from() {
-
-            return (FromSchema.FromSchemaMap) get("from");
-
+        public FromSchema.FromSchemaMap
+            return (FromSchema.FromSchemaMap
         }
         
         public Object getAdditionalProperty(String name) {
@@ -63,8 +59,7 @@ public class ObjectWithInvalidNamedRefedProperties {
                 "from"
             )))
         ));
-        protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<String, Object
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
         public static ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -20,10 +20,8 @@ public class ObjectWithOptionalTestProp {
     public class Test extends StringJsonSchema {}
     
     
-    public static class ObjectWithOptionalTestPropMap extends FrozenMap<String, Object> {
-
-        ObjectWithOptionalTestPropMap(FrozenMap<String, Object> m) {
-
+    public static class ObjectWithOptionalTestPropMap extends FrozenMap<String, Object
+        ObjectWithOptionalTestPropMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -34,12 +32,10 @@ public class ObjectWithOptionalTestProp {
             return ObjectWithOptionalTestProp1.validate(arg, configuration);
         }
         
-        public String test() {
-
+        public String
             String key = "test";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -62,8 +58,7 @@ public class ObjectWithOptionalTestProp {
                 new PropertyEntry("test", Test.class)
             )))
         ));
-        protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<String, Object
             return new ObjectWithOptionalTestPropMap(arg);
         }
         public static ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

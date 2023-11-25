@@ -26,10 +26,8 @@ public class Schema {
     }
     
     
-    public static class SchemaMap extends FrozenMap<String, Object> {
-
-        SchemaMap(FrozenMap<String, Object> m) {
-
+    public static class SchemaMap extends FrozenMap<String, Object
+        SchemaMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -42,18 +40,14 @@ public class Schema {
             return Schema1.validate(arg, configuration);
         }
         
-        public String requiredFile() {
-
-            return (String) get("requiredFile");
-
+        public String
+            return (String
         }
         
-        public String additionalMetadata() {
-
+        public String
             String key = "additionalMetadata";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -74,8 +68,7 @@ public class Schema {
                 "requiredFile"
             )))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

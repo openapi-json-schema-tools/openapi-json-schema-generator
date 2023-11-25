@@ -25,10 +25,8 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    public static class QueryParametersMap extends FrozenMap<String, Object> {
-
-        QueryParametersMap(FrozenMap<String, Object> m) {
-
+    public static class QueryParametersMap extends FrozenMap<String, Object
+        QueryParametersMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -40,20 +38,16 @@ public class QueryParameters {
             return QueryParameters1.validate(arg, configuration);
         }
         
-        public Object compositionAtRoot() {
-
+        public Object
             String key = "compositionAtRoot";
             throwIfKeyNotPresent(key);
-            return (Object) get(key);
-
+            return (Object
         }
         
-        public Schema1.SchemaMap1 compositionInProperty() {
-
+        public Schema1.SchemaMap1
             String key = "compositionInProperty";
             throwIfKeyNotPresent(key);
-            return (Schema1.SchemaMap1) get(key);
-
+            return (Schema1.SchemaMap1
         }
     }    
     
@@ -66,8 +60,7 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

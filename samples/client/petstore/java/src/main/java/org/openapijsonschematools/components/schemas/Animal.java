@@ -32,10 +32,8 @@ public class Animal {
         }
     }    
     
-    public static class AnimalMap extends FrozenMap<String, Object> {
-
-        AnimalMap(FrozenMap<String, Object> m) {
-
+    public static class AnimalMap extends FrozenMap<String, Object
+        AnimalMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -48,18 +46,14 @@ public class Animal {
             return Animal1.validate(arg, configuration);
         }
         
-        public String className() {
-
-            return (String) get("className");
-
+        public String
+            return (String
         }
         
-        public String color() {
-
+        public String
             String key = "color";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -86,8 +80,7 @@ public class Animal {
                 "className"
             )))
         ));
-        protected static AnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static AnimalMap getMapOutputInstance(FrozenMap<String, Object
             return new AnimalMap(arg);
         }
         public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -25,10 +25,8 @@ public class PathParameters {
         // NotAnyTypeSchema
     
     
-    public static class PathParametersMap extends FrozenMap<String, Long> {
-
-        PathParametersMap(FrozenMap<String, Long> m) {
-
+    public static class PathParametersMap extends FrozenMap<String, Long
+        PathParametersMap(FrozenMap<String, Long
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -39,8 +37,7 @@ public class PathParameters {
             return PathParameters1.validate(arg, configuration);
         }
         
-        public long petId() {
-
+        public long
             return get("petId");
         }
     }    
@@ -56,8 +53,7 @@ public class PathParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Long> arg) {
-
+        protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Long
             return new PathParametersMap(arg);
         }
         public static PathParametersMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {

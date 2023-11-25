@@ -20,10 +20,8 @@ public class ReqPropsFromExplicitAddProps {
     public class AdditionalProperties extends StringJsonSchema {}
     
     
-    public static class ReqPropsFromExplicitAddPropsMap extends FrozenMap<String, String> {
-
-        ReqPropsFromExplicitAddPropsMap(FrozenMap<String, String> m) {
-
+    public static class ReqPropsFromExplicitAddPropsMap extends FrozenMap<String, String
+        ReqPropsFromExplicitAddPropsMap(FrozenMap<String, String
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -35,13 +33,11 @@ public class ReqPropsFromExplicitAddProps {
             return ReqPropsFromExplicitAddProps1.validate(arg, configuration);
         }
         
-        public String validName() {
-
+        public String
             return get("validName");
         }
         
-        public String getAdditionalProperty(String name) {
-
+        public String
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -62,8 +58,7 @@ public class ReqPropsFromExplicitAddProps {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
+        protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<String, String
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
         public static ReqPropsFromExplicitAddPropsMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -20,10 +20,8 @@ public class ObjectWithDecimalProperties {
     public class Width extends DecimalJsonSchema {}
     
     
-    public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object> {
-
-        ObjectWithDecimalPropertiesMap(FrozenMap<String, Object> m) {
-
+    public static class ObjectWithDecimalPropertiesMap extends FrozenMap<String, Object
+        ObjectWithDecimalPropertiesMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -36,28 +34,22 @@ public class ObjectWithDecimalProperties {
             return ObjectWithDecimalProperties1.validate(arg, configuration);
         }
         
-        public String length() {
-
+        public String
             String key = "length";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String width() {
-
+        public String
             String key = "width";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public Money.MoneyMap cost() {
-
+        public Money.MoneyMap
             String key = "cost";
             throwIfKeyNotPresent(key);
-            return (Money.MoneyMap) get(key);
-
+            return (Money.MoneyMap
         }
         
         public Object getAdditionalProperty(String name) {
@@ -82,8 +74,7 @@ public class ObjectWithDecimalProperties {
                 new PropertyEntry("cost", Money.Money1.class)
             )))
         ));
-        protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<String, Object
             return new ObjectWithDecimalPropertiesMap(arg);
         }
         public static ObjectWithDecimalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

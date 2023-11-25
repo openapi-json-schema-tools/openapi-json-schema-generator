@@ -20,10 +20,8 @@ public class Schema2 {
     public class Items2 extends StringJsonSchema {}
     
     
-    public static class SchemaList2 extends FrozenList<String> {
-
-        SchemaList2(FrozenList<String> m) {
-
+    public static class SchemaList2 extends FrozenList<String
+        SchemaList2(FrozenList<String
             super(m);
         }
         public static SchemaList2 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -37,8 +35,7 @@ public class Schema2 {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
-        protected static SchemaList2 getListOutputInstance(FrozenList<String> arg) {
-
+        protected static SchemaList2 getListOutputInstance(FrozenList<String
             return new SchemaList2(arg);
         }
         public static SchemaList2 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -19,10 +19,8 @@ public class Schema {
     public class AdditionalProperties extends Int32JsonSchema {}
     
     
-    public static class SchemaMap extends FrozenMap<String, Integer> {
-
-        SchemaMap(FrozenMap<String, Integer> m) {
-
+    public static class SchemaMap extends FrozenMap<String, Integer
+        SchemaMap(FrozenMap<String, Integer
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -31,8 +29,7 @@ public class Schema {
             return Schema1.validate(arg, configuration);
         }
         
-        public int getAdditionalProperty(String name) {
-
+        public int
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -43,8 +40,7 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Integer> arg) {
-
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Integer
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Integer> arg, SchemaConfiguration configuration) throws ValidationException {

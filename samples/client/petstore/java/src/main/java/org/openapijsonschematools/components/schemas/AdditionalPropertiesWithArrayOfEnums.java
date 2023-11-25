@@ -18,10 +18,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalPropertiesList extends FrozenList<String> {
-
-        AdditionalPropertiesList(FrozenList<String> m) {
-
+    public static class AdditionalPropertiesList extends FrozenList<String
+        AdditionalPropertiesList(FrozenList<String
             super(m);
         }
         public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -35,8 +33,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(EnumClass.EnumClass1.class))
         ));
-        protected static AdditionalPropertiesList getListOutputInstance(FrozenList<String> arg) {
-
+        protected static AdditionalPropertiesList getListOutputInstance(FrozenList<String
             return new AdditionalPropertiesList(arg);
         }
         public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -44,10 +41,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
     }    
     
-    public static class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<String, AdditionalPropertiesList> {
-
-        AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<String, AdditionalPropertiesList> m) {
-
+    public static class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<String, AdditionalPropertiesList
+        AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<String, AdditionalPropertiesList
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -56,11 +51,9 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return AdditionalPropertiesWithArrayOfEnums1.validate(arg, configuration);
         }
         
-        public AdditionalPropertiesList getAdditionalProperty(String name) {
-
+        public AdditionalPropertiesList
             throwIfKeyNotPresent(name);
-            return (AdditionalPropertiesList) get(name);
-
+            return (AdditionalPropertiesList
         }
     }    
     
@@ -75,8 +68,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesList> arg) {
-
+        protected static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesList
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
         public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {

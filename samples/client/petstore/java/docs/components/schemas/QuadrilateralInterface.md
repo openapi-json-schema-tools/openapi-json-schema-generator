@@ -29,8 +29,7 @@ Key | Type |  Description | Notes
 
 ## QuadrilateralInterfaceMap
 ```
-base class: FrozenMap<String, Object>
-
+base class: FrozenMap<String, Object
 ```
 
 ### properties

@@ -41,10 +41,8 @@ public class EnumArrays {
         }
     }    
     
-    public static class ArrayEnumList extends FrozenList<String> {
-
-        ArrayEnumList(FrozenList<String> m) {
-
+    public static class ArrayEnumList extends FrozenList<String
+        ArrayEnumList(FrozenList<String
             super(m);
         }
         public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -58,8 +56,7 @@ public class EnumArrays {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static ArrayEnumList getListOutputInstance(FrozenList<String> arg) {
-
+        protected static ArrayEnumList getListOutputInstance(FrozenList<String
             return new ArrayEnumList(arg);
         }
         public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -67,10 +64,8 @@ public class EnumArrays {
         }
     }    
     
-    public static class EnumArraysMap extends FrozenMap<String, Object> {
-
-        EnumArraysMap(FrozenMap<String, Object> m) {
-
+    public static class EnumArraysMap extends FrozenMap<String, Object
+        EnumArraysMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -82,20 +77,16 @@ public class EnumArrays {
             return EnumArrays1.validate(arg, configuration);
         }
         
-        public String just_symbol() {
-
+        public String
             String key = "just_symbol";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public ArrayEnumList array_enum() {
-
+        public ArrayEnumList
             String key = "array_enum";
             throwIfKeyNotPresent(key);
-            return (ArrayEnumList) get(key);
-
+            return (ArrayEnumList
         }
         
         public Object getAdditionalProperty(String name) {
@@ -119,8 +110,7 @@ public class EnumArrays {
                 new PropertyEntry("array_enum", ArrayEnum.class)
             )))
         ));
-        protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object
             return new EnumArraysMap(arg);
         }
         public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

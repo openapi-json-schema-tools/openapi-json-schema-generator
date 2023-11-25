@@ -39,10 +39,8 @@ public class JSONPatchRequestRemove {
         }
     }    
     
-    public static class JSONPatchRequestRemoveMap extends FrozenMap<String, String> {
-
-        JSONPatchRequestRemoveMap(FrozenMap<String, String> m) {
-
+    public static class JSONPatchRequestRemoveMap extends FrozenMap<String, String
+        JSONPatchRequestRemoveMap(FrozenMap<String, String
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -54,14 +52,11 @@ public class JSONPatchRequestRemove {
             return JSONPatchRequestRemove1.validate(arg, configuration);
         }
         
-        public String op() {
-
-            return (String) get("op");
-
+        public String
+            return (String
         }
         
-        public String path() {
-
+        public String
             return get("path");
         }
     }    
@@ -85,8 +80,7 @@ public class JSONPatchRequestRemove {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
+        protected static JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<String, String
             return new JSONPatchRequestRemoveMap(arg);
         }
         public static JSONPatchRequestRemoveMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {

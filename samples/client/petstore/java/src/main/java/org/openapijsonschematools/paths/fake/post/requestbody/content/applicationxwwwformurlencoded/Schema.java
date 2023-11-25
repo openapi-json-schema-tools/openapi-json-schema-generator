@@ -194,10 +194,8 @@ public class Schema {
     public class Callback extends StringJsonSchema {}
     
     
-    public static class SchemaMap extends FrozenMap<String, Object> {
-
-        SchemaMap(FrozenMap<String, Object> m) {
-
+    public static class SchemaMap extends FrozenMap<String, Object
+        SchemaMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -222,66 +220,50 @@ public class Schema {
             return Schema1.validate(arg, configuration);
         }
         
-        public String pattern_without_delimiter() {
-
-            return (String) get("pattern_without_delimiter");
-
+        public String
+            return (String
         }
         
-        public int int32() {
-
+        public int
             String key = "int32";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
-
+            return (int
         }
         
-        public long int64() {
-
+        public long
             String key = "int64";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
-
+            return (long
         }
         
-        public String binary() {
-
+        public String
             String key = "binary";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String date() {
-
+        public String
             String key = "date";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String dateTime() {
-
+        public String
             String key = "dateTime";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String password() {
-
+        public String
             String key = "password";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String callback() {
-
+        public String
             String key = "callback";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -317,8 +299,7 @@ public class Schema {
                 "pattern_without_delimiter"
             )))
         ));
-        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

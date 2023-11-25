@@ -23,10 +23,8 @@ public class HasOnlyReadOnly {
     public class Foo extends StringJsonSchema {}
     
     
-    public static class HasOnlyReadOnlyMap extends FrozenMap<String, Object> {
-
-        HasOnlyReadOnlyMap(FrozenMap<String, Object> m) {
-
+    public static class HasOnlyReadOnlyMap extends FrozenMap<String, Object
+        HasOnlyReadOnlyMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -38,20 +36,16 @@ public class HasOnlyReadOnly {
             return HasOnlyReadOnly1.validate(arg, configuration);
         }
         
-        public String bar() {
-
+        public String
             String key = "bar";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String foo() {
-
+        public String
             String key = "foo";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -75,8 +69,7 @@ public class HasOnlyReadOnly {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
-        protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<String, Object
             return new HasOnlyReadOnlyMap(arg);
         }
         public static HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

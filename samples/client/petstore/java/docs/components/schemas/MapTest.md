@@ -23,8 +23,7 @@ Key | Type |  Description | Notes
 
 ## MapTestMap
 ```
-base class: FrozenMap<String, Object>
-
+base class: FrozenMap<String, Object
 ```
 
 ### properties

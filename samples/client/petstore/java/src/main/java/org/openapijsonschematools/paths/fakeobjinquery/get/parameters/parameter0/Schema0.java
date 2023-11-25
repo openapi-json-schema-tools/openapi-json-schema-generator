@@ -20,10 +20,8 @@ public class Schema0 {
     public class Keyword0 extends StringJsonSchema {}
     
     
-    public static class SchemaMap0 extends FrozenMap<String, Object> {
-
-        SchemaMap0(FrozenMap<String, Object> m) {
-
+    public static class SchemaMap0 extends FrozenMap<String, Object
+        SchemaMap0(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -34,12 +32,10 @@ public class Schema0 {
             return Schema01.validate(arg, configuration);
         }
         
-        public String keyword() {
-
+        public String
             String key = "keyword";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -56,8 +52,7 @@ public class Schema0 {
                 new PropertyEntry("keyword", Keyword0.class)
             )))
         ));
-        protected static SchemaMap0 getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static SchemaMap0 getMapOutputInstance(FrozenMap<String, Object
             return new SchemaMap0(arg);
         }
         public static SchemaMap0 validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -82,10 +82,8 @@ public class Schema1 {
         }
     }    
     
-    public static class SchemaMap1 extends FrozenMap<String, Object> {
-
-        SchemaMap1(FrozenMap<String, Object> m) {
-
+    public static class SchemaMap1 extends FrozenMap<String, Object
+        SchemaMap1(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -96,8 +94,7 @@ public class Schema1 {
             return Schema11.validate(arg, configuration);
         }
         
-        public Object someProp() {
-
+        public Object
             String key = "someProp";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -117,8 +114,7 @@ public class Schema1 {
                 new PropertyEntry("someProp", SomeProp1.class)
             )))
         ));
-        protected static SchemaMap1 getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static SchemaMap1 getMapOutputInstance(FrozenMap<String, Object
             return new SchemaMap1(arg);
         }
         public static SchemaMap1 validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

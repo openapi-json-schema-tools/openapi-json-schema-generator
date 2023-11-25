@@ -24,10 +24,8 @@ public class GmFruit {
     public class Color extends StringJsonSchema {}
     
     
-    public static class GmFruitMap extends FrozenMap<String, Object> {
-
-        GmFruitMap(FrozenMap<String, Object> m) {
-
+    public static class GmFruitMap extends FrozenMap<String, Object
+        GmFruitMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -38,12 +36,10 @@ public class GmFruit {
             return GmFruit1.validate(arg, configuration);
         }
         
-        public String color() {
-
+        public String
             String key = "color";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {

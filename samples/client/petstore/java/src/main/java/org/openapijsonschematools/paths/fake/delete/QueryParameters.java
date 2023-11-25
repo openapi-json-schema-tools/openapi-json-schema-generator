@@ -28,10 +28,8 @@ public class QueryParameters {
         // NotAnyTypeSchema
     
     
-    public static class QueryParametersMap extends FrozenMap<String, Object> {
-
-        QueryParametersMap(FrozenMap<String, Object> m) {
-
+    public static class QueryParametersMap extends FrozenMap<String, Object
+        QueryParametersMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -46,32 +44,24 @@ public class QueryParameters {
             return QueryParameters1.validate(arg, configuration);
         }
         
-        public long required_int64_group() {
-
-            return (long) get("required_int64_group");
-
+        public long
+            return (long
         }
         
-        public String required_string_group() {
-
-            return (String) get("required_string_group");
-
+        public String
+            return (String
         }
         
-        public long int64_group() {
-
+        public long
             String key = "int64_group";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
-
+            return (long
         }
         
-        public String string_group() {
-
+        public String
             String key = "string_group";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
     }    
     
@@ -90,8 +80,7 @@ public class QueryParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

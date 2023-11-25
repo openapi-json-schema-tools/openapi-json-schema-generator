@@ -16,10 +16,8 @@ public class Foo {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class FooMap extends FrozenMap<String, Object> {
-
-        FooMap(FrozenMap<String, Object> m) {
-
+    public static class FooMap extends FrozenMap<String, Object
+        FooMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -30,12 +28,10 @@ public class Foo {
             return Foo1.validate(arg, configuration);
         }
         
-        public String bar() {
-
+        public String
             String key = "bar";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -58,8 +54,7 @@ public class Foo {
                 new PropertyEntry("bar", Bar.Bar1.class)
             )))
         ));
-        protected static FooMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static FooMap getMapOutputInstance(FrozenMap<String, Object
             return new FooMap(arg);
         }
         public static FooMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

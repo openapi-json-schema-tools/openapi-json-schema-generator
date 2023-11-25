@@ -35,10 +35,8 @@ public class Capitalization {
     public class ATTNAME extends StringJsonSchema {}
     
     
-    public static class CapitalizationMap extends FrozenMap<String, Object> {
-
-        CapitalizationMap(FrozenMap<String, Object> m) {
-
+    public static class CapitalizationMap extends FrozenMap<String, Object
+        CapitalizationMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -54,52 +52,40 @@ public class Capitalization {
             return Capitalization1.validate(arg, configuration);
         }
         
-        public String smallCamel() {
-
+        public String
             String key = "smallCamel";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String CapitalCamel() {
-
+        public String
             String key = "CapitalCamel";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String small_Snake() {
-
+        public String
             String key = "small_Snake";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String Capital_Snake() {
-
+        public String
             String key = "Capital_Snake";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String SCA_ETH_Flow_Points() {
-
+        public String
             String key = "SCA_ETH_Flow_Points";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
-        public String ATT_NAME() {
-
+        public String
             String key = "ATT_NAME";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -127,8 +113,7 @@ public class Capitalization {
                 new PropertyEntry("ATT_NAME", ATTNAME.class)
             )))
         ));
-        protected static CapitalizationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static CapitalizationMap getMapOutputInstance(FrozenMap<String, Object
             return new CapitalizationMap(arg);
         }
         public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

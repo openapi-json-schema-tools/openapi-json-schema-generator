@@ -24,10 +24,8 @@ public class HeaderParameters {
         // NotAnyTypeSchema
     
     
-    public static class HeaderParametersMap extends FrozenMap<String, String> {
-
-        HeaderParametersMap(FrozenMap<String, String> m) {
-
+    public static class HeaderParametersMap extends FrozenMap<String, String
+        HeaderParametersMap(FrozenMap<String, String
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -38,8 +36,7 @@ public class HeaderParameters {
             return HeaderParameters1.validate(arg, configuration);
         }
         
-        public String someHeader() {
-
+        public String
             String key = "someHeader";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -54,8 +51,7 @@ public class HeaderParameters {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {
-
+        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, String
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {

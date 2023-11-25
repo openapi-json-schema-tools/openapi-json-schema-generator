@@ -37,10 +37,8 @@ public class QuadrilateralInterface {
     public class QuadrilateralType extends StringJsonSchema {}
     
     
-    public static class QuadrilateralInterfaceMap extends FrozenMap<String, Object> {
-
-        QuadrilateralInterfaceMap(FrozenMap<String, Object> m) {
-
+    public static class QuadrilateralInterfaceMap extends FrozenMap<String, Object
+        QuadrilateralInterfaceMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -52,16 +50,12 @@ public class QuadrilateralInterface {
             return QuadrilateralInterface1.validate(arg, configuration);
         }
         
-        public String quadrilateralType() {
-
-            return (String) get("quadrilateralType");
-
+        public String
+            return (String
         }
         
-        public String shapeType() {
-
-            return (String) get("shapeType");
-
+        public String
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {

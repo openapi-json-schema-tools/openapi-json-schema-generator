@@ -82,10 +82,8 @@ public class ObjectWithInlineCompositionProperty {
         }
     }    
     
-    public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<String, Object> {
-
-        ObjectWithInlineCompositionPropertyMap(FrozenMap<String, Object> m) {
-
+    public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<String, Object
+        ObjectWithInlineCompositionPropertyMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -96,8 +94,7 @@ public class ObjectWithInlineCompositionProperty {
             return ObjectWithInlineCompositionProperty1.validate(arg, configuration);
         }
         
-        public Object someProp() {
-
+        public Object
             String key = "someProp";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -123,8 +120,7 @@ public class ObjectWithInlineCompositionProperty {
                 new PropertyEntry("someProp", SomeProp.class)
             )))
         ));
-        protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<String, Object
             return new ObjectWithInlineCompositionPropertyMap(arg);
         }
         public static ObjectWithInlineCompositionPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

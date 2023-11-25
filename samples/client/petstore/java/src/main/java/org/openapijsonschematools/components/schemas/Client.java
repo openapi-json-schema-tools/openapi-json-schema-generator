@@ -20,10 +20,8 @@ public class Client {
     public class Client2 extends StringJsonSchema {}
     
     
-    public static class ClientMap extends FrozenMap<String, Object> {
-
-        ClientMap(FrozenMap<String, Object> m) {
-
+    public static class ClientMap extends FrozenMap<String, Object
+        ClientMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -34,12 +32,10 @@ public class Client {
             return Client1.validate(arg, configuration);
         }
         
-        public String client() {
-
+        public String
             String key = "client";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -62,8 +58,7 @@ public class Client {
                 new PropertyEntry("client", Client2.class)
             )))
         ));
-        protected static ClientMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static ClientMap getMapOutputInstance(FrozenMap<String, Object
             return new ClientMap(arg);
         }
         public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

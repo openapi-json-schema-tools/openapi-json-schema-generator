@@ -28,10 +28,8 @@ public class Money {
     public class Amount extends DecimalJsonSchema {}
     
     
-    public static class MoneyMap extends FrozenMap<String, Object> {
-
-        MoneyMap(FrozenMap<String, Object> m) {
-
+    public static class MoneyMap extends FrozenMap<String, Object
+        MoneyMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -43,16 +41,12 @@ public class Money {
             return Money1.validate(arg, configuration);
         }
         
-        public String amount() {
-
-            return (String) get("amount");
-
+        public String
+            return (String
         }
         
-        public String currency() {
-
-            return (String) get("currency");
-
+        public String
+            return (String
         }
     }    
     
@@ -75,8 +69,7 @@ public class Money {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static MoneyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static MoneyMap getMapOutputInstance(FrozenMap<String, Object
             return new MoneyMap(arg);
         }
         public static MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

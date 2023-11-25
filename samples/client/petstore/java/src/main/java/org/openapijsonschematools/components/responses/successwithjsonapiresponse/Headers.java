@@ -28,10 +28,8 @@ public class Headers {
         // NotAnyTypeSchema
     
     
-    public static class HeadersMap extends FrozenMap<String, Object> {
-
-        HeadersMap(FrozenMap<String, Object> m) {
-
+    public static class HeadersMap extends FrozenMap<String, Object
+        HeadersMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -47,24 +45,18 @@ public class Headers {
             return Headers1.validate(arg, configuration);
         }
         
-        public int int32() {
-
-            return (int) get("int32");
-
+        public int
+            return (int
         }
         
-        public String stringHeader() {
-
-            return (String) get("stringHeader");
-
+        public String
+            return (String
         }
         
-        public String numberHeader() {
-
+        public String
             String key = "numberHeader";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
     }    
     
@@ -86,8 +78,7 @@ public class Headers {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object
             return new HeadersMap(arg);
         }
         public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

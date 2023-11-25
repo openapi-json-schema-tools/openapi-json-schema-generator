@@ -43,10 +43,8 @@ public class ComposedOneOfDifferentTypes {
     public class Items extends AnyTypeJsonSchema {}
     
     
-    public static class Schema5List extends FrozenList<Object> {
-
-        Schema5List(FrozenList<Object> m) {
-
+    public static class Schema5List extends FrozenList<Object
+        Schema5List(FrozenList<Object
             super(m);
         }
         public static Schema5List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -60,8 +58,7 @@ public class ComposedOneOfDifferentTypes {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        protected static Schema5List getListOutputInstance(FrozenList<Object> arg) {
-
+        protected static Schema5List getListOutputInstance(FrozenList<Object
             return new Schema5List(arg);
         }
         public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

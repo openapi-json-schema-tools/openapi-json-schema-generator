@@ -25,10 +25,8 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     public class DateTime extends DateTimeJsonSchema {}
     
     
-    public static class MapMap extends FrozenMap<String, Animal.AnimalMap> {
-
-        MapMap(FrozenMap<String, Animal.AnimalMap> m) {
-
+    public static class MapMap extends FrozenMap<String, Animal.AnimalMap
+        MapMap(FrozenMap<String, Animal.AnimalMap
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -37,8 +35,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return MapSchema.validate(arg, configuration);
         }
         
-        public Animal.AnimalMap getAdditionalProperty(String name) {
-
+        public Animal.AnimalMap
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -49,8 +46,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
         ));
-        protected static MapMap getMapOutputInstance(FrozenMap<String, Animal.AnimalMap> arg) {
-
+        protected static MapMap getMapOutputInstance(FrozenMap<String, Animal.AnimalMap
             return new MapMap(arg);
         }
         public static MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -59,10 +55,8 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     }
     
     
-    public static class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object> {
-
-        MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<String, Object> m) {
-
+    public static class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<String, Object
+        MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -75,12 +69,10 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return MixedPropertiesAndAdditionalPropertiesClass1.validate(arg, configuration);
         }
         
-        public String dateTime() {
-
+        public String
             String key = "dateTime";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
-
+            return (String
         }
         
         public Object getAdditionalProperty(String name) {
@@ -105,8 +97,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
                 new PropertyEntry("map", MapSchema.class)
             )))
         ));
-        protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }
         public static MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

@@ -23,8 +23,7 @@ Key | Type |  Description | Notes
 
 ## SpecialModelnameMap
 ```
-base class: FrozenMap<String, Object>
-
+base class: FrozenMap<String, Object
 ```
 
 ### properties

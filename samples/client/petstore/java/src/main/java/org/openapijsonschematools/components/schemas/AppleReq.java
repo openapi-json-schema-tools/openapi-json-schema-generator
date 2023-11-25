@@ -32,10 +32,8 @@ public class AppleReq {
     public class Mealy extends BooleanJsonSchema {}
     
     
-    public static class AppleReqMap extends FrozenMap<String, Object> {
-
-        AppleReqMap(FrozenMap<String, Object> m) {
-
+    public static class AppleReqMap extends FrozenMap<String, Object
+        AppleReqMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -48,18 +46,14 @@ public class AppleReq {
             return AppleReq1.validate(arg, configuration);
         }
         
-        public String cultivar() {
-
-            return (String) get("cultivar");
-
+        public String
+            return (String
         }
         
-        public boolean mealy() {
-
+        public boolean
             String key = "mealy";
             throwIfKeyNotPresent(key);
-            return (boolean) get(key);
-
+            return (boolean
         }
     }    
     
@@ -81,8 +75,7 @@ public class AppleReq {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        protected static AppleReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static AppleReqMap getMapOutputInstance(FrozenMap<String, Object
             return new AppleReqMap(arg);
         }
         public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

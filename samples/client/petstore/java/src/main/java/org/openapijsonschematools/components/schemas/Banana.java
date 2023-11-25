@@ -21,10 +21,8 @@ public class Banana {
     public class LengthCm extends NumberJsonSchema {}
     
     
-    public static class BananaMap extends FrozenMap<String, Object> {
-
-        BananaMap(FrozenMap<String, Object> m) {
-
+    public static class BananaMap extends FrozenMap<String, Object
+        BananaMap(FrozenMap<String, Object
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -35,10 +33,8 @@ public class Banana {
             return Banana1.validate(arg, configuration);
         }
         
-        public Number lengthCm() {
-
-            return (Number) get("lengthCm");
-
+        public Number
+            return (Number
         }
         
         public Object getAdditionalProperty(String name) {
@@ -64,8 +60,7 @@ public class Banana {
                 "lengthCm"
             )))
         ));
-        protected static BananaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
+        protected static BananaMap getMapOutputInstance(FrozenMap<String, Object
             return new BananaMap(arg);
         }
         public static BananaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
