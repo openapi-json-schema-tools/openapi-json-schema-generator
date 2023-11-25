@@ -15,7 +15,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any_string_name** | int | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 ## SchemaMap
 ```

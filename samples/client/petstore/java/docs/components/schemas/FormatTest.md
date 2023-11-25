@@ -16,23 +16,23 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **byte** | String |  |
-**date** | String |  |
+**date** | String |  | value must conform to RFC-3339 full-date YYYY-MM-DD
 **number** | Number |  |
 **password** | String |  |
 **integer** | long |  | [optional]
-**int32** | int |  | [optional]
-**int32withValidations** | int |  | [optional]
-**int64** | long |  | [optional]
-**float** | float | this is a reserved python keyword | [optional]
-**float32** | float |  | [optional]
-**double** | double |  | [optional]
-**float64** | double |  | [optional]
+**int32** | int |  | [optional] value must be a 32 bit integer
+**int32withValidations** | int |  | [optional] value must be a 32 bit integer
+**int64** | long |  | [optional] value must be a 64 bit integer
+**float** | float | this is a reserved python keyword | [optional] value must be a 32 bit float
+**float32** | float |  | [optional] value must be a 32 bit float
+**double** | double |  | [optional] value must be a 64 bit float
+**float64** | double |  | [optional] value must be a 64 bit float
 **arrayWithUniqueItems** | List<Number> |  | [optional]
 **string** | String |  | [optional]
 **binary** | String |  | [optional]
-**dateTime** | String |  | [optional]
-**uuid** | String |  | [optional]
-**uuidNoExample** | String |  | [optional]
+**dateTime** | String |  | [optional] value must conform to RFC-3339 date-time
+**uuid** | String |  | [optional] value must be a uuid
+**uuidNoExample** | String |  | [optional] value must be a uuid
 **pattern_with_digits** | String | A string that is a 10 digit number. Can have leading zeros. | [optional]
 **pattern_with_digits_and_delimiter** | String | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
 **noneProp** | Void |  | [optional]

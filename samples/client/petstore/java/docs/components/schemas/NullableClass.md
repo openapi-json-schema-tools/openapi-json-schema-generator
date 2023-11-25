@@ -19,8 +19,8 @@ Key | Type |  Description | Notes
 **number_prop** | Number |  | [optional]
 **boolean_prop** | Boolean |  | [optional]
 **string_prop** | String |  | [optional]
-**date_prop** | String |  | [optional]
-**datetime_prop** | String |  | [optional]
+**date_prop** | String |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | String |  | [optional] value must conform to RFC-3339 date-time
 **array_nullable_prop** | List<Map<String, Object>> |  | [optional]
 **array_and_items_nullable_prop** | List<Map<String, Object>> |  | [optional]
 **array_items_nullable** | List<Map<String, Object>> |  | [optional]

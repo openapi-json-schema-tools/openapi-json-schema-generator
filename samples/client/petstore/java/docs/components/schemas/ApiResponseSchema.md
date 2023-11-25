@@ -15,7 +15,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | int |  | [optional]
+**code** | int |  | [optional] value must be a 32 bit integer
 **type** | String |  | [optional]
 **message** | String |  | [optional]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]

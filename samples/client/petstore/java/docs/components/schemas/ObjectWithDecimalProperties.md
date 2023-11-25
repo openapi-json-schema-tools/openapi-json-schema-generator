@@ -16,7 +16,7 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **length** | String |  | [optional]
-**width** | String |  | [optional]
+**width** | String |  | [optional] value must be int or float numeric
 **cost** | Map<String, Object> |  | [optional]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 

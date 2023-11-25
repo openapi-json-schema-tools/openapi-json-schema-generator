@@ -16,7 +16,7 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **from** | String | A JSON Pointer path. |
-**op** | String | The operation to perform. |
+**op** | String | The operation to perform. | must be one of ["move", "copy"]
 **path** | String | A JSON Pointer path. |
 
 ## JSONPatchRequestMoveCopyMap

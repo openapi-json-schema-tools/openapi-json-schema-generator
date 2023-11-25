@@ -19,7 +19,7 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **123-list** | String |  |
-**$special[property.name]** | long |  | [optional]
+**$special[property.name]** | long |  | [optional] value must be a 64 bit integer
 **123Number** | long |  | [optional]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 

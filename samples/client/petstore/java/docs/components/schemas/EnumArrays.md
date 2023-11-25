@@ -15,7 +15,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**just_symbol** | String |  | [optional]
+**just_symbol** | String |  | [optional] must be one of [">=", "$"]
 **array_enum** | List<String> |  | [optional]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 

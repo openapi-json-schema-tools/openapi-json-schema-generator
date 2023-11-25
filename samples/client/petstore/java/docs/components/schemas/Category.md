@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | String |  |
-**id** | long |  | [optional]
+**name** | String |  | if omitted the server will use the default value of default-name
+**id** | long |  | [optional] value must be a 64 bit integer
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## CategoryMap

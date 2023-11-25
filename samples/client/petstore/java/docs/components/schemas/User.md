@@ -15,14 +15,14 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | long |  | [optional]
+**id** | long |  | [optional] value must be a 64 bit integer
 **username** | String |  | [optional]
 **firstName** | String |  | [optional]
 **lastName** | String |  | [optional]
 **email** | String |  | [optional]
 **password** | String |  | [optional]
 **phone** | String |  | [optional]
-**userStatus** | int | User Status | [optional]
+**userStatus** | int | User Status | [optional] value must be a 32 bit integer
 **objectWithNoDeclaredProps** | Map<String, Object> | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional]
 **objectWithNoDeclaredPropsNullable** | Map<String, Object> | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional]
 **anyTypeProp** | Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional]

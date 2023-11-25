@@ -15,7 +15,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**className** | String |  |
+**className** | String |  | must be one of ["whale"]
 **hasBaleen** | boolean |  | [optional]
 **hasTeeth** | boolean |  | [optional]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]

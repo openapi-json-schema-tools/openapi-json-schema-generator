@@ -15,7 +15,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | String |  |
+**amount** | String |  | value must be int or float numeric
 **currency** | String |  |
 
 ## MoneyMap

@@ -15,7 +15,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | String |  | [optional]
+**id** | String |  | [optional] value must be a uuid
 
 ## MyObjectDtoMap
 ```

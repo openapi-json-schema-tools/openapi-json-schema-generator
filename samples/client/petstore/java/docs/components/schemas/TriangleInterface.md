@@ -23,7 +23,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**shapeType** | String |  |
+**shapeType** | String |  | must be one of ["Triangle"]
 **triangleType** | String |  |
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 

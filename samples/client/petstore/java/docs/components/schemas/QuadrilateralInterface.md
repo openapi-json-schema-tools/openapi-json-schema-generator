@@ -24,7 +24,7 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **quadrilateralType** | String |  |
-**shapeType** | String |  |
+**shapeType** | String |  | must be one of ["Quadrilateral"]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## QuadrilateralInterfaceMap

@@ -20,10 +20,10 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | String |  |
 **photoUrls** | List<String> |  |
-**id** | long |  | [optional]
+**id** | long |  | [optional] value must be a 64 bit integer
 **category** | Map<String, Object> |  | [optional]
 **tags** | List<Map<String, Object>> |  | [optional]
-**status** | String | pet status in the store | [optional]
+**status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## PetMap

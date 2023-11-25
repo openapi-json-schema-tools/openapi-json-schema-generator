@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | String |  | [optional]
-**dateTime** | String |  | [optional]
+**uuid** | String |  | [optional] value must be a uuid
+**dateTime** | String |  | [optional] value must conform to RFC-3339 date-time
 **map** | Map<String, Map<String, Object>> |  | [optional]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 

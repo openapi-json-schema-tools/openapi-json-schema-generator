@@ -26,7 +26,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | int |  | [optional]
+**name** | int |  | [optional] value must be a 32 bit integer
 **class** | String | this is a reserved python keyword | [optional]
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 

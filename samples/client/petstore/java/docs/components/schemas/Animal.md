@@ -16,7 +16,7 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **className** | String |  |
-**color** | String |  | [optional]
+**color** | String |  | [optional] if omitted the server will use the default value of red
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AnimalMap

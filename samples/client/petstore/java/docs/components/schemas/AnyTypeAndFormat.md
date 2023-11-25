@@ -15,15 +15,15 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** | Object |  | [optional]
-**date** | Object |  | [optional]
-**date-time** | Object |  | [optional]
-**number** | Object |  | [optional]
+**uuid** | Object |  | [optional] value must be a uuid
+**date** | Object |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**date-time** | Object |  | [optional] value must conform to RFC-3339 date-time
+**number** | Object |  | [optional] value must be int or float numeric
 **binary** | Object |  | [optional]
-**int32** | Object |  | [optional]
-**int64** | Object |  | [optional]
-**double** | Object |  | [optional]
-**float** | Object |  | [optional]
+**int32** | Object |  | [optional] value must be a 32 bit integer
+**int64** | Object |  | [optional] value must be a 64 bit integer
+**double** | Object |  | [optional] value must be a 64 bit float
+**float** | Object |  | [optional] value must be a 32 bit float
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AnyTypeAndFormatMap

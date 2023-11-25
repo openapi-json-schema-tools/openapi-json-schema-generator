@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | long |  |
-**petId** | long |  | [optional]
+**id** | long |  | value must be a 64 bit integer
+**petId** | long |  | [optional] value must be a 64 bit integer
 
 ## NoAdditionalPropertiesMap
 ```

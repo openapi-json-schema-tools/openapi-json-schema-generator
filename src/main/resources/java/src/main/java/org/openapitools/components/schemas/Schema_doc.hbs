@@ -47,17 +47,17 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} |{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
 **any_string_name** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
             {{else}}
-**any_string_name** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+**any_string_name** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/unless}}
         {{else}}

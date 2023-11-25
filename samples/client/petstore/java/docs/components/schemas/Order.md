@@ -15,12 +15,12 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | long |  | [optional]
-**petId** | long |  | [optional]
-**quantity** | int |  | [optional]
-**shipDate** | String |  | [optional]
-**status** | String | Order Status | [optional]
-**complete** | boolean |  | [optional]
+**id** | long |  | [optional] value must be a 64 bit integer
+**petId** | long |  | [optional] value must be a 64 bit integer
+**quantity** | int |  | [optional] value must be a 32 bit integer
+**shipDate** | String |  | [optional] value must conform to RFC-3339 date-time
+**status** | String | Order Status | [optional] must be one of ["placed", "approved", "delivered"]
+**complete** | boolean |  | [optional] if omitted the server will use the default value of false
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## OrderMap

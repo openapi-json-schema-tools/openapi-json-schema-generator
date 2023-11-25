@@ -26,7 +26,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**return** | int | this is a reserved python keyword | [optional]
+**return** | int | this is a reserved python keyword | [optional] value must be a 32 bit integer
 **any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ReturnMap
