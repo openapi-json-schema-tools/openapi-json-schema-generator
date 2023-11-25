@@ -20,7 +20,8 @@ Key | Type |  Description | Notes
 
 ## SchemaMap0
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

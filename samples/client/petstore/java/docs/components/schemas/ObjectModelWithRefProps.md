@@ -25,7 +25,8 @@ Key | Type |  Description | Notes
 
 ## ObjectModelWithRefPropsMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

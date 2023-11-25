@@ -71,7 +71,7 @@ Key | Type |  Description | Notes
     {{/if}}
 ```
     {{#if mapValueSchema}}
-base class: FrozenMap<String, {{#with mapValueSchema}}{{!> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=">" }}{{/with}}
+base class: FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=">" }}{{/with}}
     {{else}}
 base class: FrozenMap<String, Object>
     {{/if}}

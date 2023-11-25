@@ -20,7 +20,8 @@ Key | Type |  Description | Notes
 
 ## BasquePigMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

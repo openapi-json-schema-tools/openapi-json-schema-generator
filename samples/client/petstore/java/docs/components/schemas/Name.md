@@ -33,7 +33,8 @@ Key | Type |  Description | Notes
 
 ## NameMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

@@ -22,7 +22,8 @@ Key | Type |  Description | Notes
 
 ## ApiResponseMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

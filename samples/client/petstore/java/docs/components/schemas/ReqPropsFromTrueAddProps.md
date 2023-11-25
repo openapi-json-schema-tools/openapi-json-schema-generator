@@ -21,7 +21,8 @@ Key | Type |  Description | Notes
 
 ## ReqPropsFromTrueAddPropsMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

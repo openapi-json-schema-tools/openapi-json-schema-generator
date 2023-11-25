@@ -23,7 +23,8 @@ Key | Type |  Description | Notes
 
 ## PublicKeyMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

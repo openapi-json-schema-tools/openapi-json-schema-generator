@@ -25,7 +25,8 @@ Key | Type |  Description | Notes
 
 ## ObjectWithDifficultlyNamedPropsMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### methods

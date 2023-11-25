@@ -21,7 +21,8 @@ Key | Type |  Description | Notes
 
 ## JSONPatchRequestAddReplaceTestMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

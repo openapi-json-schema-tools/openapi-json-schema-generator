@@ -24,7 +24,8 @@ Key | Type |  Description | Notes
 
 ## ObjectWithCollidingPropertiesMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

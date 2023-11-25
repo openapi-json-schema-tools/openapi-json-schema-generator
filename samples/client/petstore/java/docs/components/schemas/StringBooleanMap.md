@@ -19,7 +19,8 @@ Key | Type |  Description | Notes
 
 ## StringBooleanMapMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, boolean>
+
 ```
 
 ### methods

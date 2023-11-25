@@ -27,7 +27,8 @@ Key | Type |  Description | Notes
 
 ## AdditionalPropertiesClassMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

@@ -29,7 +29,8 @@ Key | Type |  Description | Notes
 
 ## TriangleInterfaceMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

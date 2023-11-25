@@ -40,7 +40,8 @@ Key | Type |  Description | Notes
 
 ## FormatTestMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

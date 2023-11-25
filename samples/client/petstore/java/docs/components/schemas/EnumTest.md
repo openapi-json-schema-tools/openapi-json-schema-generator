@@ -28,7 +28,8 @@ Key | Type |  Description | Notes
 
 ## EnumTestMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

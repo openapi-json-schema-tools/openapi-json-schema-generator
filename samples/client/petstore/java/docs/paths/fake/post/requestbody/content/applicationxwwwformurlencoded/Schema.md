@@ -33,7 +33,8 @@ Key | Type |  Description | Notes
 
 ## SchemaMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties

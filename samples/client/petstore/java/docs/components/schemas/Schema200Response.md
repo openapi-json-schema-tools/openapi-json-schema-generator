@@ -32,7 +32,8 @@ Key | Type |  Description | Notes
 
 ## Schema200ResponseMap
 ```
-base class: FrozenMap<String, 
+base class: FrozenMap<String, Object>
+
 ```
 
 ### properties
