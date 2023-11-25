@@ -15,7 +15,7 @@ type: List<String>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
- |  |
+String |  |
 
 ## SchemaList3
 ```

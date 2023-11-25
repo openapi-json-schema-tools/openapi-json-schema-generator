@@ -15,7 +15,7 @@ type: List<Object>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
- | any type can be stored here |
+Object | any type can be stored here |
 
 ## ArrayHoldingAnyTypeList
 ```

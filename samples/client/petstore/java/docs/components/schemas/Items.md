@@ -18,7 +18,7 @@ type: List<Map<String, Object>>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
- |  |
+Map<String, Object> |  |
 
 ## ItemsList
 ```

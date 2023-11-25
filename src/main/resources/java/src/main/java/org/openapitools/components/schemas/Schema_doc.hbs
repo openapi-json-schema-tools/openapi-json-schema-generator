@@ -115,7 +115,7 @@ type: List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
         {{#with items}}
-{{!> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/with}}
 
         {{#if arrayOutputJsonPathPiece}}

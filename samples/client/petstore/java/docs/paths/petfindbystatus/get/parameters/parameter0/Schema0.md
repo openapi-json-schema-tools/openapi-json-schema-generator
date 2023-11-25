@@ -15,7 +15,7 @@ type: List<String>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
- |  |
+String |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
 
 ## SchemaList0
 ```

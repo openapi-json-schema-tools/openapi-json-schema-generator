@@ -15,7 +15,7 @@ type: List<Long>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
- |  |
+Long |  | value must be a 64 bit integer
 
 ## ArrayWithValidationsInItemsList
 ```

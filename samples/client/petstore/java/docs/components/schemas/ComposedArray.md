@@ -15,7 +15,7 @@ type: List<Object>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
- |  |
+Object |  |
 
 ## ComposedArrayList
 ```

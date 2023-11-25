@@ -15,7 +15,7 @@ type: List<List>
 ```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
- |  |
+List |  |
 
 ## SelfReferencingArrayModelList
 ```
