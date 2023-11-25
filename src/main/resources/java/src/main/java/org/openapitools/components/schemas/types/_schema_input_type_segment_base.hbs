@@ -4,52 +4,52 @@
             {{#eq this "boolean"}}
                 {{#if forceNull}}
 Boolean
-                {{else}}
+                {{~else}}
 boolean
-                {{/if}}
+                {{~/if}}
             {{else}}
                 {{#eq this "null"}}
 Void
-                {{else}}
+                {{~else}}
                     {{#eq this "string"}}
                         {{#eq format "binary"}}
 {{! todo binary types}}
 String
-                        {{else}}
+                        {{~else}}
 String
-                        {{/eq}}
+                        {{~/eq}}
                     {{else}}
                         {{#eq this "number"}}
                             {{#eq ../format null}}
 Number
-                            {{else}}
+                            {{~else}}
                                 {{#eq ../format "float"}}
                                     {{#if forceNull}}
 Float
-                                    {{else}}
+                                    {{~else}}
 float
-                                    {{/if}}
+                                    {{~/if}}
                                 {{else}}
                                     {{#eq ../format "double"}}
                                         {{#if forceNull}}
 Double
-                                        {{else}}
+                                        {{~else}}
 double
-                                        {{/if}}
+                                        {{~/if}}
                                     {{else}}
                                         {{#eq ../format "int32"}}
                                             {{#if forceNull}}
 Integer
-                                            {{else}}
+                                            {{~else}}
 int
-                                            {{/if}}
+                                            {{~/if}}
                                         {{else}}
                                             {{#eq ../format "int64"}}
                                                 {{#if forceNull}}
 Long
-                                                {{else}}
+                                                {{~else}}
 long
-                                                {{/if}}
+                                                {{~/if}}
                                             {{/eq}}
                                         {{/eq}}
                                     {{/eq}}
@@ -60,23 +60,23 @@ long
                                 {{#eq ../format null}}
                                     {{#if forceNull}}
 Long
-                                    {{else}}
+                                    {{~else}}
 long
-                                    {{/if}}
+                                    {{~/if}}
                                 {{else}}
                                     {{#eq ../format "int32"}}
                                         {{#if forceNull}}
 Integer
-                                        {{else}}
+                                        {{~else}}
 int
-                                        {{/if}}
+                                        {{~/if}}
                                     {{else}}
                                         {{#eq ../format "int64"}}
                                             {{#if forceNull}}
 Long
-                                            {{else}}
+                                            {{~else}}
 long
-                                            {{/if}}
+                                            {{~/if}}
                                         {{/eq}}
                                     {{/eq}}
                                 {{/eq}}
@@ -84,23 +84,23 @@ long
                                 {{#eq this "array"}}
                                     {{#eq ../jsonPath sourceJsonPath}}
 List
-                                    {{else}}
+                                    {{~else}}
                                         {{#with items}}
 List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment }}>
-                                        {{else}}
+                                        {{~else}}
 List<Object>
-                                        {{/with}}
+                                        {{~/with}}
                                     {{/eq}}
                                 {{else}}
                                     {{#eq this "object"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
 Map
-                                        {{else}}
+                                        {{~else}}
                                             {{#with mapValueSchema}}
 Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment }}>
-                                            {{else}}
+                                            {{~else}}
 Map<String, Object>
-                                            {{/with}}
+                                            {{~/with}}
                                         {{/eq}}
                                     {{/eq}}
                                 {{/eq}}
@@ -117,31 +117,31 @@ Map<String, Object>
                 {{#each types}}
                     {{#eq this "boolean"}}
 Boolean
-                    {{else}}
+                    {{~else}}
                         {{#eq this "string"}}
                             {{#eq format "binary"}}
 {{! todo binary types}}
 String
-                            {{else}}
+                            {{~else}}
 String
-                            {{/eq}}
+                            {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
                                 {{#eq ../format null}}
 Number
-                                {{else}}
+                                {{~else}}
                                     {{#eq ../format "float"}}
 Float
-                                    {{else}}
+                                    {{~else}}
                                         {{#eq ../format "double"}}
 Double
-                                        {{else}}
+                                        {{~else}}
                                             {{#eq ../format "int32"}}
 Integer
-                                            {{else}}
+                                            {{~else}}
                                                 {{#eq ../format "int64"}}
 Long
-                                                {{/eq}}
+                                                {{~/eq}}
                                             {{/eq}}
                                         {{/eq}}
                                     {{/eq}}
@@ -150,36 +150,36 @@ Long
                                 {{#eq this "integer"}}
                                     {{#eq ../format null}}
 Long
-                                    {{else}}
+                                    {{~else}}
                                         {{#eq ../format "int32"}}
 Integer
-                                        {{else}}
+                                        {{~else}}
                                             {{#eq ../format "int64"}}
 Long
-                                            {{/eq}}
+                                            {{~/eq}}
                                         {{/eq}}
                                     {{/eq}}
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
 List
-                                        {{else}}
+                                        {{~else}}
                                             {{#with items}}
 List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment }}>
-                                            {{else}}
+                                            {{~else}}
 List<Object>
-                                            {{/with}}
+                                            {{~/with}}
                                         {{/eq}}
                                     {{else}}
                                         {{#eq this "object"}}
                                             {{#eq ../jsonPath sourceJsonPath}}
 Map
-                                            {{else}}
+                                            {{~else}}
                                                 {{#with mapValueSchema}}
 Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment }}>
-                                                {{else}}
+                                                {{~else}}
 Map<String, Object>
-                                                {{/with}}
+                                                {{~/with}}
                                             {{/eq}}
                                         {{/eq}}
                                     {{/eq}}
@@ -192,7 +192,7 @@ Map<String, Object>
                 {{! none of the types are null }}
                 {{#and (contains types "integer") (contains types "number") }}
 Number
-                {{else}}
+                {{~else}}
 Object
                 {{~/and}}
             {{/contains}}

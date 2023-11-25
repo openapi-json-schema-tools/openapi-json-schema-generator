@@ -7,8 +7,7 @@ type: JsonSchema
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, String
-> | JSONPatchRequestMoveCopyMap | |
+| Map<String, String> | JSONPatchRequestMoveCopyMap | |
 
 ## Input Map Keys
 ```
