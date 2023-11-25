@@ -48,8 +48,7 @@ public class QuadrilateralInterface {
             "shapeType"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static QuadrilateralInterfaceMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static QuadrilateralInterfaceMap of(Map<String, Object
             return QuadrilateralInterface1.validate(arg, configuration);
         }
         

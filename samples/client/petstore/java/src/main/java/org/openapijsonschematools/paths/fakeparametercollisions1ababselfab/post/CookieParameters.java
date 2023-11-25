@@ -42,8 +42,7 @@ public class CookieParameters {
             "A-B",
             "self"
         );
-        public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static CookieParametersMap of(Map<String, Object
             return CookieParameters1.validate(arg, configuration);
         }
         
@@ -88,8 +87,7 @@ public class CookieParameters {
 
             return new CookieParametersMap(arg);
         }
-        public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static CookieParametersMap validate(Map<String, Object
             return JsonSchema.validate(CookieParameters1.class, arg, configuration);
         }
     }

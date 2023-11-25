@@ -26,8 +26,7 @@ public class ComposedArray {
 
             super(m);
         }
-        public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ComposedArrayList of(List<Object
             return ComposedArray1.validate(arg, configuration);
         }
     }
@@ -48,8 +47,7 @@ public class ComposedArray {
 
             return new ComposedArrayList(arg);
         }
-        public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ComposedArrayList validate(List<Object
             return JsonSchema.validate(ComposedArray1.class, arg, configuration);
         }
     }}

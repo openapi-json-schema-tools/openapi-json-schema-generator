@@ -27,8 +27,7 @@ public class StringBooleanMap {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static StringBooleanMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static StringBooleanMapMap of(Map<String, Boolean
             return StringBooleanMap1.validate(arg, configuration);
         }
         
@@ -54,8 +53,7 @@ public class StringBooleanMap {
 
             return new StringBooleanMapMap(arg);
         }
-        public static StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static StringBooleanMapMap validate(Map<String, Boolean
             return JsonSchema.validate(StringBooleanMap1.class, arg, configuration);
         }
     }

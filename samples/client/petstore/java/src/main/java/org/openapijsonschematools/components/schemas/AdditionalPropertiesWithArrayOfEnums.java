@@ -24,8 +24,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             super(m);
         }
-        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static AdditionalPropertiesList of(List<String
             return AdditionalProperties.validate(arg, configuration);
         }
     }
@@ -40,8 +39,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             return new AdditionalPropertiesList(arg);
         }
-        public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static AdditionalPropertiesList validate(List<String
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
     }    
@@ -54,9 +52,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static AdditionalPropertiesWithArrayOfEnumsMap of(Map<String, List<String>
             return AdditionalPropertiesWithArrayOfEnums1.validate(arg, configuration);
         }
         
@@ -83,9 +79,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
-        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>
             return JsonSchema.validate(AdditionalPropertiesWithArrayOfEnums1.class, arg, configuration);
         }
     }

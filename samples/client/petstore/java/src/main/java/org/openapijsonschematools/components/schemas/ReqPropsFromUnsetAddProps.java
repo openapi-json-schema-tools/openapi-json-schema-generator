@@ -26,8 +26,7 @@ public class ReqPropsFromUnsetAddProps {
             "validName"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ReqPropsFromUnsetAddPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ReqPropsFromUnsetAddPropsMap of(Map<String, Object
             return ReqPropsFromUnsetAddProps1.validate(arg, configuration);
         }
         
@@ -60,8 +59,7 @@ public class ReqPropsFromUnsetAddProps {
 
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
-        public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object
             return JsonSchema.validate(ReqPropsFromUnsetAddProps1.class, arg, configuration);
         }
     }

@@ -517,8 +517,7 @@ public class AnyTypeAndFormat {
             "double",
             "float"
         );
-        public static AnyTypeAndFormatMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static AnyTypeAndFormatMap of(Map<String, Object
             return AnyTypeAndFormat1.validate(arg, configuration);
         }
         
@@ -582,8 +581,7 @@ public class AnyTypeAndFormat {
 
             return new AnyTypeAndFormatMap(arg);
         }
-        public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static AnyTypeAndFormatMap validate(Map<String, Object
             return JsonSchema.validate(AnyTypeAndFormat1.class, arg, configuration);
         }
     }

@@ -39,8 +39,7 @@ public class Money {
             "currency"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static MoneyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static MoneyMap of(Map<String, Object
             return Money1.validate(arg, configuration);
         }
         
@@ -80,8 +79,7 @@ public class Money {
 
             return new MoneyMap(arg);
         }
-        public static MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static MoneyMap validate(Map<String, Object
             return JsonSchema.validate(Money1.class, arg, configuration);
         }
     }

@@ -31,8 +31,7 @@ public class GrandparentAnimal {
             "pet_type"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static GrandparentAnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static GrandparentAnimalMap of(Map<String, Object
             return GrandparentAnimal1.validate(arg, configuration);
         }
         
@@ -69,8 +68,7 @@ public class GrandparentAnimal {
 
             return new GrandparentAnimalMap(arg);
         }
-        public static GrandparentAnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static GrandparentAnimalMap validate(Map<String, Object
             return JsonSchema.validate(GrandparentAnimal1.class, arg, configuration);
         }
     }

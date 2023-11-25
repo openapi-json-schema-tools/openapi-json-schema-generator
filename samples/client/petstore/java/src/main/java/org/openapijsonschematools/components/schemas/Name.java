@@ -45,8 +45,7 @@ public class Name {
             "snake_case",
             "property"
         );
-        public static NameMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static NameMap of(Map<String, Object
             return Name1.validate(arg, configuration);
         }
         

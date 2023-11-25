@@ -38,8 +38,7 @@ public class DanishPig {
             "className"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static DanishPigMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static DanishPigMap of(Map<String, Object
             return DanishPig1.validate(arg, configuration);
         }
         
@@ -76,8 +75,7 @@ public class DanishPig {
 
             return new DanishPigMap(arg);
         }
-        public static DanishPigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static DanishPigMap validate(Map<String, Object
             return JsonSchema.validate(DanishPig1.class, arg, configuration);
         }
     }

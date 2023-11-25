@@ -50,8 +50,7 @@ public class ArrayWithValidationsInItems {
 
             super(m);
         }
-        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ArrayWithValidationsInItemsList of(List<Long
             return ArrayWithValidationsInItems1.validate(arg, configuration);
         }
     }
@@ -72,8 +71,7 @@ public class ArrayWithValidationsInItems {
 
             return new ArrayWithValidationsInItemsList(arg);
         }
-        public static ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ArrayWithValidationsInItemsList validate(List<Long
             return JsonSchema.validate(ArrayWithValidationsInItems1.class, arg, configuration);
         }
     }}

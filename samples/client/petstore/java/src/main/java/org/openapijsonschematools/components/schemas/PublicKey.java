@@ -30,8 +30,7 @@ public class PublicKey {
         public static final Set<String> optionalKeys = Set.of(
             "key"
         );
-        public static PublicKeyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PublicKeyMap of(Map<String, Object
             return PublicKey1.validate(arg, configuration);
         }
         
@@ -69,8 +68,7 @@ public class PublicKey {
 
             return new PublicKeyMap(arg);
         }
-        public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PublicKeyMap validate(Map<String, Object
             return JsonSchema.validate(PublicKey1.class, arg, configuration);
         }
     }

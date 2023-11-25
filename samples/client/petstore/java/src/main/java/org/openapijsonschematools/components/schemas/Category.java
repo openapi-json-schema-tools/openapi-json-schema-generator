@@ -44,8 +44,7 @@ public class Category {
         public static final Set<String> optionalKeys = Set.of(
             "id"
         );
-        public static CategoryMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static CategoryMap of(Map<String, Object
             return Category1.validate(arg, configuration);
         }
         
@@ -91,8 +90,7 @@ public class Category {
 
             return new CategoryMap(arg);
         }
-        public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static CategoryMap validate(Map<String, Object
             return JsonSchema.validate(Category1.class, arg, configuration);
         }
     }

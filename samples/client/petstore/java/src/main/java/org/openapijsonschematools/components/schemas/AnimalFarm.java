@@ -22,9 +22,7 @@ public class AnimalFarm {
 
             super(m);
         }
-        public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static AnimalFarmList of(List<Map<String, Object>
             return AnimalFarm1.validate(arg, configuration);
         }
     }
@@ -45,9 +43,7 @@ public class AnimalFarm {
 
             return new AnimalFarmList(arg);
         }
-        public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static AnimalFarmList validate(List<Map<String, Object>
             return JsonSchema.validate(AnimalFarm1.class, arg, configuration);
         }
     }}

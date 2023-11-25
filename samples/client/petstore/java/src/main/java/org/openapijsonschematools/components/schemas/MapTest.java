@@ -30,8 +30,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static AdditionalPropertiesMap of(Map<String, String
             return AdditionalProperties.validate(arg, configuration);
         }
         
@@ -51,8 +50,7 @@ public class MapTest {
 
             return new AdditionalPropertiesMap(arg);
         }
-        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static AdditionalPropertiesMap validate(Map<String, String
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
     }
@@ -66,9 +64,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapMapOfStringMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static MapMapOfStringMap of(Map<String, Map<String, String>
             return MapMapOfString.validate(arg, configuration);
         }
         
@@ -88,9 +84,7 @@ public class MapTest {
 
             return new MapMapOfStringMap(arg);
         }
-        public static MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static MapMapOfStringMap validate(Map<String, Map<String, String>
             return JsonSchema.validate(MapMapOfString.class, arg, configuration);
         }
     }
@@ -115,8 +109,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapOfEnumStringMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static MapOfEnumStringMap of(Map<String, String
             return MapOfEnumString.validate(arg, configuration);
         }
         
@@ -136,8 +129,7 @@ public class MapTest {
 
             return new MapOfEnumStringMap(arg);
         }
-        public static MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static MapOfEnumStringMap validate(Map<String, String
             return JsonSchema.validate(MapOfEnumString.class, arg, configuration);
         }
     }
@@ -154,8 +146,7 @@ public class MapTest {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static DirectMapMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static DirectMapMap of(Map<String, Boolean
             return DirectMap.validate(arg, configuration);
         }
         
@@ -175,8 +166,7 @@ public class MapTest {
 
             return new DirectMapMap(arg);
         }
-        public static DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static DirectMapMap validate(Map<String, Boolean
             return JsonSchema.validate(DirectMap.class, arg, configuration);
         }
     }
@@ -195,8 +185,7 @@ public class MapTest {
             "direct_map",
             "indirect_map"
         );
-        public static MapTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static MapTestMap of(Map<String, Object
             return MapTest1.validate(arg, configuration);
         }
         
@@ -259,8 +248,7 @@ public class MapTest {
 
             return new MapTestMap(arg);
         }
-        public static MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static MapTestMap validate(Map<String, Object
             return JsonSchema.validate(MapTest1.class, arg, configuration);
         }
     }

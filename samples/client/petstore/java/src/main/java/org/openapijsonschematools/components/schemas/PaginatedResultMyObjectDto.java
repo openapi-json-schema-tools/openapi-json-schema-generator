@@ -37,9 +37,7 @@ public class PaginatedResultMyObjectDto {
 
             super(m);
         }
-        public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static ResultsList of(List<Map<String, String>
             return Results.validate(arg, configuration);
         }
     }
@@ -54,9 +52,7 @@ public class PaginatedResultMyObjectDto {
 
             return new ResultsList(arg);
         }
-        public static ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static ResultsList validate(List<Map<String, String>
             return JsonSchema.validate(Results.class, arg, configuration);
         }
     }    
@@ -72,8 +68,7 @@ public class PaginatedResultMyObjectDto {
             "results"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PaginatedResultMyObjectDtoMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PaginatedResultMyObjectDtoMap of(Map<String, Object
             return PaginatedResultMyObjectDto1.validate(arg, configuration);
         }
         
@@ -113,8 +108,7 @@ public class PaginatedResultMyObjectDto {
 
             return new PaginatedResultMyObjectDtoMap(arg);
         }
-        public static PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PaginatedResultMyObjectDtoMap validate(Map<String, Object
             return JsonSchema.validate(PaginatedResultMyObjectDto1.class, arg, configuration);
         }
     }

@@ -26,8 +26,7 @@ public class Foo {
         public static final Set<String> optionalKeys = Set.of(
             "bar"
         );
-        public static FooMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static FooMap of(Map<String, Object
             return Foo1.validate(arg, configuration);
         }
         
@@ -63,8 +62,7 @@ public class Foo {
 
             return new FooMap(arg);
         }
-        public static FooMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static FooMap validate(Map<String, Object
             return JsonSchema.validate(Foo1.class, arg, configuration);
         }
     }

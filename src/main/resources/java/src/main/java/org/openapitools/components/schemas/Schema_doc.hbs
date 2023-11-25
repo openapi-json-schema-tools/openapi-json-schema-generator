@@ -38,7 +38,7 @@ Ref Schema | Input Type | Output Type
 type: Map<String, Object>
         {{else}}
             {{#with ../mapValueSchema}}
-type: Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type_segment sourceJsonPath=../../jsonPath forceNull=true }}>
+type: Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}>
             {{else}}
 type: Map<String, Object>
             {{/with}}

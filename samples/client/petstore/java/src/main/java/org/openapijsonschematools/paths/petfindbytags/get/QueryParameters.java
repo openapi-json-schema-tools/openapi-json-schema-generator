@@ -36,9 +36,7 @@ public class QueryParameters {
             "tags"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static QueryParametersMap of(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static QueryParametersMap of(Map<String, List<String>
             return QueryParameters1.validate(arg, configuration);
         }
         
@@ -63,9 +61,7 @@ public class QueryParameters {
 
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
+        public static QueryParametersMap validate(Map<String, List<String>
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

@@ -34,8 +34,7 @@ public class ReturnSchema {
         public static final Set<String> optionalKeys = Set.of(
             "return"
         );
-        public static ReturnMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ReturnMap of(Map<String, Object
             return ReturnSchema1.validate(arg, configuration);
         }
         

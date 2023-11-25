@@ -26,8 +26,7 @@ public class Schema4 {
 
             super(m);
         }
-        public static SchemaList4 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static SchemaList4 of(List<String
             return Schema41.validate(arg, configuration);
         }
     }
@@ -42,8 +41,7 @@ public class Schema4 {
 
             return new SchemaList4(arg);
         }
-        public static SchemaList4 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static SchemaList4 validate(List<String
             return JsonSchema.validate(Schema41.class, arg, configuration);
         }
     }}

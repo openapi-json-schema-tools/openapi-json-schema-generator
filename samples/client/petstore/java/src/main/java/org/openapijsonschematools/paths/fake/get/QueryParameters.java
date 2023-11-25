@@ -40,8 +40,7 @@ public class QueryParameters {
             "enum_query_integer",
             "enum_query_string_array"
         );
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static QueryParametersMap of(Map<String, Object
             return QueryParameters1.validate(arg, configuration);
         }
         
@@ -93,8 +92,7 @@ public class QueryParameters {
 
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static QueryParametersMap validate(Map<String, Object
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

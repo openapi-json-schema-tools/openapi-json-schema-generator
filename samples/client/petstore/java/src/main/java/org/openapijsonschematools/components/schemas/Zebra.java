@@ -56,8 +56,7 @@ public class Zebra {
         public static final Set<String> optionalKeys = Set.of(
             "type"
         );
-        public static ZebraMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ZebraMap of(Map<String, Object
             return Zebra1.validate(arg, configuration);
         }
         
@@ -104,8 +103,7 @@ public class Zebra {
 
             return new ZebraMap(arg);
         }
-        public static ZebraMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ZebraMap validate(Map<String, Object
             return JsonSchema.validate(Zebra1.class, arg, configuration);
         }
     }

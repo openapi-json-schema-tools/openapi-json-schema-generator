@@ -34,8 +34,7 @@ public class Fruit {
         public static final Set<String> optionalKeys = Set.of(
             "color"
         );
-        public static FruitMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static FruitMap of(Map<String, Object
             return Fruit1.validate(arg, configuration);
         }
         

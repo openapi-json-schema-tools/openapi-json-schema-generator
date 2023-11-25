@@ -28,8 +28,7 @@ public class ObjectWithInvalidNamedRefedProperties {
             "from"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ObjectWithInvalidNamedRefedPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ObjectWithInvalidNamedRefedPropertiesMap of(Map<String, Object
             return ObjectWithInvalidNamedRefedProperties1.validate(arg, configuration);
         }
         
@@ -68,8 +67,7 @@ public class ObjectWithInvalidNamedRefedProperties {
 
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
-        public static ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object
             return JsonSchema.validate(ObjectWithInvalidNamedRefedProperties1.class, arg, configuration);
         }
     }

@@ -32,8 +32,7 @@ public class ObjectWithDecimalProperties {
             "width",
             "cost"
         );
-        public static ObjectWithDecimalPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ObjectWithDecimalPropertiesMap of(Map<String, Object
             return ObjectWithDecimalProperties1.validate(arg, configuration);
         }
         
@@ -87,8 +86,7 @@ public class ObjectWithDecimalProperties {
 
             return new ObjectWithDecimalPropertiesMap(arg);
         }
-        public static ObjectWithDecimalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static ObjectWithDecimalPropertiesMap validate(Map<String, Object
             return JsonSchema.validate(ObjectWithDecimalProperties1.class, arg, configuration);
         }
     }

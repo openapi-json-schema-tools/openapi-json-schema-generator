@@ -27,8 +27,7 @@ public class Schema {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static SchemaMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static SchemaMap of(Map<String, String
             return Schema1.validate(arg, configuration);
         }
         
@@ -48,8 +47,7 @@ public class Schema {
 
             return new SchemaMap(arg);
         }
-        public static SchemaMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static SchemaMap validate(Map<String, String
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

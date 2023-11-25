@@ -35,8 +35,7 @@ public class Tag {
             "id",
             "name"
         );
-        public static TagMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static TagMap of(Map<String, Object
             return Tag1.validate(arg, configuration);
         }
         
@@ -81,8 +80,7 @@ public class Tag {
 
             return new TagMap(arg);
         }
-        public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static TagMap validate(Map<String, Object
             return JsonSchema.validate(Tag1.class, arg, configuration);
         }
     }

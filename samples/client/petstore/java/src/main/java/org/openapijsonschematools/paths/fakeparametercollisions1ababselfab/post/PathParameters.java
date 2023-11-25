@@ -43,8 +43,7 @@ public class PathParameters {
             "self"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PathParametersMap of(Map<String, Object
             return PathParameters1.validate(arg, configuration);
         }
         
@@ -90,8 +89,7 @@ public class PathParameters {
 
             return new PathParametersMap(arg);
         }
-        public static PathParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PathParametersMap validate(Map<String, Object
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }

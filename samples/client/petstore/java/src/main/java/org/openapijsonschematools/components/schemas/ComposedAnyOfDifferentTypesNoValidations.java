@@ -71,8 +71,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
 
             super(m);
         }
-        public static Schema9List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static Schema9List of(List<Object
             return Schema9.validate(arg, configuration);
         }
     }
@@ -87,8 +86,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
 
             return new Schema9List(arg);
         }
-        public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static Schema9List validate(List<Object
             return JsonSchema.validate(Schema9.class, arg, configuration);
         }
     }    

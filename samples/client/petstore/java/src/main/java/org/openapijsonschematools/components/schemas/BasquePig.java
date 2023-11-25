@@ -38,8 +38,7 @@ public class BasquePig {
             "className"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static BasquePigMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static BasquePigMap of(Map<String, Object
             return BasquePig1.validate(arg, configuration);
         }
         
@@ -76,8 +75,7 @@ public class BasquePig {
 
             return new BasquePigMap(arg);
         }
-        public static BasquePigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static BasquePigMap validate(Map<String, Object
             return JsonSchema.validate(BasquePig1.class, arg, configuration);
         }
     }

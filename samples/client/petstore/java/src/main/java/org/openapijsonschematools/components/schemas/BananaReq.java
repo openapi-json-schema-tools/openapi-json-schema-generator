@@ -44,8 +44,7 @@ public class BananaReq {
         public static final Set<String> optionalKeys = Set.of(
             "sweet"
         );
-        public static BananaReqMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static BananaReqMap of(Map<String, Object
             return BananaReq1.validate(arg, configuration);
         }
         
@@ -86,8 +85,7 @@ public class BananaReq {
 
             return new BananaReqMap(arg);
         }
-        public static BananaReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static BananaReqMap validate(Map<String, Object
             return JsonSchema.validate(BananaReq1.class, arg, configuration);
         }
     }

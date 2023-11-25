@@ -150,8 +150,7 @@ public class User {
             "anyTypeExceptNullProp",
             "anyTypePropNullable"
         );
-        public static UserMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static UserMap of(Map<String, Object
             return User1.validate(arg, configuration);
         }
         
@@ -292,8 +291,7 @@ public class User {
 
             return new UserMap(arg);
         }
-        public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static UserMap validate(Map<String, Object
             return JsonSchema.validate(User1.class, arg, configuration);
         }
     }

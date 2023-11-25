@@ -38,8 +38,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
         public static final Set<String> optionalKeys = Set.of(
             "name"
         );
-        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static Schema1Map of(Map<String, Object
             return Schema1.validate(arg, configuration);
         }
         
@@ -76,8 +75,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
 
             return new Schema1Map(arg);
         }
-        public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static Schema1Map validate(Map<String, Object
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

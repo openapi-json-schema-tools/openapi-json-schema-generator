@@ -34,8 +34,7 @@ public class HasOnlyReadOnly {
             "bar",
             "foo"
         );
-        public static HasOnlyReadOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static HasOnlyReadOnlyMap of(Map<String, Object
             return HasOnlyReadOnly1.validate(arg, configuration);
         }
         
@@ -80,8 +79,7 @@ public class HasOnlyReadOnly {
 
             return new HasOnlyReadOnlyMap(arg);
         }
-        public static HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static HasOnlyReadOnlyMap validate(Map<String, Object
             return JsonSchema.validate(HasOnlyReadOnly1.class, arg, configuration);
         }
     }

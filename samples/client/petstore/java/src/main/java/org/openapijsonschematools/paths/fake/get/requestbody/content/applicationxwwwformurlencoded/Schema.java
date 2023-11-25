@@ -36,8 +36,7 @@ public class Schema {
 
             super(m);
         }
-        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static EnumFormStringArrayList of(List<String
             return EnumFormStringArray.validate(arg, configuration);
         }
     }
@@ -52,8 +51,7 @@ public class Schema {
 
             return new EnumFormStringArrayList(arg);
         }
-        public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static EnumFormStringArrayList validate(List<String
             return JsonSchema.validate(EnumFormStringArray.class, arg, configuration);
         }
     }    
@@ -80,8 +78,7 @@ public class Schema {
             "enum_form_string_array",
             "enum_form_string"
         );
-        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static SchemaMap of(Map<String, Object
             return Schema1.validate(arg, configuration);
         }
         
@@ -120,8 +117,7 @@ public class Schema {
 
             return new SchemaMap(arg);
         }
-        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static SchemaMap validate(Map<String, Object
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

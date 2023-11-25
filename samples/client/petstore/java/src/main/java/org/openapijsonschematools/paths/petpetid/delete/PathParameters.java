@@ -35,8 +35,7 @@ public class PathParameters {
             "petId"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PathParametersMap of(Map<String, Long
             return PathParameters1.validate(arg, configuration);
         }
         
@@ -61,8 +60,7 @@ public class PathParameters {
 
             return new PathParametersMap(arg);
         }
-        public static PathParametersMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
-
+        public static PathParametersMap validate(Map<String, Long
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }
