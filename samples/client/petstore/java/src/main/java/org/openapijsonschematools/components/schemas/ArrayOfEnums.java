@@ -22,7 +22,7 @@ public class ArrayOfEnums {
 
             super(m);
         }
-        public static ArrayOfEnumsList of(List<String
+        public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayOfEnums1.validate(arg, configuration);
         }
     }
@@ -43,7 +43,7 @@ public class ArrayOfEnums {
 
             return new ArrayOfEnumsList(arg);
         }
-        public static ArrayOfEnumsList validate(List<String
+        public static ArrayOfEnumsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayOfEnums1.class, arg, configuration);
         }
     }}

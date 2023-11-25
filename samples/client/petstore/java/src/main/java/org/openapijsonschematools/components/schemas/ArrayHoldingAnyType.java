@@ -26,7 +26,7 @@ public class ArrayHoldingAnyType {
 
             super(m);
         }
-        public static ArrayHoldingAnyTypeList of(List<Object
+        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayHoldingAnyType1.validate(arg, configuration);
         }
     }
@@ -47,7 +47,7 @@ public class ArrayHoldingAnyType {
 
             return new ArrayHoldingAnyTypeList(arg);
         }
-        public static ArrayHoldingAnyTypeList validate(List<Object
+        public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayHoldingAnyType1.class, arg, configuration);
         }
     }}

@@ -35,7 +35,7 @@ public class PathParameters {
             "subDir"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, String
+        public static PathParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return PathParameters1.validate(arg, configuration);
         }
         
@@ -60,7 +60,7 @@ public class PathParameters {
 
             return new PathParametersMap(arg);
         }
-        public static PathParametersMap validate(Map<String, String
+        public static PathParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PathParameters1.class, arg, configuration);
         }
     }

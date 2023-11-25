@@ -35,7 +35,7 @@ public class ObjectModelWithArgAndArgsProperties {
             "args"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ObjectModelWithArgAndArgsPropertiesMap of(Map<String, Object
+        public static ObjectModelWithArgAndArgsPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectModelWithArgAndArgsProperties1.validate(arg, configuration);
         }
         
@@ -80,7 +80,7 @@ public class ObjectModelWithArgAndArgsProperties {
 
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
-        public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object
+        public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectModelWithArgAndArgsProperties1.class, arg, configuration);
         }
     }

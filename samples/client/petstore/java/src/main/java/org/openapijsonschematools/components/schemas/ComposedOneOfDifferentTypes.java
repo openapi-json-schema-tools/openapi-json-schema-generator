@@ -49,7 +49,7 @@ public class ComposedOneOfDifferentTypes {
 
             super(m);
         }
-        public static Schema5List of(List<Object
+        public static Schema5List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema5.validate(arg, configuration);
         }
     }
@@ -64,7 +64,7 @@ public class ComposedOneOfDifferentTypes {
 
             return new Schema5List(arg);
         }
-        public static Schema5List validate(List<Object
+        public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema5.class, arg, configuration);
         }
     }    

@@ -170,7 +170,7 @@ public class NullableClass {
 
             super(m);
         }
-        public static ArrayNullablePropList of(List<Map<String, Object>
+        public static ArrayNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayNullableProp.validate(arg, configuration);
         }
     }
@@ -187,7 +187,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
-        public static ArrayNullablePropList validate(List<Map<String, Object>
+        public static ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
     }    
@@ -213,7 +213,7 @@ public class NullableClass {
 
             super(m);
         }
-        public static ArrayAndItemsNullablePropList of(List<Map<String, Object>
+        public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayAndItemsNullableProp.validate(arg, configuration);
         }
     }
@@ -230,7 +230,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
-        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>
+        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
     }    
@@ -256,7 +256,7 @@ public class NullableClass {
 
             super(m);
         }
-        public static ArrayItemsNullableList of(List<Map<String, Object>
+        public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayItemsNullable.validate(arg, configuration);
         }
     }
@@ -271,7 +271,7 @@ public class NullableClass {
 
             return new ArrayItemsNullableList(arg);
         }
-        public static ArrayItemsNullableList validate(List<Map<String, Object>
+        public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
         }
     }    
@@ -287,7 +287,7 @@ public class NullableClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static ObjectNullablePropMap of(Map<String, Map<String, Object>
+        public static ObjectNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectNullableProp.validate(arg, configuration);
         }
         
@@ -309,7 +309,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
-        public static ObjectNullablePropMap validate(Map<String, Map<String, Object>
+        public static ObjectNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
     }    
@@ -337,7 +337,7 @@ public class NullableClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static ObjectAndItemsNullablePropMap of(Map<String, Map<String, Object>
+        public static ObjectAndItemsNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectAndItemsNullableProp.validate(arg, configuration);
         }
         
@@ -359,7 +359,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
-        public static ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>
+        public static ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
     }    
@@ -387,7 +387,7 @@ public class NullableClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static ObjectItemsNullableMap of(Map<String, Map<String, Object>
+        public static ObjectItemsNullableMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectItemsNullable.validate(arg, configuration);
         }
         
@@ -407,7 +407,7 @@ public class NullableClass {
 
             return new ObjectItemsNullableMap(arg);
         }
-        public static ObjectItemsNullableMap validate(Map<String, Map<String, Object>
+        public static ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectItemsNullable.class, arg, configuration);
         }
     }
@@ -434,7 +434,7 @@ public class NullableClass {
             "object_and_items_nullable_prop",
             "object_items_nullable"
         );
-        public static NullableClassMap of(Map<String, Object
+        public static NullableClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return NullableClass1.validate(arg, configuration);
         }
         
@@ -571,7 +571,7 @@ public class NullableClass {
 
             return new NullableClassMap(arg);
         }
-        public static NullableClassMap validate(Map<String, Object
+        public static NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NullableClass1.class, arg, configuration);
         }
     }

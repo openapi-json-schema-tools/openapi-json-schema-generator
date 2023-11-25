@@ -34,7 +34,7 @@ public class ClassModel {
         public static final Set<String> optionalKeys = Set.of(
             "_class"
         );
-        public static ClassModelMap of(Map<String, Object
+        public static ClassModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ClassModel1.validate(arg, configuration);
         }
         

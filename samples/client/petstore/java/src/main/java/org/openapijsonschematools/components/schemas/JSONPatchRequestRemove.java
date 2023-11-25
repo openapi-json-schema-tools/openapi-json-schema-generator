@@ -50,7 +50,7 @@ public class JSONPatchRequestRemove {
             "path"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestRemoveMap of(Map<String, String
+        public static JSONPatchRequestRemoveMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JSONPatchRequestRemove1.validate(arg, configuration);
         }
         
@@ -89,7 +89,7 @@ public class JSONPatchRequestRemove {
 
             return new JSONPatchRequestRemoveMap(arg);
         }
-        public static JSONPatchRequestRemoveMap validate(Map<String, String
+        public static JSONPatchRequestRemoveMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(JSONPatchRequestRemove1.class, arg, configuration);
         }
     }

@@ -54,7 +54,7 @@ public class JSONPatchRequestMoveCopy {
             "path"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestMoveCopyMap of(Map<String, String
+        public static JSONPatchRequestMoveCopyMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JSONPatchRequestMoveCopy1.validate(arg, configuration);
         }
         
@@ -100,7 +100,7 @@ public class JSONPatchRequestMoveCopy {
 
             return new JSONPatchRequestMoveCopyMap(arg);
         }
-        public static JSONPatchRequestMoveCopyMap validate(Map<String, String
+        public static JSONPatchRequestMoveCopyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(JSONPatchRequestMoveCopy1.class, arg, configuration);
         }
     }

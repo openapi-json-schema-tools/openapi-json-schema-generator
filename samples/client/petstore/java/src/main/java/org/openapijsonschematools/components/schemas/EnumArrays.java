@@ -47,7 +47,7 @@ public class EnumArrays {
 
             super(m);
         }
-        public static ArrayEnumList of(List<String
+        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayEnum.validate(arg, configuration);
         }
     }
@@ -62,7 +62,7 @@ public class EnumArrays {
 
             return new ArrayEnumList(arg);
         }
-        public static ArrayEnumList validate(List<String
+        public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayEnum.class, arg, configuration);
         }
     }    
@@ -78,7 +78,7 @@ public class EnumArrays {
             "just_symbol",
             "array_enum"
         );
-        public static EnumArraysMap of(Map<String, Object
+        public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return EnumArrays1.validate(arg, configuration);
         }
         
@@ -123,7 +123,7 @@ public class EnumArrays {
 
             return new EnumArraysMap(arg);
         }
-        public static EnumArraysMap validate(Map<String, Object
+        public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumArrays1.class, arg, configuration);
         }
     }

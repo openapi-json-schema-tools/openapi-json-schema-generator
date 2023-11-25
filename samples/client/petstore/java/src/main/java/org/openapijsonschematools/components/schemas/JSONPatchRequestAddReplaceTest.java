@@ -54,7 +54,7 @@ public class JSONPatchRequestAddReplaceTest {
             "value"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object
+        public static JSONPatchRequestAddReplaceTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JSONPatchRequestAddReplaceTest1.validate(arg, configuration);
         }
         
@@ -101,7 +101,7 @@ public class JSONPatchRequestAddReplaceTest {
 
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
-        public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object
+        public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(JSONPatchRequestAddReplaceTest1.class, arg, configuration);
         }
     }

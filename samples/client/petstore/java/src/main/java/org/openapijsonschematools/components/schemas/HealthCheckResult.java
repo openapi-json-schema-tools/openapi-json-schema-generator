@@ -41,7 +41,7 @@ public class HealthCheckResult {
         public static final Set<String> optionalKeys = Set.of(
             "NullableMessage"
         );
-        public static HealthCheckResultMap of(Map<String, Object
+        public static HealthCheckResultMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return HealthCheckResult1.validate(arg, configuration);
         }
         
@@ -79,7 +79,7 @@ public class HealthCheckResult {
 
             return new HealthCheckResultMap(arg);
         }
-        public static HealthCheckResultMap validate(Map<String, Object
+        public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(HealthCheckResult1.class, arg, configuration);
         }
     }

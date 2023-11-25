@@ -31,7 +31,7 @@ public class Player {
             "name",
             "enemyPlayer"
         );
-        public static PlayerMap of(Map<String, Object
+        public static PlayerMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Player1.validate(arg, configuration);
         }
         
@@ -78,7 +78,7 @@ public class Player {
 
             return new PlayerMap(arg);
         }
-        public static PlayerMap validate(Map<String, Object
+        public static PlayerMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Player1.class, arg, configuration);
         }
     }

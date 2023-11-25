@@ -27,7 +27,7 @@ public class SelfReferencingObjectModel {
         public static final Set<String> optionalKeys = Set.of(
             "selfRef"
         );
-        public static SelfReferencingObjectModelMap of(Map<String, Object
+        public static SelfReferencingObjectModelMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return SelfReferencingObjectModel1.validate(arg, configuration);
         }
         
@@ -65,7 +65,7 @@ public class SelfReferencingObjectModel {
 
             return new SelfReferencingObjectModelMap(arg);
         }
-        public static SelfReferencingObjectModelMap validate(Map<String, Object
+        public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(SelfReferencingObjectModel1.class, arg, configuration);
         }
     }

@@ -35,7 +35,7 @@ public class Cat {
         public static final Set<String> optionalKeys = Set.of(
             "declawed"
         );
-        public static Schema1Map of(Map<String, Object
+        public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema1.validate(arg, configuration);
         }
         
@@ -65,7 +65,7 @@ public class Cat {
 
             return new Schema1Map(arg);
         }
-        public static Schema1Map validate(Map<String, Object
+        public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

@@ -92,7 +92,7 @@ public class ObjectWithInlineCompositionProperty {
         public static final Set<String> optionalKeys = Set.of(
             "someProp"
         );
-        public static ObjectWithInlineCompositionPropertyMap of(Map<String, Object
+        public static ObjectWithInlineCompositionPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectWithInlineCompositionProperty1.validate(arg, configuration);
         }
         
@@ -127,7 +127,7 @@ public class ObjectWithInlineCompositionProperty {
 
             return new ObjectWithInlineCompositionPropertyMap(arg);
         }
-        public static ObjectWithInlineCompositionPropertyMap validate(Map<String, Object
+        public static ObjectWithInlineCompositionPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectWithInlineCompositionProperty1.class, arg, configuration);
         }
     }

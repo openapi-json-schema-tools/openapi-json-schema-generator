@@ -34,7 +34,7 @@ public class ReadOnlyFirst {
             "bar",
             "baz"
         );
-        public static ReadOnlyFirstMap of(Map<String, Object
+        public static ReadOnlyFirstMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ReadOnlyFirst1.validate(arg, configuration);
         }
         
@@ -79,7 +79,7 @@ public class ReadOnlyFirst {
 
             return new ReadOnlyFirstMap(arg);
         }
-        public static ReadOnlyFirstMap validate(Map<String, Object
+        public static ReadOnlyFirstMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ReadOnlyFirst1.class, arg, configuration);
         }
     }

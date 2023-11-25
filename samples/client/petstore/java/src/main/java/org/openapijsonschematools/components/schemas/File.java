@@ -30,7 +30,7 @@ public class File {
         public static final Set<String> optionalKeys = Set.of(
             "sourceURI"
         );
-        public static FileMap of(Map<String, Object
+        public static FileMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return File1.validate(arg, configuration);
         }
         
@@ -68,7 +68,7 @@ public class File {
 
             return new FileMap(arg);
         }
-        public static FileMap validate(Map<String, Object
+        public static FileMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(File1.class, arg, configuration);
         }
     }

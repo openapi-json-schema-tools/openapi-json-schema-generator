@@ -25,7 +25,7 @@ public class FileSchemaTestClass {
 
             super(m);
         }
-        public static FilesList of(List<Map<String, Object>
+        public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Files.validate(arg, configuration);
         }
     }
@@ -40,7 +40,7 @@ public class FileSchemaTestClass {
 
             return new FilesList(arg);
         }
-        public static FilesList validate(List<Map<String, Object>
+        public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Files.class, arg, configuration);
         }
     }    
@@ -56,7 +56,7 @@ public class FileSchemaTestClass {
             "file",
             "files"
         );
-        public static FileSchemaTestClassMap of(Map<String, Object
+        public static FileSchemaTestClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FileSchemaTestClass1.validate(arg, configuration);
         }
         
@@ -101,7 +101,7 @@ public class FileSchemaTestClass {
 
             return new FileSchemaTestClassMap(arg);
         }
-        public static FileSchemaTestClassMap validate(Map<String, Object
+        public static FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(FileSchemaTestClass1.class, arg, configuration);
         }
     }

@@ -44,7 +44,7 @@ public class Animal {
         public static final Set<String> optionalKeys = Set.of(
             "color"
         );
-        public static AnimalMap of(Map<String, Object
+        public static AnimalMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Animal1.validate(arg, configuration);
         }
         
@@ -90,7 +90,7 @@ public class Animal {
 
             return new AnimalMap(arg);
         }
-        public static AnimalMap validate(Map<String, Object
+        public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Animal1.class, arg, configuration);
         }
     }

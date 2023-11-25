@@ -34,7 +34,7 @@ public class ObjectWithCollidingProperties {
             "someProp",
             "someprop"
         );
-        public static ObjectWithCollidingPropertiesMap of(Map<String, Object
+        public static ObjectWithCollidingPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectWithCollidingProperties1.validate(arg, configuration);
         }
         
@@ -81,7 +81,7 @@ public class ObjectWithCollidingProperties {
 
             return new ObjectWithCollidingPropertiesMap(arg);
         }
-        public static ObjectWithCollidingPropertiesMap validate(Map<String, Object
+        public static ObjectWithCollidingPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectWithCollidingProperties1.class, arg, configuration);
         }
     }

@@ -42,7 +42,7 @@ public class ObjectWithDifficultlyNamedProps {
             "$special[property.name]",
             "123Number"
         );
-        public static ObjectWithDifficultlyNamedPropsMap of(Map<String, Object
+        public static ObjectWithDifficultlyNamedPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectWithDifficultlyNamedProps1.validate(arg, configuration);
         }
         
@@ -77,7 +77,7 @@ public class ObjectWithDifficultlyNamedProps {
 
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
-        public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object
+        public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
         }
     }

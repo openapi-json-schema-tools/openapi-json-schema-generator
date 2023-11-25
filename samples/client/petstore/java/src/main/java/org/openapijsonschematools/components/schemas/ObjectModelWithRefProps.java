@@ -28,7 +28,7 @@ public class ObjectModelWithRefProps {
             "myString",
             "myBoolean"
         );
-        public static ObjectModelWithRefPropsMap of(Map<String, Object
+        public static ObjectModelWithRefPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectModelWithRefProps1.validate(arg, configuration);
         }
         
@@ -84,7 +84,7 @@ public class ObjectModelWithRefProps {
 
             return new ObjectModelWithRefPropsMap(arg);
         }
-        public static ObjectModelWithRefPropsMap validate(Map<String, Object
+        public static ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectModelWithRefProps1.class, arg, configuration);
         }
     }

@@ -32,7 +32,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapPropertyMap of(Map<String, String
+        public static MapPropertyMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return MapProperty.validate(arg, configuration);
         }
         
@@ -52,7 +52,7 @@ public class AdditionalPropertiesClass {
 
             return new MapPropertyMap(arg);
         }
-        public static MapPropertyMap validate(Map<String, String
+        public static MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(MapProperty.class, arg, configuration);
         }
     }
@@ -69,7 +69,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AdditionalPropertiesMap of(Map<String, String
+        public static AdditionalPropertiesMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return AdditionalProperties1.validate(arg, configuration);
         }
         
@@ -89,7 +89,7 @@ public class AdditionalPropertiesClass {
 
             return new AdditionalPropertiesMap(arg);
         }
-        public static AdditionalPropertiesMap validate(Map<String, String
+        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
     }
@@ -103,7 +103,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapOfMapPropertyMap of(Map<String, Map<String, String>
+        public static MapOfMapPropertyMap of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return MapOfMapProperty.validate(arg, configuration);
         }
         
@@ -123,7 +123,7 @@ public class AdditionalPropertiesClass {
 
             return new MapOfMapPropertyMap(arg);
         }
-        public static MapOfMapPropertyMap validate(Map<String, Map<String, String>
+        public static MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(MapOfMapProperty.class, arg, configuration);
         }
     }
@@ -149,7 +149,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, Object
+        public static MapWithUndeclaredPropertiesAnytype3Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return MapWithUndeclaredPropertiesAnytype3.validate(arg, configuration);
         }
         
@@ -169,7 +169,7 @@ public class AdditionalPropertiesClass {
 
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
-        public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object
+        public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(MapWithUndeclaredPropertiesAnytype3.class, arg, configuration);
         }
     }
@@ -216,7 +216,7 @@ public class AdditionalPropertiesClass {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static MapWithUndeclaredPropertiesStringMap of(Map<String, String
+        public static MapWithUndeclaredPropertiesStringMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return MapWithUndeclaredPropertiesString.validate(arg, configuration);
         }
         
@@ -236,7 +236,7 @@ public class AdditionalPropertiesClass {
 
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
-        public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String
+        public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(MapWithUndeclaredPropertiesString.class, arg, configuration);
         }
     }
@@ -259,7 +259,7 @@ public class AdditionalPropertiesClass {
             "empty_map",
             "map_with_undeclared_properties_string"
         );
-        public static AdditionalPropertiesClassMap of(Map<String, Object
+        public static AdditionalPropertiesClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return AdditionalPropertiesClass1.validate(arg, configuration);
         }
         
@@ -357,7 +357,7 @@ public class AdditionalPropertiesClass {
 
             return new AdditionalPropertiesClassMap(arg);
         }
-        public static AdditionalPropertiesClassMap validate(Map<String, Object
+        public static AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalPropertiesClass1.class, arg, configuration);
         }
     }

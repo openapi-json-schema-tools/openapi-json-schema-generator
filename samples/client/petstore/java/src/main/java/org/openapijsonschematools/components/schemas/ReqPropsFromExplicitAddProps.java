@@ -31,7 +31,7 @@ public class ReqPropsFromExplicitAddProps {
             "validName"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ReqPropsFromExplicitAddPropsMap of(Map<String, String
+        public static ReqPropsFromExplicitAddPropsMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return ReqPropsFromExplicitAddProps1.validate(arg, configuration);
         }
         
@@ -66,7 +66,7 @@ public class ReqPropsFromExplicitAddProps {
 
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
-        public static ReqPropsFromExplicitAddPropsMap validate(Map<String, String
+        public static ReqPropsFromExplicitAddPropsMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ReqPropsFromExplicitAddProps1.class, arg, configuration);
         }
     }

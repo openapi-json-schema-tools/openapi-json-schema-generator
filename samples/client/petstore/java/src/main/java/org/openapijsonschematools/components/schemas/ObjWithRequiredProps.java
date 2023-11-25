@@ -31,7 +31,7 @@ public class ObjWithRequiredProps {
             "a"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static ObjWithRequiredPropsMap of(Map<String, Object
+        public static ObjWithRequiredPropsMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjWithRequiredProps1.validate(arg, configuration);
         }
         
@@ -68,7 +68,7 @@ public class ObjWithRequiredProps {
 
             return new ObjWithRequiredPropsMap(arg);
         }
-        public static ObjWithRequiredPropsMap validate(Map<String, Object
+        public static ObjWithRequiredPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjWithRequiredProps1.class, arg, configuration);
         }
     }

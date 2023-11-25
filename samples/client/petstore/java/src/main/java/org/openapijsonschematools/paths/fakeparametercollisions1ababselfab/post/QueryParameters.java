@@ -42,7 +42,7 @@ public class QueryParameters {
             "A-B",
             "self"
         );
-        public static QueryParametersMap of(Map<String, Object
+        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return QueryParameters1.validate(arg, configuration);
         }
         
@@ -87,7 +87,7 @@ public class QueryParameters {
 
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object
+        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

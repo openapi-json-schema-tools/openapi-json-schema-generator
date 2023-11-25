@@ -33,7 +33,7 @@ public class AbstractStepMessage {
             "sequenceNumber"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static AbstractStepMessageMap of(Map<String, Object
+        public static AbstractStepMessageMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return AbstractStepMessage1.validate(arg, configuration);
         }
         
@@ -82,7 +82,7 @@ public class AbstractStepMessage {
 
             return new AbstractStepMessageMap(arg);
         }
-        public static AbstractStepMessageMap validate(Map<String, Object
+        public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AbstractStepMessage1.class, arg, configuration);
         }
     }

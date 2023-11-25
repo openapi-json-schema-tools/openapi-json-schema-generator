@@ -35,7 +35,7 @@ public class FromSchema {
             "data",
             "id"
         );
-        public static FromSchemaMap of(Map<String, Object
+        public static FromSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FromSchema1.validate(arg, configuration);
         }
         
@@ -80,7 +80,7 @@ public class FromSchema {
 
             return new FromSchemaMap(arg);
         }
-        public static FromSchemaMap validate(Map<String, Object
+        public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(FromSchema1.class, arg, configuration);
         }
     }

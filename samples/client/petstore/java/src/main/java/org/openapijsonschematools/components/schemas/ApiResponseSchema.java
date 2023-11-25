@@ -39,7 +39,7 @@ public class ApiResponseSchema {
             "type",
             "message"
         );
-        public static ApiResponseMap of(Map<String, Object
+        public static ApiResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ApiResponseSchema1.validate(arg, configuration);
         }
         
@@ -93,7 +93,7 @@ public class ApiResponseSchema {
 
             return new ApiResponseMap(arg);
         }
-        public static ApiResponseMap validate(Map<String, Object
+        public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ApiResponseSchema1.class, arg, configuration);
         }
     }

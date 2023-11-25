@@ -35,7 +35,7 @@ public class ObjectWithNonIntersectingValues {
         public static final Set<String> optionalKeys = Set.of(
             "a"
         );
-        public static ObjectWithNonIntersectingValuesMap of(Map<String, Object
+        public static ObjectWithNonIntersectingValuesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectWithNonIntersectingValues1.validate(arg, configuration);
         }
         
@@ -73,7 +73,7 @@ public class ObjectWithNonIntersectingValues {
 
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
-        public static ObjectWithNonIntersectingValuesMap validate(Map<String, Object
+        public static ObjectWithNonIntersectingValuesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectWithNonIntersectingValues1.class, arg, configuration);
         }
     }

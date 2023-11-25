@@ -43,7 +43,7 @@ public class NoAdditionalProperties {
         public static final Set<String> optionalKeys = Set.of(
             "petId"
         );
-        public static NoAdditionalPropertiesMap of(Map<String, Long
+        public static NoAdditionalPropertiesMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return NoAdditionalProperties1.validate(arg, configuration);
         }
         
@@ -82,7 +82,7 @@ public class NoAdditionalProperties {
 
             return new NoAdditionalPropertiesMap(arg);
         }
-        public static NoAdditionalPropertiesMap validate(Map<String, Long
+        public static NoAdditionalPropertiesMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NoAdditionalProperties1.class, arg, configuration);
         }
     }

@@ -30,7 +30,7 @@ public class Client {
         public static final Set<String> optionalKeys = Set.of(
             "client"
         );
-        public static ClientMap of(Map<String, Object
+        public static ClientMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Client1.validate(arg, configuration);
         }
         
@@ -66,7 +66,7 @@ public class Client {
 
             return new ClientMap(arg);
         }
-        public static ClientMap validate(Map<String, Object
+        public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Client1.class, arg, configuration);
         }
     }

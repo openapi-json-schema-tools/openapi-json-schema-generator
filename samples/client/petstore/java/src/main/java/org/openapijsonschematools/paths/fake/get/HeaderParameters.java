@@ -36,7 +36,7 @@ public class HeaderParameters {
             "enum_header_string",
             "enum_header_string_array"
         );
-        public static HeaderParametersMap of(Map<String, Object
+        public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return HeaderParameters1.validate(arg, configuration);
         }
         
@@ -70,7 +70,7 @@ public class HeaderParameters {
 
             return new HeaderParametersMap(arg);
         }
-        public static HeaderParametersMap validate(Map<String, Object
+        public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }
     }

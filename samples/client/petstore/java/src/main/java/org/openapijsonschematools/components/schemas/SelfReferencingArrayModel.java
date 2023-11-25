@@ -22,7 +22,7 @@ public class SelfReferencingArrayModel {
 
             super(m);
         }
-        public static SelfReferencingArrayModelList of(List<List
+        public static SelfReferencingArrayModelList of(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
             return SelfReferencingArrayModel1.validate(arg, configuration);
         }
     }
@@ -43,7 +43,7 @@ public class SelfReferencingArrayModel {
 
             return new SelfReferencingArrayModelList(arg);
         }
-        public static SelfReferencingArrayModelList validate(List<List
+        public static SelfReferencingArrayModelList validate(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
         }
     }}

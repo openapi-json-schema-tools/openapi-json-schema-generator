@@ -34,7 +34,7 @@ public class Headers {
         public static final Set<String> optionalKeys = Set.of(
             "location"
         );
-        public static HeadersMap of(Map<String, String
+        public static HeadersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return Headers1.validate(arg, configuration);
         }
         
@@ -58,7 +58,7 @@ public class Headers {
 
             return new HeadersMap(arg);
         }
-        public static HeadersMap validate(Map<String, String
+        public static HeadersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }

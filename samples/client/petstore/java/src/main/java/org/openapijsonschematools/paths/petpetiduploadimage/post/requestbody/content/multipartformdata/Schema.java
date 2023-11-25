@@ -36,7 +36,7 @@ public class Schema {
             "additionalMetadata",
             "file"
         );
-        public static SchemaMap of(Map<String, Object
+        public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema1.validate(arg, configuration);
         }
         
@@ -75,7 +75,7 @@ public class Schema {
 
             return new SchemaMap(arg);
         }
-        public static SchemaMap validate(Map<String, Object
+        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

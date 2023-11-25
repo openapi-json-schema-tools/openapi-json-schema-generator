@@ -30,7 +30,7 @@ public class ObjectWithOptionalTestProp {
         public static final Set<String> optionalKeys = Set.of(
             "test"
         );
-        public static ObjectWithOptionalTestPropMap of(Map<String, Object
+        public static ObjectWithOptionalTestPropMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ObjectWithOptionalTestProp1.validate(arg, configuration);
         }
         
@@ -66,7 +66,7 @@ public class ObjectWithOptionalTestProp {
 
             return new ObjectWithOptionalTestPropMap(arg);
         }
-        public static ObjectWithOptionalTestPropMap validate(Map<String, Object
+        public static ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectWithOptionalTestProp1.class, arg, configuration);
         }
     }

@@ -39,7 +39,7 @@ public class Schema200Response {
             "name",
             "class"
         );
-        public static Schema200ResponseMap of(Map<String, Object
+        public static Schema200ResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema200Response1.validate(arg, configuration);
         }
         

@@ -27,7 +27,7 @@ public class Address {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static AddressMap of(Map<String, Long
+        public static AddressMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return Address1.validate(arg, configuration);
         }
         
@@ -53,7 +53,7 @@ public class Address {
 
             return new AddressMap(arg);
         }
-        public static AddressMap validate(Map<String, Long
+        public static AddressMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Address1.class, arg, configuration);
         }
     }

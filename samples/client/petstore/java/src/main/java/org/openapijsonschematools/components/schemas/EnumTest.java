@@ -101,7 +101,7 @@ public class EnumTest {
             "IntegerEnumWithDefaultValue",
             "IntegerEnumOneValue"
         );
-        public static EnumTestMap of(Map<String, Object
+        public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return EnumTest1.validate(arg, configuration);
         }
         
@@ -210,7 +210,7 @@ public class EnumTest {
 
             return new EnumTestMap(arg);
         }
-        public static EnumTestMap validate(Map<String, Object
+        public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumTest1.class, arg, configuration);
         }
     }

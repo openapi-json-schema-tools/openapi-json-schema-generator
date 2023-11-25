@@ -30,7 +30,7 @@ public class Schema0 {
         public static final Set<String> optionalKeys = Set.of(
             "keyword"
         );
-        public static SchemaMap0 of(Map<String, Object
+        public static SchemaMap0 of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema01.validate(arg, configuration);
         }
         
@@ -60,7 +60,7 @@ public class Schema0 {
 
             return new SchemaMap0(arg);
         }
-        public static SchemaMap0 validate(Map<String, Object
+        public static SchemaMap0 validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema01.class, arg, configuration);
         }
     }
