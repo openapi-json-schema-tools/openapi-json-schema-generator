@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a** |  |  | [optional]
-**b** |  |  | [optional]
+**a** | String |  | [optional]
+**b** | Number |  | [optional]
 
 ## ObjectWithOnlyOptionalPropsMap
 ```

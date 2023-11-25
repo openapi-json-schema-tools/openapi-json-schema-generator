@@ -15,21 +15,21 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**byte** |  | None |
-**double** |  | None |
-**number** |  | None |
-**pattern_without_delimiter** |  | None |
-**integer** |  | None | [optional]
-**int32** |  | None | [optional]
-**int64** |  | None | [optional]
-**float** |  | None | [optional]
-**string** |  | None | [optional]
-**binary** |  | None | [optional]
-**date** |  | None | [optional]
-**dateTime** |  | None | [optional]
-**password** |  | None | [optional]
-**callback** |  | None | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**byte** | String | None |
+**double** | double | None |
+**number** | Number | None |
+**pattern_without_delimiter** | String | None |
+**integer** | long | None | [optional]
+**int32** | int | None | [optional]
+**int64** | long | None | [optional]
+**float** | float | None | [optional]
+**string** | String | None | [optional]
+**binary** | String | None | [optional]
+**date** | String | None | [optional]
+**dateTime** | String | None | [optional]
+**password** | String | None | [optional]
+**callback** | String | None | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SchemaMap
 ```

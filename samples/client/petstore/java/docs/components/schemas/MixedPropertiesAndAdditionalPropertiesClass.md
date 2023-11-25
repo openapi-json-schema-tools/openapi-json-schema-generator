@@ -15,10 +15,10 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uuid** |  |  | [optional]
-**dateTime** |  |  | [optional]
-**map** |  |  | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**uuid** | String |  | [optional]
+**dateTime** | String |  | [optional]
+**map** | Map<String, Map<String, Object>> |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## MixedPropertiesAndAdditionalPropertiesClassMap
 ```

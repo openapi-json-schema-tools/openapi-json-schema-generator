@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** |  |  |
-**petId** |  |  | [optional]
+**id** | long |  |
+**petId** | long |  | [optional]
 
 ## NoAdditionalPropertiesMap
 ```

@@ -47,21 +47,21 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.original}}** | {{!> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} |{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} |{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{!> components/schemas/types/docschema_io_types }} | {{#if description}}{{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-**any_string_name** | {{!> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
             {{else}}
-**any_string_name** | {{!> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+**any_string_name** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/unless}}
         {{else}}
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
         {{/with}}
 
     {{#if mapOutputJsonPathPiece}}

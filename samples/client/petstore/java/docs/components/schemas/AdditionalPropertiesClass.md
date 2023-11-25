@@ -15,15 +15,15 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**map_property** |  |  | [optional]
-**map_of_map_property** |  |  | [optional]
-**anytype_1** |  |  | [optional]
-**map_with_undeclared_properties_anytype_1** |  |  | [optional]
-**map_with_undeclared_properties_anytype_2** |  |  | [optional]
-**map_with_undeclared_properties_anytype_3** |  |  | [optional]
-**empty_map** |  | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** |  |  | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**map_property** | Map<String, String> |  | [optional]
+**map_of_map_property** | Map<String, Map<String, String>> |  | [optional]
+**anytype_1** | Object |  | [optional]
+**map_with_undeclared_properties_anytype_1** | Map<String, Object> |  | [optional]
+**map_with_undeclared_properties_anytype_2** | Map<String, Object> |  | [optional]
+**map_with_undeclared_properties_anytype_3** | Map<String, Object> |  | [optional]
+**empty_map** | Map<String, Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
+**map_with_undeclared_properties_string** | Map<String, String> |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesClassMap
 ```

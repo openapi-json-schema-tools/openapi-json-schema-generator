@@ -15,9 +15,9 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
-**value** |  | The value to add, replace or test. |
+**op** | String | The operation to perform. |
+**path** | String | A JSON Pointer path. |
+**value** | Object | The value to add, replace or test. |
 
 ## JSONPatchRequestAddReplaceTestMap
 ```

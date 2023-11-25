@@ -15,10 +15,10 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**array_of_string** |  |  | [optional]
-**array_array_of_integer** |  |  | [optional]
-**array_array_of_model** |  |  | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**array_of_string** | List<String> |  | [optional]
+**array_array_of_integer** | List<List<long>> |  | [optional]
+**array_array_of_model** | List<List<Map<String, Object>>> |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayTestMap
 ```

@@ -15,11 +15,11 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**mainShape** |  |  | [optional]
-**shapeOrNull** |  |  | [optional]
-**nullableShape** |  |  | [optional]
-**shapes** |  |  | [optional]
-**any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
+**mainShape** | Object |  | [optional]
+**shapeOrNull** | Object |  | [optional]
+**nullableShape** | Object |  | [optional]
+**shapes** | List<Object> |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## DrawingMap
 ```

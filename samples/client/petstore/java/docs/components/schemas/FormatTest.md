@@ -15,28 +15,28 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**byte** |  |  |
-**date** |  |  |
-**number** |  |  |
-**password** |  |  |
-**integer** |  |  | [optional]
-**int32** |  |  | [optional]
-**int32withValidations** |  |  | [optional]
-**int64** |  |  | [optional]
-**float** |  | this is a reserved python keyword | [optional]
-**float32** |  |  | [optional]
-**double** |  |  | [optional]
-**float64** |  |  | [optional]
-**arrayWithUniqueItems** |  |  | [optional]
-**string** |  |  | [optional]
-**binary** |  |  | [optional]
-**dateTime** |  |  | [optional]
-**uuid** |  |  | [optional]
-**uuidNoExample** |  |  | [optional]
-**pattern_with_digits** |  | A string that is a 10 digit number. Can have leading zeros. | [optional]
-**pattern_with_digits_and_delimiter** |  | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
-**noneProp** |  |  | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**byte** | String |  |
+**date** | String |  |
+**number** | Number |  |
+**password** | String |  |
+**integer** | long |  | [optional]
+**int32** | int |  | [optional]
+**int32withValidations** | int |  | [optional]
+**int64** | long |  | [optional]
+**float** | float | this is a reserved python keyword | [optional]
+**float32** | float |  | [optional]
+**double** | double |  | [optional]
+**float64** | double |  | [optional]
+**arrayWithUniqueItems** | List<Number> |  | [optional]
+**string** | String |  | [optional]
+**binary** | String |  | [optional]
+**dateTime** | String |  | [optional]
+**uuid** | String |  | [optional]
+**uuidNoExample** | String |  | [optional]
+**pattern_with_digits** | String | A string that is a 10 digit number. Can have leading zeros. | [optional]
+**pattern_with_digits_and_delimiter** | String | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional]
+**noneProp** | Void |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## FormatTestMap
 ```

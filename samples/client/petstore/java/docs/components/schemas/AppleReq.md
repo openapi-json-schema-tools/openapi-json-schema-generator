@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**cultivar** |  |  |
-**mealy** |  |  | [optional]
+**cultivar** | String |  |
+**mealy** | boolean |  | [optional]
 
 ## AppleReqMap
 ```

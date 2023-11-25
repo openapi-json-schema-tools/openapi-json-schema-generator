@@ -15,7 +15,7 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** |  |  | [optional]
+**id** | String |  | [optional]
 
 ## MyObjectDtoMap
 ```

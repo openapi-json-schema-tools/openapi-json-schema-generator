@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**count** |  |  |
-**results** |  |  |
+**count** | long |  |
+**results** | List<Map<String, String>> |  |
 
 ## PaginatedResultMyObjectDtoMap
 ```

@@ -15,9 +15,9 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** |  | Updated name of the pet | [optional]
-**status** |  | Updated status of the pet | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**name** | String | Updated name of the pet | [optional]
+**status** | String | Updated status of the pet | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SchemaMap
 ```

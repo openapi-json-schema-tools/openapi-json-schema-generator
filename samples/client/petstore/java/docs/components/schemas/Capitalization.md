@@ -15,13 +15,13 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**smallCamel** |  |  | [optional]
-**CapitalCamel** |  |  | [optional]
-**small_Snake** |  |  | [optional]
-**Capital_Snake** |  |  | [optional]
-**SCA_ETH_Flow_Points** |  |  | [optional]
-**ATT_NAME** |  | Name of the pet  | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**smallCamel** | String |  | [optional]
+**CapitalCamel** | String |  | [optional]
+**small_Snake** | String |  | [optional]
+**Capital_Snake** | String |  | [optional]
+**SCA_ETH_Flow_Points** | String |  | [optional]
+**ATT_NAME** | String | Name of the pet  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## CapitalizationMap
 ```

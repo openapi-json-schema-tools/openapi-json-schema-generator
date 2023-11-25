@@ -15,9 +15,9 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**className** |  |  |
-**type** |  |  | [optional]
-**any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
+**className** | String |  |
+**type** | String |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ZebraMap
 ```

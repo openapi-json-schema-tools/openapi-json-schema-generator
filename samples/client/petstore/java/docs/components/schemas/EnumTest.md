@@ -15,16 +15,16 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**enum_string_required** |  |  |
-**enum_string** |  |  | [optional]
-**enum_integer** |  |  | [optional]
-**enum_number** |  |  | [optional]
-**stringEnum** |  |  | [optional]
-**IntegerEnum** |  |  | [optional]
-**StringEnumWithDefaultValue** |  |  | [optional]
-**IntegerEnumWithDefaultValue** |  |  | [optional]
-**IntegerEnumOneValue** |  |  | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**enum_string_required** | String |  |
+**enum_string** | String |  | [optional]
+**enum_integer** | int |  | [optional]
+**enum_number** | double |  | [optional]
+**stringEnum** | String |  | [optional]
+**IntegerEnum** | long |  | [optional]
+**StringEnumWithDefaultValue** | String |  | [optional]
+**IntegerEnumWithDefaultValue** | long |  | [optional]
+**IntegerEnumOneValue** | long |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## EnumTestMap
 ```

@@ -26,9 +26,9 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** |  |  | [optional]
-**class** |  | this is a reserved python keyword | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**name** | int |  | [optional]
+**class** | String | this is a reserved python keyword | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Schema200ResponseMap
 ```

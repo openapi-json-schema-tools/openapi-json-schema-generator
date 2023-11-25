@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**lengthCm** |  |  |
-**sweet** |  |  | [optional]
+**lengthCm** | Number |  |
+**sweet** | boolean |  | [optional]
 
 ## BananaReqMap
 ```

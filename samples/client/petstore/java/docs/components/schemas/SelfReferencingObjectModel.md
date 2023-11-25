@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**selfRef** |  |  | [optional]
-**any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
+**selfRef** | Map |  | [optional]
+**any_string_name** | Map | any string name can be used but the value must be the correct type | [optional]
 
 ## SelfReferencingObjectModelMap
 ```

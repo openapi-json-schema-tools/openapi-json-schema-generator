@@ -15,13 +15,13 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** |  |  | [optional]
-**petId** |  |  | [optional]
-**quantity** |  |  | [optional]
-**shipDate** |  |  | [optional]
-**status** |  | Order Status | [optional]
-**complete** |  |  | [optional]
-**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**id** | long |  | [optional]
+**petId** | long |  | [optional]
+**quantity** | int |  | [optional]
+**shipDate** | String |  | [optional]
+**status** | String | Order Status | [optional]
+**complete** | boolean |  | [optional]
+**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## OrderMap
 ```

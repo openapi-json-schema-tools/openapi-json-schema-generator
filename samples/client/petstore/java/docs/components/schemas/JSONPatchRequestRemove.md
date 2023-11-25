@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
+**op** | String | The operation to perform. |
+**path** | String | A JSON Pointer path. |
 
 ## JSONPatchRequestRemoveMap
 ```

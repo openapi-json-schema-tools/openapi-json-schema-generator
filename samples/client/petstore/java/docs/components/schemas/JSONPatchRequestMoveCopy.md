@@ -15,9 +15,9 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**from** |  | A JSON Pointer path. |
-**op** |  | The operation to perform. |
-**path** |  | A JSON Pointer path. |
+**from** | String | A JSON Pointer path. |
+**op** | String | The operation to perform. |
+**path** | String | A JSON Pointer path. |
 
 ## JSONPatchRequestMoveCopyMap
 ```

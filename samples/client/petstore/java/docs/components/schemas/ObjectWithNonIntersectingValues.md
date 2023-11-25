@@ -15,8 +15,8 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**a** |  |  | [optional]
-**any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
+**a** | Number |  | [optional]
+**any_string_name** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithNonIntersectingValuesMap
 ```
