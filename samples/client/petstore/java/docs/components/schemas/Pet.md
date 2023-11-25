@@ -10,8 +10,7 @@ Pet object that needs to be added to the store
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object
-> | PetMap | |
+| Map<String, Object> | PetMap | |
 
 ## Input Map Keys
 ```

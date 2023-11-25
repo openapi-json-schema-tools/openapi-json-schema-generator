@@ -10,8 +10,7 @@ component&#x27;s name collides with the inner schema name
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| List<Map<String, Object
->
+| List<Map<String, Object>
 > | ItemsList | |
 
 ```

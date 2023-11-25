@@ -10,8 +10,7 @@ Must be named &#x60;File&#x60; for test.
 ## validate method
 | Input Type | Return Type | Notes |
 | ---------- | ----------- | ----- |
-| Map<String, Object
-> | FileMap | |
+| Map<String, Object> | FileMap | |
 
 ## Input Map Keys
 ```
