@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.Money.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | MoneyMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MoneyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -23,11 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | MoneyMap | a constructor
-**amount** | | String | value must be int or float numeric
-**currency** | | String |
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MoneyMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | amount()<br> value must be int or float numeric |
+| String | currency()<br> |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

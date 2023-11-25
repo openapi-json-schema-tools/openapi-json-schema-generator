@@ -4,7 +4,7 @@ org.openapijsonschematools.paths.fake.get.responses.response404.content.applicat
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> |  | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |

@@ -4,7 +4,7 @@ org.openapijsonschematools.paths.petpetid.post.parameters.parameter0.Schema0.jav
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| long | long | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |

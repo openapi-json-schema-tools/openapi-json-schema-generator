@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.Capitalization.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | CapitalizationMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static CapitalizationMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -21,23 +21,23 @@ Key | Type |  Description | Notes
 **Capital_Snake** | String |  | [optional]
 **SCA_ETH_Flow_Points** | String |  | [optional]
 **ATT_NAME** | String | Name of the pet  | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## CapitalizationMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | CapitalizationMap | a constructor
-**smallCamel** | | String | [optional]
-**CapitalCamel** | | String | [optional]
-**small_Snake** | | String | [optional]
-**Capital_Snake** | | String | [optional]
-**SCA_ETH_Flow_Points** | | String | [optional]
-**ATT_NAME** | | String | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static CapitalizationMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | smallCamel()<br>[optional] |
+| String | CapitalCamel()<br>[optional] |
+| String | small_Snake()<br>[optional] |
+| String | Capital_Snake()<br>[optional] |
+| String | SCA_ETH_Flow_Points()<br>[optional] |
+| String | ATT_NAME()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

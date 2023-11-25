@@ -7,10 +7,10 @@ type: JsonSchema
 ## Description
 a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | ObjectModelWithRefPropsMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectModelWithRefPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -21,20 +21,20 @@ Key | Type |  Description | Notes
 **myNumber** | Number |  | [optional]
 **myString** | String |  | [optional]
 **myBoolean** | boolean |  | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectModelWithRefPropsMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | ObjectModelWithRefPropsMap | a constructor
-**myNumber** | | Number | [optional]
-**myString** | | String | [optional]
-**myBoolean** | | boolean | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectModelWithRefPropsMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| Number | myNumber()<br>[optional] |
+| String | myString()<br>[optional] |
+| boolean | myBoolean()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -7,10 +7,10 @@ type: JsonSchema
 ## Description
 Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | HealthCheckResultMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static HealthCheckResultMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -19,18 +19,18 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **NullableMessage** | String |  | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## HealthCheckResultMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | HealthCheckResultMap | a constructor
-**NullableMessage** | | String | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static HealthCheckResultMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | NullableMessage()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

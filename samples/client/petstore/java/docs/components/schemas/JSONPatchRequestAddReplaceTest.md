@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.JSONPatchRequestAddReplaceTest.jav
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | JSONPatchRequestAddReplaceTestMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static JSONPatchRequestAddReplaceTestMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -24,12 +24,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | JSONPatchRequestAddReplaceTestMap | a constructor
-**op** | | String | must be one of ["add", "replace", "test"]
-**path** | | String |
-**value** | | Object |
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static JSONPatchRequestAddReplaceTestMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | op()<br> must be one of ["add", "replace", "test"] |
+| String | path()<br> |
+| Object | value()<br> |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

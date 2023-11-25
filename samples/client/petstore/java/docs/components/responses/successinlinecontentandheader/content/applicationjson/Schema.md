@@ -4,10 +4,10 @@ org.openapijsonschematools.components.responses.successinlinecontentandheader.co
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Integer> | SchemaMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | validate(Map<String, Integer> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -15,15 +15,15 @@ type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any_string_name** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
+**anyStringName** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 ## SchemaMap
 ```
 base class: FrozenMap<String, Integer>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Integer> | SchemaMap | a constructor
-getAdditionalProperty | String | int | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | of(Map<String, Integer> arg, SchemaConfiguration configuration) |
+| int | getAdditionalProperty(String name)<br>provides type safety for additional properties |

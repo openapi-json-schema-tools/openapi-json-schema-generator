@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.AnimalFarm.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<Map<String, Object>> | AnimalFarmList | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static AnimalFarmList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

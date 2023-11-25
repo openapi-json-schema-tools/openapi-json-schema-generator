@@ -26,9 +26,9 @@ Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
 {{> src/main/java/org/openapitools/components/schemas/__refclass_partial }} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
 {{else}}
-{{headerSize}}# validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
+{{headerSize}}# Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
 {{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}
     {{#or properties additionalProperties requiredProperties}}
 
@@ -55,13 +55,13 @@ Key | Type |  Description | Notes
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-**any_string_name** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
             {{else}}
-**any_string_name** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+**anyStringName** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/unless}}
         {{else}}
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
         {{/with}}
 
     {{#if mapOutputJsonPathPiece}}
@@ -77,33 +77,33 @@ base class: FrozenMap<String, Object>
     {{/if}}
 ```
 
-{{headerSize}}## methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> | {{mapOutputJsonPathPiece.camelCase}} | a constructor
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static {{mapOutputJsonPathPiece.camelCase}} | of(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | {{@key.original}}()<br>{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | {{@key.original}}()<br>[optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
                 {{/if}}
             {{/each}}
         {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
-get | String | {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}{{else}}Object{{/with}} | This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}
+| {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}{{else}}Object{{/with}} | get(String key)<br>This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
         {{/or}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-getAdditionalProperty | String | Object | provides type safety for additional properties
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
             {{else}}
-getAdditionalProperty | String | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | provides type safety for additional properties
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
                 {{/if}}
             {{/unless}}
         {{else}}
-getAdditionalProperty | String | Object | provides type safety for additional properties
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
         {{/with}}
     {{/or}}
     {{#if items}}

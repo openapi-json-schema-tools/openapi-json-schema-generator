@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ArrayWithValidationsInItems.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<Long> | ArrayWithValidationsInItemsList | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayWithValidationsInItemsList | validate(List<Long> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

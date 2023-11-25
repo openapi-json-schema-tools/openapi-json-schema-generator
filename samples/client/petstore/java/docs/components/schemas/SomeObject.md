@@ -4,18 +4,18 @@ org.openapijsonschematools.components.schemas.SomeObject.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| String | String | |
-| null | null | |
-| int | int | |
-| long | long | |
-| float | float | |
-| double | double | |
-| boolean | boolean | |
-| Map<String, Object> | FrozenMap<String, Object> | |
-| List<Object> | FrozenList<Object> | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

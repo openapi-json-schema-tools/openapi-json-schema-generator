@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.MapTest.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | MapTestMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapTestMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -19,22 +19,22 @@ Key | Type |  Description | Notes
 **map_of_enum_string** | Map<String, String> |  | [optional]
 **direct_map** | Map<String, boolean> |  | [optional]
 **indirect_map** | Map<String, boolean> |  | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## MapTestMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | MapTestMap | a constructor
-**map_map_of_string** | | MapMapOfStringMap | [optional]
-**map_of_enum_string** | | MapOfEnumStringMap | [optional]
-**direct_map** | | DirectMapMap | [optional]
-**indirect_map** | | StringBooleanMap.StringBooleanMapMap | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapTestMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| MapMapOfStringMap | map_map_of_string()<br>[optional] |
+| MapOfEnumStringMap | map_of_enum_string()<br>[optional] |
+| DirectMapMap | direct_map()<br>[optional] |
+| StringBooleanMap.StringBooleanMapMap | indirect_map()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 
 

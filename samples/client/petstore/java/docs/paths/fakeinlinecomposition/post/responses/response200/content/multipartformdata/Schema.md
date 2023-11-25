@@ -4,10 +4,10 @@ org.openapijsonschematools.paths.fakeinlinecomposition.post.responses.response20
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | SchemaMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -16,17 +16,17 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **someProp** | Object |  | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SchemaMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | SchemaMap | a constructor
-**someProp** | | Object | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| Object | someProp()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

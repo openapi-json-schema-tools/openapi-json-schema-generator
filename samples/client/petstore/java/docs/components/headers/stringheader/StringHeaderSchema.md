@@ -4,7 +4,7 @@ org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema.ja
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| String | String | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |

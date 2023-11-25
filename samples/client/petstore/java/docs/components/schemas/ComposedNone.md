@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ComposedNone.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| null | null | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

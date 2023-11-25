@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.BananaReq.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | BananaReqMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static BananaReqMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -23,11 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | BananaReqMap | a constructor
-**lengthCm** | | Number |
-**sweet** | | boolean | [optional]
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static BananaReqMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| Number | lengthCm()<br> |
+| boolean | sweet()<br>[optional] |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

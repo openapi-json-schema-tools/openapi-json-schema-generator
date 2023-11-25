@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ComposedBool.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| boolean | boolean | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

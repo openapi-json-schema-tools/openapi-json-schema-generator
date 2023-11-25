@@ -4,10 +4,10 @@ org.openapijsonschematools.components.requestbodies.userarray.content.applicatio
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<Map<String, Object>> | SchemaList | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.JSONPatchRequestMoveCopy.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, String> | JSONPatchRequestMoveCopyMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static JSONPatchRequestMoveCopyMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -24,12 +24,12 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, String>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, String> | JSONPatchRequestMoveCopyMap | a constructor
-**from** | | String |
-**op** | | String | must be one of ["move", "copy"]
-**path** | | String |
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static JSONPatchRequestMoveCopyMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | from()<br> |
+| String | op()<br> must be one of ["move", "copy"] |
+| String | path()<br> |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

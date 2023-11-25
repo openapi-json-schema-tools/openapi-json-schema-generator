@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.User.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | UserMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static UserMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -28,31 +28,31 @@ Key | Type |  Description | Notes
 **anyTypeProp** | Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional]
 **anyTypeExceptNullProp** | Object | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional]
 **anyTypePropNullable** | Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## UserMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | UserMap | a constructor
-**id** | | long | [optional] value must be a 64 bit integer
-**username** | | String | [optional]
-**firstName** | | String | [optional]
-**lastName** | | String | [optional]
-**email** | | String | [optional]
-**password** | | String | [optional]
-**phone** | | String | [optional]
-**userStatus** | | int | [optional] value must be a 32 bit integer
-**objectWithNoDeclaredProps** | | FrozenMap<String, Object> | [optional]
-**objectWithNoDeclaredPropsNullable** | | FrozenMap<String, Object> | [optional]
-**anyTypeProp** | | Object | [optional]
-**anyTypeExceptNullProp** | | Object | [optional]
-**anyTypePropNullable** | | Object | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static UserMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| long | id()<br>[optional] value must be a 64 bit integer |
+| String | username()<br>[optional] |
+| String | firstName()<br>[optional] |
+| String | lastName()<br>[optional] |
+| String | email()<br>[optional] |
+| String | password()<br>[optional] |
+| String | phone()<br>[optional] |
+| int | userStatus()<br>[optional] value must be a 32 bit integer |
+| FrozenMap<String, Object> | objectWithNoDeclaredProps()<br>[optional] |
+| FrozenMap<String, Object> | objectWithNoDeclaredPropsNullable()<br>[optional] |
+| Object | anyTypeProp()<br>[optional] |
+| Object | anyTypeExceptNullProp()<br>[optional] |
+| Object | anyTypePropNullable()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 
 

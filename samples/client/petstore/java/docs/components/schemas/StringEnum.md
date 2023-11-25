@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.StringEnum.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| null | null | |
-| String | String | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

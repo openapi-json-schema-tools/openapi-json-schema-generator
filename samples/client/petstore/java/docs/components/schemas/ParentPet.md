@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ParentPet.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> |  | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

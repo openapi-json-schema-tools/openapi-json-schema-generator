@@ -7,18 +7,18 @@ type: JsonSchema
 ## Description
 model with an invalid class name for python, starts with a number
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| String | String | |
-| null | null | |
-| int | int | |
-| long | long | |
-| float | float | |
-| double | double | |
-| boolean | boolean | |
-| Map<String, Object> | Schema200ResponseMap | |
-| List<Object> | FrozenList<Object> | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static Schema200ResponseMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -28,19 +28,19 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | int |  | [optional] value must be a 32 bit integer
 **class** | String | this is a reserved python keyword | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Schema200ResponseMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | Schema200ResponseMap | a constructor
-**name** | | int | [optional] value must be a 32 bit integer
-get | String | Object | This model has invalid python names so this method is used under the hood when you access instance["class"], 
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Schema200ResponseMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| int | name()<br>[optional] value must be a 32 bit integer |
+| Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["class"],  |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

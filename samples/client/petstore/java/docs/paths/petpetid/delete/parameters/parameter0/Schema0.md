@@ -4,7 +4,7 @@ org.openapijsonschematools.paths.petpetid.delete.parameters.parameter0.Schema0.j
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| String | String | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |

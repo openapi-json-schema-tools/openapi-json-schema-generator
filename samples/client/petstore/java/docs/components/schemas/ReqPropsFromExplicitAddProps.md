@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ReqPropsFromExplicitAddProps.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, String> | ReqPropsFromExplicitAddPropsMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ReqPropsFromExplicitAddPropsMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -17,19 +17,19 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **invalid-name** | String |  |
 **validName** | String |  |
-**any_string_name** | String | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## ReqPropsFromExplicitAddPropsMap
 ```
 base class: FrozenMap<String, String>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, String> | ReqPropsFromExplicitAddPropsMap | a constructor
-**validName** | | String |
-get | String | String | This model has invalid python names so this method is used under the hood when you access instance["invalid-name"], 
-getAdditionalProperty | String | String | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ReqPropsFromExplicitAddPropsMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | validName()<br> |
+| String | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["invalid-name"],  |
+| String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

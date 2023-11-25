@@ -1,52 +1,52 @@
 {{#eq types null}}
-| String | String | |
-| null | null | |
-| int | int | |
-| long | long | |
-| float | float | |
-| double | double | |
-| boolean | boolean | |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
     {{#if mapOutputJsonPathPiece }}
-| Map<String, Object> | {{mapOutputJsonPathPiece.camelCase}} | |
+| static {{mapOutputJsonPathPiece.camelCase}} | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
     {{else}}
-| Map<String, Object> | FrozenMap<String, Object> | |
+| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
-| List<Object> | {{arrayOutputJsonPathPiece.camelCase}} | |
+| static {{arrayOutputJsonPathPiece.camelCase}} | validate(List<Object> arg, SchemaConfiguration configuration) |
     {{else}}
-| List<Object> | FrozenList<Object> | |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
     {{/if}}
 {{else}}
     {{#each types}}
         {{#eq this "boolean"}}
-| boolean | boolean | |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
         {{else}}
             {{#eq this "null"}}
-| null | null | |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
 {{! todo binary types}}
-| BinaryString | BinaryString | |
+| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
                     {{else}}
-| String | String | |
+| static String | validate(String arg, SchemaConfiguration configuration) |
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
                         {{#eq ../format null}}
-| Number | Number | |
+| static Number | validate(Number arg, SchemaConfiguration configuration) |
                         {{else}}
                             {{#eq ../format "float"}}
-| float | float | |
+| static float | validate(float arg, SchemaConfiguration configuration) |
                             {{else}}
                                 {{#eq ../format "double"}}
-| double | double | |
+| static double | validate(double arg, SchemaConfiguration configuration) |
                                 {{else}}
                                     {{#eq ../format "int32"}}
-| int | int | |
+| static int | validate(int arg, SchemaConfiguration configuration) |
                                     {{else}}
                                         {{#eq ../format "int64"}}
-| long | long | |
+| static long | validate(long arg, SchemaConfiguration configuration) |
                                         {{/eq}}
                                     {{/eq}}
                                 {{/eq}}
@@ -55,27 +55,27 @@
                     {{else}}
                         {{#eq this "integer"}}
                             {{#eq ../format null}}
-| long | long | |
+| static long | validate(long arg, SchemaConfiguration configuration) |
                             {{else}}
                                 {{#eq ../format "int32"}}
-| int | int | |
+| static int | validate(int arg, SchemaConfiguration configuration) |
                                 {{else}}
-| long | long | |
+| static long | validate(long arg, SchemaConfiguration configuration) |
                                 {{/eq}}
                             {{/eq}}
                         {{else}}
                             {{#eq this "array"}}
                                 {{#with ../items}}
-| List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}> | {{../../arrayOutputJsonPathPiece.camelCase}} | |
+| static {{../../arrayOutputJsonPathPiece.camelCase}} | validate(List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}> arg, SchemaConfiguration configuration) |
                                 {{else}}
-| List<Object> | FrozenList<Object> | |
+| static FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
                                 {{/with}}
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#with ../mapValueSchema}}
-| Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}> | {{../../mapOutputJsonPathPiece.camelCase}} | |
+| static {{../../mapOutputJsonPathPiece.camelCase}} | validate(Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}> arg, SchemaConfiguration configuration) |
                                     {{else}}
-| Map<String, Object> | FrozenMap<String, Object> | |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
                                     {{/with}}
                                 {{/eq}}
                             {{/eq}}

@@ -4,7 +4,7 @@ org.openapijsonschematools.paths.commonparamsubdir.post.parameters.parameter0.Sc
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| String | String | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |

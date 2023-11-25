@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ComposedArray.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<Object> | ComposedArrayList | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ComposedArrayList | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

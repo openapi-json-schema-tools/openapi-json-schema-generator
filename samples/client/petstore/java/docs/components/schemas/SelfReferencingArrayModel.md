@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.SelfReferencingArrayModel.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<List> | SelfReferencingArrayModelList | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SelfReferencingArrayModelList | validate(List<List> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

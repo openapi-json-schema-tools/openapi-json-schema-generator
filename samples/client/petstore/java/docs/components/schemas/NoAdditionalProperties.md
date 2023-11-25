@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.NoAdditionalProperties.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Long> | NoAdditionalPropertiesMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static NoAdditionalPropertiesMap | validate(Map<String, Long> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -23,11 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Long>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Long> | NoAdditionalPropertiesMap | a constructor
-**id** | | long | value must be a 64 bit integer
-**petId** | | long | [optional] value must be a 64 bit integer
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static NoAdditionalPropertiesMap | of(Map<String, Long> arg, SchemaConfiguration configuration) |
+| long | id()<br> value must be a 64 bit integer |
+| long | petId()<br>[optional] value must be a 64 bit integer |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

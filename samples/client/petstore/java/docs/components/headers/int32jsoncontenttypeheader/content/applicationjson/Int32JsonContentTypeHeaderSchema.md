@@ -4,7 +4,7 @@ org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| int | int | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |

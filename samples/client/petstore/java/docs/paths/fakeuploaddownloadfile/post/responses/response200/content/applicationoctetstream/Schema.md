@@ -7,7 +7,7 @@ type: JsonSchema
 ## Description
 file to download
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| BinaryString | BinaryString | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |

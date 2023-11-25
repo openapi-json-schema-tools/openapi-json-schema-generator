@@ -4,10 +4,10 @@ org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<String> | SchemaList1 | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaList1 | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

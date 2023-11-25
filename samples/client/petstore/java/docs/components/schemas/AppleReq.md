@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.AppleReq.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | AppleReqMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static AppleReqMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -23,11 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | AppleReqMap | a constructor
-**cultivar** | | String |
-**mealy** | | boolean | [optional]
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static AppleReqMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | cultivar()<br> |
+| boolean | mealy()<br>[optional] |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

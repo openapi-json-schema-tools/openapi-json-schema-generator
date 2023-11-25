@@ -4,10 +4,10 @@ org.openapijsonschematools.paths.fake.get.parameters.parameter2.Schema2.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<String> | SchemaList2 | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaList2 | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

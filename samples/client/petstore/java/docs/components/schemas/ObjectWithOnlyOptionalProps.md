@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ObjectWithOnlyOptionalProps.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | ObjectWithOnlyOptionalPropsMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectWithOnlyOptionalPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -23,11 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | ObjectWithOnlyOptionalPropsMap | a constructor
-**a** | | String | [optional]
-**b** | | Number | [optional]
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectWithOnlyOptionalPropsMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | a()<br>[optional] |
+| Number | b()<br>[optional] |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

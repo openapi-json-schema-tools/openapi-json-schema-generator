@@ -7,10 +7,10 @@ type: JsonSchema
 ## Description
 Pet object that needs to be added to the store
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | PetMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static PetMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -24,24 +24,24 @@ Key | Type |  Description | Notes
 **category** | Map<String, Object> |  | [optional]
 **tags** | List<Map<String, Object>> |  | [optional]
 **status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## PetMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | PetMap | a constructor
-**name** | | String |
-**photoUrls** | | PhotoUrlsList |
-**id** | | long | [optional] value must be a 64 bit integer
-**category** | | Category.CategoryMap | [optional]
-**tags** | | TagsList | [optional]
-**status** | | String | [optional] must be one of ["available", "pending", "sold"]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static PetMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | name()<br> |
+| PhotoUrlsList | photoUrls()<br> |
+| long | id()<br>[optional] value must be a 64 bit integer |
+| Category.CategoryMap | category()<br>[optional] |
+| TagsList | tags()<br>[optional] |
+| String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 
 

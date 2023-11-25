@@ -4,7 +4,7 @@ org.openapijsonschematools.paths.storeorderorderid.get.parameters.parameter0.Sch
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| long | long | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |

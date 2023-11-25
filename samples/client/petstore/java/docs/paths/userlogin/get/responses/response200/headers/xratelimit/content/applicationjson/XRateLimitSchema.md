@@ -4,7 +4,7 @@ org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xra
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| int | int | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |

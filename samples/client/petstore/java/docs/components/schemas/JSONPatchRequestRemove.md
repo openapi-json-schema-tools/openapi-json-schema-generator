@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.JSONPatchRequestRemove.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, String> | JSONPatchRequestRemoveMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static JSONPatchRequestRemoveMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -23,11 +23,11 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, String>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, String> | JSONPatchRequestRemoveMap | a constructor
-**op** | | String | must be one of ["remove"]
-**path** | | String |
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static JSONPatchRequestRemoveMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | op()<br> must be one of ["remove"] |
+| String | path()<br> |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

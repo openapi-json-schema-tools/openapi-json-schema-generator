@@ -4,10 +4,10 @@ org.openapijsonschematools.paths.petpetid.post.requestbody.content.applicationxw
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | SchemaMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -17,17 +17,17 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | String | Updated name of the pet | [optional]
 **status** | String | Updated status of the pet | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SchemaMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | SchemaMap | a constructor
-**name** | | String | [optional]
-**status** | | String | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | name()<br>[optional] |
+| String | status()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

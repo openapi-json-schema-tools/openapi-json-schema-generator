@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.ArrayHoldingAnyType.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| List<Object> | ArrayHoldingAnyTypeList | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayHoldingAnyTypeList | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

@@ -7,18 +7,18 @@ type: JsonSchema
 ## Description
 Model for testing model name same as property name
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| String | String | |
-| null | null | |
-| int | int | |
-| long | long | |
-| float | float | |
-| double | double | |
-| boolean | boolean | |
-| Map<String, Object> | NameMap | |
-| List<Object> | FrozenList<Object> | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static NameMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -29,20 +29,20 @@ Key | Type |  Description | Notes
 **name** | int |  | value must be a 32 bit integer
 **snake_case** | int |  | [optional] value must be a 32 bit integer
 **property** | String | this is a reserved python keyword | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## NameMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | NameMap | a constructor
-**name** | | int | value must be a 32 bit integer
-**snake_case** | | int | [optional] value must be a 32 bit integer
-**property** | | String | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static NameMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| int | name()<br> value must be a 32 bit integer |
+| int | snake_case()<br>[optional] value must be a 32 bit integer |
+| String | property()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

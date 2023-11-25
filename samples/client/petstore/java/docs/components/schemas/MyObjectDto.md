@@ -4,10 +4,10 @@ org.openapijsonschematools.components.schemas.MyObjectDto.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, String> | MyObjectDtoMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MyObjectDtoMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -22,10 +22,10 @@ Key | Type |  Description | Notes
 base class: FrozenMap<String, String>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, String> | MyObjectDtoMap | a constructor
-**id** | | String | [optional] value must be a uuid
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MyObjectDtoMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | id()<br>[optional] value must be a uuid |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

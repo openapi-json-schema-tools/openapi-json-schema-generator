@@ -4,7 +4,7 @@ org.openapijsonschematools.paths.fake.delete.parameters.parameter5.Schema5.java
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| long | long | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |

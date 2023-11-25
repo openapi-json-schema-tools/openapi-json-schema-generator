@@ -4,10 +4,10 @@ org.openapijsonschematools.paths.fakemultiplerequestbodycontenttypes.post.reques
 type: JsonSchema
 ```
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | SchemaMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -16,16 +16,16 @@ type: Map<String, Object>
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **b** | String |  | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SchemaMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | SchemaMap | a constructor
-**b** | | String | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static SchemaMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | b()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -7,10 +7,10 @@ type: JsonSchema
 ## Description
 component with properties that have name collisions
 
-## validate method
-| Input Type | Return Type | Notes |
-| ---------- | ----------- | ----- |
-| Map<String, Object> | ObjectWithCollidingPropertiesMap | |
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectWithCollidingPropertiesMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -20,20 +20,20 @@ Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
 **someProp** | Map<String, Object> |  | [optional]
 **someprop** | Map<String, Object> |  | [optional]
-**any_string_name** | Object | any string name can be used but the value must be the correct type | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithCollidingPropertiesMap
 ```
 base class: FrozenMap<String, Object>
 ```
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-of | Map<String, Object> | ObjectWithCollidingPropertiesMap | a constructor
-**someProp** | | FrozenMap<String, Object> | [optional]
-**someprop** | | FrozenMap<String, Object> | [optional]
-getAdditionalProperty | String | Object | provides type safety for additional properties
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectWithCollidingPropertiesMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, Object> | someProp()<br>[optional] |
+| FrozenMap<String, Object> | someprop()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 
 
