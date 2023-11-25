@@ -9,7 +9,7 @@ Input Type | Return Type | Notes
  |  |
 
 ```
-type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -19,10 +19,10 @@ Key | Type |  Description | Notes
 **Capital_Snake** |  |  | [optional]
 **SCA_ETH_Flow_Points** |  |  | [optional]
 **ATT_NAME** |  | Name of the pet  | [optional]
-**any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
+**any_string_name** | Map, List, decimal.Decimal, float, int, String, LocalDate, ZonedDateTime, UUID, boolean, null, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ```
-base class: schemas.immutabledict[str, 
+base class: FrozenMap<String, 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -33,7 +33,7 @@ Keyword Argument | Type | Description | Notes
 **Capital_Snake** |  |  | [optional]
 **SCA_ETH_Flow_Points** |  |  | [optional]
 **ATT_NAME** |  | Name of the pet  | [optional]
-**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
@@ -49,6 +49,6 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ |  |  | a constructor
-get_additional_property_ | str | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
+get_additional_property_ | String | FrozenMap, FrozenList, float, int, String, boolean, null, bytes, schemas.FileIO, schemas.Unset | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

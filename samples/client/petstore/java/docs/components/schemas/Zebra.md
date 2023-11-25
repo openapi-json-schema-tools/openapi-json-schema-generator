@@ -9,7 +9,7 @@ Input Type | Return Type | Notes
  |  |
 
 ```
-type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
+type: Map<String, Object>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Key | Type |  Description | Notes
 **any_string_name** |  | any string name can be used but the value must be the correct type | [optional]
 
 ```
-base class: schemas.immutabledict[str, 
+base class: FrozenMap<String, 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
@@ -37,6 +37,6 @@ Property | Type | Description | Notes
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 from_dict_ |  |  | a constructor
-get_additional_property_ | str |  | provides type safety for additional properties
+get_additional_property_ | String |  | provides type safety for additional properties
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

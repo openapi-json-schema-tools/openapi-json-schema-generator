@@ -9,7 +9,7 @@ Input Type | Return Type | Notes
  |  |
 
 ```
-type: typing.TypedDict
+type: Map
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Key | Type |  Description | Notes
 **path** |  | A JSON Pointer path. |
 
 ```
-base class: schemas.immutabledict[str, 
+base class: FrozenMap<String, 
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes

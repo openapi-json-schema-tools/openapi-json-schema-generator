@@ -12,28 +12,24 @@ Input Type | Return Type | Notes
  |  |
 
 ```
-type: typing.Union[
-    typing.List[
-    ],
-    typing.Tuple[
-        ...
-    ]
-]
+type: List<
+    ...
+>
 ```
-List/Tuple Item Type | Description | Notes
+List Item Type | Description | Notes
 -------------------- | ------------- | -------------
  |  |
 
 ```
-base class: typing.Tuple[
+base class: FrozenList<
     ...
-]
+>
 ```
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------
 arg      | 
-configuration | typing.Optional[schema_configuration.SchemaConfiguration] = None
+configuration | configurations.SchemaConfiguration
 
 ### methods
 Method | Input Type | Return Type | Notes
