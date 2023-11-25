@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -77,7 +78,7 @@ public class ItemsValidatorTest {
         mutableList.add(1);
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 arg,
                 validationMetadata,

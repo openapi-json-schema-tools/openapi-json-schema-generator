@@ -2,6 +2,7 @@ package org.openapijsonschematools.schemas;
 
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -14,11 +15,11 @@ public class UuidJsonSchema extends JsonSchema {
     ));
     public static final String format = "uuid";
 
-    public static String validate(String arg, SchemaConfiguration configuration) {
+    public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(UuidJsonSchema.class, arg, configuration);
     }
 
-    public static String validate(UUID arg, SchemaConfiguration configuration) {
+    public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(UuidJsonSchema.class, arg, configuration);
     }
 }

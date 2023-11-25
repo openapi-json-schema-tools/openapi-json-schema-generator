@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -31,7 +32,7 @@ public class TypeValidatorTest {
     }
 
     @Test
-    public void testValidateFailsIntIsNotString() throws RuntimeException {
+    public void testValidateFailsIntIsNotString() {
         LinkedHashSet<Class<?>> type = new LinkedHashSet<>();
         type.add(String.class);
         final TypeValidator validator = new TypeValidator(type);
@@ -41,7 +42,7 @@ public class TypeValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 1,
                 validationMetadata,

@@ -1,5 +1,8 @@
 package org.openapijsonschematools.schemas.validation;
 
+import org.openapijsonschematools.exceptions.UnsetPropertyException;
+import org.openapijsonschematools.exceptions.InvalidAdditionalPropertyException;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
@@ -16,15 +19,15 @@ public class FrozenMap<K, V> extends LinkedHashMap<K, V> {
         super(m);
     }
 
-    protected void throwIfKeyNotPresent(String key) throws RuntimeException {
+    protected void throwIfKeyNotPresent(String key) throws UnsetPropertyException {
         if (!containsKey(key)) {
-            throw new RuntimeException(key+" is unset");
+            throw new UnsetPropertyException(key+" is unset");
         }
     }
 
     protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws IllegalArgumentException {
         if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
-            throw new IllegalArgumentException ("The known key " + key + " may not be passed in when getting an additional property");
+            throw new InvalidAdditionalPropertyException ("The known key " + key + " may not be passed in when getting an additional property");
         }
     }
 

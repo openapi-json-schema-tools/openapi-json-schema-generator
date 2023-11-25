@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.exceptions.ValidationException;
+
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -87,7 +89,7 @@ public class PropertiesValidatorTest {
         LinkedHashMap<String, Object> mutableMap = new LinkedHashMap<>();
         mutableMap.put("someString", 1);
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 arg,
                 validationMetadata,

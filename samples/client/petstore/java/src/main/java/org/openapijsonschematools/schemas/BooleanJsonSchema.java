@@ -5,6 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -16,7 +17,7 @@ public class BooleanJsonSchema extends JsonSchema {
         new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
     ));
 
-    public static boolean validate(boolean arg, SchemaConfiguration configuration) {
+    public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
     }
 }

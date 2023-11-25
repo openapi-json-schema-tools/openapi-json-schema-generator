@@ -1,5 +1,7 @@
 package org.openapijsonschematools.schemas.validation;
 
+import {{{packageName}}}.exceptions.ValidationException;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +33,7 @@ public class RequiredValidator implements KeywordValidator {
             if (missingRequiredProperties.size() > 1) {
                 pluralChar = "s";
             }
-            throw new RuntimeException(
+            throw new ValidationException(
                 cls+" is missing "+missingRequiredProperties.size()+" required argument"+pluralChar+": "+missingReqProps
             );
         }

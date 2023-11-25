@@ -6,6 +6,7 @@ import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
@@ -19,11 +20,11 @@ public class DateTimeJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("date-time"))
     ));
 
-    public static String validate(String arg, SchemaConfiguration configuration) {
+    public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
     }
 
-    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
     }
 }

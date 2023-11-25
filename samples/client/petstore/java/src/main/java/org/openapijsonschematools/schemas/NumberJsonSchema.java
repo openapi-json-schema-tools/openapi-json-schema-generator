@@ -5,6 +5,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.Set;
@@ -21,19 +22,19 @@ public class NumberJsonSchema extends JsonSchema {
         )))
     ));
 
-    public static Number validate(Integer arg, SchemaConfiguration configuration) {
+    public static Number validate(Integer arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
 
-    public static Number validate(Long arg, SchemaConfiguration configuration) {
+    public static Number validate(Long arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
 
-    public static Number validate(Float arg, SchemaConfiguration configuration) {
+    public static Number validate(Float arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
 
-    public static Number validate(Double arg, SchemaConfiguration configuration) {
+    public static Number validate(Double arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
     }
 }

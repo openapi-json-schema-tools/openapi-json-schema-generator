@@ -5,6 +5,7 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.StringJsonSchema;
+import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -81,7 +82,7 @@ public class RequiredValidatorTest {
         mutableMap.put("aDifferentProp", 1);
         FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
-        Assert.assertThrows(RuntimeException.class, () -> validator.validate(
+        Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 arg,
                 validationMetadata,
