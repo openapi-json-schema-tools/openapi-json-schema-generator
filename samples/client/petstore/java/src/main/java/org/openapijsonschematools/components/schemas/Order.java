@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
@@ -37,7 +38,7 @@ public class Order {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Status.class, arg, configuration);
         }
     }    
@@ -142,7 +143,7 @@ public class Order {
 
             return new OrderMap(arg);
         }
-        public static OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Order1.class, arg, configuration);
         }

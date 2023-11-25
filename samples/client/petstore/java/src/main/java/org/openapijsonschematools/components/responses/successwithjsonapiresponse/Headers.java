@@ -7,6 +7,7 @@ import org.openapijsonschematools.components.headers.numberheader.NumberHeaderSc
 import org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema;
 import org.openapijsonschematools.components.schemas.StringWithValidation;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
@@ -90,7 +91,7 @@ public class Headers {
 
             return new HeadersMap(arg);
         }
-        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
@@ -24,7 +25,7 @@ public class EnumArrays {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(JustSymbol.class, arg, configuration);
         }
     }    
@@ -35,7 +36,7 @@ public class EnumArrays {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
     }    
@@ -62,7 +63,7 @@ public class EnumArrays {
 
             return new ArrayEnumList(arg);
         }
-        public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) {
+        public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ArrayEnum.class, arg, configuration);
         }
@@ -125,7 +126,7 @@ public class EnumArrays {
 
             return new EnumArraysMap(arg);
         }
-        public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(EnumArrays1.class, arg, configuration);
         }

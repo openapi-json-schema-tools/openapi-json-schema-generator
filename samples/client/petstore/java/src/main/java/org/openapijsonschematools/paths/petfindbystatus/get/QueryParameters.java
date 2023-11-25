@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.petfindbystatus.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
@@ -62,7 +63,7 @@ public class QueryParameters {
 
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);

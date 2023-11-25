@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -29,7 +30,7 @@ public class Whale {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ClassName.class, arg, configuration);
         }
     }    
@@ -103,7 +104,7 @@ public class Whale {
 
             return new WhaleMap(arg);
         }
-        public static WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Whale1.class, arg, configuration);
         }

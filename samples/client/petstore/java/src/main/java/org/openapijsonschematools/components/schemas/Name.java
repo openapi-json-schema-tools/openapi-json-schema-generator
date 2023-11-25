@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenList;
@@ -97,51 +98,51 @@ public class Name {
                 "name"
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static int validate(int arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+        public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static String validate(UUID arg, SchemaConfiguration configuration) {
+        public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
     }}

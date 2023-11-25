@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.components.schemas.Foo;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -49,7 +50,7 @@ public class Schema {
 
             return new SchemaMap(arg);
         }
-        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

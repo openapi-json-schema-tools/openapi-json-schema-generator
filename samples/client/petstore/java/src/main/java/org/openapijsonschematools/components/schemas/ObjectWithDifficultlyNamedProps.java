@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
 import org.openapijsonschematools.schemas.IntJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
@@ -77,7 +78,7 @@ public class ObjectWithDifficultlyNamedProps {
 
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
-        public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
         }

@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter1.Schema1;
 import org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2;
@@ -81,7 +82,7 @@ public class QueryParameters {
 
             return new QueryParametersMap(arg);
         }
-        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }

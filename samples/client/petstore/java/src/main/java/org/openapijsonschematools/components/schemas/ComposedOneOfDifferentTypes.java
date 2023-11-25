@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.DateJsonSchema;
 import org.openapijsonschematools.schemas.NullJsonSchema;
@@ -33,7 +34,7 @@ public class ComposedOneOfDifferentTypes {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)))
         ));
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema4.class, arg, configuration);
         }
     }
@@ -64,7 +65,7 @@ public class ComposedOneOfDifferentTypes {
 
             return new Schema5List(arg);
         }
-        public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Schema5.class, arg, configuration);
         }
@@ -77,7 +78,7 @@ public class ComposedOneOfDifferentTypes {
             ))),
             new KeywordEntry("format", new FormatValidator("date-time"))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema6.class, arg, configuration);
         }
     }    
@@ -91,51 +92,51 @@ public class ComposedOneOfDifferentTypes {
     
         this is a model that allows payloads of type object or number
         */
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static int validate(int arg, SchemaConfiguration configuration) {
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) {
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) {
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) {
+        public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static String validate(UUID arg, SchemaConfiguration configuration) {
+        public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) {
+        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
     }}

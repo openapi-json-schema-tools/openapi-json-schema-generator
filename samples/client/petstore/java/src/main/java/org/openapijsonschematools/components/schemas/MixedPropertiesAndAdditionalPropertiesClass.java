@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.UuidJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
@@ -54,7 +55,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
 
             return new MapMap(arg);
         }
-        public static MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(MapSchema.class, arg, configuration);
@@ -113,7 +114,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
 
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }
-        public static MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(MixedPropertiesAndAdditionalPropertiesClass1.class, arg, configuration);
         }

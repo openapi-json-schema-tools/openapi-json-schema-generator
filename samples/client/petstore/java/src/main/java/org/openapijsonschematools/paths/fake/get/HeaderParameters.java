@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.paths.fake.get.parameters.parameter1.Schema1;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
@@ -70,7 +71,7 @@ public class HeaderParameters {
 
             return new HeaderParametersMap(arg);
         }
-        public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }

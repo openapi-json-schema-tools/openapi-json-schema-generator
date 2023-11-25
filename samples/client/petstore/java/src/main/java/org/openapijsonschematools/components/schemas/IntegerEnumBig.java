@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
@@ -27,19 +28,19 @@ public class IntegerEnumBig {
                 Double.class
             )))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerEnumBig1.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) {
+        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerEnumBig1.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerEnumBig1.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) {
+        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerEnumBig1.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }}

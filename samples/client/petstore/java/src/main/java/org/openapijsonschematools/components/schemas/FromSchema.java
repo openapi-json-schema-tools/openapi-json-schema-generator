@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.IntJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -80,7 +81,7 @@ public class FromSchema {
 
             return new FromSchemaMap(arg);
         }
-        public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(FromSchema1.class, arg, configuration);
         }

@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -93,7 +94,7 @@ public class ApiResponseSchema {
 
             return new ApiResponseMap(arg);
         }
-        public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ApiResponseSchema1.class, arg, configuration);
         }

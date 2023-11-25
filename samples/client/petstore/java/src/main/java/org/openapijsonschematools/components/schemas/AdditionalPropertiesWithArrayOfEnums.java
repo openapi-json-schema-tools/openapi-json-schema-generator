@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -39,7 +40,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             return new AdditionalPropertiesList(arg);
         }
-        public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
@@ -82,7 +83,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
 
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
-        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(AdditionalPropertiesWithArrayOfEnums1.class, arg, configuration);

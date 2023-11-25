@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
@@ -41,7 +42,7 @@ public class FileSchemaTestClass {
 
             return new FilesList(arg);
         }
-        public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(Files.class, arg, configuration);
@@ -105,7 +106,7 @@ public class FileSchemaTestClass {
 
             return new FileSchemaTestClassMap(arg);
         }
-        public static FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(FileSchemaTestClass1.class, arg, configuration);
         }

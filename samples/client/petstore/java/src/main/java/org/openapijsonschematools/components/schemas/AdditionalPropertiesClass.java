@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
@@ -52,7 +53,7 @@ public class AdditionalPropertiesClass {
 
             return new MapPropertyMap(arg);
         }
-        public static MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(MapProperty.class, arg, configuration);
         }
@@ -91,7 +92,7 @@ public class AdditionalPropertiesClass {
 
             return new AdditionalPropertiesMap(arg);
         }
-        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
@@ -128,7 +129,7 @@ public class AdditionalPropertiesClass {
 
             return new MapOfMapPropertyMap(arg);
         }
-        public static MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
+        public static MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(MapOfMapProperty.class, arg, configuration);
@@ -177,7 +178,7 @@ public class AdditionalPropertiesClass {
 
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
-        public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(MapWithUndeclaredPropertiesAnytype3.class, arg, configuration);
         }
@@ -208,7 +209,7 @@ public class AdditionalPropertiesClass {
         protected static EmptyMapMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EmptyMapMap(arg);
         }
-        public static EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EmptyMap.class, arg, configuration);
         }
     }
@@ -246,7 +247,7 @@ public class AdditionalPropertiesClass {
 
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
-        public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(MapWithUndeclaredPropertiesString.class, arg, configuration);
         }
@@ -369,7 +370,7 @@ public class AdditionalPropertiesClass {
 
             return new AdditionalPropertiesClassMap(arg);
         }
-        public static AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(AdditionalPropertiesClass1.class, arg, configuration);
         }

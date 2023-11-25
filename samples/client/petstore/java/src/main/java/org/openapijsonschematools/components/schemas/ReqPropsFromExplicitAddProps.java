@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -66,7 +67,7 @@ public class ReqPropsFromExplicitAddProps {
 
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
-        public static ReqPropsFromExplicitAddPropsMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static ReqPropsFromExplicitAddPropsMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ReqPropsFromExplicitAddProps1.class, arg, configuration);
         }

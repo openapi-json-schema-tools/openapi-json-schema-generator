@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
@@ -82,7 +83,7 @@ public class ObjectWithOnlyOptionalProps {
 
             return new ObjectWithOnlyOptionalPropsMap(arg);
         }
-        public static ObjectWithOnlyOptionalPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithOnlyOptionalPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ObjectWithOnlyOptionalProps1.class, arg, configuration);
         }

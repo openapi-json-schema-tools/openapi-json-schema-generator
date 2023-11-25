@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
@@ -27,19 +28,19 @@ public class NumberWithValidations {
                 Double.class
             )))
         ));
-        public static Number validate(int arg, SchemaConfiguration configuration) {
+        public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
         }
         
-        public static Number validate(long arg, SchemaConfiguration configuration) {
+        public static Number validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
         }
         
-        public static Number validate(float arg, SchemaConfiguration configuration) {
+        public static Number validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
         }
         
-        public static Number validate(double arg, SchemaConfiguration configuration) {
+        public static Number validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
         }
     }}

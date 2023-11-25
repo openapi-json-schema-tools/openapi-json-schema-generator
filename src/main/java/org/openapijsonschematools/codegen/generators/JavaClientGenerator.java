@@ -1428,6 +1428,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addCustomSchemaImports(Set<String> imports) {
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
+        imports.add("import "+packageName + ".exceptions.ValidationException;");
     }
 
 

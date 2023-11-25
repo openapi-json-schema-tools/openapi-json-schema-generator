@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
@@ -50,7 +51,7 @@ public class MapTest {
 
             return new AdditionalPropertiesMap(arg);
         }
-        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
         }
@@ -87,7 +88,7 @@ public class MapTest {
 
             return new MapMapOfStringMap(arg);
         }
-        public static MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) {
+        public static MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(MapMapOfString.class, arg, configuration);
@@ -101,7 +102,7 @@ public class MapTest {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
     }    
@@ -135,7 +136,7 @@ public class MapTest {
 
             return new MapOfEnumStringMap(arg);
         }
-        public static MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) {
+        public static MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(MapOfEnumString.class, arg, configuration);
         }
@@ -174,7 +175,7 @@ public class MapTest {
 
             return new DirectMapMap(arg);
         }
-        public static DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+        public static DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(DirectMap.class, arg, configuration);
         }
@@ -258,7 +259,7 @@ public class MapTest {
 
             return new MapTestMap(arg);
         }
-        public static MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(MapTest1.class, arg, configuration);
         }

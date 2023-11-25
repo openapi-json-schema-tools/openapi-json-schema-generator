@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
@@ -30,10 +31,10 @@ public class NullableClass {
                 FrozenMap.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
         }
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties3.class, arg, configuration);
         }
     }    
@@ -48,22 +49,22 @@ public class NullableClass {
                 Double.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
         }
-        public static long validate(int arg, SchemaConfiguration configuration) {
+        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerProp.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) {
+        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) {
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerProp.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) {
+        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
@@ -78,22 +79,22 @@ public class NullableClass {
                 Double.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
-        public static Number validate(int arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(NumberProp.class, arg, configuration);
-        }
-        
-        public static Number validate(long arg, SchemaConfiguration configuration) {
+        public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(float arg, SchemaConfiguration configuration) {
+        public static Number validate(long arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
         
-        public static Number validate(double arg, SchemaConfiguration configuration) {
+        public static Number validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validate(NumberProp.class, arg, configuration);
+        }
+        
+        public static Number validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberProp.class, arg, configuration);
         }
     }    
@@ -105,10 +106,10 @@ public class NullableClass {
                 Boolean.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
         }
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) {
+        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(BooleanProp.class, arg, configuration);
         }
     }    
@@ -120,10 +121,10 @@ public class NullableClass {
                 String.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(StringProp.class, arg, configuration);
         }
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(StringProp.class, arg, configuration);
         }
     }    
@@ -136,10 +137,10 @@ public class NullableClass {
             ))),
             new KeywordEntry("format", new FormatValidator("date"))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(DateProp.class, arg, configuration);
         }
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(DateProp.class, arg, configuration);
         }
     }    
@@ -152,10 +153,10 @@ public class NullableClass {
             ))),
             new KeywordEntry("format", new FormatValidator("date-time"))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(DatetimeProp.class, arg, configuration);
         }
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(DatetimeProp.class, arg, configuration);
         }
     }    
@@ -185,10 +186,10 @@ public class NullableClass {
             ))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
-        public static ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
@@ -202,10 +203,10 @@ public class NullableClass {
                 FrozenMap.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Items1.class, arg, configuration);
         }
     }    
@@ -232,10 +233,10 @@ public class NullableClass {
             ))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
-        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
@@ -249,10 +250,10 @@ public class NullableClass {
                 FrozenMap.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Items2.class, arg, configuration);
         }
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Items2.class, arg, configuration);
         }
     }    
@@ -280,7 +281,7 @@ public class NullableClass {
 
             return new ArrayItemsNullableList(arg);
         }
-        public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
@@ -319,10 +320,10 @@ public class NullableClass {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
-        public static ObjectNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ObjectNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
@@ -336,10 +337,10 @@ public class NullableClass {
                 FrozenMap.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
     }    
@@ -373,10 +374,10 @@ public class NullableClass {
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
-        public static ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
@@ -390,10 +391,10 @@ public class NullableClass {
                 FrozenMap.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) {
+        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
     }    
@@ -428,7 +429,7 @@ public class NullableClass {
 
             return new ObjectItemsNullableMap(arg);
         }
-        public static ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) {
+        public static ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
 
 
             return JsonSchema.validate(ObjectItemsNullable.class, arg, configuration);
@@ -595,7 +596,7 @@ public class NullableClass {
 
             return new NullableClassMap(arg);
         }
-        public static NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(NullableClass1.class, arg, configuration);
         }

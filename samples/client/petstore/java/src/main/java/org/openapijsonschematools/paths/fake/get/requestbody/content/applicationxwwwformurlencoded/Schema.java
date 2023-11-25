@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
@@ -24,7 +25,7 @@ public class Schema {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Items.class, arg, configuration);
         }
     }    
@@ -51,7 +52,7 @@ public class Schema {
 
             return new EnumFormStringArrayList(arg);
         }
-        public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) {
+        public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(EnumFormStringArray.class, arg, configuration);
         }
@@ -63,7 +64,7 @@ public class Schema {
                 String.class
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) {
+        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumFormString.class, arg, configuration);
         }
     }    
@@ -119,7 +120,7 @@ public class Schema {
 
             return new SchemaMap(arg);
         }
-        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

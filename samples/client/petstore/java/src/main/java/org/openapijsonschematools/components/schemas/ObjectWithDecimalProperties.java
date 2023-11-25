@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.DecimalJsonSchema;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -86,7 +87,7 @@ public class ObjectWithDecimalProperties {
 
             return new ObjectWithDecimalPropertiesMap(arg);
         }
-        public static ObjectWithDecimalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static ObjectWithDecimalPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(ObjectWithDecimalProperties1.class, arg, configuration);
         }

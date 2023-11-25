@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
@@ -53,7 +54,7 @@ public class StringBooleanMap {
 
             return new StringBooleanMapMap(arg);
         }
-        public static StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) {
+        public static StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(StringBooleanMap1.class, arg, configuration);
         }

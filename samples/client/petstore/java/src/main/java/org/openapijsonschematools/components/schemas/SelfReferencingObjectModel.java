@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -65,7 +66,7 @@ public class SelfReferencingObjectModel {
 
             return new SelfReferencingObjectModelMap(arg);
         }
-        public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
 
             return JsonSchema.validate(SelfReferencingObjectModel1.class, arg, configuration);
         }
