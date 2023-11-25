@@ -382,6 +382,20 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     keywordValidatorTestFile + ".java"));
         }
 
+        // exceptions
+        List<String> exceptionClasses = new ArrayList<>();
+        exceptionClasses.add("BaseException");
+        exceptionClasses.add("InvalidAdditionalPropertyException");
+        exceptionClasses.add("UnsetPropertyException");
+        exceptionClasses.add("ValidationException");
+        for (String exceptionClass: exceptionClasses) {
+            supportingFiles.add(new SupportingFile(
+                    "src/main/java/org/openapitools/exceptions/"+exceptionClass+".hbs",
+                    packagePath() + File.separatorChar + "exceptions",
+                    exceptionClass + ".java"));
+        }
+
+
         // configuration
         supportingFiles.add(new SupportingFile(
                 "src/main/java/org/openapitools/configurations/JsonSchemaKeywordFlags.hbs",
