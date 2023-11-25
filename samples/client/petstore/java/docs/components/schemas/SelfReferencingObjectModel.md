@@ -1,5 +1,8 @@
 # SelfReferencingObjectModel
 org.openapijsonschematools.components.schemas.SelfReferencingObjectModel.java
+public class SelfReferencingObjectModel
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.SelfReferencingObjectModel.java
 | static class | SelfReferencingObjectModel.SelfReferencingObjectModel1<br> schema class |
 
 ## SelfReferencingObjectModel1
-```
-type: JsonSchema
-```
+public class SelfReferencingObjectModel1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Map | any string name can be used but the value must be the correct type | [optional]
 
 ## SelfReferencingObjectModelMap
-```
-base class: FrozenMap<String, Object>
-```
+public class SelfReferencingObjectModelMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

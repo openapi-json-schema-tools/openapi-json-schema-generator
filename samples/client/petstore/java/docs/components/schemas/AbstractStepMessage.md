@@ -1,5 +1,8 @@
 # AbstractStepMessage
 org.openapijsonschematools.components.schemas.AbstractStepMessage.java
+public class AbstractStepMessage
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.AbstractStepMessage.java
 | static class | AbstractStepMessage.AbstractStepMessage1<br> schema class |
 
 ## AbstractStepMessage1
-```
-type: JsonSchema
-```
+public class AbstractStepMessage1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 Abstract Step
@@ -33,9 +38,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AbstractStepMessageMap
-```
-base class: FrozenMap<String, Object>
-```
+public class AbstractStepMessageMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

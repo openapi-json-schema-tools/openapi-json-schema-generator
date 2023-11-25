@@ -1,5 +1,8 @@
 # ComposedAnyOfDifferentTypesNoValidations
 org.openapijsonschematools.components.schemas.ComposedAnyOfDifferentTypesNoValidations.java
+public class ComposedAnyOfDifferentTypesNoValidations
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -25,9 +28,11 @@ org.openapijsonschematools.components.schemas.ComposedAnyOfDifferentTypesNoValid
 | static class | ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1<br> schema class |
 
 ## ComposedAnyOfDifferentTypesNoValidations1
-```
-type: JsonSchema
-```
+public class ComposedAnyOfDifferentTypesNoValidations1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

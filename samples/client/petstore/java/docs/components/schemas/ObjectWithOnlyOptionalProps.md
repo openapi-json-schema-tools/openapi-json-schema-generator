@@ -1,5 +1,8 @@
 # ObjectWithOnlyOptionalProps
 org.openapijsonschematools.components.schemas.ObjectWithOnlyOptionalProps.java
+public class ObjectWithOnlyOptionalProps
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -11,9 +14,11 @@ org.openapijsonschematools.components.schemas.ObjectWithOnlyOptionalProps.java
 | static class | ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1<br> schema class |
 
 ## ObjectWithOnlyOptionalProps1
-```
-type: JsonSchema
-```
+public class ObjectWithOnlyOptionalProps1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -30,9 +35,10 @@ Key | Type |  Description | Notes
 **b** | Number |  | [optional]
 
 ## ObjectWithOnlyOptionalPropsMap
-```
-base class: FrozenMap<String, Object>
-```
+public class ObjectWithOnlyOptionalPropsMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

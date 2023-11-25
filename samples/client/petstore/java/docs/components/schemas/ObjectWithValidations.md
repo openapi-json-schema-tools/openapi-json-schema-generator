@@ -1,5 +1,8 @@
 # ObjectWithValidations
 org.openapijsonschematools.components.schemas.ObjectWithValidations.java
+public class ObjectWithValidations
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.ObjectWithValidations.java
 | static class | ObjectWithValidations.ObjectWithValidations1<br> schema class |
 
 ## ObjectWithValidations1
-```
-type: JsonSchema
-```
+public class ObjectWithValidations1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

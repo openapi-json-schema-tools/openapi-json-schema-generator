@@ -1,5 +1,8 @@
 # SpecialModelname
 org.openapijsonschematools.components.schemas.SpecialModelname.java
+public class SpecialModelname
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.SpecialModelname.java
 | static class | SpecialModelname.SpecialModelname1<br> schema class |
 
 ## SpecialModelname1
-```
-type: JsonSchema
-```
+public class SpecialModelname1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 model with an invalid class name for python
@@ -31,9 +36,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SpecialModelnameMap
-```
-base class: FrozenMap<String, Object>
-```
+public class SpecialModelnameMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

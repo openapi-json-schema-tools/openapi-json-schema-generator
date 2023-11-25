@@ -1,5 +1,8 @@
 # ComposedOneOfDifferentTypes
 org.openapijsonschematools.components.schemas.ComposedOneOfDifferentTypes.java
+public class ComposedOneOfDifferentTypes
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,9 +17,11 @@ org.openapijsonschematools.components.schemas.ComposedOneOfDifferentTypes.java
 | static class | ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1<br> schema class |
 
 ## ComposedOneOfDifferentTypes1
-```
-type: JsonSchema
-```
+public class ComposedOneOfDifferentTypes1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 this is a model that allows payloads of type object or number

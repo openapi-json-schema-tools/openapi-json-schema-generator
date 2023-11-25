@@ -1,5 +1,8 @@
 # ComposedString
 org.openapijsonschematools.components.schemas.ComposedString.java
+public class ComposedString
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.ComposedString.java
 | static class | ComposedString.ComposedString1<br> schema class |
 
 ## ComposedString1
-```
-type: JsonSchema
-```
+public class ComposedString1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

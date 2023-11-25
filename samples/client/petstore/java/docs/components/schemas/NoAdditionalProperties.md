@@ -1,5 +1,8 @@
 # NoAdditionalProperties
 org.openapijsonschematools.components.schemas.NoAdditionalProperties.java
+public class NoAdditionalProperties
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -11,9 +14,11 @@ org.openapijsonschematools.components.schemas.NoAdditionalProperties.java
 | static class | NoAdditionalProperties.NoAdditionalProperties1<br> schema class |
 
 ## NoAdditionalProperties1
-```
-type: JsonSchema
-```
+public class NoAdditionalProperties1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -30,9 +35,10 @@ Key | Type |  Description | Notes
 **petId** | long |  | [optional] value must be a 64 bit integer
 
 ## NoAdditionalPropertiesMap
-```
-base class: FrozenMap<String, Long>
-```
+public class NoAdditionalPropertiesMap
+extends FrozenMap<String, Long>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

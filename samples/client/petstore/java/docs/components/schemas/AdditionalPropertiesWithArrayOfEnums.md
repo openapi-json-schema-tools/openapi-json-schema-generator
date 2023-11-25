@@ -1,5 +1,8 @@
 # AdditionalPropertiesWithArrayOfEnums
 org.openapijsonschematools.components.schemas.AdditionalPropertiesWithArrayOfEnums.java
+public class AdditionalPropertiesWithArrayOfEnums
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.AdditionalPropertiesWithArrayOfEnu
 | static class | AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1<br> schema class |
 
 ## AdditionalPropertiesWithArrayOfEnums1
-```
-type: JsonSchema
-```
+public class AdditionalPropertiesWithArrayOfEnums1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -28,9 +33,10 @@ Key | Type |  Description | Notes
 **anyStringName** | List<String> | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesWithArrayOfEnumsMap
-```
-base class: FrozenMap<String, AdditionalPropertiesList>
-```
+public class AdditionalPropertiesWithArrayOfEnumsMap
+extends FrozenMap<String, AdditionalPropertiesList>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

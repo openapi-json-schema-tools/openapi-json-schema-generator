@@ -1,5 +1,8 @@
 # FruitReq
 org.openapijsonschematools.components.schemas.FruitReq.java
+public class FruitReq
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.FruitReq.java
 | static class | FruitReq.FruitReq1<br> schema class |
 
 ## FruitReq1
-```
-type: JsonSchema
-```
+public class FruitReq1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

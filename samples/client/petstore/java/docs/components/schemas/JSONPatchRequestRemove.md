@@ -1,5 +1,8 @@
 # JSONPatchRequestRemove
 org.openapijsonschematools.components.schemas.JSONPatchRequestRemove.java
+public class JSONPatchRequestRemove
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -11,9 +14,11 @@ org.openapijsonschematools.components.schemas.JSONPatchRequestRemove.java
 | static class | JSONPatchRequestRemove.JSONPatchRequestRemove1<br> schema class |
 
 ## JSONPatchRequestRemove1
-```
-type: JsonSchema
-```
+public class JSONPatchRequestRemove1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -30,9 +35,10 @@ Key | Type |  Description | Notes
 **path** | String | A JSON Pointer path. |
 
 ## JSONPatchRequestRemoveMap
-```
-base class: FrozenMap<String, String>
-```
+public class JSONPatchRequestRemoveMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

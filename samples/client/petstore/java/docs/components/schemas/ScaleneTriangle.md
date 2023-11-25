@@ -1,5 +1,8 @@
 # ScaleneTriangle
 org.openapijsonschematools.components.schemas.ScaleneTriangle.java
+public class ScaleneTriangle
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.ScaleneTriangle.java
 | static class | ScaleneTriangle.ScaleneTriangle1<br> schema class |
 
 ## ScaleneTriangle1
-```
-type: JsonSchema
-```
+public class ScaleneTriangle1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

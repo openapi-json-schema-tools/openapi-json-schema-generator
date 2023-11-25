@@ -1,5 +1,8 @@
 # EnumTest
 org.openapijsonschematools.components.schemas.EnumTest.java
+public class EnumTest
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -12,9 +15,11 @@ org.openapijsonschematools.components.schemas.EnumTest.java
 | static class | EnumTest.EnumTest1<br> schema class |
 
 ## EnumTest1
-```
-type: JsonSchema
-```
+public class EnumTest1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -39,9 +44,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## EnumTestMap
-```
-base class: FrozenMap<String, Object>
-```
+public class EnumTestMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

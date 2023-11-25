@@ -1,5 +1,8 @@
 # ArrayOfEnums
 org.openapijsonschematools.components.schemas.ArrayOfEnums.java
+public class ArrayOfEnums
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.ArrayOfEnums.java
 | static class | ArrayOfEnums.ArrayOfEnums1<br> schema class |
 
 ## ArrayOfEnums1
-```
-type: JsonSchema
-```
+public class ArrayOfEnums1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -26,9 +31,11 @@ List Item Type | Description | Notes
 String |  |
 
 ## ArrayOfEnumsList
-```
-base class: FrozenList<String>
-```
+public class ArrayOfEnumsList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

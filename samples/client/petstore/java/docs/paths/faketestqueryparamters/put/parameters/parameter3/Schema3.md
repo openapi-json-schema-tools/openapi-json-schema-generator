@@ -1,5 +1,8 @@
 # Schema3
 org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter3.Schema3.java
+public class Schema3
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter
 | static class | Schema3.Schema31<br> schema class |
 
 ## Schema31
-```
-type: JsonSchema
-```
+public class Schema31
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,11 @@ List Item Type | Description | Notes
 String |  |
 
 ## SchemaList3
-```
-base class: FrozenList<String>
-```
+public class SchemaList3
+extends FrozenList<String>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

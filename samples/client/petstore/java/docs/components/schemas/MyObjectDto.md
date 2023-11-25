@@ -1,5 +1,8 @@
 # MyObjectDto
 org.openapijsonschematools.components.schemas.MyObjectDto.java
+public class MyObjectDto
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.MyObjectDto.java
 | static class | MyObjectDto.MyObjectDto1<br> schema class |
 
 ## MyObjectDto1
-```
-type: JsonSchema
-```
+public class MyObjectDto1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -28,9 +33,10 @@ Key | Type |  Description | Notes
 **id** | String |  | [optional] value must be a uuid
 
 ## MyObjectDtoMap
-```
-base class: FrozenMap<String, String>
-```
+public class MyObjectDtoMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

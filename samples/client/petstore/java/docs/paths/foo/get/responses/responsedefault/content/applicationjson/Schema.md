@@ -1,5 +1,8 @@
 # Schema
 org.openapijsonschematools.paths.foo.get.responses.responsedefault.content.applicationjson.Schema.java
+public class Schema
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.paths.foo.get.responses.responsedefault.content.appli
 | static class | Schema.Schema1<br> schema class |
 
 ## Schema1
-```
-type: JsonSchema
-```
+public class Schema1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SchemaMap
-```
-base class: FrozenMap<String, Object>
-```
+public class SchemaMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

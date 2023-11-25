@@ -1,5 +1,8 @@
 # ArrayWithValidationsInItems
 org.openapijsonschematools.components.schemas.ArrayWithValidationsInItems.java
+public class ArrayWithValidationsInItems
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.ArrayWithValidationsInItems.java
 | static class | ArrayWithValidationsInItems.ArrayWithValidationsInItems1<br> schema class |
 
 ## ArrayWithValidationsInItems1
-```
-type: JsonSchema
-```
+public class ArrayWithValidationsInItems1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,11 @@ List Item Type | Description | Notes
 Long |  | value must be a 64 bit integer
 
 ## ArrayWithValidationsInItemsList
-```
-base class: FrozenList<Long>
-```
+public class ArrayWithValidationsInItemsList
+extends FrozenList<Long>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

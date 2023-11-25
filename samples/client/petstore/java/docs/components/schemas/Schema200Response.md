@@ -1,5 +1,8 @@
 # Schema200Response
 org.openapijsonschematools.components.schemas.Schema200Response.java
+public class Schema200Response
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.Schema200Response.java
 | static class | Schema200Response.Schema200Response1<br> schema class |
 
 ## Schema200Response1
-```
-type: JsonSchema
-```
+public class Schema200Response1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 model with an invalid class name for python, starts with a number
@@ -41,9 +46,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Schema200ResponseMap
-```
-base class: FrozenMap<String, Object>
-```
+public class Schema200ResponseMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

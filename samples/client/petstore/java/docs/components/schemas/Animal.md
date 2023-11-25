@@ -1,5 +1,8 @@
 # Animal
 org.openapijsonschematools.components.schemas.Animal.java
+public class Animal
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.Animal.java
 | static class | Animal.Animal1<br> schema class |
 
 ## Animal1
-```
-type: JsonSchema
-```
+public class Animal1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -30,9 +35,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AnimalMap
-```
-base class: FrozenMap<String, Object>
-```
+public class AnimalMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

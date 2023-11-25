@@ -1,5 +1,8 @@
 # ArrayOfArrayOfNumberOnly
 org.openapijsonschematools.components.schemas.ArrayOfArrayOfNumberOnly.java
+public class ArrayOfArrayOfNumberOnly
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -13,9 +16,11 @@ org.openapijsonschematools.components.schemas.ArrayOfArrayOfNumberOnly.java
 | static class | ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1<br> schema class |
 
 ## ArrayOfArrayOfNumberOnly1
-```
-type: JsonSchema
-```
+public class ArrayOfArrayOfNumberOnly1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -32,9 +37,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayOfArrayOfNumberOnlyMap
-```
-base class: FrozenMap<String, Object>
-```
+public class ArrayOfArrayOfNumberOnlyMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -1,5 +1,8 @@
 # BooleanSchema
 org.openapijsonschematools.components.schemas.BooleanSchema.java
+public class BooleanSchema
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.BooleanSchema.java
 | static class | BooleanSchema.BooleanSchema1<br> schema class |
 
 ## BooleanSchema1
-```
-type: JsonSchema
-```
+public class BooleanSchema1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

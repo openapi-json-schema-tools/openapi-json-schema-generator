@@ -1,5 +1,8 @@
 # Schema0
 org.openapijsonschematools.paths.petfindbystatus.get.parameters.parameter0.Schema0.java
+public class Schema0
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.paths.petfindbystatus.get.parameters.parameter0.Schem
 | static class | Schema0.Schema01<br> schema class |
 
 ## Schema01
-```
-type: JsonSchema
-```
+public class Schema01
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,11 @@ List Item Type | Description | Notes
 String |  | must be one of ["available", "pending", "sold"] if omitted the server will use the default value of available
 
 ## SchemaList0
-```
-base class: FrozenList<String>
-```
+public class SchemaList0
+extends FrozenList<String>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

@@ -1,5 +1,8 @@
 # BananaReq
 org.openapijsonschematools.components.schemas.BananaReq.java
+public class BananaReq
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -11,9 +14,11 @@ org.openapijsonschematools.components.schemas.BananaReq.java
 | static class | BananaReq.BananaReq1<br> schema class |
 
 ## BananaReq1
-```
-type: JsonSchema
-```
+public class BananaReq1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -30,9 +35,10 @@ Key | Type |  Description | Notes
 **sweet** | boolean |  | [optional]
 
 ## BananaReqMap
-```
-base class: FrozenMap<String, Object>
-```
+public class BananaReqMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

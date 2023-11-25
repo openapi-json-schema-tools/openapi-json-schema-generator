@@ -1,5 +1,8 @@
 # Cat
 org.openapijsonschematools.components.schemas.Cat.java
+public class Cat
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.Cat.java
 | static class | Cat.Cat1<br> schema class |
 
 ## Cat1
-```
-type: JsonSchema
-```
+public class Cat1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

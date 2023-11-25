@@ -1,5 +1,8 @@
 # Schema2
 org.openapijsonschematools.paths.fake.get.parameters.parameter2.Schema2.java
+public class Schema2
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.paths.fake.get.parameters.parameter2.Schema2.java
 | static class | Schema2.Schema21<br> schema class |
 
 ## Schema21
-```
-type: JsonSchema
-```
+public class Schema21
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,11 @@ List Item Type | Description | Notes
 String |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ## SchemaList2
-```
-base class: FrozenList<String>
-```
+public class SchemaList2
+extends FrozenList<String>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

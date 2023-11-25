@@ -1,5 +1,8 @@
 # ShapeOrNull
 org.openapijsonschematools.components.schemas.ShapeOrNull.java
+public class ShapeOrNull
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.ShapeOrNull.java
 | static class | ShapeOrNull.ShapeOrNull1<br> schema class |
 
 ## ShapeOrNull1
-```
-type: JsonSchema
-```
+public class ShapeOrNull1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.

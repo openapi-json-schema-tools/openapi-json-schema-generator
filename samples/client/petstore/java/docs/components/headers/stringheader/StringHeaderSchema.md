@@ -1,5 +1,8 @@
 # StringHeaderSchema
 org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema.java
+public class StringHeaderSchema
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema.ja
 | static class | StringHeaderSchema.StringHeaderSchema1<br> schema class |
 
 ## StringHeaderSchema1
-```
-type: JsonSchema
-```
+public class StringHeaderSchema1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

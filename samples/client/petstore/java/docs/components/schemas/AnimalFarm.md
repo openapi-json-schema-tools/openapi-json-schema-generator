@@ -1,5 +1,8 @@
 # AnimalFarm
 org.openapijsonschematools.components.schemas.AnimalFarm.java
+public class AnimalFarm
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.AnimalFarm.java
 | static class | AnimalFarm.AnimalFarm1<br> schema class |
 
 ## AnimalFarm1
-```
-type: JsonSchema
-```
+public class AnimalFarm1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -26,9 +31,11 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## AnimalFarmList
-```
-base class: FrozenList<Animal.AnimalMap>
-```
+public class AnimalFarmList
+extends FrozenList<Animal.AnimalMap>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

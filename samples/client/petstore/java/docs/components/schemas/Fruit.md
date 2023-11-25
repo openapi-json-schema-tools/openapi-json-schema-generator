@@ -1,5 +1,8 @@
 # Fruit
 org.openapijsonschematools.components.schemas.Fruit.java
+public class Fruit
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.Fruit.java
 | static class | Fruit.Fruit1<br> schema class |
 
 ## Fruit1
-```
-type: JsonSchema
-```
+public class Fruit1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -36,9 +41,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## FruitMap
-```
-base class: FrozenMap<String, Object>
-```
+public class FruitMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

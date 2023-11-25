@@ -1,5 +1,8 @@
 # Banana
 org.openapijsonschematools.components.schemas.Banana.java
+public class Banana
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.Banana.java
 | static class | Banana.Banana1<br> schema class |
 
 ## Banana1
-```
-type: JsonSchema
-```
+public class Banana1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -28,9 +33,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## BananaMap
-```
-base class: FrozenMap<String, Object>
-```
+public class BananaMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

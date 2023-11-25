@@ -1,5 +1,8 @@
 # Drawing
 org.openapijsonschematools.components.schemas.Drawing.java
+public class Drawing
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.Drawing.java
 | static class | Drawing.Drawing1<br> schema class |
 
 ## Drawing1
-```
-type: JsonSchema
-```
+public class Drawing1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -32,9 +37,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## DrawingMap
-```
-base class: FrozenMap<String, Object>
-```
+public class DrawingMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -1,5 +1,8 @@
 # NumberSchema
 org.openapijsonschematools.components.schemas.NumberSchema.java
+public class NumberSchema
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.NumberSchema.java
 | static class | NumberSchema.NumberSchema1<br> schema class |
 
 ## NumberSchema1
-```
-type: JsonSchema
-```
+public class NumberSchema1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

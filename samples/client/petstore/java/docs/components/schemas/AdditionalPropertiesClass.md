@@ -1,5 +1,8 @@
 # AdditionalPropertiesClass
 org.openapijsonschematools.components.schemas.AdditionalPropertiesClass.java
+public class AdditionalPropertiesClass
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -28,9 +31,11 @@ org.openapijsonschematools.components.schemas.AdditionalPropertiesClass.java
 | static class | AdditionalPropertiesClass.AdditionalPropertiesClass1<br> schema class |
 
 ## AdditionalPropertiesClass1
-```
-type: JsonSchema
-```
+public class AdditionalPropertiesClass1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -54,9 +59,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesClassMap
-```
-base class: FrozenMap<String, Object>
-```
+public class AdditionalPropertiesClassMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

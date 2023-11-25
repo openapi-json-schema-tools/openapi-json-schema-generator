@@ -1,5 +1,8 @@
 # PaginatedResultMyObjectDto
 org.openapijsonschematools.components.schemas.PaginatedResultMyObjectDto.java
+public class PaginatedResultMyObjectDto
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -12,9 +15,11 @@ org.openapijsonschematools.components.schemas.PaginatedResultMyObjectDto.java
 | static class | PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1<br> schema class |
 
 ## PaginatedResultMyObjectDto1
-```
-type: JsonSchema
-```
+public class PaginatedResultMyObjectDto1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -31,9 +36,10 @@ Key | Type |  Description | Notes
 **results** | List<Map<String, String>> |  |
 
 ## PaginatedResultMyObjectDtoMap
-```
-base class: FrozenMap<String, Object>
-```
+public class PaginatedResultMyObjectDtoMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

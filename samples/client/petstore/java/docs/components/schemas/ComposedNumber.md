@@ -1,5 +1,8 @@
 # ComposedNumber
 org.openapijsonschematools.components.schemas.ComposedNumber.java
+public class ComposedNumber
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.ComposedNumber.java
 | static class | ComposedNumber.ComposedNumber1<br> schema class |
 
 ## ComposedNumber1
-```
-type: JsonSchema
-```
+public class ComposedNumber1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

@@ -1,5 +1,8 @@
 # UUIDString
 org.openapijsonschematools.components.schemas.UUIDString.java
+public class UUIDString
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.UUIDString.java
 | static class | UUIDString.UUIDString1<br> schema class |
 
 ## UUIDString1
-```
-type: JsonSchema
-```
+public class UUIDString1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

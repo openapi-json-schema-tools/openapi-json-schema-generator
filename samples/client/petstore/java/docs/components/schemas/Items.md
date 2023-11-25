@@ -1,5 +1,8 @@
 # Items
 org.openapijsonschematools.components.schemas.Items.java
+public class Items
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.Items.java
 | static class | Items.Items1<br> schema class |
 
 ## Items1
-```
-type: JsonSchema
-```
+public class Items1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 component&#x27;s name collides with the inner schema name
@@ -30,9 +35,11 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## ItemsList
-```
-base class: FrozenList<FrozenMap<String, Object>>
-```
+public class ItemsList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

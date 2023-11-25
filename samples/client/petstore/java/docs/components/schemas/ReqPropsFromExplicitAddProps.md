@@ -1,5 +1,8 @@
 # ReqPropsFromExplicitAddProps
 org.openapijsonschematools.components.schemas.ReqPropsFromExplicitAddProps.java
+public class ReqPropsFromExplicitAddProps
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.ReqPropsFromExplicitAddProps.java
 | static class | ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1<br> schema class |
 
 ## ReqPropsFromExplicitAddProps1
-```
-type: JsonSchema
-```
+public class ReqPropsFromExplicitAddProps1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -29,9 +34,10 @@ Key | Type |  Description | Notes
 **anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## ReqPropsFromExplicitAddPropsMap
-```
-base class: FrozenMap<String, String>
-```
+public class ReqPropsFromExplicitAddPropsMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

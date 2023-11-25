@@ -1,5 +1,8 @@
 # IntegerEnum
 org.openapijsonschematools.components.schemas.IntegerEnum.java
+public class IntegerEnum
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.IntegerEnum.java
 | static class | IntegerEnum.IntegerEnum1<br> schema class |
 
 ## IntegerEnum1
-```
-type: JsonSchema
-```
+public class IntegerEnum1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

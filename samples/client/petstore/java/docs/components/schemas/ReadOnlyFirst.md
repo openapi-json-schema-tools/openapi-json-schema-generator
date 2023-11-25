@@ -1,5 +1,8 @@
 # ReadOnlyFirst
 org.openapijsonschematools.components.schemas.ReadOnlyFirst.java
+public class ReadOnlyFirst
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.ReadOnlyFirst.java
 | static class | ReadOnlyFirst.ReadOnlyFirst1<br> schema class |
 
 ## ReadOnlyFirst1
-```
-type: JsonSchema
-```
+public class ReadOnlyFirst1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -30,9 +35,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ReadOnlyFirstMap
-```
-base class: FrozenMap<String, Object>
-```
+public class ReadOnlyFirstMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

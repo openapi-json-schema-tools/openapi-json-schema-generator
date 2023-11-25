@@ -1,5 +1,8 @@
 # GmFruit
 org.openapijsonschematools.components.schemas.GmFruit.java
+public class GmFruit
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.GmFruit.java
 | static class | GmFruit.GmFruit1<br> schema class |
 
 ## GmFruit1
-```
-type: JsonSchema
-```
+public class GmFruit1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -36,9 +41,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## GmFruitMap
-```
-base class: FrozenMap<String, Object>
-```
+public class GmFruitMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

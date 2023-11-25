@@ -1,5 +1,8 @@
 # Player
 org.openapijsonschematools.components.schemas.Player.java
+public class Player
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.Player.java
 | static class | Player.Player1<br> schema class |
 
 ## Player1
-```
-type: JsonSchema
-```
+public class Player1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
@@ -32,9 +37,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## PlayerMap
-```
-base class: FrozenMap<String, Object>
-```
+public class PlayerMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

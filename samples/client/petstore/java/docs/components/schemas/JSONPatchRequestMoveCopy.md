@@ -1,5 +1,8 @@
 # JSONPatchRequestMoveCopy
 org.openapijsonschematools.components.schemas.JSONPatchRequestMoveCopy.java
+public class JSONPatchRequestMoveCopy
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -12,9 +15,11 @@ org.openapijsonschematools.components.schemas.JSONPatchRequestMoveCopy.java
 | static class | JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1<br> schema class |
 
 ## JSONPatchRequestMoveCopy1
-```
-type: JsonSchema
-```
+public class JSONPatchRequestMoveCopy1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -32,9 +37,10 @@ Key | Type |  Description | Notes
 **path** | String | A JSON Pointer path. |
 
 ## JSONPatchRequestMoveCopyMap
-```
-base class: FrozenMap<String, String>
-```
+public class JSONPatchRequestMoveCopyMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

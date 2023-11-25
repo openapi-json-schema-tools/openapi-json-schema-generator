@@ -1,5 +1,8 @@
 # Apple
 org.openapijsonschematools.components.schemas.Apple.java
+public class Apple
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.Apple.java
 | static class | Apple.Apple1<br> schema class |
 
 ## Apple1
-```
-type: JsonSchema
-```
+public class Apple1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -31,9 +36,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AppleMap
-```
-base class: FrozenMap<String, Object>
-```
+public class AppleMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

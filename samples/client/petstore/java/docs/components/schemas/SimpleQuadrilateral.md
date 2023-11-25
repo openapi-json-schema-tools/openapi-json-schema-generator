@@ -1,5 +1,8 @@
 # SimpleQuadrilateral
 org.openapijsonschematools.components.schemas.SimpleQuadrilateral.java
+public class SimpleQuadrilateral
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.SimpleQuadrilateral.java
 | static class | SimpleQuadrilateral.SimpleQuadrilateral1<br> schema class |
 
 ## SimpleQuadrilateral1
-```
-type: JsonSchema
-```
+public class SimpleQuadrilateral1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

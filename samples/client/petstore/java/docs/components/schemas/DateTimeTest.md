@@ -1,5 +1,8 @@
 # DateTimeTest
 org.openapijsonschematools.components.schemas.DateTimeTest.java
+public class DateTimeTest
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.DateTimeTest.java
 | static class | DateTimeTest.DateTimeTest1<br> schema class |
 
 ## DateTimeTest1
-```
-type: JsonSchema
-```
+public class DateTimeTest1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

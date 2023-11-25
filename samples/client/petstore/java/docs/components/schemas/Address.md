@@ -1,5 +1,8 @@
 # Address
 org.openapijsonschematools.components.schemas.Address.java
+public class Address
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.Address.java
 | static class | Address.Address1<br> schema class |
 
 ## Address1
-```
-type: JsonSchema
-```
+public class Address1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,10 @@ Key | Type |  Description | Notes
 **anyStringName** | long | any string name can be used but the value must be the correct type | [optional]
 
 ## AddressMap
-```
-base class: FrozenMap<String, Long>
-```
+public class AddressMap
+extends FrozenMap<String, Long>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

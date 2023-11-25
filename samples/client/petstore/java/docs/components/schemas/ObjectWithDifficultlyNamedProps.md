@@ -1,5 +1,8 @@
 # ObjectWithDifficultlyNamedProps
 org.openapijsonschematools.components.schemas.ObjectWithDifficultlyNamedProps.java
+public class ObjectWithDifficultlyNamedProps
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -11,9 +14,11 @@ org.openapijsonschematools.components.schemas.ObjectWithDifficultlyNamedProps.ja
 | static class | ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1<br> schema class |
 
 ## ObjectWithDifficultlyNamedProps1
-```
-type: JsonSchema
-```
+public class ObjectWithDifficultlyNamedProps1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 model with properties that have invalid names for python
@@ -35,9 +40,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectWithDifficultlyNamedPropsMap
-```
-base class: FrozenMap<String, Object>
-```
+public class ObjectWithDifficultlyNamedPropsMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

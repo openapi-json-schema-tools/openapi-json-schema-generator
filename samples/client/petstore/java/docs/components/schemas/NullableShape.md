@@ -1,5 +1,8 @@
 # NullableShape
 org.openapijsonschematools.components.schemas.NullableShape.java
+public class NullableShape
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -8,9 +11,11 @@ org.openapijsonschematools.components.schemas.NullableShape.java
 | static class | NullableShape.NullableShape1<br> schema class |
 
 ## NullableShape1
-```
-type: JsonSchema
-```
+public class NullableShape1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0)

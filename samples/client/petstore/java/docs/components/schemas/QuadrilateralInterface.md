@@ -1,5 +1,8 @@
 # QuadrilateralInterface
 org.openapijsonschematools.components.schemas.QuadrilateralInterface.java
+public class QuadrilateralInterface
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.QuadrilateralInterface.java
 | static class | QuadrilateralInterface.QuadrilateralInterface1<br> schema class |
 
 ## QuadrilateralInterface1
-```
-type: JsonSchema
-```
+public class QuadrilateralInterface1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -38,9 +43,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## QuadrilateralInterfaceMap
-```
-base class: FrozenMap<String, Object>
-```
+public class QuadrilateralInterfaceMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

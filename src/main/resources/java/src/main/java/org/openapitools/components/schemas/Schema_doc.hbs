@@ -11,6 +11,9 @@
 {{moduleLocation}}.java
     {{/unless}}
 {{/if}}
+public class {{containerJsonPathPiece.camelCase}}
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -30,9 +33,11 @@
 {{/each}}
 
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
-```
-type: JsonSchema
-```
+public class {{jsonPathPiece.camelCase}}
+extends JsonSchema
+
+A schema class that validates payloads
+
 {{#if description}}
 
 {{headerSize}}# Description
@@ -88,13 +93,10 @@ Key | Type |  Description | Notes
     {{else}}
 {{headerSize}}# Output FrozenMap Keys
     {{/if}}
-```
-    {{#if mapValueSchema}}
-base class: FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{/with}}>
-    {{else}}
-base class: FrozenMap<String, Object>
-    {{/if}}
-```
+public class {{mapOutputJsonPathPiece.camelCase}}
+extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
+
+A class to store validated Map payloads
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
@@ -142,9 +144,11 @@ List Item Type | Description | Notes
         {{else}}
 {{headerSize}}# Output FrozenList Items
         {{/if}}
-```
-base class: FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
-```
+public class {{arrayOutputJsonPathPiece.camelCase}}
+extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
+
+A class to store validated List payloads
+
 {{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

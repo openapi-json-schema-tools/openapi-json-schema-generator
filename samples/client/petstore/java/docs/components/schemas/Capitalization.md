@@ -1,5 +1,8 @@
 # Capitalization
 org.openapijsonschematools.components.schemas.Capitalization.java
+public class Capitalization
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,9 +17,11 @@ org.openapijsonschematools.components.schemas.Capitalization.java
 | static class | Capitalization.Capitalization1<br> schema class |
 
 ## Capitalization1
-```
-type: JsonSchema
-```
+public class Capitalization1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -38,9 +43,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## CapitalizationMap
-```
-base class: FrozenMap<String, Object>
-```
+public class CapitalizationMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

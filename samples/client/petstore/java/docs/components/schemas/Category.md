@@ -1,5 +1,8 @@
 # Category
 org.openapijsonschematools.components.schemas.Category.java
+public class Category
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +13,11 @@ org.openapijsonschematools.components.schemas.Category.java
 | static class | Category.Category1<br> schema class |
 
 ## Category1
-```
-type: JsonSchema
-```
+public class Category1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -30,9 +35,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## CategoryMap
-```
-base class: FrozenMap<String, Object>
-```
+public class CategoryMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

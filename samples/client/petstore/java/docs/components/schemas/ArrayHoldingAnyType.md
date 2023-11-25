@@ -1,5 +1,8 @@
 # ArrayHoldingAnyType
 org.openapijsonschematools.components.schemas.ArrayHoldingAnyType.java
+public class ArrayHoldingAnyType
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.ArrayHoldingAnyType.java
 | static class | ArrayHoldingAnyType.ArrayHoldingAnyType1<br> schema class |
 
 ## ArrayHoldingAnyType1
-```
-type: JsonSchema
-```
+public class ArrayHoldingAnyType1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,11 @@ List Item Type | Description | Notes
 Object | any type can be stored here |
 
 ## ArrayHoldingAnyTypeList
-```
-base class: FrozenList<Object>
-```
+public class ArrayHoldingAnyTypeList
+extends FrozenList<Object>
+
+A class to store validated List payloads
+
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Argument | Type
 -------- | ------

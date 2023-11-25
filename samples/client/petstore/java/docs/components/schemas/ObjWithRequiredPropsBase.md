@@ -1,5 +1,8 @@
 # ObjWithRequiredPropsBase
 org.openapijsonschematools.components.schemas.ObjWithRequiredPropsBase.java
+public class ObjWithRequiredPropsBase
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.ObjWithRequiredPropsBase.java
 | static class | ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1<br> schema class |
 
 ## ObjWithRequiredPropsBase1
-```
-type: JsonSchema
-```
+public class ObjWithRequiredPropsBase1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -28,9 +33,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjWithRequiredPropsBaseMap
-```
-base class: FrozenMap<String, Object>
-```
+public class ObjWithRequiredPropsBaseMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -1,5 +1,8 @@
 # Name
 org.openapijsonschematools.components.schemas.Name.java
+public class Name
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -11,9 +14,11 @@ org.openapijsonschematools.components.schemas.Name.java
 | static class | Name.Name1<br> schema class |
 
 ## Name1
-```
-type: JsonSchema
-```
+public class Name1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Description
 Model for testing model name same as property name
@@ -43,9 +48,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## NameMap
-```
-base class: FrozenMap<String, Object>
-```
+public class NameMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

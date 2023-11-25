@@ -1,5 +1,8 @@
 # DateWithValidations
 org.openapijsonschematools.components.schemas.DateWithValidations.java
+public class DateWithValidations
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.DateWithValidations.java
 | static class | DateWithValidations.DateWithValidations1<br> schema class |
 
 ## DateWithValidations1
-```
-type: JsonSchema
-```
+public class DateWithValidations1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

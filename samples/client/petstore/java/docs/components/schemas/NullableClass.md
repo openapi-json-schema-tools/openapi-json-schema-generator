@@ -1,5 +1,8 @@
 # NullableClass
 org.openapijsonschematools.components.schemas.NullableClass.java
+public class NullableClass
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -33,9 +36,11 @@ org.openapijsonschematools.components.schemas.NullableClass.java
 | static class | NullableClass.NullableClass1<br> schema class |
 
 ## NullableClass1
-```
-type: JsonSchema
-```
+public class NullableClass1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -63,9 +68,10 @@ Key | Type |  Description | Notes
 **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## NullableClassMap
-```
-base class: FrozenMap<String, Object>
-```
+public class NullableClassMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

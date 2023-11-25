@@ -1,5 +1,8 @@
 # Currency
 org.openapijsonschematools.components.schemas.Currency.java
+public class Currency
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.Currency.java
 | static class | Currency.Currency1<br> schema class |
 
 ## Currency1
-```
-type: JsonSchema
-```
+public class Currency1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |

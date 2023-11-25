@@ -1,5 +1,8 @@
 # StringBooleanMap
 org.openapijsonschematools.components.schemas.StringBooleanMap.java
+public class StringBooleanMap
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -9,9 +12,11 @@ org.openapijsonschematools.components.schemas.StringBooleanMap.java
 | static class | StringBooleanMap.StringBooleanMap1<br> schema class |
 
 ## StringBooleanMap1
-```
-type: JsonSchema
-```
+public class StringBooleanMap1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -27,9 +32,10 @@ Key | Type |  Description | Notes
 **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional]
 
 ## StringBooleanMapMap
-```
-base class: FrozenMap<String, Boolean>
-```
+public class StringBooleanMapMap
+extends FrozenMap<String, Boolean>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |

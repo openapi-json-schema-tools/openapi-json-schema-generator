@@ -1,5 +1,8 @@
 # RefPet
 org.openapijsonschematools.components.schemas.RefPet.java
+public class RefPet
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -7,9 +10,11 @@ org.openapijsonschematools.components.schemas.RefPet.java
 | static class | RefPet.RefPet1<br> schema class |
 
 ## RefPet1
-```
-type: JsonSchema
-```
+public class RefPet1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type

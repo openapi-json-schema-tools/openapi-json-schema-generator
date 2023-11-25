@@ -1,5 +1,8 @@
 # JSONPatchRequestAddReplaceTest
 org.openapijsonschematools.components.schemas.JSONPatchRequestAddReplaceTest.java
+public class JSONPatchRequestAddReplaceTest
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -12,9 +15,11 @@ org.openapijsonschematools.components.schemas.JSONPatchRequestAddReplaceTest.jav
 | static class | JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1<br> schema class |
 
 ## JSONPatchRequestAddReplaceTest1
-```
-type: JsonSchema
-```
+public class JSONPatchRequestAddReplaceTest1
+extends JsonSchema
+
+A schema class that validates payloads
+
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -32,9 +37,10 @@ Key | Type |  Description | Notes
 **value** | Object | The value to add, replace or test. |
 
 ## JSONPatchRequestAddReplaceTestMap
-```
-base class: FrozenMap<String, Object>
-```
+public class JSONPatchRequestAddReplaceTestMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
