@@ -8,9 +8,17 @@ type: JsonSchema
 Model for testing model name same as property name
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| String | String | |
+| null | null | |
+| int | int | |
+| long | long | |
+| float | float | |
+| double | double | |
+| boolean | boolean | |
+| Map<String, Object> | NameMap | |
+| List<Object> | FrozenList<Object> | |
 
 ```
 type: Map<String, Object>

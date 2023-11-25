@@ -8,9 +8,10 @@ type: JsonSchema
 Pet object that needs to be added to the store
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | PetMap | |
 
 ```
 type: Map<String, Object>

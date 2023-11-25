@@ -8,9 +8,10 @@ type: JsonSchema
 component with properties that have name collisions
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | ObjectWithCollidingPropertiesMap | |
 
 ```
 type: Map<String, Object>

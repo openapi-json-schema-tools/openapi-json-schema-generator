@@ -8,9 +8,17 @@ type: JsonSchema
 The value may be a shape or the &#x27;null&#x27; value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema &gt;&#x3D; 3.0)
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| String | String | |
+| null | null | |
+| int | int | |
+| long | long | |
+| float | float | |
+| double | double | |
+| boolean | boolean | |
+| Map<String, Object> | FrozenMap<String, Object> | |
+| List<Object> | FrozenList<Object> | |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## oneOf

@@ -1,0 +1,88 @@
+{{#eq types null}}
+| String | String | |
+| null | null | |
+| int | int | |
+| long | long | |
+| float | float | |
+| double | double | |
+| boolean | boolean | |
+    {{#if mapOutputJsonPathPiece }}
+| Map<String, Object> | {{mapOutputJsonPathPiece.camelCase}} | |
+    {{else}}
+| Map<String, Object> | FrozenMap<String, Object> | |
+    {{/if}}
+    {{#if arrayOutputJsonPathPiece}}
+| List<Object> | {{arrayOutputJsonPathPiece.camelCase}} | |
+    {{else}}
+| List<Object> | FrozenList<Object> | |
+    {{/if}}
+{{else}}
+    {{#each types}}
+        {{#eq this "boolean"}}
+| boolean | boolean | |
+        {{else}}
+            {{#eq this "null"}}
+| null | null | |
+            {{else}}
+                {{#eq this "string"}}
+                    {{#eq format "binary"}}
+{{! todo binary types}}
+| BinaryString | BinaryString | |
+                    {{else}}
+| String | String | |
+                    {{/eq}}
+                {{else}}
+                    {{#eq this "number"}}
+                        {{#eq ../format null}}
+| Number | Number | |
+                        {{else}}
+                            {{#eq ../format "float"}}
+| float | float | |
+                            {{else}}
+                                {{#eq ../format "double"}}
+| double | double | |
+                                {{else}}
+                                    {{#eq ../format "int32"}}
+| int | int | |
+                                    {{else}}
+                                        {{#eq ../format "int64"}}
+| long | long | |
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{else}}
+                        {{#eq this "integer"}}
+                            {{#eq ../format null}}
+| long | long | |
+                            {{else}}
+                                {{#eq ../format "int32"}}
+| int | int | |
+                                {{else}}
+| long | long | |
+                                {{/eq}}
+                            {{/eq}}
+                        {{else}}
+                            {{#eq this "array"}}
+                                {{#with ../items}}
+| List<{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=">" sourceJsonPath=../../jsonPath }} | {{../../arrayOutputJsonPathPiece.camelCase}} | |
+                                {{else}}
+| List<Object> | FrozenList<Object> | |
+                                {{/with}}
+                            {{else}}
+                                {{#eq this "object"}}
+                                    {{#with ../mapValueSchema}}
+| Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type endChar=">" sourceJsonPath=../../jsonPath }} | {{../../mapOutputJsonPathPiece.camelCase}} | |
+                                    {{else}}
+| Map<String, Object> | FrozenMap<String, Object> | |
+                                    {{/with}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/each}}
+{{/eq}}

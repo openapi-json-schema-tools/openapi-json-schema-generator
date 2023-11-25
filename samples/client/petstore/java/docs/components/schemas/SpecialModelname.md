@@ -8,9 +8,10 @@ type: JsonSchema
 model with an invalid class name for python
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | SpecialModelnameMap | |
 
 ```
 type: Map<String, Object>

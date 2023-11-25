@@ -5,9 +5,11 @@ type: JsonSchema
 ```
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| List<Map<String, Object>>
+
+ | AnimalFarmList | |
 
 ```
 type: List<

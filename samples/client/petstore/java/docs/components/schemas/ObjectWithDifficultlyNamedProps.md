@@ -8,9 +8,10 @@ type: JsonSchema
 model with properties that have invalid names for python
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | ObjectWithDifficultlyNamedPropsMap | |
 
 ```
 type: Map<String, Object>

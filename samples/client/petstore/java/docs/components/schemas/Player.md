@@ -8,9 +8,10 @@ type: JsonSchema
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | PlayerMap | |
 
 ```
 type: Map<String, Object>

@@ -8,9 +8,10 @@ type: JsonSchema
 Abstract Step
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | AbstractStepMessageMap | |
 
 ```
 type: Map<String, Object>

@@ -5,9 +5,9 @@ type: JsonSchema
 ```
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| String | String | |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

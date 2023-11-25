@@ -27,9 +27,9 @@ Ref Schema | Input Type | Output Type
 {{> src/main/java/org/openapitools/components/schemas/__refclass_partial }} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
 {{else}}
 {{headerSize}}# validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
-{{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }} |{{!> components/schemas/helpers/notes_msg defaultUser="server" }}
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+{{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}
     {{#or properties additionalProperties requiredProperties}}
 
     {{#if mapInputJsonPathPiece}}

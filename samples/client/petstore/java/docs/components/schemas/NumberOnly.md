@@ -5,9 +5,10 @@ type: JsonSchema
 ```
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | NumberOnlyMap | |
 
 ```
 type: Map<String, Object>

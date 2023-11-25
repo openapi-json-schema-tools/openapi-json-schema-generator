@@ -8,6 +8,6 @@ type: JsonSchema
 file to download
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| BinaryString | BinaryString | |

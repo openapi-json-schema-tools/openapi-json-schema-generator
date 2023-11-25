@@ -8,9 +8,10 @@ type: JsonSchema
 Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | HealthCheckResultMap | |
 
 ```
 type: Map<String, Object>

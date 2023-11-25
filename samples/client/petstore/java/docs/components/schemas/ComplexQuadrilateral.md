@@ -5,9 +5,17 @@ type: JsonSchema
 ```
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| String | String | |
+| null | null | |
+| int | int | |
+| long | long | |
+| float | float | |
+| double | double | |
+| boolean | boolean | |
+| Map<String, Object> | FrozenMap<String, Object> | |
+| List<Object> | FrozenList<Object> | |
 
 ## Composed Schemas (allOf/anyOf/oneOf/not)
 ## allOf

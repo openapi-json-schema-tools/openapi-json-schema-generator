@@ -8,9 +8,10 @@ type: JsonSchema
 a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| Map<String, Object>
+ | ObjectModelWithRefPropsMap | |
 
 ```
 type: Map<String, Object>

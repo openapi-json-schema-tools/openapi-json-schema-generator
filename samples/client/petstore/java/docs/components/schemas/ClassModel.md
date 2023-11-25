@@ -8,9 +8,17 @@ type: JsonSchema
 Model for testing model with \&quot;_class\&quot; property
 
 ## validate method
-Input Type | Return Type | Notes
------------- | ------------- | -------------
- |  |
+| Input Type | Return Type | Notes |
+| ---------- | ----------- | ----- |
+| String | String | |
+| null | null | |
+| int | int | |
+| long | long | |
+| float | float | |
+| double | double | |
+| boolean | boolean | |
+| Map<String, Object> | ClassModelMap | |
+| List<Object> | FrozenList<Object> | |
 
 ```
 type: Map<String, Object>
