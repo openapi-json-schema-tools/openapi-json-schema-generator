@@ -417,6 +417,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates
         );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                new HashMap<String, String>() {{
+                    put("src/main/java/org/openapitools/components/schemas/Schema_doc.hbs", ".md");
+                }}
+        );
 
         if (WEBCLIENT.equals(getLibrary()) || NATIVE.equals(getLibrary())) {
             dateLibrary = "java8";
