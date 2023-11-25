@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectWithInvalidNamedRefedProperties
+# ObjectWithInvalidNamedRefedProperties1
+org.openapijsonschematools.components.schema.ObjectWithInvalidNamedRefedProperties1.java
 ```
 type: JsonSchema
 ```

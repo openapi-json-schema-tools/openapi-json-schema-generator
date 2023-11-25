@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectWithCollidingProperties
+# ObjectWithCollidingProperties1
+org.openapijsonschematools.components.schema.ObjectWithCollidingProperties1.java
 ```
 type: JsonSchema
 ```

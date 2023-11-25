@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Pet
+# Pet1
+org.openapijsonschematools.components.schema.Pet1.java
 ```
 type: JsonSchema
 ```

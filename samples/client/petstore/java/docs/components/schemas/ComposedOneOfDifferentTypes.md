@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ComposedOneOfDifferentTypes
+# ComposedOneOfDifferentTypes1
+org.openapijsonschematools.components.schema.ComposedOneOfDifferentTypes1.java
 ```
 type: JsonSchema
 ```

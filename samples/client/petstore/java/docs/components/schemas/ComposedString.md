@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ComposedString
+# ComposedString1
+org.openapijsonschematools.components.schema.ComposedString1.java
 ```
 type: JsonSchema
 ```

@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Tag
+# Tag1
+org.openapijsonschematools.components.schema.Tag1.java
 ```
 type: JsonSchema
 ```

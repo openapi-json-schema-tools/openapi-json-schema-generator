@@ -1,3 +1,4 @@
+# Schema1
 main.java.org.openapijsonschematools.components.requestbodies.userarray.content.applicationjson.Schema
 ```
 type: JsonSchema

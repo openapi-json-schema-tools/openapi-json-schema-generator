@@ -1,3 +1,4 @@
+# Schema101
 main.java.org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter10.Schema10
 ```
 type: JsonSchema

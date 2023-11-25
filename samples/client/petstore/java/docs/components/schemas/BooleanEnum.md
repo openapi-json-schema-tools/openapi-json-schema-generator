@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.BooleanEnum
+# BooleanEnum1
+org.openapijsonschematools.components.schema.BooleanEnum1.java
 ```
 type: JsonSchema
 ```

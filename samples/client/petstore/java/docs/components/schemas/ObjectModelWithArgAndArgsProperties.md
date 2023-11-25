@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectModelWithArgAndArgsProperties
+# ObjectModelWithArgAndArgsProperties1
+org.openapijsonschematools.components.schema.ObjectModelWithArgAndArgsProperties1.java
 ```
 type: JsonSchema
 ```

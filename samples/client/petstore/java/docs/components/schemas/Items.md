@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Items
+# Items1
+org.openapijsonschematools.components.schema.Items1.java
 ```
 type: JsonSchema
 ```

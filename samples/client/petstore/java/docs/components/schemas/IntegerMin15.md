@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.IntegerMin15
+# IntegerMin151
+org.openapijsonschematools.components.schema.IntegerMin151.java
 ```
 type: JsonSchema
 ```

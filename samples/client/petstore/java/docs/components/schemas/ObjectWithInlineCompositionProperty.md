@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectWithInlineCompositionProperty
+# ObjectWithInlineCompositionProperty1
+org.openapijsonschematools.components.schema.ObjectWithInlineCompositionProperty1.java
 ```
 type: JsonSchema
 ```

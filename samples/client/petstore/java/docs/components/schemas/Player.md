@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Player
+# Player1
+org.openapijsonschematools.components.schema.Player1.java
 ```
 type: JsonSchema
 ```

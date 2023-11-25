@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.JSONPatchRequestRemove
+# JSONPatchRequestRemove1
+org.openapijsonschematools.components.schema.JSONPatchRequestRemove1.java
 ```
 type: JsonSchema
 ```

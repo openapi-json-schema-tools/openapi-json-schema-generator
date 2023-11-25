@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.StringWithValidation
+# StringWithValidation1
+org.openapijsonschematools.components.schema.StringWithValidation1.java
 ```
 type: JsonSchema
 ```

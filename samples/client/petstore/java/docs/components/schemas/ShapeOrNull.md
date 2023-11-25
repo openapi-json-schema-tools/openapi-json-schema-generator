@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ShapeOrNull
+# ShapeOrNull1
+org.openapijsonschematools.components.schema.ShapeOrNull1.java
 ```
 type: JsonSchema
 ```

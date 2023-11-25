@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.BasquePig
+# BasquePig1
+org.openapijsonschematools.components.schema.BasquePig1.java
 ```
 type: JsonSchema
 ```

@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Zebra
+# Zebra1
+org.openapijsonschematools.components.schema.Zebra1.java
 ```
 type: JsonSchema
 ```

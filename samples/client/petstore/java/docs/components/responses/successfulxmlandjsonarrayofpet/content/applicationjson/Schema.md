@@ -1,3 +1,4 @@
+# Schema1
 main.java.org.openapijsonschematools.components.responses.successfulxmlandjsonarrayofpet.content.applicationjson.Schema
 ```
 type: JsonSchema

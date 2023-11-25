@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.PublicKey
+# PublicKey1
+org.openapijsonschematools.components.schema.PublicKey1.java
 ```
 type: JsonSchema
 ```

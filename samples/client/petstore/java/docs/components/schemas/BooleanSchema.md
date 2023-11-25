@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ModelBoolean
+# BooleanSchema1
+org.openapijsonschematools.components.schema.BooleanSchema1.java
 ```
 type: JsonSchema
 ```

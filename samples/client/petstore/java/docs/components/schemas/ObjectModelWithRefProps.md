@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectModelWithRefProps
+# ObjectModelWithRefProps1
+org.openapijsonschematools.components.schema.ObjectModelWithRefProps1.java
 ```
 type: JsonSchema
 ```

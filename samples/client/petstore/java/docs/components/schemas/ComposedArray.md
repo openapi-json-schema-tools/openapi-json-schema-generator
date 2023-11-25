@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ComposedArray
+# ComposedArray1
+org.openapijsonschematools.components.schema.ComposedArray1.java
 ```
 type: JsonSchema
 ```

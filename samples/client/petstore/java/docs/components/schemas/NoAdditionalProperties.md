@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.NoAdditionalProperties
+# NoAdditionalProperties1
+org.openapijsonschematools.components.schema.NoAdditionalProperties1.java
 ```
 type: JsonSchema
 ```

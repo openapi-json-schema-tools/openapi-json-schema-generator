@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.DecimalPayload
+# DecimalPayload1
+org.openapijsonschematools.components.schema.DecimalPayload1.java
 ```
 type: JsonSchema
 ```

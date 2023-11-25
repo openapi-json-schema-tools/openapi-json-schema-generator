@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ReqPropsFromUnsetAddProps
+# ReqPropsFromUnsetAddProps1
+org.openapijsonschematools.components.schema.ReqPropsFromUnsetAddProps1.java
 ```
 type: JsonSchema
 ```

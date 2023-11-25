@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.SelfReferencingArrayModel
+# SelfReferencingArrayModel1
+org.openapijsonschematools.components.schema.SelfReferencingArrayModel1.java
 ```
 type: JsonSchema
 ```

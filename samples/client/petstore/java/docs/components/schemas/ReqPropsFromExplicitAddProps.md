@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ReqPropsFromExplicitAddProps
+# ReqPropsFromExplicitAddProps1
+org.openapijsonschematools.components.schema.ReqPropsFromExplicitAddProps1.java
 ```
 type: JsonSchema
 ```

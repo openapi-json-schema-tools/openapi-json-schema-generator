@@ -1,3 +1,4 @@
+# Schema1
 main.java.org.openapijsonschematools.paths.fakewildcardresponses.get.responses.response200.content.applicationjson.Schema
 ```
 type: JsonSchema

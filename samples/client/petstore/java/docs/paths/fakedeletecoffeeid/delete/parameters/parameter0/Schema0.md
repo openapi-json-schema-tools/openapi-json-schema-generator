@@ -1,3 +1,4 @@
+# Schema01
 main.java.org.openapijsonschematools.paths.fakedeletecoffeeid.delete.parameters.parameter0.Schema0
 ```
 type: JsonSchema

@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ModelNumber
+# NumberSchema1
+org.openapijsonschematools.components.schema.NumberSchema1.java
 ```
 type: JsonSchema
 ```

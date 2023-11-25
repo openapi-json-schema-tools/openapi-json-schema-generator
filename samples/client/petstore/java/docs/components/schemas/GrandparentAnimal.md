@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.GrandparentAnimal
+# GrandparentAnimal1
+org.openapijsonschematools.components.schema.GrandparentAnimal1.java
 ```
 type: JsonSchema
 ```

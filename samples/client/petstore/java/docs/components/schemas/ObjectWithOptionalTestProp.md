@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectWithOptionalTestProp
+# ObjectWithOptionalTestProp1
+org.openapijsonschematools.components.schema.ObjectWithOptionalTestProp1.java
 ```
 type: JsonSchema
 ```

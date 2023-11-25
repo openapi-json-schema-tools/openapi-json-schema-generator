@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.MyObjectDto
+# MyObjectDto1
+org.openapijsonschematools.components.schema.MyObjectDto1.java
 ```
 type: JsonSchema
 ```

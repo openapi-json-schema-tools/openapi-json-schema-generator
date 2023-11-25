@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.IsoscelesTriangle
+# IsoscelesTriangle1
+org.openapijsonschematools.components.schema.IsoscelesTriangle1.java
 ```
 type: JsonSchema
 ```

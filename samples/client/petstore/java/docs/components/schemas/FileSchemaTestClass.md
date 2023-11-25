@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.FileSchemaTestClass
+# FileSchemaTestClass1
+org.openapijsonschematools.components.schema.FileSchemaTestClass1.java
 ```
 type: JsonSchema
 ```

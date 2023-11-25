@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Shape
+# Shape1
+org.openapijsonschematools.components.schema.Shape1.java
 ```
 type: JsonSchema
 ```

@@ -1,11 +1,11 @@
 {{#with schema}}
 {{#eq identifierPieces.size 0}}
-{{!> components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces jsonPathPiece) }}
 {{else}}
-{{!> components/_helper_header_from_identifier_pieces }}
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces }}
 {{/eq}}
 {{#if componentModule}}
-{{packageName}}.components.schema.{{jsonPathPiece.snakeCase}}
+{{packageName}}.components.schema.{{jsonPathPiece.camelCase}}.java
 {{else}}
     {{#unless isInline}}
 {{moduleLocation}}
@@ -24,7 +24,7 @@ type: JsonSchema
 {{headerSize}}# Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-{{!> components/schemas/__refclass_partial }} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
+{{> src/main/java/org/openapitools/components/schemas/__refclass_partial }} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
 {{else}}
 {{headerSize}}# validate method
 Input Type | Return Type | Notes

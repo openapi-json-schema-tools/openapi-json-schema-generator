@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.DateWithValidations
+# DateWithValidations1
+org.openapijsonschematools.components.schema.DateWithValidations1.java
 ```
 type: JsonSchema
 ```

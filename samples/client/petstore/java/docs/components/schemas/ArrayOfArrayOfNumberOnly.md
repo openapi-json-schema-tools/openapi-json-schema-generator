@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ArrayOfArrayOfNumberOnly
+# ArrayOfArrayOfNumberOnly1
+org.openapijsonschematools.components.schema.ArrayOfArrayOfNumberOnly1.java
 ```
 type: JsonSchema
 ```

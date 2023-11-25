@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectWithAllOfWithReqTestPropFromUnsetAddProp
+# ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
+org.openapijsonschematools.components.schema.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.java
 ```
 type: JsonSchema
 ```

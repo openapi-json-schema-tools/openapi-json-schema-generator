@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.NullableClass
+# NullableClass1
+org.openapijsonschematools.components.schema.NullableClass1.java
 ```
 type: JsonSchema
 ```

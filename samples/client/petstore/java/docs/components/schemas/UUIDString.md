@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.UUIDString
+# UUIDString1
+org.openapijsonschematools.components.schema.UUIDString1.java
 ```
 type: JsonSchema
 ```

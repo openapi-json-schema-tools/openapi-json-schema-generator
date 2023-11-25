@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.MixedPropertiesAndAdditionalPropertiesClass
+# MixedPropertiesAndAdditionalPropertiesClass1
+org.openapijsonschematools.components.schema.MixedPropertiesAndAdditionalPropertiesClass1.java
 ```
 type: JsonSchema
 ```

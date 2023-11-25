@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ModelReturn
+# ReturnSchema1
+org.openapijsonschematools.components.schema.ReturnSchema1.java
 ```
 type: JsonSchema
 ```

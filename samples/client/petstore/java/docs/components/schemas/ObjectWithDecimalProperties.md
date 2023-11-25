@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectWithDecimalProperties
+# ObjectWithDecimalProperties1
+org.openapijsonschematools.components.schema.ObjectWithDecimalProperties1.java
 ```
 type: JsonSchema
 ```

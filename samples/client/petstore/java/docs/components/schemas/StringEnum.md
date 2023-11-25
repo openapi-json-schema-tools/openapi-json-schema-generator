@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.StringEnum
+# StringEnum1
+org.openapijsonschematools.components.schema.StringEnum1.java
 ```
 type: JsonSchema
 ```

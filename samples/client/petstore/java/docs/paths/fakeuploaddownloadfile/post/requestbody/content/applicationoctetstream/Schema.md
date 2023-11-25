@@ -1,3 +1,4 @@
+# Schema1
 main.java.org.openapijsonschematools.paths.fakeuploaddownloadfile.post.requestbody.content.applicationoctetstream.Schema
 ```
 type: JsonSchema

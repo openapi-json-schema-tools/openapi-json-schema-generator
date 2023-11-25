@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Address
+# Address1
+org.openapijsonschematools.components.schema.Address1.java
 ```
 type: JsonSchema
 ```

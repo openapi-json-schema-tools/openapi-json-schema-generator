@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.GmFruit
+# GmFruit1
+org.openapijsonschematools.components.schema.GmFruit1.java
 ```
 type: JsonSchema
 ```

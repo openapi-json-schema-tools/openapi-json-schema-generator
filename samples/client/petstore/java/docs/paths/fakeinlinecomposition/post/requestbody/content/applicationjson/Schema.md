@@ -1,3 +1,4 @@
+# Schema1
 main.java.org.openapijsonschematools.paths.fakeinlinecomposition.post.requestbody.content.applicationjson.Schema
 ```
 type: JsonSchema

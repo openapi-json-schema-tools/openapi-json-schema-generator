@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.QuadrilateralInterface
+# QuadrilateralInterface1
+org.openapijsonschematools.components.schema.QuadrilateralInterface1.java
 ```
 type: JsonSchema
 ```

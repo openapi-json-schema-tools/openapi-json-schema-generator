@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ObjectInterface
+# ObjectInterface1
+org.openapijsonschematools.components.schema.ObjectInterface1.java
 ```
 type: JsonSchema
 ```

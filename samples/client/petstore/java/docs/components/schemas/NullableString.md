@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.NullableString
+# NullableString1
+org.openapijsonschematools.components.schema.NullableString1.java
 ```
 type: JsonSchema
 ```

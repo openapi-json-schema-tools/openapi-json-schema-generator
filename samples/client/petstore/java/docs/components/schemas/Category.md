@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Category
+# Category1
+org.openapijsonschematools.components.schema.Category1.java
 ```
 type: JsonSchema
 ```

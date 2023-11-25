@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.FruitReq
+# FruitReq1
+org.openapijsonschematools.components.schema.FruitReq1.java
 ```
 type: JsonSchema
 ```

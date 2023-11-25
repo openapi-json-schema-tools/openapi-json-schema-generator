@@ -1,3 +1,4 @@
+# Schema1
 main.java.org.openapijsonschematools.paths.foo.get.responses.responsedefault.content.applicationjson.Schema
 ```
 type: JsonSchema

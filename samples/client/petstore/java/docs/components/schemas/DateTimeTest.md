@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.DateTimeTest
+# DateTimeTest1
+org.openapijsonschematools.components.schema.DateTimeTest1.java
 ```
 type: JsonSchema
 ```

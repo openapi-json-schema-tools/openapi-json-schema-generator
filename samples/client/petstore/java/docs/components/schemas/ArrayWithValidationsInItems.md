@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.ArrayWithValidationsInItems
+# ArrayWithValidationsInItems1
+org.openapijsonschematools.components.schema.ArrayWithValidationsInItems1.java
 ```
 type: JsonSchema
 ```

@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.AnyTypeAndFormat
+# AnyTypeAndFormat1
+org.openapijsonschematools.components.schema.AnyTypeAndFormat1.java
 ```
 type: JsonSchema
 ```

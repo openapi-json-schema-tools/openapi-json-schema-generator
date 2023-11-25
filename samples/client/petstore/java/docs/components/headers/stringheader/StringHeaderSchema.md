@@ -1,3 +1,4 @@
+# StringHeaderSchema1
 main.java.org.openapijsonschematools.components.headers.stringheader.StringHeaderSchema
 ```
 type: JsonSchema

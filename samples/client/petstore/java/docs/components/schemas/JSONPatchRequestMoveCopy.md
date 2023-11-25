@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.JSONPatchRequestMoveCopy
+# JSONPatchRequestMoveCopy1
+org.openapijsonschematools.components.schema.JSONPatchRequestMoveCopy1.java
 ```
 type: JsonSchema
 ```

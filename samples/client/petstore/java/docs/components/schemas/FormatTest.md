@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.FormatTest
+# FormatTest1
+org.openapijsonschematools.components.schema.FormatTest1.java
 ```
 type: JsonSchema
 ```

@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Client
+# Client1
+org.openapijsonschematools.components.schema.Client1.java
 ```
 type: JsonSchema
 ```

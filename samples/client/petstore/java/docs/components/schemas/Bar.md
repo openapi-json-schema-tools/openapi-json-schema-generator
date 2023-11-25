@@ -1,4 +1,5 @@
-org.openapijsonschematools.components.schema.Bar
+# Bar1
+org.openapijsonschematools.components.schema.Bar1.java
 ```
 type: JsonSchema
 ```
