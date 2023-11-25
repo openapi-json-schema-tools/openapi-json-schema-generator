@@ -1,5 +1,5 @@
 # RefContentSchemaHeaderSchema1
-main.java.org.openapijsonschematools.components.headers.refcontentschemaheader.content.applicationjson.RefContentSchemaHeaderSchema
+org.openapijsonschematools.components.headers.refcontentschemaheader.content.applicationjson.RefContentSchemaHeaderSchema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**StringWithValidation.StringWithValidation1**](../../../../../hematools/components/schemas/StringWithValidation.md) |  | 
+[**StringWithValidation.StringWithValidation1**](../../../../../components/schemas/StringWithValidation.md) |  | 

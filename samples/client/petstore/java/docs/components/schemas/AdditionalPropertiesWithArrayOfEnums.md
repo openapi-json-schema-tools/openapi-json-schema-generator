@@ -1,5 +1,5 @@
 # AdditionalPropertiesWithArrayOfEnums1
-org.openapijsonschematools.components.schema.AdditionalPropertiesWithArrayOfEnums1.java
+org.openapijsonschematools.components.schemas.AdditionalPropertiesWithArrayOfEnums.java
 ```
 type: JsonSchema
 ```

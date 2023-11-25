@@ -1499,4 +1499,11 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         return null;
     }
+
+    protected String getModuleLocation(String ref) {
+        String filePath = getFilepath(ref);
+        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
+        String localFilepath = filePath.substring(prefix.length());
+        return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
+    }
 }

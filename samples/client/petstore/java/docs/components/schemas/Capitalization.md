@@ -1,5 +1,5 @@
 # Capitalization1
-org.openapijsonschematools.components.schema.Capitalization1.java
+org.openapijsonschematools.components.schemas.Capitalization.java
 ```
 type: JsonSchema
 ```

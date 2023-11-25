@@ -1,5 +1,5 @@
 # ClassModel1
-org.openapijsonschematools.components.schema.ClassModel1.java
+org.openapijsonschematools.components.schemas.ClassModel.java
 ```
 type: JsonSchema
 ```

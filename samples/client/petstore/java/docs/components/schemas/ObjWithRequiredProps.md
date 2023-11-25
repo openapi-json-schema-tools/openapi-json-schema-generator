@@ -1,5 +1,5 @@
 # ObjWithRequiredProps1
-org.openapijsonschematools.components.schema.ObjWithRequiredProps1.java
+org.openapijsonschematools.components.schemas.ObjWithRequiredProps.java
 ```
 type: JsonSchema
 ```

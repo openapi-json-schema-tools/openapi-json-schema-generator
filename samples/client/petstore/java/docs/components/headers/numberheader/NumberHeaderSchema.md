@@ -1,5 +1,5 @@
 # NumberHeaderSchema1
-main.java.org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema
+org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema.java
 ```
 type: JsonSchema
 ```

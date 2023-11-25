@@ -1,5 +1,5 @@
 # SpecialModelname1
-org.openapijsonschematools.components.schema.SpecialModelname1.java
+org.openapijsonschematools.components.schemas.SpecialModelname.java
 ```
 type: JsonSchema
 ```

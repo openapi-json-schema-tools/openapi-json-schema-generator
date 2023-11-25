@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakerefsmammal.post.requestbody.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakerefsmammal.post.requestbody.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**Mammal.Mammal1**](../../../../../../hematools/components/schemas/Mammal.md) |  | 
+[**Mammal.Mammal1**](../../../../../../components/schemas/Mammal.md) |  | 

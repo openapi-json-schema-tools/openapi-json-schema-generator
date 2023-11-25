@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakequeryparamwithjsoncontenttype.get.responses.response200.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakequeryparamwithjsoncontenttype.get.responses.response200.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # DateTimeWithValidations1
-org.openapijsonschematools.components.schema.DateTimeWithValidations1.java
+org.openapijsonschematools.components.schemas.DateTimeWithValidations.java
 ```
 type: JsonSchema
 ```

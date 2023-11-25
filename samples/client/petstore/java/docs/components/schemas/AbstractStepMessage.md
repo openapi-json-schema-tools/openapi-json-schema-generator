@@ -1,5 +1,5 @@
 # AbstractStepMessage1
-org.openapijsonschematools.components.schema.AbstractStepMessage1.java
+org.openapijsonschematools.components.schemas.AbstractStepMessage.java
 ```
 type: JsonSchema
 ```

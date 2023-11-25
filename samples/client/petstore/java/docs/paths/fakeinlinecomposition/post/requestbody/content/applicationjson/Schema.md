@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakeinlinecomposition.post.requestbody.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakeinlinecomposition.post.requestbody.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```

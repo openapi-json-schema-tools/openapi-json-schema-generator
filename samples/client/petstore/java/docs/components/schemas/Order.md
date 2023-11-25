@@ -1,5 +1,5 @@
 # Order1
-org.openapijsonschematools.components.schema.Order1.java
+org.openapijsonschematools.components.schemas.Order.java
 ```
 type: JsonSchema
 ```

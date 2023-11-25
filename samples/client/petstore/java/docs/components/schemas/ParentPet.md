@@ -1,5 +1,5 @@
 # ParentPet1
-org.openapijsonschematools.components.schema.ParentPet1.java
+org.openapijsonschematools.components.schemas.ParentPet.java
 ```
 type: JsonSchema
 ```

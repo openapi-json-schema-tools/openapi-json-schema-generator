@@ -1,5 +1,5 @@
 # ApiResponseSchema1
-org.openapijsonschematools.components.schema.ApiResponseSchema1.java
+org.openapijsonschematools.components.schemas.ApiResponseSchema.java
 ```
 type: JsonSchema
 ```

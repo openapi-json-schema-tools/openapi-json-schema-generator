@@ -1,5 +1,5 @@
 # ObjectWithNonIntersectingValues1
-org.openapijsonschematools.components.schema.ObjectWithNonIntersectingValues1.java
+org.openapijsonschematools.components.schemas.ObjectWithNonIntersectingValues.java
 ```
 type: JsonSchema
 ```

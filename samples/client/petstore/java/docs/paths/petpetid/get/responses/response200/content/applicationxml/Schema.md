@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.petpetid.get.responses.response200.content.applicationxml.Schema
+org.openapijsonschematools.paths.petpetid.get.responses.response200.content.applicationxml.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**Pet.Pet1**](../../../../../../../../hematools/components/schemas/Pet.md) |  | 
+[**Pet.Pet1**](../../../../../../../../components/schemas/Pet.md) |  | 

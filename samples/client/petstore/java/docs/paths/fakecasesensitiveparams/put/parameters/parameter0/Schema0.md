@@ -1,5 +1,5 @@
 # Schema01
-main.java.org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter0.Schema0
+org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter0.Schema0.java
 ```
 type: JsonSchema
 ```

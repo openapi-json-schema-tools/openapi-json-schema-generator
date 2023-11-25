@@ -1,5 +1,5 @@
 # Schema51
-main.java.org.openapijsonschematools.paths.fake.delete.parameters.parameter5.Schema5
+org.openapijsonschematools.paths.fake.delete.parameters.parameter5.Schema5.java
 ```
 type: JsonSchema
 ```

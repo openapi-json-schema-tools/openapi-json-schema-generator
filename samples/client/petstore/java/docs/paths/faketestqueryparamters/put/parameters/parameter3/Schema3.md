@@ -1,5 +1,5 @@
 # Schema31
-main.java.org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter3.Schema3
+org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter3.Schema3.java
 ```
 type: JsonSchema
 ```

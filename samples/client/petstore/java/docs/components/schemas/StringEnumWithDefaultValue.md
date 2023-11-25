@@ -1,5 +1,5 @@
 # StringEnumWithDefaultValue1
-org.openapijsonschematools.components.schema.StringEnumWithDefaultValue1.java
+org.openapijsonschematools.components.schemas.StringEnumWithDefaultValue.java
 ```
 type: JsonSchema
 ```

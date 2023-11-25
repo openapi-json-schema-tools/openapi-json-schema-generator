@@ -1,5 +1,5 @@
 # StringBooleanMap1
-org.openapijsonschematools.components.schema.StringBooleanMap1.java
+org.openapijsonschematools.components.schemas.StringBooleanMap.java
 ```
 type: JsonSchema
 ```

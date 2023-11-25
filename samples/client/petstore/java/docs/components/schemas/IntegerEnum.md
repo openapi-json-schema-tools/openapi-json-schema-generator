@@ -1,5 +1,5 @@
 # IntegerEnum1
-org.openapijsonschematools.components.schema.IntegerEnum1.java
+org.openapijsonschematools.components.schemas.IntegerEnum.java
 ```
 type: JsonSchema
 ```

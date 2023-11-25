@@ -1,5 +1,5 @@
 # EquilateralTriangle1
-org.openapijsonschematools.components.schema.EquilateralTriangle1.java
+org.openapijsonschematools.components.schemas.EquilateralTriangle.java
 ```
 type: JsonSchema
 ```

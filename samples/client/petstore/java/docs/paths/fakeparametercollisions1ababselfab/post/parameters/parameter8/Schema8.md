@@ -1,5 +1,5 @@
 # Schema81
-main.java.org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter8.Schema8
+org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter8.Schema8.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakeuploadfiles.post.requestbody.content.multipartformdata.Schema
+org.openapijsonschematools.paths.fakeuploadfiles.post.requestbody.content.multipartformdata.Schema.java
 ```
 type: JsonSchema
 ```

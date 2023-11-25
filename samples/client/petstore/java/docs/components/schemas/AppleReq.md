@@ -1,5 +1,5 @@
 # AppleReq1
-org.openapijsonschematools.components.schema.AppleReq1.java
+org.openapijsonschematools.components.schemas.AppleReq.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # ComposedNone1
-org.openapijsonschematools.components.schema.ComposedNone1.java
+org.openapijsonschematools.components.schemas.ComposedNone.java
 ```
 type: JsonSchema
 ```

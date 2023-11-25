@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakerefsstring.post.responses.response200.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakerefsstring.post.responses.response200.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**StringSchema.StringSchema1**](../../../../../../../../hematools/components/schemas/StringSchema.md) |  | 
+[**StringSchema.StringSchema1**](../../../../../../../../components/schemas/StringSchema.md) |  | 

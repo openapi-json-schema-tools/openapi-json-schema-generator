@@ -1,5 +1,5 @@
 # NumberWithValidations1
-org.openapijsonschematools.components.schema.NumberWithValidations1.java
+org.openapijsonschematools.components.schemas.NumberWithValidations.java
 ```
 type: JsonSchema
 ```

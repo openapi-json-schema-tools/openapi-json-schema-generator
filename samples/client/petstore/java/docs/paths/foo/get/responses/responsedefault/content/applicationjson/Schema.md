@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.foo.get.responses.responsedefault.content.applicationjson.Schema
+org.openapijsonschematools.paths.foo.get.responses.responsedefault.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```

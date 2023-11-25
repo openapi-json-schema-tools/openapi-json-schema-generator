@@ -1,5 +1,5 @@
 # SimpleQuadrilateral1
-org.openapijsonschematools.components.schema.SimpleQuadrilateral1.java
+org.openapijsonschematools.components.schemas.SimpleQuadrilateral.java
 ```
 type: JsonSchema
 ```

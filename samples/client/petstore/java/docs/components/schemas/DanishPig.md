@@ -1,5 +1,5 @@
 # DanishPig1
-org.openapijsonschematools.components.schema.DanishPig1.java
+org.openapijsonschematools.components.schemas.DanishPig.java
 ```
 type: JsonSchema
 ```

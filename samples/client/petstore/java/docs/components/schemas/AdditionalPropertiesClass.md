@@ -1,5 +1,5 @@
 # AdditionalPropertiesClass1
-org.openapijsonschematools.components.schema.AdditionalPropertiesClass1.java
+org.openapijsonschematools.components.schemas.AdditionalPropertiesClass.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakejsonwithcharset.post.requestbody.content.applicationjsoncharsetutf8.Schema
+org.openapijsonschematools.paths.fakejsonwithcharset.post.requestbody.content.applicationjsoncharsetutf8.Schema.java
 ```
 type: JsonSchema
 ```

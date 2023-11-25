@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakerefsenum.post.requestbody.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakerefsenum.post.requestbody.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**StringEnum.StringEnum1**](../../../../../../hematools/components/schemas/StringEnum.md) |  | 
+[**StringEnum.StringEnum1**](../../../../../../components/schemas/StringEnum.md) |  | 

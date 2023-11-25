@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.components.responses.successwithjsonapiresponse.content.applicationjson.Schema
+org.openapijsonschematools.components.responses.successwithjsonapiresponse.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**ApiResponseSchema.ApiResponseSchema1**](../../../../../hematools/components/schemas/ApiResponseSchema.md) |  | 
+[**ApiResponseSchema.ApiResponseSchema1**](../../../../../components/schemas/ApiResponseSchema.md) |  | 

@@ -1,5 +1,5 @@
 # ObjectWithDifficultlyNamedProps1
-org.openapijsonschematools.components.schema.ObjectWithDifficultlyNamedProps1.java
+org.openapijsonschematools.components.schemas.ObjectWithDifficultlyNamedProps.java
 ```
 type: JsonSchema
 ```

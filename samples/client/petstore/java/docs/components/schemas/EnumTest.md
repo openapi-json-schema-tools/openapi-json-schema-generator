@@ -1,5 +1,5 @@
 # EnumTest1
-org.openapijsonschematools.components.schema.EnumTest1.java
+org.openapijsonschematools.components.schemas.EnumTest.java
 ```
 type: JsonSchema
 ```

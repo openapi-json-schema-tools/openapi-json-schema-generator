@@ -1,5 +1,5 @@
 # XRateLimitSchema1
-main.java.org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema
+org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema.java
 ```
 type: JsonSchema
 ```

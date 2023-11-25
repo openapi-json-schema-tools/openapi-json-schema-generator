@@ -1,5 +1,5 @@
 # BananaReq1
-org.openapijsonschematools.components.schema.BananaReq1.java
+org.openapijsonschematools.components.schemas.BananaReq.java
 ```
 type: JsonSchema
 ```

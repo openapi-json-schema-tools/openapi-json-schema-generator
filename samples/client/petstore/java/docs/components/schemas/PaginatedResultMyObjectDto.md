@@ -1,5 +1,5 @@
 # PaginatedResultMyObjectDto1
-org.openapijsonschematools.components.schema.PaginatedResultMyObjectDto1.java
+org.openapijsonschematools.components.schemas.PaginatedResultMyObjectDto.java
 ```
 type: JsonSchema
 ```

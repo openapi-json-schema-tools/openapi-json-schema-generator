@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakerefsobjectmodelwithrefprops.post.responses.response200.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakerefsobjectmodelwithrefprops.post.responses.response200.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**ObjectModelWithRefProps.ObjectModelWithRefProps1**](../../../../../../../../hematools/components/schemas/ObjectModelWithRefProps.md) |  | 
+[**ObjectModelWithRefProps.ObjectModelWithRefProps1**](../../../../../../../../components/schemas/ObjectModelWithRefProps.md) |  | 

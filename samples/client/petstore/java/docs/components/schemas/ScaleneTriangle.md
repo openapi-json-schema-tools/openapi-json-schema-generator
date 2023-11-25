@@ -1,5 +1,5 @@
 # ScaleneTriangle1
-org.openapijsonschematools.components.schema.ScaleneTriangle1.java
+org.openapijsonschematools.components.schemas.ScaleneTriangle.java
 ```
 type: JsonSchema
 ```

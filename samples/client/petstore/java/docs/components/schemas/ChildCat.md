@@ -1,5 +1,5 @@
 # ChildCat1
-org.openapijsonschematools.components.schema.ChildCat1.java
+org.openapijsonschematools.components.schemas.ChildCat.java
 ```
 type: JsonSchema
 ```

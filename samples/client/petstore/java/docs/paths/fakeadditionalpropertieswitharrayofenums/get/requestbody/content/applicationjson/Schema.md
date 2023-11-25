@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakeadditionalpropertieswitharrayofenums.get.requestbody.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakeadditionalpropertieswitharrayofenums.get.requestbody.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1**](../../../../../../hematools/components/schemas/AdditionalPropertiesWithArrayOfEnums.md) |  | 
+[**AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1**](../../../../../../components/schemas/AdditionalPropertiesWithArrayOfEnums.md) |  | 

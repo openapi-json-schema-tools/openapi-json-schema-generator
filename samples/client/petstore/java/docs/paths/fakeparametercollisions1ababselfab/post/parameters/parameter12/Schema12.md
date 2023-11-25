@@ -1,5 +1,5 @@
 # Schema121
-main.java.org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter12.Schema12
+org.openapijsonschematools.paths.fakeparametercollisions1ababselfab.post.parameters.parameter12.Schema12.java
 ```
 type: JsonSchema
 ```

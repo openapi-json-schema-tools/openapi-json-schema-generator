@@ -1,5 +1,5 @@
 # StringSchema1
-org.openapijsonschematools.components.schema.StringSchema1.java
+org.openapijsonschematools.components.schemas.StringSchema.java
 ```
 type: JsonSchema
 ```

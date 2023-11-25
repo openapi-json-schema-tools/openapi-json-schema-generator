@@ -1,5 +1,5 @@
 # ReturnSchema1
-org.openapijsonschematools.components.schema.ReturnSchema1.java
+org.openapijsonschematools.components.schemas.ReturnSchema.java
 ```
 type: JsonSchema
 ```

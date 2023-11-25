@@ -1,5 +1,5 @@
 # ArrayHoldingAnyType1
-org.openapijsonschematools.components.schema.ArrayHoldingAnyType1.java
+org.openapijsonschematools.components.schemas.ArrayHoldingAnyType.java
 ```
 type: JsonSchema
 ```

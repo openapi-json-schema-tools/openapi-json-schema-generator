@@ -1,5 +1,5 @@
 # NumberSchema1
-org.openapijsonschematools.components.schema.NumberSchema1.java
+org.openapijsonschematools.components.schemas.NumberSchema.java
 ```
 type: JsonSchema
 ```

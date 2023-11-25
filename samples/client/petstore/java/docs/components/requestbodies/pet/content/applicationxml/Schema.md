@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.components.requestbodies.pet.content.applicationxml.Schema
+org.openapijsonschematools.components.requestbodies.pet.content.applicationxml.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**RefPet.RefPet1**](../../../../hematools/components/schemas/RefPet.md) |  | 
+[**RefPet.RefPet1**](../../../../components/schemas/RefPet.md) |  | 

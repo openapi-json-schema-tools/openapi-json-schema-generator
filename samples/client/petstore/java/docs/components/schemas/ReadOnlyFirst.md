@@ -1,5 +1,5 @@
 # ReadOnlyFirst1
-org.openapijsonschematools.components.schema.ReadOnlyFirst1.java
+org.openapijsonschematools.components.schemas.ReadOnlyFirst.java
 ```
 type: JsonSchema
 ```

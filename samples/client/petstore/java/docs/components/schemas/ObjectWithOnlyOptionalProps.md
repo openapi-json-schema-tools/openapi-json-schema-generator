@@ -1,5 +1,5 @@
 # ObjectWithOnlyOptionalProps1
-org.openapijsonschematools.components.schema.ObjectWithOnlyOptionalProps1.java
+org.openapijsonschematools.components.schemas.ObjectWithOnlyOptionalProps.java
 ```
 type: JsonSchema
 ```

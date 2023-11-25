@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.components.responses.successinlinecontentandheader.content.applicationjson.Schema
+org.openapijsonschematools.components.responses.successinlinecontentandheader.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # Pig1
-org.openapijsonschematools.components.schema.Pig1.java
+org.openapijsonschematools.components.schemas.Pig.java
 ```
 type: JsonSchema
 ```

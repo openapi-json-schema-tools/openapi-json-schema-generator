@@ -1,5 +1,5 @@
 # File1
-org.openapijsonschematools.components.schema.File1.java
+org.openapijsonschematools.components.schemas.File.java
 ```
 type: JsonSchema
 ```

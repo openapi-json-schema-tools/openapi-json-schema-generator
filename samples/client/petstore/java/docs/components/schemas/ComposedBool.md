@@ -1,5 +1,5 @@
 # ComposedBool1
-org.openapijsonschematools.components.schema.ComposedBool1.java
+org.openapijsonschematools.components.schemas.ComposedBool.java
 ```
 type: JsonSchema
 ```

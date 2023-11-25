@@ -1,5 +1,5 @@
 # Currency1
-org.openapijsonschematools.components.schema.Currency1.java
+org.openapijsonschematools.components.schemas.Currency.java
 ```
 type: JsonSchema
 ```

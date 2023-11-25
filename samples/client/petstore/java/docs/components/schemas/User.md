@@ -1,5 +1,5 @@
 # User1
-org.openapijsonschematools.components.schema.User1.java
+org.openapijsonschematools.components.schemas.User.java
 ```
 type: JsonSchema
 ```

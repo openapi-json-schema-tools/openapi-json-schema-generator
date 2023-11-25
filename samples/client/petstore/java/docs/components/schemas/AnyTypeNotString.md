@@ -1,5 +1,5 @@
 # AnyTypeNotString1
-org.openapijsonschematools.components.schema.AnyTypeNotString1.java
+org.openapijsonschematools.components.schemas.AnyTypeNotString.java
 ```
 type: JsonSchema
 ```

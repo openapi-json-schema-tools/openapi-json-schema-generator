@@ -1,5 +1,5 @@
 # IntegerEnumWithDefaultValue1
-org.openapijsonschematools.components.schema.IntegerEnumWithDefaultValue1.java
+org.openapijsonschematools.components.schemas.IntegerEnumWithDefaultValue.java
 ```
 type: JsonSchema
 ```

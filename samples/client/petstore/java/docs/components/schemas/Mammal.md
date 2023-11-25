@@ -1,5 +1,5 @@
 # Mammal1
-org.openapijsonschematools.components.schema.Mammal1.java
+org.openapijsonschematools.components.schemas.Mammal.java
 ```
 type: JsonSchema
 ```

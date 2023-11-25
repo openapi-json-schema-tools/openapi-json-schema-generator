@@ -1,5 +1,5 @@
 # EnumClass1
-org.openapijsonschematools.components.schema.EnumClass1.java
+org.openapijsonschematools.components.schemas.EnumClass.java
 ```
 type: JsonSchema
 ```

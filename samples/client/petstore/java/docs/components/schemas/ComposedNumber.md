@@ -1,5 +1,5 @@
 # ComposedNumber1
-org.openapijsonschematools.components.schema.ComposedNumber1.java
+org.openapijsonschematools.components.schemas.ComposedNumber.java
 ```
 type: JsonSchema
 ```

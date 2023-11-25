@@ -1,5 +1,5 @@
 # JSONPatchRequestAddReplaceTest1
-org.openapijsonschematools.components.schema.JSONPatchRequestAddReplaceTest1.java
+org.openapijsonschematools.components.schemas.JSONPatchRequestAddReplaceTest.java
 ```
 type: JsonSchema
 ```

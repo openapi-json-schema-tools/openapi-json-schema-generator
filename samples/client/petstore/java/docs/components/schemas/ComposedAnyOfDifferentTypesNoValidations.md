@@ -1,5 +1,5 @@
 # ComposedAnyOfDifferentTypesNoValidations1
-org.openapijsonschematools.components.schema.ComposedAnyOfDifferentTypesNoValidations1.java
+org.openapijsonschematools.components.schemas.ComposedAnyOfDifferentTypesNoValidations.java
 ```
 type: JsonSchema
 ```

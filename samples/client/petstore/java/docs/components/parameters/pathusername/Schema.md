@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.components.parameters.pathusername.Schema
+org.openapijsonschematools.components.parameters.pathusername.Schema.java
 ```
 type: JsonSchema
 ```

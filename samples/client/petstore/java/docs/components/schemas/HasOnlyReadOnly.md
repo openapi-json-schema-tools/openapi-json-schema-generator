@@ -1,5 +1,5 @@
 # HasOnlyReadOnly1
-org.openapijsonschematools.components.schema.HasOnlyReadOnly1.java
+org.openapijsonschematools.components.schemas.HasOnlyReadOnly.java
 ```
 type: JsonSchema
 ```

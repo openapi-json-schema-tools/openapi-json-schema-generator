@@ -1,5 +1,5 @@
 # Schema200Response1
-org.openapijsonschematools.components.schema.Schema200Response1.java
+org.openapijsonschematools.components.schemas.Schema200Response.java
 ```
 type: JsonSchema
 ```

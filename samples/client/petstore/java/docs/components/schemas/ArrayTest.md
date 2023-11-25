@@ -1,5 +1,5 @@
 # ArrayTest1
-org.openapijsonschematools.components.schema.ArrayTest1.java
+org.openapijsonschematools.components.schemas.ArrayTest.java
 ```
 type: JsonSchema
 ```

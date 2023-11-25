@@ -1,5 +1,5 @@
 # MapTest1
-org.openapijsonschematools.components.schema.MapTest1.java
+org.openapijsonschematools.components.schemas.MapTest.java
 ```
 type: JsonSchema
 ```

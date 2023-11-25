@@ -1,5 +1,5 @@
 # HealthCheckResult1
-org.openapijsonschematools.components.schema.HealthCheckResult1.java
+org.openapijsonschematools.components.schemas.HealthCheckResult.java
 ```
 type: JsonSchema
 ```

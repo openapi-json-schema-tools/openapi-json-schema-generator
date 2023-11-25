@@ -1,5 +1,5 @@
 # IntegerMax101
-org.openapijsonschematools.components.schema.IntegerMax101.java
+org.openapijsonschematools.components.schemas.IntegerMax10.java
 ```
 type: JsonSchema
 ```

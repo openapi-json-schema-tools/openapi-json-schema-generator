@@ -1,5 +1,5 @@
 # Cat1
-org.openapijsonschematools.components.schema.Cat1.java
+org.openapijsonschematools.components.schemas.Cat.java
 ```
 type: JsonSchema
 ```

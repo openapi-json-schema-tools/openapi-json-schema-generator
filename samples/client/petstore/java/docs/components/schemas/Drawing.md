@@ -1,5 +1,5 @@
 # Drawing1
-org.openapijsonschematools.components.schema.Drawing1.java
+org.openapijsonschematools.components.schemas.Drawing.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.components.requestbodies.userarray.content.applicationjson.Schema
+org.openapijsonschematools.components.requestbodies.userarray.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```

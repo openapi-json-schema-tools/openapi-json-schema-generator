@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakewildcardresponses.get.responses.response5xx.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakewildcardresponses.get.responses.response5xx.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```

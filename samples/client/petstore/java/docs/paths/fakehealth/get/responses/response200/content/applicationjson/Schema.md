@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakehealth.get.responses.response200.content.applicationjson.Schema
+org.openapijsonschematools.paths.fakehealth.get.responses.response200.content.applicationjson.Schema.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**HealthCheckResult.HealthCheckResult1**](../../../../../../../../hematools/components/schemas/HealthCheckResult.md) |  | 
+[**HealthCheckResult.HealthCheckResult1**](../../../../../../../../components/schemas/HealthCheckResult.md) |  | 

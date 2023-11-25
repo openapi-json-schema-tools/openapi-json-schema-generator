@@ -1,5 +1,5 @@
 # ObjectWithValidations1
-org.openapijsonschematools.components.schema.ObjectWithValidations1.java
+org.openapijsonschematools.components.schemas.ObjectWithValidations.java
 ```
 type: JsonSchema
 ```

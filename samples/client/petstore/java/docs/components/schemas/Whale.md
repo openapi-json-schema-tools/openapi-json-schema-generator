@@ -1,5 +1,5 @@
 # Whale1
-org.openapijsonschematools.components.schema.Whale1.java
+org.openapijsonschematools.components.schemas.Whale.java
 ```
 type: JsonSchema
 ```

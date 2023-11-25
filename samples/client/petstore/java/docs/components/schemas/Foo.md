@@ -1,5 +1,5 @@
 # Foo1
-org.openapijsonschematools.components.schema.Foo1.java
+org.openapijsonschematools.components.schemas.Foo.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # SomeHeaderSchema1
-main.java.org.openapijsonschematools.components.responses.successinlinecontentandheader.headers.someheader.SomeHeaderSchema
+org.openapijsonschematools.components.responses.successinlinecontentandheader.headers.someheader.SomeHeaderSchema.java
 ```
 type: JsonSchema
 ```

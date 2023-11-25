@@ -5,10 +5,10 @@
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces }}
 {{/eq}}
 {{#if componentModule}}
-{{packageName}}.components.schema.{{jsonPathPiece.camelCase}}.java
+{{moduleLocation}}.java
 {{else}}
     {{#unless isInline}}
-{{moduleLocation}}
+{{moduleLocation}}.java
     {{/unless}}
 {{/if}}
 ```

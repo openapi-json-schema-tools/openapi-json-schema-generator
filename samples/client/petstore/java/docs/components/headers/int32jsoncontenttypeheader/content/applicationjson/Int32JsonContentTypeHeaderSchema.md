@@ -1,5 +1,5 @@
 # Int32JsonContentTypeHeaderSchema1
-main.java.org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema
+org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema.java
 ```
 type: JsonSchema
 ```

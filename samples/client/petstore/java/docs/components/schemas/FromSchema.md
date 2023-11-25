@@ -1,5 +1,5 @@
 # FromSchema1
-org.openapijsonschematools.components.schema.FromSchema1.java
+org.openapijsonschematools.components.schemas.FromSchema.java
 ```
 type: JsonSchema
 ```

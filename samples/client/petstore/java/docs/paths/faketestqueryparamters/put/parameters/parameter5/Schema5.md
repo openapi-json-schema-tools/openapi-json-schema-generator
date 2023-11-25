@@ -1,5 +1,5 @@
 # Schema51
-main.java.org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter5.Schema5
+org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter5.Schema5.java
 ```
 type: JsonSchema
 ```
@@ -7,4 +7,4 @@ type: JsonSchema
 ## Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
-[**StringWithValidation.StringWithValidation1**](../../../hematools/components/schemas/StringWithValidation.md) |  | 
+[**StringWithValidation.StringWithValidation1**](../../../components/schemas/StringWithValidation.md) |  | 

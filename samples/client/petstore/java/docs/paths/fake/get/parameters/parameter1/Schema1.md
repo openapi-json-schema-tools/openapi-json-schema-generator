@@ -1,5 +1,5 @@
 # Schema11
-main.java.org.openapijsonschematools.paths.fake.get.parameters.parameter1.Schema1
+org.openapijsonschematools.paths.fake.get.parameters.parameter1.Schema1.java
 ```
 type: JsonSchema
 ```

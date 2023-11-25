@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.petpetid.post.requestbody.content.applicationxwwwformurlencoded.Schema
+org.openapijsonschematools.paths.petpetid.post.requestbody.content.applicationxwwwformurlencoded.Schema.java
 ```
 type: JsonSchema
 ```

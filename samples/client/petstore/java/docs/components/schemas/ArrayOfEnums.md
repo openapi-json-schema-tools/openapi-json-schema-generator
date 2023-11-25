@@ -1,5 +1,5 @@
 # ArrayOfEnums1
-org.openapijsonschematools.components.schema.ArrayOfEnums1.java
+org.openapijsonschematools.components.schemas.ArrayOfEnums.java
 ```
 type: JsonSchema
 ```

@@ -1,5 +1,5 @@
 # JSONPatchRequest1
-org.openapijsonschematools.components.schema.JSONPatchRequest1.java
+org.openapijsonschematools.components.schemas.JSONPatchRequest.java
 ```
 type: JsonSchema
 ```

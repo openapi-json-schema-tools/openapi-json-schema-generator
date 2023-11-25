@@ -1,5 +1,5 @@
 # Schema1
-main.java.org.openapijsonschematools.paths.fakeuploaddownloadfile.post.responses.response200.content.applicationoctetstream.Schema
+org.openapijsonschematools.paths.fakeuploaddownloadfile.post.responses.response200.content.applicationoctetstream.Schema.java
 ```
 type: JsonSchema
 ```
