@@ -18,7 +18,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -52,5 +51,40 @@ A class to store validated Map payloads
 | ShapesList | shapes()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Shapes
+public class Shapes
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ShapesList | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Object>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
+
+## ShapesList
+public class ShapesList
+extends FrozenList<Object>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

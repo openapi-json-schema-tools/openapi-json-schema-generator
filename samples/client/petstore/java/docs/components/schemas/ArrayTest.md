@@ -28,7 +28,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -60,7 +59,206 @@ A class to store validated Map payloads
 | ArrayArrayOfModelList | array_array_of_model()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ArrayArrayOfModel
+public class ArrayArrayOfModel
+extends JsonSchema
 
+A schema class that validates payloads
 
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayArrayOfModelList | validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<List<Map<String, Object>>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Map<String, Object>> |  |
+
+## ArrayArrayOfModelList
+public class ArrayArrayOfModelList
+extends FrozenList<ItemsList1>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items3
+public class Items3
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ItemsList1 | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Map<String, Object>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
+## ItemsList1
+public class ItemsList1
+extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## ArrayArrayOfInteger
+public class ArrayArrayOfInteger
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayArrayOfIntegerList | validate(List<List<Long>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<List<Long>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Long> |  |
+
+## ArrayArrayOfIntegerList
+public class ArrayArrayOfIntegerList
+extends FrozenList<ItemsList>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items1
+public class Items1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ItemsList | validate(List<Long> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Long>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Long |  | value must be a 64 bit integer
+
+## ItemsList
+public class ItemsList
+extends FrozenList<Long>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items2
+public class Items2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+
+## ArrayOfString
+public class ArrayOfString
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayOfStringList | validate(List<String> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<String>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
+
+## ArrayOfStringList
+public class ArrayOfStringList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

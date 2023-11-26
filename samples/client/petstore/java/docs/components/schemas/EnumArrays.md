@@ -20,7 +20,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -50,5 +49,62 @@ A class to store validated Map payloads
 | ArrayEnumList | array_enum()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ArrayEnum
+public class ArrayEnum
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayEnumList | validate(List<String> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<String>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  | must be one of ["fish", "crab"]
+
+## ArrayEnumList
+public class ArrayEnumList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## JustSymbol
+public class JustSymbol
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

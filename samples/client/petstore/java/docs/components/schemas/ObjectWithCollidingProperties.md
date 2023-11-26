@@ -18,10 +18,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 component with properties that have name collisions
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -51,6 +49,26 @@ A class to store validated Map payloads
 | FrozenMap<String, Object> | someprop()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Someprop
+public class Someprop
+extends JsonSchema
 
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## SomeProp
+public class SomeProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

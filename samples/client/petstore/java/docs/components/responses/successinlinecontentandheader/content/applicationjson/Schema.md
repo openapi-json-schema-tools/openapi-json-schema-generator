@@ -17,7 +17,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -25,7 +24,7 @@ A schema class that validates payloads
 
 ## Input Map Keys
 ```
-type: Map<String, Object>
+type: Map<String, Integer>
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -42,3 +41,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static SchemaMap | of(Map<String, Integer> arg, SchemaConfiguration configuration) |
 | int | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties
+public class AdditionalProperties
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |

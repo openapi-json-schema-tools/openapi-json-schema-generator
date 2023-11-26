@@ -30,7 +30,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -78,3 +77,185 @@ A class to store validated Map payloads
 | String | callback()<br>[optional] |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Callback
+public class Callback
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Password
+public class Password
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## DateTime
+public class DateTime
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Date
+public class Date
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Binary
+public class Binary
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
+
+## ByteSchema
+public class ByteSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## PatternWithoutDelimiter
+public class PatternWithoutDelimiter
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## StringSchema
+public class StringSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## DoubleSchema
+public class DoubleSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+
+## FloatSchema
+public class FloatSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+
+## NumberSchema
+public class NumberSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Number | validate(Number arg, SchemaConfiguration configuration) |
+
+## Int64
+public class Int64
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+
+## Int32
+public class Int32
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+
+## IntegerSchema
+public class IntegerSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+None
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |

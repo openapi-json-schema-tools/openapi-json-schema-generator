@@ -18,7 +18,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -47,3 +46,29 @@ A class to store validated Map payloads
 | String | param()<br> |
 | String | param2()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Param2
+public class Param2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+field2
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Param
+public class Param
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+field1
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |

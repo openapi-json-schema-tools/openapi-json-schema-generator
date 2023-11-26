@@ -18,7 +18,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -48,5 +47,40 @@ A class to store validated Map payloads
 | FilesList | files()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Files
+public class Files
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static FilesList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Map<String, Object>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
+## FilesList
+public class FilesList
+extends FrozenList<File.FileMap>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

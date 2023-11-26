@@ -21,7 +21,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -49,5 +48,87 @@ A class to store validated Map payloads
 | ArrayArrayNumberList | ArrayArrayNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ArrayArrayNumber
+public class ArrayArrayNumber
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayArrayNumberList | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<List<Number>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Number> |  |
+
+## ArrayArrayNumberList
+public class ArrayArrayNumberList
+extends FrozenList<ItemsList>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ItemsList | validate(List<Number> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Number>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Number |  |
+
+## ItemsList
+public class ItemsList
+extends FrozenList<Number>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items1
+public class Items1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

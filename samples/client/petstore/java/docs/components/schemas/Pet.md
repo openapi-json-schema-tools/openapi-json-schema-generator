@@ -24,10 +24,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 Pet object that needs to be added to the store
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -65,6 +63,122 @@ A class to store validated Map payloads
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Tags
+public class Tags
+extends JsonSchema
 
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static TagsList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Map<String, Object>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
+## TagsList
+public class TagsList
+extends FrozenList<Tag.TagMap>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Status
+public class Status
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+pet status in the store
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## PhotoUrls
+public class PhotoUrls
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static PhotoUrlsList | validate(List<String> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<String>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
+
+## PhotoUrlsList
+public class PhotoUrlsList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Name
+public class Name
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Id
+public class Id
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

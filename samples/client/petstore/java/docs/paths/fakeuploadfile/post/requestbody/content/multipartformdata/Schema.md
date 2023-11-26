@@ -18,7 +18,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -47,3 +46,29 @@ A class to store validated Map payloads
 | String | file()<br> |
 | String | additionalMetadata()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## File
+public class File
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+file to upload
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
+
+## AdditionalMetadata
+public class AdditionalMetadata
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+Additional data to pass to server
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |

@@ -27,7 +27,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -61,7 +60,161 @@ A class to store validated Map payloads
 | StringBooleanMap.StringBooleanMapMap | indirect_map()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## DirectMap
+public class DirectMap
+extends JsonSchema
 
+A schema class that validates payloads
 
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static DirectMapMap | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional]
+
+## DirectMapMap
+public class DirectMapMap
+extends FrozenMap<String, Boolean>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static DirectMapMap | of(Map<String, Boolean> arg, SchemaConfiguration configuration) |
+| boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties3
+public class AdditionalProperties3
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+
+## MapOfEnumString
+public class MapOfEnumString
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapOfEnumStringMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
+
+## MapOfEnumStringMap
+public class MapOfEnumStringMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapOfEnumStringMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties2
+public class AdditionalProperties2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## MapMapOfString
+public class MapMapOfString
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapMapOfStringMap | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional]
+
+## MapMapOfStringMap
+public class MapMapOfStringMap
+extends FrozenMap<String, AdditionalPropertiesMap>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapMapOfStringMap | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+| AdditionalPropertiesMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties
+public class AdditionalProperties
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static AdditionalPropertiesMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+
+## AdditionalPropertiesMap
+public class AdditionalPropertiesMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static AdditionalPropertiesMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties1
+public class AdditionalProperties1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

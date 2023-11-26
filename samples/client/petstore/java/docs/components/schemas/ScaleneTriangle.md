@@ -18,7 +18,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -32,12 +31,48 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## Composed Schemas (allOf/anyOf/oneOf/not)
-## allOf
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
- |  | 
-[Schema1](#) |  | 
+## Schema1
+public class Schema1
+extends JsonSchema
 
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Schema1Map | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**triangleType** | String |  | [optional] must be one of ["ScaleneTriangle"]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+
+## Schema1Map
+public class Schema1Map
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Schema1Map | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| String | triangleType()<br>[optional] must be one of ["ScaleneTriangle"] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## TriangleType
+public class TriangleType
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

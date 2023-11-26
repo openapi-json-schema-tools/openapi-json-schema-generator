@@ -20,7 +20,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -48,5 +47,70 @@ A class to store validated Map payloads
 | long | count()<br> |
 | ResultsList | results()<br> |
 
+## Results
+public class Results
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ResultsList | validate(List<Map<String, String>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Map<String, String>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, String> |  |
+
+## ResultsList
+public class ResultsList
+extends FrozenList<MyObjectDto.MyObjectDtoMap>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Count
+public class Count
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+
+## AdditionalProperties
+public class AdditionalProperties
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

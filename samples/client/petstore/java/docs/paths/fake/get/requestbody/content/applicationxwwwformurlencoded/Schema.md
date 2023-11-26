@@ -20,7 +20,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -50,3 +49,64 @@ A class to store validated Map payloads
 | String | enum_form_string()<br>[optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## EnumFormString
+public class EnumFormString
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+Form parameter enum test (string)
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## EnumFormStringArray
+public class EnumFormStringArray
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+Form parameter enum test (string array)
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static EnumFormStringArrayList | validate(List<String> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<String>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  | must be one of [">", "$"] if omitted the server will use the default value of $
+
+## EnumFormStringArrayList
+public class EnumFormStringArrayList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |

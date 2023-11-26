@@ -15,10 +15,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 file to upload
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

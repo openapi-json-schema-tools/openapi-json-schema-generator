@@ -17,10 +17,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 Must be named &#x60;File&#x60; for test.
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -47,5 +45,18 @@ A class to store validated Map payloads
 | static FileMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | sourceURI()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## SourceURI
+public class SourceURI
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+Test capitalization
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

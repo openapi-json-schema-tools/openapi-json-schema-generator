@@ -16,10 +16,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

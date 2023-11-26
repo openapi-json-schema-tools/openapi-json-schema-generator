@@ -16,7 +16,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -30,11 +29,15 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## Composed Schemas (allOf/anyOf/oneOf/not)
-## not
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
-[Not](#) |  | 
+## Not
+public class Not
+extends JsonSchema
 
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

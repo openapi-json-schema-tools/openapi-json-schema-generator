@@ -36,7 +36,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -78,11 +77,302 @@ A class to store validated Map payloads
 | MapWithUndeclaredPropertiesStringMap | map_with_undeclared_properties_string()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## MapWithUndeclaredPropertiesString
+public class MapWithUndeclaredPropertiesString
+extends JsonSchema
 
+A schema class that validates payloads
 
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapWithUndeclaredPropertiesStringMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
+## MapWithUndeclaredPropertiesStringMap
+public class MapWithUndeclaredPropertiesStringMap
+extends FrozenMap<String, String>
 
+A class to store validated Map payloads
 
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapWithUndeclaredPropertiesStringMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties5
+public class AdditionalProperties5
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## EmptyMap
+public class EmptyMap
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+
+## EmptyMapMap
+public class EmptyMapMap
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static EmptyMapMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## AdditionalProperties4
+public class AdditionalProperties4
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## MapWithUndeclaredPropertiesAnytype3
+public class MapWithUndeclaredPropertiesAnytype3
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapWithUndeclaredPropertiesAnytype3Map | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+
+## MapWithUndeclaredPropertiesAnytype3Map
+public class MapWithUndeclaredPropertiesAnytype3Map
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapWithUndeclaredPropertiesAnytype3Map | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties3
+public class AdditionalProperties3
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## MapWithUndeclaredPropertiesAnytype2
+public class MapWithUndeclaredPropertiesAnytype2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## MapWithUndeclaredPropertiesAnytype1
+public class MapWithUndeclaredPropertiesAnytype1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## Anytype1
+public class Anytype1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## MapOfMapProperty
+public class MapOfMapProperty
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapOfMapPropertyMap | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional]
+
+## MapOfMapPropertyMap
+public class MapOfMapPropertyMap
+extends FrozenMap<String, AdditionalPropertiesMap>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapOfMapPropertyMap | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+| AdditionalPropertiesMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties1
+public class AdditionalProperties1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static AdditionalPropertiesMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+
+## AdditionalPropertiesMap
+public class AdditionalPropertiesMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static AdditionalPropertiesMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties2
+public class AdditionalProperties2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## MapProperty
+public class MapProperty
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapPropertyMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+
+## MapPropertyMap
+public class MapPropertyMap
+extends FrozenMap<String, String>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapPropertyMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties
+public class AdditionalProperties
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

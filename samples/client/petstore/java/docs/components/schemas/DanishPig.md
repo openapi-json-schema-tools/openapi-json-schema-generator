@@ -17,7 +17,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -44,5 +43,16 @@ A class to store validated Map payloads
 | static DanishPigMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["DanishPig"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ClassName
+public class ClassName
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

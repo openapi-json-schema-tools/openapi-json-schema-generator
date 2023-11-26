@@ -39,7 +39,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -101,5 +100,277 @@ A class to store validated Map payloads
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## NoneProp
+public class NoneProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+
+## PatternWithDigitsAndDelimiter
+public class PatternWithDigitsAndDelimiter
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01.
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## PatternWithDigits
+public class PatternWithDigits
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+A string that is a 10 digit number. Can have leading zeros.
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Password
+public class Password
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## UuidNoExample
+public class UuidNoExample
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## UuidSchema
+public class UuidSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## DateTime
+public class DateTime
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Date
+public class Date
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Binary
+public class Binary
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
+
+## ByteSchema
+public class ByteSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## StringSchema
+public class StringSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## ArrayWithUniqueItems
+public class ArrayWithUniqueItems
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayWithUniqueItemsList | validate(List<Number> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Number>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Number |  |
+
+## ArrayWithUniqueItemsList
+public class ArrayWithUniqueItemsList
+extends FrozenList<Number>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Number | validate(Number arg, SchemaConfiguration configuration) |
+
+## Float64
+public class Float64
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+
+## DoubleSchema
+public class DoubleSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+
+## Float32
+public class Float32
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+
+## FloatSchema
+public class FloatSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+this is a reserved python keyword
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+
+## NumberSchema
+public class NumberSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Number | validate(Number arg, SchemaConfiguration configuration) |
+
+## Int64
+public class Int64
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+
+## Int32withValidations
+public class Int32withValidations
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+
+## Int32
+public class Int32
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+
+## IntegerSchema
+public class IntegerSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

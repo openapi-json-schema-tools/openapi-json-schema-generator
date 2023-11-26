@@ -20,7 +20,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -51,5 +50,57 @@ A class to store validated Map payloads
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["map"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## MapSchema
+public class MapSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+
+## MapMap
+public class MapMap
+extends FrozenMap<String, Animal.AnimalMap>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static MapMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| Animal.AnimalMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## DateTime
+public class DateTime
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## UuidSchema
+public class UuidSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

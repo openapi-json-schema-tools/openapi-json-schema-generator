@@ -19,10 +19,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 model with properties that have invalid names for python
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -51,5 +49,38 @@ A class to store validated Map payloads
 | static ObjectWithDifficultlyNamedPropsMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["123-list"], instance["$special[property.name]"], instance["123Number"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Schema123Number
+public class Schema123Number
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+
+## Schema123list
+public class Schema123list
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Specialpropertyname
+public class Specialpropertyname
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static long | validate(long arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

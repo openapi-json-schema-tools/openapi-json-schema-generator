@@ -18,10 +18,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 model with an invalid class name for python, starts with a number
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -58,5 +56,29 @@ A class to store validated Map payloads
 | int | name()<br>[optional] value must be a 32 bit integer |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["class"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ClassSchema
+public class ClassSchema
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+this is a reserved python keyword
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Name
+public class Name
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

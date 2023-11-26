@@ -22,9 +22,73 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 this is a model that allows payloads of type object or number
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+| static float | validate(float arg, SchemaConfiguration configuration) |
+| static double | validate(double arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## Schema6
+public class Schema6
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Schema5
+public class Schema5
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Schema5List | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Object>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
+
+## Schema5List
+public class Schema5List
+extends FrozenList<Object>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
 
 ## Method Summary
 | Modifier and Type | Method and Description |
@@ -39,21 +103,37 @@ this is a model that allows payloads of type object or number
 | static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## Composed Schemas (allOf/anyOf/oneOf/not)
-## oneOf
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
- |  | 
- |  | 
-[Schema2](#) |  | 
-[Schema3](#) |  | 
-[Schema4](#) |  | 
-[Schema5](#) |  | 
-[Schema6](#) |  | 
+## Schema4
+public class Schema4
+extends JsonSchema
 
+A schema class that validates payloads
 
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
+## Schema3
+public class Schema3
+extends JsonSchema
 
+A schema class that validates payloads
 
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## Schema2
+public class Schema2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

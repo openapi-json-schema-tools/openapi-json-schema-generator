@@ -41,7 +41,6 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -91,11 +90,363 @@ A class to store validated Map payloads
 | ObjectItemsNullableMap | object_items_nullable()<br>[optional] |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## ObjectItemsNullable
+public class ObjectItemsNullable
+extends JsonSchema
 
+A schema class that validates payloads
 
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectItemsNullableMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
+## ObjectItemsNullableMap
+public class ObjectItemsNullableMap
+extends FrozenMap<String, FrozenMap<String, Object>>
 
+A class to store validated Map payloads
 
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectItemsNullableMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties2
+public class AdditionalProperties2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## ObjectAndItemsNullableProp
+public class ObjectAndItemsNullableProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static ObjectAndItemsNullablePropMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+
+## ObjectAndItemsNullablePropMap
+public class ObjectAndItemsNullablePropMap
+extends FrozenMap<String, FrozenMap<String, Object>>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectAndItemsNullablePropMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties1
+public class AdditionalProperties1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## ObjectNullableProp
+public class ObjectNullableProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static ObjectNullablePropMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+
+## ObjectNullablePropMap
+public class ObjectNullablePropMap
+extends FrozenMap<String, FrozenMap<String, Object>>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ObjectNullablePropMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## AdditionalProperties
+public class AdditionalProperties
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## ArrayItemsNullable
+public class ArrayItemsNullable
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayItemsNullableList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Map<String, Object>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
+## ArrayItemsNullableList
+public class ArrayItemsNullableList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items2
+public class Items2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## ArrayAndItemsNullableProp
+public class ArrayAndItemsNullableProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static ArrayAndItemsNullablePropList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Map<String, Object>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
+## ArrayAndItemsNullablePropList
+public class ArrayAndItemsNullablePropList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items1
+public class Items1
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## ArrayNullableProp
+public class ArrayNullableProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static ArrayNullablePropList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+
+## Input List Items
+```
+type: List<Map<String, Object>>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
+## ArrayNullablePropList
+public class ArrayNullablePropList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
+### &lowbar;&lowbar;new&lowbar;&lowbar; method
+Argument | Type
+-------- | ------
+arg      | 
+configuration | configurations.SchemaConfiguration
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
+## Items
+public class Items
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## DatetimeProp
+public class DatetimeProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## DateProp
+public class DateProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## StringProp
+public class StringProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## BooleanProp
+public class BooleanProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+
+## NumberProp
+public class NumberProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static Number | validate(Number arg, SchemaConfiguration configuration) |
+
+## IntegerProp
+public class IntegerProp
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static long | validate(long arg, SchemaConfiguration configuration) |
+
+## AdditionalProperties3
+public class AdditionalProperties3
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

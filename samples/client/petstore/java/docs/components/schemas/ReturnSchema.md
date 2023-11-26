@@ -17,10 +17,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 Model for testing reserved words
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -55,5 +53,18 @@ A class to store validated Map payloads
 | static ReturnMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["return"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## ReturnSchema2
+public class ReturnSchema2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+this is a reserved python keyword
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

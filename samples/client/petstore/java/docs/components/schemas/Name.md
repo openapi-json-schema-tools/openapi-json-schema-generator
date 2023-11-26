@@ -19,10 +19,8 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-
 ## Description
 Model for testing model name same as property name
-
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -61,5 +59,40 @@ A class to store validated Map payloads
 | int | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Property
+public class Property
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Description
+this is a reserved python keyword
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static String | validate(String arg, SchemaConfiguration configuration) |
+
+## SnakeCase
+public class SnakeCase
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |
+
+## Name2
+public class Name2
+extends JsonSchema
+
+A schema class that validates payloads
+
+## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static int | validate(int arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

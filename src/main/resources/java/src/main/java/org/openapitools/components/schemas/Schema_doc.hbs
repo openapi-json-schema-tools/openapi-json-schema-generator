@@ -31,6 +31,8 @@ A class that contains necessary nested schema classes, and classes to store vali
         {{/eq}}
     {{/eq}}
 {{/each}}
+{{#each (reverse getSchemas)}}
+    {{#eq instanceType "schema"}}
 
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
 public class {{jsonPathPiece.camelCase}}
@@ -39,12 +41,11 @@ extends JsonSchema
 A schema class that validates payloads
 
 {{#if description}}
-
 {{headerSize}}# Description
 {{description}}
 {{/if}}
-
 {{#if refInfo}}
+
 {{headerSize}}# Ref Schema Info
 Ref Schema | Input Type | Output Type
 ---------- | ---------- | -----------
@@ -160,127 +161,15 @@ Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | {{#with items}}{{!> components/schemas/types/docschema_output_types }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} |{{#with items}}{{!> components/schemas/helpers/notes_msg defaultUser="server" }}{{/with}} This method is used under the hood when instance[0] is called
     {{/if}}
-    {{#or allOf anyOf oneOf not}}
-
-{{headerSize}}# Composed Schemas (allOf/anyOf/oneOf/not)
-    {{/or}}
-    {{#if allOf}}
-{{headerSize}}# allOf
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
-        {{#each allOf}}
-{{#if refInfo.refClass}}{{!> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{!> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
-        {{/each}}
-    {{/if}}
-    {{#if anyOf}}
-{{headerSize}}# anyOf
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
-        {{#each anyOf}}
-{{#if refInfo.refClass}}{{!> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{!> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
-        {{/each}}
-    {{/if}}
-    {{#if oneOf}}
-{{headerSize}}# oneOf
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
-        {{#each oneOf}}
-{{#if refInfo.refClass}}{{!> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{!> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
-        {{/each}}
-    {{/if}}
-    {{#if not}}
-{{headerSize}}# not
-Schema Class | Input Type | Return Type
------------- | ---------- | -----------
-        {{#with not}}
-{{#if refInfo.refClass}}{{!> components/schemas/__refclass_partial }}{{else}}[{{jsonPathPiece.camelCase}}](#{{!> components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece.anchorPiece) }}){{/if}} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
-        {{/with}}
-    {{/if}}
 {{/if}}
-{{! Content after here is the deeper/referenced schemas }}
-{{! required properties }}
-{{#if requiredProperties}}
-    {{#each requiredProperties}}
-        {{#if this}}
-            {{#unless refInfo.refClass}}
-                {{#if isComplicated}}
-
-{{!> components/schemas/schema_doc schema=this }}
-                {{/if}}
-            {{/unless}}
-        {{/if}}
-    {{/each}}
-{{/if}}
-{{! optional properties }}
-{{#if optionalProperties}}
-    {{#each optionalProperties}}
-        {{#unless refInfo.refClass}}
-            {{#if isComplicated}}
-
-{{!> components/schemas/schema_doc schema=this }}
-            {{/if}}
-        {{/unless}}
-    {{/each}}
-{{/if}}
-{{! additionalProperties }}
-{{#if additionalProperties}}
-    {{#with additionalProperties}}
-        {{#unless isBooleanSchemaFalse}}
-            {{#unless isBooleanSchemaTrue}}
-                {{#unless refInfo.refClass}}
-                    {{#if isComplicated}}
-
-{{!> components/schemas/schema_doc schema=this }}
-                    {{/if}}
-                {{/unless}}
-            {{/unless}}
-        {{/unless}}
-    {{/with}}
-{{/if}}
-{{! items }}
-{{#if items}}
-    {{#with items}}
-        {{#unless refInfo.refClass}}
-            {{#if isComplicated}}
-
-{{!> components/schemas/schema_doc schema=this }}
-            {{/if}}
-        {{/unless}}
-    {{/with}}
-{{/if}}
-{{! allOf/anyOf/oneOf/not }}
-{{#if allOf}}
-    {{#each allOf}}
-        {{#unless refInfo.refClass}}
-
-{{!> components/schemas/schema_doc schema=this }}
-        {{/unless}}
-    {{/each}}
-{{/if}}
-{{#if anyOf}}
-    {{#each anyOf}}
-        {{#unless refInfo.refClass}}
-
-{{!> components/schemas/schema_doc schema=this }}
-        {{/unless}}
-    {{/each}}
-{{/if}}
-{{#if oneOf}}
-    {{#each oneOf}}
-        {{#unless refInfo.refClass}}
-
-{{!> components/schemas/schema_doc schema=this }}
-        {{/unless}}
-    {{/each}}
-{{/if}}
-{{#if not}}
-    {{#with not}}
-        {{#unless refInfo.refClass}}
-
-{{!> components/schemas/schema_doc schema=this }}
-        {{/unless}}
-    {{/with}}
-{{/if}}
+        {{else}}
+        {{#eq instanceType "propertiesOutputType"}}
+        {{else}}
+            {{#eq instanceType "arrayOutputType"}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}
 {{#if componentModule}}
 
 [[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" schemasLink=true}}
