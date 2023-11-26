@@ -23,17 +23,6 @@ a model that includes properties which should stay primitive (String + Boolean) 
 | ----------------- | ---------------------- |
 | static ObjectModelWithRefPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**myNumber** | Number |  | [optional]
-**myString** | String |  | [optional]
-**myBoolean** | boolean |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ObjectModelWithRefPropsMap
 public class ObjectModelWithRefPropsMap
 extends FrozenMap<String, Object>
@@ -48,5 +37,16 @@ A class to store validated Map payloads
 | String | myString()<br>[optional] |
 | boolean | myBoolean()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**myNumber** | Number |  | [optional]
+**myString** | String |  | [optional]
+**myBoolean** | boolean |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

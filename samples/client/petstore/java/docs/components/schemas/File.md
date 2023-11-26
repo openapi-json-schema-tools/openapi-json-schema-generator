@@ -24,15 +24,6 @@ Must be named &#x60;File&#x60; for test.
 | ----------------- | ---------------------- |
 | static FileMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**sourceURI** | String | Test capitalization | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## FileMap
 public class FileMap
 extends FrozenMap<String, Object>
@@ -45,6 +36,15 @@ A class to store validated Map payloads
 | static FileMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | sourceURI()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**sourceURI** | String | Test capitalization | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SourceURI
 public class SourceURI

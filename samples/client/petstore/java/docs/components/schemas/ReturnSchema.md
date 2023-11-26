@@ -32,15 +32,6 @@ Model for testing reserved words
 | static ReturnMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**return** | int | this is a reserved python keyword | [optional] value must be a 32 bit integer
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ReturnMap
 public class ReturnMap
 extends FrozenMap<String, Object>
@@ -53,6 +44,15 @@ A class to store validated Map payloads
 | static ReturnMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["return"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**return** | int | this is a reserved python keyword | [optional] value must be a 32 bit integer
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ReturnSchema2
 public class ReturnSchema2

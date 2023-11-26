@@ -24,16 +24,6 @@ a model that includes a self reference this forces properties and additionalProp
 | ----------------- | ---------------------- |
 | static PlayerMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | String |  | [optional]
-**enemyPlayer** | Map |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## PlayerMap
 public class PlayerMap
 extends FrozenMap<String, Object>
@@ -47,6 +37,16 @@ A class to store validated Map payloads
 | String | name()<br>[optional] |
 | PlayerMap | enemyPlayer()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | String |  | [optional]
+**enemyPlayer** | Map<String, Object> |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Name
 public class Name

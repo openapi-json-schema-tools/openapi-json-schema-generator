@@ -46,26 +46,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static NullableClassMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**integer_prop** | Long |  | [optional]
-**number_prop** | Number |  | [optional]
-**boolean_prop** | Boolean |  | [optional]
-**string_prop** | String |  | [optional]
-**date_prop** | String |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**datetime_prop** | String |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | List<Map<String, Object>> |  | [optional]
-**array_and_items_nullable_prop** | List<Map<String, Object>> |  | [optional]
-**array_items_nullable** | List<Map<String, Object>> |  | [optional]
-**object_nullable_prop** | Map<String, Map<String, Object>> |  | [optional]
-**object_and_items_nullable_prop** | Map<String, Map<String, Object>> |  | [optional]
-**object_items_nullable** | Map<String, Map<String, Object>> |  | [optional]
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
-
 ## NullableClassMap
 public class NullableClassMap
 extends FrozenMap<String, Object>
@@ -90,6 +70,26 @@ A class to store validated Map payloads
 | ObjectItemsNullableMap | object_items_nullable()<br>[optional] |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**integer_prop** | Long |  | [optional]
+**number_prop** | Number |  | [optional]
+**boolean_prop** | Boolean |  | [optional]
+**string_prop** | String |  | [optional]
+**date_prop** | String |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**datetime_prop** | String |  | [optional] value must conform to RFC-3339 date-time
+**array_nullable_prop** | List<Map<String, Object>> |  | [optional]
+**array_and_items_nullable_prop** | List<Map<String, Object>> |  | [optional]
+**array_items_nullable** | List<Map<String, Object>> |  | [optional]
+**object_nullable_prop** | Map<String, Map<String, Object>> |  | [optional]
+**object_and_items_nullable_prop** | Map<String, Map<String, Object>> |  | [optional]
+**object_items_nullable** | Map<String, Map<String, Object>> |  | [optional]
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+
 ## ObjectItemsNullable
 public class ObjectItemsNullable
 extends JsonSchema
@@ -100,14 +100,6 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static ObjectItemsNullableMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## ObjectItemsNullableMap
 public class ObjectItemsNullableMap
@@ -120,6 +112,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static ObjectItemsNullableMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties2
 public class AdditionalProperties2
@@ -145,14 +145,6 @@ A schema class that validates payloads
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static ObjectAndItemsNullablePropMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
-
 ## ObjectAndItemsNullablePropMap
 public class ObjectAndItemsNullablePropMap
 extends FrozenMap<String, FrozenMap<String, Object>>
@@ -164,6 +156,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static ObjectAndItemsNullablePropMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties1
 public class AdditionalProperties1
@@ -189,14 +189,6 @@ A schema class that validates payloads
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static ObjectNullablePropMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
-
 ## ObjectNullablePropMap
 public class ObjectNullablePropMap
 extends FrozenMap<String, FrozenMap<String, Object>>
@@ -208,6 +200,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static ObjectNullablePropMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
 public class AdditionalProperties

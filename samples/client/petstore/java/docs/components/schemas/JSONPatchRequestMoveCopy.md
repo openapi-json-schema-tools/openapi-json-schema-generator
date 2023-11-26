@@ -25,16 +25,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static JSONPatchRequestMoveCopyMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, String>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**from** | String | A JSON Pointer path. |
-**op** | String | The operation to perform. | must be one of ["move", "copy"]
-**path** | String | A JSON Pointer path. |
-
 ## JSONPatchRequestMoveCopyMap
 public class JSONPatchRequestMoveCopyMap
 extends FrozenMap<String, String>
@@ -48,6 +38,16 @@ A class to store validated Map payloads
 | String | from()<br> |
 | String | op()<br> must be one of ["move", "copy"] |
 | String | path()<br> |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**from** | String | A JSON Pointer path. |
+**op** | String | The operation to perform. | must be one of ["move", "copy"]
+**path** | String | A JSON Pointer path. |
 
 ## Op
 public class Op

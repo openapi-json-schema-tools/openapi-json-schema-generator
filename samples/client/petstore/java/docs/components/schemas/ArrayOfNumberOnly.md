@@ -24,15 +24,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayOfNumberOnlyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**ArrayNumber** | List<Number> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ArrayOfNumberOnlyMap
 public class ArrayOfNumberOnlyMap
 extends FrozenMap<String, Object>
@@ -45,6 +36,15 @@ A class to store validated Map payloads
 | static ArrayOfNumberOnlyMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | ArrayNumberList | ArrayNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**ArrayNumber** | List<Number> |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayNumber
 public class ArrayNumber

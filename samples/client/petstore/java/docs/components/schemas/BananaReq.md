@@ -24,15 +24,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static BananaReqMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**lengthCm** | Number |  |
-**sweet** | boolean |  | [optional]
-
 ## BananaReqMap
 public class BananaReqMap
 extends FrozenMap<String, Object>
@@ -45,6 +36,15 @@ A class to store validated Map payloads
 | static BananaReqMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
 | boolean | sweet()<br>[optional] |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**lengthCm** | Number |  |
+**sweet** | boolean |  | [optional]
 
 ## Sweet
 public class Sweet

@@ -24,15 +24,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ObjectWithOnlyOptionalPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**a** | String |  | [optional]
-**b** | Number |  | [optional]
-
 ## ObjectWithOnlyOptionalPropsMap
 public class ObjectWithOnlyOptionalPropsMap
 extends FrozenMap<String, Object>
@@ -45,6 +36,15 @@ A class to store validated Map payloads
 | static ObjectWithOnlyOptionalPropsMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | a()<br>[optional] |
 | Number | b()<br>[optional] |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**a** | String |  | [optional]
+**b** | Number |  | [optional]
 
 ## B
 public class B

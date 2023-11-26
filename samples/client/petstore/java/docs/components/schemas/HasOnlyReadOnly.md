@@ -23,16 +23,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static HasOnlyReadOnlyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**bar** | String |  | [optional]
-**foo** | String |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## HasOnlyReadOnlyMap
 public class HasOnlyReadOnlyMap
 extends FrozenMap<String, Object>
@@ -46,6 +36,16 @@ A class to store validated Map payloads
 | String | bar()<br>[optional] |
 | String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**bar** | String |  | [optional]
+**foo** | String |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Foo
 public class Foo

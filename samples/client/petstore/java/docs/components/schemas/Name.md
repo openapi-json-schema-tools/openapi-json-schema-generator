@@ -34,17 +34,6 @@ Model for testing model name same as property name
 | static NameMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | int |  | value must be a 32 bit integer
-**snake_case** | int |  | [optional] value must be a 32 bit integer
-**property** | String | this is a reserved python keyword | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## NameMap
 public class NameMap
 extends FrozenMap<String, Object>
@@ -59,6 +48,17 @@ A class to store validated Map payloads
 | int | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | int |  | value must be a 32 bit integer
+**snake_case** | int |  | [optional] value must be a 32 bit integer
+**property** | String | this is a reserved python keyword | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Property
 public class Property

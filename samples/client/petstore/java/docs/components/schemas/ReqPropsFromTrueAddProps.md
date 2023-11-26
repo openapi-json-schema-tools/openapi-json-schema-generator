@@ -22,16 +22,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ReqPropsFromTrueAddPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**invalid-name** | Object |  |
-**validName** | Object |  |
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ReqPropsFromTrueAddPropsMap
 public class ReqPropsFromTrueAddPropsMap
 extends FrozenMap<String, Object>
@@ -45,6 +35,16 @@ A class to store validated Map payloads
 | Object | validName()<br> |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["invalid-name"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**invalid-name** | Object |  |
+**validName** | Object |  |
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
 public class AdditionalProperties

@@ -41,22 +41,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static AdditionalPropertiesClassMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**map_property** | Map<String, String> |  | [optional]
-**map_of_map_property** | Map<String, Map<String, String>> |  | [optional]
-**anytype_1** | Object |  | [optional]
-**map_with_undeclared_properties_anytype_1** | Map<String, Object> |  | [optional]
-**map_with_undeclared_properties_anytype_2** | Map<String, Object> |  | [optional]
-**map_with_undeclared_properties_anytype_3** | Map<String, Object> |  | [optional]
-**empty_map** | Map<String, Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** | Map<String, String> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## AdditionalPropertiesClassMap
 public class AdditionalPropertiesClassMap
 extends FrozenMap<String, Object>
@@ -77,6 +61,22 @@ A class to store validated Map payloads
 | MapWithUndeclaredPropertiesStringMap | map_with_undeclared_properties_string()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**map_property** | Map<String, String> |  | [optional]
+**map_of_map_property** | Map<String, Map<String, String>> |  | [optional]
+**anytype_1** | Object |  | [optional]
+**map_with_undeclared_properties_anytype_1** | Map<String, Object> |  | [optional]
+**map_with_undeclared_properties_anytype_2** | Map<String, Object> |  | [optional]
+**map_with_undeclared_properties_anytype_3** | Map<String, Object> |  | [optional]
+**empty_map** | Map<String, Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
+**map_with_undeclared_properties_string** | Map<String, String> |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+
 ## MapWithUndeclaredPropertiesString
 public class MapWithUndeclaredPropertiesString
 extends JsonSchema
@@ -87,14 +87,6 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static MapWithUndeclaredPropertiesStringMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## MapWithUndeclaredPropertiesStringMap
 public class MapWithUndeclaredPropertiesStringMap
@@ -107,6 +99,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static MapWithUndeclaredPropertiesStringMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties5
 public class AdditionalProperties5
@@ -132,13 +132,6 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 | ----------------- | ---------------------- |
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-
 ## EmptyMapMap
 public class EmptyMapMap
 extends FrozenMap<String, Object>
@@ -149,6 +142,13 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static EmptyMapMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
 
 ## AdditionalProperties4
 public class AdditionalProperties4
@@ -180,14 +180,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static MapWithUndeclaredPropertiesAnytype3Map | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## MapWithUndeclaredPropertiesAnytype3Map
 public class MapWithUndeclaredPropertiesAnytype3Map
 extends FrozenMap<String, Object>
@@ -199,6 +191,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static MapWithUndeclaredPropertiesAnytype3Map | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties3
 public class AdditionalProperties3
@@ -271,14 +271,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static MapOfMapPropertyMap | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional]
-
 ## MapOfMapPropertyMap
 public class MapOfMapPropertyMap
 extends FrozenMap<String, AdditionalPropertiesMap>
@@ -291,6 +283,14 @@ A class to store validated Map payloads
 | static MapOfMapPropertyMap | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
 | AdditionalPropertiesMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional]
+
 ## AdditionalProperties1
 public class AdditionalProperties1
 extends JsonSchema
@@ -301,14 +301,6 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static AdditionalPropertiesMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalPropertiesMap
 public class AdditionalPropertiesMap
@@ -321,6 +313,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static AdditionalPropertiesMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties2
 public class AdditionalProperties2
@@ -344,14 +344,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static MapPropertyMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
-
 ## MapPropertyMap
 public class MapPropertyMap
 extends FrozenMap<String, String>
@@ -363,6 +355,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static MapPropertyMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
 public class AdditionalProperties

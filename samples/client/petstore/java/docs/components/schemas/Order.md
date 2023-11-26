@@ -27,20 +27,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static OrderMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | long |  | [optional] value must be a 64 bit integer
-**petId** | long |  | [optional] value must be a 64 bit integer
-**quantity** | int |  | [optional] value must be a 32 bit integer
-**shipDate** | String |  | [optional] value must conform to RFC-3339 date-time
-**status** | String | Order Status | [optional] must be one of ["placed", "approved", "delivered"]
-**complete** | boolean |  | [optional] if omitted the server will use the default value of false
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## OrderMap
 public class OrderMap
 extends FrozenMap<String, Object>
@@ -58,6 +44,20 @@ A class to store validated Map payloads
 | String | status()<br>[optional] must be one of ["placed", "approved", "delivered"] |
 | boolean | complete()<br>[optional] if omitted the server will use the default value of false |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | long |  | [optional] value must be a 64 bit integer
+**petId** | long |  | [optional] value must be a 64 bit integer
+**quantity** | int |  | [optional] value must be a 32 bit integer
+**shipDate** | String |  | [optional] value must conform to RFC-3339 date-time
+**status** | String | Order Status | [optional] must be one of ["placed", "approved", "delivered"]
+**complete** | boolean |  | [optional] if omitted the server will use the default value of false
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Complete
 public class Complete

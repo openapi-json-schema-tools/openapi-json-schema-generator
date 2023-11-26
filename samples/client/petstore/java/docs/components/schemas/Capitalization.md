@@ -27,20 +27,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static CapitalizationMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**smallCamel** | String |  | [optional]
-**CapitalCamel** | String |  | [optional]
-**small_Snake** | String |  | [optional]
-**Capital_Snake** | String |  | [optional]
-**SCA_ETH_Flow_Points** | String |  | [optional]
-**ATT_NAME** | String | Name of the pet  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## CapitalizationMap
 public class CapitalizationMap
 extends FrozenMap<String, Object>
@@ -58,6 +44,20 @@ A class to store validated Map payloads
 | String | SCA_ETH_Flow_Points()<br>[optional] |
 | String | ATT_NAME()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**smallCamel** | String |  | [optional]
+**CapitalCamel** | String |  | [optional]
+**small_Snake** | String |  | [optional]
+**Capital_Snake** | String |  | [optional]
+**SCA_ETH_Flow_Points** | String |  | [optional]
+**ATT_NAME** | String | Name of the pet  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ATTNAME
 public class ATTNAME

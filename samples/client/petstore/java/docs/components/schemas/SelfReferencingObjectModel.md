@@ -21,15 +21,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static SelfReferencingObjectModelMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**selfRef** | Map |  | [optional]
-**anyStringName** | Map | any string name can be used but the value must be the correct type | [optional]
-
 ## SelfReferencingObjectModelMap
 public class SelfReferencingObjectModelMap
 extends FrozenMap<String, Object>
@@ -42,5 +33,14 @@ A class to store validated Map payloads
 | static SelfReferencingObjectModelMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | SelfReferencingObjectModelMap | selfRef()<br>[optional] |
 | SelfReferencingObjectModelMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**selfRef** | Map<String, Object> |  | [optional]
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -25,15 +25,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static PaginatedResultMyObjectDtoMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**count** | long |  |
-**results** | List<Map<String, String>> |  |
-
 ## PaginatedResultMyObjectDtoMap
 public class PaginatedResultMyObjectDtoMap
 extends FrozenMap<String, Object>
@@ -46,6 +37,15 @@ A class to store validated Map payloads
 | static PaginatedResultMyObjectDtoMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | long | count()<br> |
 | ResultsList | results()<br> |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**count** | long |  |
+**results** | List<Map<String, String>> |  |
 
 ## Results
 public class Results

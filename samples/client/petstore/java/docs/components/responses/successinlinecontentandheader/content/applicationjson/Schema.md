@@ -22,14 +22,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static SchemaMap | validate(Map<String, Integer> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Integer>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
-
 ## SchemaMap
 public class SchemaMap
 extends FrozenMap<String, Integer>
@@ -41,6 +33,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static SchemaMap | of(Map<String, Integer> arg, SchemaConfiguration configuration) |
 | int | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
 
 ## AdditionalProperties
 public class AdditionalProperties

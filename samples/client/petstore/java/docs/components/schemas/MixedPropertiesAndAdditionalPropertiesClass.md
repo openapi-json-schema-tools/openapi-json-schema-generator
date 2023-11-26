@@ -25,17 +25,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static MixedPropertiesAndAdditionalPropertiesClassMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**uuid** | String |  | [optional] value must be a uuid
-**dateTime** | String |  | [optional] value must conform to RFC-3339 date-time
-**map** | Map<String, Map<String, Object>> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## MixedPropertiesAndAdditionalPropertiesClassMap
 public class MixedPropertiesAndAdditionalPropertiesClassMap
 extends FrozenMap<String, Object>
@@ -50,6 +39,17 @@ A class to store validated Map payloads
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["map"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**uuid** | String |  | [optional] value must be a uuid
+**dateTime** | String |  | [optional] value must conform to RFC-3339 date-time
+**map** | Map<String, Map<String, Object>> |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+
 ## MapSchema
 public class MapSchema
 extends JsonSchema
@@ -60,14 +60,6 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static MapMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## MapMap
 public class MapMap
@@ -80,6 +72,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static MapMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | Animal.AnimalMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## DateTime
 public class DateTime

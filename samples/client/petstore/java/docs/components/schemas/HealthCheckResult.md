@@ -24,15 +24,6 @@ Just a string to inform instance is up and running. Make it nullable in hope to 
 | ----------------- | ---------------------- |
 | static HealthCheckResultMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**NullableMessage** | String |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## HealthCheckResultMap
 public class HealthCheckResultMap
 extends FrozenMap<String, Object>
@@ -45,6 +36,15 @@ A class to store validated Map payloads
 | static HealthCheckResultMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | NullableMessage()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**NullableMessage** | String |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## NullableMessage
 public class NullableMessage

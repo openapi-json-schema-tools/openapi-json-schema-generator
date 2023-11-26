@@ -22,14 +22,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static StringBooleanMapMap | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Boolean>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional]
-
 ## StringBooleanMapMap
 public class StringBooleanMapMap
 extends FrozenMap<String, Boolean>
@@ -41,6 +33,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static StringBooleanMapMap | of(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
 public class AdditionalProperties

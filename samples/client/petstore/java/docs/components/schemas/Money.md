@@ -23,15 +23,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static MoneyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**amount** | String |  | value must be int or float numeric
-**currency** | String |  |
-
 ## MoneyMap
 public class MoneyMap
 extends FrozenMap<String, Object>
@@ -44,6 +35,15 @@ A class to store validated Map payloads
 | static MoneyMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | amount()<br> value must be int or float numeric |
 | String | currency()<br> |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**amount** | String |  | value must be int or float numeric
+**currency** | String |  |
 
 ## Amount
 public class Amount

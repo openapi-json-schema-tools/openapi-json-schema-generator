@@ -55,45 +55,15 @@ Ref Schema | Input Type | Output Type
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 {{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}
-    {{#or properties additionalProperties requiredProperties}}
-
-{{headerSize}}# Input Map Keys
-```
-        {{#eq types null}}
-type: Map<String, Object>
+{{/if}}
         {{else}}
-            {{#with ../mapValueSchema}}
-type: Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}>
-            {{else}}
-type: Map<String, Object>
-            {{/with}}
-        {{/eq}}
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-        {{#each requiredProperties}}
-**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
-        {{/each}}
-        {{#each optionalProperties}}
-**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
-        {{/each}}
-        {{#with additionalProperties}}
-            {{#unless isBooleanSchemaFalse}}
-                {{#if isBooleanSchemaTrue}}
-**anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
-            {{else}}
-**anyStringName** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
-                {{/if}}
-            {{/unless}}
-        {{else}}
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-        {{/with}}
+        {{#eq instanceType "propertiesOutputType"}}
 
-    {{#if mapOutputJsonPathPiece}}
+            {{#if mapOutputJsonPathPiece}}
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
-    {{else}}
+            {{else}}
 {{headerSize}}# Output FrozenMap Keys
-    {{/if}}
+            {{/if}}
 public class {{mapOutputJsonPathPiece.camelCase}}
 extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
 
@@ -113,24 +83,54 @@ A class to store validated Map payloads
 | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | {{@key.original}}()<br>[optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
                 {{/if}}
             {{/each}}
-        {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
+            {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
 | {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}{{else}}Object{{/with}} | get(String key)<br>This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
-        {{/or}}
-        {{#with additionalProperties}}
-            {{#unless isBooleanSchemaFalse}}
-                {{#if isBooleanSchemaTrue}}
+            {{/or}}
+            {{#with additionalProperties}}
+                {{#unless isBooleanSchemaFalse}}
+                    {{#if isBooleanSchemaTrue}}
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-            {{else}}
+                {{else}}
 | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-                {{/if}}
-            {{/unless}}
-        {{else}}
+                    {{/if}}
+                {{/unless}}
+            {{else}}
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-        {{/with}}
-    {{/or}}
-{{/if}}
-        {{else}}
-        {{#eq instanceType "propertiesOutputType"}}
+            {{/with}}
+            {{#or properties additionalProperties requiredProperties}}
+
+{{headerSize}}# Input Map Keys
+```
+                {{#eq types null}}
+type: Map<String, Object>
+                {{else}}
+                    {{#with ../mapValueSchema}}
+type: Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}>
+                    {{else}}
+type: Map<String, Object>
+                    {{/with}}
+                {{/eq}}
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+                {{#each requiredProperties}}
+**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+                {{/each}}
+                {{#each optionalProperties}}
+**{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+                {{/each}}
+                {{#with additionalProperties}}
+                    {{#unless isBooleanSchemaFalse}}
+                        {{#if isBooleanSchemaTrue}}
+**anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]
+                        {{else}}
+**anyStringName** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+                        {{/if}}
+                    {{/unless}}
+                {{else}}
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+                {{/with}}
+            {{/or}}
         {{else}}
             {{#eq instanceType "arrayOutputType"}}
 

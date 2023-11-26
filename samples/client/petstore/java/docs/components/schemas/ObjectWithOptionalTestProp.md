@@ -22,15 +22,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ObjectWithOptionalTestPropMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**test** | String |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ObjectWithOptionalTestPropMap
 public class ObjectWithOptionalTestPropMap
 extends FrozenMap<String, Object>
@@ -43,6 +34,15 @@ A class to store validated Map payloads
 | static ObjectWithOptionalTestPropMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | test()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**test** | String |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Test
 public class Test

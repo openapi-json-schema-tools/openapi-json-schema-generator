@@ -24,15 +24,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static JSONPatchRequestRemoveMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, String>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**op** | String | The operation to perform. | must be one of ["remove"]
-**path** | String | A JSON Pointer path. |
-
 ## JSONPatchRequestRemoveMap
 public class JSONPatchRequestRemoveMap
 extends FrozenMap<String, String>
@@ -45,6 +36,15 @@ A class to store validated Map payloads
 | static JSONPatchRequestRemoveMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | op()<br> must be one of ["remove"] |
 | String | path()<br> |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**op** | String | The operation to perform. | must be one of ["remove"]
+**path** | String | A JSON Pointer path. |
 
 ## Op
 public class Op

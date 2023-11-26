@@ -23,18 +23,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static DrawingMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**mainShape** | Object |  | [optional]
-**shapeOrNull** | Object |  | [optional]
-**nullableShape** | Object |  | [optional]
-**shapes** | List<Object> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## DrawingMap
 public class DrawingMap
 extends FrozenMap<String, Object>
@@ -50,6 +38,18 @@ A class to store validated Map payloads
 | Object | nullableShape()<br>[optional] |
 | ShapesList | shapes()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**mainShape** | Object |  | [optional]
+**shapeOrNull** | Object |  | [optional]
+**nullableShape** | Object |  | [optional]
+**shapes** | List<Object> |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Shapes
 public class Shapes

@@ -23,16 +23,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static SchemaMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**param** | String | field1 |
-**param2** | String | field2 |
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## SchemaMap
 public class SchemaMap
 extends FrozenMap<String, Object>
@@ -46,6 +36,16 @@ A class to store validated Map payloads
 | String | param()<br> |
 | String | param2()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**param** | String | field1 |
+**param2** | String | field2 |
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Param2
 public class Param2

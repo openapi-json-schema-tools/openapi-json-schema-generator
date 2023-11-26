@@ -22,17 +22,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ObjectWithDecimalPropertiesMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**length** | String |  | [optional]
-**width** | String |  | [optional] value must be int or float numeric
-**cost** | Map<String, Object> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ObjectWithDecimalPropertiesMap
 public class ObjectWithDecimalPropertiesMap
 extends FrozenMap<String, Object>
@@ -47,6 +36,17 @@ A class to store validated Map payloads
 | String | width()<br>[optional] value must be int or float numeric |
 | Money.MoneyMap | cost()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**length** | String |  | [optional]
+**width** | String |  | [optional] value must be int or float numeric
+**cost** | Map<String, Object> |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Width
 public class Width

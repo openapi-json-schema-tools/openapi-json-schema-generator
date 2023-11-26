@@ -33,16 +33,6 @@ model with an invalid class name for python, starts with a number
 | static Schema200ResponseMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | int |  | [optional] value must be a 32 bit integer
-**class** | String | this is a reserved python keyword | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## Schema200ResponseMap
 public class Schema200ResponseMap
 extends FrozenMap<String, Object>
@@ -56,6 +46,16 @@ A class to store validated Map payloads
 | int | name()<br>[optional] value must be a 32 bit integer |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["class"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | int |  | [optional] value must be a 32 bit integer
+**class** | String | this is a reserved python keyword | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ClassSchema
 public class ClassSchema

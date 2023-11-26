@@ -24,17 +24,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ApiResponseMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**code** | int |  | [optional] value must be a 32 bit integer
-**type** | String |  | [optional]
-**message** | String |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ApiResponseMap
 public class ApiResponseMap
 extends FrozenMap<String, Object>
@@ -49,6 +38,17 @@ A class to store validated Map payloads
 | String | type()<br>[optional] |
 | String | message()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**code** | int |  | [optional] value must be a 32 bit integer
+**type** | String |  | [optional]
+**message** | String |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Message
 public class Message

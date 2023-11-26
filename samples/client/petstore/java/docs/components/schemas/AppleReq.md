@@ -24,15 +24,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static AppleReqMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**cultivar** | String |  |
-**mealy** | boolean |  | [optional]
-
 ## AppleReqMap
 public class AppleReqMap
 extends FrozenMap<String, Object>
@@ -45,6 +36,15 @@ A class to store validated Map payloads
 | static AppleReqMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | boolean | mealy()<br>[optional] |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**cultivar** | String |  |
+**mealy** | boolean |  | [optional]
 
 ## Mealy
 public class Mealy

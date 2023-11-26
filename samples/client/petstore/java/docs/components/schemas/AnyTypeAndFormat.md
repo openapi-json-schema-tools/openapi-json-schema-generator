@@ -30,23 +30,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static AnyTypeAndFormatMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**uuid** | Object |  | [optional] value must be a uuid
-**date** | Object |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**date-time** | Object |  | [optional] value must conform to RFC-3339 date-time
-**number** | Object |  | [optional] value must be int or float numeric
-**binary** | Object |  | [optional]
-**int32** | Object |  | [optional] value must be a 32 bit integer
-**int64** | Object |  | [optional] value must be a 64 bit integer
-**double** | Object |  | [optional] value must be a 64 bit float
-**float** | Object |  | [optional] value must be a 32 bit float
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## AnyTypeAndFormatMap
 public class AnyTypeAndFormatMap
 extends FrozenMap<String, Object>
@@ -63,6 +46,23 @@ A class to store validated Map payloads
 | Object | int64()<br>[optional] value must be a 64 bit integer |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**uuid** | Object |  | [optional] value must be a uuid
+**date** | Object |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
+**date-time** | Object |  | [optional] value must conform to RFC-3339 date-time
+**number** | Object |  | [optional] value must be int or float numeric
+**binary** | Object |  | [optional]
+**int32** | Object |  | [optional] value must be a 32 bit integer
+**int64** | Object |  | [optional] value must be a 64 bit integer
+**double** | Object |  | [optional] value must be a 64 bit float
+**float** | Object |  | [optional] value must be a 32 bit float
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## FloatSchema
 public class FloatSchema

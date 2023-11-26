@@ -31,20 +31,6 @@ Pet object that needs to be added to the store
 | ----------------- | ---------------------- |
 | static PetMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | String |  |
-**photoUrls** | List<String> |  |
-**id** | long |  | [optional] value must be a 64 bit integer
-**category** | Map<String, Object> |  | [optional]
-**tags** | List<Map<String, Object>> |  | [optional]
-**status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## PetMap
 public class PetMap
 extends FrozenMap<String, Object>
@@ -62,6 +48,20 @@ A class to store validated Map payloads
 | TagsList | tags()<br>[optional] |
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**name** | String |  |
+**photoUrls** | List<String> |  |
+**id** | long |  | [optional] value must be a 64 bit integer
+**category** | Map<String, Object> |  | [optional]
+**tags** | List<Map<String, Object>> |  | [optional]
+**status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Tags
 public class Tags

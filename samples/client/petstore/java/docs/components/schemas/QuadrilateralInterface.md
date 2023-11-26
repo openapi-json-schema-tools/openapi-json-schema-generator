@@ -31,16 +31,6 @@ A schema class that validates payloads
 | static QuadrilateralInterfaceMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**quadrilateralType** | String |  |
-**shapeType** | String |  | must be one of ["Quadrilateral"]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## QuadrilateralInterfaceMap
 public class QuadrilateralInterfaceMap
 extends FrozenMap<String, Object>
@@ -54,6 +44,16 @@ A class to store validated Map payloads
 | String | quadrilateralType()<br> |
 | String | shapeType()<br> must be one of ["Quadrilateral"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**quadrilateralType** | String |  |
+**shapeType** | String |  | must be one of ["Quadrilateral"]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## QuadrilateralType
 public class QuadrilateralType

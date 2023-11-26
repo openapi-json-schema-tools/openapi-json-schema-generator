@@ -22,15 +22,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static GrandparentAnimalMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**pet_type** | String |  |
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## GrandparentAnimalMap
 public class GrandparentAnimalMap
 extends FrozenMap<String, Object>
@@ -43,6 +34,15 @@ A class to store validated Map payloads
 | static GrandparentAnimalMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**pet_type** | String |  |
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## PetType
 public class PetType

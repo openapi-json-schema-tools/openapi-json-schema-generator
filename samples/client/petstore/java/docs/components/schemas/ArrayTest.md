@@ -33,17 +33,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayTestMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**array_of_string** | List<String> |  | [optional]
-**array_array_of_integer** | List<List<long>> |  | [optional]
-**array_array_of_model** | List<List<Map<String, Object>>> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
-
 ## ArrayTestMap
 public class ArrayTestMap
 extends FrozenMap<String, Object>
@@ -58,6 +47,17 @@ A class to store validated Map payloads
 | ArrayArrayOfIntegerList | array_array_of_integer()<br>[optional] |
 | ArrayArrayOfModelList | array_array_of_model()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**array_of_string** | List<String> |  | [optional]
+**array_array_of_integer** | List<List<long>> |  | [optional]
+**array_array_of_model** | List<List<Map<String, Object>>> |  | [optional]
+**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayArrayOfModel
 public class ArrayArrayOfModel

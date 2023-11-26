@@ -25,16 +25,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static JSONPatchRequestAddReplaceTestMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**op** | String | The operation to perform. | must be one of ["add", "replace", "test"]
-**path** | String | A JSON Pointer path. |
-**value** | Object | The value to add, replace or test. |
-
 ## JSONPatchRequestAddReplaceTestMap
 public class JSONPatchRequestAddReplaceTestMap
 extends FrozenMap<String, Object>
@@ -48,6 +38,16 @@ A class to store validated Map payloads
 | String | op()<br> must be one of ["add", "replace", "test"] |
 | String | path()<br> |
 | Object | value()<br> |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**op** | String | The operation to perform. | must be one of ["add", "replace", "test"]
+**path** | String | A JSON Pointer path. |
+**value** | Object | The value to add, replace or test. |
 
 ## Op
 public class Op

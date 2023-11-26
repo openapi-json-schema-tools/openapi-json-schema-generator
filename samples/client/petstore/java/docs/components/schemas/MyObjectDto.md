@@ -23,14 +23,6 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static MyObjectDtoMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
-## Input Map Keys
-```
-type: Map<String, String>
-```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | String |  | [optional] value must be a uuid
-
 ## MyObjectDtoMap
 public class MyObjectDtoMap
 extends FrozenMap<String, String>
@@ -42,6 +34,14 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static MyObjectDtoMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | id()<br>[optional] value must be a uuid |
+
+## Input Map Keys
+```
+type: Map<String, Object>
+```
+Key | Type |  Description | Notes
+------------ | ------------- | ------------- | -------------
+**id** | String |  | [optional] value must be a uuid
 
 ## Id
 public class Id
