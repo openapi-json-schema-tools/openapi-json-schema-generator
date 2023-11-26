@@ -128,17 +128,11 @@ A class to store validated Map payloads
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
         {{/with}}
     {{/or}}
-    {{#if items}}
-
-{{headerSize}}# Input List Items
-```
-type: List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-        {{#with items}}
-{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
-        {{/with}}
+{{/if}}
+        {{else}}
+        {{#eq instanceType "propertiesOutputType"}}
+        {{else}}
+            {{#eq instanceType "arrayOutputType"}}
 
         {{#if arrayOutputJsonPathPiece}}
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
@@ -150,22 +144,22 @@ extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/
 
 A class to store validated List payloads
 
-{{headerSize}}## &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | {{!> components/schemas/types/docschema_io_types types=(append (newArray ) "array") }}
-configuration | configurations.SchemaConfiguration
-
 {{headerSize}}## methods
 Method | Input Type | Return Type | Notes
 ------ | ---------- | ----------- | ------
 &lowbar;&lowbar;getitem&lowbar;&lowbar; | int | {{#with items}}{{!> components/schemas/types/docschema_output_types }}{{else}}schemas.OUTPUT_BASE_TYPES{{/with}} |{{#with items}}{{!> components/schemas/helpers/notes_msg defaultUser="server" }}{{/with}} This method is used under the hood when instance[0] is called
+    {{#if items}}
+
+{{headerSize}}# Input List Items
+```
+type: List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+        {{#with items}}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+        {{/with}}
     {{/if}}
-{{/if}}
-        {{else}}
-        {{#eq instanceType "propertiesOutputType"}}
-        {{else}}
-            {{#eq instanceType "arrayOutputType"}}
             {{/eq}}
         {{/eq}}
     {{/eq}}

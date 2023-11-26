@@ -21,6 +21,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static SchemaList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## SchemaList
+public class SchemaList
+extends FrozenList<Pet.PetMap>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, Object>>
@@ -28,20 +39,3 @@ type: List<Map<String, Object>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, Object> |  |
-
-## SchemaList
-public class SchemaList
-extends FrozenList<Pet.PetMap>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called

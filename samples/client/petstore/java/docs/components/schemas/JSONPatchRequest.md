@@ -22,6 +22,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static JSONPatchRequestList | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## JSONPatchRequestList
+public class JSONPatchRequestList
+extends FrozenList<Object>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Object>
@@ -29,23 +40,6 @@ type: List<Object>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Object |  |
-
-## JSONPatchRequestList
-public class JSONPatchRequestList
-extends FrozenList<Object>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items

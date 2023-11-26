@@ -70,6 +70,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayArrayOfModelList | validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
 
+## ArrayArrayOfModelList
+public class ArrayArrayOfModelList
+extends FrozenList<ItemsList1>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<List<Map<String, Object>>>
@@ -77,23 +88,6 @@ type: List<List<Map<String, Object>>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 List<Map<String, Object>> |  |
-
-## ArrayArrayOfModelList
-public class ArrayArrayOfModelList
-extends FrozenList<ItemsList1>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items3
 public class Items3
@@ -106,6 +100,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ItemsList1 | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ItemsList1
+public class ItemsList1
+extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, Object>>
@@ -113,23 +118,6 @@ type: List<Map<String, Object>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, Object> |  |
-
-## ItemsList1
-public class ItemsList1
-extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## ArrayArrayOfInteger
 public class ArrayArrayOfInteger
@@ -142,6 +130,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayArrayOfIntegerList | validate(List<List<Long>> arg, SchemaConfiguration configuration) |
 
+## ArrayArrayOfIntegerList
+public class ArrayArrayOfIntegerList
+extends FrozenList<ItemsList>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<List<Long>>
@@ -149,23 +148,6 @@ type: List<List<Long>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 List<Long> |  |
-
-## ArrayArrayOfIntegerList
-public class ArrayArrayOfIntegerList
-extends FrozenList<ItemsList>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items1
 public class Items1
@@ -178,6 +160,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ItemsList | validate(List<Long> arg, SchemaConfiguration configuration) |
 
+## ItemsList
+public class ItemsList
+extends FrozenList<Long>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Long>
@@ -185,23 +178,6 @@ type: List<Long>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Long |  | value must be a 64 bit integer
-
-## ItemsList
-public class ItemsList
-extends FrozenList<Long>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items2
 public class Items2
@@ -225,6 +201,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayOfStringList | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## ArrayOfStringList
+public class ArrayOfStringList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<String>
@@ -232,23 +219,6 @@ type: List<String>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 String |  |
-
-## ArrayOfStringList
-public class ArrayOfStringList
-extends FrozenList<String>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items

@@ -236,6 +236,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayWithUniqueItemsList | validate(List<Number> arg, SchemaConfiguration configuration) |
 
+## ArrayWithUniqueItemsList
+public class ArrayWithUniqueItemsList
+extends FrozenList<Number>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Number>
@@ -243,23 +254,6 @@ type: List<Number>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Number |  |
-
-## ArrayWithUniqueItemsList
-public class ArrayWithUniqueItemsList
-extends FrozenList<Number>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items

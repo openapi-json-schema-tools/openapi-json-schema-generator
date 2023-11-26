@@ -58,6 +58,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ResultsList | validate(List<Map<String, String>> arg, SchemaConfiguration configuration) |
 
+## ResultsList
+public class ResultsList
+extends FrozenList<MyObjectDto.MyObjectDtoMap>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, String>>
@@ -65,23 +76,6 @@ type: List<Map<String, String>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, String> |  |
-
-## ResultsList
-public class ResultsList
-extends FrozenList<MyObjectDto.MyObjectDtoMap>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Count
 public class Count

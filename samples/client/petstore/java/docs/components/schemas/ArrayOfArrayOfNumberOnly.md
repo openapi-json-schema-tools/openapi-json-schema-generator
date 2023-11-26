@@ -59,6 +59,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayArrayNumberList | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
 
+## ArrayArrayNumberList
+public class ArrayArrayNumberList
+extends FrozenList<ItemsList>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<List<Number>>
@@ -66,23 +77,6 @@ type: List<List<Number>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 List<Number> |  |
-
-## ArrayArrayNumberList
-public class ArrayArrayNumberList
-extends FrozenList<ItemsList>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items
@@ -95,6 +89,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ItemsList | validate(List<Number> arg, SchemaConfiguration configuration) |
 
+## ItemsList
+public class ItemsList
+extends FrozenList<Number>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Number>
@@ -102,23 +107,6 @@ type: List<Number>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Number |  |
-
-## ItemsList
-public class ItemsList
-extends FrozenList<Number>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items1
 public class Items1

@@ -231,6 +231,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayItemsNullableList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ArrayItemsNullableList
+public class ArrayItemsNullableList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, Object>>
@@ -238,23 +249,6 @@ type: List<Map<String, Object>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, Object> |  |
-
-## ArrayItemsNullableList
-public class ArrayItemsNullableList
-extends FrozenList<FrozenMap<String, Object>>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items2
 public class Items2
@@ -280,6 +274,17 @@ A schema class that validates payloads
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static ArrayAndItemsNullablePropList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ArrayAndItemsNullablePropList
+public class ArrayAndItemsNullablePropList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, Object>>
@@ -287,23 +292,6 @@ type: List<Map<String, Object>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, Object> |  |
-
-## ArrayAndItemsNullablePropList
-public class ArrayAndItemsNullablePropList
-extends FrozenList<FrozenMap<String, Object>>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items1
 public class Items1
@@ -329,6 +317,17 @@ A schema class that validates payloads
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static ArrayNullablePropList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ArrayNullablePropList
+public class ArrayNullablePropList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, Object>>
@@ -336,23 +335,6 @@ type: List<Map<String, Object>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, Object> |  |
-
-## ArrayNullablePropList
-public class ArrayNullablePropList
-extends FrozenList<FrozenMap<String, Object>>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items

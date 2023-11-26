@@ -24,6 +24,17 @@ component&#x27;s name collides with the inner schema name
 | ----------------- | ---------------------- |
 | static ItemsList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ItemsList
+public class ItemsList
+extends FrozenList<FrozenMap<String, Object>>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, Object>>
@@ -31,23 +42,6 @@ type: List<Map<String, Object>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, Object> |  |
-
-## ItemsList
-public class ItemsList
-extends FrozenList<FrozenMap<String, Object>>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items2
 public class Items2

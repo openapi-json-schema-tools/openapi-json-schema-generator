@@ -62,6 +62,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ShapesList | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## ShapesList
+public class ShapesList
+extends FrozenList<Object>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Object>
@@ -69,22 +80,5 @@ type: List<Object>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Object |  |
-
-## ShapesList
-public class ShapesList
-extends FrozenList<Object>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

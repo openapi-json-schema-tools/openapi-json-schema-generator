@@ -74,6 +74,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static TagsList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## TagsList
+public class TagsList
+extends FrozenList<Tag.TagMap>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Map<String, Object>>
@@ -81,23 +92,6 @@ type: List<Map<String, Object>>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Map<String, Object> |  |
-
-## TagsList
-public class TagsList
-extends FrozenList<Tag.TagMap>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Status
 public class Status
@@ -123,6 +117,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static PhotoUrlsList | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## PhotoUrlsList
+public class PhotoUrlsList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<String>
@@ -130,23 +135,6 @@ type: List<String>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 String |  |
-
-## PhotoUrlsList
-public class PhotoUrlsList
-extends FrozenList<String>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items

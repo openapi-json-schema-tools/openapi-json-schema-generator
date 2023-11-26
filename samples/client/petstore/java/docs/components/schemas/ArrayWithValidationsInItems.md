@@ -22,6 +22,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static ArrayWithValidationsInItemsList | validate(List<Long> arg, SchemaConfiguration configuration) |
 
+## ArrayWithValidationsInItemsList
+public class ArrayWithValidationsInItemsList
+extends FrozenList<Long>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<Long>
@@ -29,23 +40,6 @@ type: List<Long>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 Long |  | value must be a 64 bit integer
-
-## ArrayWithValidationsInItemsList
-public class ArrayWithValidationsInItemsList
-extends FrozenList<Long>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items

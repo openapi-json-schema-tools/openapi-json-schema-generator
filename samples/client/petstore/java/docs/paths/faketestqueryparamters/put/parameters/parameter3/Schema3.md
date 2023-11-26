@@ -22,6 +22,17 @@ A schema class that validates payloads
 | ----------------- | ---------------------- |
 | static SchemaList3 | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## SchemaList3
+public class SchemaList3
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<String>
@@ -29,23 +40,6 @@ type: List<String>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 String |  |
-
-## SchemaList3
-public class SchemaList3
-extends FrozenList<String>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items3
 public class Items3

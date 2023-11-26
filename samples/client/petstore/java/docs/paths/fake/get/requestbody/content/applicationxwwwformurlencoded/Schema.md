@@ -75,6 +75,17 @@ Form parameter enum test (string array)
 | ----------------- | ---------------------- |
 | static EnumFormStringArrayList | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## EnumFormStringArrayList
+public class EnumFormStringArrayList
+extends FrozenList<String>
+
+A class to store validated List payloads
+
+### methods
+Method | Input Type | Return Type | Notes
+------ | ---------- | ----------- | ------
+&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+
 ## Input List Items
 ```
 type: List<String>
@@ -82,23 +93,6 @@ type: List<String>
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
 String |  | must be one of [">", "$"] if omitted the server will use the default value of $
-
-## EnumFormStringArrayList
-public class EnumFormStringArrayList
-extends FrozenList<String>
-
-A class to store validated List payloads
-
-### &lowbar;&lowbar;new&lowbar;&lowbar; method
-Argument | Type
--------- | ------
-arg      | 
-configuration | configurations.SchemaConfiguration
-
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
 
 ## Items
 public class Items
