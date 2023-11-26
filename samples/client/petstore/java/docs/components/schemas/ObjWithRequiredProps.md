@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjWithRequiredProps.A<br> schema class |
-| static class | ObjWithRequiredProps.ObjWithRequiredPropsMap<br> output class for Map payloads |
 | static class | ObjWithRequiredProps.ObjWithRequiredProps1<br> schema class |
+| static class | ObjWithRequiredProps.ObjWithRequiredPropsMap<br> output class for Map payloads |
+| static class | ObjWithRequiredProps.A<br> schema class |
 
 ## ObjWithRequiredProps1
 public class ObjWithRequiredProps1

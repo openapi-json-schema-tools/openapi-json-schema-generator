@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | IsoscelesTriangle.TriangleType<br> schema class |
-| static class | IsoscelesTriangle.Schema1Map<br> output class for Map payloads |
-| static class | IsoscelesTriangle.Schema1<br> schema class |
 | static class | IsoscelesTriangle.IsoscelesTriangle1<br> schema class |
+| static class | IsoscelesTriangle.Schema1<br> schema class |
+| static class | IsoscelesTriangle.Schema1Map<br> output class for Map payloads |
+| static class | IsoscelesTriangle.TriangleType<br> schema class |
 
 ## IsoscelesTriangle1
 public class IsoscelesTriangle1

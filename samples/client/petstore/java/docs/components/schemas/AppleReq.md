@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | AppleReq.AdditionalProperties<br> schema class |
-| static class | AppleReq.Cultivar<br> schema class |
-| static class | AppleReq.Mealy<br> schema class |
-| static class | AppleReq.AppleReqMap<br> output class for Map payloads |
 | static class | AppleReq.AppleReq1<br> schema class |
+| static class | AppleReq.AppleReqMap<br> output class for Map payloads |
+| static class | AppleReq.Mealy<br> schema class |
+| static class | AppleReq.Cultivar<br> schema class |
+| static class | AppleReq.AdditionalProperties<br> schema class |
 
 ## AppleReq1
 public class AppleReq1

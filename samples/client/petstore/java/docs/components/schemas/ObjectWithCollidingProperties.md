@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithCollidingProperties.SomeProp<br> schema class |
-| static class | ObjectWithCollidingProperties.Someprop<br> schema class |
-| static class | ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap<br> output class for Map payloads |
 | static class | ObjectWithCollidingProperties.ObjectWithCollidingProperties1<br> schema class |
+| static class | ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap<br> output class for Map payloads |
+| static class | ObjectWithCollidingProperties.Someprop<br> schema class |
+| static class | ObjectWithCollidingProperties.SomeProp<br> schema class |
 
 ## ObjectWithCollidingProperties1
 public class ObjectWithCollidingProperties1

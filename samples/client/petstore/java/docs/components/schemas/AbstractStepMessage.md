@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | AbstractStepMessage.Discriminator<br> schema class |
-| static class | AbstractStepMessage.AbstractStepMessageMap<br> output class for Map payloads |
 | static class | AbstractStepMessage.AbstractStepMessage1<br> schema class |
+| static class | AbstractStepMessage.AbstractStepMessageMap<br> output class for Map payloads |
+| static class | AbstractStepMessage.Discriminator<br> schema class |
 
 ## AbstractStepMessage1
 public class AbstractStepMessage1

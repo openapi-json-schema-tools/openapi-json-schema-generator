@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | QuadrilateralInterface.ShapeType<br> schema class |
-| static class | QuadrilateralInterface.QuadrilateralType<br> schema class |
-| static class | QuadrilateralInterface.QuadrilateralInterfaceMap<br> output class for Map payloads |
 | static class | QuadrilateralInterface.QuadrilateralInterface1<br> schema class |
+| static class | QuadrilateralInterface.QuadrilateralInterfaceMap<br> output class for Map payloads |
+| static class | QuadrilateralInterface.QuadrilateralType<br> schema class |
+| static class | QuadrilateralInterface.ShapeType<br> schema class |
 
 ## QuadrilateralInterface1
 public class QuadrilateralInterface1

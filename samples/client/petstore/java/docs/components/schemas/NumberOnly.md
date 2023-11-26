@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | NumberOnly.JustNumber<br> schema class |
-| static class | NumberOnly.NumberOnlyMap<br> output class for Map payloads |
 | static class | NumberOnly.NumberOnly1<br> schema class |
+| static class | NumberOnly.NumberOnlyMap<br> output class for Map payloads |
+| static class | NumberOnly.JustNumber<br> schema class |
 
 ## NumberOnly1
 public class NumberOnly1

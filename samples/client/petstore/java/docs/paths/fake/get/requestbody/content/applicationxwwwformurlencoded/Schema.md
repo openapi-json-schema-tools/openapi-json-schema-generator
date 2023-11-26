@@ -7,12 +7,12 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Schema.Items<br> schema class |
-| static class | Schema.EnumFormStringArrayList<br> output class for List payloads |
-| static class | Schema.EnumFormStringArray<br> schema class |
-| static class | Schema.EnumFormString<br> schema class |
-| static class | Schema.SchemaMap<br> output class for Map payloads |
 | static class | Schema.Schema1<br> schema class |
+| static class | Schema.SchemaMap<br> output class for Map payloads |
+| static class | Schema.EnumFormString<br> schema class |
+| static class | Schema.EnumFormStringArray<br> schema class |
+| static class | Schema.EnumFormStringArrayList<br> output class for List payloads |
+| static class | Schema.Items<br> schema class |
 
 ## Schema1
 public class Schema1

@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Cat.Declawed<br> schema class |
-| static class | Cat.Schema1Map<br> output class for Map payloads |
-| static class | Cat.Schema1<br> schema class |
 | static class | Cat.Cat1<br> schema class |
+| static class | Cat.Schema1<br> schema class |
+| static class | Cat.Schema1Map<br> output class for Map payloads |
+| static class | Cat.Declawed<br> schema class |
 
 ## Cat1
 public class Cat1

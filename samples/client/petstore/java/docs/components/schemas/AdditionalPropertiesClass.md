@@ -7,28 +7,28 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | AdditionalPropertiesClass.AdditionalProperties<br> schema class |
-| static class | AdditionalPropertiesClass.MapPropertyMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.MapProperty<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalProperties2<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalPropertiesMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.AdditionalProperties1<br> schema class |
-| static class | AdditionalPropertiesClass.MapOfMapPropertyMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.MapOfMapProperty<br> schema class |
-| static class | AdditionalPropertiesClass.Anytype1<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalProperties3<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalProperties4<br> schema class |
-| static class | AdditionalPropertiesClass.EmptyMapMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.EmptyMap<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalProperties5<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesString<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalPropertiesClassMap<br> output class for Map payloads |
 | static class | AdditionalPropertiesClass.AdditionalPropertiesClass1<br> schema class |
+| static class | AdditionalPropertiesClass.AdditionalPropertiesClassMap<br> output class for Map payloads |
+| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesString<br> schema class |
+| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap<br> output class for Map payloads |
+| static class | AdditionalPropertiesClass.AdditionalProperties5<br> schema class |
+| static class | AdditionalPropertiesClass.EmptyMap<br> schema class |
+| static class | AdditionalPropertiesClass.EmptyMapMap<br> output class for Map payloads |
+| static class | AdditionalPropertiesClass.AdditionalProperties4<br> schema class |
+| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3<br> schema class |
+| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map<br> output class for Map payloads |
+| static class | AdditionalPropertiesClass.AdditionalProperties3<br> schema class |
+| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2<br> schema class |
+| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1<br> schema class |
+| static class | AdditionalPropertiesClass.Anytype1<br> schema class |
+| static class | AdditionalPropertiesClass.MapOfMapProperty<br> schema class |
+| static class | AdditionalPropertiesClass.MapOfMapPropertyMap<br> output class for Map payloads |
+| static class | AdditionalPropertiesClass.AdditionalProperties1<br> schema class |
+| static class | AdditionalPropertiesClass.AdditionalPropertiesMap<br> output class for Map payloads |
+| static class | AdditionalPropertiesClass.AdditionalProperties2<br> schema class |
+| static class | AdditionalPropertiesClass.MapProperty<br> schema class |
+| static class | AdditionalPropertiesClass.MapPropertyMap<br> output class for Map payloads |
+| static class | AdditionalPropertiesClass.AdditionalProperties<br> schema class |
 
 ## AdditionalPropertiesClass1
 public class AdditionalPropertiesClass1

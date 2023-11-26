@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | JSONPatchRequestRemove.AdditionalProperties<br> schema class |
-| static class | JSONPatchRequestRemove.Path<br> schema class |
-| static class | JSONPatchRequestRemove.Op<br> schema class |
-| static class | JSONPatchRequestRemove.JSONPatchRequestRemoveMap<br> output class for Map payloads |
 | static class | JSONPatchRequestRemove.JSONPatchRequestRemove1<br> schema class |
+| static class | JSONPatchRequestRemove.JSONPatchRequestRemoveMap<br> output class for Map payloads |
+| static class | JSONPatchRequestRemove.Op<br> schema class |
+| static class | JSONPatchRequestRemove.Path<br> schema class |
+| static class | JSONPatchRequestRemove.AdditionalProperties<br> schema class |
 
 ## JSONPatchRequestRemove1
 public class JSONPatchRequestRemove1

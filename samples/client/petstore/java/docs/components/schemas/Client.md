@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Client.Client2<br> schema class |
-| static class | Client.ClientMap<br> output class for Map payloads |
 | static class | Client.Client1<br> schema class |
+| static class | Client.ClientMap<br> output class for Map payloads |
+| static class | Client.Client2<br> schema class |
 
 ## Client1
 public class Client1

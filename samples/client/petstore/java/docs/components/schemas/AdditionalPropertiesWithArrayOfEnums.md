@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList<br> output class for List payloads |
-| static class | AdditionalPropertiesWithArrayOfEnums.AdditionalProperties<br> schema class |
-| static class | AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap<br> output class for Map payloads |
 | static class | AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1<br> schema class |
+| static class | AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap<br> output class for Map payloads |
+| static class | AdditionalPropertiesWithArrayOfEnums.AdditionalProperties<br> schema class |
+| static class | AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList<br> output class for List payloads |
 
 ## AdditionalPropertiesWithArrayOfEnums1
 public class AdditionalPropertiesWithArrayOfEnums1

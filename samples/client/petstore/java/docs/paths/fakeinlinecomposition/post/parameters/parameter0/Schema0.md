@@ -7,8 +7,8 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Schema0.Schema00<br> schema class |
 | static class | Schema0.Schema01<br> schema class |
+| static class | Schema0.Schema00<br> schema class |
 
 ## Schema01
 public class Schema01

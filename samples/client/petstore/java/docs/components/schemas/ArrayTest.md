@@ -7,20 +7,20 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ArrayTest.Items<br> schema class |
-| static class | ArrayTest.ArrayOfStringList<br> output class for List payloads |
-| static class | ArrayTest.ArrayOfString<br> schema class |
-| static class | ArrayTest.Items2<br> schema class |
-| static class | ArrayTest.ItemsList<br> output class for List payloads |
-| static class | ArrayTest.Items1<br> schema class |
-| static class | ArrayTest.ArrayArrayOfIntegerList<br> output class for List payloads |
-| static class | ArrayTest.ArrayArrayOfInteger<br> schema class |
-| static class | ArrayTest.ItemsList1<br> output class for List payloads |
-| static class | ArrayTest.Items3<br> schema class |
-| static class | ArrayTest.ArrayArrayOfModelList<br> output class for List payloads |
-| static class | ArrayTest.ArrayArrayOfModel<br> schema class |
-| static class | ArrayTest.ArrayTestMap<br> output class for Map payloads |
 | static class | ArrayTest.ArrayTest1<br> schema class |
+| static class | ArrayTest.ArrayTestMap<br> output class for Map payloads |
+| static class | ArrayTest.ArrayArrayOfModel<br> schema class |
+| static class | ArrayTest.ArrayArrayOfModelList<br> output class for List payloads |
+| static class | ArrayTest.Items3<br> schema class |
+| static class | ArrayTest.ItemsList1<br> output class for List payloads |
+| static class | ArrayTest.ArrayArrayOfInteger<br> schema class |
+| static class | ArrayTest.ArrayArrayOfIntegerList<br> output class for List payloads |
+| static class | ArrayTest.Items1<br> schema class |
+| static class | ArrayTest.ItemsList<br> output class for List payloads |
+| static class | ArrayTest.Items2<br> schema class |
+| static class | ArrayTest.ArrayOfString<br> schema class |
+| static class | ArrayTest.ArrayOfStringList<br> output class for List payloads |
+| static class | ArrayTest.Items<br> schema class |
 
 ## ArrayTest1
 public class ArrayTest1

@@ -7,12 +7,12 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | EnumTest.EnumString<br> schema class |
-| static class | EnumTest.EnumStringRequired<br> schema class |
-| static class | EnumTest.EnumInteger<br> schema class |
-| static class | EnumTest.EnumNumber<br> schema class |
-| static class | EnumTest.EnumTestMap<br> output class for Map payloads |
 | static class | EnumTest.EnumTest1<br> schema class |
+| static class | EnumTest.EnumTestMap<br> output class for Map payloads |
+| static class | EnumTest.EnumNumber<br> schema class |
+| static class | EnumTest.EnumInteger<br> schema class |
+| static class | EnumTest.EnumStringRequired<br> schema class |
+| static class | EnumTest.EnumString<br> schema class |
 
 ## EnumTest1
 public class EnumTest1

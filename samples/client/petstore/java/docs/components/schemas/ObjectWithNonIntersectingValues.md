@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithNonIntersectingValues.AdditionalProperties<br> schema class |
-| static class | ObjectWithNonIntersectingValues.A<br> schema class |
-| static class | ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap<br> output class for Map payloads |
 | static class | ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1<br> schema class |
+| static class | ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap<br> output class for Map payloads |
+| static class | ObjectWithNonIntersectingValues.A<br> schema class |
+| static class | ObjectWithNonIntersectingValues.AdditionalProperties<br> schema class |
 
 ## ObjectWithNonIntersectingValues1
 public class ObjectWithNonIntersectingValues1

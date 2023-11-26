@@ -18,7 +18,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-{{#each getSchemas}}
+{{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
 | static class | {{../containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}<br> schema class |
         {{else}}

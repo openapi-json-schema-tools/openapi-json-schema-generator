@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithInlineCompositionProperty.Schema0<br> schema class |
-| static class | ObjectWithInlineCompositionProperty.SomeProp<br> schema class |
-| static class | ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap<br> output class for Map payloads |
 | static class | ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionProperty1<br> schema class |
+| static class | ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap<br> output class for Map payloads |
+| static class | ObjectWithInlineCompositionProperty.SomeProp<br> schema class |
+| static class | ObjectWithInlineCompositionProperty.Schema0<br> schema class |
 
 ## ObjectWithInlineCompositionProperty1
 public class ObjectWithInlineCompositionProperty1

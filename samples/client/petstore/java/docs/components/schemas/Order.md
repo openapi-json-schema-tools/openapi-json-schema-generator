@@ -7,14 +7,14 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Order.Id<br> schema class |
-| static class | Order.PetId<br> schema class |
-| static class | Order.Quantity<br> schema class |
-| static class | Order.ShipDate<br> schema class |
-| static class | Order.Status<br> schema class |
-| static class | Order.Complete<br> schema class |
-| static class | Order.OrderMap<br> output class for Map payloads |
 | static class | Order.Order1<br> schema class |
+| static class | Order.OrderMap<br> output class for Map payloads |
+| static class | Order.Complete<br> schema class |
+| static class | Order.Status<br> schema class |
+| static class | Order.ShipDate<br> schema class |
+| static class | Order.Quantity<br> schema class |
+| static class | Order.PetId<br> schema class |
+| static class | Order.Id<br> schema class |
 
 ## Order1
 public class Order1

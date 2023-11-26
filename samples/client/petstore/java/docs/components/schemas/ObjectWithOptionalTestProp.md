@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithOptionalTestProp.Test<br> schema class |
-| static class | ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap<br> output class for Map payloads |
 | static class | ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1<br> schema class |
+| static class | ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap<br> output class for Map payloads |
+| static class | ObjectWithOptionalTestProp.Test<br> schema class |
 
 ## ObjectWithOptionalTestProp1
 public class ObjectWithOptionalTestProp1

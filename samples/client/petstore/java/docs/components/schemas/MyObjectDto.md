@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | MyObjectDto.AdditionalProperties<br> schema class |
-| static class | MyObjectDto.Id<br> schema class |
-| static class | MyObjectDto.MyObjectDtoMap<br> output class for Map payloads |
 | static class | MyObjectDto.MyObjectDto1<br> schema class |
+| static class | MyObjectDto.MyObjectDtoMap<br> output class for Map payloads |
+| static class | MyObjectDto.Id<br> schema class |
+| static class | MyObjectDto.AdditionalProperties<br> schema class |
 
 ## MyObjectDto1
 public class MyObjectDto1

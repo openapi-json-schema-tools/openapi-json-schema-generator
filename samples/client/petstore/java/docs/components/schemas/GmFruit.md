@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | GmFruit.Color<br> schema class |
-| static class | GmFruit.GmFruitMap<br> output class for Map payloads |
 | static class | GmFruit.GmFruit1<br> schema class |
+| static class | GmFruit.GmFruitMap<br> output class for Map payloads |
+| static class | GmFruit.Color<br> schema class |
 
 ## GmFruit1
 public class GmFruit1

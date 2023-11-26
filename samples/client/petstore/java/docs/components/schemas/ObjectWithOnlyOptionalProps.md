@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithOnlyOptionalProps.AdditionalProperties<br> schema class |
-| static class | ObjectWithOnlyOptionalProps.A<br> schema class |
-| static class | ObjectWithOnlyOptionalProps.B<br> schema class |
-| static class | ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap<br> output class for Map payloads |
 | static class | ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1<br> schema class |
+| static class | ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap<br> output class for Map payloads |
+| static class | ObjectWithOnlyOptionalProps.B<br> schema class |
+| static class | ObjectWithOnlyOptionalProps.A<br> schema class |
+| static class | ObjectWithOnlyOptionalProps.AdditionalProperties<br> schema class |
 
 ## ObjectWithOnlyOptionalProps1
 public class ObjectWithOnlyOptionalProps1

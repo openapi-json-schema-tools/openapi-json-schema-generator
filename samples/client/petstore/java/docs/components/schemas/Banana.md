@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Banana.LengthCm<br> schema class |
-| static class | Banana.BananaMap<br> output class for Map payloads |
 | static class | Banana.Banana1<br> schema class |
+| static class | Banana.BananaMap<br> output class for Map payloads |
+| static class | Banana.LengthCm<br> schema class |
 
 ## Banana1
 public class Banana1

@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ApiResponseSchema.Code<br> schema class |
-| static class | ApiResponseSchema.Type<br> schema class |
-| static class | ApiResponseSchema.Message<br> schema class |
-| static class | ApiResponseSchema.ApiResponseMap<br> output class for Map payloads |
 | static class | ApiResponseSchema.ApiResponseSchema1<br> schema class |
+| static class | ApiResponseSchema.ApiResponseMap<br> output class for Map payloads |
+| static class | ApiResponseSchema.Message<br> schema class |
+| static class | ApiResponseSchema.Type<br> schema class |
+| static class | ApiResponseSchema.Code<br> schema class |
 
 ## ApiResponseSchema1
 public class ApiResponseSchema1

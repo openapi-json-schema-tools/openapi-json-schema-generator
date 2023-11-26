@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Schema200Response.Name<br> schema class |
-| static class | Schema200Response.ClassSchema<br> schema class |
-| static class | Schema200Response.Schema200ResponseMap<br> output class for Map payloads |
 | static class | Schema200Response.Schema200Response1<br> schema class |
+| static class | Schema200Response.Schema200ResponseMap<br> output class for Map payloads |
+| static class | Schema200Response.ClassSchema<br> schema class |
+| static class | Schema200Response.Name<br> schema class |
 
 ## Schema200Response1
 public class Schema200Response1

@@ -7,14 +7,14 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Capitalization.SmallCamel<br> schema class |
-| static class | Capitalization.CapitalCamel<br> schema class |
-| static class | Capitalization.SmallSnake<br> schema class |
-| static class | Capitalization.CapitalSnake<br> schema class |
-| static class | Capitalization.SCAETHFlowPoints<br> schema class |
-| static class | Capitalization.ATTNAME<br> schema class |
-| static class | Capitalization.CapitalizationMap<br> output class for Map payloads |
 | static class | Capitalization.Capitalization1<br> schema class |
+| static class | Capitalization.CapitalizationMap<br> output class for Map payloads |
+| static class | Capitalization.ATTNAME<br> schema class |
+| static class | Capitalization.SCAETHFlowPoints<br> schema class |
+| static class | Capitalization.CapitalSnake<br> schema class |
+| static class | Capitalization.SmallSnake<br> schema class |
+| static class | Capitalization.CapitalCamel<br> schema class |
+| static class | Capitalization.SmallCamel<br> schema class |
 
 ## Capitalization1
 public class Capitalization1

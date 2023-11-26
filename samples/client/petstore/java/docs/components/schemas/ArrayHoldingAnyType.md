@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ArrayHoldingAnyType.Items<br> schema class |
-| static class | ArrayHoldingAnyType.ArrayHoldingAnyTypeList<br> output class for List payloads |
 | static class | ArrayHoldingAnyType.ArrayHoldingAnyType1<br> schema class |
+| static class | ArrayHoldingAnyType.ArrayHoldingAnyTypeList<br> output class for List payloads |
+| static class | ArrayHoldingAnyType.Items<br> schema class |
 
 ## ArrayHoldingAnyType1
 public class ArrayHoldingAnyType1

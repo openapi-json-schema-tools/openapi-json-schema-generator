@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Dog.Breed<br> schema class |
-| static class | Dog.Schema1Map<br> output class for Map payloads |
-| static class | Dog.Schema1<br> schema class |
 | static class | Dog.Dog1<br> schema class |
+| static class | Dog.Schema1<br> schema class |
+| static class | Dog.Schema1Map<br> output class for Map payloads |
+| static class | Dog.Breed<br> schema class |
 
 ## Dog1
 public class Dog1

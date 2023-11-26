@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ArrayWithValidationsInItems.Items<br> schema class |
-| static class | ArrayWithValidationsInItems.ArrayWithValidationsInItemsList<br> output class for List payloads |
 | static class | ArrayWithValidationsInItems.ArrayWithValidationsInItems1<br> schema class |
+| static class | ArrayWithValidationsInItems.ArrayWithValidationsInItemsList<br> output class for List payloads |
+| static class | ArrayWithValidationsInItems.Items<br> schema class |
 
 ## ArrayWithValidationsInItems1
 public class ArrayWithValidationsInItems1
