@@ -17,10 +17,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static NumberOnlyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NumberOnlyMap](#numberonlymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## NumberOnlyMap
 public class NumberOnlyMap
@@ -50,7 +50,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Number | validate(Number arg, SchemaConfiguration configuration) |

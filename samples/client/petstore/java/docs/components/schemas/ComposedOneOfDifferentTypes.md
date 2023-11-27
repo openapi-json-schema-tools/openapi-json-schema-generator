@@ -25,7 +25,7 @@ A schema class that validates payloads
 ## Description
 this is a model that allows payloads of type object or number
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -44,7 +44,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -55,7 +55,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Schema5List | validate(List<Object> arg, SchemaConfiguration configuration) |
@@ -85,7 +85,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -104,10 +104,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema3
 public class Schema3
@@ -115,7 +115,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -126,7 +126,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |

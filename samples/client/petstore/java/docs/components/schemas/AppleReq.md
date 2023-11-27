@@ -19,10 +19,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AppleReqMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AppleReqMap](#applereqmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AppleReqMap
 public class AppleReqMap
@@ -52,7 +52,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
@@ -63,7 +63,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -74,7 +74,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

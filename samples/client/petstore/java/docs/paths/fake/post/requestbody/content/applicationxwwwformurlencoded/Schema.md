@@ -30,10 +30,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SchemaMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SchemaMap
 public class SchemaMap
@@ -87,7 +87,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -101,7 +101,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -115,7 +115,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -129,7 +129,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -143,7 +143,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
@@ -157,7 +157,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -171,7 +171,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -185,7 +185,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -199,7 +199,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static double | validate(double arg, SchemaConfiguration configuration) |
@@ -213,7 +213,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static float | validate(float arg, SchemaConfiguration configuration) |
@@ -227,7 +227,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
@@ -241,7 +241,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |
@@ -255,7 +255,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |
@@ -269,7 +269,7 @@ A schema class that validates payloads
 ## Description
 None
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |

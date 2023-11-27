@@ -20,10 +20,10 @@ A schema class that validates payloads
 ## Description
 model with an invalid class name for python
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SpecialModelnameMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SpecialModelnameMap](#specialmodelnamemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SpecialModelnameMap
 public class SpecialModelnameMap
@@ -53,7 +53,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static CategoryMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [CategoryMap](#categorymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## CategoryMap
 public class CategoryMap
@@ -53,7 +53,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -64,7 +64,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |

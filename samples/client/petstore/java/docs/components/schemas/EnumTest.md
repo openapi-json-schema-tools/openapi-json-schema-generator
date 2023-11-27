@@ -20,10 +20,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static EnumTestMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## EnumTestMap
 public class EnumTestMap
@@ -69,7 +69,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static double | validate(double arg, SchemaConfiguration configuration) |
@@ -80,7 +80,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |
@@ -91,7 +91,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -102,7 +102,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

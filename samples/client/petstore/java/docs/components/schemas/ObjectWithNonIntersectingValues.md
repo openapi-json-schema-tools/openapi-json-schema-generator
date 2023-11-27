@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithNonIntersectingValuesMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithNonIntersectingValuesMap
 public class ObjectWithNonIntersectingValuesMap
@@ -51,7 +51,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
@@ -62,7 +62,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

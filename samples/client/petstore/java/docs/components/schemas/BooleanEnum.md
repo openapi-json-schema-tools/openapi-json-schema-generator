@@ -15,7 +15,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |

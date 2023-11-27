@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static HasOnlyReadOnlyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## HasOnlyReadOnlyMap
 public class HasOnlyReadOnlyMap
@@ -53,7 +53,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -64,7 +64,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

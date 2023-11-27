@@ -20,10 +20,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MixedPropertiesAndAdditionalPropertiesClassMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MixedPropertiesAndAdditionalPropertiesClassMap
 public class MixedPropertiesAndAdditionalPropertiesClassMap
@@ -56,10 +56,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapMap | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [MapMap](#mapmap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## MapMap
 public class MapMap
@@ -87,7 +87,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -98,7 +98,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

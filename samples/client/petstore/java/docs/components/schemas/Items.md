@@ -20,7 +20,7 @@ A schema class that validates payloads
 ## Description
 component&#x27;s name collides with the inner schema name
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static ItemsList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
@@ -50,9 +50,9 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

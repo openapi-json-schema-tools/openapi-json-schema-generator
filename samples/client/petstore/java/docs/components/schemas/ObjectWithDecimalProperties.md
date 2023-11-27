@@ -17,10 +17,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithDecimalPropertiesMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithDecimalPropertiesMap
 public class ObjectWithDecimalPropertiesMap
@@ -54,7 +54,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

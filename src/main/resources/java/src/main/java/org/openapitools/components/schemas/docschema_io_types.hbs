@@ -7,7 +7,7 @@
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
     {{#if mapOutputJsonPathPiece }}
-| static {{mapOutputJsonPathPiece.camelCase}} | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
     {{else}}
 | static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
     {{/if}}
@@ -73,7 +73,7 @@
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#with ../mapValueSchema}}
-| static {{../../mapOutputJsonPathPiece.camelCase}} | validate(Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}> arg, SchemaConfiguration configuration) |
+| static [{{../../mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces ../../mapOutputJsonPathPiece) }}) | validate(Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}> arg, SchemaConfiguration configuration) |
                                     {{else}}
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
                                     {{/with}}

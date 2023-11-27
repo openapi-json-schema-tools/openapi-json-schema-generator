@@ -20,10 +20,10 @@ A schema class that validates payloads
 ## Description
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PlayerMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PlayerMap](#playermap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PlayerMap
 public class PlayerMap
@@ -55,7 +55,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

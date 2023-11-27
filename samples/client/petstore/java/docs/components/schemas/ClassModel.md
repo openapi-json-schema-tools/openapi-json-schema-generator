@@ -20,7 +20,7 @@ A schema class that validates payloads
 ## Description
 Model for testing model with \&quot;_class\&quot; property
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -30,7 +30,7 @@ Model for testing model with \&quot;_class\&quot; property
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static ClassModelMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ClassModelMap](#classmodelmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ClassModelMap
@@ -61,7 +61,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

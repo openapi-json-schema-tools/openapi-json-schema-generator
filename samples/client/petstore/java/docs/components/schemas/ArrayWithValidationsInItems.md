@@ -17,7 +17,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static ArrayWithValidationsInItemsList | validate(List<Long> arg, SchemaConfiguration configuration) |
@@ -47,7 +47,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |

@@ -27,10 +27,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapTestMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MapTestMap](#maptestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapTestMap
 public class MapTestMap
@@ -66,10 +66,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static DirectMapMap | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
+| static [DirectMapMap](#directmapmap) | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 
 ## DirectMapMap
 public class DirectMapMap
@@ -97,7 +97,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
@@ -108,10 +108,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapOfEnumStringMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapOfEnumStringMap](#mapofenumstringmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MapOfEnumStringMap
 public class MapOfEnumStringMap
@@ -139,7 +139,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -150,10 +150,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapMapOfStringMap | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [MapMapOfStringMap](#mapmapofstringmap) | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
 
 ## MapMapOfStringMap
 public class MapMapOfStringMap
@@ -181,10 +181,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AdditionalPropertiesMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesMap
 public class AdditionalPropertiesMap
@@ -212,7 +212,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

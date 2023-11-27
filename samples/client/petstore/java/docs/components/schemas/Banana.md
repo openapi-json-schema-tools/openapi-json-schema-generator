@@ -17,10 +17,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static BananaMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [BananaMap](#bananamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## BananaMap
 public class BananaMap
@@ -50,7 +50,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Number | validate(Number arg, SchemaConfiguration configuration) |

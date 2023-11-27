@@ -17,10 +17,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ClientMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ClientMap](#clientmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ClientMap
 public class ClientMap
@@ -50,7 +50,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

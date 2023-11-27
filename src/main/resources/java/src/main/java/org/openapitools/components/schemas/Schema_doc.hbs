@@ -40,7 +40,7 @@ public class {{jsonPathPiece.camelCase}}
             {{#if refInfo.refModule}}
 extends {{#if refInfo.refModule}}[{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}]({{docRoot}}components/schemas/{{refInfo.refModule}}.md#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append (newArray) refInfo.ref.jsonPathPiece) }})
             {{else}}
-extends [{{refInfo.refClass}}]((#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append (newArray) refInfo.ref) }}))
+extends [{{refInfo.refClass}}]((#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces refInfo.ref) }}))
             {{/if}}
         {{else}}
 extends JsonSchema
@@ -54,7 +54,7 @@ A schema class that validates payloads
         {{/if}}
         {{#unless refInfo}}
 
-{{headerSize}}# Method Summary
+{{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 {{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}

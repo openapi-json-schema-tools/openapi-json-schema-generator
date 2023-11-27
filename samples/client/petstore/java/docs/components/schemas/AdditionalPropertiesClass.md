@@ -36,10 +36,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AdditionalPropertiesClassMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesClassMap
 public class AdditionalPropertiesClassMap
@@ -83,10 +83,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapWithUndeclaredPropertiesStringMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesStringMap
 public class MapWithUndeclaredPropertiesStringMap
@@ -114,7 +114,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -128,7 +128,7 @@ A schema class that validates payloads
 ## Description
 an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
@@ -157,7 +157,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -176,10 +176,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapWithUndeclaredPropertiesAnytype3Map | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype3Map
 public class MapWithUndeclaredPropertiesAnytype3Map
@@ -207,7 +207,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -226,10 +226,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype1
 public class MapWithUndeclaredPropertiesAnytype1
@@ -237,10 +237,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static  | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Anytype1
 public class Anytype1
@@ -248,7 +248,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -267,10 +267,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapOfMapPropertyMap | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [MapOfMapPropertyMap](#mapofmappropertymap) | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
 
 ## MapOfMapPropertyMap
 public class MapOfMapPropertyMap
@@ -298,10 +298,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AdditionalPropertiesMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesMap
 public class AdditionalPropertiesMap
@@ -329,7 +329,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -340,10 +340,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapPropertyMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapPropertyMap](#mappropertymap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MapPropertyMap
 public class MapPropertyMap
@@ -371,7 +371,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

@@ -22,10 +22,10 @@ A schema class that validates payloads
 ## Description
 model with properties that have invalid names for python
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithDifficultlyNamedPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithDifficultlyNamedPropsMap
 public class ObjectWithDifficultlyNamedPropsMap
@@ -57,7 +57,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |
@@ -68,7 +68,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -79,7 +79,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |

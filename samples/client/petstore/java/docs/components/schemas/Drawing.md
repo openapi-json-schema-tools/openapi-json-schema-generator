@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static DrawingMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [DrawingMap](#drawingmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## DrawingMap
 public class DrawingMap
@@ -57,7 +57,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static ShapesList | validate(List<Object> arg, SchemaConfiguration configuration) |

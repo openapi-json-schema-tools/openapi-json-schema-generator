@@ -19,10 +19,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayOfNumberOnlyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayOfNumberOnlyMap
 public class ArrayOfNumberOnlyMap
@@ -52,7 +52,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static ArrayNumberList | validate(List<Number> arg, SchemaConfiguration configuration) |
@@ -82,7 +82,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Number | validate(Number arg, SchemaConfiguration configuration) |

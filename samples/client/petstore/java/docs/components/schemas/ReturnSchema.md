@@ -20,7 +20,7 @@ A schema class that validates payloads
 ## Description
 Model for testing reserved words
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -30,7 +30,7 @@ Model for testing reserved words
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static ReturnMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReturnMap](#returnmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ReturnMap
@@ -64,7 +64,7 @@ A schema class that validates payloads
 ## Description
 this is a reserved python keyword
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |

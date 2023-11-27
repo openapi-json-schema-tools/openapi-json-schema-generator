@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AdditionalPropertiesWithArrayOfEnumsMap | validate(Map<String, List<String>> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate(Map<String, List<String>> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesWithArrayOfEnumsMap
 public class AdditionalPropertiesWithArrayOfEnumsMap
@@ -49,7 +49,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static AdditionalPropertiesList | validate(List<String> arg, SchemaConfiguration configuration) |

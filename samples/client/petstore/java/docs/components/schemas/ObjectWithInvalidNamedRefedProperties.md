@@ -16,10 +16,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithInvalidNamedRefedPropertiesMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithInvalidNamedRefedPropertiesMap
 public class ObjectWithInvalidNamedRefedPropertiesMap

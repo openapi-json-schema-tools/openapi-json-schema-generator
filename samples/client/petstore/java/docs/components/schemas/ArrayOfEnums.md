@@ -16,7 +16,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static ArrayOfEnumsList | validate(List<String> arg, SchemaConfiguration configuration) |

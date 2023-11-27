@@ -20,10 +20,10 @@ A schema class that validates payloads
 ## Description
 schema that contains a property named key
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PublicKeyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PublicKeyMap](#publickeymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PublicKeyMap
 public class PublicKeyMap
@@ -53,7 +53,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

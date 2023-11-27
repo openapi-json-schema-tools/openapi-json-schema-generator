@@ -21,7 +21,7 @@ A schema class that validates payloads
 ## Description
 model with an invalid class name for python, starts with a number
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -31,7 +31,7 @@ model with an invalid class name for python, starts with a number
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static Schema200ResponseMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema200ResponseMap](#schema200responsemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema200ResponseMap
@@ -67,7 +67,7 @@ A schema class that validates payloads
 ## Description
 this is a reserved python keyword
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -78,7 +78,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |

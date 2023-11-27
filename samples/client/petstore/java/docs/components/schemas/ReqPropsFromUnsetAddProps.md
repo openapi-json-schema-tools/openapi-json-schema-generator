@@ -16,10 +16,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ReqPropsFromUnsetAddPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ReqPropsFromUnsetAddPropsMap
 public class ReqPropsFromUnsetAddPropsMap

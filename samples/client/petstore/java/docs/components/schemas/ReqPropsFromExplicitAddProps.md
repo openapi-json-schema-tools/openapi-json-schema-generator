@@ -17,10 +17,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ReqPropsFromExplicitAddPropsMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## ReqPropsFromExplicitAddPropsMap
 public class ReqPropsFromExplicitAddPropsMap
@@ -52,7 +52,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

@@ -18,7 +18,7 @@ A schema class that validates payloads
 ## Description
 file to upload
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |

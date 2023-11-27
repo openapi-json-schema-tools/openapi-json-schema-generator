@@ -19,10 +19,10 @@ A schema class that validates payloads
 ## Description
 a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectModelWithRefPropsMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectModelWithRefPropsMap
 public class ObjectModelWithRefPropsMap

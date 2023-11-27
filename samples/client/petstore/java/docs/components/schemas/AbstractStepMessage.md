@@ -20,10 +20,10 @@ A schema class that validates payloads
 ## Description
 Abstract Step
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AbstractStepMessageMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AbstractStepMessageMap](#abstractstepmessagemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AbstractStepMessageMap
 public class AbstractStepMessageMap
@@ -57,7 +57,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

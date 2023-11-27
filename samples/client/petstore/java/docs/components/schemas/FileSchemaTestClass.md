@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FileSchemaTestClassMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FileSchemaTestClassMap](#fileschematestclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## FileSchemaTestClassMap
 public class FileSchemaTestClassMap
@@ -53,7 +53,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static FilesList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |

@@ -20,10 +20,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static JSONPatchRequestMoveCopyMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestMoveCopyMap
 public class JSONPatchRequestMoveCopyMap
@@ -58,7 +58,7 @@ A schema class that validates payloads
 ## Description
 The operation to perform.
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -72,7 +72,7 @@ A schema class that validates payloads
 ## Description
 A JSON Pointer path.
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -86,7 +86,7 @@ A schema class that validates payloads
 ## Description
 A JSON Pointer path.
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -97,7 +97,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

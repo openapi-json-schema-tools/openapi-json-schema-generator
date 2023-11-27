@@ -20,10 +20,10 @@ A schema class that validates payloads
 ## Description
 Must be named &#x60;File&#x60; for test.
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FileMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FileMap](#filemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## FileMap
 public class FileMap
@@ -56,7 +56,7 @@ A schema class that validates payloads
 ## Description
 Test capitalization
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

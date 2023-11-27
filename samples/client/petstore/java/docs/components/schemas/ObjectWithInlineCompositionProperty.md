@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithInlineCompositionPropertyMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithInlineCompositionPropertyMap
 public class ObjectWithInlineCompositionPropertyMap
@@ -51,7 +51,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -70,7 +70,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

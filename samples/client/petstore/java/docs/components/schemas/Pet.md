@@ -27,10 +27,10 @@ A schema class that validates payloads
 ## Description
 Pet object that needs to be added to the store
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PetMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PetMap](#petmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PetMap
 public class PetMap
@@ -70,7 +70,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static TagsList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
@@ -103,7 +103,7 @@ A schema class that validates payloads
 ## Description
 pet status in the store
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -114,7 +114,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static PhotoUrlsList | validate(List<String> arg, SchemaConfiguration configuration) |
@@ -144,7 +144,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -155,7 +155,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -166,7 +166,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |

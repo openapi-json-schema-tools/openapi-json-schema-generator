@@ -20,10 +20,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PaginatedResultMyObjectDtoMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PaginatedResultMyObjectDtoMap
 public class PaginatedResultMyObjectDtoMap
@@ -53,7 +53,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static ResultsList | validate(List<Map<String, String>> arg, SchemaConfiguration configuration) |
@@ -83,7 +83,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |
@@ -94,7 +94,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

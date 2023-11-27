@@ -17,10 +17,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static DanishPigMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [DanishPigMap](#danishpigmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## DanishPigMap
 public class DanishPigMap
@@ -50,7 +50,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |

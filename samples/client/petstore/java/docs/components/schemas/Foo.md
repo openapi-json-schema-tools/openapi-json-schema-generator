@@ -16,10 +16,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FooMap | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FooMap](#foomap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## FooMap
 public class FooMap

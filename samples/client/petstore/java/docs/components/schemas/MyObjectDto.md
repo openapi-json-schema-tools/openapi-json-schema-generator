@@ -18,10 +18,10 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MyObjectDtoMap | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MyObjectDtoMap](#myobjectdtomap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MyObjectDtoMap
 public class MyObjectDtoMap
@@ -49,7 +49,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
@@ -60,7 +60,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Method Summary
+### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
