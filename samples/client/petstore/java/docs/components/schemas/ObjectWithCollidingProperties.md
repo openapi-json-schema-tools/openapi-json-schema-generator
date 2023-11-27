@@ -59,7 +59,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SomeProp
 public class SomeProp
@@ -70,6 +70,6 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

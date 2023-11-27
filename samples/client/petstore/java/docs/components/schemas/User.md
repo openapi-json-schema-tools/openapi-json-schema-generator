@@ -171,7 +171,7 @@ test code generation for nullable objects. Value must be a map of strings to val
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithNoDeclaredProps
 public class ObjectWithNoDeclaredProps
@@ -185,7 +185,7 @@ test code generation for objects Value must be a map of strings to values. It ca
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## UserStatus
 public class UserStatus

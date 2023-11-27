@@ -131,7 +131,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectAndItemsNullableProp
 public class ObjectAndItemsNullableProp
@@ -175,7 +175,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectNullableProp
 public class ObjectNullableProp
@@ -218,7 +218,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayItemsNullable
 public class ArrayItemsNullable
@@ -260,7 +260,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayAndItemsNullableProp
 public class ArrayAndItemsNullableProp
@@ -303,7 +303,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayNullableProp
 public class ArrayNullableProp
@@ -345,7 +345,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## DatetimeProp
 public class DatetimeProp
@@ -429,6 +429,6 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

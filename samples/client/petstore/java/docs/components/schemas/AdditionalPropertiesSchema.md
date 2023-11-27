@@ -27,7 +27,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema2
 public class Schema2

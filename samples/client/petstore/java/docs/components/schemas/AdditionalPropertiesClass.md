@@ -131,7 +131,7 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EmptyMapMap](#emptymapmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## EmptyMapMap
 public class EmptyMapMap
@@ -229,7 +229,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype1
 public class MapWithUndeclaredPropertiesAnytype1
@@ -240,7 +240,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [](#) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Anytype1
 public class Anytype1
