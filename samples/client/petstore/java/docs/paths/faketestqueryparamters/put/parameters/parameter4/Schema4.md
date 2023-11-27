@@ -20,7 +20,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SchemaList4 | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [SchemaList4](#schemalist4) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## SchemaList4
 public class SchemaList4

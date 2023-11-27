@@ -68,7 +68,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayArrayOfModelList | validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfModelList
 public class ArrayArrayOfModelList
@@ -98,7 +98,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ItemsList1 | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ItemsList1
 public class ItemsList1
@@ -128,7 +128,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayArrayOfIntegerList | validate(List<List<Long>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate(List<List<Long>> arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfIntegerList
 public class ArrayArrayOfIntegerList
@@ -158,7 +158,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ItemsList | validate(List<Long> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
 
 ## ItemsList
 public class ItemsList
@@ -199,7 +199,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayOfStringList | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfStringList](#arrayofstringlist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## ArrayOfStringList
 public class ArrayOfStringList

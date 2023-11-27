@@ -52,7 +52,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AdditionalPropertiesList | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesList](#additionalpropertieslist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesList
 public class AdditionalPropertiesList

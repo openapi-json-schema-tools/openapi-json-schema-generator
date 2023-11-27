@@ -55,7 +55,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayNumberList | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayNumberList](#arraynumberlist) | validate(List<Number> arg, SchemaConfiguration configuration) |
 
 ## ArrayNumberList
 public class ArrayNumberList

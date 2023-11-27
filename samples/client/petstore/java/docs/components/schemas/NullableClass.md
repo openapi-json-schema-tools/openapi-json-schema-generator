@@ -229,7 +229,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayItemsNullableList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ArrayItemsNullableList](#arrayitemsnullablelist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ArrayItemsNullableList
 public class ArrayItemsNullableList
@@ -272,7 +272,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static ArrayAndItemsNullablePropList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ArrayAndItemsNullablePropList
 public class ArrayAndItemsNullablePropList
@@ -315,7 +315,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static ArrayNullablePropList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ArrayNullablePropList](#arraynullableproplist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ArrayNullablePropList
 public class ArrayNullablePropList

@@ -56,7 +56,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ResultsList | validate(List<Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [ResultsList](#resultslist) | validate(List<Map<String, String>> arg, SchemaConfiguration configuration) |
 
 ## ResultsList
 public class ResultsList

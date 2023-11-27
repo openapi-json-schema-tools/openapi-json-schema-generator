@@ -20,7 +20,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayWithValidationsInItemsList | validate(List<Long> arg, SchemaConfiguration configuration) |
+| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
 
 ## ArrayWithValidationsInItemsList
 public class ArrayWithValidationsInItemsList

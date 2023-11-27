@@ -55,7 +55,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FilesList | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## FilesList
 public class FilesList

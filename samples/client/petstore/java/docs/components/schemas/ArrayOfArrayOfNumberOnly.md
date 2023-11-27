@@ -57,7 +57,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayArrayNumberList | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayNumberList](#arrayarraynumberlist) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayNumberList
 public class ArrayArrayNumberList
@@ -87,7 +87,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ItemsList | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
 
 ## ItemsList
 public class ItemsList

@@ -75,7 +75,7 @@ Form parameter enum test (string array)
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static EnumFormStringArrayList | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [EnumFormStringArrayList](#enumformstringarraylist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## EnumFormStringArrayList
 public class EnumFormStringArrayList

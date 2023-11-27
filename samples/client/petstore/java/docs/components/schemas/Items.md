@@ -23,7 +23,7 @@ component&#x27;s name collides with the inner schema name
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ItemsList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ItemsList
 public class ItemsList

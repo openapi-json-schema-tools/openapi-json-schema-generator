@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayOfEnumsList | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## ArrayOfEnumsList
 public class ArrayOfEnumsList

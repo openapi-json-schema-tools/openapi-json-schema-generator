@@ -236,7 +236,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayWithUniqueItemsList | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
 
 ## ArrayWithUniqueItemsList
 public class ArrayWithUniqueItemsList

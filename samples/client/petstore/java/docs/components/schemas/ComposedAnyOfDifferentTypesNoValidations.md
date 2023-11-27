@@ -121,7 +121,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Schema9List | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema9List
 public class Schema9List

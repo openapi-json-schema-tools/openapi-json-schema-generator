@@ -58,7 +58,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayEnumList | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayEnumList](#arrayenumlist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## ArrayEnumList
 public class ArrayEnumList

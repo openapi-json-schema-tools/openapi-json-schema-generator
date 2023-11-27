@@ -58,7 +58,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Schema5List | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema5List
 public class Schema5List

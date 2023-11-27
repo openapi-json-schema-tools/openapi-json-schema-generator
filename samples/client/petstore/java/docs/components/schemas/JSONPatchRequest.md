@@ -20,7 +20,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static JSONPatchRequestList | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestList
 public class JSONPatchRequestList

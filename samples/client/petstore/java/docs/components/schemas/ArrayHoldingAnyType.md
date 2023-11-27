@@ -20,7 +20,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayHoldingAnyTypeList | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayHoldingAnyTypeList
 public class ArrayHoldingAnyTypeList

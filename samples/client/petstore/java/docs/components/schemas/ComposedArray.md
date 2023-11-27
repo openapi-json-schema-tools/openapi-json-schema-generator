@@ -20,7 +20,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ComposedArrayList | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ComposedArrayList
 public class ComposedArrayList

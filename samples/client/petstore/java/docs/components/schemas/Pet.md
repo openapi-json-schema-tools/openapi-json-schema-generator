@@ -73,7 +73,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static TagsList | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## TagsList
 public class TagsList
@@ -117,7 +117,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PhotoUrlsList | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## PhotoUrlsList
 public class PhotoUrlsList

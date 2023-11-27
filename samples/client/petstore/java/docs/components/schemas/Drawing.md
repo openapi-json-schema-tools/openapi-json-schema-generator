@@ -60,7 +60,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ShapesList | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ShapesList
 public class ShapesList

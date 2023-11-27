@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SelfReferencingArrayModelList | validate(List<List> arg, SchemaConfiguration configuration) |
+| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate(List<List> arg, SchemaConfiguration configuration) |
 
 ## SelfReferencingArrayModelList
 public class SelfReferencingArrayModelList
