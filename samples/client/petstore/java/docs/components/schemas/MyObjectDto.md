@@ -39,9 +39,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | String |  | [optional] value must be a uuid
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **id** | String |  | [optional] value must be a uuid |
 
 ## Id
 public static class Id

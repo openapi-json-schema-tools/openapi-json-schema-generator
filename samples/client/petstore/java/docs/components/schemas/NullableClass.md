@@ -74,21 +74,21 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**integer_prop** | Long |  | [optional]
-**number_prop** | Number |  | [optional]
-**boolean_prop** | Boolean |  | [optional]
-**string_prop** | String |  | [optional]
-**date_prop** | String |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**datetime_prop** | String |  | [optional] value must conform to RFC-3339 date-time
-**array_nullable_prop** | List<Map<String, Object>> |  | [optional]
-**array_and_items_nullable_prop** | List<Map<String, Object>> |  | [optional]
-**array_items_nullable** | List<Map<String, Object>> |  | [optional]
-**object_nullable_prop** | Map<String, Map<String, Object>> |  | [optional]
-**object_and_items_nullable_prop** | Map<String, Map<String, Object>> |  | [optional]
-**object_items_nullable** | Map<String, Map<String, Object>> |  | [optional]
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **integer_prop** | Long |  | [optional] |
+| **number_prop** | Number |  | [optional] |
+| **boolean_prop** | Boolean |  | [optional] |
+| **string_prop** | String |  | [optional] |
+| **date_prop** | String |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| **datetime_prop** | String |  | [optional] value must conform to RFC-3339 date-time |
+| **array_nullable_prop** | List<Map<String, Object>> |  | [optional] |
+| **array_and_items_nullable_prop** | List<Map<String, Object>> |  | [optional] |
+| **array_items_nullable** | List<Map<String, Object>> |  | [optional] |
+| **object_nullable_prop** | Map<String, Map<String, Object>> |  | [optional] |
+| **object_and_items_nullable_prop** | Map<String, Map<String, Object>> |  | [optional] |
+| **object_items_nullable** | Map<String, Map<String, Object>> |  | [optional] |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectItemsNullable
 public static class ObjectItemsNullable
@@ -117,9 +117,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2
@@ -161,9 +161,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1
@@ -205,9 +205,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties

@@ -43,12 +43,12 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**className** | String |  | must be one of ["whale"]
-**hasBaleen** | boolean |  | [optional]
-**hasTeeth** | boolean |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **className** | String |  | must be one of ["whale"] |
+| **hasBaleen** | boolean |  | [optional] |
+| **hasTeeth** | boolean |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ClassName
 public static class ClassName

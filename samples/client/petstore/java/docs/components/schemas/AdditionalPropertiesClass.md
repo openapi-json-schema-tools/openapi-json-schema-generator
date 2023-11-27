@@ -65,17 +65,17 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**map_property** | Map<String, String> |  | [optional]
-**map_of_map_property** | Map<String, Map<String, String>> |  | [optional]
-**anytype_1** | Object |  | [optional]
-**map_with_undeclared_properties_anytype_1** | Map<String, Object> |  | [optional]
-**map_with_undeclared_properties_anytype_2** | Map<String, Object> |  | [optional]
-**map_with_undeclared_properties_anytype_3** | Map<String, Object> |  | [optional]
-**empty_map** | Map<String, Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional]
-**map_with_undeclared_properties_string** | Map<String, String> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **map_property** | Map<String, String> |  | [optional] |
+| **map_of_map_property** | Map<String, Map<String, String>> |  | [optional] |
+| **anytype_1** | Object |  | [optional] |
+| **map_with_undeclared_properties_anytype_1** | Map<String, Object> |  | [optional] |
+| **map_with_undeclared_properties_anytype_2** | Map<String, Object> |  | [optional] |
+| **map_with_undeclared_properties_anytype_3** | Map<String, Object> |  | [optional] |
+| **empty_map** | Map<String, Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional] |
+| **map_with_undeclared_properties_string** | Map<String, String> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString
@@ -104,9 +104,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties5
 public static class AdditionalProperties5
@@ -148,8 +148,8 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
 
 ## AdditionalProperties4
 public static class AdditionalProperties4
@@ -197,9 +197,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3
@@ -288,9 +288,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1
@@ -319,9 +319,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2
@@ -361,9 +361,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties

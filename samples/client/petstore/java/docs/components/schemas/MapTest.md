@@ -52,13 +52,13 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**map_map_of_string** | Map<String, Map<String, String>> |  | [optional]
-**map_of_enum_string** | Map<String, String> |  | [optional]
-**direct_map** | Map<String, boolean> |  | [optional]
-**indirect_map** | Map<String, boolean> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **map_map_of_string** | Map<String, Map<String, String>> |  | [optional] |
+| **map_of_enum_string** | Map<String, String> |  | [optional] |
+| **direct_map** | Map<String, boolean> |  | [optional] |
+| **indirect_map** | Map<String, boolean> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## DirectMap
 public static class DirectMap
@@ -87,9 +87,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3
@@ -129,9 +129,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"] |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2
@@ -171,9 +171,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties
@@ -202,9 +202,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1

@@ -41,12 +41,12 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**length** | String |  | [optional]
-**width** | String |  | [optional] value must be int or float numeric
-**cost** | Map<String, Object> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **length** | String |  | [optional] |
+| **width** | String |  | [optional] value must be int or float numeric |
+| **cost** | Map<String, Object> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Width
 public static class Width

@@ -40,10 +40,10 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**amount** | String |  | value must be int or float numeric
-**currency** | String |  |
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **amount** | String |  | value must be int or float numeric |
+| **currency** | String |  | |
 
 ## Amount
 public static class Amount

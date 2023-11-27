@@ -60,23 +60,23 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**byte** | String | None |
-**double** | double | None | value must be a 64 bit float
-**number** | Number | None |
-**pattern_without_delimiter** | String | None |
-**integer** | long | None | [optional]
-**int32** | int | None | [optional] value must be a 32 bit integer
-**int64** | long | None | [optional] value must be a 64 bit integer
-**float** | float | None | [optional] value must be a 32 bit float
-**string** | String | None | [optional]
-**binary** | String | None | [optional]
-**date** | String | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**dateTime** | String | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time
-**password** | String | None | [optional]
-**callback** | String | None | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **byte** | String | None | |
+| **double** | double | None | value must be a 64 bit float |
+| **number** | Number | None | |
+| **pattern_without_delimiter** | String | None | |
+| **integer** | long | None | [optional] |
+| **int32** | int | None | [optional] value must be a 32 bit integer |
+| **int64** | long | None | [optional] value must be a 64 bit integer |
+| **float** | float | None | [optional] value must be a 32 bit float |
+| **string** | String | None | [optional] |
+| **binary** | String | None | [optional] |
+| **date** | String | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| **dateTime** | String | None | [optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time |
+| **password** | String | None | [optional] |
+| **callback** | String | None | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Callback
 public static class Callback

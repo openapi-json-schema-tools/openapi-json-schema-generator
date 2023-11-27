@@ -44,11 +44,11 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**someProp** | Map<String, Object> |  | [optional]
-**someprop** | Map<String, Object> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **someProp** | Map<String, Object> |  | [optional] |
+| **someprop** | Map<String, Object> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Someprop
 public static class Someprop

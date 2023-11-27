@@ -43,11 +43,11 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**op** | String | The operation to perform. | must be one of ["add", "replace", "test"]
-**path** | String | A JSON Pointer path. |
-**value** | Object | The value to add, replace or test. |
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **op** | String | The operation to perform. | must be one of ["add", "replace", "test"] |
+| **path** | String | A JSON Pointer path. | |
+| **value** | Object | The value to add, replace or test. | |
 
 ## Op
 public static class Op

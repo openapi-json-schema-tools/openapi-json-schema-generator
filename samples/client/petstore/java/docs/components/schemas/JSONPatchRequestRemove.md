@@ -41,10 +41,10 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**op** | String | The operation to perform. | must be one of ["remove"]
-**path** | String | A JSON Pointer path. |
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **op** | String | The operation to perform. | must be one of ["remove"] |
+| **path** | String | A JSON Pointer path. | |
 
 ## Op
 public static class Op

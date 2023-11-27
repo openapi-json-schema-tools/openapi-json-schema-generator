@@ -52,12 +52,12 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**array_of_string** | List<String> |  | [optional]
-**array_array_of_integer** | List<List<long>> |  | [optional]
-**array_array_of_model** | List<List<Map<String, Object>>> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **array_of_string** | List<String> |  | [optional] |
+| **array_array_of_integer** | List<List<long>> |  | [optional] |
+| **array_array_of_model** | List<List<Map<String, Object>>> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ArrayArrayOfModel
 public static class ArrayArrayOfModel

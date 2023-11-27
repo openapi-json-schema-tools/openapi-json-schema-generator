@@ -41,10 +41,10 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**a** | String |  | [optional]
-**b** | Number |  | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **a** | String |  | [optional] |
+| **b** | Number |  | [optional] |
 
 ## B
 public static class B

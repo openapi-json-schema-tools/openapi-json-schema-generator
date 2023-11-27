@@ -40,11 +40,11 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**invalid-name** | String |  |
-**validName** | String |  |
-**anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **invalid-name** | String |  | |
+| **validName** | String |  | |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties

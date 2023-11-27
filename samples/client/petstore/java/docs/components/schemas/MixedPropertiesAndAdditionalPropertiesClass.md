@@ -43,12 +43,12 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**uuid** | String |  | [optional] value must be a uuid
-**dateTime** | String |  | [optional] value must conform to RFC-3339 date-time
-**map** | Map<String, Map<String, Object>> |  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **uuid** | String |  | [optional] value must be a uuid |
+| **dateTime** | String |  | [optional] value must conform to RFC-3339 date-time |
+| **map** | Map<String, Map<String, Object>> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapSchema
 public static class MapSchema
@@ -77,9 +77,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## DateTime
 public static class DateTime

@@ -42,10 +42,10 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**count** | long |  |
-**results** | List<Map<String, String>> |  |
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **count** | long |  | |
+| **results** | List<Map<String, String>> |  | |
 
 ## Results
 public static class Results

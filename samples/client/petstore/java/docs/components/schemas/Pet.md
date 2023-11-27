@@ -54,15 +54,15 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**name** | String |  |
-**photoUrls** | List<String> |  |
-**id** | long |  | [optional] value must be a 64 bit integer
-**category** | Map<String, Object> |  | [optional]
-**tags** | List<Map<String, Object>> |  | [optional]
-**status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **name** | String |  | |
+| **photoUrls** | List<String> |  | |
+| **id** | long |  | [optional] value must be a 64 bit integer |
+| **category** | Map<String, Object> |  | [optional] |
+| **tags** | List<Map<String, Object>> |  | [optional] |
+| **status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Tags
 public static class Tags

@@ -49,15 +49,15 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**smallCamel** | String |  | [optional]
-**CapitalCamel** | String |  | [optional]
-**small_Snake** | String |  | [optional]
-**Capital_Snake** | String |  | [optional]
-**SCA_ETH_Flow_Points** | String |  | [optional]
-**ATT_NAME** | String | Name of the pet  | [optional]
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **smallCamel** | String |  | [optional] |
+| **CapitalCamel** | String |  | [optional] |
+| **small_Snake** | String |  | [optional] |
+| **Capital_Snake** | String |  | [optional] |
+| **SCA_ETH_Flow_Points** | String |  | [optional] |
+| **ATT_NAME** | String | Name of the pet  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ATTNAME
 public static class ATTNAME

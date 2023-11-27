@@ -41,11 +41,11 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**param** | String | field1 |
-**param2** | String | field2 |
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **param** | String | field1 | |
+| **param2** | String | field2 | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Param2
 public static class Param2

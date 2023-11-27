@@ -49,11 +49,11 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**shapeType** | String |  | must be one of ["Triangle"]
-**triangleType** | String |  |
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **shapeType** | String |  | must be one of ["Triangle"] |
+| **triangleType** | String |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## TriangleType
 public static class TriangleType

@@ -50,10 +50,10 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**return** | int | this is a reserved python keyword | [optional] value must be a 32 bit integer
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **return** | int | this is a reserved python keyword | [optional] value must be a 32 bit integer |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ReturnSchema2
 public static class ReturnSchema2

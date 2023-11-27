@@ -38,9 +38,9 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**anyStringName** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer |
 
 ## AdditionalProperties
 public static class AdditionalProperties

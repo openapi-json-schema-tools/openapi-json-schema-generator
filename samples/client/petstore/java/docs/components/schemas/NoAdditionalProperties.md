@@ -41,10 +41,10 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**id** | long |  | value must be a 64 bit integer
-**petId** | long |  | [optional] value must be a 64 bit integer
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **id** | long |  | value must be a 64 bit integer |
+| **petId** | long |  | [optional] value must be a 64 bit integer |
 
 ## PetId
 public static class PetId

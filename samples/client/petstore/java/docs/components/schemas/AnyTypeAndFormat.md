@@ -51,18 +51,18 @@ A class to store validated Map payloads
 ```
 type: Map<String, Object>
 ```
-Key | Type |  Description | Notes
------------- | ------------- | ------------- | -------------
-**uuid** | Object |  | [optional] value must be a uuid
-**date** | Object |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD
-**date-time** | Object |  | [optional] value must conform to RFC-3339 date-time
-**number** | Object |  | [optional] value must be int or float numeric
-**binary** | Object |  | [optional]
-**int32** | Object |  | [optional] value must be a 32 bit integer
-**int64** | Object |  | [optional] value must be a 64 bit integer
-**double** | Object |  | [optional] value must be a 64 bit float
-**float** | Object |  | [optional] value must be a 32 bit float
-**anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **uuid** | Object |  | [optional] value must be a uuid |
+| **date** | Object |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| **date-time** | Object |  | [optional] value must conform to RFC-3339 date-time |
+| **number** | Object |  | [optional] value must be int or float numeric |
+| **binary** | Object |  | [optional] |
+| **int32** | Object |  | [optional] value must be a 32 bit integer |
+| **int64** | Object |  | [optional] value must be a 64 bit integer |
+| **double** | Object |  | [optional] value must be a 64 bit float |
+| **float** | Object |  | [optional] value must be a 32 bit float |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## FloatSchema
 public static class FloatSchema
