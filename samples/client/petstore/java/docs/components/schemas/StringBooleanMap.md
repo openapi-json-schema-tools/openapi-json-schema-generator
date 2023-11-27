@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [StringBooleanMap.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## StringBooleanMap1
-public class StringBooleanMap1
+public static class StringBooleanMap1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [StringBooleanMapMap](#stringbooleanmapmap) | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 
 ## StringBooleanMapMap
-public class StringBooleanMapMap
+public static class StringBooleanMapMap
 extends FrozenMap<String, Boolean>
 
 A class to store validated Map payloads
@@ -43,7 +43,7 @@ Key | Type |  Description | Notes
 **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

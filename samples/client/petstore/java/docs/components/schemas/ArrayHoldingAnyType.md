@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayHoldingAnyType.Items](#items)<br> schema class |
 
 ## ArrayHoldingAnyType1
-public class ArrayHoldingAnyType1
+public static class ArrayHoldingAnyType1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -42,7 +42,7 @@ List Item Type | Description | Notes
 Object | any type can be stored here |
 
 ## Items
-public class Items
+public static class Items
 extends JsonSchema
 
 A schema class that validates payloads

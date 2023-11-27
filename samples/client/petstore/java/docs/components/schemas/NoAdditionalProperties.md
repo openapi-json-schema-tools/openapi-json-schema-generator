@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [NoAdditionalProperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## NoAdditionalProperties1
-public class NoAdditionalProperties1
+public static class NoAdditionalProperties1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | validate(Map<String, Long> arg, SchemaConfiguration configuration) |
 
 ## NoAdditionalPropertiesMap
-public class NoAdditionalPropertiesMap
+public static class NoAdditionalPropertiesMap
 extends FrozenMap<String, Long>
 
 A class to store validated Map payloads
@@ -47,7 +47,7 @@ Key | Type |  Description | Notes
 **petId** | long |  | [optional] value must be a 64 bit integer
 
 ## PetId
-public class PetId
+public static class PetId
 extends JsonSchema
 
 A schema class that validates payloads
@@ -58,7 +58,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Id
-public class Id
+public static class Id
 extends JsonSchema
 
 A schema class that validates payloads
@@ -69,7 +69,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

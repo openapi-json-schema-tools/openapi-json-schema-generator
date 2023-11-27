@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [BooleanEnum.BooleanEnum1](#booleanenum1)<br> schema class |
 
 ## BooleanEnum1
-public class BooleanEnum1
+public static class BooleanEnum1
 extends JsonSchema
 
 A schema class that validates payloads

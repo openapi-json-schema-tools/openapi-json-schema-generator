@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |
 
 ## HealthCheckResult1
-public class HealthCheckResult1
+public static class HealthCheckResult1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ Just a string to inform instance is up and running. Make it nullable in hope to 
 | static [HealthCheckResultMap](#healthcheckresultmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## HealthCheckResultMap
-public class HealthCheckResultMap
+public static class HealthCheckResultMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## NullableMessage
-public class NullableMessage
+public static class NullableMessage
 extends JsonSchema
 
 A schema class that validates payloads

@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [JSONPatchRequest.Items](#items)<br> schema class |
 
 ## JSONPatchRequest1
-public class JSONPatchRequest1
+public static class JSONPatchRequest1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -42,7 +42,7 @@ List Item Type | Description | Notes
 Object |  |
 
 ## Items
-public class Items
+public static class Items
 extends JsonSchema
 
 A schema class that validates payloads

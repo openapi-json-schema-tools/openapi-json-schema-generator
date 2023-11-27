@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AbstractStepMessage.Discriminator](#discriminator)<br> schema class |
 
 ## AbstractStepMessage1
-public class AbstractStepMessage1
+public static class AbstractStepMessage1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ Abstract Step
 | static [AbstractStepMessageMap](#abstractstepmessagemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AbstractStepMessageMap
-public class AbstractStepMessageMap
+public static class AbstractStepMessageMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -52,7 +52,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Discriminator
-public class Discriminator
+public static class Discriminator
 extends JsonSchema
 
 A schema class that validates payloads

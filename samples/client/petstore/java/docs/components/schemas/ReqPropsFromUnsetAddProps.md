@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap)<br> output class for Map payloads |
 
 ## ReqPropsFromUnsetAddProps1
-public class ReqPropsFromUnsetAddProps1
+public static class ReqPropsFromUnsetAddProps1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ReqPropsFromUnsetAddPropsMap
-public class ReqPropsFromUnsetAddPropsMap
+public static class ReqPropsFromUnsetAddPropsMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads

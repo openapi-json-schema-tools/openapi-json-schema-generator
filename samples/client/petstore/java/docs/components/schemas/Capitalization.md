@@ -17,7 +17,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Capitalization.SmallCamel](#smallcamel)<br> schema class |
 
 ## Capitalization1
-public class Capitalization1
+public static class Capitalization1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -28,7 +28,7 @@ A schema class that validates payloads
 | static [CapitalizationMap](#capitalizationmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## CapitalizationMap
-public class CapitalizationMap
+public static class CapitalizationMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -60,7 +60,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ATTNAME
-public class ATTNAME
+public static class ATTNAME
 extends JsonSchema
 
 A schema class that validates payloads
@@ -74,7 +74,7 @@ Name of the pet
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## SCAETHFlowPoints
-public class SCAETHFlowPoints
+public static class SCAETHFlowPoints
 extends JsonSchema
 
 A schema class that validates payloads
@@ -85,7 +85,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## CapitalSnake
-public class CapitalSnake
+public static class CapitalSnake
 extends JsonSchema
 
 A schema class that validates payloads
@@ -96,7 +96,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## SmallSnake
-public class SmallSnake
+public static class SmallSnake
 extends JsonSchema
 
 A schema class that validates payloads
@@ -107,7 +107,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## CapitalCamel
-public class CapitalCamel
+public static class CapitalCamel
 extends JsonSchema
 
 A schema class that validates payloads
@@ -118,7 +118,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## SmallCamel
-public class SmallCamel
+public static class SmallCamel
 extends JsonSchema
 
 A schema class that validates payloads

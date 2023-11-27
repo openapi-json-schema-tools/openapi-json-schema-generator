@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ReqPropsFromTrueAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## ReqPropsFromTrueAddProps1
-public class ReqPropsFromTrueAddProps1
+public static class ReqPropsFromTrueAddProps1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ReqPropsFromTrueAddPropsMap
-public class ReqPropsFromTrueAddPropsMap
+public static class ReqPropsFromTrueAddPropsMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -47,7 +47,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

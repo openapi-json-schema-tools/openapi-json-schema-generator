@@ -15,7 +15,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [JSONPatchRequestMoveCopy.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## JSONPatchRequestMoveCopy1
-public class JSONPatchRequestMoveCopy1
+public static class JSONPatchRequestMoveCopy1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ A schema class that validates payloads
 | static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestMoveCopyMap
-public class JSONPatchRequestMoveCopyMap
+public static class JSONPatchRequestMoveCopyMap
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -50,7 +50,7 @@ Key | Type |  Description | Notes
 **path** | String | A JSON Pointer path. |
 
 ## Op
-public class Op
+public static class Op
 extends JsonSchema
 
 A schema class that validates payloads
@@ -64,7 +64,7 @@ The operation to perform.
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Path
-public class Path
+public static class Path
 extends JsonSchema
 
 A schema class that validates payloads
@@ -78,7 +78,7 @@ A JSON Pointer path.
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## From
-public class From
+public static class From
 extends JsonSchema
 
 A schema class that validates payloads
@@ -92,7 +92,7 @@ A JSON Pointer path.
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

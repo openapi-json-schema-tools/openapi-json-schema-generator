@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ComposedArray.Items](#items)<br> schema class |
 
 ## ComposedArray1
-public class ComposedArray1
+public static class ComposedArray1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -42,7 +42,7 @@ List Item Type | Description | Notes
 Object |  |
 
 ## Items
-public class Items
+public static class Items
 extends JsonSchema
 
 A schema class that validates payloads

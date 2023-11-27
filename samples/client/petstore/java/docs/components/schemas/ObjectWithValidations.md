@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithValidations.ObjectWithValidations1](#objectwithvalidations1)<br> schema class |
 
 ## ObjectWithValidations1
-public class ObjectWithValidations1
+public static class ObjectWithValidations1
 extends JsonSchema
 
 A schema class that validates payloads

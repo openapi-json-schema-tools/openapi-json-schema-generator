@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayOfEnums.ArrayOfEnumsList](#arrayofenumslist)<br> output class for List payloads |
 
 ## ArrayOfEnums1
-public class ArrayOfEnums1
+public static class ArrayOfEnums1
 extends JsonSchema
 
 A schema class that validates payloads

@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Bar.Bar1](#bar1)<br> schema class |
 
 ## Bar1
-public class Bar1
+public static class Bar1
 extends JsonSchema
 
 A schema class that validates payloads

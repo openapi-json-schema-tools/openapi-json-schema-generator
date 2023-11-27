@@ -16,7 +16,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayOfArrayOfNumberOnly.Items1](#items1)<br> schema class |
 
 ## ArrayOfArrayOfNumberOnly1
-public class ArrayOfArrayOfNumberOnly1
+public static class ArrayOfArrayOfNumberOnly1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -27,7 +27,7 @@ A schema class that validates payloads
 | static [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayOfArrayOfNumberOnlyMap
-public class ArrayOfArrayOfNumberOnlyMap
+public static class ArrayOfArrayOfNumberOnlyMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -49,7 +49,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayArrayNumber
-public class ArrayArrayNumber
+public static class ArrayArrayNumber
 extends JsonSchema
 
 A schema class that validates payloads
@@ -79,7 +79,7 @@ List Item Type | Description | Notes
 List<Number> |  |
 
 ## Items
-public class Items
+public static class Items
 extends JsonSchema
 
 A schema class that validates payloads
@@ -109,7 +109,7 @@ List Item Type | Description | Notes
 Number |  |
 
 ## Items1
-public class Items1
+public static class Items1
 extends JsonSchema
 
 A schema class that validates payloads

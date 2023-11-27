@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [MyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## MyObjectDto1
-public class MyObjectDto1
+public static class MyObjectDto1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [MyObjectDtoMap](#myobjectdtomap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MyObjectDtoMap
-public class MyObjectDtoMap
+public static class MyObjectDtoMap
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -44,7 +44,7 @@ Key | Type |  Description | Notes
 **id** | String |  | [optional] value must be a uuid
 
 ## Id
-public class Id
+public static class Id
 extends JsonSchema
 
 A schema class that validates payloads
@@ -55,7 +55,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

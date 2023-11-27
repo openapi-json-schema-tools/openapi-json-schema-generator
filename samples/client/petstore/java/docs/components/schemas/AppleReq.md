@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AppleReq.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AppleReq1
-public class AppleReq1
+public static class AppleReq1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [AppleReqMap](#applereqmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AppleReqMap
-public class AppleReqMap
+public static class AppleReqMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -47,7 +47,7 @@ Key | Type |  Description | Notes
 **mealy** | boolean |  | [optional]
 
 ## Mealy
-public class Mealy
+public static class Mealy
 extends JsonSchema
 
 A schema class that validates payloads
@@ -58,7 +58,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## Cultivar
-public class Cultivar
+public static class Cultivar
 extends JsonSchema
 
 A schema class that validates payloads
@@ -69,7 +69,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

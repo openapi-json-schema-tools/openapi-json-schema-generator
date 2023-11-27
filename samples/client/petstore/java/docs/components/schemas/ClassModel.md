@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ClassModel.ClassSchema](#classschema)<br> schema class |
 
 ## ClassModel1
-public class ClassModel1
+public static class ClassModel1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -34,7 +34,7 @@ Model for testing model with \&quot;_class\&quot; property
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ClassModelMap
-public class ClassModelMap
+public static class ClassModelMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -56,7 +56,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ClassSchema
-public class ClassSchema
+public static class ClassSchema
 extends JsonSchema
 
 A schema class that validates payloads

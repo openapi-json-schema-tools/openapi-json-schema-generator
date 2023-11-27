@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 
 ## Schema1
-public class Schema1
+public static class Schema1
 extends [Pet.Pet1](../../../../components/schemas/Pet.md#pet1)
 
 A schema class that validates payloads

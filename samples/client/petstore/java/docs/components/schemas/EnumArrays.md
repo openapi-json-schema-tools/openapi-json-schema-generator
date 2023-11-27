@@ -15,7 +15,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
 
 ## EnumArrays1
-public class EnumArrays1
+public static class EnumArrays1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ A schema class that validates payloads
 | static [EnumArraysMap](#enumarraysmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## EnumArraysMap
-public class EnumArraysMap
+public static class EnumArraysMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -50,7 +50,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayEnum
-public class ArrayEnum
+public static class ArrayEnum
 extends JsonSchema
 
 A schema class that validates payloads
@@ -80,7 +80,7 @@ List Item Type | Description | Notes
 String |  | must be one of ["fish", "crab"]
 
 ## Items
-public class Items
+public static class Items
 extends JsonSchema
 
 A schema class that validates payloads
@@ -91,7 +91,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## JustSymbol
-public class JustSymbol
+public static class JustSymbol
 extends JsonSchema
 
 A schema class that validates payloads

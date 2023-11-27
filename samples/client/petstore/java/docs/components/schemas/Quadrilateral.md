@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Quadrilateral.Quadrilateral1](#quadrilateral1)<br> schema class |
 
 ## Quadrilateral1
-public class Quadrilateral1
+public static class Quadrilateral1
 extends JsonSchema
 
 A schema class that validates payloads

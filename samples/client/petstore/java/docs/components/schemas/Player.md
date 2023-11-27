@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Player.Name](#name)<br> schema class |
 
 ## Player1
-public class Player1
+public static class Player1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ a model that includes a self reference this forces properties and additionalProp
 | static [PlayerMap](#playermap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PlayerMap
-public class PlayerMap
+public static class PlayerMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -50,7 +50,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Name
-public class Name
+public static class Name
 extends JsonSchema
 
 A schema class that validates payloads

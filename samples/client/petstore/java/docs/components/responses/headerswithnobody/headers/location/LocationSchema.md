@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [LocationSchema.LocationSchema1](#locationschema1)<br> schema class |
 
 ## LocationSchema1
-public class LocationSchema1
+public static class LocationSchema1
 extends JsonSchema
 
 A schema class that validates payloads

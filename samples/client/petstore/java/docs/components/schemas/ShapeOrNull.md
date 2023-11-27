@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ShapeOrNull.Schema0](#schema0)<br> schema class |
 
 ## ShapeOrNull1
-public class ShapeOrNull1
+public static class ShapeOrNull1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -33,7 +33,7 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0
-public class Schema0
+public static class Schema0
 extends JsonSchema
 
 A schema class that validates payloads

@@ -23,7 +23,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayTest.Items](#items)<br> schema class |
 
 ## ArrayTest1
-public class ArrayTest1
+public static class ArrayTest1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -34,7 +34,7 @@ A schema class that validates payloads
 | static [ArrayTestMap](#arraytestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayTestMap
-public class ArrayTestMap
+public static class ArrayTestMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -60,7 +60,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ArrayArrayOfModel
-public class ArrayArrayOfModel
+public static class ArrayArrayOfModel
 extends JsonSchema
 
 A schema class that validates payloads
@@ -90,7 +90,7 @@ List Item Type | Description | Notes
 List<Map<String, Object>> |  |
 
 ## Items3
-public class Items3
+public static class Items3
 extends JsonSchema
 
 A schema class that validates payloads
@@ -120,7 +120,7 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## ArrayArrayOfInteger
-public class ArrayArrayOfInteger
+public static class ArrayArrayOfInteger
 extends JsonSchema
 
 A schema class that validates payloads
@@ -150,7 +150,7 @@ List Item Type | Description | Notes
 List<Long> |  |
 
 ## Items1
-public class Items1
+public static class Items1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -180,7 +180,7 @@ List Item Type | Description | Notes
 Long |  | value must be a 64 bit integer
 
 ## Items2
-public class Items2
+public static class Items2
 extends JsonSchema
 
 A schema class that validates payloads
@@ -191,7 +191,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## ArrayOfString
-public class ArrayOfString
+public static class ArrayOfString
 extends JsonSchema
 
 A schema class that validates payloads
@@ -221,7 +221,7 @@ List Item Type | Description | Notes
 String |  |
 
 ## Items
-public class Items
+public static class Items
 extends JsonSchema
 
 A schema class that validates payloads

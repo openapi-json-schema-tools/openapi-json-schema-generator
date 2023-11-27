@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [File.SourceURI](#sourceuri)<br> schema class |
 
 ## File1
-public class File1
+public static class File1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ Must be named &#x60;File&#x60; for test.
 | static [FileMap](#filemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## FileMap
-public class FileMap
+public static class FileMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## SourceURI
-public class SourceURI
+public static class SourceURI
 extends JsonSchema
 
 A schema class that validates payloads

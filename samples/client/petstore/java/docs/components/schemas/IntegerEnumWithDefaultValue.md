@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1](#integerenumwithdefaultvalue1)<br> schema class |
 
 ## IntegerEnumWithDefaultValue1
-public class IntegerEnumWithDefaultValue1
+public static class IntegerEnumWithDefaultValue1
 extends JsonSchema
 
 A schema class that validates payloads

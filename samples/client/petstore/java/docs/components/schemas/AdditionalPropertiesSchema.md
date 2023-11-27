@@ -19,7 +19,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AdditionalPropertiesSchema.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalPropertiesSchema1
-public class AdditionalPropertiesSchema1
+public static class AdditionalPropertiesSchema1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -30,7 +30,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema2
-public class Schema2
+public static class Schema2
 extends JsonSchema
 
 A schema class that validates payloads
@@ -41,7 +41,7 @@ A schema class that validates payloads
 | static [Schema2Map](#schema2map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema2Map
-public class Schema2Map
+public static class Schema2Map
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -61,7 +61,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties2
-public class AdditionalProperties2
+public static class AdditionalProperties2
 extends JsonSchema
 
 A schema class that validates payloads
@@ -80,7 +80,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema1
-public class Schema1
+public static class Schema1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -91,7 +91,7 @@ A schema class that validates payloads
 | static [Schema1Map](#schema1map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema1Map
-public class Schema1Map
+public static class Schema1Map
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -111,7 +111,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties1
-public class AdditionalProperties1
+public static class AdditionalProperties1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -130,7 +130,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0
-public class Schema0
+public static class Schema0
 extends JsonSchema
 
 A schema class that validates payloads
@@ -141,7 +141,7 @@ A schema class that validates payloads
 | static [Schema0Map](#schema0map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0Map
-public class Schema0Map
+public static class Schema0Map
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -161,7 +161,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

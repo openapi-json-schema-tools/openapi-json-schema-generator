@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 
 ## Schema1
-public class Schema1
+public static class Schema1
 extends [FileSchemaTestClass.FileSchemaTestClass1](../../../../../../components/schemas/FileSchemaTestClass.md#fileschematestclass1)
 
 A schema class that validates payloads

@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Money.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Money1
-public class Money1
+public static class Money1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [MoneyMap](#moneymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MoneyMap
-public class MoneyMap
+public static class MoneyMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -46,7 +46,7 @@ Key | Type |  Description | Notes
 **currency** | String |  |
 
 ## Amount
-public class Amount
+public static class Amount
 extends JsonSchema
 
 A schema class that validates payloads
@@ -57,7 +57,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

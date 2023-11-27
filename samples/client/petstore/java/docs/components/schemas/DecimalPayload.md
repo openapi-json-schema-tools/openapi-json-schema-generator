@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [DecimalPayload.DecimalPayload1](#decimalpayload1)<br> schema class |
 
 ## DecimalPayload1
-public class DecimalPayload1
+public static class DecimalPayload1
 extends JsonSchema
 
 A schema class that validates payloads

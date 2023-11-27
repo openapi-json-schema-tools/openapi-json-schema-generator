@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [NullableShape.Schema2](#schema2)<br> schema class |
 
 ## NullableShape1
-public class NullableShape1
+public static class NullableShape1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -33,7 +33,7 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema2
-public class Schema2
+public static class Schema2
 extends JsonSchema
 
 A schema class that validates payloads

@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [UUIDString.UUIDString1](#uuidstring1)<br> schema class |
 
 ## UUIDString1
-public class UUIDString1
+public static class UUIDString1
 extends JsonSchema
 
 A schema class that validates payloads

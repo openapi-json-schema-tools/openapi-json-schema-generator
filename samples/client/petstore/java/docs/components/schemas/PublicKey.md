@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [PublicKey.Key](#key)<br> schema class |
 
 ## PublicKey1
-public class PublicKey1
+public static class PublicKey1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ schema that contains a property named key
 | static [PublicKeyMap](#publickeymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PublicKeyMap
-public class PublicKeyMap
+public static class PublicKeyMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Key
-public class Key
+public static class Key
 extends JsonSchema
 
 A schema class that validates payloads

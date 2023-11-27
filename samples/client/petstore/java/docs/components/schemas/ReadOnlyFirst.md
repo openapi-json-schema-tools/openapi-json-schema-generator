@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
 
 ## ReadOnlyFirst1
-public class ReadOnlyFirst1
+public static class ReadOnlyFirst1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [ReadOnlyFirstMap](#readonlyfirstmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ReadOnlyFirstMap
-public class ReadOnlyFirstMap
+public static class ReadOnlyFirstMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Baz
-public class Baz
+public static class Baz
 extends JsonSchema
 
 A schema class that validates payloads
@@ -59,7 +59,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Bar
-public class Bar
+public static class Bar
 extends JsonSchema
 
 A schema class that validates payloads

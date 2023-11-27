@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Name.Name2](#name2)<br> schema class |
 
 ## Name1
-public class Name1
+public static class Name1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -36,7 +36,7 @@ Model for testing model name same as property name
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## NameMap
-public class NameMap
+public static class NameMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -62,7 +62,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Property
-public class Property
+public static class Property
 extends JsonSchema
 
 A schema class that validates payloads
@@ -76,7 +76,7 @@ this is a reserved python keyword
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## SnakeCase
-public class SnakeCase
+public static class SnakeCase
 extends JsonSchema
 
 A schema class that validates payloads
@@ -87,7 +87,7 @@ A schema class that validates payloads
 | static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## Name2
-public class Name2
+public static class Name2
 extends JsonSchema
 
 A schema class that validates payloads

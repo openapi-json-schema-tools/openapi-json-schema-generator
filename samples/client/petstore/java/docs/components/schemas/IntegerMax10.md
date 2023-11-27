@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
 
 ## IntegerMax101
-public class IntegerMax101
+public static class IntegerMax101
 extends JsonSchema
 
 A schema class that validates payloads

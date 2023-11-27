@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithDifficultlyNamedProps.Specialpropertyname](#specialpropertyname)<br> schema class |
 
 ## ObjectWithDifficultlyNamedProps1
-public class ObjectWithDifficultlyNamedProps1
+public static class ObjectWithDifficultlyNamedProps1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -28,7 +28,7 @@ model with properties that have invalid names for python
 | static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithDifficultlyNamedPropsMap
-public class ObjectWithDifficultlyNamedPropsMap
+public static class ObjectWithDifficultlyNamedPropsMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -52,7 +52,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Schema123Number
-public class Schema123Number
+public static class Schema123Number
 extends JsonSchema
 
 A schema class that validates payloads
@@ -63,7 +63,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Schema123list
-public class Schema123list
+public static class Schema123list
 extends JsonSchema
 
 A schema class that validates payloads
@@ -74,7 +74,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Specialpropertyname
-public class Specialpropertyname
+public static class Specialpropertyname
 extends JsonSchema
 
 A schema class that validates payloads

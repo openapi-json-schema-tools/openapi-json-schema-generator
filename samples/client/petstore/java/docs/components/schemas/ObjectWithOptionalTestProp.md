@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
 
 ## ObjectWithOptionalTestProp1
-public class ObjectWithOptionalTestProp1
+public static class ObjectWithOptionalTestProp1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithOptionalTestPropMap
-public class ObjectWithOptionalTestPropMap
+public static class ObjectWithOptionalTestPropMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -45,7 +45,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Test
-public class Test
+public static class Test
 extends JsonSchema
 
 A schema class that validates payloads

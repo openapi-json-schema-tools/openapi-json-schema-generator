@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithOnlyOptionalProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## ObjectWithOnlyOptionalProps1
-public class ObjectWithOnlyOptionalProps1
+public static class ObjectWithOnlyOptionalProps1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithOnlyOptionalPropsMap
-public class ObjectWithOnlyOptionalPropsMap
+public static class ObjectWithOnlyOptionalPropsMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -47,7 +47,7 @@ Key | Type |  Description | Notes
 **b** | Number |  | [optional]
 
 ## B
-public class B
+public static class B
 extends JsonSchema
 
 A schema class that validates payloads
@@ -58,7 +58,7 @@ A schema class that validates payloads
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## A
-public class A
+public static class A
 extends JsonSchema
 
 A schema class that validates payloads
@@ -69,7 +69,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

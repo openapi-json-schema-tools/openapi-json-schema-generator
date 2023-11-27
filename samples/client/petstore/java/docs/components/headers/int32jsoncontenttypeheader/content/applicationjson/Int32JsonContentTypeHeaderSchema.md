@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1](#int32jsoncontenttypeheaderschema1)<br> schema class |
 
 ## Int32JsonContentTypeHeaderSchema1
-public class Int32JsonContentTypeHeaderSchema1
+public static class Int32JsonContentTypeHeaderSchema1
 extends JsonSchema
 
 A schema class that validates payloads

@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Zebra.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Zebra1
-public class Zebra1
+public static class Zebra1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [ZebraMap](#zebramap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ZebraMap
-public class ZebraMap
+public static class ZebraMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -49,7 +49,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ClassName
-public class ClassName
+public static class ClassName
 extends JsonSchema
 
 A schema class that validates payloads
@@ -60,7 +60,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Type
-public class Type
+public static class Type
 extends JsonSchema
 
 A schema class that validates payloads
@@ -71,7 +71,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

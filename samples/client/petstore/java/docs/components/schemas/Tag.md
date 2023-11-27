@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Tag.Id](#id)<br> schema class |
 
 ## Tag1
-public class Tag1
+public static class Tag1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [TagMap](#tagmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## TagMap
-public class TagMap
+public static class TagMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Name
-public class Name
+public static class Name
 extends JsonSchema
 
 A schema class that validates payloads
@@ -59,7 +59,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Id
-public class Id
+public static class Id
 extends JsonSchema
 
 A schema class that validates payloads

@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema1.Items1](#items1)<br> schema class |
 
 ## Schema11
-public class Schema11
+public static class Schema11
 extends JsonSchema
 
 A schema class that validates payloads
@@ -42,7 +42,7 @@ List Item Type | Description | Notes
 String |  |
 
 ## Items1
-public class Items1
+public static class Items1
 extends JsonSchema
 
 A schema class that validates payloads

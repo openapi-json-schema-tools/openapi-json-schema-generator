@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Animal.ClassName](#classname)<br> schema class |
 
 ## Animal1
-public class Animal1
+public static class Animal1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [AnimalMap](#animalmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AnimalMap
-public class AnimalMap
+public static class AnimalMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Color
-public class Color
+public static class Color
 extends JsonSchema
 
 A schema class that validates payloads
@@ -59,7 +59,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## ClassName
-public class ClassName
+public static class ClassName
 extends JsonSchema
 
 A schema class that validates payloads

@@ -15,7 +15,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchema](#uuidschema)<br> schema class |
 
 ## MixedPropertiesAndAdditionalPropertiesClass1
-public class MixedPropertiesAndAdditionalPropertiesClass1
+public static class MixedPropertiesAndAdditionalPropertiesClass1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ A schema class that validates payloads
 | static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MixedPropertiesAndAdditionalPropertiesClassMap
-public class MixedPropertiesAndAdditionalPropertiesClassMap
+public static class MixedPropertiesAndAdditionalPropertiesClassMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -51,7 +51,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## MapSchema
-public class MapSchema
+public static class MapSchema
 extends JsonSchema
 
 A schema class that validates payloads
@@ -62,7 +62,7 @@ A schema class that validates payloads
 | static [MapMap](#mapmap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## MapMap
-public class MapMap
+public static class MapMap
 extends FrozenMap<String, Animal.AnimalMap>
 
 A class to store validated Map payloads
@@ -82,7 +82,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional]
 
 ## DateTime
-public class DateTime
+public static class DateTime
 extends JsonSchema
 
 A schema class that validates payloads
@@ -93,7 +93,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## UuidSchema
-public class UuidSchema
+public static class UuidSchema
 extends JsonSchema
 
 A schema class that validates payloads

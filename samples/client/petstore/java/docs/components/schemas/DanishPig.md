@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [DanishPig.ClassName](#classname)<br> schema class |
 
 ## DanishPig1
-public class DanishPig1
+public static class DanishPig1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [DanishPigMap](#danishpigmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## DanishPigMap
-public class DanishPigMap
+public static class DanishPigMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -45,7 +45,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## ClassName
-public class ClassName
+public static class ClassName
 extends JsonSchema
 
 A schema class that validates payloads

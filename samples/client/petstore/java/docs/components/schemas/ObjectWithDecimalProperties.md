@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithDecimalProperties.Width](#width)<br> schema class |
 
 ## ObjectWithDecimalProperties1
-public class ObjectWithDecimalProperties1
+public static class ObjectWithDecimalProperties1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithDecimalPropertiesMap
-public class ObjectWithDecimalPropertiesMap
+public static class ObjectWithDecimalPropertiesMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -49,7 +49,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Width
-public class Width
+public static class Width
 extends JsonSchema
 
 A schema class that validates payloads

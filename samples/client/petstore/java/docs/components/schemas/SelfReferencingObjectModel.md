@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [SelfReferencingObjectModel.SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap)<br> output class for Map payloads |
 
 ## SelfReferencingObjectModel1
-public class SelfReferencingObjectModel1
+public static class SelfReferencingObjectModel1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SelfReferencingObjectModelMap
-public class SelfReferencingObjectModelMap
+public static class SelfReferencingObjectModelMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads

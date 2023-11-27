@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList](#additionalpropertieslist)<br> output class for List payloads |
 
 ## AdditionalPropertiesWithArrayOfEnums1
-public class AdditionalPropertiesWithArrayOfEnums1
+public static class AdditionalPropertiesWithArrayOfEnums1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate(Map<String, List<String>> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesWithArrayOfEnumsMap
-public class AdditionalPropertiesWithArrayOfEnumsMap
+public static class AdditionalPropertiesWithArrayOfEnumsMap
 extends FrozenMap<String, AdditionalPropertiesList>
 
 A class to store validated Map payloads
@@ -44,7 +44,7 @@ Key | Type |  Description | Notes
 **anyStringName** | List<String> | any string name can be used but the value must be the correct type | [optional]
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

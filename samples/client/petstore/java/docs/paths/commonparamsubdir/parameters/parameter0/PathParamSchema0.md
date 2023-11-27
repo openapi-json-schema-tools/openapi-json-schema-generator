@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [PathParamSchema0.PathParamSchema01](#pathparamschema01)<br> schema class |
 
 ## PathParamSchema01
-public class PathParamSchema01
+public static class PathParamSchema01
 extends JsonSchema
 
 A schema class that validates payloads

@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithNonIntersectingValues.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## ObjectWithNonIntersectingValues1
-public class ObjectWithNonIntersectingValues1
+public static class ObjectWithNonIntersectingValues1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithNonIntersectingValuesMap
-public class ObjectWithNonIntersectingValuesMap
+public static class ObjectWithNonIntersectingValuesMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -46,7 +46,7 @@ Key | Type |  Description | Notes
 **anyStringName** | String | any string name can be used but the value must be the correct type | [optional]
 
 ## A
-public class A
+public static class A
 extends JsonSchema
 
 A schema class that validates payloads
@@ -57,7 +57,7 @@ A schema class that validates payloads
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public class AdditionalProperties
+public static class AdditionalProperties
 extends JsonSchema
 
 A schema class that validates payloads

@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
 
 ## Apple1
-public class Apple1
+public static class Apple1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [AppleMap](#applemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AppleMap
-public class AppleMap
+public static class AppleMap
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -49,7 +49,7 @@ Key | Type |  Description | Notes
 **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional]
 
 ## Origin
-public class Origin
+public static class Origin
 extends JsonSchema
 
 A schema class that validates payloads
@@ -60,7 +60,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Cultivar
-public class Cultivar
+public static class Cultivar
 extends JsonSchema
 
 A schema class that validates payloads

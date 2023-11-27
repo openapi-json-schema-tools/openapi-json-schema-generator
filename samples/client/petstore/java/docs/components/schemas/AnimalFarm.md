@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AnimalFarm.AnimalFarmList](#animalfarmlist)<br> output class for List payloads |
 
 ## AnimalFarm1
-public class AnimalFarm1
+public static class AnimalFarm1
 extends JsonSchema
 
 A schema class that validates payloads

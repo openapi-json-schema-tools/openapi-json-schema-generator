@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AnyTypeNotString.Not](#not)<br> schema class |
 
 ## AnyTypeNotString1
-public class AnyTypeNotString1
+public static class AnyTypeNotString1
 extends JsonSchema
 
 A schema class that validates payloads
@@ -30,7 +30,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Not
-public class Not
+public static class Not
 extends JsonSchema
 
 A schema class that validates payloads
