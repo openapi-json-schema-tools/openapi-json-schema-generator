@@ -13,11 +13,11 @@
             {{! one type }}
             {{#each types}}
                 {{#eq this "object"}}
-                    {{#or allOf anyOf oneOf not if_ then else_ properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties }}
-{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_map }}
-                    {{else}}
+                    {{#if isSimpleObject }}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
-                    {{/or}}
+                    {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_map }}
+                    {{/if}}
                 {{else}}
                     {{#eq this "array"}}
                         {{#if isSimpleArray }}
