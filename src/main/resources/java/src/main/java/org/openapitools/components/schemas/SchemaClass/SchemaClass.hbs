@@ -27,11 +27,11 @@
                         {{/or}}
                     {{else}}
                         {{#eq this "boolean"}}
-                            {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo }}
-{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_boolean }}
-                            {{else}}
+                            {{#if isSimpleBoolean }}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
-                            {{/or}}
+                            {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_boolean }}
+                            {{/if}}
                         {{else}}
                             {{#or (eq this "number") (eq this "integer") }}
                                 {{#or isSimpleInteger isSimpleNumber }}
