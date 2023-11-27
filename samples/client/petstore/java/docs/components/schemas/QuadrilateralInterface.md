@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [QuadrilateralInterface.ShapeType](#shapetype)<br> schema class |
 
 ## QuadrilateralInterface1
-public static class QuadrilateralInterface1
+public static class QuadrilateralInterface1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -32,7 +32,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## QuadrilateralInterfaceMap
-public static class QuadrilateralInterfaceMap
+public static class QuadrilateralInterfaceMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -56,7 +56,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## QuadrilateralType
-public static class QuadrilateralType
+public static class QuadrilateralType<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -67,7 +67,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## ShapeType
-public static class ShapeType
+public static class ShapeType<br>
 extends JsonSchema
 
 A schema class that validates payloads

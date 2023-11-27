@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [FileSchemaTestClass.FilesList](#fileslist)<br> output class for List payloads |
 
 ## FileSchemaTestClass1
-public static class FileSchemaTestClass1
+public static class FileSchemaTestClass1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [FileSchemaTestClassMap](#fileschematestclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## FileSchemaTestClassMap
-public static class FileSchemaTestClassMap
+public static class FileSchemaTestClassMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Files
-public static class Files
+public static class Files<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -59,7 +59,7 @@ A schema class that validates payloads
 | static [FilesList](#fileslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## FilesList
-public class FilesList
+public class FilesList<br>
 extends FrozenList<File.FileMap>
 
 A class to store validated List payloads

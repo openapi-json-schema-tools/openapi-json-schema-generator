@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithInlineCompositionProperty.Schema0](#schema0)<br> schema class |
 
 ## ObjectWithInlineCompositionProperty1
-public static class ObjectWithInlineCompositionProperty1
+public static class ObjectWithInlineCompositionProperty1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithInlineCompositionPropertyMap
-public static class ObjectWithInlineCompositionPropertyMap
+public static class ObjectWithInlineCompositionPropertyMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -46,7 +46,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## SomeProp
-public static class SomeProp
+public static class SomeProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -65,7 +65,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0
-public static class Schema0
+public static class Schema0<br>
 extends JsonSchema
 
 A schema class that validates payloads

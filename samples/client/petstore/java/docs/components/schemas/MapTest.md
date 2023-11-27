@@ -22,7 +22,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [MapTest.AdditionalProperties1](#additionalproperties1)<br> schema class |
 
 ## MapTest1
-public static class MapTest1
+public static class MapTest1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -33,7 +33,7 @@ A schema class that validates payloads
 | static [MapTestMap](#maptestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapTestMap
-public static class MapTestMap
+public static class MapTestMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -61,7 +61,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## DirectMap
-public static class DirectMap
+public static class DirectMap<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -72,7 +72,7 @@ A schema class that validates payloads
 | static [DirectMapMap](#directmapmap) | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 
 ## DirectMapMap
-public static class DirectMapMap
+public static class DirectMapMap<br>
 extends FrozenMap<String, Boolean>
 
 A class to store validated Map payloads
@@ -92,7 +92,7 @@ type: Map<String, Object>
 | **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties3
-public static class AdditionalProperties3
+public static class AdditionalProperties3<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -103,7 +103,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## MapOfEnumString
-public static class MapOfEnumString
+public static class MapOfEnumString<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -114,7 +114,7 @@ A schema class that validates payloads
 | static [MapOfEnumStringMap](#mapofenumstringmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MapOfEnumStringMap
-public static class MapOfEnumStringMap
+public static class MapOfEnumStringMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -134,7 +134,7 @@ type: Map<String, Object>
 | **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] must be one of ["UPPER", "lower"] |
 
 ## AdditionalProperties2
-public static class AdditionalProperties2
+public static class AdditionalProperties2<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -145,7 +145,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## MapMapOfString
-public static class MapMapOfString
+public static class MapMapOfString<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -156,7 +156,7 @@ A schema class that validates payloads
 | static [MapMapOfStringMap](#mapmapofstringmap) | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
 
 ## MapMapOfStringMap
-public static class MapMapOfStringMap
+public static class MapMapOfStringMap<br>
 extends FrozenMap<String, AdditionalPropertiesMap>
 
 A class to store validated Map payloads
@@ -176,7 +176,7 @@ type: Map<String, Object>
 | **anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
-public static class AdditionalProperties
+public static class AdditionalProperties<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -187,7 +187,7 @@ A schema class that validates payloads
 | static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesMap
-public static class AdditionalPropertiesMap
+public static class AdditionalPropertiesMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -207,7 +207,7 @@ type: Map<String, Object>
 | **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
-public static class AdditionalProperties1
+public static class AdditionalProperties1<br>
 extends JsonSchema
 
 A schema class that validates payloads

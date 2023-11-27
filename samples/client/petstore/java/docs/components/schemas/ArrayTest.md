@@ -23,7 +23,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayTest.Items](#items)<br> schema class |
 
 ## ArrayTest1
-public static class ArrayTest1
+public static class ArrayTest1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -34,7 +34,7 @@ A schema class that validates payloads
 | static [ArrayTestMap](#arraytestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayTestMap
-public static class ArrayTestMap
+public static class ArrayTestMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -60,7 +60,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ArrayArrayOfModel
-public static class ArrayArrayOfModel
+public static class ArrayArrayOfModel<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -71,7 +71,7 @@ A schema class that validates payloads
 | static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfModelList
-public class ArrayArrayOfModelList
+public class ArrayArrayOfModelList<br>
 extends FrozenList<ItemsList1>
 
 A class to store validated List payloads
@@ -90,7 +90,7 @@ List Item Type | Description | Notes
 List<Map<String, Object>> |  |
 
 ## Items3
-public static class Items3
+public static class Items3<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -101,7 +101,7 @@ A schema class that validates payloads
 | static [ItemsList1](#itemslist1) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ItemsList1
-public class ItemsList1
+public class ItemsList1<br>
 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>
 
 A class to store validated List payloads
@@ -120,7 +120,7 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## ArrayArrayOfInteger
-public static class ArrayArrayOfInteger
+public static class ArrayArrayOfInteger<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -131,7 +131,7 @@ A schema class that validates payloads
 | static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate(List<List<Long>> arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfIntegerList
-public class ArrayArrayOfIntegerList
+public class ArrayArrayOfIntegerList<br>
 extends FrozenList<ItemsList>
 
 A class to store validated List payloads
@@ -150,7 +150,7 @@ List Item Type | Description | Notes
 List<Long> |  |
 
 ## Items1
-public static class Items1
+public static class Items1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -161,7 +161,7 @@ A schema class that validates payloads
 | static [ItemsList](#itemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
 
 ## ItemsList
-public class ItemsList
+public class ItemsList<br>
 extends FrozenList<Long>
 
 A class to store validated List payloads
@@ -180,7 +180,7 @@ List Item Type | Description | Notes
 Long |  | value must be a 64 bit integer
 
 ## Items2
-public static class Items2
+public static class Items2<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -191,7 +191,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## ArrayOfString
-public static class ArrayOfString
+public static class ArrayOfString<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -202,7 +202,7 @@ A schema class that validates payloads
 | static [ArrayOfStringList](#arrayofstringlist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## ArrayOfStringList
-public class ArrayOfStringList
+public class ArrayOfStringList<br>
 extends FrozenList<String>
 
 A class to store validated List payloads
@@ -221,7 +221,7 @@ List Item Type | Description | Notes
 String |  |
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads

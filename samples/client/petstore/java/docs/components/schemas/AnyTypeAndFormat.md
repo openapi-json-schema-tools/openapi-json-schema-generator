@@ -20,7 +20,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AnyTypeAndFormat.UuidSchema](#uuidschema)<br> schema class |
 
 ## AnyTypeAndFormat1
-public static class AnyTypeAndFormat1
+public static class AnyTypeAndFormat1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -31,7 +31,7 @@ A schema class that validates payloads
 | static [AnyTypeAndFormatMap](#anytypeandformatmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AnyTypeAndFormatMap
-public static class AnyTypeAndFormatMap
+public static class AnyTypeAndFormatMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -65,7 +65,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## FloatSchema
-public static class FloatSchema
+public static class FloatSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -84,7 +84,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## DoubleSchema
-public static class DoubleSchema
+public static class DoubleSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -103,7 +103,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Int64
-public static class Int64
+public static class Int64<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -122,7 +122,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Int32
-public static class Int32
+public static class Int32<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -141,7 +141,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Binary
-public static class Binary
+public static class Binary<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -160,7 +160,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## NumberSchema
-public static class NumberSchema
+public static class NumberSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -179,7 +179,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Datetime
-public static class Datetime
+public static class Datetime<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -198,7 +198,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Date
-public static class Date
+public static class Date<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -217,7 +217,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## UuidSchema
-public static class UuidSchema
+public static class UuidSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads

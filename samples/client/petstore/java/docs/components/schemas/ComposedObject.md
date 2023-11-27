@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ComposedObject.Schema0](#schema0)<br> schema class |
 
 ## ComposedObject1
-public static class ComposedObject1
+public static class ComposedObject1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0
-public static class Schema0
+public static class Schema0<br>
 extends JsonSchema
 
 A schema class that validates payloads

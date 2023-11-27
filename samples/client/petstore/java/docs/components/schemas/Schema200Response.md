@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema200Response.Name](#name)<br> schema class |
 
 ## Schema200Response1
-public static class Schema200Response1
+public static class Schema200Response1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -35,7 +35,7 @@ model with an invalid class name for python, starts with a number
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema200ResponseMap
-public static class Schema200ResponseMap
+public static class Schema200ResponseMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -59,7 +59,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ClassSchema
-public static class ClassSchema
+public static class ClassSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -73,7 +73,7 @@ this is a reserved python keyword
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Name
-public static class Name
+public static class Name<br>
 extends JsonSchema
 
 A schema class that validates payloads

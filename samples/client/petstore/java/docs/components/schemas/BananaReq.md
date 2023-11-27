@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [BananaReq.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## BananaReq1
-public static class BananaReq1
+public static class BananaReq1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [BananaReqMap](#bananareqmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## BananaReqMap
-public static class BananaReqMap
+public static class BananaReqMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -47,7 +47,7 @@ type: Map<String, Object>
 | **sweet** | boolean |  | [optional] |
 
 ## Sweet
-public static class Sweet
+public static class Sweet<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -58,7 +58,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## LengthCm
-public static class LengthCm
+public static class LengthCm<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -69,7 +69,7 @@ A schema class that validates payloads
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public static class AdditionalProperties
+public static class AdditionalProperties<br>
 extends JsonSchema
 
 A schema class that validates payloads

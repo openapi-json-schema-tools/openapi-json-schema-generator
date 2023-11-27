@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [JSONPatchRequest.Items](#items)<br> schema class |
 
 ## JSONPatchRequest1
-public static class JSONPatchRequest1
+public static class JSONPatchRequest1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [JSONPatchRequestList](#jsonpatchrequestlist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestList
-public class JSONPatchRequestList
+public class JSONPatchRequestList<br>
 extends FrozenList<Object>
 
 A class to store validated List payloads
@@ -42,7 +42,7 @@ List Item Type | Description | Notes
 Object |  |
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads

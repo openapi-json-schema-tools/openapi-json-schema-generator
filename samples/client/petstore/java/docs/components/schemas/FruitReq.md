@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [FruitReq.Schema0](#schema0)<br> schema class |
 
 ## FruitReq1
-public static class FruitReq1
+public static class FruitReq1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -30,7 +30,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0
-public static class Schema0
+public static class Schema0<br>
 extends JsonSchema
 
 A schema class that validates payloads

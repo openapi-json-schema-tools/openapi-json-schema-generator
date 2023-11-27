@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ParentPet.ParentPet1](#parentpet1)<br> schema class |
 
 ## ParentPet1
-public static class ParentPet1
+public static class ParentPet1<br>
 extends JsonSchema
 
 A schema class that validates payloads

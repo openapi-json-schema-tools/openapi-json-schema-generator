@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema.SchemaList](#schemalist)<br> output class for List payloads |
 
 ## Schema1
-public static class Schema1
+public static class Schema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static [SchemaList](#schemalist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## SchemaList
-public class SchemaList
+public class SchemaList<br>
 extends FrozenList<Pet.PetMap>
 
 A class to store validated List payloads

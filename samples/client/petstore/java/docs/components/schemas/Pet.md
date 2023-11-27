@@ -19,7 +19,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Pet.Id](#id)<br> schema class |
 
 ## Pet1
-public static class Pet1
+public static class Pet1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -33,7 +33,7 @@ Pet object that needs to be added to the store
 | static [PetMap](#petmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PetMap
-public static class PetMap
+public static class PetMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -65,7 +65,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Tags
-public static class Tags
+public static class Tags<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -76,7 +76,7 @@ A schema class that validates payloads
 | static [TagsList](#tagslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## TagsList
-public class TagsList
+public class TagsList<br>
 extends FrozenList<Tag.TagMap>
 
 A class to store validated List payloads
@@ -95,7 +95,7 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## Status
-public static class Status
+public static class Status<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -109,7 +109,7 @@ pet status in the store
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## PhotoUrls
-public static class PhotoUrls
+public static class PhotoUrls<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -120,7 +120,7 @@ A schema class that validates payloads
 | static [PhotoUrlsList](#photourlslist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## PhotoUrlsList
-public class PhotoUrlsList
+public class PhotoUrlsList<br>
 extends FrozenList<String>
 
 A class to store validated List payloads
@@ -139,7 +139,7 @@ List Item Type | Description | Notes
 String |  |
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -150,7 +150,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Name
-public static class Name
+public static class Name<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -161,7 +161,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Id
-public static class Id
+public static class Id<br>
 extends JsonSchema
 
 A schema class that validates payloads

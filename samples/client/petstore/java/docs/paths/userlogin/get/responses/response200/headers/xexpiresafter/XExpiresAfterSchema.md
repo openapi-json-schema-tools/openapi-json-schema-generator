@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [XExpiresAfterSchema.XExpiresAfterSchema1](#xexpiresafterschema1)<br> schema class |
 
 ## XExpiresAfterSchema1
-public static class XExpiresAfterSchema1
+public static class XExpiresAfterSchema1<br>
 extends JsonSchema
 
 A schema class that validates payloads

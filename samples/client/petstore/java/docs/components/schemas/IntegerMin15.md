@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [IntegerMin15.IntegerMin151](#integermin151)<br> schema class |
 
 ## IntegerMin151
-public static class IntegerMin151
+public static class IntegerMin151<br>
 extends JsonSchema
 
 A schema class that validates payloads

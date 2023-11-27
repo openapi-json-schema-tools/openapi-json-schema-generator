@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayWithValidationsInItems.Items](#items)<br> schema class |
 
 ## ArrayWithValidationsInItems1
-public static class ArrayWithValidationsInItems1
+public static class ArrayWithValidationsInItems1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
 
 ## ArrayWithValidationsInItemsList
-public class ArrayWithValidationsInItemsList
+public class ArrayWithValidationsInItemsList<br>
 extends FrozenList<Long>
 
 A class to store validated List payloads
@@ -42,7 +42,7 @@ List Item Type | Description | Notes
 Long |  | value must be a 64 bit integer
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads

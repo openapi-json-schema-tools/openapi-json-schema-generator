@@ -17,7 +17,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Order.Id](#id)<br> schema class |
 
 ## Order1
-public static class Order1
+public static class Order1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -28,7 +28,7 @@ A schema class that validates payloads
 | static [OrderMap](#ordermap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## OrderMap
-public static class OrderMap
+public static class OrderMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -60,7 +60,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Complete
-public static class Complete
+public static class Complete<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -71,7 +71,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## Status
-public static class Status
+public static class Status<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -85,7 +85,7 @@ Order Status
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## ShipDate
-public static class ShipDate
+public static class ShipDate<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -96,7 +96,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Quantity
-public static class Quantity
+public static class Quantity<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -107,7 +107,7 @@ A schema class that validates payloads
 | static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## PetId
-public static class PetId
+public static class PetId<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -118,7 +118,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Id
-public static class Id
+public static class Id<br>
 extends JsonSchema
 
 A schema class that validates payloads

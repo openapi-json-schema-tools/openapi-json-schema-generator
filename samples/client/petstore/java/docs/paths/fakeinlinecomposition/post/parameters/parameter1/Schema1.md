@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema1.Schema01](#schema01)<br> schema class |
 
 ## Schema11
-public static class Schema11
+public static class Schema11<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [SchemaMap1](#schemamap1) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SchemaMap1
-public static class SchemaMap1
+public static class SchemaMap1<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -46,7 +46,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## SomeProp1
-public static class SomeProp1
+public static class SomeProp1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -65,7 +65,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema01
-public static class Schema01
+public static class Schema01<br>
 extends JsonSchema
 
 A schema class that validates payloads

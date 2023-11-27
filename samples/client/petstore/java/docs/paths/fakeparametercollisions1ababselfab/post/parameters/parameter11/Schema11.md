@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema11.Schema111](#schema111)<br> schema class |
 
 ## Schema111
-public static class Schema111
+public static class Schema111<br>
 extends JsonSchema
 
 A schema class that validates payloads

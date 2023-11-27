@@ -16,7 +16,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayOfArrayOfNumberOnly.Items1](#items1)<br> schema class |
 
 ## ArrayOfArrayOfNumberOnly1
-public static class ArrayOfArrayOfNumberOnly1
+public static class ArrayOfArrayOfNumberOnly1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -27,7 +27,7 @@ A schema class that validates payloads
 | static [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayOfArrayOfNumberOnlyMap
-public static class ArrayOfArrayOfNumberOnlyMap
+public static class ArrayOfArrayOfNumberOnlyMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -49,7 +49,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ArrayArrayNumber
-public static class ArrayArrayNumber
+public static class ArrayArrayNumber<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -60,7 +60,7 @@ A schema class that validates payloads
 | static [ArrayArrayNumberList](#arrayarraynumberlist) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayNumberList
-public class ArrayArrayNumberList
+public class ArrayArrayNumberList<br>
 extends FrozenList<ItemsList>
 
 A class to store validated List payloads
@@ -79,7 +79,7 @@ List Item Type | Description | Notes
 List<Number> |  |
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -90,7 +90,7 @@ A schema class that validates payloads
 | static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
 
 ## ItemsList
-public class ItemsList
+public class ItemsList<br>
 extends FrozenList<Number>
 
 A class to store validated List payloads
@@ -109,7 +109,7 @@ List Item Type | Description | Notes
 Number |  |
 
 ## Items1
-public static class Items1
+public static class Items1<br>
 extends JsonSchema
 
 A schema class that validates payloads

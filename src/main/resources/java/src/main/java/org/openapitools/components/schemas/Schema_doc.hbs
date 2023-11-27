@@ -35,7 +35,7 @@ A class that contains necessary nested schema classes, and classes to store vali
     {{#eq instanceType "schema"}}
 
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
-public static class {{jsonPathPiece.camelCase}}
+public static class {{jsonPathPiece.camelCase}}<br>
         {{#if refInfo}}
             {{#if refInfo.refModule}}
 extends {{#if refInfo.refModule}}[{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}]({{docRoot}}components/schemas/{{refInfo.refModule}}.md#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append (newArray) refInfo.ref.jsonPathPiece) }})
@@ -63,7 +63,7 @@ A schema class that validates payloads
         {{#eq instanceType "propertiesOutputType"}}
 
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
-public static class {{mapOutputJsonPathPiece.camelCase}}
+public static class {{mapOutputJsonPathPiece.camelCase}}<br>
 extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
 
 A class to store validated Map payloads
@@ -134,7 +134,7 @@ type: Map<String, Object>
             {{#eq instanceType "arrayOutputType"}}
 
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
-public class {{arrayOutputJsonPathPiece.camelCase}}
+public class {{arrayOutputJsonPathPiece.camelCase}}<br>
 extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
 
 A class to store validated List payloads

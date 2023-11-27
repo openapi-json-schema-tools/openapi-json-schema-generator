@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ComposedString.Schema0](#schema0)<br> schema class |
 
 ## ComposedString1
-public static class ComposedString1
+public static class ComposedString1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Schema0
-public static class Schema0
+public static class Schema0<br>
 extends JsonSchema
 
 A schema class that validates payloads

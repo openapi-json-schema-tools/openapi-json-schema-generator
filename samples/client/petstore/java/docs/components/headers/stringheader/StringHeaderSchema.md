@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [StringHeaderSchema.StringHeaderSchema1](#stringheaderschema1)<br> schema class |
 
 ## StringHeaderSchema1
-public static class StringHeaderSchema1
+public static class StringHeaderSchema1<br>
 extends JsonSchema
 
 A schema class that validates payloads

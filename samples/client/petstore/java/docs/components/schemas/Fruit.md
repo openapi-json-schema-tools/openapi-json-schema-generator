@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Fruit.Color](#color)<br> schema class |
 
 ## Fruit1
-public static class Fruit1
+public static class Fruit1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -31,7 +31,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## FruitMap
-public static class FruitMap
+public static class FruitMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -53,7 +53,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Color
-public static class Color
+public static class Color<br>
 extends JsonSchema
 
 A schema class that validates payloads

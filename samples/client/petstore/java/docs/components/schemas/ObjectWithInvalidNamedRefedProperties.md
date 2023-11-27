@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap)<br> output class for Map payloads |
 
 ## ObjectWithInvalidNamedRefedProperties1
-public static class ObjectWithInvalidNamedRefedProperties1
+public static class ObjectWithInvalidNamedRefedProperties1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithInvalidNamedRefedPropertiesMap
-public static class ObjectWithInvalidNamedRefedPropertiesMap
+public static class ObjectWithInvalidNamedRefedPropertiesMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads

@@ -15,7 +15,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema.Items](#items)<br> schema class |
 
 ## Schema1
-public static class Schema1
+public static class Schema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ A schema class that validates payloads
 | static [SchemaMap](#schemamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SchemaMap
-public static class SchemaMap
+public static class SchemaMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -50,7 +50,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## EnumFormString
-public static class EnumFormString
+public static class EnumFormString<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -64,7 +64,7 @@ Form parameter enum test (string)
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## EnumFormStringArray
-public static class EnumFormStringArray
+public static class EnumFormStringArray<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -78,7 +78,7 @@ Form parameter enum test (string array)
 | static [EnumFormStringArrayList](#enumformstringarraylist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## EnumFormStringArrayList
-public class EnumFormStringArrayList
+public class EnumFormStringArrayList<br>
 extends FrozenList<String>
 
 A class to store validated List payloads
@@ -97,7 +97,7 @@ List Item Type | Description | Notes
 String |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads

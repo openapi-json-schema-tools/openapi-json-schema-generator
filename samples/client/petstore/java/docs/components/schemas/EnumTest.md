@@ -15,7 +15,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
 
 ## EnumTest1
-public static class EnumTest1
+public static class EnumTest1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ A schema class that validates payloads
 | static [EnumTestMap](#enumtestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## EnumTestMap
-public static class EnumTestMap
+public static class EnumTestMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -64,7 +64,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## EnumNumber
-public static class EnumNumber
+public static class EnumNumber<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -75,7 +75,7 @@ A schema class that validates payloads
 | static double | validate(double arg, SchemaConfiguration configuration) |
 
 ## EnumInteger
-public static class EnumInteger
+public static class EnumInteger<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -86,7 +86,7 @@ A schema class that validates payloads
 | static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## EnumStringRequired
-public static class EnumStringRequired
+public static class EnumStringRequired<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -97,7 +97,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## EnumString
-public static class EnumString
+public static class EnumString<br>
 extends JsonSchema
 
 A schema class that validates payloads

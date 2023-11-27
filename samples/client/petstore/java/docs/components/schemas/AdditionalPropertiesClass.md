@@ -31,7 +31,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [AdditionalPropertiesClass.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalPropertiesClass1
-public static class AdditionalPropertiesClass1
+public static class AdditionalPropertiesClass1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -42,7 +42,7 @@ A schema class that validates payloads
 | static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesClassMap
-public static class AdditionalPropertiesClassMap
+public static class AdditionalPropertiesClassMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -78,7 +78,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapWithUndeclaredPropertiesString
-public static class MapWithUndeclaredPropertiesString
+public static class MapWithUndeclaredPropertiesString<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -89,7 +89,7 @@ A schema class that validates payloads
 | static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesStringMap
-public static class MapWithUndeclaredPropertiesStringMap
+public static class MapWithUndeclaredPropertiesStringMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -109,7 +109,7 @@ type: Map<String, Object>
 | **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties5
-public static class AdditionalProperties5
+public static class AdditionalProperties5<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -120,7 +120,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## EmptyMap
-public static class EmptyMap
+public static class EmptyMap<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -134,7 +134,7 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 | static [EmptyMapMap](#emptymapmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## EmptyMapMap
-public static class EmptyMapMap
+public static class EmptyMapMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -152,7 +152,7 @@ type: Map<String, Object>
 | --- | ---- | ------------ | ----- |
 
 ## AdditionalProperties4
-public static class AdditionalProperties4
+public static class AdditionalProperties4<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -171,7 +171,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype3
-public static class MapWithUndeclaredPropertiesAnytype3
+public static class MapWithUndeclaredPropertiesAnytype3<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -182,7 +182,7 @@ A schema class that validates payloads
 | static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype3Map
-public static class MapWithUndeclaredPropertiesAnytype3Map
+public static class MapWithUndeclaredPropertiesAnytype3Map<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -202,7 +202,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties3
-public static class AdditionalProperties3
+public static class AdditionalProperties3<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -221,7 +221,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype2
-public static class MapWithUndeclaredPropertiesAnytype2
+public static class MapWithUndeclaredPropertiesAnytype2<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -232,7 +232,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype1
-public static class MapWithUndeclaredPropertiesAnytype1
+public static class MapWithUndeclaredPropertiesAnytype1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -243,7 +243,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Anytype1
-public static class Anytype1
+public static class Anytype1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -262,7 +262,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## MapOfMapProperty
-public static class MapOfMapProperty
+public static class MapOfMapProperty<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -273,7 +273,7 @@ A schema class that validates payloads
 | static [MapOfMapPropertyMap](#mapofmappropertymap) | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
 
 ## MapOfMapPropertyMap
-public static class MapOfMapPropertyMap
+public static class MapOfMapPropertyMap<br>
 extends FrozenMap<String, AdditionalPropertiesMap>
 
 A class to store validated Map payloads
@@ -293,7 +293,7 @@ type: Map<String, Object>
 | **anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
-public static class AdditionalProperties1
+public static class AdditionalProperties1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -304,7 +304,7 @@ A schema class that validates payloads
 | static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesMap
-public static class AdditionalPropertiesMap
+public static class AdditionalPropertiesMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -324,7 +324,7 @@ type: Map<String, Object>
 | **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties2
-public static class AdditionalProperties2
+public static class AdditionalProperties2<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -335,7 +335,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## MapProperty
-public static class MapProperty
+public static class MapProperty<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -346,7 +346,7 @@ A schema class that validates payloads
 | static [MapPropertyMap](#mappropertymap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## MapPropertyMap
-public static class MapPropertyMap
+public static class MapPropertyMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -366,7 +366,7 @@ type: Map<String, Object>
 | **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
-public static class AdditionalProperties
+public static class AdditionalProperties<br>
 extends JsonSchema
 
 A schema class that validates payloads

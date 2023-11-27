@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
 
 ## SelfReferencingArrayModel1
-public static class SelfReferencingArrayModel1
+public static class SelfReferencingArrayModel1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate(List<List> arg, SchemaConfiguration configuration) |
 
 ## SelfReferencingArrayModelList
-public class SelfReferencingArrayModelList
+public class SelfReferencingArrayModelList<br>
 extends FrozenList<SelfReferencingArrayModelList>
 
 A class to store validated List payloads

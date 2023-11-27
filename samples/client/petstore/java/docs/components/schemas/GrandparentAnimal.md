@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 
 ## GrandparentAnimal1
-public static class GrandparentAnimal1
+public static class GrandparentAnimal1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [GrandparentAnimalMap](#grandparentanimalmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## GrandparentAnimalMap
-public static class GrandparentAnimalMap
+public static class GrandparentAnimalMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -45,7 +45,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## PetType
-public static class PetType
+public static class PetType<br>
 extends JsonSchema
 
 A schema class that validates payloads

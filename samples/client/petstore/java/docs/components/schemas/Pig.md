@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Pig.Pig1](#pig1)<br> schema class |
 
 ## Pig1
-public static class Pig1
+public static class Pig1<br>
 extends JsonSchema
 
 A schema class that validates payloads

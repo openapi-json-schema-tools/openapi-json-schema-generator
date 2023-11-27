@@ -25,7 +25,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema.IntegerSchema](#integerschema)<br> schema class |
 
 ## Schema1
-public static class Schema1
+public static class Schema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -36,7 +36,7 @@ A schema class that validates payloads
 | static [SchemaMap](#schemamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SchemaMap
-public static class SchemaMap
+public static class SchemaMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -79,7 +79,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Callback
-public static class Callback
+public static class Callback<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -93,7 +93,7 @@ None
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Password
-public static class Password
+public static class Password<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -107,7 +107,7 @@ None
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## DateTime
-public static class DateTime
+public static class DateTime<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -121,7 +121,7 @@ None
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Date
-public static class Date
+public static class Date<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -135,7 +135,7 @@ None
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Binary
-public static class Binary
+public static class Binary<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -149,7 +149,7 @@ None
 | static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
 
 ## ByteSchema
-public static class ByteSchema
+public static class ByteSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -163,7 +163,7 @@ None
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## PatternWithoutDelimiter
-public static class PatternWithoutDelimiter
+public static class PatternWithoutDelimiter<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -177,7 +177,7 @@ None
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## StringSchema
-public static class StringSchema
+public static class StringSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -191,7 +191,7 @@ None
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## DoubleSchema
-public static class DoubleSchema
+public static class DoubleSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -205,7 +205,7 @@ None
 | static double | validate(double arg, SchemaConfiguration configuration) |
 
 ## FloatSchema
-public static class FloatSchema
+public static class FloatSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -219,7 +219,7 @@ None
 | static float | validate(float arg, SchemaConfiguration configuration) |
 
 ## NumberSchema
-public static class NumberSchema
+public static class NumberSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -233,7 +233,7 @@ None
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## Int64
-public static class Int64
+public static class Int64<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -247,7 +247,7 @@ None
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Int32
-public static class Int32
+public static class Int32<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -261,7 +261,7 @@ None
 | static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## IntegerSchema
-public static class IntegerSchema
+public static class IntegerSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads

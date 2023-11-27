@@ -36,7 +36,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [NullableClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
 
 ## NullableClass1
-public static class NullableClass1
+public static class NullableClass1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -47,7 +47,7 @@ A schema class that validates payloads
 | static [NullableClassMap](#nullableclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## NullableClassMap
-public static class NullableClassMap
+public static class NullableClassMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -91,7 +91,7 @@ type: Map<String, Object>
 | **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectItemsNullable
-public static class ObjectItemsNullable
+public static class ObjectItemsNullable<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -102,7 +102,7 @@ A schema class that validates payloads
 | static [ObjectItemsNullableMap](#objectitemsnullablemap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ObjectItemsNullableMap
-public static class ObjectItemsNullableMap
+public static class ObjectItemsNullableMap<br>
 extends FrozenMap<String, FrozenMap<String, Object>>
 
 A class to store validated Map payloads
@@ -122,7 +122,7 @@ type: Map<String, Object>
 | **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties2
-public static class AdditionalProperties2
+public static class AdditionalProperties2<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -134,7 +134,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectAndItemsNullableProp
-public static class ObjectAndItemsNullableProp
+public static class ObjectAndItemsNullableProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -146,7 +146,7 @@ A schema class that validates payloads
 | static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ObjectAndItemsNullablePropMap
-public static class ObjectAndItemsNullablePropMap
+public static class ObjectAndItemsNullablePropMap<br>
 extends FrozenMap<String, FrozenMap<String, Object>>
 
 A class to store validated Map payloads
@@ -166,7 +166,7 @@ type: Map<String, Object>
 | **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
-public static class AdditionalProperties1
+public static class AdditionalProperties1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -178,7 +178,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectNullableProp
-public static class ObjectNullableProp
+public static class ObjectNullableProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -190,7 +190,7 @@ A schema class that validates payloads
 | static [ObjectNullablePropMap](#objectnullablepropmap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ObjectNullablePropMap
-public static class ObjectNullablePropMap
+public static class ObjectNullablePropMap<br>
 extends FrozenMap<String, FrozenMap<String, Object>>
 
 A class to store validated Map payloads
@@ -210,7 +210,7 @@ type: Map<String, Object>
 | **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
-public static class AdditionalProperties
+public static class AdditionalProperties<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -221,7 +221,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayItemsNullable
-public static class ArrayItemsNullable
+public static class ArrayItemsNullable<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -232,7 +232,7 @@ A schema class that validates payloads
 | static [ArrayItemsNullableList](#arrayitemsnullablelist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ArrayItemsNullableList
-public class ArrayItemsNullableList
+public class ArrayItemsNullableList<br>
 extends FrozenList<FrozenMap<String, Object>>
 
 A class to store validated List payloads
@@ -251,7 +251,7 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## Items2
-public static class Items2
+public static class Items2<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -263,7 +263,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayAndItemsNullableProp
-public static class ArrayAndItemsNullableProp
+public static class ArrayAndItemsNullableProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -275,7 +275,7 @@ A schema class that validates payloads
 | static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ArrayAndItemsNullablePropList
-public class ArrayAndItemsNullablePropList
+public class ArrayAndItemsNullablePropList<br>
 extends FrozenList<FrozenMap<String, Object>>
 
 A class to store validated List payloads
@@ -294,7 +294,7 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## Items1
-public static class Items1
+public static class Items1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -306,7 +306,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ArrayNullableProp
-public static class ArrayNullableProp
+public static class ArrayNullableProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -318,7 +318,7 @@ A schema class that validates payloads
 | static [ArrayNullablePropList](#arraynullableproplist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## ArrayNullablePropList
-public class ArrayNullablePropList
+public class ArrayNullablePropList<br>
 extends FrozenList<FrozenMap<String, Object>>
 
 A class to store validated List payloads
@@ -337,7 +337,7 @@ List Item Type | Description | Notes
 Map<String, Object> |  |
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -348,7 +348,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## DatetimeProp
-public static class DatetimeProp
+public static class DatetimeProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -360,7 +360,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## DateProp
-public static class DateProp
+public static class DateProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -372,7 +372,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## StringProp
-public static class StringProp
+public static class StringProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -384,7 +384,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## BooleanProp
-public static class BooleanProp
+public static class BooleanProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -396,7 +396,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## NumberProp
-public static class NumberProp
+public static class NumberProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -408,7 +408,7 @@ A schema class that validates payloads
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## IntegerProp
-public static class IntegerProp
+public static class IntegerProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -420,7 +420,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties3
-public static class AdditionalProperties3
+public static class AdditionalProperties3<br>
 extends JsonSchema
 
 A schema class that validates payloads

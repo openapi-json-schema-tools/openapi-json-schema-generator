@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjWithRequiredPropsBase.B](#b)<br> schema class |
 
 ## ObjWithRequiredPropsBase1
-public static class ObjWithRequiredPropsBase1
+public static class ObjWithRequiredPropsBase1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjWithRequiredPropsBaseMap
-public static class ObjWithRequiredPropsBaseMap
+public static class ObjWithRequiredPropsBaseMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -45,7 +45,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## B
-public static class B
+public static class B<br>
 extends JsonSchema
 
 A schema class that validates payloads

@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectWithCollidingProperties.SomeProp](#someprop)<br> schema class |
 
 ## ObjectWithCollidingProperties1
-public static class ObjectWithCollidingProperties1
+public static class ObjectWithCollidingProperties1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -27,7 +27,7 @@ component with properties that have name collisions
 | static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithCollidingPropertiesMap
-public static class ObjectWithCollidingPropertiesMap
+public static class ObjectWithCollidingPropertiesMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -51,7 +51,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Someprop
-public static class Someprop
+public static class Someprop<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -62,7 +62,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SomeProp
-public static class SomeProp
+public static class SomeProp<br>
 extends JsonSchema
 
 A schema class that validates payloads

@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [DateTimeTest.DateTimeTest1](#datetimetest1)<br> schema class |
 
 ## DateTimeTest1
-public static class DateTimeTest1
+public static class DateTimeTest1<br>
 extends JsonSchema
 
 A schema class that validates payloads

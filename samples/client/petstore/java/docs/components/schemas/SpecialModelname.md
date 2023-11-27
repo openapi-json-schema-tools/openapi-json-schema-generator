@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [SpecialModelname.A](#a)<br> schema class |
 
 ## SpecialModelname1
-public static class SpecialModelname1
+public static class SpecialModelname1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ model with an invalid class name for python
 | static [SpecialModelnameMap](#specialmodelnamemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## SpecialModelnameMap
-public static class SpecialModelnameMap
+public static class SpecialModelnameMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## A
-public static class A
+public static class A<br>
 extends JsonSchema
 
 A schema class that validates payloads

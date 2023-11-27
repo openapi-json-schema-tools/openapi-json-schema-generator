@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Triangle.Triangle1](#triangle1)<br> schema class |
 
 ## Triangle1
-public static class Triangle1
+public static class Triangle1<br>
 extends JsonSchema
 
 A schema class that validates payloads

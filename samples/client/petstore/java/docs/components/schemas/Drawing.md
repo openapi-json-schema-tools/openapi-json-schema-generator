@@ -13,7 +13,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
 
 ## Drawing1
-public static class Drawing1
+public static class Drawing1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -24,7 +24,7 @@ A schema class that validates payloads
 | static [DrawingMap](#drawingmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## DrawingMap
-public static class DrawingMap
+public static class DrawingMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -52,7 +52,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Shapes
-public static class Shapes
+public static class Shapes<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -63,7 +63,7 @@ A schema class that validates payloads
 | static [ShapesList](#shapeslist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ShapesList
-public class ShapesList
+public class ShapesList<br>
 extends FrozenList<Object>
 
 A class to store validated List payloads

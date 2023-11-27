@@ -17,7 +17,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ComposedOneOfDifferentTypes.Schema2](#schema2)<br> schema class |
 
 ## ComposedOneOfDifferentTypes1
-public static class ComposedOneOfDifferentTypes1
+public static class ComposedOneOfDifferentTypes1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -39,7 +39,7 @@ this is a model that allows payloads of type object or number
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema6
-public static class Schema6
+public static class Schema6<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -50,7 +50,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Schema5
-public static class Schema5
+public static class Schema5<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -61,7 +61,7 @@ A schema class that validates payloads
 | static [Schema5List](#schema5list) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema5List
-public class Schema5List
+public class Schema5List<br>
 extends FrozenList<Object>
 
 A class to store validated List payloads
@@ -80,7 +80,7 @@ List Item Type | Description | Notes
 Object |  |
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -99,7 +99,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema4
-public static class Schema4
+public static class Schema4<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -110,7 +110,7 @@ A schema class that validates payloads
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Schema3
-public static class Schema3
+public static class Schema3<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -121,7 +121,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Schema2
-public static class Schema2
+public static class Schema2<br>
 extends JsonSchema
 
 A schema class that validates payloads

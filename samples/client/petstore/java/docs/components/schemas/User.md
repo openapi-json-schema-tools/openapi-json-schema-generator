@@ -25,7 +25,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [User.Id](#id)<br> schema class |
 
 ## User1
-public static class User1
+public static class User1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -36,7 +36,7 @@ A schema class that validates payloads
 | static [UserMap](#usermap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## UserMap
-public static class UserMap
+public static class UserMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -82,7 +82,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AnyTypePropNullable
-public static class AnyTypePropNullable
+public static class AnyTypePropNullable<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -104,7 +104,7 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## AnyTypeExceptNullProp
-public static class AnyTypeExceptNullProp
+public static class AnyTypeExceptNullProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -126,7 +126,7 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Not
-public static class Not
+public static class Not<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -137,7 +137,7 @@ A schema class that validates payloads
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 
 ## AnyTypeProp
-public static class AnyTypeProp
+public static class AnyTypeProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -159,7 +159,7 @@ test code generation for any type Here the &#x27;type&#x27; attribute is not spe
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithNoDeclaredPropsNullable
-public static class ObjectWithNoDeclaredPropsNullable
+public static class ObjectWithNoDeclaredPropsNullable<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -174,7 +174,7 @@ test code generation for nullable objects. Value must be a map of strings to val
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithNoDeclaredProps
-public static class ObjectWithNoDeclaredProps
+public static class ObjectWithNoDeclaredProps<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -188,7 +188,7 @@ test code generation for objects Value must be a map of strings to values. It ca
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## UserStatus
-public static class UserStatus
+public static class UserStatus<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -202,7 +202,7 @@ User Status
 | static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## Phone
-public static class Phone
+public static class Phone<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -213,7 +213,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Password
-public static class Password
+public static class Password<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -224,7 +224,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Email
-public static class Email
+public static class Email<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -235,7 +235,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## LastName
-public static class LastName
+public static class LastName<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -246,7 +246,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## FirstName
-public static class FirstName
+public static class FirstName<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -257,7 +257,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Username
-public static class Username
+public static class Username<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -268,7 +268,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Id
-public static class Id
+public static class Id<br>
 extends JsonSchema
 
 A schema class that validates payloads

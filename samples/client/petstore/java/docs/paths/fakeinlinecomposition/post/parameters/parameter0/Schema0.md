@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema0.Schema00](#schema00)<br> schema class |
 
 ## Schema01
-public static class Schema01
+public static class Schema01<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -30,7 +30,7 @@ A schema class that validates payloads
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema00
-public static class Schema00
+public static class Schema00<br>
 extends JsonSchema
 
 A schema class that validates payloads

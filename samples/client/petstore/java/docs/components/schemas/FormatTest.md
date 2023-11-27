@@ -34,7 +34,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
 
 ## FormatTest1
-public static class FormatTest1
+public static class FormatTest1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -45,7 +45,7 @@ A schema class that validates payloads
 | static [FormatTestMap](#formattestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## FormatTestMap
-public static class FormatTestMap
+public static class FormatTestMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -101,7 +101,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## NoneProp
-public static class NoneProp
+public static class NoneProp<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -112,7 +112,7 @@ A schema class that validates payloads
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 
 ## PatternWithDigitsAndDelimiter
-public static class PatternWithDigitsAndDelimiter
+public static class PatternWithDigitsAndDelimiter<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -126,7 +126,7 @@ A string starting with &#x27;image_&#x27; (case insensitive) and one to three di
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## PatternWithDigits
-public static class PatternWithDigits
+public static class PatternWithDigits<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -140,7 +140,7 @@ A string that is a 10 digit number. Can have leading zeros.
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Password
-public static class Password
+public static class Password<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -151,7 +151,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## UuidNoExample
-public static class UuidNoExample
+public static class UuidNoExample<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -162,7 +162,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## UuidSchema
-public static class UuidSchema
+public static class UuidSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -173,7 +173,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## DateTime
-public static class DateTime
+public static class DateTime<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -184,7 +184,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Date
-public static class Date
+public static class Date<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -195,7 +195,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Binary
-public static class Binary
+public static class Binary<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -206,7 +206,7 @@ A schema class that validates payloads
 | static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
 
 ## ByteSchema
-public static class ByteSchema
+public static class ByteSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -217,7 +217,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## StringSchema
-public static class StringSchema
+public static class StringSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -228,7 +228,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## ArrayWithUniqueItems
-public static class ArrayWithUniqueItems
+public static class ArrayWithUniqueItems<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -239,7 +239,7 @@ A schema class that validates payloads
 | static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
 
 ## ArrayWithUniqueItemsList
-public class ArrayWithUniqueItemsList
+public class ArrayWithUniqueItemsList<br>
 extends FrozenList<Number>
 
 A class to store validated List payloads
@@ -258,7 +258,7 @@ List Item Type | Description | Notes
 Number |  |
 
 ## Items
-public static class Items
+public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -269,7 +269,7 @@ A schema class that validates payloads
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## Float64
-public static class Float64
+public static class Float64<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -280,7 +280,7 @@ A schema class that validates payloads
 | static double | validate(double arg, SchemaConfiguration configuration) |
 
 ## DoubleSchema
-public static class DoubleSchema
+public static class DoubleSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -291,7 +291,7 @@ A schema class that validates payloads
 | static double | validate(double arg, SchemaConfiguration configuration) |
 
 ## Float32
-public static class Float32
+public static class Float32<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -302,7 +302,7 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 
 ## FloatSchema
-public static class FloatSchema
+public static class FloatSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -316,7 +316,7 @@ this is a reserved python keyword
 | static float | validate(float arg, SchemaConfiguration configuration) |
 
 ## NumberSchema
-public static class NumberSchema
+public static class NumberSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -327,7 +327,7 @@ A schema class that validates payloads
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## Int64
-public static class Int64
+public static class Int64<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -338,7 +338,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Int32withValidations
-public static class Int32withValidations
+public static class Int32withValidations<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -349,7 +349,7 @@ A schema class that validates payloads
 | static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## Int32
-public static class Int32
+public static class Int32<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -360,7 +360,7 @@ A schema class that validates payloads
 | static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## IntegerSchema
-public static class IntegerSchema
+public static class IntegerSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads

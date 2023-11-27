@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ApiResponseSchema.Code](#code)<br> schema class |
 
 ## ApiResponseSchema1
-public static class ApiResponseSchema1
+public static class ApiResponseSchema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [ApiResponseMap](#apiresponsemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ApiResponseMap
-public static class ApiResponseMap
+public static class ApiResponseMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -51,7 +51,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Message
-public static class Message
+public static class Message<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -62,7 +62,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Type
-public static class Type
+public static class Type<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -73,7 +73,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Code
-public static class Code
+public static class Code<br>
 extends JsonSchema
 
 A schema class that validates payloads

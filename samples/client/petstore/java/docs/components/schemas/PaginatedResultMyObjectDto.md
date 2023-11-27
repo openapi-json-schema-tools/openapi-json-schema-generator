@@ -15,7 +15,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [PaginatedResultMyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## PaginatedResultMyObjectDto1
-public static class PaginatedResultMyObjectDto1
+public static class PaginatedResultMyObjectDto1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -26,7 +26,7 @@ A schema class that validates payloads
 | static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## PaginatedResultMyObjectDtoMap
-public static class PaginatedResultMyObjectDtoMap
+public static class PaginatedResultMyObjectDtoMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -48,7 +48,7 @@ type: Map<String, Object>
 | **results** | List<Map<String, String>> |  | |
 
 ## Results
-public static class Results
+public static class Results<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -59,7 +59,7 @@ A schema class that validates payloads
 | static [ResultsList](#resultslist) | validate(List<Map<String, String>> arg, SchemaConfiguration configuration) |
 
 ## ResultsList
-public class ResultsList
+public class ResultsList<br>
 extends FrozenList<MyObjectDto.MyObjectDtoMap>
 
 A class to store validated List payloads
@@ -78,7 +78,7 @@ List Item Type | Description | Notes
 Map<String, String> |  |
 
 ## Count
-public static class Count
+public static class Count<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -89,7 +89,7 @@ A schema class that validates payloads
 | static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public static class AdditionalProperties
+public static class AdditionalProperties<br>
 extends JsonSchema
 
 A schema class that validates payloads

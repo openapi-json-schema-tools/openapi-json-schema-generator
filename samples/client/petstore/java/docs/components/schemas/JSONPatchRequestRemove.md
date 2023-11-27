@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [JSONPatchRequestRemove.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## JSONPatchRequestRemove1
-public static class JSONPatchRequestRemove1
+public static class JSONPatchRequestRemove1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestRemoveMap
-public static class JSONPatchRequestRemoveMap
+public static class JSONPatchRequestRemoveMap<br>
 extends FrozenMap<String, String>
 
 A class to store validated Map payloads
@@ -47,7 +47,7 @@ type: Map<String, Object>
 | **path** | String | A JSON Pointer path. | |
 
 ## Op
-public static class Op
+public static class Op<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -61,7 +61,7 @@ The operation to perform.
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Path
-public static class Path
+public static class Path<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -75,7 +75,7 @@ A JSON Pointer path.
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
-public static class AdditionalProperties
+public static class AdditionalProperties<br>
 extends JsonSchema
 
 A schema class that validates payloads

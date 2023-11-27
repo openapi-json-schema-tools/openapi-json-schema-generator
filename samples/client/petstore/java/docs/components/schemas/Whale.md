@@ -14,7 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
 
 ## Whale1
-public static class Whale1
+public static class Whale1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ A schema class that validates payloads
 | static [WhaleMap](#whalemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## WhaleMap
-public static class WhaleMap
+public static class WhaleMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -51,7 +51,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ClassName
-public static class ClassName
+public static class ClassName<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -62,7 +62,7 @@ A schema class that validates payloads
 | static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## HasTeeth
-public static class HasTeeth
+public static class HasTeeth<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -73,7 +73,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## HasBaleen
-public static class HasBaleen
+public static class HasBaleen<br>
 extends JsonSchema
 
 A schema class that validates payloads

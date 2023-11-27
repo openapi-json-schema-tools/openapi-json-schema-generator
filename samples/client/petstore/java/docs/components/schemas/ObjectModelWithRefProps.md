@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap)<br> output class for Map payloads |
 
 ## ObjectModelWithRefProps1
-public static class ObjectModelWithRefProps1
+public static class ObjectModelWithRefProps1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -25,7 +25,7 @@ a model that includes properties which should stay primitive (String + Boolean) 
 | static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectModelWithRefPropsMap
-public static class ObjectModelWithRefPropsMap
+public static class ObjectModelWithRefPropsMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads

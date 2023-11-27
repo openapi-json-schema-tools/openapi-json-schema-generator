@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ObjectInterface.ObjectInterface1](#objectinterface1)<br> schema class |
 
 ## ObjectInterface1
-public static class ObjectInterface1
+public static class ObjectInterface1<br>
 extends JsonSchema
 
 A schema class that validates payloads

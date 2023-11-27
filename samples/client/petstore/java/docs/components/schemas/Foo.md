@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Foo.FooMap](#foomap)<br> output class for Map payloads |
 
 ## Foo1
-public static class Foo1
+public static class Foo1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -22,7 +22,7 @@ A schema class that validates payloads
 | static [FooMap](#foomap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## FooMap
-public static class FooMap
+public static class FooMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads

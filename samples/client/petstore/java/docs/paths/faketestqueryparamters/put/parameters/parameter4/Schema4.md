@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema4.Items4](#items4)<br> schema class |
 
 ## Schema41
-public static class Schema41
+public static class Schema41<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [SchemaList4](#schemalist4) | validate(List<String> arg, SchemaConfiguration configuration) |
 
 ## SchemaList4
-public class SchemaList4
+public class SchemaList4<br>
 extends FrozenList<String>
 
 A class to store validated List payloads
@@ -42,7 +42,7 @@ List Item Type | Description | Notes
 String |  |
 
 ## Items4
-public static class Items4
+public static class Items4<br>
 extends JsonSchema
 
 A schema class that validates payloads

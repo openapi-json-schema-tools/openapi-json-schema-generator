@@ -12,7 +12,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Client.Client2](#client2)<br> schema class |
 
 ## Client1
-public static class Client1
+public static class Client1<br>
 extends JsonSchema
 
 A schema class that validates payloads
@@ -23,7 +23,7 @@ A schema class that validates payloads
 | static [ClientMap](#clientmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## ClientMap
-public static class ClientMap
+public static class ClientMap<br>
 extends FrozenMap<String, Object>
 
 A class to store validated Map payloads
@@ -45,7 +45,7 @@ type: Map<String, Object>
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Client2
-public static class Client2
+public static class Client2<br>
 extends JsonSchema
 
 A schema class that validates payloads

@@ -10,7 +10,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [XRateLimitSchema.XRateLimitSchema1](#xratelimitschema1)<br> schema class |
 
 ## XRateLimitSchema1
-public static class XRateLimitSchema1
+public static class XRateLimitSchema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
