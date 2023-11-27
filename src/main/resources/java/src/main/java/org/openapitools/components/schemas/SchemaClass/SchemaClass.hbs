@@ -41,11 +41,11 @@
                                 {{/or}}
                             {{else}}
                                 {{#eq this "string"}}
-                                    {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
-{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_string }}
-                                    {{else}}
+                                    {{#if isSimpleString}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
-                                    {{/or}}
+                                    {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_string }}
+                                    {{/if}}
                                 {{else}}
                                     {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo }}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_null }}
