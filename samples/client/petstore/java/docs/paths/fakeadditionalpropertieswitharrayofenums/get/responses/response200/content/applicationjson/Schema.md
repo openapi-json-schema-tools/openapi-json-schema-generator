@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public class Schema1
-extends AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1
+extends [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1](../../../../../../../../components/schemas/AdditionalPropertiesWithArrayOfEnums.md#additionalpropertieswitharrayofenums1)
 
 A schema class that validates payloads

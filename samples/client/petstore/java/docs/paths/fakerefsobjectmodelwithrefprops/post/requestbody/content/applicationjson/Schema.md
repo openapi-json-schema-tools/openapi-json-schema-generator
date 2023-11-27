@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public class Schema1
-extends ObjectModelWithRefProps.ObjectModelWithRefProps1
+extends [ObjectModelWithRefProps.ObjectModelWithRefProps1](../../../../../../components/schemas/ObjectModelWithRefProps.md#objectmodelwithrefprops1)
 
 A schema class that validates payloads

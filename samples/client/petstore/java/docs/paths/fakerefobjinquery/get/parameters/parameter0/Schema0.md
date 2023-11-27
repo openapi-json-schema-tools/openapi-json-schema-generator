@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema01
 public class Schema01
-extends Foo.Foo1
+extends [Foo.Foo1](../../../components/schemas/Foo.md#foo1)
 
 A schema class that validates payloads

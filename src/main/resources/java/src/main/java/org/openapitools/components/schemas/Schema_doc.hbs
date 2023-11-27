@@ -37,7 +37,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
 public class {{jsonPathPiece.camelCase}}
         {{#if refInfo}}
-extends {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}
+            {{#if refInfo.refModule}}
+extends {{#if refInfo.refModule}}[{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}]({{docRoot}}components/schemas/{{refInfo.refModule}}.md#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append (newArray) refInfo.ref.jsonPathPiece) }})
+            {{else}}
+extends [{{refInfo.refClass}}]((#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append (newArray) refInfo.ref) }}))
+            {{/if}}
         {{else}}
 extends JsonSchema
         {{/if}}

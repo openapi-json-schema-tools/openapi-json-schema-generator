@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## RefContentSchemaHeaderSchema1
 public class RefContentSchemaHeaderSchema1
-extends StringWithValidation.StringWithValidation1
+extends [StringWithValidation.StringWithValidation1](../../../../../components/schemas/StringWithValidation.md#stringwithvalidation1)
 
 A schema class that validates payloads

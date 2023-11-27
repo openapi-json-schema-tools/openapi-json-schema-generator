@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public class Schema1
-extends HealthCheckResult.HealthCheckResult1
+extends [HealthCheckResult.HealthCheckResult1](../../../../../../../../components/schemas/HealthCheckResult.md#healthcheckresult1)
 
 A schema class that validates payloads
