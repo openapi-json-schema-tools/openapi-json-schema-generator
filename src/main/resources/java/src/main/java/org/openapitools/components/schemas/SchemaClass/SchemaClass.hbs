@@ -47,11 +47,11 @@
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_string }}
                                     {{/if}}
                                 {{else}}
-                                    {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo }}
-{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_null }}
-                                    {{else}}
+                                    {{#if isSimpleNull }}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
-                                    {{/or}}
+                                    {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_null }}
+                                    {{/if}}
                                 {{/eq}}
                             {{/or}}
                         {{/eq}}
