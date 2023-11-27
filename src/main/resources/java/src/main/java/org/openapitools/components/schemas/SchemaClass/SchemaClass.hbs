@@ -20,11 +20,11 @@
                     {{/or}}
                 {{else}}
                     {{#eq this "array"}}
-                        {{#or allOf anyOf oneOf not if_ then else_ items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems unevaluatedItems }}
-{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_list }}
-                        {{else}}
+                        {{#if isSimpleArray }}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
-                        {{/or}}
+                        {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_list }}
+                        {{/if}}
                     {{else}}
                         {{#eq this "boolean"}}
                             {{#if isSimpleBoolean }}
