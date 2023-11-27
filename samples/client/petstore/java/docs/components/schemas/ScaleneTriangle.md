@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ScaleneTriangle.ScaleneTriangle1<br> schema class |
-| static class | ScaleneTriangle.Schema1<br> schema class |
-| static class | ScaleneTriangle.Schema1Map<br> output class for Map payloads |
-| static class | ScaleneTriangle.TriangleType<br> schema class |
+| static class | [ScaleneTriangle.ScaleneTriangle1](#scalenetriangle1)<br> schema class |
+| static class | [ScaleneTriangle.Schema1](#schema1)<br> schema class |
+| static class | [ScaleneTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [ScaleneTriangle.TriangleType](#triangletype)<br> schema class |
 
 ## ScaleneTriangle1
 public class ScaleneTriangle1

@@ -7,17 +7,17 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | AnyTypeAndFormat.AnyTypeAndFormat1<br> schema class |
-| static class | AnyTypeAndFormat.AnyTypeAndFormatMap<br> output class for Map payloads |
-| static class | AnyTypeAndFormat.FloatSchema<br> schema class |
-| static class | AnyTypeAndFormat.DoubleSchema<br> schema class |
-| static class | AnyTypeAndFormat.Int64<br> schema class |
-| static class | AnyTypeAndFormat.Int32<br> schema class |
-| static class | AnyTypeAndFormat.Binary<br> schema class |
-| static class | AnyTypeAndFormat.NumberSchema<br> schema class |
-| static class | AnyTypeAndFormat.Datetime<br> schema class |
-| static class | AnyTypeAndFormat.Date<br> schema class |
-| static class | AnyTypeAndFormat.UuidSchema<br> schema class |
+| static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
+| static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
+| static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
+| static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
+| static class | [AnyTypeAndFormat.Int64](#int64)<br> schema class |
+| static class | [AnyTypeAndFormat.Int32](#int32)<br> schema class |
+| static class | [AnyTypeAndFormat.Binary](#binary)<br> schema class |
+| static class | [AnyTypeAndFormat.NumberSchema](#numberschema)<br> schema class |
+| static class | [AnyTypeAndFormat.Datetime](#datetime)<br> schema class |
+| static class | [AnyTypeAndFormat.Date](#date)<br> schema class |
+| static class | [AnyTypeAndFormat.UuidSchema](#uuidschema)<br> schema class |
 
 ## AnyTypeAndFormat1
 public class AnyTypeAndFormat1

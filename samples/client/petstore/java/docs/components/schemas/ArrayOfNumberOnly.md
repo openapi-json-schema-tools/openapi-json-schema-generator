@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ArrayOfNumberOnly.ArrayOfNumberOnly1<br> schema class |
-| static class | ArrayOfNumberOnly.ArrayOfNumberOnlyMap<br> output class for Map payloads |
-| static class | ArrayOfNumberOnly.ArrayNumber<br> schema class |
-| static class | ArrayOfNumberOnly.ArrayNumberList<br> output class for List payloads |
-| static class | ArrayOfNumberOnly.Items<br> schema class |
+| static class | [ArrayOfNumberOnly.ArrayOfNumberOnly1](#arrayofnumberonly1)<br> schema class |
+| static class | [ArrayOfNumberOnly.ArrayOfNumberOnlyMap](#arrayofnumberonlymap)<br> output class for Map payloads |
+| static class | [ArrayOfNumberOnly.ArrayNumber](#arraynumber)<br> schema class |
+| static class | [ArrayOfNumberOnly.ArrayNumberList](#arraynumberlist)<br> output class for List payloads |
+| static class | [ArrayOfNumberOnly.Items](#items)<br> schema class |
 
 ## ArrayOfNumberOnly1
 public class ArrayOfNumberOnly1

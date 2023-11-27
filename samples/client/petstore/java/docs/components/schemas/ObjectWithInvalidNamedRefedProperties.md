@@ -7,8 +7,8 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1<br> schema class |
-| static class | ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap<br> output class for Map payloads |
+| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1](#objectwithinvalidnamedrefedproperties1)<br> schema class |
+| static class | [ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap)<br> output class for Map payloads |
 
 ## ObjectWithInvalidNamedRefedProperties1
 public class ObjectWithInvalidNamedRefedProperties1

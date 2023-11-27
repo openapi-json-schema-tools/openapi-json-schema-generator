@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | PublicKey.PublicKey1<br> schema class |
-| static class | PublicKey.PublicKeyMap<br> output class for Map payloads |
-| static class | PublicKey.Key<br> schema class |
+| static class | [PublicKey.PublicKey1](#publickey1)<br> schema class |
+| static class | [PublicKey.PublicKeyMap](#publickeymap)<br> output class for Map payloads |
+| static class | [PublicKey.Key](#key)<br> schema class |
 
 ## PublicKey1
 public class PublicKey1

@@ -7,12 +7,12 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1<br> schema class |
-| static class | PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap<br> output class for Map payloads |
-| static class | PaginatedResultMyObjectDto.Results<br> schema class |
-| static class | PaginatedResultMyObjectDto.ResultsList<br> output class for List payloads |
-| static class | PaginatedResultMyObjectDto.Count<br> schema class |
-| static class | PaginatedResultMyObjectDto.AdditionalProperties<br> schema class |
+| static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1](#paginatedresultmyobjectdto1)<br> schema class |
+| static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap)<br> output class for Map payloads |
+| static class | [PaginatedResultMyObjectDto.Results](#results)<br> schema class |
+| static class | [PaginatedResultMyObjectDto.ResultsList](#resultslist)<br> output class for List payloads |
+| static class | [PaginatedResultMyObjectDto.Count](#count)<br> schema class |
+| static class | [PaginatedResultMyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## PaginatedResultMyObjectDto1
 public class PaginatedResultMyObjectDto1

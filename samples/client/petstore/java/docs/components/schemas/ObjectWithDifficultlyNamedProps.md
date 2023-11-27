@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1<br> schema class |
-| static class | ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap<br> output class for Map payloads |
-| static class | ObjectWithDifficultlyNamedProps.Schema123Number<br> schema class |
-| static class | ObjectWithDifficultlyNamedProps.Schema123list<br> schema class |
-| static class | ObjectWithDifficultlyNamedProps.Specialpropertyname<br> schema class |
+| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1](#objectwithdifficultlynamedprops1)<br> schema class |
+| static class | [ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap)<br> output class for Map payloads |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123Number](#schema123number)<br> schema class |
+| static class | [ObjectWithDifficultlyNamedProps.Schema123list](#schema123list)<br> schema class |
+| static class | [ObjectWithDifficultlyNamedProps.Specialpropertyname](#specialpropertyname)<br> schema class |
 
 ## ObjectWithDifficultlyNamedProps1
 public class ObjectWithDifficultlyNamedProps1

@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Schema.Schema1<br> schema class |
-| static class | Schema.SchemaMap<br> output class for Map payloads |
-| static class | Schema.Files<br> schema class |
-| static class | Schema.FilesList<br> output class for List payloads |
-| static class | Schema.Items<br> schema class |
+| static class | [Schema.Schema1](#schema1)<br> schema class |
+| static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
+| static class | [Schema.Files](#files)<br> schema class |
+| static class | [Schema.FilesList](#fileslist)<br> output class for List payloads |
+| static class | [Schema.Items](#items)<br> schema class |
 
 ## Schema1
 public class Schema1

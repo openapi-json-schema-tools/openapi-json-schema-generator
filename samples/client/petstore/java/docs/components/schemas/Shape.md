@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Shape.Shape1<br> schema class |
+| static class | [Shape.Shape1](#shape1)<br> schema class |
 
 ## Shape1
 public class Shape1

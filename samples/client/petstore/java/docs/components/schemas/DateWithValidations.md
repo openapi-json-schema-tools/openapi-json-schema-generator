@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | DateWithValidations.DateWithValidations1<br> schema class |
+| static class | [DateWithValidations.DateWithValidations1](#datewithvalidations1)<br> schema class |
 
 ## DateWithValidations1
 public class DateWithValidations1

@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithDecimalProperties.ObjectWithDecimalProperties1<br> schema class |
-| static class | ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap<br> output class for Map payloads |
-| static class | ObjectWithDecimalProperties.Width<br> schema class |
+| static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1](#objectwithdecimalproperties1)<br> schema class |
+| static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap)<br> output class for Map payloads |
+| static class | [ObjectWithDecimalProperties.Width](#width)<br> schema class |
 
 ## ObjectWithDecimalProperties1
 public class ObjectWithDecimalProperties1

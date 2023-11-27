@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | IntegerEnum.IntegerEnum1<br> schema class |
+| static class | [IntegerEnum.IntegerEnum1](#integerenum1)<br> schema class |
 
 ## IntegerEnum1
 public class IntegerEnum1

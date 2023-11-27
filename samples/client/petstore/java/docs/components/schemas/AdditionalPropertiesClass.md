@@ -7,28 +7,28 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | AdditionalPropertiesClass.AdditionalPropertiesClass1<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalPropertiesClassMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesString<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.AdditionalProperties5<br> schema class |
-| static class | AdditionalPropertiesClass.EmptyMap<br> schema class |
-| static class | AdditionalPropertiesClass.EmptyMapMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.AdditionalProperties4<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.AdditionalProperties3<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2<br> schema class |
-| static class | AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1<br> schema class |
-| static class | AdditionalPropertiesClass.Anytype1<br> schema class |
-| static class | AdditionalPropertiesClass.MapOfMapProperty<br> schema class |
-| static class | AdditionalPropertiesClass.MapOfMapPropertyMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.AdditionalProperties1<br> schema class |
-| static class | AdditionalPropertiesClass.AdditionalPropertiesMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.AdditionalProperties2<br> schema class |
-| static class | AdditionalPropertiesClass.MapProperty<br> schema class |
-| static class | AdditionalPropertiesClass.MapPropertyMap<br> output class for Map payloads |
-| static class | AdditionalPropertiesClass.AdditionalProperties<br> schema class |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesClass1](#additionalpropertiesclass1)<br> schema class |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesClassMap](#additionalpropertiesclassmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesString](#mapwithundeclaredpropertiesstring)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties5](#additionalproperties5)<br> schema class |
+| static class | [AdditionalPropertiesClass.EmptyMap](#emptymap)<br> schema class |
+| static class | [AdditionalPropertiesClass.EmptyMapMap](#emptymapmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties4](#additionalproperties4)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3](#mapwithundeclaredpropertiesanytype3)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2](#mapwithundeclaredpropertiesanytype2)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1](#mapwithundeclaredpropertiesanytype1)<br> schema class |
+| static class | [AdditionalPropertiesClass.Anytype1](#anytype1)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapOfMapProperty](#mapofmapproperty)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapOfMapPropertyMap](#mapofmappropertymap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapProperty](#mapproperty)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapPropertyMap](#mappropertymap)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesClass.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalPropertiesClass1
 public class AdditionalPropertiesClass1

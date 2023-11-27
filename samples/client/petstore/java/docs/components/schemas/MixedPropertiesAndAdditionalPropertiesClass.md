@@ -7,12 +7,12 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1<br> schema class |
-| static class | MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap<br> output class for Map payloads |
-| static class | MixedPropertiesAndAdditionalPropertiesClass.MapSchema<br> schema class |
-| static class | MixedPropertiesAndAdditionalPropertiesClass.MapMap<br> output class for Map payloads |
-| static class | MixedPropertiesAndAdditionalPropertiesClass.DateTime<br> schema class |
-| static class | MixedPropertiesAndAdditionalPropertiesClass.UuidSchema<br> schema class |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1](#mixedpropertiesandadditionalpropertiesclass1)<br> schema class |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap)<br> output class for Map payloads |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.MapSchema](#mapschema)<br> schema class |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.MapMap](#mapmap)<br> output class for Map payloads |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.DateTime](#datetime)<br> schema class |
+| static class | [MixedPropertiesAndAdditionalPropertiesClass.UuidSchema](#uuidschema)<br> schema class |
 
 ## MixedPropertiesAndAdditionalPropertiesClass1
 public class MixedPropertiesAndAdditionalPropertiesClass1

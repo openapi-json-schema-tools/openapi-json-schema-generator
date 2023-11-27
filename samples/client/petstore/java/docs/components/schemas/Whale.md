@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Whale.Whale1<br> schema class |
-| static class | Whale.WhaleMap<br> output class for Map payloads |
-| static class | Whale.ClassName<br> schema class |
-| static class | Whale.HasTeeth<br> schema class |
-| static class | Whale.HasBaleen<br> schema class |
+| static class | [Whale.Whale1](#whale1)<br> schema class |
+| static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
+| static class | [Whale.ClassName](#classname)<br> schema class |
+| static class | [Whale.HasTeeth](#hasteeth)<br> schema class |
+| static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
 
 ## Whale1
 public class Whale1

@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | HasOnlyReadOnly.HasOnlyReadOnly1<br> schema class |
-| static class | HasOnlyReadOnly.HasOnlyReadOnlyMap<br> output class for Map payloads |
-| static class | HasOnlyReadOnly.Foo<br> schema class |
-| static class | HasOnlyReadOnly.Bar<br> schema class |
+| static class | [HasOnlyReadOnly.HasOnlyReadOnly1](#hasonlyreadonly1)<br> schema class |
+| static class | [HasOnlyReadOnly.HasOnlyReadOnlyMap](#hasonlyreadonlymap)<br> output class for Map payloads |
+| static class | [HasOnlyReadOnly.Foo](#foo)<br> schema class |
+| static class | [HasOnlyReadOnly.Bar](#bar)<br> schema class |
 
 ## HasOnlyReadOnly1
 public class HasOnlyReadOnly1

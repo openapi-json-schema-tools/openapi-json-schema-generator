@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Address.Address1<br> schema class |
-| static class | Address.AddressMap<br> output class for Map payloads |
-| static class | Address.AdditionalProperties<br> schema class |
+| static class | [Address.Address1](#address1)<br> schema class |
+| static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
+| static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Address1
 public class Address1

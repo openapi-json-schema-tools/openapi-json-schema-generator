@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1<br> schema class |
+| static class | [RefContentSchemaHeaderSchema.RefContentSchemaHeaderSchema1](#refcontentschemaheaderschema1)<br> schema class |
 
 ## RefContentSchemaHeaderSchema1
 public class RefContentSchemaHeaderSchema1

@@ -7,8 +7,8 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ComposedString.ComposedString1<br> schema class |
-| static class | ComposedString.Schema0<br> schema class |
+| static class | [ComposedString.ComposedString1](#composedstring1)<br> schema class |
+| static class | [ComposedString.Schema0](#schema0)<br> schema class |
 
 ## ComposedString1
 public class ComposedString1

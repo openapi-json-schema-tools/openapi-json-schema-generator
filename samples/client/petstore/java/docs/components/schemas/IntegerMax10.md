@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | IntegerMax10.IntegerMax101<br> schema class |
+| static class | [IntegerMax10.IntegerMax101](#integermax101)<br> schema class |
 
 ## IntegerMax101
 public class IntegerMax101

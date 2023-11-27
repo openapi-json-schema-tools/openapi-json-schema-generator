@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | SomeObject.SomeObject1<br> schema class |
+| static class | [SomeObject.SomeObject1](#someobject1)<br> schema class |
 
 ## SomeObject1
 public class SomeObject1

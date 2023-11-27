@@ -7,31 +7,31 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | FormatTest.FormatTest1<br> schema class |
-| static class | FormatTest.FormatTestMap<br> output class for Map payloads |
-| static class | FormatTest.NoneProp<br> schema class |
-| static class | FormatTest.PatternWithDigitsAndDelimiter<br> schema class |
-| static class | FormatTest.PatternWithDigits<br> schema class |
-| static class | FormatTest.Password<br> schema class |
-| static class | FormatTest.UuidNoExample<br> schema class |
-| static class | FormatTest.UuidSchema<br> schema class |
-| static class | FormatTest.DateTime<br> schema class |
-| static class | FormatTest.Date<br> schema class |
-| static class | FormatTest.Binary<br> schema class |
-| static class | FormatTest.ByteSchema<br> schema class |
-| static class | FormatTest.StringSchema<br> schema class |
-| static class | FormatTest.ArrayWithUniqueItems<br> schema class |
-| static class | FormatTest.ArrayWithUniqueItemsList<br> output class for List payloads |
-| static class | FormatTest.Items<br> schema class |
-| static class | FormatTest.Float64<br> schema class |
-| static class | FormatTest.DoubleSchema<br> schema class |
-| static class | FormatTest.Float32<br> schema class |
-| static class | FormatTest.FloatSchema<br> schema class |
-| static class | FormatTest.NumberSchema<br> schema class |
-| static class | FormatTest.Int64<br> schema class |
-| static class | FormatTest.Int32withValidations<br> schema class |
-| static class | FormatTest.Int32<br> schema class |
-| static class | FormatTest.IntegerSchema<br> schema class |
+| static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
+| static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
+| static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
+| static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
+| static class | [FormatTest.PatternWithDigits](#patternwithdigits)<br> schema class |
+| static class | [FormatTest.Password](#password)<br> schema class |
+| static class | [FormatTest.UuidNoExample](#uuidnoexample)<br> schema class |
+| static class | [FormatTest.UuidSchema](#uuidschema)<br> schema class |
+| static class | [FormatTest.DateTime](#datetime)<br> schema class |
+| static class | [FormatTest.Date](#date)<br> schema class |
+| static class | [FormatTest.Binary](#binary)<br> schema class |
+| static class | [FormatTest.ByteSchema](#byteschema)<br> schema class |
+| static class | [FormatTest.StringSchema](#stringschema)<br> schema class |
+| static class | [FormatTest.ArrayWithUniqueItems](#arraywithuniqueitems)<br> schema class |
+| static class | [FormatTest.ArrayWithUniqueItemsList](#arraywithuniqueitemslist)<br> output class for List payloads |
+| static class | [FormatTest.Items](#items)<br> schema class |
+| static class | [FormatTest.Float64](#float64)<br> schema class |
+| static class | [FormatTest.DoubleSchema](#doubleschema)<br> schema class |
+| static class | [FormatTest.Float32](#float32)<br> schema class |
+| static class | [FormatTest.FloatSchema](#floatschema)<br> schema class |
+| static class | [FormatTest.NumberSchema](#numberschema)<br> schema class |
+| static class | [FormatTest.Int64](#int64)<br> schema class |
+| static class | [FormatTest.Int32withValidations](#int32withvalidations)<br> schema class |
+| static class | [FormatTest.Int32](#int32)<br> schema class |
+| static class | [FormatTest.IntegerSchema](#integerschema)<br> schema class |
 
 ## FormatTest1
 public class FormatTest1

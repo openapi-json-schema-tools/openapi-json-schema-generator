@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | NoAdditionalProperties.NoAdditionalProperties1<br> schema class |
-| static class | NoAdditionalProperties.NoAdditionalPropertiesMap<br> output class for Map payloads |
-| static class | NoAdditionalProperties.PetId<br> schema class |
-| static class | NoAdditionalProperties.Id<br> schema class |
-| static class | NoAdditionalProperties.AdditionalProperties<br> schema class |
+| static class | [NoAdditionalProperties.NoAdditionalProperties1](#noadditionalproperties1)<br> schema class |
+| static class | [NoAdditionalProperties.NoAdditionalPropertiesMap](#noadditionalpropertiesmap)<br> output class for Map payloads |
+| static class | [NoAdditionalProperties.PetId](#petid)<br> schema class |
+| static class | [NoAdditionalProperties.Id](#id)<br> schema class |
+| static class | [NoAdditionalProperties.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## NoAdditionalProperties1
 public class NoAdditionalProperties1

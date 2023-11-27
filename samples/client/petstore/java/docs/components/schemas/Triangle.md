@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Triangle.Triangle1<br> schema class |
+| static class | [Triangle.Triangle1](#triangle1)<br> schema class |
 
 ## Triangle1
 public class Triangle1

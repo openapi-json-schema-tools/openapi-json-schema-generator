@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Schema16.Schema161<br> schema class |
+| static class | [Schema16.Schema161](#schema161)<br> schema class |
 
 ## Schema161
 public class Schema161

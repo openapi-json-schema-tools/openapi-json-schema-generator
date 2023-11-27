@@ -7,8 +7,8 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectModelWithRefProps.ObjectModelWithRefProps1<br> schema class |
-| static class | ObjectModelWithRefProps.ObjectModelWithRefPropsMap<br> output class for Map payloads |
+| static class | [ObjectModelWithRefProps.ObjectModelWithRefProps1](#objectmodelwithrefprops1)<br> schema class |
+| static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap)<br> output class for Map payloads |
 
 ## ObjectModelWithRefProps1
 public class ObjectModelWithRefProps1

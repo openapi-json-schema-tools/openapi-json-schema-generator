@@ -7,8 +7,8 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ArrayOfEnums.ArrayOfEnums1<br> schema class |
-| static class | ArrayOfEnums.ArrayOfEnumsList<br> output class for List payloads |
+| static class | [ArrayOfEnums.ArrayOfEnums1](#arrayofenums1)<br> schema class |
+| static class | [ArrayOfEnums.ArrayOfEnumsList](#arrayofenumslist)<br> output class for List payloads |
 
 ## ArrayOfEnums1
 public class ArrayOfEnums1

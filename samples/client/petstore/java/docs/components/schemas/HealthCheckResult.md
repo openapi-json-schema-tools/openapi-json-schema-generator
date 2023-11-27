@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | HealthCheckResult.HealthCheckResult1<br> schema class |
-| static class | HealthCheckResult.HealthCheckResultMap<br> output class for Map payloads |
-| static class | HealthCheckResult.NullableMessage<br> schema class |
+| static class | [HealthCheckResult.HealthCheckResult1](#healthcheckresult1)<br> schema class |
+| static class | [HealthCheckResult.HealthCheckResultMap](#healthcheckresultmap)<br> output class for Map payloads |
+| static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |
 
 ## HealthCheckResult1
 public class HealthCheckResult1

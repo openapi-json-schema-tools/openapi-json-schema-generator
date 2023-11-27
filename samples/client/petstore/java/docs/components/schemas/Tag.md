@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Tag.Tag1<br> schema class |
-| static class | Tag.TagMap<br> output class for Map payloads |
-| static class | Tag.Name<br> schema class |
-| static class | Tag.Id<br> schema class |
+| static class | [Tag.Tag1](#tag1)<br> schema class |
+| static class | [Tag.TagMap](#tagmap)<br> output class for Map payloads |
+| static class | [Tag.Name](#name)<br> schema class |
+| static class | [Tag.Id](#id)<br> schema class |
 
 ## Tag1
 public class Tag1

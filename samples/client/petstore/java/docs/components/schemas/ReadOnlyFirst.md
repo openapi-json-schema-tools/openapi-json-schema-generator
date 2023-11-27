@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ReadOnlyFirst.ReadOnlyFirst1<br> schema class |
-| static class | ReadOnlyFirst.ReadOnlyFirstMap<br> output class for Map payloads |
-| static class | ReadOnlyFirst.Baz<br> schema class |
-| static class | ReadOnlyFirst.Bar<br> schema class |
+| static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
+| static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
+| static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
+| static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
 
 ## ReadOnlyFirst1
 public class ReadOnlyFirst1

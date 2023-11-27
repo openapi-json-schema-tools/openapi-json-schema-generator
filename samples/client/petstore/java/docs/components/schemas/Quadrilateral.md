@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Quadrilateral.Quadrilateral1<br> schema class |
+| static class | [Quadrilateral.Quadrilateral1](#quadrilateral1)<br> schema class |
 
 ## Quadrilateral1
 public class Quadrilateral1

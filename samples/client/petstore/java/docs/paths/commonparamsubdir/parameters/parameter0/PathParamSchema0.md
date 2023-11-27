@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | PathParamSchema0.PathParamSchema01<br> schema class |
+| static class | [PathParamSchema0.PathParamSchema01](#pathparamschema01)<br> schema class |
 
 ## PathParamSchema01
 public class PathParamSchema01

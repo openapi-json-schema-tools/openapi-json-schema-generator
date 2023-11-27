@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | JSONPatchRequest.JSONPatchRequest1<br> schema class |
-| static class | JSONPatchRequest.JSONPatchRequestList<br> output class for List payloads |
-| static class | JSONPatchRequest.Items<br> schema class |
+| static class | [JSONPatchRequest.JSONPatchRequest1](#jsonpatchrequest1)<br> schema class |
+| static class | [JSONPatchRequest.JSONPatchRequestList](#jsonpatchrequestlist)<br> output class for List payloads |
+| static class | [JSONPatchRequest.Items](#items)<br> schema class |
 
 ## JSONPatchRequest1
 public class JSONPatchRequest1

@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | BasquePig.BasquePig1<br> schema class |
-| static class | BasquePig.BasquePigMap<br> output class for Map payloads |
-| static class | BasquePig.ClassName<br> schema class |
+| static class | [BasquePig.BasquePig1](#basquepig1)<br> schema class |
+| static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
+| static class | [BasquePig.ClassName](#classname)<br> schema class |
 
 ## BasquePig1
 public class BasquePig1

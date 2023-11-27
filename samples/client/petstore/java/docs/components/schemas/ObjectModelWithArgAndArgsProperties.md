@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1<br> schema class |
-| static class | ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap<br> output class for Map payloads |
-| static class | ObjectModelWithArgAndArgsProperties.Args<br> schema class |
-| static class | ObjectModelWithArgAndArgsProperties.Arg<br> schema class |
+| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1](#objectmodelwithargandargsproperties1)<br> schema class |
+| static class | [ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap)<br> output class for Map payloads |
+| static class | [ObjectModelWithArgAndArgsProperties.Args](#args)<br> schema class |
+| static class | [ObjectModelWithArgAndArgsProperties.Arg](#arg)<br> schema class |
 
 ## ObjectModelWithArgAndArgsProperties1
 public class ObjectModelWithArgAndArgsProperties1

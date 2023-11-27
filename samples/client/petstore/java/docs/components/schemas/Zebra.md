@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Zebra.Zebra1<br> schema class |
-| static class | Zebra.ZebraMap<br> output class for Map payloads |
-| static class | Zebra.ClassName<br> schema class |
-| static class | Zebra.Type<br> schema class |
-| static class | Zebra.AdditionalProperties<br> schema class |
+| static class | [Zebra.Zebra1](#zebra1)<br> schema class |
+| static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
+| static class | [Zebra.ClassName](#classname)<br> schema class |
+| static class | [Zebra.Type](#type)<br> schema class |
+| static class | [Zebra.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Zebra1
 public class Zebra1

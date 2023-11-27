@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Drawing.Drawing1<br> schema class |
-| static class | Drawing.DrawingMap<br> output class for Map payloads |
-| static class | Drawing.Shapes<br> schema class |
-| static class | Drawing.ShapesList<br> output class for List payloads |
+| static class | [Drawing.Drawing1](#drawing1)<br> schema class |
+| static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
+| static class | [Drawing.Shapes](#shapes)<br> schema class |
+| static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
 
 ## Drawing1
 public class Drawing1

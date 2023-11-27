@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Schema2.Schema21<br> schema class |
-| static class | Schema2.SchemaList2<br> output class for List payloads |
-| static class | Schema2.Items2<br> schema class |
+| static class | [Schema2.Schema21](#schema21)<br> schema class |
+| static class | [Schema2.SchemaList2](#schemalist2)<br> output class for List payloads |
+| static class | [Schema2.Items2](#items2)<br> schema class |
 
 ## Schema21
 public class Schema21

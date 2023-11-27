@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | GrandparentAnimal.GrandparentAnimal1<br> schema class |
-| static class | GrandparentAnimal.GrandparentAnimalMap<br> output class for Map payloads |
-| static class | GrandparentAnimal.PetType<br> schema class |
+| static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
+| static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
+| static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 
 ## GrandparentAnimal1
 public class GrandparentAnimal1

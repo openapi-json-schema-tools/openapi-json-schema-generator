@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | UUIDString.UUIDString1<br> schema class |
+| static class | [UUIDString.UUIDString1](#uuidstring1)<br> schema class |
 
 ## UUIDString1
 public class UUIDString1

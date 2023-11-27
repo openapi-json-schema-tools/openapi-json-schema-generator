@@ -7,16 +7,16 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | AdditionalPropertiesSchema.AdditionalPropertiesSchema1<br> schema class |
-| static class | AdditionalPropertiesSchema.Schema2<br> schema class |
-| static class | AdditionalPropertiesSchema.Schema2Map<br> output class for Map payloads |
-| static class | AdditionalPropertiesSchema.AdditionalProperties2<br> schema class |
-| static class | AdditionalPropertiesSchema.Schema1<br> schema class |
-| static class | AdditionalPropertiesSchema.Schema1Map<br> output class for Map payloads |
-| static class | AdditionalPropertiesSchema.AdditionalProperties1<br> schema class |
-| static class | AdditionalPropertiesSchema.Schema0<br> schema class |
-| static class | AdditionalPropertiesSchema.Schema0Map<br> output class for Map payloads |
-| static class | AdditionalPropertiesSchema.AdditionalProperties<br> schema class |
+| static class | [AdditionalPropertiesSchema.AdditionalPropertiesSchema1](#additionalpropertiesschema1)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema2](#schema2)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema2Map](#schema2map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesSchema.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema1](#schema1)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesSchema.AdditionalProperties1](#additionalproperties1)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema0](#schema0)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema0Map](#schema0map)<br> output class for Map payloads |
+| static class | [AdditionalPropertiesSchema.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## AdditionalPropertiesSchema1
 public class AdditionalPropertiesSchema1

@@ -7,19 +7,19 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | MapTest.MapTest1<br> schema class |
-| static class | MapTest.MapTestMap<br> output class for Map payloads |
-| static class | MapTest.DirectMap<br> schema class |
-| static class | MapTest.DirectMapMap<br> output class for Map payloads |
-| static class | MapTest.AdditionalProperties3<br> schema class |
-| static class | MapTest.MapOfEnumString<br> schema class |
-| static class | MapTest.MapOfEnumStringMap<br> output class for Map payloads |
-| static class | MapTest.AdditionalProperties2<br> schema class |
-| static class | MapTest.MapMapOfString<br> schema class |
-| static class | MapTest.MapMapOfStringMap<br> output class for Map payloads |
-| static class | MapTest.AdditionalProperties<br> schema class |
-| static class | MapTest.AdditionalPropertiesMap<br> output class for Map payloads |
-| static class | MapTest.AdditionalProperties1<br> schema class |
+| static class | [MapTest.MapTest1](#maptest1)<br> schema class |
+| static class | [MapTest.MapTestMap](#maptestmap)<br> output class for Map payloads |
+| static class | [MapTest.DirectMap](#directmap)<br> schema class |
+| static class | [MapTest.DirectMapMap](#directmapmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalProperties3](#additionalproperties3)<br> schema class |
+| static class | [MapTest.MapOfEnumString](#mapofenumstring)<br> schema class |
+| static class | [MapTest.MapOfEnumStringMap](#mapofenumstringmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| static class | [MapTest.MapMapOfString](#mapmapofstring)<br> schema class |
+| static class | [MapTest.MapMapOfStringMap](#mapmapofstringmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalProperties](#additionalproperties)<br> schema class |
+| static class | [MapTest.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
+| static class | [MapTest.AdditionalProperties1](#additionalproperties1)<br> schema class |
 
 ## MapTest1
 public class MapTest1

@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | StringHeaderSchema.StringHeaderSchema1<br> schema class |
+| static class | [StringHeaderSchema.StringHeaderSchema1](#stringheaderschema1)<br> schema class |
 
 ## StringHeaderSchema1
 public class StringHeaderSchema1

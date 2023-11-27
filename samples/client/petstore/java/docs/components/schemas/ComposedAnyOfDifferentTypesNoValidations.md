@@ -7,25 +7,25 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema15<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema14<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema13<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema12<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema11<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema10<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema9<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema9List<br> output class for List payloads |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Items<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema8<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema7<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema6<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema5<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema4<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema3<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema2<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema1<br> schema class |
-| static class | ComposedAnyOfDifferentTypesNoValidations.Schema0<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1](#composedanyofdifferenttypesnovalidations1)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema15](#schema15)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema14](#schema14)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema13](#schema13)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema12](#schema12)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema11](#schema11)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema10](#schema10)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9](#schema9)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9List](#schema9list)<br> output class for List payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Items](#items)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema8](#schema8)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema7](#schema7)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema6](#schema6)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema5](#schema5)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema4](#schema4)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema3](#schema3)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema2](#schema2)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema1](#schema1)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema0](#schema0)<br> schema class |
 
 ## ComposedAnyOfDifferentTypesNoValidations1
 public class ComposedAnyOfDifferentTypesNoValidations1

@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | FileSchemaTestClass.FileSchemaTestClass1<br> schema class |
-| static class | FileSchemaTestClass.FileSchemaTestClassMap<br> output class for Map payloads |
-| static class | FileSchemaTestClass.Files<br> schema class |
-| static class | FileSchemaTestClass.FilesList<br> output class for List payloads |
+| static class | [FileSchemaTestClass.FileSchemaTestClass1](#fileschematestclass1)<br> schema class |
+| static class | [FileSchemaTestClass.FileSchemaTestClassMap](#fileschematestclassmap)<br> output class for Map payloads |
+| static class | [FileSchemaTestClass.Files](#files)<br> schema class |
+| static class | [FileSchemaTestClass.FilesList](#fileslist)<br> output class for List payloads |
 
 ## FileSchemaTestClass1
 public class FileSchemaTestClass1

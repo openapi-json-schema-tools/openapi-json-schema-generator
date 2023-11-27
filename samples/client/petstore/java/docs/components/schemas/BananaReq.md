@@ -7,11 +7,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | BananaReq.BananaReq1<br> schema class |
-| static class | BananaReq.BananaReqMap<br> output class for Map payloads |
-| static class | BananaReq.Sweet<br> schema class |
-| static class | BananaReq.LengthCm<br> schema class |
-| static class | BananaReq.AdditionalProperties<br> schema class |
+| static class | [BananaReq.BananaReq1](#bananareq1)<br> schema class |
+| static class | [BananaReq.BananaReqMap](#bananareqmap)<br> output class for Map payloads |
+| static class | [BananaReq.Sweet](#sweet)<br> schema class |
+| static class | [BananaReq.LengthCm](#lengthcm)<br> schema class |
+| static class | [BananaReq.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## BananaReq1
 public class BananaReq1

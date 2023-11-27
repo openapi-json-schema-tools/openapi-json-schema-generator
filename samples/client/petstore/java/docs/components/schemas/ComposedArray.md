@@ -7,9 +7,9 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ComposedArray.ComposedArray1<br> schema class |
-| static class | ComposedArray.ComposedArrayList<br> output class for List payloads |
-| static class | ComposedArray.Items<br> schema class |
+| static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
+| static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
+| static class | [ComposedArray.Items](#items)<br> schema class |
 
 ## ComposedArray1
 public class ComposedArray1

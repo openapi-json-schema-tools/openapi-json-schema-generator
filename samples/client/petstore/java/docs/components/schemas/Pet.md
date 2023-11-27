@@ -7,16 +7,16 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Pet.Pet1<br> schema class |
-| static class | Pet.PetMap<br> output class for Map payloads |
-| static class | Pet.Tags<br> schema class |
-| static class | Pet.TagsList<br> output class for List payloads |
-| static class | Pet.Status<br> schema class |
-| static class | Pet.PhotoUrls<br> schema class |
-| static class | Pet.PhotoUrlsList<br> output class for List payloads |
-| static class | Pet.Items<br> schema class |
-| static class | Pet.Name<br> schema class |
-| static class | Pet.Id<br> schema class |
+| static class | [Pet.Pet1](#pet1)<br> schema class |
+| static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
+| static class | [Pet.Tags](#tags)<br> schema class |
+| static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
+| static class | [Pet.Status](#status)<br> schema class |
+| static class | [Pet.PhotoUrls](#photourls)<br> schema class |
+| static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
+| static class | [Pet.Items](#items)<br> schema class |
+| static class | [Pet.Name](#name)<br> schema class |
+| static class | [Pet.Id](#id)<br> schema class |
 
 ## Pet1
 public class Pet1

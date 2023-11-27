@@ -7,33 +7,33 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | NullableClass.NullableClass1<br> schema class |
-| static class | NullableClass.NullableClassMap<br> output class for Map payloads |
-| static class | NullableClass.ObjectItemsNullable<br> schema class |
-| static class | NullableClass.ObjectItemsNullableMap<br> output class for Map payloads |
-| static class | NullableClass.AdditionalProperties2<br> schema class |
-| static class | NullableClass.ObjectAndItemsNullableProp<br> schema class |
-| static class | NullableClass.ObjectAndItemsNullablePropMap<br> output class for Map payloads |
-| static class | NullableClass.AdditionalProperties1<br> schema class |
-| static class | NullableClass.ObjectNullableProp<br> schema class |
-| static class | NullableClass.ObjectNullablePropMap<br> output class for Map payloads |
-| static class | NullableClass.AdditionalProperties<br> schema class |
-| static class | NullableClass.ArrayItemsNullable<br> schema class |
-| static class | NullableClass.ArrayItemsNullableList<br> output class for List payloads |
-| static class | NullableClass.Items2<br> schema class |
-| static class | NullableClass.ArrayAndItemsNullableProp<br> schema class |
-| static class | NullableClass.ArrayAndItemsNullablePropList<br> output class for List payloads |
-| static class | NullableClass.Items1<br> schema class |
-| static class | NullableClass.ArrayNullableProp<br> schema class |
-| static class | NullableClass.ArrayNullablePropList<br> output class for List payloads |
-| static class | NullableClass.Items<br> schema class |
-| static class | NullableClass.DatetimeProp<br> schema class |
-| static class | NullableClass.DateProp<br> schema class |
-| static class | NullableClass.StringProp<br> schema class |
-| static class | NullableClass.BooleanProp<br> schema class |
-| static class | NullableClass.NumberProp<br> schema class |
-| static class | NullableClass.IntegerProp<br> schema class |
-| static class | NullableClass.AdditionalProperties3<br> schema class |
+| static class | [NullableClass.NullableClass1](#nullableclass1)<br> schema class |
+| static class | [NullableClass.NullableClassMap](#nullableclassmap)<br> output class for Map payloads |
+| static class | [NullableClass.ObjectItemsNullable](#objectitemsnullable)<br> schema class |
+| static class | [NullableClass.ObjectItemsNullableMap](#objectitemsnullablemap)<br> output class for Map payloads |
+| static class | [NullableClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| static class | [NullableClass.ObjectAndItemsNullableProp](#objectanditemsnullableprop)<br> schema class |
+| static class | [NullableClass.ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap)<br> output class for Map payloads |
+| static class | [NullableClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
+| static class | [NullableClass.ObjectNullableProp](#objectnullableprop)<br> schema class |
+| static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
+| static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
+| static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
+| static class | [NullableClass.ArrayItemsNullableList](#arrayitemsnullablelist)<br> output class for List payloads |
+| static class | [NullableClass.Items2](#items2)<br> schema class |
+| static class | [NullableClass.ArrayAndItemsNullableProp](#arrayanditemsnullableprop)<br> schema class |
+| static class | [NullableClass.ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist)<br> output class for List payloads |
+| static class | [NullableClass.Items1](#items1)<br> schema class |
+| static class | [NullableClass.ArrayNullableProp](#arraynullableprop)<br> schema class |
+| static class | [NullableClass.ArrayNullablePropList](#arraynullableproplist)<br> output class for List payloads |
+| static class | [NullableClass.Items](#items)<br> schema class |
+| static class | [NullableClass.DatetimeProp](#datetimeprop)<br> schema class |
+| static class | [NullableClass.DateProp](#dateprop)<br> schema class |
+| static class | [NullableClass.StringProp](#stringprop)<br> schema class |
+| static class | [NullableClass.BooleanProp](#booleanprop)<br> schema class |
+| static class | [NullableClass.NumberProp](#numberprop)<br> schema class |
+| static class | [NullableClass.IntegerProp](#integerprop)<br> schema class |
+| static class | [NullableClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
 
 ## NullableClass1
 public class NullableClass1

@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | EquilateralTriangle.EquilateralTriangle1<br> schema class |
-| static class | EquilateralTriangle.Schema1<br> schema class |
-| static class | EquilateralTriangle.Schema1Map<br> output class for Map payloads |
-| static class | EquilateralTriangle.TriangleType<br> schema class |
+| static class | [EquilateralTriangle.EquilateralTriangle1](#equilateraltriangle1)<br> schema class |
+| static class | [EquilateralTriangle.Schema1](#schema1)<br> schema class |
+| static class | [EquilateralTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [EquilateralTriangle.TriangleType](#triangletype)<br> schema class |
 
 ## EquilateralTriangle1
 public class EquilateralTriangle1

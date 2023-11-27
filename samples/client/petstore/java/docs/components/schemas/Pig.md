@@ -7,7 +7,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | Pig.Pig1<br> schema class |
+| static class | [Pig.Pig1](#pig1)<br> schema class |
 
 ## Pig1
 public class Pig1

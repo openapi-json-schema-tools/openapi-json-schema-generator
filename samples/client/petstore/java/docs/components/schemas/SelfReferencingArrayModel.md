@@ -7,8 +7,8 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | SelfReferencingArrayModel.SelfReferencingArrayModel1<br> schema class |
-| static class | SelfReferencingArrayModel.SelfReferencingArrayModelList<br> output class for List payloads |
+| static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1](#selfreferencingarraymodel1)<br> schema class |
+| static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
 
 ## SelfReferencingArrayModel1
 public class SelfReferencingArrayModel1

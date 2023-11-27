@@ -7,14 +7,14 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1<br> schema class |
-| static class | ComposedOneOfDifferentTypes.Schema6<br> schema class |
-| static class | ComposedOneOfDifferentTypes.Schema5<br> schema class |
-| static class | ComposedOneOfDifferentTypes.Schema5List<br> output class for List payloads |
-| static class | ComposedOneOfDifferentTypes.Items<br> schema class |
-| static class | ComposedOneOfDifferentTypes.Schema4<br> schema class |
-| static class | ComposedOneOfDifferentTypes.Schema3<br> schema class |
-| static class | ComposedOneOfDifferentTypes.Schema2<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](#composedoneofdifferenttypes1)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema6](#schema6)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema5](#schema5)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema5List](#schema5list)<br> output class for List payloads |
+| static class | [ComposedOneOfDifferentTypes.Items](#items)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema4](#schema4)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema3](#schema3)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema2](#schema2)<br> schema class |
 
 ## ComposedOneOfDifferentTypes1
 public class ComposedOneOfDifferentTypes1

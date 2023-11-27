@@ -7,10 +7,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1<br> schema class |
-| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1<br> schema class |
-| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map<br> output class for Map payloads |
-| static class | ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name<br> schema class |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.ObjectWithAllOfWithReqTestPropFromUnsetAddProp1](#objectwithallofwithreqtestpropfromunsetaddprop1)<br> schema class |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1](#schema1)<br> schema class |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map](#schema1map)<br> output class for Map payloads |
+| static class | [ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Name](#name)<br> schema class |
 
 ## ObjectWithAllOfWithReqTestPropFromUnsetAddProp1
 public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp1

@@ -7,22 +7,22 @@ A class that contains necessary nested schema classes, and classes to store vali
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-| static class | User.User1<br> schema class |
-| static class | User.UserMap<br> output class for Map payloads |
-| static class | User.AnyTypePropNullable<br> schema class |
-| static class | User.AnyTypeExceptNullProp<br> schema class |
-| static class | User.Not<br> schema class |
-| static class | User.AnyTypeProp<br> schema class |
-| static class | User.ObjectWithNoDeclaredPropsNullable<br> schema class |
-| static class | User.ObjectWithNoDeclaredProps<br> schema class |
-| static class | User.UserStatus<br> schema class |
-| static class | User.Phone<br> schema class |
-| static class | User.Password<br> schema class |
-| static class | User.Email<br> schema class |
-| static class | User.LastName<br> schema class |
-| static class | User.FirstName<br> schema class |
-| static class | User.Username<br> schema class |
-| static class | User.Id<br> schema class |
+| static class | [User.User1](#user1)<br> schema class |
+| static class | [User.UserMap](#usermap)<br> output class for Map payloads |
+| static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
+| static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
+| static class | [User.Not](#not)<br> schema class |
+| static class | [User.AnyTypeProp](#anytypeprop)<br> schema class |
+| static class | [User.ObjectWithNoDeclaredPropsNullable](#objectwithnodeclaredpropsnullable)<br> schema class |
+| static class | [User.ObjectWithNoDeclaredProps](#objectwithnodeclaredprops)<br> schema class |
+| static class | [User.UserStatus](#userstatus)<br> schema class |
+| static class | [User.Phone](#phone)<br> schema class |
+| static class | [User.Password](#password)<br> schema class |
+| static class | [User.Email](#email)<br> schema class |
+| static class | [User.LastName](#lastname)<br> schema class |
+| static class | [User.FirstName](#firstname)<br> schema class |
+| static class | [User.Username](#username)<br> schema class |
+| static class | [User.Id](#id)<br> schema class |
 
 ## User1
 public class User1
