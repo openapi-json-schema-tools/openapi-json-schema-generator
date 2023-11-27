@@ -2,11 +2,11 @@
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
 {{else}}
     {{#eq types null }}
-        {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems unevaluatedItems format (neq maxLength null) (neq minLength null) maximum minimum multipleOf patternInfo }}
-{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_anytypeOrMultitype }}
-        {{else}}
+        {{#if isSimpleAnyType }}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_varEqualsClass }}
-        {{/or}}
+        {{else}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_Schema_anytypeOrMultitype }}
+        {{/if}}
     {{else}}
         {{! types exist }}
         {{#eq types.size 1}}
