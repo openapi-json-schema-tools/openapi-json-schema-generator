@@ -58,7 +58,7 @@ public class PathParameters {
         }
     }    
     
-    public class PathParameters1 extends JsonSchema {
+    public static class PathParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

@@ -76,10 +76,10 @@ extends FrozenList<ItemsList1>
 
 A class to store validated List payloads
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayArrayOfModelList | of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -106,10 +106,10 @@ extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>
 
 A class to store validated List payloads
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ItemsList1 | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -136,10 +136,10 @@ extends FrozenList<ItemsList>
 
 A class to store validated List payloads
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayArrayOfIntegerList | of(List<List<Long>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -166,10 +166,10 @@ extends FrozenList<Long>
 
 A class to store validated List payloads
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ItemsList | of(List<Long> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -207,10 +207,10 @@ extends FrozenList<String>
 
 A class to store validated List payloads
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayOfStringList | of(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

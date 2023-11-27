@@ -22,7 +22,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class IntegerSchema extends JsonSchema {
+    public static class IntegerSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -48,7 +48,7 @@ public class Schema {
         }
     }    
     
-    public class Int32 extends JsonSchema {
+    public static class Int32 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -78,7 +78,7 @@ public class Schema {
     public static class Int64 extends Int64JsonSchema {}
     
     
-    public class NumberSchema extends JsonSchema {
+    public static class NumberSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -104,7 +104,7 @@ public class Schema {
         }
     }    
     
-    public class FloatSchema extends JsonSchema {
+    public static class FloatSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -119,7 +119,7 @@ public class Schema {
         }
     }    
     
-    public class DoubleSchema extends JsonSchema {
+    public static class DoubleSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -134,7 +134,7 @@ public class Schema {
         }
     }    
     
-    public class StringSchema extends JsonSchema {
+    public static class StringSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -145,7 +145,7 @@ public class Schema {
         }
     }    
     
-    public class PatternWithoutDelimiter extends JsonSchema {
+    public static class PatternWithoutDelimiter extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -167,7 +167,7 @@ public class Schema {
     public static class Date extends DateJsonSchema {}
     
     
-    public class DateTime extends JsonSchema {
+    public static class DateTime extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -179,7 +179,7 @@ public class Schema {
         }
     }    
     
-    public class Password extends JsonSchema {
+    public static class Password extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -273,7 +273,7 @@ public class Schema {
         }
     }    
     
-    public class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

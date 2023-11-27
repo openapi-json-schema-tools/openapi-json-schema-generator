@@ -66,10 +66,10 @@ extends FrozenList<String>
 
 A class to store validated List payloads
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayEnumList | of(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

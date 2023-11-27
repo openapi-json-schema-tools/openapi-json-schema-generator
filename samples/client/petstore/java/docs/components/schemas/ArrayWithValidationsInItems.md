@@ -28,10 +28,10 @@ extends FrozenList<Long>
 
 A class to store validated List payloads
 
-### methods
-Method | Input Type | Return Type | Notes
------- | ---------- | ----------- | ------
-&lowbar;&lowbar;getitem&lowbar;&lowbar; | int |  | This method is used under the hood when instance[0] is called
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static ArrayWithValidationsInItemsList | of(List<Long> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
