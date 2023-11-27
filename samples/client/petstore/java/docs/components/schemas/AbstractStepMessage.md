@@ -19,6 +19,7 @@ A schema class that validates payloads
 
 ## Description
 Abstract Step
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

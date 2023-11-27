@@ -11,12 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public class Schema1
-extends JsonSchema
+extends ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1
 
 A schema class that validates payloads
-
-
-## Ref Schema Info
-Ref Schema | Input Type | Output Type
----------- | ---------- | -----------
-[**ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1**](../../../../../../components/schemas/ComposedOneOfDifferentTypes.md) |  | 

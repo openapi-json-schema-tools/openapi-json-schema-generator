@@ -57,6 +57,7 @@ A schema class that validates payloads
 
 ## Description
 Form parameter enum test (string)
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -70,6 +71,7 @@ A schema class that validates payloads
 
 ## Description
 Form parameter enum test (string array)
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

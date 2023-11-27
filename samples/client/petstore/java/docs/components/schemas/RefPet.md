@@ -11,14 +11,8 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## RefPet1
 public class RefPet1
-extends JsonSchema
+extends Pet.Pet1
 
 A schema class that validates payloads
-
-
-## Ref Schema Info
-Ref Schema | Input Type | Output Type
----------- | ---------- | -----------
-[**Pet.Pet1**](../../components/schemas/Pet.md) |  | 
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

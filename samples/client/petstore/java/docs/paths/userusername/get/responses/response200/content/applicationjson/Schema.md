@@ -11,12 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public class Schema1
-extends JsonSchema
+extends User.User1
 
 A schema class that validates payloads
-
-
-## Ref Schema Info
-Ref Schema | Input Type | Output Type
----------- | ---------- | -----------
-[**User.User1**](../../../../../../../../components/schemas/User.md) |  | 

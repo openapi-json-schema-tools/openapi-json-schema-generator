@@ -19,6 +19,7 @@ A schema class that validates payloads
 
 ## Description
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

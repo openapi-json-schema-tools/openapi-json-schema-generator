@@ -67,6 +67,7 @@ A schema class that validates payloads
 
 ## Description
 Name of the pet 
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

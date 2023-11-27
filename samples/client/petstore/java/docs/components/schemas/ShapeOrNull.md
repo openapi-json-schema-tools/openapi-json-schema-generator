@@ -18,6 +18,7 @@ A schema class that validates payloads
 
 ## Description
 The value may be a shape or the &#x27;null&#x27; value. This is introduced in OAS schema &gt;&#x3D; 3.1.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

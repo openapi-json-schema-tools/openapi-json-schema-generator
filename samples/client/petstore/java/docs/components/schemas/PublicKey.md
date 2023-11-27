@@ -19,6 +19,7 @@ A schema class that validates payloads
 
 ## Description
 schema that contains a property named key
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

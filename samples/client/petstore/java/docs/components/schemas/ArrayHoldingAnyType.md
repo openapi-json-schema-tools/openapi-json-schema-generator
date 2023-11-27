@@ -49,6 +49,7 @@ A schema class that validates payloads
 
 ## Description
 any type can be stored here
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

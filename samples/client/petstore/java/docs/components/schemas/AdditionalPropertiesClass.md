@@ -127,6 +127,7 @@ A schema class that validates payloads
 
 ## Description
 an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

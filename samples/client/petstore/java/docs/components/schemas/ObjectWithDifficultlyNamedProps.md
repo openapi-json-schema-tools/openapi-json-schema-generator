@@ -21,6 +21,7 @@ A schema class that validates payloads
 
 ## Description
 model with properties that have invalid names for python
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

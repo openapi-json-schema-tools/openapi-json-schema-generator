@@ -119,6 +119,7 @@ A schema class that validates payloads
 
 ## Description
 A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -132,6 +133,7 @@ A schema class that validates payloads
 
 ## Description
 A string that is a 10 digit number. Can have leading zeros.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -307,6 +309,7 @@ A schema class that validates payloads
 
 ## Description
 this is a reserved python keyword
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

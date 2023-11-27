@@ -24,6 +24,7 @@ A schema class that validates payloads
 
 ## Description
 this is a model that allows payloads of type object or number
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

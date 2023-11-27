@@ -55,6 +55,7 @@ A schema class that validates payloads
 
 ## Description
 field2
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -68,6 +69,7 @@ A schema class that validates payloads
 
 ## Description
 field1
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

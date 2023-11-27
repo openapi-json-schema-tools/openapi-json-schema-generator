@@ -21,6 +21,7 @@ A schema class that validates payloads
 
 ## Description
 Model for testing model name same as property name
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -68,6 +69,7 @@ A schema class that validates payloads
 
 ## Description
 this is a reserved python keyword
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

@@ -17,6 +17,7 @@ A schema class that validates payloads
 
 ## Description
 file to download
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

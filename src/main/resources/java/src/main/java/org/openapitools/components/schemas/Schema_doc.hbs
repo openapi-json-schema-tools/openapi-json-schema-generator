@@ -36,27 +36,26 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
 public class {{jsonPathPiece.camelCase}}
+        {{#if refInfo}}
+extends {{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}
+        {{else}}
 extends JsonSchema
+        {{/if}}
 
 A schema class that validates payloads
+        {{#if description}}
 
-{{#if description}}
 {{headerSize}}# Description
 {{description}}
-{{/if}}
-{{#if refInfo}}
+        {{/if}}
+        {{#unless refInfo}}
 
-{{headerSize}}# Ref Schema Info
-Ref Schema | Input Type | Output Type
----------- | ---------- | -----------
-{{> src/main/java/org/openapitools/components/schemas/__refclass_partial }} | {{!> components/schemas/types/docschema_io_types }} | {{!> components/schemas/types/docschema_output_types }}
-{{else}}
 {{headerSize}}# Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 {{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}
-{{/if}}
-        {{else}}
+        {{/unless}}
+    {{else}}
         {{#eq instanceType "propertiesOutputType"}}
 
             {{#if mapOutputJsonPathPiece}}

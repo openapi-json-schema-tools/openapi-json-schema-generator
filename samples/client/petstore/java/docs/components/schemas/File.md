@@ -19,6 +19,7 @@ A schema class that validates payloads
 
 ## Description
 Must be named &#x60;File&#x60; for test.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -54,6 +55,7 @@ A schema class that validates payloads
 
 ## Description
 Test capitalization
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

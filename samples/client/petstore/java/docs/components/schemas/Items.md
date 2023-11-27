@@ -19,6 +19,7 @@ A schema class that validates payloads
 
 ## Description
 component&#x27;s name collides with the inner schema name
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

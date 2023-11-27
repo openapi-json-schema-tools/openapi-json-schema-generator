@@ -20,6 +20,7 @@ A schema class that validates payloads
 
 ## Description
 component with properties that have name collisions
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

@@ -57,6 +57,7 @@ A schema class that validates payloads
 
 ## Description
 The operation to perform.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -70,6 +71,7 @@ A schema class that validates payloads
 
 ## Description
 A JSON Pointer path.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -83,6 +85,7 @@ A schema class that validates payloads
 
 ## Description
 A JSON Pointer path.
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

@@ -19,6 +19,7 @@ A schema class that validates payloads
 
 ## Description
 model with an invalid class name for python
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

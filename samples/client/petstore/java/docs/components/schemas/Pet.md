@@ -26,6 +26,7 @@ A schema class that validates payloads
 
 ## Description
 Pet object that needs to be added to the store
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
@@ -101,6 +102,7 @@ A schema class that validates payloads
 
 ## Description
 pet status in the store
+
 ## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |

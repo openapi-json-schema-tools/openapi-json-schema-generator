@@ -11,12 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema51
 public class Schema51
-extends JsonSchema
+extends StringWithValidation.StringWithValidation1
 
 A schema class that validates payloads
-
-
-## Ref Schema Info
-Ref Schema | Input Type | Output Type
----------- | ---------- | -----------
-[**StringWithValidation.StringWithValidation1**](../../../components/schemas/StringWithValidation.md) |  | 
