@@ -39,7 +39,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AnyTypeAndFormatMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AnyTypeAndFormatMap](#anytypeandformatmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
 | Object | binary()<br>[optional] |
 | Object | int32()<br>[optional] value must be a 32 bit integer |

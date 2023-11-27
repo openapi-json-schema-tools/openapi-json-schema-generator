@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FileSchemaTestClassMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FileSchemaTestClassMap](#fileschematestclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | File.FileMap | file()<br>[optional] |
 | FilesList | files()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
@@ -67,7 +67,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FilesList | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

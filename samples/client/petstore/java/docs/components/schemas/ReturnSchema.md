@@ -42,7 +42,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ReturnMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReturnMap](#returnmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["return"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ApiResponseMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ApiResponseMap](#apiresponsemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | int | code()<br>[optional] value must be a 32 bit integer |
 | String | type()<br>[optional] |
 | String | message()<br>[optional] |

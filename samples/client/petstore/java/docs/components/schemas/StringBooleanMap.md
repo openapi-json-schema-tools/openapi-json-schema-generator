@@ -31,7 +31,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static StringBooleanMapMap | of(Map<String, Boolean> arg, SchemaConfiguration configuration) |
+| static [StringBooleanMapMap](#stringbooleanmapmap) | of(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

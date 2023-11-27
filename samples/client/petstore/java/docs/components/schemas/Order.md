@@ -36,7 +36,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static OrderMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [OrderMap](#ordermap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | long | petId()<br>[optional] value must be a 64 bit integer |
 | int | quantity()<br>[optional] value must be a 32 bit integer |

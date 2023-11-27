@@ -53,7 +53,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FormatTestMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FormatTestMap](#formattestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
 | String | password()<br> |
 | int | int32()<br>[optional] value must be a 32 bit integer |
@@ -247,7 +247,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayWithUniqueItemsList | of(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

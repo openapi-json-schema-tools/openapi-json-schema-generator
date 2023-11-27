@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static HasOnlyReadOnlyMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -30,7 +30,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AnimalFarmList | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [AnimalFarmList](#animalfarmlist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

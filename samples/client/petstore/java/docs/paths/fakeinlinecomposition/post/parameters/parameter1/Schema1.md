@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SchemaMap1 | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SchemaMap1](#schemamap1) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | someProp()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

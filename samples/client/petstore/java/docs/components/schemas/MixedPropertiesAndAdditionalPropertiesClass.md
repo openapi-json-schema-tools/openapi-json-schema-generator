@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MixedPropertiesAndAdditionalPropertiesClassMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["map"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
@@ -70,7 +70,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [MapMap](#mapmap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | Animal.AnimalMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

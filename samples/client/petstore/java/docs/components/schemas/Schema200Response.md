@@ -43,7 +43,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Schema200ResponseMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema200ResponseMap](#schema200responsemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | int | name()<br>[optional] value must be a 32 bit integer |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["class"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

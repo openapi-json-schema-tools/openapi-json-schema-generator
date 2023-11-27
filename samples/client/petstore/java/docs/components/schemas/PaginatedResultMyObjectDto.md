@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PaginatedResultMyObjectDtoMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | long | count()<br> |
 | ResultsList | results()<br> |
 
@@ -67,7 +67,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ResultsList | of(List<Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [ResultsList](#resultslist) | of(List<Map<String, String>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

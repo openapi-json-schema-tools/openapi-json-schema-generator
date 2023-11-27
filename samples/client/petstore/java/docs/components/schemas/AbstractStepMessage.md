@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AbstractStepMessageMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AbstractStepMessageMap](#abstractstepmessagemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | description()<br> |
 | String | discriminator()<br> |
 | Object | sequenceNumber()<br> |

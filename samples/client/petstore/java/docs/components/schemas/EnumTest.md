@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static EnumTestMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | enum_string_required()<br> must be one of ["UPPER", "lower", ""] |
 | String | enum_string()<br>[optional] must be one of ["UPPER", "lower", ""] |
 | int | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |

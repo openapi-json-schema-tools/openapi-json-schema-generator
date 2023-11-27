@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static TagMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [TagMap](#tagmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | String | name()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

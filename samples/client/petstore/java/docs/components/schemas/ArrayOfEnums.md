@@ -30,7 +30,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayOfEnumsList | of(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | of(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static JSONPatchRequestRemoveMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | op()<br> must be one of ["remove"] |
 | String | path()<br> |
 

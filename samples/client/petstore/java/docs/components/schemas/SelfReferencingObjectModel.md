@@ -30,7 +30,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SelfReferencingObjectModelMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | SelfReferencingObjectModelMap | selfRef()<br>[optional] |
 | SelfReferencingObjectModelMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static NoAdditionalPropertiesMap | of(Map<String, Long> arg, SchemaConfiguration configuration) |
+| static [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | of(Map<String, Long> arg, SchemaConfiguration configuration) |
 | long | id()<br> value must be a 64 bit integer |
 | long | petId()<br>[optional] value must be a 64 bit integer |
 

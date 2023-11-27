@@ -44,7 +44,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static UserMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [UserMap](#usermap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | String | username()<br>[optional] |
 | String | firstName()<br>[optional] |

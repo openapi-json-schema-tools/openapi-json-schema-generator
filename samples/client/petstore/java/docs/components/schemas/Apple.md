@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AppleMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AppleMap](#applemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | String | origin()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

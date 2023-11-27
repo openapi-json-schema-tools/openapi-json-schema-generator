@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static JSONPatchRequestMoveCopyMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | from()<br> |
 | String | op()<br> must be one of ["move", "copy"] |
 | String | path()<br> |

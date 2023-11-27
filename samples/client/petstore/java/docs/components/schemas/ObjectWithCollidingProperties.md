@@ -35,7 +35,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithCollidingPropertiesMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | someProp()<br>[optional] |
 | FrozenMap<String, Object> | someprop()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

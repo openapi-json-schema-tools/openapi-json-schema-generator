@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static EnumArraysMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EnumArraysMap](#enumarraysmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | just_symbol()<br>[optional] must be one of [">=", "$"] |
 | ArrayEnumList | array_enum()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
@@ -69,7 +69,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayEnumList | of(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayEnumList](#arrayenumlist) | of(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

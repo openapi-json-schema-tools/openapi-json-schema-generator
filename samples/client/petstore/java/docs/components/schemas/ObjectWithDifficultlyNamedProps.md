@@ -36,7 +36,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithDifficultlyNamedPropsMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["123-list"], instance["$special[property.name]"], instance["123Number"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

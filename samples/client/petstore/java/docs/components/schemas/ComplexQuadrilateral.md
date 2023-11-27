@@ -51,7 +51,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Schema1Map | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | quadrilateralType()<br>[optional] must be one of ["ComplexQuadrilateral"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

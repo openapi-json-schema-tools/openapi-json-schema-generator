@@ -36,7 +36,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static CapitalizationMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [CapitalizationMap](#capitalizationmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | smallCamel()<br>[optional] |
 | String | CapitalCamel()<br>[optional] |
 | String | small_Snake()<br>[optional] |

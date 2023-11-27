@@ -34,7 +34,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ItemsList | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

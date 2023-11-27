@@ -44,7 +44,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SchemaMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | pattern_without_delimiter()<br> |
 | int | int32()<br>[optional] value must be a 32 bit integer |
 | long | int64()<br>[optional] value must be a 64 bit integer |

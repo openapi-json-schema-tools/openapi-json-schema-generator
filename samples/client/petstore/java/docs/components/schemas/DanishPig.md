@@ -31,7 +31,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static DanishPigMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [DanishPigMap](#danishpigmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["DanishPig"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

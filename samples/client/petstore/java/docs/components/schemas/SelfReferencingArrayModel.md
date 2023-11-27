@@ -30,7 +30,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static SelfReferencingArrayModelList | of(List<List> arg, SchemaConfiguration configuration) |
+| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of(List<List> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

@@ -31,7 +31,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ClientMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ClientMap](#clientmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | client()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

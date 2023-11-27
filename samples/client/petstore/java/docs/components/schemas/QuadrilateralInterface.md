@@ -40,7 +40,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static QuadrilateralInterfaceMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | quadrilateralType()<br> |
 | String | shapeType()<br> must be one of ["Quadrilateral"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

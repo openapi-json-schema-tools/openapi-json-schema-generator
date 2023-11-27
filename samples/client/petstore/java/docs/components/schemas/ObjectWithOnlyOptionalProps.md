@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithOnlyOptionalPropsMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | a()<br>[optional] |
 | Number | b()<br>[optional] |
 

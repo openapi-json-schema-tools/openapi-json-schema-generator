@@ -55,7 +55,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static NullableClassMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NullableClassMap](#nullableclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Long | integer_prop()<br>[optional] |
 | Number | number_prop()<br>[optional] |
 | Boolean | boolean_prop()<br>[optional] |
@@ -110,7 +110,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectItemsNullableMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectItemsNullableMap](#objectitemsnullablemap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -154,7 +154,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectAndItemsNullablePropMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -198,7 +198,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectNullablePropMap | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectNullablePropMap](#objectnullablepropmap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -240,7 +240,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayItemsNullableList | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ArrayItemsNullableList](#arrayitemsnullablelist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -283,7 +283,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayAndItemsNullablePropList | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -326,7 +326,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayNullablePropList | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ArrayNullablePropList](#arraynullableproplist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

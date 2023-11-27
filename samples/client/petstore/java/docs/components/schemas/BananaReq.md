@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static BananaReqMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [BananaReqMap](#bananareqmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
 | boolean | sweet()<br>[optional] |
 

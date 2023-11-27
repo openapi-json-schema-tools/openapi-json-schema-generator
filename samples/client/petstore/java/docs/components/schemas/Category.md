@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static CategoryMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [CategoryMap](#categorymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | name()<br> if omitted the server will use the default value of default-name |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

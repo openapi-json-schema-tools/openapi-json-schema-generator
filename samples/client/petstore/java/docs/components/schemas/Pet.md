@@ -41,7 +41,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PetMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PetMap](#petmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | name()<br> |
 | PhotoUrlsList | photoUrls()<br> |
 | long | id()<br>[optional] value must be a 64 bit integer |
@@ -84,7 +84,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static TagsList | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -128,7 +128,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PhotoUrlsList | of(List<String> arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | of(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

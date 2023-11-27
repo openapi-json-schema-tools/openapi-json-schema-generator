@@ -39,7 +39,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FruitMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FruitMap](#fruitmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

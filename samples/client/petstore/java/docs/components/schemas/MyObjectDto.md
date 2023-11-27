@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MyObjectDtoMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MyObjectDtoMap](#myobjectdtomap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | id()<br>[optional] value must be a uuid |
 
 ## Input Map Keys

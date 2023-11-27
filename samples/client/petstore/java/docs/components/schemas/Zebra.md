@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ZebraMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ZebraMap](#zebramap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["zebra"] |
 | String | type()<br>[optional] must be one of ["plains", "mountain", "grevys"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

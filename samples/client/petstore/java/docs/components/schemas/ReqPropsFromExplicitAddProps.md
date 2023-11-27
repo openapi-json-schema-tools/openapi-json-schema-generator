@@ -31,7 +31,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ReqPropsFromExplicitAddPropsMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | validName()<br> |
 | String | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["invalid-name"],  |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |

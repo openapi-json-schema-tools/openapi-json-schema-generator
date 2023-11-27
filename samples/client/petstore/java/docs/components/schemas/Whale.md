@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static WhaleMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [WhaleMap](#whalemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["whale"] |
 | boolean | hasBaleen()<br>[optional] |
 | boolean | hasTeeth()<br>[optional] |

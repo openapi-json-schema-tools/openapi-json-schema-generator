@@ -33,7 +33,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayOfNumberOnlyMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | ArrayNumberList | ArrayNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
@@ -66,7 +66,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayNumberList | of(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayNumberList](#arraynumberlist) | of(List<Number> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

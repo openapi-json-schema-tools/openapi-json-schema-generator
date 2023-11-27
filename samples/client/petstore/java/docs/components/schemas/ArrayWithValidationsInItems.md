@@ -31,7 +31,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayWithValidationsInItemsList | of(List<Long> arg, SchemaConfiguration configuration) |
+| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of(List<Long> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

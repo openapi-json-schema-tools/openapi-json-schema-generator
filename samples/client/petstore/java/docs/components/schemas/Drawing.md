@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static DrawingMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [DrawingMap](#drawingmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | mainShape()<br>[optional] |
 | Object | shapeOrNull()<br>[optional] |
 | Object | nullableShape()<br>[optional] |
@@ -71,7 +71,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ShapesList | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | of(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

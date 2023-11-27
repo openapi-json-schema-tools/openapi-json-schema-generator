@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AnimalMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AnimalMap](#animalmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | className()<br> |
 | String | color()<br>[optional] if omitted the server will use the default value of red |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -31,7 +31,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithDecimalPropertiesMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | length()<br>[optional] |
 | String | width()<br>[optional] value must be int or float numeric |
 | Money.MoneyMap | cost()<br>[optional] |

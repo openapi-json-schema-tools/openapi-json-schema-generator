@@ -71,7 +71,7 @@ A class to store validated Map payloads
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static {{mapOutputJsonPathPiece.camelCase}} | of(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
+| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
 | {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | {{@key.original}}()<br>{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
@@ -142,7 +142,7 @@ A class to store validated List payloads
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static {{arrayOutputJsonPathPiece.camelCase}} | of(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
+| static [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
 
 {{headerSize}}# Input List Items
 ```

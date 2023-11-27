@@ -31,7 +31,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayHoldingAnyTypeList | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

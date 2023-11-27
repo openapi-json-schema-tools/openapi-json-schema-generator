@@ -44,7 +44,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static NameMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NameMap](#namemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | int | name()<br> value must be a 32 bit integer |
 | int | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |

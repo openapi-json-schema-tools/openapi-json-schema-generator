@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FileMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FileMap](#filemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | sourceURI()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

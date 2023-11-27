@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PlayerMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PlayerMap](#playermap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | name()<br>[optional] |
 | PlayerMap | enemyPlayer()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

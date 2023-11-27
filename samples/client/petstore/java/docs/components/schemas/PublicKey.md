@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static PublicKeyMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PublicKeyMap](#publickeymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | key()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

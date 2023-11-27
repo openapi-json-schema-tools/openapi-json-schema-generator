@@ -31,7 +31,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjWithRequiredPropsBaseMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | b()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

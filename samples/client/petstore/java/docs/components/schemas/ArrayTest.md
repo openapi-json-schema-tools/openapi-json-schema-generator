@@ -42,7 +42,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayTestMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ArrayTestMap](#arraytestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | ArrayOfStringList | array_of_string()<br>[optional] |
 | ArrayArrayOfIntegerList | array_array_of_integer()<br>[optional] |
 | ArrayArrayOfModelList | array_array_of_model()<br>[optional] |
@@ -79,7 +79,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayArrayOfModelList | of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -109,7 +109,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ItemsList1 | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -139,7 +139,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayArrayOfIntegerList | of(List<List<Long>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of(List<List<Long>> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -169,7 +169,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ItemsList | of(List<Long> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of(List<Long> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```
@@ -210,7 +210,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ArrayOfStringList | of(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfStringList](#arrayofstringlist) | of(List<String> arg, SchemaConfiguration configuration) |
 
 ## Input List Items
 ```

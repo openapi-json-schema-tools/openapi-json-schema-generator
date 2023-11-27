@@ -50,7 +50,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AdditionalPropertiesClassMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | MapPropertyMap | map_property()<br>[optional] |
 | MapOfMapPropertyMap | map_of_map_property()<br>[optional] |
 | Object | anytype_1()<br>[optional] |
@@ -97,7 +97,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapWithUndeclaredPropertiesStringMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -142,7 +142,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static EmptyMapMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EmptyMapMap](#emptymapmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Input Map Keys
 ```
@@ -190,7 +190,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapWithUndeclaredPropertiesAnytype3Map | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -281,7 +281,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapOfMapPropertyMap | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [MapOfMapPropertyMap](#mapofmappropertymap) | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
 | AdditionalPropertiesMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -312,7 +312,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static AdditionalPropertiesMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesMap](#additionalpropertiesmap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -354,7 +354,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MapPropertyMap | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapPropertyMap](#mappropertymap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

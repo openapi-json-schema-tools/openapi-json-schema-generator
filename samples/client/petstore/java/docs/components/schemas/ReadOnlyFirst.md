@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ReadOnlyFirstMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReadOnlyFirstMap](#readonlyfirstmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | baz()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

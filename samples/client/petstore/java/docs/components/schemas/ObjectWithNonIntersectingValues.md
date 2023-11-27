@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static ObjectWithNonIntersectingValuesMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Number | a()<br>[optional] |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

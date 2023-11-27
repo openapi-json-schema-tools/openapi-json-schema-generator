@@ -34,7 +34,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static JSONPatchRequestAddReplaceTestMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | op()<br> must be one of ["add", "replace", "test"] |
 | String | path()<br> |
 | Object | value()<br> |

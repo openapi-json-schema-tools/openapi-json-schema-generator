@@ -32,7 +32,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static MoneyMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MoneyMap](#moneymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | amount()<br> value must be int or float numeric |
 | String | currency()<br> |
 

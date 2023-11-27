@@ -31,7 +31,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static GrandparentAnimalMap | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [GrandparentAnimalMap](#grandparentanimalmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
