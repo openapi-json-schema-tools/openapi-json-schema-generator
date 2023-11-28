@@ -36,7 +36,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | Object | validName()<br> |
-| Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["invalid-name"],  |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

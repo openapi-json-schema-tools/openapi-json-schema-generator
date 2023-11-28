@@ -40,7 +40,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
-| Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["map"],  |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["map"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

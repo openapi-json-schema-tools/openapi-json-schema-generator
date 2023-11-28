@@ -35,7 +35,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaMap](#schemamap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["string"],  |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["string"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

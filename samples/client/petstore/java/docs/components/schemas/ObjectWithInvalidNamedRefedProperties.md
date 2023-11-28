@@ -36,7 +36,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | [FromSchema.FromSchemaMap](../../components/schemas/FromSchema.md#fromschemamap) | from()<br> |
-| Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["!reference"],  |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["!reference"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

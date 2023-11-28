@@ -72,7 +72,7 @@ A class to store validated Map payloads
 | String | pattern_with_digits()<br>[optional] |
 | String | pattern_with_digits_and_delimiter()<br>[optional] |
 | Void | noneProp()<br>[optional] |
-| Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

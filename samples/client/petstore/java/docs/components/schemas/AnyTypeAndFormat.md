@@ -48,7 +48,7 @@ A class to store validated Map payloads
 | Object | binary()<br>[optional] |
 | Object | int32()<br>[optional] value must be a 32 bit integer |
 | Object | int64()<br>[optional] value must be a 64 bit integer |
-| Object | get(String key)<br>This model has invalid python names so this method is used under the hood when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

@@ -81,7 +81,7 @@ A class to store validated Map payloads
                 {{/if}}
             {{/each}}
             {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
-| {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }}{{else}}Object{{/with}} | get(String key)<br>This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
+| {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }}{{else}}Object{{/with}} | get(String key)<br>This schema has invalid Java names so this method must be used when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
             {{/or}}
             {{#with additionalProperties}}
                 {{#unless isBooleanSchemaFalse}}
