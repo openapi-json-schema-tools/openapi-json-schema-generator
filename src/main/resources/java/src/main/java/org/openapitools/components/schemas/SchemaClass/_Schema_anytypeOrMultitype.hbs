@@ -44,6 +44,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "minItems"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minItems }}
         {{/eq}}
+        {{#eq this "maxLength"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxLength }}
+        {{/eq}}
         {{#eq this "additionalProperties"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
         {{/eq}}
@@ -69,9 +72,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{#if uniqueItems}}
     {{!> components/schemas/schema_cls/_unique_items }}
 {{/if}}
-{{#neq maxLength null}}
-    {{!> components/schemas/schema_cls/_max_length }}
-{{/neq}}
 {{#neq minLength null}}
     {{!> components/schemas/schema_cls/_min_length }}
 {{/neq}}

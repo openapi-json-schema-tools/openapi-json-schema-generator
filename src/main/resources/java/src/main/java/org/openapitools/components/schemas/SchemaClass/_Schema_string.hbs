@@ -23,13 +23,13 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "format"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_format }}
         {{/eq}}
+        {{#eq this "maxLength"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxLength }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
     {{/each}}
-{{#neq maxLength null}}
-    {{!> components/schemas/schema_cls/_max_length }}
-{{/neq}}
 {{#neq minLength null}}
     {{!> components/schemas/schema_cls/_min_length }}
 {{/neq}}

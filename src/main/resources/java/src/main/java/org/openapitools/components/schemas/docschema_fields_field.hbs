@@ -29,6 +29,9 @@
     {{#eq this "minItems"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minItems }}
     {{~/eq}}
+    {{#eq this "maxLength"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxLength }}
+    {{~/eq}}
     {{#eq this "additionalProperties"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
     {{~/eq}}

@@ -161,6 +161,9 @@ public class CodegenSchema {
         if (minItems != null) {
             keywords.add("minItems");
         }
+        if (maxLength != null) {
+            keywords.add("maxLength");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }
