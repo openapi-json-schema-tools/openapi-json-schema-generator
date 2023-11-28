@@ -70,23 +70,23 @@ A class to store validated Map payloads
 | static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | {{@key.original}}()<br>{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
-| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | {{@key.original}}()<br>[optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>[optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
                 {{/if}}
             {{/each}}
             {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
-| {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }}{{else}}Object{{/with}} | get(String key)<br>This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
+| {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }}{{else}}Object{{/with}} | get(String key)<br>This model has invalid python names so this method is used under the hood when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
             {{/or}}
             {{#with additionalProperties}}
                 {{#unless isBooleanSchemaFalse}}
                     {{#if isBooleanSchemaTrue}}
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
                 {{else}}
-| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
                     {{/if}}
                 {{/unless}}
             {{else}}

@@ -53,9 +53,9 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayTestMap](#arraytestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| ArrayOfStringList | array_of_string()<br>[optional] |
-| ArrayArrayOfIntegerList | array_array_of_integer()<br>[optional] |
-| ArrayArrayOfModelList | array_array_of_model()<br>[optional] |
+| [ArrayOfStringList](#arrayofstringlist) | array_of_string()<br>[optional] |
+| [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | array_array_of_integer()<br>[optional] |
+| [ArrayArrayOfModelList](#arrayarrayofmodellist) | array_array_of_model()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

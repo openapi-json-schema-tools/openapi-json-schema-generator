@@ -48,7 +48,7 @@ A class to store validated Map payloads
 | Object | mainShape()<br>[optional] |
 | Object | shapeOrNull()<br>[optional] |
 | Object | nullableShape()<br>[optional] |
-| ShapesList | shapes()<br>[optional] |
+| [ShapesList](#shapeslist) | shapes()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

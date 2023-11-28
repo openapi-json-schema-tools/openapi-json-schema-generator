@@ -42,7 +42,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| ArrayNumberList | ArrayNumber()<br>[optional] |
+| [ArrayNumberList](#arraynumberlist) | ArrayNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

@@ -39,7 +39,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | of(Map<String, List<String>> arg, SchemaConfiguration configuration) |
-| AdditionalPropertiesList | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| [AdditionalPropertiesList](#additionalpropertieslist) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
 ```

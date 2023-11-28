@@ -43,7 +43,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [FileSchemaTestClassMap](#fileschematestclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | File.FileMap | file()<br>[optional] |
-| FilesList | files()<br>[optional] |
+| [FilesList](#fileslist) | files()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

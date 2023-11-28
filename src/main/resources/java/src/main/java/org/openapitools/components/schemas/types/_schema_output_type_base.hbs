@@ -83,11 +83,19 @@ long
                             {{else}}
                                 {{#eq this "array"}}
                                     {{#if arrayOutputJsonPathPiece}}
-                                        {{#if fullRefModule}}
+                                        {{#if useLink}}
+                                            {{#if fullRefModule}}
+[{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}]({{docRoot}}{{pathFromDocRoot}}.md#{{arrayOutputJsonPathPiece.anchorPiece}})
+                                            {{~else}}
+[{{arrayOutputJsonPathPiece.camelCase}}](#{{arrayOutputJsonPathPiece.anchorPiece}})
+                                            {{~/if}}
+                                        {{else}}
+                                            {{#if fullRefModule}}
 {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
-                                        {{~else}}
+                                            {{~else}}
 {{arrayOutputJsonPathPiece.camelCase}}
-                                        {{~/if}}
+                                            {{~/if}}
+                                        {{/if}}
                                     {{else}}
 FrozenList<Object>
                                     {{~/if}}

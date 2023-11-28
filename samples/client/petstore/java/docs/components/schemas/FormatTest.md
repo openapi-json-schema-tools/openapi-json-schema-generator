@@ -95,7 +95,7 @@ A class to store validated Map payloads
 | long | int64()<br>[optional] value must be a 64 bit integer |
 | float | float32()<br>[optional] value must be a 32 bit float |
 | double | float64()<br>[optional] value must be a 64 bit float |
-| ArrayWithUniqueItemsList | arrayWithUniqueItems()<br>[optional] |
+| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | arrayWithUniqueItems()<br>[optional] |
 | String | binary()<br>[optional] |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
 | String | uuidNoExample()<br>[optional] value must be a uuid |

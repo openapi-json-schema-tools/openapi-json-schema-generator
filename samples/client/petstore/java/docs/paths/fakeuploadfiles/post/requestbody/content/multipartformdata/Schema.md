@@ -42,7 +42,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaMap](#schemamap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| FilesList | files()<br>[optional] |
+| [FilesList](#fileslist) | files()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

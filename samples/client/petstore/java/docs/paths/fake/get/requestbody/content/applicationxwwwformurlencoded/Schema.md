@@ -44,7 +44,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaMap](#schemamap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| EnumFormStringArrayList | enum_form_string_array()<br>[optional] |
+| [EnumFormStringArrayList](#enumformstringarraylist) | enum_form_string_array()<br>[optional] |
 | String | enum_form_string()<br>[optional] must be one of ["_abc", "-efg", "(xyz)"] if omitted the server will use the default value of -efg |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

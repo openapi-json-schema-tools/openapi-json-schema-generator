@@ -50,7 +50,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | long | count()<br> |
-| ResultsList | results()<br> |
+| [ResultsList](#resultslist) | results()<br> |
 
 ## Input Map Keys
 ```

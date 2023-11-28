@@ -84,7 +84,7 @@ A class to store validated Map payloads
 | String | datetime_prop()<br>[optional] value must conform to RFC-3339 date-time |
 | ArrayNullablePropList | array_nullable_prop()<br>[optional] |
 | ArrayAndItemsNullablePropList | array_and_items_nullable_prop()<br>[optional] |
-| ArrayItemsNullableList | array_items_nullable()<br>[optional] |
+| [ArrayItemsNullableList](#arrayitemsnullablelist) | array_items_nullable()<br>[optional] |
 | ObjectNullablePropMap | object_nullable_prop()<br>[optional] |
 | ObjectAndItemsNullablePropMap | object_and_items_nullable_prop()<br>[optional] |
 | ObjectItemsNullableMap | object_items_nullable()<br>[optional] |

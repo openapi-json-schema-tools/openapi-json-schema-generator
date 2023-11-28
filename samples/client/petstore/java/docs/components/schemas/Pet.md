@@ -60,10 +60,10 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [PetMap](#petmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | name()<br> |
-| PhotoUrlsList | photoUrls()<br> |
+| [PhotoUrlsList](#photourlslist) | photoUrls()<br> |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | Category.CategoryMap | category()<br>[optional] |
-| TagsList | tags()<br>[optional] |
+| [TagsList](#tagslist) | tags()<br>[optional] |
 | String | status()<br>[optional] must be one of ["available", "pending", "sold"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
