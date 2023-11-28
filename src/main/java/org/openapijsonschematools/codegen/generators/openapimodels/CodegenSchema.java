@@ -170,6 +170,9 @@ public class CodegenSchema {
         if (maxProperties != null) {
             keywords.add("maxProperties");
         }
+        if (minProperties != null) {
+            keywords.add("minProperties");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }
