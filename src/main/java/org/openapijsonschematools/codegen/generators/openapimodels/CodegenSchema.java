@@ -176,6 +176,9 @@ public class CodegenSchema {
         if (maximum != null && exclusiveMaximum == null) {
             keywords.add("maximum");
         }
+        if (minimum != null && exclusiveMinimum == null) {
+            keywords.add("minimum");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }
