@@ -357,6 +357,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
         keywordValidatorFiles.add("MinItemsValidator");
+        keywordValidatorFiles.add("MinLengthValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
@@ -1424,6 +1425,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addMaxItemsValidator(schema, imports);
                 addMinItemsValidator(schema, imports);
                 addMaxLengthValidator(schema, imports);
+                addMinLengthValidator(schema, imports);
             }
         }
         return imports;
@@ -1493,6 +1495,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
     }
 
+    private void addMinLengthValidator(CodegenSchema schema, Set<String> imports) {
+        if (schema.minLength != null) {
+            imports.add("import "+packageName + ".schemas.validation.MinLengthValidator;");
+        }
+    }
+
     private void addCustomSchemaImports(Set<String> imports) {
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
@@ -1534,6 +1542,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         addFormatValidator(schema, imports);
         addMaxLengthValidator(schema, imports);
+        addMinLengthValidator(schema, imports);
     }
 
 
