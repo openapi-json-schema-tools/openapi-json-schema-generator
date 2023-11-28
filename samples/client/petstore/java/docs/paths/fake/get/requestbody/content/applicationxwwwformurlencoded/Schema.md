@@ -19,6 +19,18 @@ public static class Schema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+<br/>
+        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+        new PropertyEntry("enum_form_string_array", EnumFormStringArray.class),
+        new PropertyEntry("enum_form_string", EnumFormString.class)
+    )))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -57,6 +69,15 @@ A schema class that validates payloads
 
 ## Description
 Form parameter enum test (string)
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(
+        String.class
+    )))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -71,6 +92,15 @@ A schema class that validates payloads
 
 ## Description
 Form parameter enum test (string array)
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+<br/>
+        new KeywordEntry("items", new ItemsValidator(Items.class))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -101,6 +131,15 @@ public static class Items<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(
+        String.class
+    )))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |

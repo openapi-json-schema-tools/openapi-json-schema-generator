@@ -19,6 +19,18 @@ A schema class that validates payloads
 
 ## Description
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+<br/>
+        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+        new PropertyEntry("name", Name.class),
+        new PropertyEntry("enemyPlayer", Player1.class)
+    )))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -54,6 +66,9 @@ public static class Name<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

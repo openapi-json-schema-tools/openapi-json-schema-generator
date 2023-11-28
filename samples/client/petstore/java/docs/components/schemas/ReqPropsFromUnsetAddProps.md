@@ -15,6 +15,18 @@ public static class ReqPropsFromUnsetAddProps1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+<br/>
+        new KeywordEntry("required", new RequiredValidator(Set.of(
+        "invalid-name",
+        "validName"
+    )))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -18,6 +18,24 @@ public static class AppleReq1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+<br/>
+        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+        new PropertyEntry("cultivar", Cultivar.class),
+        new PropertyEntry("mealy", Mealy.class)
+    ))),
+<br/>
+        new KeywordEntry("required", new RequiredValidator(Set.of(
+        "cultivar"
+    ))),
+<br/>
+        new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -51,6 +69,9 @@ public static class Mealy<br>
 extends BooleanJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -62,6 +83,9 @@ public static class Cultivar<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -74,6 +98,9 @@ extends NotAnyTypeJsonSchema
     // NotAnyTypeSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

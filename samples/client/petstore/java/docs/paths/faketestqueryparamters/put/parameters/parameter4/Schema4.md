@@ -16,6 +16,15 @@ public static class Schema41<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+<br/>
+        new KeywordEntry("items", new ItemsValidator(Items4.class))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -46,6 +55,9 @@ public static class Items4<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

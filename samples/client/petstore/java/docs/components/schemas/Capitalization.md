@@ -21,6 +21,22 @@ public static class Capitalization1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+<br/>
+        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+        new PropertyEntry("smallCamel", SmallCamel.class),
+        new PropertyEntry("CapitalCamel", CapitalCamel.class),
+        new PropertyEntry("small_Snake", SmallSnake.class),
+        new PropertyEntry("Capital_Snake", CapitalSnake.class),
+        new PropertyEntry("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
+        new PropertyEntry("ATT_NAME", ATTNAME.class)
+    )))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -67,6 +83,9 @@ A schema class that validates payloads
 
 ## Description
 Name of the pet 
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -78,6 +97,9 @@ public static class SCAETHFlowPoints<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -89,6 +111,9 @@ public static class CapitalSnake<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -100,6 +125,9 @@ public static class SmallSnake<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -111,6 +139,9 @@ public static class CapitalCamel<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -122,6 +153,9 @@ public static class SmallCamel<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

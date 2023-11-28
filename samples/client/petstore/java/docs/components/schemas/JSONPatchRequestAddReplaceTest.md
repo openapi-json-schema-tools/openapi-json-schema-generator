@@ -19,6 +19,27 @@ public static class JSONPatchRequestAddReplaceTest1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+<br/>
+        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+        new PropertyEntry("path", Path.class),
+        new PropertyEntry("value", Value.class),
+        new PropertyEntry("op", Op.class)
+    ))),
+<br/>
+        new KeywordEntry("required", new RequiredValidator(Set.of(
+        "op",
+        "path",
+        "value"
+    ))),
+<br/>
+        new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -57,6 +78,15 @@ A schema class that validates payloads
 
 ## Description
 The operation to perform.
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(
+        String.class
+    )))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -71,6 +101,9 @@ A schema class that validates payloads
 
 ## Description
 The value to add, replace or test.
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -93,6 +126,9 @@ A schema class that validates payloads
 
 ## Description
 A JSON Pointer path.
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -105,6 +141,9 @@ extends NotAnyTypeJsonSchema
     // NotAnyTypeSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

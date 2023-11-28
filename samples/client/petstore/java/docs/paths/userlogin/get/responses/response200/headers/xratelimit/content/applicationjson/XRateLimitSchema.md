@@ -14,6 +14,9 @@ public static class XRateLimitSchema1<br>
 extends Int32JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

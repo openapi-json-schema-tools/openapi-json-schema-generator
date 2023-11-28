@@ -17,6 +17,22 @@ public static class Drawing1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+<br/>
+        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+        new PropertyEntry("mainShape", Shape.Shape1.class),
+        new PropertyEntry("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
+        new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
+        new PropertyEntry("shapes", Shapes.class)
+    ))),
+<br/>
+        new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -56,6 +72,15 @@ public static class Shapes<br>
 extends JsonSchema
 
 A schema class that validates payloads
+### Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
+        new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+<br/>
+        new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
+<br/>
+));</code>
 
 ### Method Summary
 | Modifier and Type | Method and Description |
