@@ -55,6 +55,7 @@ public class SelfReferencingObjectModel {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(SelfReferencingObjectModel1.class))
+            
         ));
         protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SelfReferencingObjectModelMap(arg);

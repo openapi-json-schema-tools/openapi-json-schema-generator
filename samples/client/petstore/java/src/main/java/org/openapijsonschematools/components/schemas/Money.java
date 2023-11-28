@@ -70,6 +70,7 @@ public class Money {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static MoneyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MoneyMap(arg);

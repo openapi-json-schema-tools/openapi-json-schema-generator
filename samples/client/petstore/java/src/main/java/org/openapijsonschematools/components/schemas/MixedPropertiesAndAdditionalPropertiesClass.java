@@ -45,6 +45,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
+            
         ));
         protected static MapMap getMapOutputInstance(FrozenMap<String, Animal.AnimalMap> arg) {
             return new MapMap(arg);

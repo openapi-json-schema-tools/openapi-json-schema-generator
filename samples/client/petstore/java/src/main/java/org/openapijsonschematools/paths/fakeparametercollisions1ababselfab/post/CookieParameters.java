@@ -75,6 +75,7 @@ public class CookieParameters {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static CookieParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CookieParametersMap(arg);

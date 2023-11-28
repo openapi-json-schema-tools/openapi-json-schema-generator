@@ -51,6 +51,7 @@ public class HeaderParameters {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new HeaderParametersMap(arg);

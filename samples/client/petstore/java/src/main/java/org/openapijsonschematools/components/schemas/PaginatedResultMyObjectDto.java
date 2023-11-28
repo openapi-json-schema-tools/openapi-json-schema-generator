@@ -97,6 +97,7 @@ public class PaginatedResultMyObjectDto {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PaginatedResultMyObjectDtoMap(arg);

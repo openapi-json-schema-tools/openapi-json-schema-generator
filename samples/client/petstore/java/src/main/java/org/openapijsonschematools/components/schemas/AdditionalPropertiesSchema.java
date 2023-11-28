@@ -44,6 +44,7 @@ public class AdditionalPropertiesSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema0Map(arg);
@@ -124,6 +125,7 @@ public class AdditionalPropertiesSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
+            
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);
@@ -204,6 +206,7 @@ public class AdditionalPropertiesSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
+            
         ));
         protected static Schema2Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema2Map(arg);

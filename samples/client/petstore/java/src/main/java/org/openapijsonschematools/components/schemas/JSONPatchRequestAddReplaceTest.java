@@ -91,6 +91,7 @@ public class JSONPatchRequestAddReplaceTest {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static JSONPatchRequestAddReplaceTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new JSONPatchRequestAddReplaceTestMap(arg);

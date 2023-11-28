@@ -72,6 +72,7 @@ public class ObjectWithOnlyOptionalProps {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static ObjectWithOnlyOptionalPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithOnlyOptionalPropsMap(arg);

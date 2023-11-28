@@ -106,6 +106,7 @@ public class Drawing {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
+            
         ));
         protected static DrawingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new DrawingMap(arg);

@@ -63,6 +63,7 @@ public class ObjectWithNonIntersectingValues {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static ObjectWithNonIntersectingValuesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithNonIntersectingValuesMap(arg);

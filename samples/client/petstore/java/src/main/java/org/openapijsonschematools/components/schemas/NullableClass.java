@@ -298,6 +298,7 @@ public class NullableClass {
                 FrozenMap.class
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
@@ -345,6 +346,7 @@ public class NullableClass {
                 FrozenMap.class
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
@@ -389,6 +391,7 @@ public class NullableClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
+            
         ));
         protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
             return new ObjectItemsNullableMap(arg);
@@ -525,6 +528,7 @@ public class NullableClass {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
+            
         ));
         protected static NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new NullableClassMap(arg);

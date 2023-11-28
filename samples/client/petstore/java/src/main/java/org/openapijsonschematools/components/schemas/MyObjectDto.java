@@ -60,6 +60,7 @@ public class MyObjectDto {
             ))),
             
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static MyObjectDtoMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MyObjectDtoMap(arg);

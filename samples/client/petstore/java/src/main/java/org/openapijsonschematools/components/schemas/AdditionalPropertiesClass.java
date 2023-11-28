@@ -44,6 +44,7 @@ public class AdditionalPropertiesClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static MapPropertyMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapPropertyMap(arg);
@@ -77,6 +78,7 @@ public class AdditionalPropertiesClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
+            
         ));
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new AdditionalPropertiesMap(arg);
@@ -107,6 +109,7 @@ public class AdditionalPropertiesClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
+            
         ));
         protected static MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
             return new MapOfMapPropertyMap(arg);
@@ -149,6 +152,7 @@ public class AdditionalPropertiesClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
+            
         ));
         protected static MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
@@ -179,6 +183,7 @@ public class AdditionalPropertiesClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties4.class))
+            
         ));
         protected static EmptyMapMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EmptyMapMap(arg);
@@ -212,6 +217,7 @@ public class AdditionalPropertiesClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
+            
         ));
         protected static MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapWithUndeclaredPropertiesStringMap(arg);
