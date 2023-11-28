@@ -181,6 +181,7 @@ public class NullableClass {
                 FrozenList.class
             ))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
@@ -222,6 +223,7 @@ public class NullableClass {
                 FrozenList.class
             ))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
@@ -260,6 +262,7 @@ public class NullableClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
+            
         ));
         protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
             return new ArrayItemsNullableList(arg);

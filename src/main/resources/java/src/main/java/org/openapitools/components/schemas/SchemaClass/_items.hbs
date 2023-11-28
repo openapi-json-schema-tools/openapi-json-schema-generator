@@ -1,3 +1,10 @@
-{{#with items}}
+{{#if forDocs}}
+    {{#with items}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class)){{#unless @last}},{{/unless}}<br>
+    {{~/with}}
+{{else}}
+    {{#with items}}
 new KeywordEntry("items", new ItemsValidator({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class)){{#unless @last}},{{/unless}}
-{{/with}}
+    {{/with}}
+
+{{/if}}

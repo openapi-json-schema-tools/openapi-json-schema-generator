@@ -36,6 +36,7 @@ public class ArrayOfEnums {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(StringEnum.StringEnum1.class))
+            
         ));
         protected static ArrayOfEnumsList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayOfEnumsList(arg);

@@ -169,6 +169,7 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
+            
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);
