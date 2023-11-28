@@ -354,6 +354,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
+        keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
         keywordValidatorFiles.add("MaxPropertiesValidator");
@@ -1430,6 +1431,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addMinLengthValidator(schema, imports);
                 addMaxPropertiesValidator(schema, imports);
                 addMinPropertiesValidator(schema, imports);
+                addMaximumValidator(schema, imports);
             }
         }
         return imports;
@@ -1511,6 +1513,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
     }
 
+    private void addMaximumValidator(CodegenSchema schema, Set<String> imports) {
+        if (schema.maximum != null && schema.exclusiveMaximum == null) {
+            imports.add("import "+packageName + ".schemas.validation.MaximumValidator;");
+        }
+    }
+
     private void addMinPropertiesValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.minProperties != null) {
             imports.add("import "+packageName + ".schemas.validation.MinPropertiesValidator;");
@@ -1546,6 +1554,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addFormatValidator(schema, imports);
         addExclusiveMaximumValidator(schema, imports);
         addExclusiveMinimumValidator(schema, imports);
+        addMaximumValidator(schema, imports);
     }
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
