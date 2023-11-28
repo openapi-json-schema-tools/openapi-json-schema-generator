@@ -105,6 +105,10 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## MapOfEnumString
 public static class MapOfEnumString<br>
 extends JsonSchema
@@ -230,5 +234,9 @@ public static class AdditionalProperties1<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

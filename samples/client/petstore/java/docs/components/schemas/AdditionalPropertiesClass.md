@@ -122,6 +122,10 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## EmptyMap
 public static class EmptyMap<br>
 extends JsonSchema
@@ -161,9 +165,12 @@ type: Map<String, Object>
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
 extends NotAnyTypeJsonSchema
-    // NotAnyTypeSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## MapWithUndeclaredPropertiesAnytype3
 public static class MapWithUndeclaredPropertiesAnytype3<br>
@@ -206,11 +213,19 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
 extends MapJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
@@ -218,11 +233,19 @@ extends MapJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Anytype1
 public static class Anytype1<br>
 extends AnyTypeJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## MapOfMapProperty
 public static class MapOfMapProperty<br>
@@ -300,6 +323,10 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## MapProperty
 public static class MapProperty<br>
 extends JsonSchema
@@ -340,5 +367,9 @@ public static class AdditionalProperties<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

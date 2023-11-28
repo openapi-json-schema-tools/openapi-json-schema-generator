@@ -60,6 +60,10 @@ A schema class that validates payloads
 ## Description
 field2
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Param
 public static class Param<br>
 extends StringJsonSchema
@@ -68,3 +72,7 @@ A schema class that validates payloads
 
 ## Description
 field1
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |

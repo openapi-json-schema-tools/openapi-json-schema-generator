@@ -14,3 +14,7 @@ public static class NumberHeaderSchema1<br>
 extends DecimalJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.DecimalJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |

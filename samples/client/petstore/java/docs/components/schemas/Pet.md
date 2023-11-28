@@ -160,11 +160,19 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Name
 public static class Name<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Id
 public static class Id<br>

@@ -125,11 +125,19 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema8
 public static class Schema8<br>
 extends NullJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Schema7
 public static class Schema7<br>
@@ -137,17 +145,29 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema6
 public static class Schema6<br>
 extends MapJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema5
 public static class Schema5<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Schema4
 public static class Schema4<br>
@@ -167,16 +187,28 @@ extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema1
 public static class Schema1<br>
 extends DateJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.DateJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema0
 public static class Schema0<br>
 extends MapJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

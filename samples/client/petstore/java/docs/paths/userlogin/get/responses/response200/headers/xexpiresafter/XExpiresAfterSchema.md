@@ -14,3 +14,7 @@ public static class XExpiresAfterSchema1<br>
 extends DateTimeJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |

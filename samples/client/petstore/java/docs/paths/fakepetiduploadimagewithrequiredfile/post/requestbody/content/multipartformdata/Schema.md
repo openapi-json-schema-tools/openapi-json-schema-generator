@@ -68,3 +68,7 @@ A schema class that validates payloads
 
 ## Description
 Additional data to pass to server
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |

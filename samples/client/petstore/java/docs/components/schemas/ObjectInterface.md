@@ -15,4 +15,8 @@ extends MapJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -69,6 +69,10 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Status
 public static class Status<br>
 extends JsonSchema
@@ -92,6 +96,10 @@ public static class ShipDate<br>
 extends DateTimeJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Quantity
 public static class Quantity<br>

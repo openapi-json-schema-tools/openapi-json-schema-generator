@@ -56,6 +56,10 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## LengthCm
 public static class LengthCm<br>
 extends NumberJsonSchema
@@ -65,8 +69,11 @@ A schema class that validates payloads
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends NotAnyTypeJsonSchema
-    // NotAnyTypeSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

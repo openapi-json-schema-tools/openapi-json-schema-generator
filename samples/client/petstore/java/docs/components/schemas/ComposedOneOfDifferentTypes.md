@@ -96,6 +96,10 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema4
 public static class Schema4<br>
 extends JsonSchema
@@ -117,10 +121,18 @@ extends DateJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.DateJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema2
 public static class Schema2<br>
 extends NullJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

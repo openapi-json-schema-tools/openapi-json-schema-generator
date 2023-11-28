@@ -95,10 +95,18 @@ extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## UuidSchema
 public static class UuidSchema<br>
 extends UuidJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.UuidJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

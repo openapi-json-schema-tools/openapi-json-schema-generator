@@ -65,6 +65,10 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## ShapeType
 public static class ShapeType<br>
 extends JsonSchema

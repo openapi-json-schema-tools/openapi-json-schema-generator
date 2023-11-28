@@ -239,6 +239,10 @@ extends MapJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## ArrayItemsNullable
 public static class ArrayItemsNullable<br>
 extends JsonSchema
@@ -380,6 +384,10 @@ public static class Items<br>
 extends MapJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## DatetimeProp
 public static class DatetimeProp<br>

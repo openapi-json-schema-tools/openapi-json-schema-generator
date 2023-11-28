@@ -41,4 +41,8 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

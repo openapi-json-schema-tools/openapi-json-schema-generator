@@ -14,3 +14,7 @@ public static class Schema01<br>
 extends AnyTypeJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |

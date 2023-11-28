@@ -110,6 +110,10 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
 extends JsonSchema
@@ -167,11 +171,19 @@ extends UuidJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.UuidJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## UuidSchema
 public static class UuidSchema<br>
 extends UuidJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.UuidJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## DateTime
 public static class DateTime<br>
@@ -179,11 +191,19 @@ extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Date
 public static class Date<br>
 extends DateJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.DateJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Binary
 public static class Binary<br>

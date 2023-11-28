@@ -94,6 +94,10 @@ A schema class that validates payloads
 ## Description
 test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values.
 
+| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
 extends JsonSchema
@@ -125,6 +129,10 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## AnyTypeProp
 public static class AnyTypeProp<br>
 extends AnyTypeJsonSchema
@@ -133,6 +141,10 @@ A schema class that validates payloads
 
 ## Description
 test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389
+
+| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -162,6 +174,10 @@ A schema class that validates payloads
 ## Description
 test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
 
+| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## UserStatus
 public static class UserStatus<br>
 extends Int32JsonSchema
@@ -177,11 +193,19 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Password
 public static class Password<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Email
 public static class Email<br>
@@ -189,11 +213,19 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## LastName
 public static class LastName<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## FirstName
 public static class FirstName<br>
@@ -201,11 +233,19 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Username
 public static class Username<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Id
 public static class Id<br>

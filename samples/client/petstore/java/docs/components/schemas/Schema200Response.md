@@ -71,6 +71,10 @@ A schema class that validates payloads
 ## Description
 this is a reserved python keyword
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Name
 public static class Name<br>
 extends Int32JsonSchema

@@ -91,6 +91,10 @@ A schema class that validates payloads
 ## Description
 None
 
+| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Password
 public static class Password<br>
 extends JsonSchema
@@ -135,6 +139,10 @@ A schema class that validates payloads
 
 ## Description
 None
+
+| Methods Inherited from class org.openapijsonschematools.schemas.DateJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Binary
 public static class Binary<br>
