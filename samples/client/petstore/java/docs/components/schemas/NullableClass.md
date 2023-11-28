@@ -82,11 +82,11 @@ A class to store validated Map payloads
 | String | string_prop()<br>[optional] |
 | String | date_prop()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
 | String | datetime_prop()<br>[optional] value must conform to RFC-3339 date-time |
-| ArrayNullablePropList | array_nullable_prop()<br>[optional] |
-| ArrayAndItemsNullablePropList | array_and_items_nullable_prop()<br>[optional] |
+| [ArrayNullablePropList](#arraynullableproplist) | array_nullable_prop()<br>[optional] |
+| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | array_and_items_nullable_prop()<br>[optional] |
 | [ArrayItemsNullableList](#arrayitemsnullablelist) | array_items_nullable()<br>[optional] |
-| ObjectNullablePropMap | object_nullable_prop()<br>[optional] |
-| ObjectAndItemsNullablePropMap | object_and_items_nullable_prop()<br>[optional] |
+| [ObjectNullablePropMap](#objectnullablepropmap) | object_nullable_prop()<br>[optional] |
+| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | object_and_items_nullable_prop()<br>[optional] |
 | [ObjectItemsNullableMap](#objectitemsnullablemap) | object_items_nullable()<br>[optional] |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
