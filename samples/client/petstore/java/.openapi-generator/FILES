@@ -103,6 +103,7 @@ docs/components/schemas/NullableShape.md
 docs/components/schemas/NullableString.md
 docs/components/schemas/NumberOnly.md
 docs/components/schemas/NumberSchema.md
+docs/components/schemas/NumberWithExclusiveMaxAndMin.md
 docs/components/schemas/NumberWithValidations.md
 docs/components/schemas/ObjWithRequiredProps.md
 docs/components/schemas/ObjWithRequiredPropsBase.md
@@ -406,6 +407,7 @@ src/main/java/org/openapijsonschematools/components/schemas/NullableShape.java
 src/main/java/org/openapijsonschematools/components/schemas/NullableString.java
 src/main/java/org/openapijsonschematools/components/schemas/NumberOnly.java
 src/main/java/org/openapijsonschematools/components/schemas/NumberSchema.java
+src/main/java/org/openapijsonschematools/components/schemas/NumberWithExclusiveMaxAndMin.java
 src/main/java/org/openapijsonschematools/components/schemas/NumberWithValidations.java
 src/main/java/org/openapijsonschematools/components/schemas/ObjWithRequiredProps.java
 src/main/java/org/openapijsonschematools/components/schemas/ObjWithRequiredPropsBase.java
@@ -664,6 +666,7 @@ src/main/java/org/openapijsonschematools/schemas/StringJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/UuidJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/validation/AdditionalPropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMaximumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMinimumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FakeValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FormatValidator.java

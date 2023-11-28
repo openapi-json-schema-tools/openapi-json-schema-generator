@@ -17,6 +17,9 @@
     {{#eq this "required"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
     {{~/eq}}
+    {{#eq this "exclusiveMaximum"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_exclusiveMaximum }}
+    {{~/eq}}
     {{#eq this "additionalProperties"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
     {{~/eq}}

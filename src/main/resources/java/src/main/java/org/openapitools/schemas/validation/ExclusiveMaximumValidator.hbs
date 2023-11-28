@@ -1,18 +1,18 @@
 package org.openapijsonschematools.schemas.validation;
 
-import org.openapijsonschematools.exceptions.ValidationException;
+import {{{packageName}}}.exceptions.ValidationException;
 
 
-public class ExclusiveMinimumValidator implements KeywordValidator {
-    public final Number exclusiveMinimum;
+public class ExclusiveMaximumValidator implements KeywordValidator {
+    public final Number exclusiveMaximum;
 
-    public ExclusiveMinimumValidator(Number exclusiveMinimum) {
-        this.exclusiveMinimum = exclusiveMinimum;
+    public ExclusiveMaximumValidator(Number exclusiveMaximum) {
+        this.exclusiveMaximum = exclusiveMaximum;
     }
 
     @Override
     public Object getConstraint() {
-        return exclusiveMinimum;
+        return exclusiveMaximum;
     }
 
     @Override
@@ -20,27 +20,27 @@ public class ExclusiveMinimumValidator implements KeywordValidator {
         if (!(arg instanceof Number)) {
             return null;
         }
-        String msg = "Value " + arg + " is invalid because it is <= the exclusiveMinimum of " + exclusiveMinimum;
+        String msg = "Value " + arg + " is invalid because it is >= the exclusiveMaximum of " + exclusiveMaximum;
         if (arg instanceof Integer) {
-            if (((Integer) arg).compareTo(exclusiveMinimum.intValue()) < 1) {
+            if (((Integer) arg).compareTo(exclusiveMaximum.intValue()) > -1) {
                 throw new ValidationException(msg);
             }
             return null;
         }
         if (arg instanceof Long) {
-            if (((Long) arg).compareTo(exclusiveMinimum.longValue()) < 1) {
+            if (((Long) arg).compareTo(exclusiveMaximum.longValue()) > -1) {
                 throw new ValidationException(msg);
             }
             return null;
         }
         if (arg instanceof Float) {
-            if (((Float) arg).compareTo(exclusiveMinimum.floatValue()) < 1) {
+            if (((Float) arg).compareTo(exclusiveMaximum.floatValue()) > -1) {
                 throw new ValidationException(msg);
             }
             return null;
         }
         if (arg instanceof Double) {
-            if (((Double) arg).compareTo(exclusiveMinimum.doubleValue()) < 1) {
+            if (((Double) arg).compareTo(exclusiveMaximum.doubleValue()) > -1) {
                 throw new ValidationException(msg);
             }
             return null;

@@ -300,6 +300,7 @@ All URIs are relative to the selected server
 | [NullableString.NullableString1](docs/components/schemas/NullableString.md#nullablestring1) | |
 | [NumberSchema.NumberSchema1](docs/components/schemas/NumberSchema.md#numberschema1) | |
 | [NumberOnly.NumberOnly1](docs/components/schemas/NumberOnly.md#numberonly1) | |
+| [NumberWithExclusiveMaxAndMin.NumberWithExclusiveMaxAndMin1](docs/components/schemas/NumberWithExclusiveMaxAndMin.md#numberwithexclusivemaxandmin1) | |
 | [NumberWithValidations.NumberWithValidations1](docs/components/schemas/NumberWithValidations.md#numberwithvalidations1) | |
 | [ObjWithRequiredProps.ObjWithRequiredProps1](docs/components/schemas/ObjWithRequiredProps.md#objwithrequiredprops1) | |
 | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1](docs/components/schemas/ObjWithRequiredPropsBase.md#objwithrequiredpropsbase1) | |

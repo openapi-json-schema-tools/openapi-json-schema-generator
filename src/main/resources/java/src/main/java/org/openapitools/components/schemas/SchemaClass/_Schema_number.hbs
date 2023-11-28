@@ -23,6 +23,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "format"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_format }}
         {{/eq}}
+        {{#eq this "exclusiveMaximum"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_exclusiveMaximum }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}

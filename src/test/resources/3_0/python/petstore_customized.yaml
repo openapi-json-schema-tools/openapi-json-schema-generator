@@ -3421,3 +3421,7 @@ components:
       additionalProperties: false
       type: object
       title: MyObjectDto
+    NumberWithExclusiveMaxAndMin:
+      type: number
+      exclusiveMinimum: 10.0
+      exclusiveMaximum: 12.0

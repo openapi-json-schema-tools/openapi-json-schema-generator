@@ -149,6 +149,12 @@ public class CodegenSchema {
         if (requiredProperties != null) {
             keywords.add("required");
         }
+        if (exclusiveMaximum != null) {
+            keywords.add("exclusiveMaximum");
+        }
+        if (exclusiveMinimum != null) {
+            keywords.add("exclusiveMinimum");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }
