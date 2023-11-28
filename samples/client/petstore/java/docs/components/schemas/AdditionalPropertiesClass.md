@@ -38,8 +38,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
     new PropertyEntry("map_property", MapProperty.class),
     new PropertyEntry("map_of_map_property", MapOfMapProperty.class),
     new PropertyEntry("anytype_1", Anytype1.class),
@@ -100,8 +99,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
 ));</code> |
 
 ### Method Summary
@@ -154,8 +152,7 @@ an object with no declared properties and no undeclared properties, hence it&#x2
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties4.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties4.class))
 ));</code> |
 
 ### Method Summary
@@ -212,8 +209,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
 ));</code> |
 
 ### Method Summary
@@ -321,8 +317,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
 ));</code> |
 
 ### Method Summary
@@ -358,8 +353,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
 ));</code> |
 
 ### Method Summary
@@ -409,8 +403,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
 ));</code> |
 
 ### Method Summary

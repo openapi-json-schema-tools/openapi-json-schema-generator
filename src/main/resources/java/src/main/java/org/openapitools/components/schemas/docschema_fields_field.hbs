@@ -3,7 +3,7 @@
 | static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
     {{~/if~}}
     {{~#eq this "type"~}}
-    {{~> src/main/java/org/openapitools/components/schemas/SchemaClass/_types ~}}
+    {{~> src/main/java/org/openapitools/components/schemas/SchemaClass/_types forDocs=true ~}}
     {{~/eq~}}
     {{~#eq this "format"~}}
     {{~> src/main/java/org/openapitools/components/schemas/SchemaClass/_format ~}}

@@ -24,8 +24,7 @@ model with properties that have invalid names for python
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
     new PropertyEntry("$special[property.name]", Specialpropertyname.class),
     new PropertyEntry("123-list", Schema123list.class),
     new PropertyEntry("123Number", Schema123Number.class)

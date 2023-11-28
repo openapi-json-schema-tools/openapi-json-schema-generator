@@ -18,13 +18,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(
-    Integer.class,
-    Long.class,
-    Float.class,
-    Double.class
-)))
-));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
