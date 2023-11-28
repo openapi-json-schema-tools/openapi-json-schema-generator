@@ -68,6 +68,7 @@ public class PathParameters {
                 new PropertyEntry("A-B", Schema13.Schema131.class),
                 new PropertyEntry("self", Schema12.Schema121.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "1",
                 "A-B",

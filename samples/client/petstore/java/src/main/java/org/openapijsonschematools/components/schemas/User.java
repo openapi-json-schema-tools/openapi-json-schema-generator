@@ -261,6 +261,7 @@ public class User {
                 new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
             )))
+            
         ));
         protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new UserMap(arg);

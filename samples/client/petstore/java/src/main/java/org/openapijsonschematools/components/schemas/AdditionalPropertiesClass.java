@@ -315,6 +315,7 @@ public class AdditionalPropertiesClass {
                 new PropertyEntry("empty_map", EmptyMap.class),
                 new PropertyEntry("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
             )))
+            
         ));
         protected static AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AdditionalPropertiesClassMap(arg);

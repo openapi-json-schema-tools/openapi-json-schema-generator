@@ -89,6 +89,7 @@ public class PaginatedResultMyObjectDto {
                 new PropertyEntry("count", Count.class),
                 new PropertyEntry("results", Results.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "count",
                 "results"

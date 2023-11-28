@@ -63,6 +63,7 @@ public class SimpleQuadrilateral {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("quadrilateralType", QuadrilateralType.class)
             )))
+            
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);

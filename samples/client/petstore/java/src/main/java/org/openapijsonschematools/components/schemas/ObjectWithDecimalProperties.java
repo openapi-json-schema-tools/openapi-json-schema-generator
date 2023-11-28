@@ -73,6 +73,7 @@ public class ObjectWithDecimalProperties {
                 new PropertyEntry("width", Width.class),
                 new PropertyEntry("cost", Money.Money1.class)
             )))
+            
         ));
         protected static ObjectWithDecimalPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithDecimalPropertiesMap(arg);

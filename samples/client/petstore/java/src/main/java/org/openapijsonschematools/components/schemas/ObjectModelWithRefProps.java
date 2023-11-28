@@ -71,6 +71,7 @@ public class ObjectModelWithRefProps {
                 new PropertyEntry("myString", StringSchema.StringSchema1.class),
                 new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
             )))
+            
         ));
         protected static ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectModelWithRefPropsMap(arg);

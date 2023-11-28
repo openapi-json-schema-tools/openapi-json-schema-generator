@@ -87,6 +87,7 @@ public class Whale {
                 new PropertyEntry("hasTeeth", HasTeeth.class),
                 new PropertyEntry("className", ClassName.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))

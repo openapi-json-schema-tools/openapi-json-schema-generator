@@ -56,6 +56,7 @@ public class ChildCat {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("name", Name.class)
             )))
+            
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);

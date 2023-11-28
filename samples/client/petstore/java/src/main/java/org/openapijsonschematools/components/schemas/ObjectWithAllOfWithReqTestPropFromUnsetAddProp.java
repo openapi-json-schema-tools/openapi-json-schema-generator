@@ -63,6 +63,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("name", Name.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "test"
             )))

@@ -27,18 +27,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-    new PropertyEntry("uuid", UuidSchema.class),
-    new PropertyEntry("date", Date.class),
-    new PropertyEntry("date-time", Datetime.class),
-    new PropertyEntry("number", NumberSchema.class),
-    new PropertyEntry("binary", Binary.class),
-    new PropertyEntry("int32", Int32.class),
-    new PropertyEntry("int64", Int64.class),
-    new PropertyEntry("double", DoubleSchema.class),
-    new PropertyEntry("float", FloatSchema.class)
-)))
-));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", UuidSchema.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date", Date.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date-time", Datetime.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number", NumberSchema.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("binary", Binary.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", Int32.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64", Int64.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("double", DoubleSchema.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float", FloatSchema.class)<br>)))<br>));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -20,13 +20,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-    new PropertyEntry("mainShape", Shape.Shape1.class),
-    new PropertyEntry("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
-    new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
-    new PropertyEntry("shapes", Shapes.class)
-))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("mainShape", Shape.Shape1.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapes", Shapes.class)<br>))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
 ));</code> |
 
 ### Method Summary

@@ -113,6 +113,7 @@ public class Schema1 {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("someProp", SomeProp1.class)
             )))
+            
         ));
         protected static SchemaMap1 getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap1(arg);

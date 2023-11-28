@@ -21,12 +21,7 @@ a model that includes properties which should stay primitive (String + Boolean) 
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-    new PropertyEntry("myNumber", NumberWithValidations.NumberWithValidations1.class),
-    new PropertyEntry("myString", StringSchema.StringSchema1.class),
-    new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
-)))
-));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("myNumber", NumberWithValidations.NumberWithValidations1.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("myString", StringSchema.StringSchema1.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)<br>)))<br>));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

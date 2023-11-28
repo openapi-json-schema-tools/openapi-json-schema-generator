@@ -59,6 +59,7 @@ public class Schema {
                 new PropertyEntry("param", Param.class),
                 new PropertyEntry("param2", Param2.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "param",
                 "param2"

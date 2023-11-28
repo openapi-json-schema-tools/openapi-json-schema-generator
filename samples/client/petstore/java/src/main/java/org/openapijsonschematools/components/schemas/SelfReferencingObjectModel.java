@@ -53,6 +53,7 @@ public class SelfReferencingObjectModel {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("selfRef", SelfReferencingObjectModel1.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(SelfReferencingObjectModel1.class))
         ));
         protected static SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object> arg) {

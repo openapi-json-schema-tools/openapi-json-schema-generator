@@ -398,6 +398,7 @@ public class FormatTest {
                 new PropertyEntry("pattern_with_digits_and_delimiter", PatternWithDigitsAndDelimiter.class),
                 new PropertyEntry("noneProp", NoneProp.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "byte",
                 "date",

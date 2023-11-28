@@ -42,6 +42,7 @@ public class Schema {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("string", Foo.Foo1.class)
             )))
+            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);

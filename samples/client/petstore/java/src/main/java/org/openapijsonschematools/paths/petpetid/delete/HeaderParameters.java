@@ -49,6 +49,7 @@ public class HeaderParameters {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("api_key", Schema0.Schema01.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {

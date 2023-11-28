@@ -83,6 +83,7 @@ public class QueryParameters {
                 new PropertyEntry("pipe", Schema0.Schema01.class),
                 new PropertyEntry("url", Schema3.Schema31.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "context",
                 "http",

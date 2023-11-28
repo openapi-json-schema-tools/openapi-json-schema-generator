@@ -53,6 +53,7 @@ public class Foo {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("bar", Bar.Bar1.class)
             )))
+            
         ));
         protected static FooMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FooMap(arg);

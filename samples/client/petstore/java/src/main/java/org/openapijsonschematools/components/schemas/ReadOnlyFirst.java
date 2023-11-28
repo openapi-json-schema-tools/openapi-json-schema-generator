@@ -68,6 +68,7 @@ public class ReadOnlyFirst {
                 new PropertyEntry("bar", Bar.class),
                 new PropertyEntry("baz", Baz.class)
             )))
+            
         ));
         protected static ReadOnlyFirstMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ReadOnlyFirstMap(arg);

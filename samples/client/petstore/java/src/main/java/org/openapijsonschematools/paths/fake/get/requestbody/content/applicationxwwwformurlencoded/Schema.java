@@ -103,6 +103,7 @@ public class Schema {
                 new PropertyEntry("enum_form_string_array", EnumFormStringArray.class),
                 new PropertyEntry("enum_form_string", EnumFormString.class)
             )))
+            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);

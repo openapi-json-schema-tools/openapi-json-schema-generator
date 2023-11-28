@@ -10,30 +10,30 @@ new KeywordEntry("type", new TypeValidator(Set.of({{#contains types "null"}}Void
 new KeywordEntry("type", new TypeValidator(Set.of(
             {{~#each types}}
                 {{#eq this "null"}}
-    Void.class{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Void.class{{#unless @last}},{{/unless}}<br>
                 {{~/eq}}
                 {{#eq this "object"}}
-    FrozenMap.class{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class{{#unless @last}},{{/unless}}<br>
                 {{~/eq}}
                 {{#eq this "array"}}
-    FrozenList.class{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;FrozenList.class{{#unless @last}},{{/unless}}<br>
                 {{~/eq}}
                 {{#eq this "string" }}
                     {{#eq ../format "binary"}}
     // FileIO,
     // bytes,
                     {{else}}
-    String.class{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String.class{{#unless @last}},{{/unless}}<br>
                     {{~/eq}}
                 {{/eq}}
                 {{#eq this "integer"}}
-    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Double.class{{#unless @last}},{{/unless}}<br>
                 {{~/eq}}
                 {{#eq this "number"}}
-    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Double.class{{#unless @last}},{{/unless}}<br>
                 {{~/eq}}
                 {{#eq this "boolean"}}
-    Boolean.class{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Boolean.class{{#unless @last}},{{/unless}}<br>
                 {{~/eq}}
             {{/each}}
 ))){{#unless @last}},{{/unless}}

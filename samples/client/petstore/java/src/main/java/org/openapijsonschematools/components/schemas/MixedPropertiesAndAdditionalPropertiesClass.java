@@ -96,6 +96,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
                 new PropertyEntry("dateTime", DateTime.class),
                 new PropertyEntry("map", MapSchema.class)
             )))
+            
         ));
         protected static MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);

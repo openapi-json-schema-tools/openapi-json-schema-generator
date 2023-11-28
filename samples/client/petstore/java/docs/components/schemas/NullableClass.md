@@ -43,21 +43,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-    new PropertyEntry("integer_prop", IntegerProp.class),
-    new PropertyEntry("number_prop", NumberProp.class),
-    new PropertyEntry("boolean_prop", BooleanProp.class),
-    new PropertyEntry("string_prop", StringProp.class),
-    new PropertyEntry("date_prop", DateProp.class),
-    new PropertyEntry("datetime_prop", DatetimeProp.class),
-    new PropertyEntry("array_nullable_prop", ArrayNullableProp.class),
-    new PropertyEntry("array_and_items_nullable_prop", ArrayAndItemsNullableProp.class),
-    new PropertyEntry("array_items_nullable", ArrayItemsNullable.class),
-    new PropertyEntry("object_nullable_prop", ObjectNullableProp.class),
-    new PropertyEntry("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),
-    new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)
-))),
-new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("integer_prop", IntegerProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number_prop", NumberProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("boolean_prop", BooleanProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("string_prop", StringProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date_prop", DateProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("datetime_prop", DatetimeProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("array_nullable_prop", ArrayNullableProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("array_and_items_nullable_prop", ArrayAndItemsNullableProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("array_items_nullable", ArrayItemsNullable.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("object_nullable_prop", ObjectNullableProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)<br>))),<br>new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
 ));</code> |
 
 ### Method Summary
@@ -153,7 +139,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenMap.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -169,7 +155,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenMap.class<br>))),new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class<br>))),new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
 ));</code> |
 
 ### Method Summary
@@ -206,7 +192,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenMap.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -222,7 +208,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenMap.class<br>))),new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class<br>))),new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
 ));</code> |
 
 ### Method Summary
@@ -308,7 +294,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenMap.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -324,7 +310,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenList.class<br>))),new KeywordEntry("items", new ItemsValidator(Items1.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenList.class<br>))),new KeywordEntry("items", new ItemsValidator(Items1.class))
 ));</code> |
 
 ### Method Summary
@@ -360,7 +346,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenMap.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -376,7 +362,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenList.class<br>))),new KeywordEntry("items", new ItemsValidator(Items.class))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenList.class<br>))),new KeywordEntry("items", new ItemsValidator(Items.class))
 ));</code> |
 
 ### Method Summary
@@ -426,7 +412,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    String.class<br>))),new KeywordEntry("format", new FormatValidator("date-time"))<br>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br>))),new KeywordEntry("format", new FormatValidator("date-time"))<br>
 ));</code> |
 
 ### Method Summary
@@ -443,7 +429,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    String.class<br>))),new KeywordEntry("format", new FormatValidator("date"))<br>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br>))),new KeywordEntry("format", new FormatValidator("date"))<br>
 ));</code> |
 
 ### Method Summary
@@ -460,7 +446,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    String.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -476,7 +462,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    Boolean.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Boolean.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -492,7 +478,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -508,7 +494,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -524,7 +510,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Void.class,<br>    FrozenMap.class<br>)))));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(&nbsp;&nbsp;&nbsp;&nbsp;Void.class,<br>&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class<br>)))));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

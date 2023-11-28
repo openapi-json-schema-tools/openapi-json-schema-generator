@@ -86,6 +86,7 @@ public class Apple {
                 new PropertyEntry("cultivar", Cultivar.class),
                 new PropertyEntry("origin", Origin.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "cultivar"
             )))

@@ -56,6 +56,7 @@ public class ObjWithRequiredPropsBase {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("b", B.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "b"
             )))

@@ -67,6 +67,7 @@ public class Player {
                 new PropertyEntry("name", Name.class),
                 new PropertyEntry("enemyPlayer", Player1.class)
             )))
+            
         ));
         protected static PlayerMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PlayerMap(arg);

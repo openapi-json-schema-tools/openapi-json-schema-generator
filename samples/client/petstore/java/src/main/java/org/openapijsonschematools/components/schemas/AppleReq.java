@@ -70,6 +70,7 @@ public class AppleReq {
                 new PropertyEntry("cultivar", Cultivar.class),
                 new PropertyEntry("mealy", Mealy.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "cultivar"
             ))),

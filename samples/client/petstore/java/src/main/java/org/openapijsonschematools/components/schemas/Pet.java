@@ -164,6 +164,7 @@ public class Pet {
                 new PropertyEntry("tags", Tags.class),
                 new PropertyEntry("status", Status.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "name",
                 "photoUrls"

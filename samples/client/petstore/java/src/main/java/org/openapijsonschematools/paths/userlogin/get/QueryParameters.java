@@ -55,6 +55,7 @@ public class QueryParameters {
                 new PropertyEntry("password", Schema1.Schema11.class),
                 new PropertyEntry("username", Schema0.Schema01.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "password",
                 "username"

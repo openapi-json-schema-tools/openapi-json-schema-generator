@@ -58,6 +58,7 @@ public class HeaderParameters {
                 new PropertyEntry("required_boolean_group", Schema1.Schema11.class),
                 new PropertyEntry("boolean_group", Schema4.Schema41.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "required_boolean_group"
             ))),

@@ -68,6 +68,7 @@ public class AbstractStepMessage {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("discriminator", Discriminator.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "description",
                 "discriminator",

@@ -24,12 +24,7 @@ Model for testing model name same as property name
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-    new PropertyEntry("name", Name2.class),
-    new PropertyEntry("snake_case", SnakeCase.class),
-    new PropertyEntry("property", Property.class)
-))),
-new KeywordEntry("required", new RequiredValidator(Set.of(
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("name", Name2.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("snake_case", SnakeCase.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("property", Property.class)<br>))),<br>new KeywordEntry("required", new RequiredValidator(Set.of(
     "name"
 )))
 ));</code> |

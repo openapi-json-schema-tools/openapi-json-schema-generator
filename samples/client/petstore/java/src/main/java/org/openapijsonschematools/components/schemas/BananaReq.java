@@ -70,6 +70,7 @@ public class BananaReq {
                 new PropertyEntry("lengthCm", LengthCm.class),
                 new PropertyEntry("sweet", Sweet.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "lengthCm"
             ))),

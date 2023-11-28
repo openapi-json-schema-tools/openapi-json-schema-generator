@@ -60,6 +60,7 @@ public class Fruit {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("color", Color.class)
             )))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Fruit1.class, arg, configuration);

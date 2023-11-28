@@ -12,7 +12,7 @@
     {{~> src/main/java/org/openapitools/components/schemas/SchemaClass/_items ~}}
     {{~/eq~}}
     {{~#eq this "properties"~}}
-    {{~> src/main/java/org/openapitools/components/schemas/SchemaClass/_properties ~}}
+    {{~> src/main/java/org/openapitools/components/schemas/SchemaClass/_properties forDocs=true ~}}
     {{~/eq~}}
     {{~#eq this "required"~}}
     {{~> src/main/java/org/openapitools/components/schemas/SchemaClass/_required ~}}

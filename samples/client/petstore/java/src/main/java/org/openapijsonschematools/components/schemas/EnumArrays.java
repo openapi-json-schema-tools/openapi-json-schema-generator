@@ -109,6 +109,7 @@ public class EnumArrays {
                 new PropertyEntry("just_symbol", JustSymbol.class),
                 new PropertyEntry("array_enum", ArrayEnum.class)
             )))
+            
         ));
         protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumArraysMap(arg);

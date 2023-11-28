@@ -83,6 +83,7 @@ public class ArrayOfNumberOnly {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("ArrayNumber", ArrayNumber.class)
             )))
+            
         ));
         protected static ArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayOfNumberOnlyMap(arg);

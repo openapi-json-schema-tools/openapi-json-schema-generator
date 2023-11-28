@@ -77,6 +77,7 @@ public class QuadrilateralInterface {
                 new PropertyEntry("shapeType", ShapeType.class),
                 new PropertyEntry("quadrilateralType", QuadrilateralType.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "quadrilateralType",
                 "shapeType"

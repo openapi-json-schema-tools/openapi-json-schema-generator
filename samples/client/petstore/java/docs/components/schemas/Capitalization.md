@@ -24,15 +24,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-    new PropertyEntry("smallCamel", SmallCamel.class),
-    new PropertyEntry("CapitalCamel", CapitalCamel.class),
-    new PropertyEntry("small_Snake", SmallSnake.class),
-    new PropertyEntry("Capital_Snake", CapitalSnake.class),
-    new PropertyEntry("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
-    new PropertyEntry("ATT_NAME", ATTNAME.class)
-)))
-));</code> |
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("smallCamel", SmallCamel.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("CapitalCamel", CapitalCamel.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("small_Snake", SmallSnake.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("Capital_Snake", CapitalSnake.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("ATT_NAME", ATTNAME.class)<br>)))<br>));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

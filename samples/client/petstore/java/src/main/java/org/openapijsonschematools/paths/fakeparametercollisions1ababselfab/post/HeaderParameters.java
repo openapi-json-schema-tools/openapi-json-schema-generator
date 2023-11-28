@@ -64,6 +64,7 @@ public class HeaderParameters {
                 new PropertyEntry("A-B", Schema8.Schema81.class),
                 new PropertyEntry("self", Schema7.Schema71.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {

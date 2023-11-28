@@ -59,6 +59,7 @@ public class File {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("sourceURI", SourceURI.class)
             )))
+            
         ));
         protected static FileMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FileMap(arg);

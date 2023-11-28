@@ -77,6 +77,7 @@ public class TriangleInterface {
                 new PropertyEntry("shapeType", ShapeType.class),
                 new PropertyEntry("triangleType", TriangleType.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "shapeType",
                 "triangleType"

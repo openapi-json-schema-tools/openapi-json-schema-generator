@@ -119,6 +119,7 @@ public class ObjectWithInlineCompositionProperty {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("someProp", SomeProp.class)
             )))
+            
         ));
         protected static ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithInlineCompositionPropertyMap(arg);

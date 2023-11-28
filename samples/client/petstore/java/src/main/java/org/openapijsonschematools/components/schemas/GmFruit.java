@@ -60,6 +60,7 @@ public class GmFruit {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("color", Color.class)
             )))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(GmFruit1.class, arg, configuration);

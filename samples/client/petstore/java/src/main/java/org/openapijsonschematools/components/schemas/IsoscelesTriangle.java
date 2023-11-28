@@ -63,6 +63,7 @@ public class IsoscelesTriangle {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("triangleType", TriangleType.class)
             )))
+            
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);

@@ -56,6 +56,7 @@ public class ReturnSchema {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("return", ReturnSchema2.class)
             )))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ReturnSchema1.class, arg, configuration);

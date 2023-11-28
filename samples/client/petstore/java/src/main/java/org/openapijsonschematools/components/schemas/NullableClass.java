@@ -520,6 +520,7 @@ public class NullableClass {
                 new PropertyEntry("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),
                 new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
         ));
         protected static NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {

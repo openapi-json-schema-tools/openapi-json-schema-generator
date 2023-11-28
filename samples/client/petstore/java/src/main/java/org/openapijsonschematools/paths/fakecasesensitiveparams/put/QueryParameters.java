@@ -62,6 +62,7 @@ public class QueryParameters {
                 new PropertyEntry("some_var", Schema2.Schema21.class),
                 new PropertyEntry("SomeVar", Schema1.Schema11.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "SomeVar",
                 "someVar",
