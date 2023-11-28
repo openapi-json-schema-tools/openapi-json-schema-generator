@@ -6,5 +6,5 @@ public class Schema extends FileSchemaTestClass {
     // $refed class
     
     
-    public class Schema1 extends FileSchemaTestClass1 {}
+    public static class Schema1 extends FileSchemaTestClass1 {}
 }

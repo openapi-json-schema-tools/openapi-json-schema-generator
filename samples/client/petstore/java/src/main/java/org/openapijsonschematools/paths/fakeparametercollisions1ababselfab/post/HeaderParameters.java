@@ -23,14 +23,12 @@ public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
     public static class HeaderParametersMap extends FrozenMap<String, Object> {
-
         HeaderParametersMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -41,28 +39,23 @@ public class HeaderParameters {
             "self"
         );
         public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return HeaderParameters1.validate(arg, configuration);
         }
         
         public String aB() {
-
             String key = "aB";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String self() {
-
             String key = "self";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
     }    
     
-    public class HeaderParameters1 extends JsonSchema {
+    public static class HeaderParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -71,14 +64,14 @@ public class HeaderParameters {
                 new PropertyEntry("A-B", Schema8.Schema81.class),
                 new PropertyEntry("self", Schema7.Schema71.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
         }
     }

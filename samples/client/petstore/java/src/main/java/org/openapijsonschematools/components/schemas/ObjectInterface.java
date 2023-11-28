@@ -6,5 +6,5 @@ public class ObjectInterface {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class ObjectInterface1 extends MapJsonSchema {}
+    public static class ObjectInterface1 extends MapJsonSchema {}
 }

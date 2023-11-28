@@ -5,5 +5,5 @@ public class RefPet extends Pet {
     // $refed class
     
     
-    public class RefPet1 extends Pet1 {}
+    public static class RefPet1 extends Pet1 {}
 }

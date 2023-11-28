@@ -22,7 +22,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class IntegerSchema extends JsonSchema {
+    public static class IntegerSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -48,7 +48,7 @@ public class Schema {
         }
     }    
     
-    public class Int32 extends JsonSchema {
+    public static class Int32 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -75,10 +75,10 @@ public class Schema {
         }
     }    
     
-    public class Int64 extends Int64JsonSchema {}
+    public static class Int64 extends Int64JsonSchema {}
     
     
-    public class NumberSchema extends JsonSchema {
+    public static class NumberSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -104,7 +104,7 @@ public class Schema {
         }
     }    
     
-    public class FloatSchema extends JsonSchema {
+    public static class FloatSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -119,7 +119,7 @@ public class Schema {
         }
     }    
     
-    public class DoubleSchema extends JsonSchema {
+    public static class DoubleSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -134,7 +134,7 @@ public class Schema {
         }
     }    
     
-    public class StringSchema extends JsonSchema {
+    public static class StringSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -145,7 +145,7 @@ public class Schema {
         }
     }    
     
-    public class PatternWithoutDelimiter extends JsonSchema {
+    public static class PatternWithoutDelimiter extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -156,18 +156,18 @@ public class Schema {
         }
     }    
     
-    public class ByteSchema extends StringJsonSchema {}
+    public static class ByteSchema extends StringJsonSchema {}
     
     
-    public class Binary extends JsonSchema {
+    public static class Binary extends JsonSchema {
         // BinarySchema
     }
     
     
-    public class Date extends DateJsonSchema {}
+    public static class Date extends DateJsonSchema {}
     
     
-    public class DateTime extends JsonSchema {
+    public static class DateTime extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -179,7 +179,7 @@ public class Schema {
         }
     }    
     
-    public class Password extends JsonSchema {
+    public static class Password extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -191,13 +191,11 @@ public class Schema {
         }
     }    
     
-    public class Callback extends StringJsonSchema {}
+    public static class Callback extends StringJsonSchema {}
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {
-
         SchemaMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -219,70 +217,53 @@ public class Schema {
             "callback"
         );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Schema1.validate(arg, configuration);
         }
         
         public String pattern_without_delimiter() {
-
             return (String) get("pattern_without_delimiter");
-
         }
         
         public int int32() {
-
             String key = "int32";
             throwIfKeyNotPresent(key);
             return (int) get(key);
-
         }
         
         public long int64() {
-
             String key = "int64";
             throwIfKeyNotPresent(key);
             return (long) get(key);
-
         }
         
         public String binary() {
-
             String key = "binary";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String date() {
-
             String key = "date";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String dateTime() {
-
             String key = "dateTime";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String password() {
-
             String key = "password";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String callback() {
-
             String key = "callback";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public Object getAdditionalProperty(String name) {
@@ -292,7 +273,7 @@ public class Schema {
         }
     }    
     
-    public class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -311,19 +292,19 @@ public class Schema {
                 new PropertyEntry("password", Password.class),
                 new PropertyEntry("callback", Callback.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "byte",
                 "double",
                 "number",
                 "pattern_without_delimiter"
             )))
+            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

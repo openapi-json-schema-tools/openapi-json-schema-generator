@@ -20,14 +20,12 @@ public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
     public static class QueryParametersMap extends FrozenMap<String, Foo.FooMap> {
-
         QueryParametersMap(FrozenMap<String, Foo.FooMap> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -35,34 +33,30 @@ public class QueryParameters {
             "mapBean"
         );
         public static QueryParametersMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return QueryParameters1.validate(arg, configuration);
         }
         
         public Foo.FooMap mapBean() {
-
             String key = "mapBean";
             throwIfKeyNotPresent(key);
             return get(key);
         }
     }    
     
-    public class QueryParameters1 extends JsonSchema {
+    public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("mapBean", Foo.Foo1.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Foo.FooMap> arg) {
-
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return JsonSchema.validate(QueryParameters1.class, arg, configuration);
         }
     }

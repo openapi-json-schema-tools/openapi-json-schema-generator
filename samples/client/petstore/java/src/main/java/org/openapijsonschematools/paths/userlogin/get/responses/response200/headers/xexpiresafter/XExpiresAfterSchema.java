@@ -5,5 +5,5 @@ public class XExpiresAfterSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class XExpiresAfterSchema1 extends DateTimeJsonSchema {}
+    public static class XExpiresAfterSchema1 extends DateTimeJsonSchema {}
 }

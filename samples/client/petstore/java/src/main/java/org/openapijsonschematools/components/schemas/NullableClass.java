@@ -24,7 +24,7 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties3 extends JsonSchema {
+    public static class AdditionalProperties3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -39,7 +39,7 @@ public class NullableClass {
         }
     }    
     
-    public class IntegerProp extends JsonSchema {
+    public static class IntegerProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -69,7 +69,7 @@ public class NullableClass {
         }
     }    
     
-    public class NumberProp extends JsonSchema {
+    public static class NumberProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -99,7 +99,7 @@ public class NullableClass {
         }
     }    
     
-    public class BooleanProp extends JsonSchema {
+    public static class BooleanProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -114,7 +114,7 @@ public class NullableClass {
         }
     }    
     
-    public class StringProp extends JsonSchema {
+    public static class StringProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -129,7 +129,7 @@ public class NullableClass {
         }
     }    
     
-    public class DateProp extends JsonSchema {
+    public static class DateProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -145,7 +145,7 @@ public class NullableClass {
         }
     }    
     
-    public class DatetimeProp extends JsonSchema {
+    public static class DatetimeProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -161,42 +161,37 @@ public class NullableClass {
         }
     }    
     
-    public class Items extends MapJsonSchema {}
+    public static class Items extends MapJsonSchema {}
     
     
     public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
-
         ArrayNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
-
             super(m);
         }
         public static ArrayNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return ArrayNullableProp.validate(arg, configuration);
         }
     }
     
     
-    public class ArrayNullableProp extends JsonSchema {
+    public static class ArrayNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 FrozenList.class
             ))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
         public static ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return JsonSchema.validate(ArrayNullableProp.class, arg, configuration);
         }
     }    
     
-    public class Items1 extends JsonSchema {
+    public static class Items1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -212,38 +207,33 @@ public class NullableClass {
     }    
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<String, Object>> {
-
         ArrayAndItemsNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
-
             super(m);
         }
         public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return ArrayAndItemsNullableProp.validate(arg, configuration);
         }
     }
     
     
-    public class ArrayAndItemsNullableProp extends JsonSchema {
+    public static class ArrayAndItemsNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 FrozenList.class
             ))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
         public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return JsonSchema.validate(ArrayAndItemsNullableProp.class, arg, configuration);
         }
     }    
     
-    public class Items2 extends JsonSchema {
+    public static class Items2 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -259,78 +249,66 @@ public class NullableClass {
     }    
     
     public static class ArrayItemsNullableList extends FrozenList<FrozenMap<String, Object>> {
-
         ArrayItemsNullableList(FrozenList<FrozenMap<String, Object>> m) {
-
             super(m);
         }
         public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return ArrayItemsNullable.validate(arg, configuration);
         }
     }
     
     
-    public class ArrayItemsNullable extends JsonSchema {
+    public static class ArrayItemsNullable extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
+            
         ));
         protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
-
             return new ArrayItemsNullableList(arg);
         }
         public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return JsonSchema.validate(ArrayItemsNullable.class, arg, configuration);
         }
     }    
     
-    public class AdditionalProperties extends MapJsonSchema {}
+    public static class AdditionalProperties extends MapJsonSchema {}
     
     
     public static class ObjectNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
-
         ObjectNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static ObjectNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return ObjectNullableProp.validate(arg, configuration);
         }
         
         public FrozenMap<String, Object> getAdditionalProperty(String name) {
-
             throwIfKeyNotPresent(name);
             return get(name);
         }
     }    
     
-    public class ObjectNullableProp extends JsonSchema {
+    public static class ObjectNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 FrozenMap.class
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
         public static ObjectNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return JsonSchema.validate(ObjectNullableProp.class, arg, configuration);
         }
     }    
     
-    public class AdditionalProperties1 extends JsonSchema {
+    public static class AdditionalProperties1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -346,45 +324,39 @@ public class NullableClass {
     }    
     
     public static class ObjectAndItemsNullablePropMap extends FrozenMap<String, FrozenMap<String, Object>> {
-
         ObjectAndItemsNullablePropMap(FrozenMap<String, FrozenMap<String, Object>> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static ObjectAndItemsNullablePropMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return ObjectAndItemsNullableProp.validate(arg, configuration);
         }
         
         public FrozenMap<String, Object> getAdditionalProperty(String name) {
-
             throwIfKeyNotPresent(name);
             return get(name);
         }
     }    
     
-    public class ObjectAndItemsNullableProp extends JsonSchema {
+    public static class ObjectAndItemsNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 FrozenMap.class
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
         public static ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return JsonSchema.validate(ObjectAndItemsNullableProp.class, arg, configuration);
         }
     }    
     
-    public class AdditionalProperties2 extends JsonSchema {
+    public static class AdditionalProperties2 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -400,47 +372,38 @@ public class NullableClass {
     }    
     
     public static class ObjectItemsNullableMap extends FrozenMap<String, FrozenMap<String, Object>> {
-
         ObjectItemsNullableMap(FrozenMap<String, FrozenMap<String, Object>> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static ObjectItemsNullableMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return ObjectItemsNullable.validate(arg, configuration);
         }
         
         public FrozenMap<String, Object> getAdditionalProperty(String name) {
-
             throwIfKeyNotPresent(name);
             return get(name);
         }
     }    
     
-    public class ObjectItemsNullable extends JsonSchema {
+    public static class ObjectItemsNullable extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
+            
         ));
         protected static ObjectItemsNullableMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
-
             return new ObjectItemsNullableMap(arg);
         }
         public static ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-
-
             return JsonSchema.validate(ObjectItemsNullable.class, arg, configuration);
         }
     }
     
     
     public static class NullableClassMap extends FrozenMap<String, Object> {
-
         NullableClassMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -459,115 +422,88 @@ public class NullableClass {
             "object_items_nullable"
         );
         public static NullableClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return NullableClass1.validate(arg, configuration);
         }
         
         public Long integer_prop() {
-
             String key = "integer_prop";
             throwIfKeyNotPresent(key);
             return (Long) get(key);
-
         }
         
         public Number number_prop() {
-
             String key = "number_prop";
             throwIfKeyNotPresent(key);
             return (Number) get(key);
-
         }
         
         public Boolean boolean_prop() {
-
             String key = "boolean_prop";
             throwIfKeyNotPresent(key);
             return (Boolean) get(key);
-
         }
         
         public String string_prop() {
-
             String key = "string_prop";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String date_prop() {
-
             String key = "date_prop";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String datetime_prop() {
-
             String key = "datetime_prop";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public ArrayNullablePropList array_nullable_prop() {
-
             String key = "array_nullable_prop";
             throwIfKeyNotPresent(key);
             return (ArrayNullablePropList) get(key);
-
         }
         
         public ArrayAndItemsNullablePropList array_and_items_nullable_prop() {
-
             String key = "array_and_items_nullable_prop";
             throwIfKeyNotPresent(key);
             return (ArrayAndItemsNullablePropList) get(key);
-
         }
         
         public ArrayItemsNullableList array_items_nullable() {
-
             String key = "array_items_nullable";
             throwIfKeyNotPresent(key);
             return (ArrayItemsNullableList) get(key);
-
         }
         
         public ObjectNullablePropMap object_nullable_prop() {
-
             String key = "object_nullable_prop";
             throwIfKeyNotPresent(key);
             return (ObjectNullablePropMap) get(key);
-
         }
         
         public ObjectAndItemsNullablePropMap object_and_items_nullable_prop() {
-
             String key = "object_and_items_nullable_prop";
             throwIfKeyNotPresent(key);
             return (ObjectAndItemsNullablePropMap) get(key);
-
         }
         
         public ObjectItemsNullableMap object_items_nullable() {
-
             String key = "object_items_nullable";
             throwIfKeyNotPresent(key);
             return (ObjectItemsNullableMap) get(key);
-
         }
         
         public FrozenMap<String, Object> getAdditionalProperty(String name) {
-
             throwIfKeyNotPresent(name);
             return (FrozenMap<String, Object>) get(name);
-
         }
     }    
     
-    public class NullableClass1 extends JsonSchema {
+    public static class NullableClass1 extends JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -590,14 +526,14 @@ public class NullableClass {
                 new PropertyEntry("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),
                 new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
+            
         ));
         protected static NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new NullableClassMap(arg);
         }
         public static NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(NullableClass1.class, arg, configuration);
         }
     }

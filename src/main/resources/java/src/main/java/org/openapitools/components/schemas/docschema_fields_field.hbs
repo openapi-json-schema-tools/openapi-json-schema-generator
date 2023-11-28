@@ -1,0 +1,26 @@
+{{#each keywords}}
+    {{#if @first}}
+| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>
+    {{~/if}}
+    {{#eq this "type"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_types }}
+    {{~/eq}}
+    {{#eq this "format"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_format }}
+    {{~/eq}}
+    {{#eq this "items"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_items }}
+    {{~/eq}}
+    {{#eq this "properties"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_properties }}
+    {{~/eq}}
+    {{#eq this "required"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
+    {{~/eq}}
+    {{#eq this "additionalProperties"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
+    {{~/eq}}
+    {{#if @last ~}}
+)); |
+    {{/if}}
+{{/each}}

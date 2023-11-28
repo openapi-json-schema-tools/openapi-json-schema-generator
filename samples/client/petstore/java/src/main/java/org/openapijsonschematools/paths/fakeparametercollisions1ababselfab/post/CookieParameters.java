@@ -24,14 +24,12 @@ public class CookieParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
     public static class CookieParametersMap extends FrozenMap<String, Object> {
-
         CookieParametersMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -43,36 +41,29 @@ public class CookieParameters {
             "self"
         );
         public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return CookieParameters1.validate(arg, configuration);
         }
         
         public String aB() {
-
             String key = "aB";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String Ab() {
-
             String key = "Ab";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String self() {
-
             String key = "self";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
     }    
     
-    public class CookieParameters1 extends JsonSchema {
+    public static class CookieParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -82,14 +73,14 @@ public class CookieParameters {
                 new PropertyEntry("A-B", Schema18.Schema181.class),
                 new PropertyEntry("self", Schema17.Schema171.class)
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static CookieParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new CookieParametersMap(arg);
         }
         public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(CookieParameters1.class, arg, configuration);
         }
     }

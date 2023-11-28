@@ -4,13 +4,13 @@
         {{#with this}}
             {{#if refInfo.refClass}}
 
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=(join " " @key.original "() {" "") }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" }} {{{@key.original}}}() {
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
 }
             {{else}}
                 {{#if jsonPathPiece}}
 
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null endChar=(join " " @key.original "() {" "") }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule=null }} {{{@key.original}}}() {
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=true }}
 }
                 {{else}}
@@ -30,7 +30,7 @@ public Object {{@key.original}}() {
         {{#if @key.isValid}}
         {{#with this}}
 
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=(join " " @key.original "() {" "") }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }} {{{@key.original}}}() {
     {{> src/main/java/org/openapitools/components/schemas/_objectOutputGetProperty required=false }}
 }
         {{/with}}
@@ -50,7 +50,7 @@ public Object getAdditionalProperty(String name) {
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
 
-public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type endChar=" getAdditionalProperty(String name) {" }}
+public {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type }} getAdditionalProperty(String name) {
             {{#or optionalProperties requiredProperties}}
     throwIfKeyKnown(name, requiredKeys, optionalKeys);
             {{/or}}
@@ -58,7 +58,7 @@ public {{> src/main/java/org/openapitools/components/schemas/types/schema_output
             {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
     return get(name);
             {{else}}
-    return ({{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" endChar=") get(name);" }}
+    return ({{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" }}) get(name);
             {{/and}}
 }
         {{/unless}}

@@ -22,7 +22,7 @@ public class AnyTypeAndFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class UuidSchema extends JsonSchema {
+    public static class UuidSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("uuid"))
         ));
@@ -75,7 +75,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class Date extends JsonSchema {
+    public static class Date extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("date"))
         ));
@@ -128,7 +128,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class Datetime extends JsonSchema {
+    public static class Datetime extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("date-time"))
         ));
@@ -181,7 +181,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class NumberSchema extends JsonSchema {
+    public static class NumberSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("number"))
         ));
@@ -234,7 +234,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class Binary extends JsonSchema {
+    public static class Binary extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("binary"))
         ));
@@ -287,7 +287,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class Int32 extends JsonSchema {
+    public static class Int32 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("int32"))
         ));
@@ -340,7 +340,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class Int64 extends JsonSchema {
+    public static class Int64 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("int64"))
         ));
@@ -393,7 +393,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class DoubleSchema extends JsonSchema {
+    public static class DoubleSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("double"))
         ));
@@ -446,7 +446,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class FloatSchema extends JsonSchema {
+    public static class FloatSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("format", new FormatValidator("float"))
         ));
@@ -500,9 +500,7 @@ public class AnyTypeAndFormat {
     }    
     
     public static class AnyTypeAndFormatMap extends FrozenMap<String, Object> {
-
         AnyTypeAndFormatMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -518,33 +516,28 @@ public class AnyTypeAndFormat {
             "float"
         );
         public static AnyTypeAndFormatMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return AnyTypeAndFormat1.validate(arg, configuration);
         }
         
         public Object date() {
-
             String key = "date";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object binary() {
-
             String key = "binary";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object int32() {
-
             String key = "int32";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object int64() {
-
             String key = "int64";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -557,7 +550,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public class AnyTypeAndFormat1 extends JsonSchema {
+    public static class AnyTypeAndFormat1 extends JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -577,13 +570,12 @@ public class AnyTypeAndFormat {
                 new PropertyEntry("double", DoubleSchema.class),
                 new PropertyEntry("float", FloatSchema.class)
             )))
+            
         ));
         protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new AnyTypeAndFormatMap(arg);
         }
         public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(AnyTypeAndFormat1.class, arg, configuration);
         }
     }

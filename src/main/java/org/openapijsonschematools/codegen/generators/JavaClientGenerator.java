@@ -417,6 +417,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates
         );
+        jsonPathDocTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                new HashMap<String, String>() {{
+                    put("src/main/java/org/openapitools/components/schemas/Schema_doc.hbs", ".md");
+                }}
+        );
 
         if (WEBCLIENT.equals(getLibrary()) || NATIVE.equals(getLibrary())) {
             dateLibrary = "java8";
@@ -1492,5 +1498,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             return prefix + "securityschemes." + refInfo.refModule + ";";
         }
         return null;
+    }
+
+    protected String getModuleLocation(String ref) {
+        String filePath = getFilepath(ref);
+        String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
+        String localFilepath = filePath.substring(prefix.length());
+        return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
     }
 }

@@ -1,0 +1,162 @@
+{{#with schema}}
+{{#eq identifierPieces.size 0}}
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces identifierPieces=(append identifierPieces containerJsonPathPiece) }}
+{{else}}
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces }}
+{{/eq}}
+{{#if componentModule}}
+{{moduleLocation}}.java
+{{else}}
+    {{#unless isInline}}
+{{moduleLocation}}.java
+    {{/unless}}
+{{/if}}
+public class {{containerJsonPathPiece.camelCase}}
+
+A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+
+{{headerSize}}# Nested Class Summary
+| Modifier and Type | Class and Description |
+| ----------------- | ---------------------- |
+{{#each (reverse getSchemas)}}
+    {{#eq instanceType "schema"}}
+| static class | [{{../containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |
+        {{else}}
+        {{#eq instanceType "propertiesOutputType"}}
+| static class | [{{../containerJsonPathPiece.camelCase}}.{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }})<br> output class for Map payloads |
+        {{else}}
+            {{#eq instanceType "arrayOutputType"}}
+| static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }})<br> output class for List payloads |
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}
+{{#each (reverse getSchemas)}}
+    {{#eq instanceType "schema"}}
+
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
+public static class {{jsonPathPiece.camelCase}}<br>
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends }}
+
+A schema class that validates payloads
+        {{#if description}}
+
+{{headerSize}}# Description
+{{description}}
+        {{/if}}
+        {{#if isCustomSchema}}
+{{headerSize}}## Field Summary
+| Modifier and Type | Field and Description |
+| ----------------- | ---------------------- |
+{{> src/main/java/org/openapitools/components/schemas/docschema_fields forDocs=true }}
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+{{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}
+        {{else}}
+{{> src/main/java/org/openapitools/components/schemas/_docschema_methodsInherited }}
+        {{/if}}
+    {{else}}
+        {{#eq instanceType "propertiesOutputType"}}
+
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}
+public static class {{mapOutputJsonPathPiece.camelCase}}<br>
+extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
+
+A class to store validated Map payloads
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
+            {{#each requiredProperties}}
+                {{#if @key.isValid}}
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                {{/if}}
+            {{/each}}
+            {{#each optionalProperties}}
+                {{#if @key.isValid}}
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>[optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                {{/if}}
+            {{/each}}
+            {{#or (and requiredProperties requiredProperties.hasInvalidKey) (and optionalProperties optionalProperties.hasInvalidKey) }}
+| {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }}{{else}}Object{{/with}} | get(String key)<br>This schema has invalid Java names so this method must be used when you access {{#each requiredProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}}{{#each optionalProperties}}{{#unless @key.isValid}}instance["{{@key.original}}"], {{/unless}}{{/each}} |
+            {{/or}}
+            {{#with additionalProperties}}
+                {{#unless isBooleanSchemaFalse}}
+                    {{#if isBooleanSchemaTrue}}
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+                {{else}}
+| {{> src/main/java/org/openapitools/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+                    {{/if}}
+                {{/unless}}
+            {{else}}
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+            {{/with}}
+            {{#or properties additionalProperties requiredProperties}}
+
+{{headerSize}}# Input Map Keys
+```
+                {{#eq types null}}
+type: Map<String, Object>
+                {{else}}
+                    {{#with ../mapValueSchema}}
+type: Map<String, {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}>
+                    {{else}}
+type: Map<String, Object>
+                    {{/with}}
+                {{/eq}}
+```
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+                {{#each requiredProperties}}
+| **{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                {{/each}}
+                {{#each optionalProperties}}
+| **{{@key.original}}** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                {{/each}}
+                {{#with additionalProperties}}
+                    {{#unless isBooleanSchemaFalse}}
+                        {{#if isBooleanSchemaTrue}}
+| **anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional] |
+                        {{else}}
+| **anyStringName** | {{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description}}{{/if}} | [optional]{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                        {{/if}}
+                    {{/unless}}
+                {{else}}
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+                {{/with}}
+            {{/or}}
+        {{else}}
+            {{#eq instanceType "arrayOutputType"}}
+
+{{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
+public class {{arrayOutputJsonPathPiece.camelCase}}<br>
+extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
+
+A class to store validated List payloads
+
+{{headerSize}}## Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/org/openapitools/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
+
+{{headerSize}}# Input List Items
+```
+type: List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
+```
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+                {{#with items}}
+{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description}}{{/if}} |{{> src/main/java/org/openapitools/components/schemas/helpers/notes_msg defaultUser="server" }}
+                {{/with}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}
+{{#if componentModule}}
+
+[[Back to top]](#top) {{> _helper_footer_links readmePath="../../../" schemasLink=true}}
+{{/if}}
+{{/with}}

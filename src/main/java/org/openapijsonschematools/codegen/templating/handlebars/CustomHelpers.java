@@ -73,6 +73,38 @@ public enum CustomHelpers implements Helper<Object> {
      * Join the "a", "b", "c", the output will be the string "a // b // c".
      * </pre>
      */
+    reverse {
+        @Override
+        public Object apply(final Object context, final Options options) {
+            if (context == null) {
+                return null;
+            } else if (context instanceof List) {
+                List<?> reversed = new ArrayList<>();
+                reversed.addAll((List) context);
+                Collections.reverse(reversed);
+                return reversed;
+            }
+            return context;
+        }
+    },
+
+    /**
+     * Adds items on to an immutable List
+     *
+     * <pre>
+     * {{join value " // " [prefix=""] [suffix=""]}}
+     * </pre>
+     *
+     * <p>
+     * If value is the list ['a', 'b', 'c'], the output will be the string "a // b // c".
+     * </p>
+     * Or:
+     *
+     * <pre>
+     * {{join "a" "b" "c" " // " [prefix=""] [suffix=""]}}
+     * Join the "a", "b", "c", the output will be the string "a // b // c".
+     * </pre>
+     */
     append {
         @Override
         public Object apply(final Object context, final Options options) {

@@ -5,5 +5,5 @@ public class XRateLimitSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class XRateLimitSchema1 extends Int32JsonSchema {}
+    public static class XRateLimitSchema1 extends Int32JsonSchema {}
 }

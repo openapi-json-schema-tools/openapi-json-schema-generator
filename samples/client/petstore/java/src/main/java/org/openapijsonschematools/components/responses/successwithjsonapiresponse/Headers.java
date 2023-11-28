@@ -24,14 +24,12 @@ public class Headers {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
     
     
     public static class HeadersMap extends FrozenMap<String, Object> {
-
         HeadersMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -44,32 +42,25 @@ public class Headers {
             "numberHeader"
         );
         public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Headers1.validate(arg, configuration);
         }
         
         public int int32() {
-
             return (int) get("int32");
-
         }
         
         public String stringHeader() {
-
             return (String) get("stringHeader");
-
         }
         
         public String numberHeader() {
-
             String key = "numberHeader";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
     }    
     
-    public class Headers1 extends JsonSchema {
+    public static class Headers1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -79,20 +70,21 @@ public class Headers {
                 new PropertyEntry("stringHeader", StringHeaderSchema.StringHeaderSchema1.class),
                 new PropertyEntry("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "int32",
                 "ref-content-schema-header",
                 "ref-schema-header",
                 "stringHeader"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new HeadersMap(arg);
         }
         public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Headers1.class, arg, configuration);
         }
     }

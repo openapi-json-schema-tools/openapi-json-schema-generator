@@ -155,6 +155,59 @@ public class CodegenSchema {
         return keywords;
     }
 
+    public boolean isCustomSchema() {
+        // true when schema class is directly extended, false otherwise
+        if (isBooleanSchemaTrue || isBooleanSchemaFalse) {
+            return false;
+        }
+        if (types == null) {
+            if (isSimpleAnyType()) {
+                return false;
+            }
+            return true;
+        }
+        if (types.size() == 1) {
+            for (String type: types) {
+                switch (type) {
+                    case "object":
+                        if (isSimpleObject()) {
+                            return false;
+                        }
+                        return true;
+                    case "array":
+                        if (isSimpleArray()) {
+                            return false;
+                        }
+                        return true;
+                    case "boolean":
+                        if (isSimpleBoolean()) {
+                            return false;
+                        }
+                        return true;
+                    case "number":
+                    case "integer":
+                        if (isSimpleInteger() || isSimpleNumber()) {
+                            return false;
+                        }
+                        return true;
+                    case "string":
+                        if (isSimpleString()) {
+                            return false;
+                        }
+                        return true;
+                    case "null":
+                        if (isSimpleNull()) {
+                            return false;
+                        }
+                        return true;
+                    default:
+                        throw new RuntimeException("invalid type "+type+" was passed in");
+                }
+            }
+        }
+        return true;
+    }
+
     public boolean isSimpleBoolean() {
         if (types == null) {
             return false;
@@ -271,7 +324,7 @@ public class CodegenSchema {
         if (types != null) {
             return false;
         }
-        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null || unevaluatedProperties != null || items != null || uniqueItems != null || maxItems != null || minItems != null || contains != null || maxContains != null || minContains != null || prefixItems != null || unevaluatedItems != null || format != null || maxLength != null || minLength != null || maximum != null || minimum != null || multipleOf != null || patternInfo != null || refInfo != null) {
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null || unevaluatedProperties != null || items != null || uniqueItems != null || maxItems != null || minItems != null || contains != null || maxContains != null || minContains != null || prefixItems != null || unevaluatedItems != null || format != null || maxLength != null || minLength != null || maximum != null || minimum != null || multipleOf != null || patternInfo != null) {
             return false;
         }
         return true;

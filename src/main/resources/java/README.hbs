@@ -59,16 +59,16 @@ which subclasses all validated schema classes. This ensure that
   - the one exception is that files are not immutable, so schema instances storing/sending/receiving files are not immutable
 
 Here is the mapping from json schema types to python subclassed types:
-| Json Schema Type | Python Base Class |
+| Json Schema Type | Java Base Class |
 | ---------------- | ----------------- |
-| object           | schemas.immutabledict |
-| array            | tuple |
-| string           | str |
-| number           | float, int |
-| integer          | int |
-| boolean          | bool |
-| null             | None |
-| AnyType (unset)  | typing.Union[schemas.immutabledict, tuple, str, float, int, bool, None] |
+| object           | FrozenMap (HashMap) |
+| array            | FrozenList (ArrayList) |
+| string           | String |
+| number           | Number, float, double, int, long |
+| integer          | int, long |
+| boolean          | boolean |
+| null             | Void (null) |
+| AnyType (unset)  | Object |
 
 ### Storage of Json Schema Definition in Python Classes
 In openapi v3.0.3 there are ~ 28 json schema keywords. Almost all of them can apply if
@@ -195,7 +195,7 @@ All URIs are relative to the selected server
 | ----- | ----------- |
 {{#each schemas}}
     {{#with this}}
-| [{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
+| [{{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](docs/components/schemas/{{containerJsonPathPiece.camelCase}}.md#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}

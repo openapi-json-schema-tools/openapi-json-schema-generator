@@ -17,33 +17,29 @@ public class Schema3 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items3 extends StringJsonSchema {}
+    public static class Items3 extends StringJsonSchema {}
     
     
     public static class SchemaList3 extends FrozenList<String> {
-
         SchemaList3(FrozenList<String> m) {
-
             super(m);
         }
         public static SchemaList3 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Schema31.validate(arg, configuration);
         }
     }
     
     
-    public class Schema31 extends JsonSchema {
+    public static class Schema31 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items3.class))
+            
         ));
         protected static SchemaList3 getListOutputInstance(FrozenList<String> arg) {
-
             return new SchemaList3(arg);
         }
         public static SchemaList3 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Schema31.class, arg, configuration);
         }
     }}

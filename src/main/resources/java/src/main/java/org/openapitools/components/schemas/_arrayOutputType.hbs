@@ -1,10 +1,10 @@
 
 
-public static class {{arrayOutputJsonPathPiece.camelCase}} extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" forceNull=true endChar="> {" }}{{/with}}
-    {{arrayOutputJsonPathPiece.camelCase}}(FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" forceNull=true endChar="> m) {" }}{{/with}}
+public static class {{arrayOutputJsonPathPiece.camelCase}} extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> {
+    {{arrayOutputJsonPathPiece.camelCase}}(FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> m) {
         super(m);
     }
-    public static {{arrayOutputJsonPathPiece.camelCase}} of(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true endChar="> arg, SchemaConfiguration configuration) throws ValidationException {" }}{{/with}}
+    public static {{arrayOutputJsonPathPiece.camelCase}} of(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
         return {{jsonPathPiece.camelCase}}.validate(arg, configuration);
     }
 }

@@ -18,18 +18,16 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalMetadata extends StringJsonSchema {}
+    public static class AdditionalMetadata extends StringJsonSchema {}
     
     
-    public class File extends JsonSchema {
+    public static class File extends JsonSchema {
         // BinarySchema
     }
     
     
     public static class SchemaMap extends FrozenMap<String, Object> {
-
         SchemaMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -39,22 +37,17 @@ public class Schema {
             "additionalMetadata"
         );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Schema1.validate(arg, configuration);
         }
         
         public String file() {
-
             return (String) get("file");
-
         }
         
         public String additionalMetadata() {
-
             String key = "additionalMetadata";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public Object getAdditionalProperty(String name) {
@@ -64,23 +57,23 @@ public class Schema {
         }
     }    
     
-    public class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("additionalMetadata", AdditionalMetadata.class),
                 new PropertyEntry("file", File.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "file"
             )))
+            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

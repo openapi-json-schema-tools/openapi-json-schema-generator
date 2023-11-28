@@ -6,5 +6,5 @@ public class Schema extends NumberWithValidations {
     // $refed class
     
     
-    public class Schema1 extends NumberWithValidations1 {}
+    public static class Schema1 extends NumberWithValidations1 {}
 }

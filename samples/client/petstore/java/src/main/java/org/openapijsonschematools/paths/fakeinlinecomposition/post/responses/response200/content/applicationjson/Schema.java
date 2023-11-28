@@ -19,7 +19,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema0 extends JsonSchema {
+    public static class Schema0 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -30,7 +30,7 @@ public class Schema {
         }
     }    
     
-    public class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }

@@ -19,43 +19,37 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Items extends JsonSchema {
+    public static class Items extends JsonSchema {
         // BinarySchema
     }
     
     
     public static class FilesList extends FrozenList<String> {
-
         FilesList(FrozenList<String> m) {
-
             super(m);
         }
         public static FilesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Files.validate(arg, configuration);
         }
     }
     
     
-    public class Files extends JsonSchema {
+    public static class Files extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
+            
         ));
         protected static FilesList getListOutputInstance(FrozenList<String> arg) {
-
             return new FilesList(arg);
         }
         public static FilesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Files.class, arg, configuration);
         }
     }    
     
     public static class SchemaMap extends FrozenMap<String, Object> {
-
         SchemaMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -63,16 +57,13 @@ public class Schema {
             "files"
         );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Schema1.validate(arg, configuration);
         }
         
         public FilesList files() {
-
             String key = "files";
             throwIfKeyNotPresent(key);
             return (FilesList) get(key);
-
         }
         
         public Object getAdditionalProperty(String name) {
@@ -82,19 +73,18 @@ public class Schema {
         }
     }    
     
-    public class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("files", Files.class)
             )))
+            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }

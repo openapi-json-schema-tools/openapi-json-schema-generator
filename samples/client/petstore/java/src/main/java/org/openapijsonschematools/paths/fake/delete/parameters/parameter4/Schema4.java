@@ -13,7 +13,7 @@ public class Schema4 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Schema41 extends JsonSchema {
+    public static class Schema41 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class

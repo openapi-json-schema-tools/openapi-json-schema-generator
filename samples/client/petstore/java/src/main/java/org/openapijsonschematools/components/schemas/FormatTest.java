@@ -31,7 +31,7 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class IntegerSchema extends JsonSchema {
+    public static class IntegerSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -57,10 +57,10 @@ public class FormatTest {
         }
     }    
     
-    public class Int32 extends Int32JsonSchema {}
+    public static class Int32 extends Int32JsonSchema {}
     
     
-    public class Int32withValidations extends JsonSchema {
+    public static class Int32withValidations extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -87,10 +87,10 @@ public class FormatTest {
         }
     }    
     
-    public class Int64 extends Int64JsonSchema {}
+    public static class Int64 extends Int64JsonSchema {}
     
     
-    public class NumberSchema extends JsonSchema {
+    public static class NumberSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -116,7 +116,7 @@ public class FormatTest {
         }
     }    
     
-    public class FloatSchema extends JsonSchema {
+    public static class FloatSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -131,10 +131,10 @@ public class FormatTest {
         }
     }    
     
-    public class Float32 extends FloatJsonSchema {}
+    public static class Float32 extends FloatJsonSchema {}
     
     
-    public class DoubleSchema extends JsonSchema {
+    public static class DoubleSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Integer.class,
@@ -149,41 +149,37 @@ public class FormatTest {
         }
     }    
     
-    public class Float64 extends DoubleJsonSchema {}
+    public static class Float64 extends DoubleJsonSchema {}
     
     
-    public class Items extends NumberJsonSchema {}
+    public static class Items extends NumberJsonSchema {}
     
     
     public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
-
         ArrayWithUniqueItemsList(FrozenList<Number> m) {
-
             super(m);
         }
         public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return ArrayWithUniqueItems.validate(arg, configuration);
         }
     }
     
     
-    public class ArrayWithUniqueItems extends JsonSchema {
+    public static class ArrayWithUniqueItems extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
+            
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
-
             return new ArrayWithUniqueItemsList(arg);
         }
         public static ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(ArrayWithUniqueItems.class, arg, configuration);
         }
     }    
     
-    public class StringSchema extends JsonSchema {
+    public static class StringSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -194,27 +190,27 @@ public class FormatTest {
         }
     }    
     
-    public class ByteSchema extends StringJsonSchema {}
+    public static class ByteSchema extends StringJsonSchema {}
     
     
-    public class Binary extends JsonSchema {
+    public static class Binary extends JsonSchema {
         // BinarySchema
     }
     
     
-    public class Date extends DateJsonSchema {}
+    public static class Date extends DateJsonSchema {}
     
     
-    public class DateTime extends DateTimeJsonSchema {}
+    public static class DateTime extends DateTimeJsonSchema {}
     
     
-    public class UuidSchema extends UuidJsonSchema {}
+    public static class UuidSchema extends UuidJsonSchema {}
     
     
-    public class UuidNoExample extends UuidJsonSchema {}
+    public static class UuidNoExample extends UuidJsonSchema {}
     
     
-    public class Password extends JsonSchema {
+    public static class Password extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -226,7 +222,7 @@ public class FormatTest {
         }
     }    
     
-    public class PatternWithDigits extends JsonSchema {
+    public static class PatternWithDigits extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -237,7 +233,7 @@ public class FormatTest {
         }
     }    
     
-    public class PatternWithDigitsAndDelimiter extends JsonSchema {
+    public static class PatternWithDigitsAndDelimiter extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
@@ -248,13 +244,11 @@ public class FormatTest {
         }
     }    
     
-    public class NoneProp extends NullJsonSchema {}
+    public static class NoneProp extends NullJsonSchema {}
     
     
     public static class FormatTestMap extends FrozenMap<String, Object> {
-
         FormatTestMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -283,116 +277,87 @@ public class FormatTest {
             "noneProp"
         );
         public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return FormatTest1.validate(arg, configuration);
         }
         
         public String date() {
-
             return (String) get("date");
-
         }
         
         public String password() {
-
             return (String) get("password");
-
         }
         
         public int int32() {
-
             String key = "int32";
             throwIfKeyNotPresent(key);
             return (int) get(key);
-
         }
         
         public int int32withValidations() {
-
             String key = "int32withValidations";
             throwIfKeyNotPresent(key);
             return (int) get(key);
-
         }
         
         public long int64() {
-
             String key = "int64";
             throwIfKeyNotPresent(key);
             return (long) get(key);
-
         }
         
         public float float32() {
-
             String key = "float32";
             throwIfKeyNotPresent(key);
             return (float) get(key);
-
         }
         
         public double float64() {
-
             String key = "float64";
             throwIfKeyNotPresent(key);
             return (double) get(key);
-
         }
         
         public ArrayWithUniqueItemsList arrayWithUniqueItems() {
-
             String key = "arrayWithUniqueItems";
             throwIfKeyNotPresent(key);
             return (ArrayWithUniqueItemsList) get(key);
-
         }
         
         public String binary() {
-
             String key = "binary";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String dateTime() {
-
             String key = "dateTime";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String uuidNoExample() {
-
             String key = "uuidNoExample";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String pattern_with_digits() {
-
             String key = "pattern_with_digits";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String pattern_with_digits_and_delimiter() {
-
             String key = "pattern_with_digits_and_delimiter";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public Void noneProp() {
-
             String key = "noneProp";
             throwIfKeyNotPresent(key);
             return (Void) get(key);
-
         }
         
         public Object getAdditionalProperty(String name) {
@@ -402,7 +367,7 @@ public class FormatTest {
         }
     }    
     
-    public class FormatTest1 extends JsonSchema {
+    public static class FormatTest1 extends JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -434,19 +399,19 @@ public class FormatTest {
                 new PropertyEntry("pattern_with_digits_and_delimiter", PatternWithDigitsAndDelimiter.class),
                 new PropertyEntry("noneProp", NoneProp.class)
             ))),
+            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "byte",
                 "date",
                 "number",
                 "password"
             )))
+            
         ));
         protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new FormatTestMap(arg);
         }
         public static FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(FormatTest1.class, arg, configuration);
         }
     }

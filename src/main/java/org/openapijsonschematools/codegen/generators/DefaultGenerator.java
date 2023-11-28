@@ -4783,7 +4783,7 @@ public class DefaultGenerator implements Generator {
         }
     }
 
-    private String getModuleLocation(String ref) {
+    protected String getModuleLocation(String ref) {
         String filePath = getFilepath(ref);
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar;
         String localFilepath = filePath.substring(prefix.length());

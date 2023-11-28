@@ -27,34 +27,34 @@ public class User {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class Id extends Int64JsonSchema {}
+    public static class Id extends Int64JsonSchema {}
     
     
-    public class Username extends StringJsonSchema {}
+    public static class Username extends StringJsonSchema {}
     
     
-    public class FirstName extends StringJsonSchema {}
+    public static class FirstName extends StringJsonSchema {}
     
     
-    public class LastName extends StringJsonSchema {}
+    public static class LastName extends StringJsonSchema {}
     
     
-    public class Email extends StringJsonSchema {}
+    public static class Email extends StringJsonSchema {}
     
     
-    public class Password extends StringJsonSchema {}
+    public static class Password extends StringJsonSchema {}
     
     
-    public class Phone extends StringJsonSchema {}
+    public static class Phone extends StringJsonSchema {}
     
     
-    public class UserStatus extends Int32JsonSchema {}
+    public static class UserStatus extends Int32JsonSchema {}
     
     
-    public class ObjectWithNoDeclaredProps extends MapJsonSchema {}
+    public static class ObjectWithNoDeclaredProps extends MapJsonSchema {}
     
     
-    public class ObjectWithNoDeclaredPropsNullable extends JsonSchema {
+    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
@@ -69,13 +69,13 @@ public class User {
         }
     }    
     
-    public class AnyTypeProp extends AnyTypeJsonSchema {}
+    public static class AnyTypeProp extends AnyTypeJsonSchema {}
     
     
-    public class Not extends NullJsonSchema {}
+    public static class Not extends NullJsonSchema {}
     
     
-    public class AnyTypeExceptNullProp extends JsonSchema {
+    public static class AnyTypeExceptNullProp extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
@@ -125,13 +125,11 @@ public class User {
         }
     }    
     
-    public class AnyTypePropNullable extends AnyTypeJsonSchema {}
+    public static class AnyTypePropNullable extends AnyTypeJsonSchema {}
     
     
     public static class UserMap extends FrozenMap<String, Object> {
-
         UserMap(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -151,106 +149,82 @@ public class User {
             "anyTypePropNullable"
         );
         public static UserMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return User1.validate(arg, configuration);
         }
         
         public long id() {
-
             String key = "id";
             throwIfKeyNotPresent(key);
             return (long) get(key);
-
         }
         
         public String username() {
-
             String key = "username";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String firstName() {
-
             String key = "firstName";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String lastName() {
-
             String key = "lastName";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String email() {
-
             String key = "email";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String password() {
-
             String key = "password";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public String phone() {
-
             String key = "phone";
             throwIfKeyNotPresent(key);
             return (String) get(key);
-
         }
         
         public int userStatus() {
-
             String key = "userStatus";
             throwIfKeyNotPresent(key);
             return (int) get(key);
-
         }
         
         public FrozenMap<String, Object> objectWithNoDeclaredProps() {
-
             String key = "objectWithNoDeclaredProps";
             throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
-
         }
         
         public FrozenMap<String, Object> objectWithNoDeclaredPropsNullable() {
-
             String key = "objectWithNoDeclaredPropsNullable";
             throwIfKeyNotPresent(key);
             return (FrozenMap<String, Object>) get(key);
-
         }
         
         public Object anyTypeProp() {
-
             String key = "anyTypeProp";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object anyTypeExceptNullProp() {
-
             String key = "anyTypeExceptNullProp";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
         public Object anyTypePropNullable() {
-
             String key = "anyTypePropNullable";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -263,7 +237,7 @@ public class User {
         }
     }    
     
-    public class User1 extends JsonSchema {
+    public static class User1 extends JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -287,13 +261,12 @@ public class User {
                 new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
             )))
+            
         ));
         protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new UserMap(arg);
         }
         public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(User1.class, arg, configuration);
         }
     }

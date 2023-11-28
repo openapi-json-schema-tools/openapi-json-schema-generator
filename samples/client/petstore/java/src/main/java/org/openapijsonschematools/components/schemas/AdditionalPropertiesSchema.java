@@ -21,46 +21,41 @@ public class AdditionalPropertiesSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public class AdditionalProperties extends AnyTypeJsonSchema {}
+    public static class AdditionalProperties extends AnyTypeJsonSchema {}
     
     
     public static class Schema0Map extends FrozenMap<String, Object> {
-
         Schema0Map(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Schema0.validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {
-
             throwIfKeyNotPresent(name);
             return get(name);
         }
     }    
     
-    public class Schema0 extends JsonSchema {
+    public static class Schema0 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            
         ));
         protected static Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new Schema0Map(arg);
         }
         public static Schema0Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Schema0.class, arg, configuration);
         }
     }
     
     
-    public class AdditionalProperties1 extends JsonSchema {
+    public static class AdditionalProperties1 extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
@@ -111,42 +106,37 @@ public class AdditionalPropertiesSchema {
     }    
     
     public static class Schema1Map extends FrozenMap<String, Object> {
-
         Schema1Map(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Schema1.validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {
-
             throwIfKeyNotPresent(name);
             return get(name);
         }
     }    
     
-    public class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
+            
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }
     
     
-    public class AdditionalProperties2 extends JsonSchema {
+    public static class AdditionalProperties2 extends JsonSchema {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
@@ -197,42 +187,37 @@ public class AdditionalPropertiesSchema {
     }    
     
     public static class Schema2Map extends FrozenMap<String, Object> {
-
         Schema2Map(FrozenMap<String, Object> m) {
-
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static Schema2Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return Schema2.validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {
-
             throwIfKeyNotPresent(name);
             return get(name);
         }
     }    
     
-    public class Schema2 extends JsonSchema {
+    public static class Schema2 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
+            
         ));
         protected static Schema2Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-
             return new Schema2Map(arg);
         }
         public static Schema2Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-
             return JsonSchema.validate(Schema2.class, arg, configuration);
         }
     }
     
     
-    public class AdditionalPropertiesSchema1 extends JsonSchema {
+    public static class AdditionalPropertiesSchema1 extends JsonSchema {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
