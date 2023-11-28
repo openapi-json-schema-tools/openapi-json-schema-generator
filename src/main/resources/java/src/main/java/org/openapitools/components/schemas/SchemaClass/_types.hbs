@@ -27,16 +27,16 @@ new KeywordEntry("type", new TypeValidator(Set.of({{#contains types "null"}}Void
                     {{~/eq}}
                 {{/eq}}
                 {{#eq this "integer"}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class{{#unless @last}},{{/unless}}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double.class{{#unless @last}},{{/unless}}<br/>
                 {{~/eq}}
                 {{#eq this "number"}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;Double.class{{#unless @last}},{{/unless}}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double.class{{#unless @last}},{{/unless}}<br/>
                 {{~/eq}}
                 {{#eq this "boolean"}}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Boolean.class{{#unless @last}},{{/unless}}<br/>
                 {{~/eq}}
             {{/each}}
-&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}
+&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br/>
         {{~else}}
 new KeywordEntry("type", new TypeValidator(Set.of(
             {{#each types}}
