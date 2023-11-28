@@ -2,6 +2,8 @@ package org.openapijsonschematools.schemas.validation;
 
 import org.openapijsonschematools.exceptions.ValidationException;
 
+import java.util.List;
+
 public class MinItemsValidator implements KeywordValidator {
     public final int minItems;
 

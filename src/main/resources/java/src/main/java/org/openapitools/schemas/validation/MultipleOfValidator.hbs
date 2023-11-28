@@ -22,25 +22,25 @@ public class MultipleOfValidator implements KeywordValidator {
         }
         String msg = "Value " + arg + " is invalid because it is not a multiple of " + multipleOf;
         if (arg instanceof Integer) {
-            if (((Integer) arg) % maximum.intValue()) != 0) {
+            if ((((Integer) arg) % multipleOf.intValue()) != 0) {
                 throw new ValidationException(msg);
             }
             return null;
         }
         if (arg instanceof Long) {
-            if (((Long) arg) % maximum.longValue()) != 0) {
+            if ((((Long) arg) % multipleOf.longValue()) != 0) {
                 throw new ValidationException(msg);
             }
             return null;
         }
         if (arg instanceof Float) {
-            if (((Float) arg) % maximum.floatValue()) == 0.0) {
+            if ((((Float) arg) % multipleOf.floatValue()) == 0.0) {
                 throw new ValidationException(msg);
             }
             return null;
         }
         if (arg instanceof Double) {
-            if (((Double) arg) % maximum.doubleValue()) == 0.0) {
+            if ((((Double) arg) % multipleOf.doubleValue()) == 0.0) {
                 throw new ValidationException(msg);
             }
             return null;

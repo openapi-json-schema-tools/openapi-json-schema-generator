@@ -2,6 +2,8 @@ package org.openapijsonschematools.schemas.validation;
 
 import org.openapijsonschematools.exceptions.ValidationException;
 
+import java.util.Map;
+
 public class MaxPropertiesValidator implements KeywordValidator {
     public final int maxProperties;
 

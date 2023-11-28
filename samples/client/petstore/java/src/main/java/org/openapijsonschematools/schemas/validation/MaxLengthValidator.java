@@ -5,7 +5,7 @@ import org.openapijsonschematools.exceptions.ValidationException;
 public class MaxLengthValidator implements KeywordValidator {
     public final int maxLength;
 
-    public MaxItemsValidator(int maxLength) {
+    public MaxLengthValidator(int maxLength) {
         this.maxLength = maxLength;
     }
 

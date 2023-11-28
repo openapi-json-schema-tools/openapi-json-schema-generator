@@ -2,6 +2,8 @@ package org.openapijsonschematools.schemas.validation;
 
 import org.openapijsonschematools.exceptions.ValidationException;
 
+import java.util.List;
+
 public class MaxItemsValidator implements KeywordValidator {
     public final int maxItems;
 
