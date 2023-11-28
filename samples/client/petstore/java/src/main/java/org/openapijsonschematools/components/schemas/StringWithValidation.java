@@ -7,6 +7,7 @@ import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class StringWithValidation {
@@ -23,7 +24,8 @@ public class StringWithValidation {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
-            )))
+            ))),
+            new KeywordEntry("minLength", new MinLengthValidator(7))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(StringWithValidation1.class, arg, configuration);

@@ -16,6 +16,7 @@ import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.MaxLengthValidator;
+import org.openapijsonschematools.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class AdditionalPropertiesSchema {
@@ -57,6 +58,9 @@ public class AdditionalPropertiesSchema {
     
     
     public static class AdditionalProperties1 extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("minLength", new MinLengthValidator(3))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }

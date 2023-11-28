@@ -9,6 +9,7 @@ import org.openapijsonschematools.schemas.validation.FormatValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class UUIDString {
@@ -26,7 +27,8 @@ public class UUIDString {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             ))),
-            new KeywordEntry("format", new FormatValidator("uuid"))
+            new KeywordEntry("format", new FormatValidator("uuid")),
+            new KeywordEntry("minLength", new MinLengthValidator(1))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(UUIDString1.class, arg, configuration);
