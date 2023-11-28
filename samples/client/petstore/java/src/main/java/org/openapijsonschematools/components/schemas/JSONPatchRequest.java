@@ -14,6 +14,7 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class JSONPatchRequest {
@@ -21,6 +22,13 @@ public class JSONPatchRequest {
     
     
     public static class Items extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1.class,
+                JSONPatchRequestRemove.JSONPatchRequestRemove1.class,
+                JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1.class
+            )))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Items.class, arg, configuration);
         }

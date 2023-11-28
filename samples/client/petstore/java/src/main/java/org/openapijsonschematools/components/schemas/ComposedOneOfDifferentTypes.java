@@ -22,6 +22,7 @@ import org.openapijsonschematools.schemas.validation.MaxItemsValidator;
 import org.openapijsonschematools.schemas.validation.MaxPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.MinItemsValidator;
 import org.openapijsonschematools.schemas.validation.MinPropertiesValidator;
+import org.openapijsonschematools.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ComposedOneOfDifferentTypes {
@@ -95,6 +96,17 @@ public class ComposedOneOfDifferentTypes {
     
         this is a model that allows payloads of type object or number
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                NumberWithValidations.NumberWithValidations1.class,
+                Animal.Animal1.class,
+                Schema2.class,
+                Schema3.class,
+                Schema4.class,
+                Schema5.class,
+                Schema6.class
+            )))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
