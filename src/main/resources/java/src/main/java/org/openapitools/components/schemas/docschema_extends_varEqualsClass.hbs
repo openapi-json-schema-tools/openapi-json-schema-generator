@@ -10,7 +10,7 @@ extends NotAnyTypeJsonSchema
         {{#if refInfo.refModule}}
 extends {{refInfo.refModule}}.{{refInfo.refClass}}
         {{else}}
-extends {{refInfo.refClass}}
+extends [{{refInfo.refClass}}](#{{refInfo.ref.jsonPathPiece.anchorPiece}})
         {{/if}}
     {{else}}
         {{#eq types null}}
