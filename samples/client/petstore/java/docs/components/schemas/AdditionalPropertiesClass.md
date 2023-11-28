@@ -66,14 +66,14 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| MapPropertyMap | map_property()<br>[optional] |
-| MapOfMapPropertyMap | map_of_map_property()<br>[optional] |
+| [MapPropertyMap](#mappropertymap) | map_property()<br>[optional] |
+| [MapOfMapPropertyMap](#mapofmappropertymap) | map_of_map_property()<br>[optional] |
 | Object | anytype_1()<br>[optional] |
 | FrozenMap<String, Object> | map_with_undeclared_properties_anytype_1()<br>[optional] |
 | FrozenMap<String, Object> | map_with_undeclared_properties_anytype_2()<br>[optional] |
-| MapWithUndeclaredPropertiesAnytype3Map | map_with_undeclared_properties_anytype_3()<br>[optional] |
-| EmptyMapMap | empty_map()<br>[optional] |
-| MapWithUndeclaredPropertiesStringMap | map_with_undeclared_properties_string()<br>[optional] |
+| [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | map_with_undeclared_properties_anytype_3()<br>[optional] |
+| [EmptyMapMap](#emptymapmap) | empty_map()<br>[optional] |
+| [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | map_with_undeclared_properties_string()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -340,7 +340,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [MapOfMapPropertyMap](#mapofmappropertymap) | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
-| AdditionalPropertiesMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
 ```

@@ -87,7 +87,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [MapMap](#mapmap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
-| Animal.AnimalMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| [Animal.AnimalMap](../../components/schemas/Animal.md#animalmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
 ```

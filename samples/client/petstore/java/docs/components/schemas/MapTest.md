@@ -53,10 +53,10 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [MapTestMap](#maptestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| MapMapOfStringMap | map_map_of_string()<br>[optional] |
-| MapOfEnumStringMap | map_of_enum_string()<br>[optional] |
-| DirectMapMap | direct_map()<br>[optional] |
-| StringBooleanMap.StringBooleanMapMap | indirect_map()<br>[optional] |
+| [MapMapOfStringMap](#mapmapofstringmap) | map_map_of_string()<br>[optional] |
+| [MapOfEnumStringMap](#mapofenumstringmap) | map_of_enum_string()<br>[optional] |
+| [DirectMapMap](#directmapmap) | direct_map()<br>[optional] |
+| [StringBooleanMap.StringBooleanMapMap](../../components/schemas/StringBooleanMap.md#stringbooleanmapmap) | indirect_map()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -204,7 +204,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [MapMapOfStringMap](#mapmapofstringmap) | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
-| AdditionalPropertiesMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
 ```

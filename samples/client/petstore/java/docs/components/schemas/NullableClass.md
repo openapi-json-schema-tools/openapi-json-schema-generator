@@ -87,7 +87,7 @@ A class to store validated Map payloads
 | [ArrayItemsNullableList](#arrayitemsnullablelist) | array_items_nullable()<br>[optional] |
 | ObjectNullablePropMap | object_nullable_prop()<br>[optional] |
 | ObjectAndItemsNullablePropMap | object_and_items_nullable_prop()<br>[optional] |
-| ObjectItemsNullableMap | object_items_nullable()<br>[optional] |
+| [ObjectItemsNullableMap](#objectitemsnullablemap) | object_items_nullable()<br>[optional] |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys

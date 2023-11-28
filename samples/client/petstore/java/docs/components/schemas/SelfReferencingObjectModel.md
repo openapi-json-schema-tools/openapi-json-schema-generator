@@ -40,8 +40,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| SelfReferencingObjectModelMap | selfRef()<br>[optional] |
-| SelfReferencingObjectModelMap | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | selfRef()<br>[optional] |
+| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
 ```

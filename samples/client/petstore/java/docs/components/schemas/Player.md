@@ -45,7 +45,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [PlayerMap](#playermap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | name()<br>[optional] |
-| PlayerMap | enemyPlayer()<br>[optional] |
+| [PlayerMap](#playermap) | enemyPlayer()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
