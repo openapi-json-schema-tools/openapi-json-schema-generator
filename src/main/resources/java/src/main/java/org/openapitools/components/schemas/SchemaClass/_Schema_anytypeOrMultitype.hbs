@@ -50,6 +50,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "minLength"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minLength }}
         {{/eq}}
+        {{#eq this "maxProperties"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxProperties }}
+        {{/eq}}
         {{#eq this "additionalProperties"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
         {{/eq}}
