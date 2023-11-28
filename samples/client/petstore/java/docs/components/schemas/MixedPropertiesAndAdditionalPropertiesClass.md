@@ -22,16 +22,13 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
-        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-<br/>
-        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-        new PropertyEntry("uuid", UuidSchema.class),
-        new PropertyEntry("dateTime", DateTime.class),
-        new PropertyEntry("map", MapSchema.class)
-    )))
-<br/>
-));</code>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+    new PropertyEntry("uuid", UuidSchema.class),
+    new PropertyEntry("dateTime", DateTime.class),
+    new PropertyEntry("map", MapSchema.class)
+)))
+));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -71,12 +68,9 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
-        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-<br/>
-        new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
-<br/>
-));</code>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
+));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

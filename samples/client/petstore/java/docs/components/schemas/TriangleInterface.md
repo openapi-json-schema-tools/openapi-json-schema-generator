@@ -20,18 +20,15 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
-        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-        new PropertyEntry("shapeType", ShapeType.class),
-        new PropertyEntry("triangleType", TriangleType.class)
-    ))),
-<br/>
-        new KeywordEntry("required", new RequiredValidator(Set.of(
-        "shapeType",
-        "triangleType"
-    )))
-<br/>
-));</code>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+    new PropertyEntry("shapeType", ShapeType.class),
+    new PropertyEntry("triangleType", TriangleType.class)
+))),
+new KeywordEntry("required", new RequiredValidator(Set.of(
+    "shapeType",
+    "triangleType"
+)))
+));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -92,12 +89,10 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
-        new KeywordEntry("type", new TypeValidator(Set.of(
-        String.class
-    )))
-<br/>
-));</code>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(
+    String.class
+)))
+));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

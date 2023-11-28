@@ -22,12 +22,10 @@ Model for testing reserved words
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
-        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-        new PropertyEntry("return", ReturnSchema2.class)
-    )))
-<br/>
-));</code>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+    new PropertyEntry("return", ReturnSchema2.class)
+)))
+));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

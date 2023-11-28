@@ -32,26 +32,23 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
-        new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-<br/>
-        new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-        new PropertyEntry("id", Id.class),
-        new PropertyEntry("username", Username.class),
-        new PropertyEntry("firstName", FirstName.class),
-        new PropertyEntry("lastName", LastName.class),
-        new PropertyEntry("email", Email.class),
-        new PropertyEntry("password", Password.class),
-        new PropertyEntry("phone", Phone.class),
-        new PropertyEntry("userStatus", UserStatus.class),
-        new PropertyEntry("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class),
-        new PropertyEntry("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class),
-        new PropertyEntry("anyTypeProp", AnyTypeProp.class),
-        new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
-        new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
-    )))
-<br/>
-));</code>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+    new PropertyEntry("id", Id.class),
+    new PropertyEntry("username", Username.class),
+    new PropertyEntry("firstName", FirstName.class),
+    new PropertyEntry("lastName", LastName.class),
+    new PropertyEntry("email", Email.class),
+    new PropertyEntry("password", Password.class),
+    new PropertyEntry("phone", Phone.class),
+    new PropertyEntry("userStatus", UserStatus.class),
+    new PropertyEntry("objectWithNoDeclaredProps", ObjectWithNoDeclaredProps.class),
+    new PropertyEntry("objectWithNoDeclaredPropsNullable", ObjectWithNoDeclaredPropsNullable.class),
+    new PropertyEntry("anyTypeProp", AnyTypeProp.class),
+    new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
+    new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
+)))
+));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -204,13 +201,11 @@ test code generation for nullable objects. Value must be a map of strings to val
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>
-        new KeywordEntry("type", new TypeValidator(Set.of(
-        Void.class,
-        FrozenMap.class
-    )))
-<br/>
-));</code>
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(
+    Void.class,
+    FrozenMap.class
+)))
+));</code> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
