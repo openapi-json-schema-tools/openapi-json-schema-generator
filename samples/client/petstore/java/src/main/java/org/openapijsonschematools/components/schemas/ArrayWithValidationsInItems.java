@@ -65,7 +65,7 @@ public class ArrayWithValidationsInItems {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class)),
-            new KeywordEntry("required", new MaxItemsValidator(2))
+            new KeywordEntry("maxItems", new MaxItemsValidator(2))
         ));
         protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ArrayWithValidationsInItemsList(arg);

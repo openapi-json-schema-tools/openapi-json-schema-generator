@@ -158,6 +158,9 @@ public class CodegenSchema {
         if (maxItems != null) {
             keywords.add("maxItems");
         }
+        if (minItems != null) {
+            keywords.add("minItems");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }

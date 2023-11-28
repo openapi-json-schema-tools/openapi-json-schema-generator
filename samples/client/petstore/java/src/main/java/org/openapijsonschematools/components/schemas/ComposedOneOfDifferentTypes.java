@@ -19,6 +19,7 @@ import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.MaxItemsValidator;
+import org.openapijsonschematools.schemas.validation.MinItemsValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ComposedOneOfDifferentTypes {
@@ -58,7 +59,8 @@ public class ComposedOneOfDifferentTypes {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class)),
-            new KeywordEntry("required", new MaxItemsValidator(4))
+            new KeywordEntry("maxItems", new MaxItemsValidator(4)),
+            new KeywordEntry("minItems", new MinItemsValidator(4))
         ));
         protected static Schema5List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema5List(arg);

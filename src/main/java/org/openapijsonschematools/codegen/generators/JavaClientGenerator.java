@@ -355,6 +355,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
+        keywordValidatorFiles.add("MinItemsValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
@@ -1413,6 +1414,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 if (schema.maxItems != null) {
                     imports.add("import "+packageName + ".schemas.validation.MaxItemsValidator;");
                 }
+                if (schema.minItems != null) {
+                    imports.add("import "+packageName + ".schemas.validation.MinItemsValidator;");
+                }
             }
         } else {
             // no types
@@ -1459,6 +1463,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 if (schema.maxItems != null) {
                     imports.add("import "+packageName + ".schemas.validation.MaxItemsValidator;");
                 }
+                if (schema.minItems != null) {
+                    imports.add("import "+packageName + ".schemas.validation.MinItemsValidator;");
+                }
             }
         }
         return imports;
@@ -1496,6 +1503,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         if (schema.maxItems != null) {
             imports.add("import "+packageName + ".schemas.validation.MaxItemsValidator;");
+        }
+        if (schema.minItems != null) {
+            imports.add("import "+packageName + ".schemas.validation.MinItemsValidator;");
         }
     }
 
