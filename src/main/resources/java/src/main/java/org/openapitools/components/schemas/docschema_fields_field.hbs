@@ -53,6 +53,9 @@
     {{#eq this "additionalProperties"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
     {{~/eq}}
+    {{#eq this "allOf"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_allOf }}
+    {{~/eq}}
     {{#if @last ~}}
 )); |
     {{/if}}

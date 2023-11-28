@@ -185,6 +185,9 @@ public class CodegenSchema {
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }
+        if (allOf != null) {
+            keywords.add("allOf");
+        }
         return keywords;
     }
 

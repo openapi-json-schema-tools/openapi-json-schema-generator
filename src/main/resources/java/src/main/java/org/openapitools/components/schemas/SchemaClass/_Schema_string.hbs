@@ -29,6 +29,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "minLength"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minLength }}
         {{/eq}}
+        {{#eq this "allOf"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_allOf }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
@@ -44,9 +47,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{/if}}
 {{#if constInfo}}
     {{!> components/schemas/schema_cls/_const }}
-{{/if}}
-{{#if allOf}}
-    {{!> components/schemas/schema_cls/_all_of }}
 {{/if}}
 {{#if anyOf}}
     {{!> components/schemas/schema_cls/_any_of }}
