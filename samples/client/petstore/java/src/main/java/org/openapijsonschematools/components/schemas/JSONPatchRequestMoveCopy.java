@@ -89,6 +89,7 @@ public class JSONPatchRequestMoveCopy {
                 "op",
                 "path"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<String, String> arg) {

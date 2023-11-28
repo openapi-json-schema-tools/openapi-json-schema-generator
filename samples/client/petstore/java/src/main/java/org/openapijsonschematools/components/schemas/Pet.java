@@ -169,6 +169,7 @@ public class Pet {
                 "name",
                 "photoUrls"
             )))
+            
         ));
         protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PetMap(arg);

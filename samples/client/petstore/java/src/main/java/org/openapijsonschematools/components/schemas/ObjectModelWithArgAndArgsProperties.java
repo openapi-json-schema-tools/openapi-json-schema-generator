@@ -70,6 +70,7 @@ public class ObjectModelWithArgAndArgsProperties {
                 "arg",
                 "args"
             )))
+            
         ));
         protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);

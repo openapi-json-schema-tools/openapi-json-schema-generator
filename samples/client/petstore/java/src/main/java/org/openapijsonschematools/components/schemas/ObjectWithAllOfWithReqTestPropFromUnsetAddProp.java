@@ -67,6 +67,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "test"
             )))
+            
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);

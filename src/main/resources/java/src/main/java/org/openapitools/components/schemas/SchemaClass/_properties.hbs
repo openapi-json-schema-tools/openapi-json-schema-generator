@@ -1,17 +1,17 @@
 {{#if forDocs}}
-new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>
     {{~#each properties}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", {{refInfo.refModule}}.{{refInfo.refClass}}.class){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", {{refInfo.refModule}}.{{refInfo.refClass}}.class){{#unless @last}},{{/unless}}<br>
             {{~else}}
-&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", {{refInfo.refClass}}.class){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", {{refInfo.refClass}}.class){{#unless @last}},{{/unless}}<br>
             {{~/if}}
         {{else}}
-&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", {{jsonPathPiece.camelCase}}.class){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", {{jsonPathPiece.camelCase}}.class){{#unless @last}},{{/unless}}<br>
         {{~/if}}
     {{/each}}
-))){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
 {{~else}}
 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
     {{#each properties}}

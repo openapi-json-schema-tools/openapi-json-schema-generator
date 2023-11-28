@@ -1,5 +1,14 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("required", new RequiredValidator(Set.of(<br>
+    {{~#each requiredProperties}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key.original}}}"{{#unless @last}},{{/unless}}<br>
+    {{~/each}}
+&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
+{{~else}}
 new KeywordEntry("required", new RequiredValidator(Set.of(
-{{#each requiredProperties}}
+    {{#each requiredProperties}}
     "{{{@key.original}}}"{{#unless @last}},{{/unless}}
-{{/each}}
+    {{/each}}
 ))){{#unless @last}},{{/unless}}
+
+{{/if}}

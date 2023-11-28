@@ -79,6 +79,7 @@ public class QueryParameters {
                 "required_int64_group",
                 "required_string_group"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {

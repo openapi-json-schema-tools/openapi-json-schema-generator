@@ -76,6 +76,7 @@ public class PathParameters {
                 "aB",
                 "self"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {

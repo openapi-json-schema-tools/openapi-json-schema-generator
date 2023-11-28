@@ -68,6 +68,7 @@ public class Schema {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "file"
             )))
+            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);

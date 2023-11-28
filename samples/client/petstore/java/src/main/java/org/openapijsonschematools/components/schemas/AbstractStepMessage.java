@@ -74,6 +74,7 @@ public class AbstractStepMessage {
                 "discriminator",
                 "sequenceNumber"
             )))
+            
         ));
         protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AbstractStepMessageMap(arg);

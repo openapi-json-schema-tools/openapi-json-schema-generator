@@ -52,6 +52,7 @@ public class QueryParameters {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "someParam"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {

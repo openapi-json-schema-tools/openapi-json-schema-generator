@@ -60,6 +60,7 @@ public class ObjWithRequiredProps {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "a"
             )))
+            
         ));
         protected static ObjWithRequiredPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjWithRequiredPropsMap(arg);

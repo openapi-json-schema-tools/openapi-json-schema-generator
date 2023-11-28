@@ -405,6 +405,7 @@ public class FormatTest {
                 "number",
                 "password"
             )))
+            
         ));
         protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FormatTestMap(arg);

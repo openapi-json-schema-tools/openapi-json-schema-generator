@@ -74,6 +74,7 @@ public class BananaReq {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "lengthCm"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static BananaReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {

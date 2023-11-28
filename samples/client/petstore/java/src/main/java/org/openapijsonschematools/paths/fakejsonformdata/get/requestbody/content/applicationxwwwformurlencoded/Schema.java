@@ -64,6 +64,7 @@ public class Schema {
                 "param",
                 "param2"
             )))
+            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);

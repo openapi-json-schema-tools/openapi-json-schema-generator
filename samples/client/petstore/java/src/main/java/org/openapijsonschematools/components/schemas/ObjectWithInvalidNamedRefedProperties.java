@@ -59,6 +59,7 @@ public class ObjectWithInvalidNamedRefedProperties {
                 "!reference",
                 "from"
             )))
+            
         ));
         protected static ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);

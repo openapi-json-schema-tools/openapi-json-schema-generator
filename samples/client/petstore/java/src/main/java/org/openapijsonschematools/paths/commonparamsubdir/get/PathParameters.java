@@ -52,6 +52,7 @@ public class PathParameters {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "subDir"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static PathParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {

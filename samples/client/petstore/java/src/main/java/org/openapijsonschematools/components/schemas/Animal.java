@@ -80,6 +80,7 @@ public class Animal {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))
+            
         ));
         protected static AnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AnimalMap(arg);

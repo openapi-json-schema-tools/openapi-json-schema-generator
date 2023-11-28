@@ -82,6 +82,7 @@ public class TriangleInterface {
                 "shapeType",
                 "triangleType"
             )))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);

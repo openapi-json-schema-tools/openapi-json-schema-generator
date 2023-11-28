@@ -73,6 +73,7 @@ public class Headers {
                 "int32",
                 "ref-content-schema-header"
             ))),
+            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
         ));
         protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {

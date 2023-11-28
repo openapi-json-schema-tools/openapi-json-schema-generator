@@ -82,6 +82,7 @@ public class QuadrilateralInterface {
                 "quadrilateralType",
                 "shapeType"
             )))
+            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
