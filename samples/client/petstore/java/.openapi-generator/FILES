@@ -681,6 +681,7 @@ src/main/java/org/openapijsonschematools/schemas/validation/MaxLengthValidator.j
 src/main/java/org/openapijsonschematools/schemas/validation/MaxPropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/MinItemsValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/MinLengthValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MinPropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertyEntry.java

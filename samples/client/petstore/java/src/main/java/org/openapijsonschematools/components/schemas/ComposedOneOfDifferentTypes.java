@@ -21,6 +21,7 @@ import org.openapijsonschematools.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.schemas.validation.MaxItemsValidator;
 import org.openapijsonschematools.schemas.validation.MaxPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.MinItemsValidator;
+import org.openapijsonschematools.schemas.validation.MinPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ComposedOneOfDifferentTypes {
@@ -36,7 +37,8 @@ public class ComposedOneOfDifferentTypes {
     public static class Schema4 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("maxProperties", new MaxPropertiesValidator(4))
+            new KeywordEntry("maxProperties", new MaxPropertiesValidator(4)),
+            new KeywordEntry("minProperties", new MinPropertiesValidator(4))
         ));
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema4.class, arg, configuration);
