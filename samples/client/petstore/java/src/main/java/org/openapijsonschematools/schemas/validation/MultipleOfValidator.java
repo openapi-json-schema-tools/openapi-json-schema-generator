@@ -33,18 +33,14 @@ public class MultipleOfValidator implements KeywordValidator {
             }
             return null;
         }
-        /*
-        todo improve the below logic. per the spec
-        A numeric instance is valid only if division by this keyword's value results in an integer.
-        */
         if (arg instanceof Float) {
-            if (((Float) arg) % maximum.floatValue()) > validationMetadata.configuration.precision.floatValue()) {
+            if (((Float) arg) % maximum.floatValue()) == 0.0) {
                 throw new ValidationException(msg);
             }
             return null;
         }
         if (arg instanceof Double) {
-            if (((Double) arg) % maximum.doubleValue()) > validationMetadata.configuration.precision.doubleValue()) {
+            if (((Double) arg) % maximum.doubleValue()) == 0.0) {
                 throw new ValidationException(msg);
             }
             return null;
