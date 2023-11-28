@@ -49,7 +49,7 @@ type: Map<String, Object>
 
 ## SourceURI
 public static class SourceURI<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

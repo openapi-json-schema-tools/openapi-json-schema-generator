@@ -57,7 +57,7 @@ type: Map<String, Object>
 
 ## QuadrilateralType
 public static class QuadrilateralType<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

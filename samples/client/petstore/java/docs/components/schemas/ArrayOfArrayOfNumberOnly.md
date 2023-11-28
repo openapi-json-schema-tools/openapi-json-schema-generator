@@ -110,7 +110,7 @@ Number |  |
 
 ## Items1
 public static class Items1<br>
-extends JsonSchema
+extends NumberJsonSchema
 
 A schema class that validates payloads
 

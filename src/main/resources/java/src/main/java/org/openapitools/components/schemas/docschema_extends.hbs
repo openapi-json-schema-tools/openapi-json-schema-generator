@@ -1,0 +1,66 @@
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+{{else}}
+    {{#eq types null }}
+        {{#if isSimpleAnyType }}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+        {{else}}
+extends JsonSchema
+        {{/if}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#if isSimpleObject }}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+                    {{else}}
+extends JsonSchema
+                    {{/if}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#if isSimpleArray }}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+                        {{else}}
+extends JsonSchema
+                        {{/if}}
+                    {{else}}
+                        {{#eq this "boolean"}}
+                            {{#if isSimpleBoolean }}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+                            {{else}}
+extends JsonSchema
+                            {{/if}}
+                        {{else}}
+                            {{#or (eq this "number") (eq this "integer") }}
+                                {{#or isSimpleInteger isSimpleNumber }}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+                                {{else}}
+extends JsonSchema
+                                {{/or}}
+                            {{else}}
+                                {{#eq this "string"}}
+                                    {{#if isSimpleString}}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+                                    {{else}}
+extends JsonSchema
+                                    {{/if}}
+                                {{else}}
+                                    {{#if isSimpleNull }}
+{{> src/main/java/org/openapitools/components/schemas/docschema_extends_varEqualsClass }}
+                                    {{else}}
+extends JsonSchema
+                                    {{/if}}
+                                {{/eq}}
+                            {{/or}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+extends JsonSchema
+        {{/eq}}
+    {{/eq}}
+{{/or}}

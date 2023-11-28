@@ -83,7 +83,7 @@ type: Map<String, Object>
 
 ## DateTime
 public static class DateTime<br>
-extends JsonSchema
+extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
@@ -94,7 +94,7 @@ A schema class that validates payloads
 
 ## UuidSchema
 public static class UuidSchema<br>
-extends JsonSchema
+extends UuidJsonSchema
 
 A schema class that validates payloads
 

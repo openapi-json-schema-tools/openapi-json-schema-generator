@@ -61,7 +61,7 @@ type: Map<String, Object>
 
 ## Complete
 public static class Complete<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 
@@ -86,7 +86,7 @@ Order Status
 
 ## ShipDate
 public static class ShipDate<br>
-extends JsonSchema
+extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
@@ -97,7 +97,7 @@ A schema class that validates payloads
 
 ## Quantity
 public static class Quantity<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 
@@ -108,7 +108,7 @@ A schema class that validates payloads
 
 ## PetId
 public static class PetId<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 
@@ -119,7 +119,7 @@ A schema class that validates payloads
 
 ## Id
 public static class Id<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 

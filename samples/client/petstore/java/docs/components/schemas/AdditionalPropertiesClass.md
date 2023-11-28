@@ -110,7 +110,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -153,7 +153,8 @@ type: Map<String, Object>
 
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 
@@ -203,7 +204,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
@@ -222,7 +223,7 @@ A schema class that validates payloads
 
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 
@@ -233,7 +234,7 @@ A schema class that validates payloads
 
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 
@@ -244,7 +245,7 @@ A schema class that validates payloads
 
 ## Anytype1
 public static class Anytype1<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
@@ -325,7 +326,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -367,7 +368,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

@@ -48,7 +48,7 @@ type: Map<String, Object>
 
 ## PetId
 public static class PetId<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 
@@ -59,7 +59,7 @@ A schema class that validates payloads
 
 ## Id
 public static class Id<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 
@@ -70,7 +70,8 @@ A schema class that validates payloads
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 

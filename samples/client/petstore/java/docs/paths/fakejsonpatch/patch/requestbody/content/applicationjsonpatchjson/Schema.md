@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public static class Schema1<br>
-extends [JSONPatchRequest.JSONPatchRequest1](../../../../../../components/schemas/JSONPatchRequest.md#jsonpatchrequest1)
+extends JSONPatchRequest.JSONPatchRequest1
 
 A schema class that validates payloads

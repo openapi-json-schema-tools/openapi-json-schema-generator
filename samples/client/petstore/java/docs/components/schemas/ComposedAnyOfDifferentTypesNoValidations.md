@@ -48,7 +48,7 @@ A schema class that validates payloads
 
 ## Schema15
 public static class Schema15<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 
@@ -59,7 +59,7 @@ A schema class that validates payloads
 
 ## Schema14
 public static class Schema14<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 
@@ -70,7 +70,7 @@ A schema class that validates payloads
 
 ## Schema13
 public static class Schema13<br>
-extends JsonSchema
+extends IntJsonSchema
 
 A schema class that validates payloads
 
@@ -81,7 +81,7 @@ A schema class that validates payloads
 
 ## Schema12
 public static class Schema12<br>
-extends JsonSchema
+extends DoubleJsonSchema
 
 A schema class that validates payloads
 
@@ -92,7 +92,7 @@ A schema class that validates payloads
 
 ## Schema11
 public static class Schema11<br>
-extends JsonSchema
+extends FloatJsonSchema
 
 A schema class that validates payloads
 
@@ -103,7 +103,7 @@ A schema class that validates payloads
 
 ## Schema10
 public static class Schema10<br>
-extends JsonSchema
+extends NumberJsonSchema
 
 A schema class that validates payloads
 
@@ -144,7 +144,7 @@ Object |  |
 
 ## Items
 public static class Items<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
@@ -163,7 +163,7 @@ A schema class that validates payloads
 
 ## Schema8
 public static class Schema8<br>
-extends JsonSchema
+extends NullJsonSchema
 
 A schema class that validates payloads
 
@@ -174,7 +174,7 @@ A schema class that validates payloads
 
 ## Schema7
 public static class Schema7<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 
@@ -185,7 +185,7 @@ A schema class that validates payloads
 
 ## Schema6
 public static class Schema6<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 
@@ -196,7 +196,7 @@ A schema class that validates payloads
 
 ## Schema5
 public static class Schema5<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -207,7 +207,7 @@ A schema class that validates payloads
 
 ## Schema4
 public static class Schema4<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -229,7 +229,7 @@ A schema class that validates payloads
 
 ## Schema2
 public static class Schema2<br>
-extends JsonSchema
+extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
@@ -240,7 +240,7 @@ A schema class that validates payloads
 
 ## Schema1
 public static class Schema1<br>
-extends JsonSchema
+extends DateJsonSchema
 
 A schema class that validates payloads
 
@@ -251,7 +251,7 @@ A schema class that validates payloads
 
 ## Schema0
 public static class Schema0<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 

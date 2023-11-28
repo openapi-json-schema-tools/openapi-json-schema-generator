@@ -43,7 +43,7 @@ String |  |
 
 ## Items3
 public static class Items3<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

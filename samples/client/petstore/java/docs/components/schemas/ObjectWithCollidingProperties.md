@@ -52,7 +52,7 @@ type: Map<String, Object>
 
 ## Someprop
 public static class Someprop<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 
@@ -63,7 +63,7 @@ A schema class that validates payloads
 
 ## SomeProp
 public static class SomeProp<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 

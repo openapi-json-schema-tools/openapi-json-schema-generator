@@ -46,7 +46,7 @@ type: Map<String, Object>
 
 ## LengthCm
 public static class LengthCm<br>
-extends JsonSchema
+extends NumberJsonSchema
 
 A schema class that validates payloads
 

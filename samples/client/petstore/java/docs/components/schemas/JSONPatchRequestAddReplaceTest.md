@@ -65,7 +65,7 @@ The operation to perform.
 
 ## Value
 public static class Value<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
@@ -87,7 +87,7 @@ The value to add, replace or test.
 
 ## Path
 public static class Path<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -101,7 +101,8 @@ A JSON Pointer path.
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 

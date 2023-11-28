@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## XRateLimitSchema1
 public static class XRateLimitSchema1<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 

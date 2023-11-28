@@ -46,7 +46,7 @@ type: Map<String, Object>
 
 ## Keyword0
 public static class Keyword0<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

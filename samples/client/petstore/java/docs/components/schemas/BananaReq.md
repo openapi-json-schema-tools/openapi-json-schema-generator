@@ -48,7 +48,7 @@ type: Map<String, Object>
 
 ## Sweet
 public static class Sweet<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 
@@ -59,7 +59,7 @@ A schema class that validates payloads
 
 ## LengthCm
 public static class LengthCm<br>
-extends JsonSchema
+extends NumberJsonSchema
 
 A schema class that validates payloads
 
@@ -70,7 +70,8 @@ A schema class that validates payloads
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 

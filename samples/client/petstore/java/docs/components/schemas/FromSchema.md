@@ -49,7 +49,7 @@ type: Map<String, Object>
 
 ## Id
 public static class Id<br>
-extends JsonSchema
+extends IntJsonSchema
 
 A schema class that validates payloads
 
@@ -60,7 +60,7 @@ A schema class that validates payloads
 
 ## Data
 public static class Data<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

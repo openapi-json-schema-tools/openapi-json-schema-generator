@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## ObjectInterface1
 public static class ObjectInterface1<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 

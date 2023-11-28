@@ -62,7 +62,7 @@ The operation to perform.
 
 ## Path
 public static class Path<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -76,7 +76,8 @@ A JSON Pointer path.
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 

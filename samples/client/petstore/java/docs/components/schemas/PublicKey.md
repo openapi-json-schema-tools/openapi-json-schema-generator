@@ -49,7 +49,7 @@ type: Map<String, Object>
 
 ## Key
 public static class Key<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

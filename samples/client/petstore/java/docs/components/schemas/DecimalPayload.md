@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## DecimalPayload1
 public static class DecimalPayload1<br>
-extends JsonSchema
+extends DecimalJsonSchema
 
 A schema class that validates payloads
 

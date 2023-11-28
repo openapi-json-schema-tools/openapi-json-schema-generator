@@ -102,7 +102,7 @@ type: Map<String, Object>
 
 ## NoneProp
 public static class NoneProp<br>
-extends JsonSchema
+extends NullJsonSchema
 
 A schema class that validates payloads
 
@@ -152,7 +152,7 @@ A schema class that validates payloads
 
 ## UuidNoExample
 public static class UuidNoExample<br>
-extends JsonSchema
+extends UuidJsonSchema
 
 A schema class that validates payloads
 
@@ -163,7 +163,7 @@ A schema class that validates payloads
 
 ## UuidSchema
 public static class UuidSchema<br>
-extends JsonSchema
+extends UuidJsonSchema
 
 A schema class that validates payloads
 
@@ -174,7 +174,7 @@ A schema class that validates payloads
 
 ## DateTime
 public static class DateTime<br>
-extends JsonSchema
+extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
@@ -185,7 +185,7 @@ A schema class that validates payloads
 
 ## Date
 public static class Date<br>
-extends JsonSchema
+extends DateJsonSchema
 
 A schema class that validates payloads
 
@@ -207,7 +207,7 @@ A schema class that validates payloads
 
 ## ByteSchema
 public static class ByteSchema<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -259,7 +259,7 @@ Number |  |
 
 ## Items
 public static class Items<br>
-extends JsonSchema
+extends NumberJsonSchema
 
 A schema class that validates payloads
 
@@ -270,7 +270,7 @@ A schema class that validates payloads
 
 ## Float64
 public static class Float64<br>
-extends JsonSchema
+extends DoubleJsonSchema
 
 A schema class that validates payloads
 
@@ -292,7 +292,7 @@ A schema class that validates payloads
 
 ## Float32
 public static class Float32<br>
-extends JsonSchema
+extends FloatJsonSchema
 
 A schema class that validates payloads
 
@@ -328,7 +328,7 @@ A schema class that validates payloads
 
 ## Int64
 public static class Int64<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 
@@ -350,7 +350,7 @@ A schema class that validates payloads
 
 ## Int32
 public static class Int32<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 

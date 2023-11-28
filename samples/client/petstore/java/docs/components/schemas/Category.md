@@ -60,7 +60,7 @@ A schema class that validates payloads
 
 ## Id
 public static class Id<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 

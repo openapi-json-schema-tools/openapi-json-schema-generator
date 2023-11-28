@@ -44,7 +44,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 

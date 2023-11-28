@@ -31,7 +31,7 @@ A schema class that validates payloads
 
 ## Not
 public static class Not<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

@@ -181,7 +181,7 @@ Long |  | value must be a 64 bit integer
 
 ## Items2
 public static class Items2<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 
@@ -222,7 +222,7 @@ String |  |
 
 ## Items
 public static class Items<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

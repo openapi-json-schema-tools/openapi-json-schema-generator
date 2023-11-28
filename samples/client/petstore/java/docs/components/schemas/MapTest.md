@@ -93,7 +93,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 
@@ -208,7 +208,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

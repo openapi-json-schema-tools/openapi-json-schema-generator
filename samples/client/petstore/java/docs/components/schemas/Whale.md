@@ -63,7 +63,7 @@ A schema class that validates payloads
 
 ## HasTeeth
 public static class HasTeeth<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 
@@ -74,7 +74,7 @@ A schema class that validates payloads
 
 ## HasBaleen
 public static class HasBaleen<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 

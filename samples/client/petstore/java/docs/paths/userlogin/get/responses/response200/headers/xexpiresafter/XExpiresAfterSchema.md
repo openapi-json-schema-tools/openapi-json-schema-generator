@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## XExpiresAfterSchema1
 public static class XExpiresAfterSchema1<br>
-extends JsonSchema
+extends DateTimeJsonSchema
 
 A schema class that validates payloads
 

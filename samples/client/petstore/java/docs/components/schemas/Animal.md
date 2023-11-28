@@ -60,7 +60,7 @@ A schema class that validates payloads
 
 ## ClassName
 public static class ClassName<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

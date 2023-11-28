@@ -49,7 +49,7 @@ type: Map<String, Object>
 
 ## Status
 public static class Status<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -63,7 +63,7 @@ Updated status of the pet
 
 ## Name
 public static class Name<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

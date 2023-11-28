@@ -63,7 +63,7 @@ type: Map<String, Object>
 
 ## Property
 public static class Property<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -77,7 +77,7 @@ this is a reserved python keyword
 
 ## SnakeCase
 public static class SnakeCase<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 
@@ -88,7 +88,7 @@ A schema class that validates payloads
 
 ## Name2
 public static class Name2<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 

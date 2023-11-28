@@ -34,7 +34,7 @@ The value may be a shape or the &#x27;null&#x27; value. For a composed schema to
 
 ## Schema2
 public static class Schema2<br>
-extends JsonSchema
+extends NullJsonSchema
 
 A schema class that validates payloads
 

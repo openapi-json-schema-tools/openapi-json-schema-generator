@@ -34,7 +34,7 @@ The value may be a shape or the &#x27;null&#x27; value. This is introduced in OA
 
 ## Schema0
 public static class Schema0<br>
-extends JsonSchema
+extends NullJsonSchema
 
 A schema class that validates payloads
 

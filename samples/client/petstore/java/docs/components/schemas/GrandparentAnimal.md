@@ -46,7 +46,7 @@ type: Map<String, Object>
 
 ## PetType
 public static class PetType<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

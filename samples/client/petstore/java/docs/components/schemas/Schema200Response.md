@@ -60,7 +60,7 @@ type: Map<String, Object>
 
 ## ClassSchema
 public static class ClassSchema<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -74,7 +74,7 @@ this is a reserved python keyword
 
 ## Name
 public static class Name<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 

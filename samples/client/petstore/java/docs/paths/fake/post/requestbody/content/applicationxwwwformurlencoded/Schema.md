@@ -80,7 +80,7 @@ type: Map<String, Object>
 
 ## Callback
 public static class Callback<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -122,7 +122,7 @@ None
 
 ## Date
 public static class Date<br>
-extends JsonSchema
+extends DateJsonSchema
 
 A schema class that validates payloads
 
@@ -150,7 +150,7 @@ None
 
 ## ByteSchema
 public static class ByteSchema<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -234,7 +234,7 @@ None
 
 ## Int64
 public static class Int64<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 

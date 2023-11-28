@@ -46,7 +46,7 @@ Map<String, Object> |  |
 
 ## Items2
 public static class Items2<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 

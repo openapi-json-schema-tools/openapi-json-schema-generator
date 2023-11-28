@@ -79,7 +79,7 @@ Map<String, String> |  |
 
 ## Count
 public static class Count<br>
-extends JsonSchema
+extends IntJsonSchema
 
 A schema class that validates payloads
 
@@ -90,7 +90,8 @@ A schema class that validates payloads
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 

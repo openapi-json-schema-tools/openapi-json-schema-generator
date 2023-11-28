@@ -81,7 +81,7 @@ Object |  |
 
 ## Items
 public static class Items<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
@@ -111,7 +111,7 @@ A schema class that validates payloads
 
 ## Schema3
 public static class Schema3<br>
-extends JsonSchema
+extends DateJsonSchema
 
 A schema class that validates payloads
 
@@ -122,7 +122,7 @@ A schema class that validates payloads
 
 ## Schema2
 public static class Schema2<br>
-extends JsonSchema
+extends NullJsonSchema
 
 A schema class that validates payloads
 

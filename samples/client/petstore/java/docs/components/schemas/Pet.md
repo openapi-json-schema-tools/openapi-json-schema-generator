@@ -140,7 +140,7 @@ String |  |
 
 ## Items
 public static class Items<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -151,7 +151,7 @@ A schema class that validates payloads
 
 ## Name
 public static class Name<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -162,7 +162,7 @@ A schema class that validates payloads
 
 ## Id
 public static class Id<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 

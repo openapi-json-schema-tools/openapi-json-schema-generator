@@ -66,7 +66,7 @@ type: Map<String, Object>
 
 ## Breed
 public static class Breed<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

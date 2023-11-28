@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public static class Schema1<br>
-extends [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](../../../../../../components/schemas/ComposedOneOfDifferentTypes.md#composedoneofdifferenttypes1)
+extends ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1
 
 A schema class that validates payloads

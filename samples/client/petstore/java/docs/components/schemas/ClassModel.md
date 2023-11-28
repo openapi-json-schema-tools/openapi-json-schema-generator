@@ -57,7 +57,7 @@ type: Map<String, Object>
 
 ## ClassSchema
 public static class ClassSchema<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

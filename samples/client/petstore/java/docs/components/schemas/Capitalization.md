@@ -61,7 +61,7 @@ type: Map<String, Object>
 
 ## ATTNAME
 public static class ATTNAME<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -75,7 +75,7 @@ Name of the pet
 
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -86,7 +86,7 @@ A schema class that validates payloads
 
 ## CapitalSnake
 public static class CapitalSnake<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -97,7 +97,7 @@ A schema class that validates payloads
 
 ## SmallSnake
 public static class SmallSnake<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -108,7 +108,7 @@ A schema class that validates payloads
 
 ## CapitalCamel
 public static class CapitalCamel<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -119,7 +119,7 @@ A schema class that validates payloads
 
 ## SmallCamel
 public static class SmallCamel<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

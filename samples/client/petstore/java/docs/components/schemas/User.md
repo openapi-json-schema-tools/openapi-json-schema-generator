@@ -83,7 +83,7 @@ type: Map<String, Object>
 
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
@@ -127,7 +127,7 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 
 ## Not
 public static class Not<br>
-extends JsonSchema
+extends NullJsonSchema
 
 A schema class that validates payloads
 
@@ -138,7 +138,7 @@ A schema class that validates payloads
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
@@ -175,7 +175,7 @@ test code generation for nullable objects. Value must be a map of strings to val
 
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 
@@ -189,7 +189,7 @@ test code generation for objects Value must be a map of strings to values. It ca
 
 ## UserStatus
 public static class UserStatus<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 
@@ -203,7 +203,7 @@ User Status
 
 ## Phone
 public static class Phone<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -214,7 +214,7 @@ A schema class that validates payloads
 
 ## Password
 public static class Password<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -225,7 +225,7 @@ A schema class that validates payloads
 
 ## Email
 public static class Email<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -236,7 +236,7 @@ A schema class that validates payloads
 
 ## LastName
 public static class LastName<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -247,7 +247,7 @@ A schema class that validates payloads
 
 ## FirstName
 public static class FirstName<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -258,7 +258,7 @@ A schema class that validates payloads
 
 ## Username
 public static class Username<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -269,7 +269,7 @@ A schema class that validates payloads
 
 ## Id
 public static class Id<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 

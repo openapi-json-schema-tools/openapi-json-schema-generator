@@ -50,7 +50,7 @@ type: Map<String, Object>
 
 ## Width
 public static class Width<br>
-extends JsonSchema
+extends DecimalJsonSchema
 
 A schema class that validates payloads
 

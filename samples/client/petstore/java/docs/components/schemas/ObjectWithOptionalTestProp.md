@@ -46,7 +46,7 @@ type: Map<String, Object>
 
 ## Test
 public static class Test<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

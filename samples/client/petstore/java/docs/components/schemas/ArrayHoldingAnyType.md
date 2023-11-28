@@ -43,7 +43,7 @@ Object | any type can be stored here |
 
 ## Items
 public static class Items<br>
-extends JsonSchema
+extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 

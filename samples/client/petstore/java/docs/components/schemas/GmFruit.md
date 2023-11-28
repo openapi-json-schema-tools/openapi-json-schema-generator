@@ -54,7 +54,7 @@ type: Map<String, Object>
 
 ## Color
 public static class Color<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 

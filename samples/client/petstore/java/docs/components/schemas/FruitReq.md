@@ -31,7 +31,7 @@ A schema class that validates payloads
 
 ## Schema0
 public static class Schema0<br>
-extends JsonSchema
+extends NullJsonSchema
 
 A schema class that validates payloads
 

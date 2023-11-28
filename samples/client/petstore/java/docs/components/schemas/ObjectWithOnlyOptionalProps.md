@@ -48,7 +48,7 @@ type: Map<String, Object>
 
 ## B
 public static class B<br>
-extends JsonSchema
+extends NumberJsonSchema
 
 A schema class that validates payloads
 
@@ -59,7 +59,7 @@ A schema class that validates payloads
 
 ## A
 public static class A<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -70,7 +70,8 @@ A schema class that validates payloads
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 

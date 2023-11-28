@@ -57,7 +57,7 @@ type: Map<String, Object>
 
 ## ReturnSchema2
 public static class ReturnSchema2<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 

@@ -53,7 +53,7 @@ type: Map<String, Object>
 
 ## Schema123Number
 public static class Schema123Number<br>
-extends JsonSchema
+extends IntJsonSchema
 
 A schema class that validates payloads
 
@@ -64,7 +64,7 @@ A schema class that validates payloads
 
 ## Schema123list
 public static class Schema123list<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -75,7 +75,7 @@ A schema class that validates payloads
 
 ## Specialpropertyname
 public static class Specialpropertyname<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 

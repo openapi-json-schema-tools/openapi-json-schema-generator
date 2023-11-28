@@ -52,7 +52,7 @@ type: Map<String, Object>
 
 ## Message
 public static class Message<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -63,7 +63,7 @@ A schema class that validates payloads
 
 ## Type
 public static class Type<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -74,7 +74,7 @@ A schema class that validates payloads
 
 ## Code
 public static class Code<br>
-extends JsonSchema
+extends Int32JsonSchema
 
 A schema class that validates payloads
 

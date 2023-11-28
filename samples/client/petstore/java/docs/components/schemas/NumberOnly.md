@@ -46,7 +46,7 @@ type: Map<String, Object>
 
 ## JustNumber
 public static class JustNumber<br>
-extends JsonSchema
+extends NumberJsonSchema
 
 A schema class that validates payloads
 

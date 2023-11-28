@@ -48,7 +48,7 @@ type: Map<String, Object>
 
 ## Mealy
 public static class Mealy<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 
@@ -59,7 +59,7 @@ A schema class that validates payloads
 
 ## Cultivar
 public static class Cultivar<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
@@ -70,7 +70,8 @@ A schema class that validates payloads
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends NotAnyTypeJsonSchema
+    // NotAnyTypeSchema
 
 A schema class that validates payloads
 

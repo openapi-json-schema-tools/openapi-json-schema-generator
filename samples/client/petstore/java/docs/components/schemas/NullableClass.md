@@ -211,7 +211,7 @@ type: Map<String, Object>
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 
@@ -338,7 +338,7 @@ Map<String, Object> |  |
 
 ## Items
 public static class Items<br>
-extends JsonSchema
+extends MapJsonSchema
 
 A schema class that validates payloads
 

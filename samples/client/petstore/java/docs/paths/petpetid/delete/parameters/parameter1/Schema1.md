@@ -11,7 +11,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema11
 public static class Schema11<br>
-extends JsonSchema
+extends Int64JsonSchema
 
 A schema class that validates payloads
 

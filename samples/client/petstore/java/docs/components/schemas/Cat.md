@@ -66,7 +66,7 @@ type: Map<String, Object>
 
 ## Declawed
 public static class Declawed<br>
-extends JsonSchema
+extends BooleanJsonSchema
 
 A schema class that validates payloads
 

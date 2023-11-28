@@ -53,7 +53,7 @@ type: Map<String, Object>
 
 ## Discriminator
 public static class Discriminator<br>
-extends JsonSchema
+extends StringJsonSchema
 
 A schema class that validates payloads
 
