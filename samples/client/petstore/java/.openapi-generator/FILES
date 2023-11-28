@@ -664,6 +664,7 @@ src/main/java/org/openapijsonschematools/schemas/StringJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/UuidJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/validation/AdditionalPropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMinimumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FakeValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FormatValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FrozenList.java
