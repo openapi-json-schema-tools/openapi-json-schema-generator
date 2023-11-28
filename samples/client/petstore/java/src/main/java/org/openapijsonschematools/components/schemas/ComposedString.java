@@ -1,10 +1,12 @@
 package org.openapijsonschematools.components.schemas;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
@@ -27,6 +29,9 @@ public class ComposedString {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("allOf", new AllOfValidator(List.of(
+                Schema0.class
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

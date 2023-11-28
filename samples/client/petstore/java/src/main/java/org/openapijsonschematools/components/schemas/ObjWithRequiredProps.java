@@ -1,10 +1,12 @@
 package org.openapijsonschematools.components.schemas;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -56,11 +58,13 @@ public class ObjWithRequiredProps {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("a", A.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "a"
-            )))
+            ))),
             
+            new KeywordEntry("allOf", new AllOfValidator(List.of(
+                ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1.class
+            )))
         ));
         protected static ObjWithRequiredPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjWithRequiredPropsMap(arg);

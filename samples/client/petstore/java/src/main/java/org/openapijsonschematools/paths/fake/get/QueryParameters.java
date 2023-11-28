@@ -76,7 +76,6 @@ public class QueryParameters {
                 new PropertyEntry("enum_query_integer", Schema4.Schema41.class),
                 new PropertyEntry("enum_query_string_array", Schema2.Schema21.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

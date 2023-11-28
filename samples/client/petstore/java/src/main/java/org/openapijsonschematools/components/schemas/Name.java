@@ -85,7 +85,6 @@ public class Name {
                 new PropertyEntry("snake_case", SnakeCase.class),
                 new PropertyEntry("property", Property.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "name"
             )))

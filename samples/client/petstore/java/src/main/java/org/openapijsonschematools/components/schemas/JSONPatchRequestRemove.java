@@ -74,7 +74,6 @@ public class JSONPatchRequestRemove {
                 new PropertyEntry("path", Path.class),
                 new PropertyEntry("op", Op.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "op",
                 "path"

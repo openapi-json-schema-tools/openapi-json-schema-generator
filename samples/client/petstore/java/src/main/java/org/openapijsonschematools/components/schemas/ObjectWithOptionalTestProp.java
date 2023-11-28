@@ -57,7 +57,6 @@ public class ObjectWithOptionalTestProp {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("test", Test.class)
             )))
-            
         ));
         protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithOptionalTestPropMap(arg);

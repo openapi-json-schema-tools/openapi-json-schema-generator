@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -63,7 +64,6 @@ public class SimpleQuadrilateral {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("quadrilateralType", QuadrilateralType.class)
             )))
-            
         ));
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);
@@ -81,6 +81,12 @@ public class SimpleQuadrilateral {
     
         Do not edit the class manually.
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("allOf", new AllOfValidator(List.of(
+                QuadrilateralInterface.QuadrilateralInterface1.class,
+                Schema1.class
+            )))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(SimpleQuadrilateral1.class, arg, configuration);
         }

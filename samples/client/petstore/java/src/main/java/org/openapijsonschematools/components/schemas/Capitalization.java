@@ -112,7 +112,6 @@ public class Capitalization {
                 new PropertyEntry("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
                 new PropertyEntry("ATT_NAME", ATTNAME.class)
             )))
-            
         ));
         protected static CapitalizationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CapitalizationMap(arg);

@@ -73,7 +73,6 @@ public class CookieParameters {
                 new PropertyEntry("A-B", Schema18.Schema181.class),
                 new PropertyEntry("self", Schema17.Schema171.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

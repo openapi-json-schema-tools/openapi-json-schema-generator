@@ -69,7 +69,6 @@ public class NoAdditionalProperties {
                 new PropertyEntry("id", Id.class),
                 new PropertyEntry("petId", PetId.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "id"
             ))),

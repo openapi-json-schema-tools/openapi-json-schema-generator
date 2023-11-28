@@ -63,7 +63,6 @@ public class DanishPig {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("className", ClassName.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))

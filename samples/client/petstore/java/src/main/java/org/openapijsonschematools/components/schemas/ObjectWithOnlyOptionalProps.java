@@ -70,7 +70,6 @@ public class ObjectWithOnlyOptionalProps {
                 new PropertyEntry("a", A.class),
                 new PropertyEntry("b", B.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

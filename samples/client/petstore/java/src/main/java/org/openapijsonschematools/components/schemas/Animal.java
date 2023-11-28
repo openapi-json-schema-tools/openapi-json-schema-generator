@@ -76,7 +76,6 @@ public class Animal {
                 new PropertyEntry("className", ClassName.class),
                 new PropertyEntry("color", Color.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))

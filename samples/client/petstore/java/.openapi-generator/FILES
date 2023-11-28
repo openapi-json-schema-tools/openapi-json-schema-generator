@@ -663,6 +663,7 @@ src/main/java/org/openapijsonschematools/schemas/NumberJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/StringJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/UuidJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/validation/AdditionalPropertiesValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/AllOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/CustomIsoparser.java
 src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMaximumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMinimumValidator.java

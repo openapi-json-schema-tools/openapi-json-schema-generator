@@ -49,7 +49,6 @@ public class QueryParameters {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("mapBean", Foo.Foo1.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

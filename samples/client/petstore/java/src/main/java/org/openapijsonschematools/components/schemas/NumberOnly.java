@@ -57,7 +57,6 @@ public class NumberOnly {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("JustNumber", JustNumber.class)
             )))
-            
         ));
         protected static NumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new NumberOnlyMap(arg);

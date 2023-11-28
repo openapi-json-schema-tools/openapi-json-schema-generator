@@ -103,7 +103,6 @@ public class Drawing {
                 new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
                 new PropertyEntry("shapes", Shapes.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
             
         ));

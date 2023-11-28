@@ -70,7 +70,6 @@ public class Headers {
                 new PropertyEntry("stringHeader", StringHeaderSchema.StringHeaderSchema1.class),
                 new PropertyEntry("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "int32",
                 "ref-content-schema-header",

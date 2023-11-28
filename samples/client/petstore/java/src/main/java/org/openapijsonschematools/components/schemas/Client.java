@@ -57,7 +57,6 @@ public class Client {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("client", Client2.class)
             )))
-            
         ));
         protected static ClientMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ClientMap(arg);

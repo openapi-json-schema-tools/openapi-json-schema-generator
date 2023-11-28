@@ -69,7 +69,6 @@ public class Tag {
                 new PropertyEntry("id", Id.class),
                 new PropertyEntry("name", Name.class)
             )))
-            
         ));
         protected static TagMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new TagMap(arg);

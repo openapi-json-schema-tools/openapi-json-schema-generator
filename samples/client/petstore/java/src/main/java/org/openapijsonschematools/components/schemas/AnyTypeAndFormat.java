@@ -570,7 +570,6 @@ public class AnyTypeAndFormat {
                 new PropertyEntry("double", DoubleSchema.class),
                 new PropertyEntry("float", FloatSchema.class)
             )))
-            
         ));
         protected static AnyTypeAndFormatMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AnyTypeAndFormatMap(arg);

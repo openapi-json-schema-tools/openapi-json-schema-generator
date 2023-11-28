@@ -54,7 +54,6 @@ public class ObjectWithInvalidNamedRefedProperties {
                 new PropertyEntry("from", FromSchema.FromSchema1.class),
                 new PropertyEntry("!reference", ArrayWithValidationsInItems.ArrayWithValidationsInItems1.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "!reference",
                 "from"

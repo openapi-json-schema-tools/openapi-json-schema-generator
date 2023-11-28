@@ -73,7 +73,6 @@ public class QueryParameters {
                 new PropertyEntry("A-B", Schema4.Schema41.class),
                 new PropertyEntry("self", Schema3.Schema31.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

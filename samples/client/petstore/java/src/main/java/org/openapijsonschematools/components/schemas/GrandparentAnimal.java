@@ -56,7 +56,6 @@ public class GrandparentAnimal {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("pet_type", PetType.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "pet_type"
             )))

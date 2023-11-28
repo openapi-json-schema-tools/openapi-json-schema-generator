@@ -221,7 +221,6 @@ public class MapTest {
                 new PropertyEntry("direct_map", DirectMap.class),
                 new PropertyEntry("indirect_map", StringBooleanMap.StringBooleanMap1.class)
             )))
-            
         ));
         protected static MapTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MapTestMap(arg);

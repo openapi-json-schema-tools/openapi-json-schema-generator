@@ -64,7 +64,6 @@ public class Schema {
                 new PropertyEntry("additionalMetadata", AdditionalMetadata.class),
                 new PropertyEntry("file", File.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "file"
             )))
