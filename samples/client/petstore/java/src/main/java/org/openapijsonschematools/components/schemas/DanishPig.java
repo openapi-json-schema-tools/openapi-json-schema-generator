@@ -66,7 +66,6 @@ public class DanishPig {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))
-            
         ));
         protected static DanishPigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new DanishPigMap(arg);

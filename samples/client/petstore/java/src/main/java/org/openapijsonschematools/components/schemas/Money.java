@@ -67,7 +67,6 @@ public class Money {
                 "amount",
                 "currency"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

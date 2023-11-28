@@ -76,7 +76,6 @@ public class Headers {
                 "ref-schema-header",
                 "stringHeader"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

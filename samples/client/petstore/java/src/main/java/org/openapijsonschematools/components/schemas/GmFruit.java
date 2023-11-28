@@ -9,6 +9,7 @@ import java.util.UUID;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -59,6 +60,10 @@ public class GmFruit {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("color", Color.class)
+            ))),
+            new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+                Apple.Apple1.class,
+                Banana.Banana1.class
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {

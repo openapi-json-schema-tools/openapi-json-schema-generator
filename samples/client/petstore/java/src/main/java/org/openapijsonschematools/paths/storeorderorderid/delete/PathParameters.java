@@ -51,7 +51,6 @@ public class PathParameters {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "order_id"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

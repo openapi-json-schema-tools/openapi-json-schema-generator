@@ -93,7 +93,6 @@ public class PaginatedResultMyObjectDto {
                 "count",
                 "results"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

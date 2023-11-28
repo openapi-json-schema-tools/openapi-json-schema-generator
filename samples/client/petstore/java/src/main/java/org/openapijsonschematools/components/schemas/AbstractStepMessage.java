@@ -1,10 +1,12 @@
 package org.openapijsonschematools.components.schemas;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -72,8 +74,10 @@ public class AbstractStepMessage {
                 "description",
                 "discriminator",
                 "sequenceNumber"
+            ))),
+            new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+                AbstractStepMessage1.class
             )))
-            
         ));
         protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AbstractStepMessageMap(arg);

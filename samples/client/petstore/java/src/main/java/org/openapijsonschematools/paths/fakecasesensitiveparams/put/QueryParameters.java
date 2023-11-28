@@ -67,7 +67,6 @@ public class QueryParameters {
                 "someVar",
                 "some_var"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

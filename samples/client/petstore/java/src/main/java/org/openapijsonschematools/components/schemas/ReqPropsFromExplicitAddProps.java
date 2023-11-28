@@ -56,7 +56,6 @@ public class ReqPropsFromExplicitAddProps {
                 "invalid-name",
                 "validName"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

@@ -59,7 +59,6 @@ public class Banana {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "lengthCm"
             )))
-            
         ));
         protected static BananaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BananaMap(arg);

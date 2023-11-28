@@ -59,7 +59,6 @@ public class QueryParameters {
                 "password",
                 "username"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

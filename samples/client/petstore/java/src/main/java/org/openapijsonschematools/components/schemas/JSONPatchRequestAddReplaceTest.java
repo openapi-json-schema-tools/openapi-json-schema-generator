@@ -88,7 +88,6 @@ public class JSONPatchRequestAddReplaceTest {
                 "path",
                 "value"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

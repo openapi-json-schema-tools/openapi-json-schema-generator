@@ -1467,7 +1467,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addAnyOfValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.anyOf != null) {
-            imports.add("import "+packageName + ".schemas.validation.AanyOfValidator;");
+            imports.add("import "+packageName + ".schemas.validation.AnyOfValidator;");
             imports.add("import java.util.List;");
         }
     }

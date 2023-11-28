@@ -72,7 +72,6 @@ public class NoAdditionalProperties {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "id"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

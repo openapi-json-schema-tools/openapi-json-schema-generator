@@ -88,7 +88,6 @@ public class Name {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "name"
             )))
-            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);

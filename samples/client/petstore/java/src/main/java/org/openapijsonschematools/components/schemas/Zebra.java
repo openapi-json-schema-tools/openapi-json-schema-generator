@@ -90,7 +90,6 @@ public class Zebra {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

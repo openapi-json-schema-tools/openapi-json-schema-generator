@@ -75,7 +75,6 @@ public class PathParameters {
                 "aB",
                 "self"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

@@ -78,7 +78,6 @@ public class QueryParameters {
                 "required_int64_group",
                 "required_string_group"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

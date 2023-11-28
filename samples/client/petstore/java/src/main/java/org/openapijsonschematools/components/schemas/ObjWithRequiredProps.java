@@ -61,7 +61,6 @@ public class ObjWithRequiredProps {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "a"
             ))),
-            
             new KeywordEntry("allOf", new AllOfValidator(List.of(
                 ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1.class
             )))

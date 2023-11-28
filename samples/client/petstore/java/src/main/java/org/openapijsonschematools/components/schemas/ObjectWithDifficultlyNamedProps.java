@@ -70,7 +70,6 @@ public class ObjectWithDifficultlyNamedProps {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "123-list"
             )))
-            
         ));
         protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithDifficultlyNamedPropsMap(arg);

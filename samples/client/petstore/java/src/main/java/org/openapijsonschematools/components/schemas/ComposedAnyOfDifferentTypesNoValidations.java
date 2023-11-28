@@ -21,6 +21,7 @@ import org.openapijsonschematools.schemas.MapJsonSchema;
 import org.openapijsonschematools.schemas.NullJsonSchema;
 import org.openapijsonschematools.schemas.NumberJsonSchema;
 import org.openapijsonschematools.schemas.StringJsonSchema;
+import org.openapijsonschematools.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.schemas.validation.FrozenList;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.ItemsValidator;
@@ -113,6 +114,26 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
         Do not edit the class manually.
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+                Schema0.class,
+                Schema1.class,
+                Schema2.class,
+                Schema3.class,
+                Schema4.class,
+                Schema5.class,
+                Schema6.class,
+                Schema7.class,
+                Schema8.class,
+                Schema9.class,
+                Schema10.class,
+                Schema11.class,
+                Schema12.class,
+                Schema13.class,
+                Schema14.class,
+                Schema15.class
+            )))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }

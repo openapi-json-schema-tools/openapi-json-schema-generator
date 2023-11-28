@@ -66,7 +66,6 @@ public class BasquePig {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))
-            
         ));
         protected static BasquePigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BasquePigMap(arg);

@@ -51,7 +51,6 @@ public class QueryParameters {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "someParam"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

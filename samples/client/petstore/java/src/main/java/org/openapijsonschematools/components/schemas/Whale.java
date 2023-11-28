@@ -90,7 +90,6 @@ public class Whale {
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))
-            
         ));
         protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new WhaleMap(arg);
