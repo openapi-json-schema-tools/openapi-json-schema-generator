@@ -8,6 +8,7 @@ import org.openapijsonschematools.schemas.validation.FormatValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class Schema0 {
@@ -22,7 +23,8 @@ public class Schema0 {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("format", new FormatValidator("int64"))
+            new KeywordEntry("format", new FormatValidator("int64")),
+            new KeywordEntry("maximum", new MaximumValidator(5))
         ));
         public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema01.class, Long.valueOf(arg), configuration);
