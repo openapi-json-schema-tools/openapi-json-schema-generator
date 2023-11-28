@@ -8,7 +8,7 @@ extends NotAnyTypeJsonSchema
 {{else}}
     {{#if refInfo.refClass}}
         {{#if refInfo.refModule}}
-extends {{refInfo.refModule}}.{{refInfo.refClass}}
+extends [{{refInfo.refModule}}.{{refInfo.refClass}}]({{docRoot}}{{#with refInfo.ref}}{{pathFromDocRoot}}.md#{{jsonPathPiece.anchorPiece}}{{/with}})
         {{else}}
 extends [{{refInfo.refClass}}](#{{refInfo.ref.jsonPathPiece.anchorPiece}})
         {{/if}}

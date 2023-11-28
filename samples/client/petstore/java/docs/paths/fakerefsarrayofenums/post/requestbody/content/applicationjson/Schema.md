@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public static class Schema1<br>
-extends ArrayOfEnums.ArrayOfEnums1
+extends [ArrayOfEnums.ArrayOfEnums1](../../../../../../components/schemas/ArrayOfEnums.md#arrayofenums1)
 
 A schema class that validates payloads

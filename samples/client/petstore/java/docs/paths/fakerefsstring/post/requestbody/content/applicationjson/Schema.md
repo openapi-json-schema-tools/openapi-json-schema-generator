@@ -11,6 +11,6 @@ A class that contains necessary nested schema classes, and classes to store vali
 
 ## Schema1
 public static class Schema1<br>
-extends StringSchema.StringSchema1
+extends [StringSchema.StringSchema1](../../../../../../components/schemas/StringSchema.md#stringschema1)
 
 A schema class that validates payloads
