@@ -22,6 +22,7 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
@@ -214,7 +215,8 @@ public class FormatTest {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             ))),
-            new KeywordEntry("format", new FormatValidator("password"))
+            new KeywordEntry("format", new FormatValidator("password")),
+            new KeywordEntry("maxLength", new MaxLengthValidator(64))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Password.class, arg, configuration);
