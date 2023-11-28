@@ -22,7 +22,7 @@ component&#x27;s name collides with the inner schema name
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([Items2.class](#items2)))<br>)); |
+| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([Items2.class](#items2)))<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -31,7 +31,7 @@ component&#x27;s name collides with the inner schema name
 
 ## ItemsList
 public class ItemsList<br>
-extends FrozenList<FrozenMap<String, Object>>
+extends `FrozenList<FrozenMap<String, Object>>`
 
 A class to store validated List payloads
 

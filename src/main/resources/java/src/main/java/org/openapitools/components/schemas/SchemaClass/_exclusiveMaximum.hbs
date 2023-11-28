@@ -1,0 +1,5 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator({{maximum}})){{#unless @last}},{{/unless}}<br>
+{{~else}}
+new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator({{maximum}})){{#unless @last}},{{/unless}}
+{{/if}}

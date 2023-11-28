@@ -22,6 +22,11 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MaxLengthValidator;
+import org.openapijsonschematools.schemas.validation.MaximumValidator;
+import org.openapijsonschematools.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.schemas.validation.MultipleOfValidator;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
@@ -38,7 +43,10 @@ public class FormatTest {
                 Long.class,
                 Float.class,
                 Double.class
-            )))
+            ))),
+            new KeywordEntry("maximum", new MaximumValidator(100)),
+            new KeywordEntry("minimum", new MinimumValidator(10)),
+            new KeywordEntry("multipleOf", new MultipleOfValidator(2))
         ));
         public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerSchema.class, Long.valueOf(arg), configuration);
@@ -68,7 +76,9 @@ public class FormatTest {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("format", new FormatValidator("int32"))
+            new KeywordEntry("format", new FormatValidator("int32")),
+            new KeywordEntry("maximum", new MaximumValidator(200)),
+            new KeywordEntry("minimum", new MinimumValidator(20))
         ));
         public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Int32withValidations.class, Long.valueOf(arg), configuration);
@@ -97,7 +107,10 @@ public class FormatTest {
                 Long.class,
                 Float.class,
                 Double.class
-            )))
+            ))),
+            new KeywordEntry("maximum", new MaximumValidator(543.2)),
+            new KeywordEntry("minimum", new MinimumValidator(32.1)),
+            new KeywordEntry("multipleOf", new MultipleOfValidator(32.5))
         ));
         public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);
@@ -124,7 +137,9 @@ public class FormatTest {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("format", new FormatValidator("float"))
+            new KeywordEntry("format", new FormatValidator("float")),
+            new KeywordEntry("maximum", new MaximumValidator(987.6)),
+            new KeywordEntry("minimum", new MinimumValidator(54.3))
         ));
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(FloatSchema.class, arg, configuration);
@@ -142,7 +157,9 @@ public class FormatTest {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("format", new FormatValidator("double"))
+            new KeywordEntry("format", new FormatValidator("double")),
+            new KeywordEntry("maximum", new MaximumValidator(123.4)),
+            new KeywordEntry("minimum", new MinimumValidator(67.8))
         ));
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(DoubleSchema.class, arg, configuration);
@@ -169,7 +186,6 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
-            
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);
@@ -215,7 +231,9 @@ public class FormatTest {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             ))),
-            new KeywordEntry("format", new FormatValidator("password"))
+            new KeywordEntry("format", new FormatValidator("password")),
+            new KeywordEntry("maxLength", new MaxLengthValidator(64)),
+            new KeywordEntry("minLength", new MinLengthValidator(10))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Password.class, arg, configuration);

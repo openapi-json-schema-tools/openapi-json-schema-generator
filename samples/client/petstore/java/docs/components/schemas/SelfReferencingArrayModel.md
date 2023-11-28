@@ -18,7 +18,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([SelfReferencingArrayModel1.class](#selfreferencingarraymodel1)))<br>)); |
+| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([SelfReferencingArrayModel1.class](#selfreferencingarraymodel1)))<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -27,7 +27,7 @@ A schema class that validates payloads
 
 ## SelfReferencingArrayModelList
 public class SelfReferencingArrayModelList<br>
-extends FrozenList<SelfReferencingArrayModelList>
+extends `FrozenList<SelfReferencingArrayModelList>`
 
 A class to store validated List payloads
 

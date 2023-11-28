@@ -7,6 +7,8 @@ import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MaximumValidator;
+import org.openapijsonschematools.schemas.validation.MinimumValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class NumberWithValidations {
@@ -26,7 +28,9 @@ public class NumberWithValidations {
                 Long.class,
                 Float.class,
                 Double.class
-            )))
+            ))),
+            new KeywordEntry("maximum", new MaximumValidator(20)),
+            new KeywordEntry("minimum", new MinimumValidator(10))
         ));
         public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);

@@ -8,6 +8,7 @@ import org.openapijsonschematools.schemas.validation.FormatValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MinimumValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class IntegerMin15 {
@@ -28,7 +29,8 @@ public class IntegerMin15 {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("format", new FormatValidator("int64"))
+            new KeywordEntry("format", new FormatValidator("int64")),
+            new KeywordEntry("minimum", new MinimumValidator(15))
         ));
         public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerMin151.class, Long.valueOf(arg), configuration);

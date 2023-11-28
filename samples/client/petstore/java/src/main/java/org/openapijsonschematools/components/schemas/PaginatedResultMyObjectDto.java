@@ -45,7 +45,6 @@ public class PaginatedResultMyObjectDto {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class))
-            
         ));
         protected static ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap> arg) {
             return new ResultsList(arg);

@@ -37,7 +37,6 @@ public class ArrayOfArrayOfNumberOnly {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
-            
         ));
         protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ItemsList(arg);
@@ -61,7 +60,6 @@ public class ArrayOfArrayOfNumberOnly {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
-            
         ));
         protected static ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ArrayArrayNumberList(arg);

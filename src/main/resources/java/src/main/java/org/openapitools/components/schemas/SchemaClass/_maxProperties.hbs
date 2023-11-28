@@ -1,0 +1,5 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("maxProperties", new MaxPropertiesValidator({{maxProperties}})){{#unless @last}},{{/unless}}<br>
+{{~else}}
+new KeywordEntry("maxProperties", new MaxPropertiesValidator({{maxProperties}})){{#unless @last}},{{/unless}}
+{{/if}}

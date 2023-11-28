@@ -23,19 +23,25 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "format"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_format }}
         {{/eq}}
+        {{#eq this "exclusiveMaximum"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_exclusiveMaximum }}
+        {{/eq}}
+        {{#eq this "exclusiveMinimum"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_exclusiveMinimum }}
+        {{/eq}}
+        {{#eq this "maximum"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maximum }}
+        {{/eq}}
+        {{#eq this "minimum"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minimum }}
+        {{/eq}}
+        {{#eq this "multipleOf"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_multipleOf }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
     {{/each}}
-{{#if maximum}}
-    {{!> components/schemas/schema_cls/_maximum }}
-{{/if}}
-{{#if minimum}}
-    {{!> components/schemas/schema_cls/_minimum }}
-{{/if}}
-{{#if multipleOf}}
-    {{!> components/schemas/schema_cls/_multiple_of }}
-{{/if}}
 {{#if enumInfo}}
     {{!> components/schemas/schema_cls/_enum }}
 {{/if}}

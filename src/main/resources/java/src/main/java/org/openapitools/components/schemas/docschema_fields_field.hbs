@@ -17,6 +17,39 @@
     {{#eq this "required"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_required }}
     {{~/eq}}
+    {{#eq this "exclusiveMaximum"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_exclusiveMaximum }}
+    {{~/eq}}
+    {{#eq this "exclusiveMinimum"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_exclusiveMinimum }}
+    {{~/eq}}
+    {{#eq this "maxItems"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxItems }}
+    {{~/eq}}
+    {{#eq this "minItems"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minItems }}
+    {{~/eq}}
+    {{#eq this "maxLength"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxLength }}
+    {{~/eq}}
+    {{#eq this "minLength"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minLength }}
+    {{~/eq}}
+    {{#eq this "maxProperties"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxProperties }}
+    {{~/eq}}
+    {{#eq this "minProperties"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minProperties }}
+    {{~/eq}}
+    {{#eq this "maximum"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maximum }}
+    {{~/eq}}
+    {{#eq this "minimum"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minimum }}
+    {{~/eq}}
+    {{#eq this "multipleOf"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_multipleOf }}
+    {{~/eq}}
     {{#eq this "additionalProperties"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
     {{~/eq}}

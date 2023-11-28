@@ -40,7 +40,6 @@ public class ComposedArray {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
-            
         ));
         protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
             return new ComposedArrayList(arg);

@@ -149,6 +149,39 @@ public class CodegenSchema {
         if (requiredProperties != null) {
             keywords.add("required");
         }
+        if (exclusiveMaximum != null) {
+            keywords.add("exclusiveMaximum");
+        }
+        if (exclusiveMinimum != null) {
+            keywords.add("exclusiveMinimum");
+        }
+        if (maxItems != null) {
+            keywords.add("maxItems");
+        }
+        if (minItems != null) {
+            keywords.add("minItems");
+        }
+        if (maxLength != null) {
+            keywords.add("maxLength");
+        }
+        if (minLength != null) {
+            keywords.add("minLength");
+        }
+        if (maxProperties != null) {
+            keywords.add("maxProperties");
+        }
+        if (minProperties != null) {
+            keywords.add("minProperties");
+        }
+        if (maximum != null && exclusiveMaximum == null) {
+            keywords.add("maximum");
+        }
+        if (minimum != null && exclusiveMinimum == null) {
+            keywords.add("minimum");
+        }
+        if (multipleOf != null) {
+            keywords.add("multipleOf");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }

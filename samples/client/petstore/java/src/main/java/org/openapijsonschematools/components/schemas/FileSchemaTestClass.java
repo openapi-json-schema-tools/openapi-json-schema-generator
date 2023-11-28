@@ -33,7 +33,6 @@ public class FileSchemaTestClass {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(File.File1.class))
-            
         ));
         protected static FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
             return new FilesList(arg);

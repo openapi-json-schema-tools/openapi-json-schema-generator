@@ -664,6 +664,8 @@ src/main/java/org/openapijsonschematools/schemas/StringJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/UuidJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/validation/AdditionalPropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMaximumValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMinimumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FakeValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FormatValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FrozenList.java
@@ -672,6 +674,15 @@ src/main/java/org/openapijsonschematools/schemas/validation/ItemsValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/JsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/validation/KeywordEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/KeywordValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MaxItemsValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MaxLengthValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MaxPropertiesValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MaximumValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MinItemsValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MinLengthValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MinPropertiesValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MinimumValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/MultipleOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PathToSchemasMap.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertyEntry.java
