@@ -191,6 +191,9 @@ public class CodegenSchema {
         if (anyOf != null) {
             keywords.add("anyOf");
         }
+        if (oneOf != null) {
+            keywords.add("oneOf");
+        }
         return keywords;
     }
 

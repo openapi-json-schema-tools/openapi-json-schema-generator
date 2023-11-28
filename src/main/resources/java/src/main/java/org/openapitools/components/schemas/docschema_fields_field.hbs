@@ -59,6 +59,9 @@
     {{#eq this "anyOf"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_anyOf }}
     {{~/eq}}
+    {{#eq this "oneOf"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_oneOf }}
+    {{~/eq}}
     {{#if @last ~}}
 )); |
     {{/if}}
