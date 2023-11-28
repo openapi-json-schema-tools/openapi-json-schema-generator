@@ -70,7 +70,7 @@ A schema class that validates payloads
 
 ## ArrayEnumList
 public class ArrayEnumList<br>
-extends FrozenList<String>
+extends `FrozenList<String>`
 
 A class to store validated List payloads
 

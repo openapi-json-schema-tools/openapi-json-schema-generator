@@ -31,7 +31,7 @@ component&#x27;s name collides with the inner schema name
 
 ## ItemsList
 public class ItemsList<br>
-extends FrozenList<FrozenMap<String, Object>>
+extends `FrozenList<FrozenMap<String, Object>>`
 
 A class to store validated List payloads
 

@@ -27,7 +27,7 @@ A schema class that validates payloads
 
 ## SchemaList
 public class SchemaList<br>
-extends FrozenList<Pet.PetMap>
+extends `FrozenList<Pet.PetMap>`
 
 A class to store validated List payloads
 

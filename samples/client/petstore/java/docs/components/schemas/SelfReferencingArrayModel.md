@@ -27,7 +27,7 @@ A schema class that validates payloads
 
 ## SelfReferencingArrayModelList
 public class SelfReferencingArrayModelList<br>
-extends FrozenList<SelfReferencingArrayModelList>
+extends `FrozenList<SelfReferencingArrayModelList>`
 
 A class to store validated List payloads
 

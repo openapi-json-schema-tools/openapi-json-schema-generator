@@ -133,7 +133,7 @@ type: Map<String, Object>
 
 {{> src/main/java/org/openapitools/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}
 public class {{arrayOutputJsonPathPiece.camelCase}}<br>
-extends FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>
+extends `FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{else}}Object{{/with}}>`
 
 A class to store validated List payloads
 

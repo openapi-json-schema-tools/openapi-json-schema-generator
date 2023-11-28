@@ -72,7 +72,7 @@ A schema class that validates payloads
 
 ## ShapesList
 public class ShapesList<br>
-extends FrozenList<Object>
+extends `FrozenList<Object>`
 
 A class to store validated List payloads
 

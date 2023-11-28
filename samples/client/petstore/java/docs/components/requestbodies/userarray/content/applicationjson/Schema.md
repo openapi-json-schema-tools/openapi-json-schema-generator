@@ -27,7 +27,7 @@ A schema class that validates payloads
 
 ## SchemaList
 public class SchemaList<br>
-extends FrozenList<User.UserMap>
+extends `FrozenList<User.UserMap>`
 
 A class to store validated List payloads
 

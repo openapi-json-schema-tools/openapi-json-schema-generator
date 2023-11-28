@@ -91,7 +91,7 @@ Form parameter enum test (string array)
 
 ## EnumFormStringArrayList
 public class EnumFormStringArrayList<br>
-extends FrozenList<String>
+extends `FrozenList<String>`
 
 A class to store validated List payloads
 

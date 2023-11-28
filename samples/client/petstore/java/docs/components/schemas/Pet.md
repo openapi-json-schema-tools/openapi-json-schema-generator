@@ -85,7 +85,7 @@ A schema class that validates payloads
 
 ## TagsList
 public class TagsList<br>
-extends FrozenList<Tag.TagMap>
+extends `FrozenList<Tag.TagMap>`
 
 A class to store validated List payloads
 
@@ -137,7 +137,7 @@ A schema class that validates payloads
 
 ## PhotoUrlsList
 public class PhotoUrlsList<br>
-extends FrozenList<String>
+extends `FrozenList<String>`
 
 A class to store validated List payloads
 

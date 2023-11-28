@@ -28,7 +28,7 @@ A schema class that validates payloads
 
 ## ArrayWithValidationsInItemsList
 public class ArrayWithValidationsInItemsList<br>
-extends FrozenList<Long>
+extends `FrozenList<Long>`
 
 A class to store validated List payloads
 

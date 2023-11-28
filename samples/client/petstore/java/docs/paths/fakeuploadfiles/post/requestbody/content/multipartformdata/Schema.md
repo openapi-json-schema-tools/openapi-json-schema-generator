@@ -67,7 +67,7 @@ A schema class that validates payloads
 
 ## FilesList
 public class FilesList<br>
-extends FrozenList<String>
+extends `FrozenList<String>`
 
 A class to store validated List payloads
 

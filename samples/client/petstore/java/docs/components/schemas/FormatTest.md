@@ -249,7 +249,7 @@ A schema class that validates payloads
 
 ## ArrayWithUniqueItemsList
 public class ArrayWithUniqueItemsList<br>
-extends FrozenList<Number>
+extends `FrozenList<Number>`
 
 A class to store validated List payloads
 

@@ -69,7 +69,7 @@ A schema class that validates payloads
 
 ## ArrayArrayNumberList
 public class ArrayArrayNumberList<br>
-extends FrozenList<ItemsList>
+extends `FrozenList<ItemsList>`
 
 A class to store validated List payloads
 
@@ -103,7 +103,7 @@ A schema class that validates payloads
 
 ## ItemsList
 public class ItemsList<br>
-extends FrozenList<Number>
+extends `FrozenList<Number>`
 
 A class to store validated List payloads
 

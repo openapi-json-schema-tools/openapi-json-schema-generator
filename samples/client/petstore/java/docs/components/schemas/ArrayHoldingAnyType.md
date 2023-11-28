@@ -28,7 +28,7 @@ A schema class that validates payloads
 
 ## ArrayHoldingAnyTypeList
 public class ArrayHoldingAnyTypeList<br>
-extends FrozenList<Object>
+extends `FrozenList<Object>`
 
 A class to store validated List payloads
 

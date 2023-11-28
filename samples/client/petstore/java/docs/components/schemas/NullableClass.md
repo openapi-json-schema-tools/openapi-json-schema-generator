@@ -260,7 +260,7 @@ A schema class that validates payloads
 
 ## ArrayItemsNullableList
 public class ArrayItemsNullableList<br>
-extends FrozenList<FrozenMap<String, Object>>
+extends `FrozenList<FrozenMap<String, Object>>`
 
 A class to store validated List payloads
 
@@ -311,7 +311,7 @@ A schema class that validates payloads
 
 ## ArrayAndItemsNullablePropList
 public class ArrayAndItemsNullablePropList<br>
-extends FrozenList<FrozenMap<String, Object>>
+extends `FrozenList<FrozenMap<String, Object>>`
 
 A class to store validated List payloads
 
@@ -362,7 +362,7 @@ A schema class that validates payloads
 
 ## ArrayNullablePropList
 public class ArrayNullablePropList<br>
-extends FrozenList<FrozenMap<String, Object>>
+extends `FrozenList<FrozenMap<String, Object>>`
 
 A class to store validated List payloads
 

@@ -27,7 +27,7 @@ A schema class that validates payloads
 
 ## AnimalFarmList
 public class AnimalFarmList<br>
-extends FrozenList<Animal.AnimalMap>
+extends `FrozenList<Animal.AnimalMap>`
 
 A class to store validated List payloads
 

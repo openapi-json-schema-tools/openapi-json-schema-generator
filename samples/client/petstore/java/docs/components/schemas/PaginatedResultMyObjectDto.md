@@ -68,7 +68,7 @@ A schema class that validates payloads
 
 ## ResultsList
 public class ResultsList<br>
-extends FrozenList<MyObjectDto.MyObjectDtoMap>
+extends `FrozenList<MyObjectDto.MyObjectDtoMap>`
 
 A class to store validated List payloads
 

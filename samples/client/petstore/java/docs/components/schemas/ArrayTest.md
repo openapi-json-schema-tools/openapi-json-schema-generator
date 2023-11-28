@@ -80,7 +80,7 @@ A schema class that validates payloads
 
 ## ArrayArrayOfModelList
 public class ArrayArrayOfModelList<br>
-extends FrozenList<ItemsList1>
+extends `FrozenList<ItemsList1>`
 
 A class to store validated List payloads
 
@@ -114,7 +114,7 @@ A schema class that validates payloads
 
 ## ItemsList1
 public class ItemsList1<br>
-extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>
+extends `FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>`
 
 A class to store validated List payloads
 
@@ -148,7 +148,7 @@ A schema class that validates payloads
 
 ## ArrayArrayOfIntegerList
 public class ArrayArrayOfIntegerList<br>
-extends FrozenList<ItemsList>
+extends `FrozenList<ItemsList>`
 
 A class to store validated List payloads
 
@@ -182,7 +182,7 @@ A schema class that validates payloads
 
 ## ItemsList
 public class ItemsList<br>
-extends FrozenList<Long>
+extends `FrozenList<Long>`
 
 A class to store validated List payloads
 
@@ -222,7 +222,7 @@ A schema class that validates payloads
 
 ## ArrayOfStringList
 public class ArrayOfStringList<br>
-extends FrozenList<String>
+extends `FrozenList<String>`
 
 A class to store validated List payloads
 

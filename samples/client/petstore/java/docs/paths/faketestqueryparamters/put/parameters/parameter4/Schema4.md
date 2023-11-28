@@ -28,7 +28,7 @@ A schema class that validates payloads
 
 ## SchemaList4
 public class SchemaList4<br>
-extends FrozenList<String>
+extends `FrozenList<String>`
 
 A class to store validated List payloads
 

@@ -102,7 +102,7 @@ A schema class that validates payloads
 
 ## Schema9List
 public class Schema9List<br>
-extends FrozenList<Object>
+extends `FrozenList<Object>`
 
 A class to store validated List payloads
 

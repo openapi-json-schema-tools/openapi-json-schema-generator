@@ -27,7 +27,7 @@ A schema class that validates payloads
 
 ## ArrayOfEnumsList
 public class ArrayOfEnumsList<br>
-extends FrozenList<String>
+extends `FrozenList<String>`
 
 A class to store validated List payloads
 
