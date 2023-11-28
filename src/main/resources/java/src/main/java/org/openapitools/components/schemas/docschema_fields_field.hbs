@@ -23,6 +23,9 @@
     {{#eq this "exclusiveMinimum"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_exclusiveMinimum }}
     {{~/eq}}
+    {{#eq this "maxItems"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxItems }}
+    {{~/eq}}
     {{#eq this "additionalProperties"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
     {{~/eq}}

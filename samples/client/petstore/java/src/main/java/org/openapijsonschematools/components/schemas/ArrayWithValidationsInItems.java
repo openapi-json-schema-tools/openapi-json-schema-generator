@@ -11,6 +11,7 @@ import org.openapijsonschematools.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.MaxItemsValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ArrayWithValidationsInItems {
@@ -63,8 +64,8 @@ public class ArrayWithValidationsInItems {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items.class))
-            
+            new KeywordEntry("items", new ItemsValidator(Items.class)),
+            new KeywordEntry("required", new MaxItemsValidator(2))
         ));
         protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ArrayWithValidationsInItemsList(arg);

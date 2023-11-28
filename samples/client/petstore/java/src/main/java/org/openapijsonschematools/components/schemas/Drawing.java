@@ -34,7 +34,6 @@ public class Drawing {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
-            
         ));
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
             return new ShapesList(arg);

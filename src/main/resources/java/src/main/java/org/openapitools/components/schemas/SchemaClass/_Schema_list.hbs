@@ -23,6 +23,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "items"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_items }}
         {{/eq}}
+        {{#eq this "maxItems"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_maxItems }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
@@ -30,9 +33,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{#if uniqueItems}}
     {{!> components/schemas/schema_cls/_unique_items }}
     {{/if}}
-    {{#neq maxItems null}}
-    {{!> components/schemas/schema_cls/_max_items }}
-    {{/neq}}
     {{#neq minItems null}}
     {{!> components/schemas/schema_cls/_min_items }}
     {{/neq}}

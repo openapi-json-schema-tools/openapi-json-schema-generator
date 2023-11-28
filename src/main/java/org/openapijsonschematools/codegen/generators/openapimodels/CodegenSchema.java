@@ -155,6 +155,9 @@ public class CodegenSchema {
         if (exclusiveMinimum != null) {
             keywords.add("exclusiveMinimum");
         }
+        if (maxItems != null) {
+            keywords.add("maxItems");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }
