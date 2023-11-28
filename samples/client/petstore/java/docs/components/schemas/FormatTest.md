@@ -109,14 +109,6 @@ public static class NoneProp<br>
 extends NullJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
 
 ## PatternWithDigitsAndDelimiter
 public static class PatternWithDigitsAndDelimiter<br>
@@ -174,84 +166,36 @@ public static class UuidNoExample<br>
 extends UuidJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## UuidSchema
 public static class UuidSchema<br>
 extends UuidJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## DateTime
 public static class DateTime<br>
 extends DateTimeJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Date
 public static class Date<br>
 extends DateJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Binary
 public static class Binary<br>
 extends JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
 
 ## ByteSchema
 public static class ByteSchema<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## StringSchema
 public static class StringSchema<br>
@@ -307,28 +251,12 @@ public static class Items<br>
 extends NumberJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static Number | validate(Number arg, SchemaConfiguration configuration) |
 
 ## Float64
 public static class Float64<br>
 extends DoubleJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static double | validate(double arg, SchemaConfiguration configuration) |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -350,14 +278,6 @@ public static class Float32<br>
 extends FloatJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static float | validate(float arg, SchemaConfiguration configuration) |
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -397,14 +317,6 @@ public static class Int64<br>
 extends Int64JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Int32withValidations
 public static class Int32withValidations<br>
@@ -426,14 +338,6 @@ public static class Int32<br>
 extends Int32JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## IntegerSchema
 public static class IntegerSchema<br>

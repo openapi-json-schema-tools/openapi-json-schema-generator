@@ -59,14 +59,6 @@ A schema class that validates payloads
 
 ## Description
 field2
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Param
 public static class Param<br>
@@ -76,11 +68,3 @@ A schema class that validates payloads
 
 ## Description
 field1
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |

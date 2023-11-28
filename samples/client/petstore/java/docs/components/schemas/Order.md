@@ -68,14 +68,6 @@ public static class Complete<br>
 extends BooleanJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 
 ## Status
 public static class Status<br>
@@ -100,55 +92,23 @@ public static class ShipDate<br>
 extends DateTimeJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Quantity
 public static class Quantity<br>
 extends Int32JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## PetId
 public static class PetId<br>
 extends Int64JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Id
 public static class Id<br>
 extends Int64JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

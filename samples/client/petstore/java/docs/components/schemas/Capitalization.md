@@ -71,83 +71,35 @@ A schema class that validates payloads
 
 ## Description
 Name of the pet 
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## SCAETHFlowPoints
 public static class SCAETHFlowPoints<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## CapitalSnake
 public static class CapitalSnake<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## SmallSnake
 public static class SmallSnake<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## CapitalCamel
 public static class CapitalCamel<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## SmallCamel
 public static class SmallCamel<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

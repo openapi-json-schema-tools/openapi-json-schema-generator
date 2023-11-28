@@ -93,22 +93,6 @@ A schema class that validates payloads
 
 ## Description
 test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values.
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## AnyTypeExceptNullProp
 public static class AnyTypeExceptNullProp<br>
@@ -140,14 +124,6 @@ public static class Not<br>
 extends NullJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
 
 ## AnyTypeProp
 public static class AnyTypeProp<br>
@@ -157,22 +133,6 @@ A schema class that validates payloads
 
 ## Description
 test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectWithNoDeclaredPropsNullable
 public static class ObjectWithNoDeclaredPropsNullable<br>
@@ -201,14 +161,6 @@ A schema class that validates payloads
 
 ## Description
 test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## UserStatus
 public static class UserStatus<br>
@@ -218,111 +170,47 @@ A schema class that validates payloads
 
 ## Description
 User Status
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static int | validate(int arg, SchemaConfiguration configuration) |
 
 ## Phone
 public static class Phone<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Password
 public static class Password<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Email
 public static class Email<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## LastName
 public static class LastName<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## FirstName
 public static class FirstName<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Username
 public static class Username<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Id
 public static class Id<br>
 extends Int64JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

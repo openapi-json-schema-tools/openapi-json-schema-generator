@@ -155,6 +155,59 @@ public class CodegenSchema {
         return keywords;
     }
 
+    public boolean isCustomSchema() {
+        // true when schema class is directly extended, false otherwise
+        if (isBooleanSchemaTrue || isBooleanSchemaFalse) {
+            return false;
+        }
+        if (types == null) {
+            if (isSimpleAnyType()) {
+                return false;
+            }
+            return true;
+        }
+        if (types.size() == 1) {
+            for (String type: types) {
+                switch (type) {
+                    case "object":
+                        if (isSimpleObject()) {
+                            return false;
+                        }
+                        return true;
+                    case "array":
+                        if (isSimpleArray()) {
+                            return false;
+                        }
+                        return true;
+                    case "boolean":
+                        if (isSimpleBoolean()) {
+                            return false;
+                        }
+                        return true;
+                    case "number":
+                    case "integer":
+                        if (isSimpleInteger() || isSimpleNumber()) {
+                            return false;
+                        }
+                        return true;
+                    case "string":
+                        if (isSimpleString()) {
+                            return false;
+                        }
+                        return true;
+                    case "null":
+                        if (isSimpleNull()) {
+                            return false;
+                        }
+                        return true;
+                    default:
+                        throw new RuntimeException("invalid type "+type+" was passed in");
+                }
+            }
+        }
+        return true;
+    }
+
     public boolean isSimpleBoolean() {
         if (types == null) {
             return false;

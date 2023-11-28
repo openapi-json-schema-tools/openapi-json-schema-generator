@@ -14,11 +14,3 @@ public static class NumberHeaderSchema1<br>
 extends DecimalJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |

@@ -95,22 +95,6 @@ public static class Items<br>
 extends AnyTypeJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema4
 public static class Schema4<br>
@@ -132,27 +116,11 @@ public static class Schema3<br>
 extends DateJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Schema2
 public static class Schema2<br>
 extends NullJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

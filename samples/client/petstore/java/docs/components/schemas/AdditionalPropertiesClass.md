@@ -121,14 +121,6 @@ public static class AdditionalProperties5<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## EmptyMap
 public static class EmptyMap<br>
@@ -172,22 +164,6 @@ extends NotAnyTypeJsonSchema
     // NotAnyTypeSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype3
 public static class MapWithUndeclaredPropertiesAnytype3<br>
@@ -229,72 +205,24 @@ public static class AdditionalProperties3<br>
 extends AnyTypeJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype2
 public static class MapWithUndeclaredPropertiesAnytype2<br>
 extends MapJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype1
 public static class MapWithUndeclaredPropertiesAnytype1<br>
 extends MapJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
 ## Anytype1
 public static class Anytype1<br>
 extends AnyTypeJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## MapOfMapProperty
 public static class MapOfMapProperty<br>
@@ -371,14 +299,6 @@ public static class AdditionalProperties2<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## MapProperty
 public static class MapProperty<br>
@@ -420,13 +340,5 @@ public static class AdditionalProperties<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

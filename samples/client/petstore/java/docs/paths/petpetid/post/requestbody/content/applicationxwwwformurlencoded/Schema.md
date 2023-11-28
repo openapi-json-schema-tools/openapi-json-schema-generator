@@ -59,14 +59,6 @@ A schema class that validates payloads
 
 ## Description
 Updated status of the pet
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Name
 public static class Name<br>
@@ -76,11 +68,3 @@ A schema class that validates payloads
 
 ## Description
 Updated name of the pet
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |

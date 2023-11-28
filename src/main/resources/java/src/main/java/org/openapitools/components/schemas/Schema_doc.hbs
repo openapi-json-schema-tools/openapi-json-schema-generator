@@ -44,7 +44,7 @@ A schema class that validates payloads
 {{headerSize}}# Description
 {{description}}
         {{/if}}
-        {{#unless refInfo}}
+        {{#if isCustomSchema}}
 {{headerSize}}## Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -54,7 +54,7 @@ A schema class that validates payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 {{> src/main/java/org/openapitools/components/schemas/docschema_io_types }}
-        {{/unless}}
+        {{/if}}
     {{else}}
         {{#eq instanceType "propertiesOutputType"}}
 

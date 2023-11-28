@@ -14,11 +14,3 @@ public static class Schema01<br>
 extends Int64JsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |

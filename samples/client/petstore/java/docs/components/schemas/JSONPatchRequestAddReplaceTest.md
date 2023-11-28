@@ -79,22 +79,6 @@ A schema class that validates payloads
 
 ## Description
 The value to add, replace or test.
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Path
 public static class Path<br>
@@ -104,14 +88,6 @@ A schema class that validates payloads
 
 ## Description
 A JSON Pointer path.
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -119,21 +95,5 @@ extends NotAnyTypeJsonSchema
     // NotAnyTypeSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

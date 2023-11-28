@@ -59,14 +59,6 @@ A schema class that validates payloads
 
 ## Description
 file to upload
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
 
 ## AdditionalMetadata
 public static class AdditionalMetadata<br>
@@ -76,11 +68,3 @@ A schema class that validates payloads
 
 ## Description
 Additional data to pass to server
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |

@@ -90,14 +90,6 @@ A schema class that validates payloads
 
 ## Description
 None
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Password
 public static class Password<br>
@@ -143,14 +135,6 @@ A schema class that validates payloads
 
 ## Description
 None
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## Binary
 public static class Binary<br>
@@ -160,14 +144,6 @@ A schema class that validates payloads
 
 ## Description
 None
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
 
 ## ByteSchema
 public static class ByteSchema<br>
@@ -177,14 +153,6 @@ A schema class that validates payloads
 
 ## Description
 None
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
 
 ## PatternWithoutDelimiter
 public static class PatternWithoutDelimiter<br>
@@ -284,14 +252,6 @@ A schema class that validates payloads
 
 ## Description
 None
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
 
 ## Int32
 public static class Int32<br>

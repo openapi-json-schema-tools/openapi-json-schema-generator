@@ -14,11 +14,3 @@ public static class Schema1<br>
 extends MapJsonSchema
 
 A schema class that validates payloads
-### Field Summary
-| Modifier and Type | Field and Description |
-| ----------------- | ---------------------- |
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
