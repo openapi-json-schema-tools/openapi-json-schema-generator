@@ -179,6 +179,9 @@ public class CodegenSchema {
         if (minimum != null && exclusiveMinimum == null) {
             keywords.add("minimum");
         }
+        if (multipleOf != null) {
+            keywords.add("multipleOf");
+        }
         if (additionalProperties != null) {
             keywords.add("additionalProperties");
         }

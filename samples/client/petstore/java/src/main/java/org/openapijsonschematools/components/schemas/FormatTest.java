@@ -26,6 +26,7 @@ import org.openapijsonschematools.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.schemas.validation.MultipleOfValidator;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
@@ -44,7 +45,8 @@ public class FormatTest {
                 Double.class
             ))),
             new KeywordEntry("maximum", new MaximumValidator(100)),
-            new KeywordEntry("minimum", new MinimumValidator(10))
+            new KeywordEntry("minimum", new MinimumValidator(10)),
+            new KeywordEntry("multipleOf", new MultipleOfValidator(2))
         ));
         public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IntegerSchema.class, Long.valueOf(arg), configuration);
@@ -107,7 +109,8 @@ public class FormatTest {
                 Double.class
             ))),
             new KeywordEntry("maximum", new MaximumValidator(543.2)),
-            new KeywordEntry("minimum", new MinimumValidator(32.1))
+            new KeywordEntry("minimum", new MinimumValidator(32.1)),
+            new KeywordEntry("multipleOf", new MultipleOfValidator(32.5))
         ));
         public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NumberSchema.class, arg, configuration);

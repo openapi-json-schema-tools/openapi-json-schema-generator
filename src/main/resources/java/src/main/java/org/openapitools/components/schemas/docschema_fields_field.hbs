@@ -47,6 +47,9 @@
     {{#eq this "minimum"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minimum }}
     {{~/eq}}
+    {{#eq this "multipleOf"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_multipleOf }}
+    {{~/eq}}
     {{#eq this "additionalProperties"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_additionalProperties }}
     {{~/eq}}

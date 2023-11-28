@@ -35,13 +35,13 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "minimum"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_minimum }}
         {{/eq}}
+        {{#eq this "multipleOf"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_multipleOf }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
     {{/each}}
-{{#if multipleOf}}
-    {{!> components/schemas/schema_cls/_multiple_of }}
-{{/if}}
 {{#if enumInfo}}
     {{!> components/schemas/schema_cls/_enum }}
 {{/if}}
