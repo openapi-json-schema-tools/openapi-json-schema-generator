@@ -1,0 +1,6 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("required", new ExclusiveMinimumValidator({{minimum}})){{#unless @last}},{{/unless}}<br>
+{{~else}}
+new KeywordEntry("required", new ExclusiveMinimumValidator({{minimum}})){{#unless @last}},{{/unless}}
+
+{{/if}}

@@ -344,8 +344,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         List<String> keywordValidatorFiles = new ArrayList<>();
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
         keywordValidatorFiles.add("CustomIsoparser");
-        keywordValidatorFiles.add("ExclusiveMinimumValidator");
         keywordValidatorFiles.add("ExclusiveMaximumValidator");
+        keywordValidatorFiles.add("ExclusiveMinimumValidator");
         keywordValidatorFiles.add("FakeValidator");
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("FrozenList");
@@ -1285,6 +1285,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         if (schema.exclusiveMaximum != null) {
                             imports.add("import "+packageName + ".schemas.validation.ExclusiveMaximumValidator;");
                         }
+                        if (schema.exclusiveMinimum != null) {
+                            imports.add("import "+packageName + ".schemas.validation.ExclusiveMinimumValidator;");
+                        }
                     }
                 } else if (schema.types.contains("number")) {
                     if (schema.isSimpleNumber()) {
@@ -1312,6 +1315,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         }
                         if (schema.exclusiveMaximum != null) {
                             imports.add("import "+packageName + ".schemas.validation.ExclusiveMaximumValidator;");
+                        }
+                        if (schema.exclusiveMinimum != null) {
+                            imports.add("import "+packageName + ".schemas.validation.ExclusiveMinimumValidator;");
                         }
                     }
                 } else if (schema.types.contains("string")) {
@@ -1400,6 +1406,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 if (schema.exclusiveMaximum != null) {
                     imports.add("import "+packageName + ".schemas.validation.ExclusiveMaximumValidator;");
                 }
+                if (schema.exclusiveMinimum != null) {
+                    imports.add("import "+packageName + ".schemas.validation.ExclusiveMinimumValidator;");
+                }
             }
         } else {
             // no types
@@ -1439,6 +1448,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 }
                 if (schema.exclusiveMaximum != null) {
                     imports.add("import "+packageName + ".schemas.validation.ExclusiveMaximumValidator;");
+                }
+                if (schema.exclusiveMinimum != null) {
+                    imports.add("import "+packageName + ".schemas.validation.ExclusiveMinimumValidator;");
                 }
             }
         }
