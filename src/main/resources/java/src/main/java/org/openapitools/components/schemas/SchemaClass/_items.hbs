@@ -1,7 +1,15 @@
 {{#if forDocs}}
     {{#with items}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class)){{#unless @last}},{{/unless}}<br>
-    {{~/with}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{/with}}
 {{else}}
     {{#with items}}
 new KeywordEntry("items", new ItemsValidator({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class)){{#unless @last}},{{/unless}}
