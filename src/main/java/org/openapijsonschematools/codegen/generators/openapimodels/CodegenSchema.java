@@ -188,6 +188,9 @@ public class CodegenSchema {
         if (allOf != null) {
             keywords.add("allOf");
         }
+        if (anyOf != null) {
+            keywords.add("anyOf");
+        }
         return keywords;
     }
 

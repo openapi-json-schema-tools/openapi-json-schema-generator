@@ -71,6 +71,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "allOf"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_allOf }}
         {{/eq}}
+        {{#eq this "anyOf"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_anyOf }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
@@ -95,9 +98,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{/if}}
 {{#if patternInfo}}
     {{!> components/schemas/schema_cls/_pattern }}
-{{/if}}
-{{#if anyOf}}
-    {{!> components/schemas/schema_cls/_any_of }}
 {{/if}}
 {{#if oneOf}}
     {{!> components/schemas/schema_cls/_one_of }}
