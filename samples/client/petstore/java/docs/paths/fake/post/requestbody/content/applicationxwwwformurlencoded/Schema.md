@@ -132,7 +132,7 @@ None
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    String.class<br>))),new KeywordEntry("format", new FormatValidator("password"))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    String.class<br>))),new KeywordEntry("format", new FormatValidator("password"))<br>
 ));</code> |
 
 ### Method Summary
@@ -151,7 +151,7 @@ None
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    String.class<br>))),new KeywordEntry("format", new FormatValidator("date-time"))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    String.class<br>))),new KeywordEntry("format", new FormatValidator("date-time"))<br>
 ));</code> |
 
 ### Method Summary
@@ -257,7 +257,7 @@ None
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>))),new KeywordEntry("format", new FormatValidator("double"))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>))),new KeywordEntry("format", new FormatValidator("double"))<br>
 ));</code> |
 
 ### Method Summary
@@ -276,7 +276,7 @@ None
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>))),new KeywordEntry("format", new FormatValidator("float"))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>))),new KeywordEntry("format", new FormatValidator("float"))<br>
 ));</code> |
 
 ### Method Summary
@@ -330,7 +330,7 @@ None
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>))),new KeywordEntry("format", new FormatValidator("int32"))
+| static LinkedHashMap<String, KeywordValidator> | keywordToValidator<br/><code>new LinkedHashMap<>(Map.ofEntries(<br/>new KeywordEntry("type", new TypeValidator(Set.of(    Integer.class,<br>Long.class,<br>Float.class,<br>Double.class<br>))),new KeywordEntry("format", new FormatValidator("int32"))<br>
 ));</code> |
 
 ### Method Summary
