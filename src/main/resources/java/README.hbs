@@ -195,7 +195,7 @@ All URIs are relative to the selected server
 | ----- | ----------- |
 {{#each schemas}}
     {{#with this}}
-| [{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}} |
+| [{{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](docs/components/schemas/{{containerJsonPathPiece.camelCase}}.md#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}
