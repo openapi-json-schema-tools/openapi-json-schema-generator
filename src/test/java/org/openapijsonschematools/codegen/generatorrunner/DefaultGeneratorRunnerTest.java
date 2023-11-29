@@ -546,7 +546,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             // Create custom template
-            File customTemplate = new File(templates.toFile(), "README.mustache");
+            File customTemplate = new File(templates.toFile(), "README.hbs");
             new File(customTemplate.getParent()).mkdirs();
             Files.write(customTemplate.toPath(),
                     "# {{someKey}}".getBytes(StandardCharsets.UTF_8),
@@ -573,7 +573,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report README.md as a generated file
             TestUtils.ensureContainsFile(files, output, "README.md");
