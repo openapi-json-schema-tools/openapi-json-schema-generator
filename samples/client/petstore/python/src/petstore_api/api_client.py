@@ -907,6 +907,8 @@ class OpenApiResponse(typing.Generic[T], JSONDetector, abc.ABC):
             elif content_type.startswith('multipart/form-data'):
                 body_data = cls.__deserialize_multipart_form_data(response)
                 content_type = 'multipart/form-data'
+            elif content_type == 'application/x-pem-file':
+                body_data = response.data.decode()
             else:
                 raise NotImplementedError('Deserialization of {} has not yet been implemented'.format(content_type))
             body_schema = schemas.get_class(body_schema)
@@ -1285,6 +1287,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
     content: content_type to MediaType schemas.Schema info
     """
     __json_encoder = JSONEncoder()
+    __plain_txt_content_types = {'text/plain', 'application/x-pem-file'}
     content: typing.Dict[str, typing.Type[MediaType]]
     required: bool = False
 
@@ -1406,7 +1409,7 @@ class RequestBody(StyleFormSerializer, JSONDetector):
             if isinstance(cast_in_data, (schemas.FileIO, bytes)):
                 raise ValueError(f"Invalid input data type. Data must be int/float/str/bool/None/tuple/immutabledict and it was type {type(cast_in_data)}")
             return cls.__serialize_json(cast_in_data)
-        elif content_type == 'text/plain':
+        elif content_type in cls.__plain_txt_content_types:
             if not isinstance(cast_in_data, (int, float, str)):
                 raise ValueError(f"Unable to serialize type {type(cast_in_data)} to text/plain")
             return cls.__serialize_text_plain(cast_in_data)
