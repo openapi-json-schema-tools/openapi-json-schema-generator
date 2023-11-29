@@ -688,6 +688,7 @@ src/main/java/org/openapijsonschematools/schemas/validation/MinimumValidator.jav
 src/main/java/org/openapijsonschematools/schemas/validation/MultipleOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/OneOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PathToSchemasMap.java
+src/main/java/org/openapijsonschematools/schemas/validation/PatternValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/RequiredValidator.java

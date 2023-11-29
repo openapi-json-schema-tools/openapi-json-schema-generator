@@ -2,12 +2,14 @@ package org.openapijsonschematools.components.schemas;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.PatternValidator;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
@@ -21,6 +23,9 @@ public class Apple {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/^[a-zA-Z\\s]*$/"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -32,6 +37,9 @@ public class Apple {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/^[A-Z\\s]*$/i"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

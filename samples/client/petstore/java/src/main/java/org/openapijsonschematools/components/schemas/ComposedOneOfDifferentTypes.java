@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Pattern;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.AnyTypeJsonSchema;
@@ -23,6 +24,7 @@ import org.openapijsonschematools.schemas.validation.MaxPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.MinItemsValidator;
 import org.openapijsonschematools.schemas.validation.MinPropertiesValidator;
 import org.openapijsonschematools.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.schemas.validation.PatternValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
 
 public class ComposedOneOfDifferentTypes {
@@ -80,7 +82,10 @@ public class ComposedOneOfDifferentTypes {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
             ))),
-            new KeywordEntry("format", new FormatValidator("date-time"))
+            new KeywordEntry("format", new FormatValidator("date-time")),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/^2020.*/"
+            )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema6.class, arg, configuration);
