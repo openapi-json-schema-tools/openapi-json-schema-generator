@@ -394,7 +394,7 @@ public class DefaultGeneratorRunnerTest {
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
                     .setGeneratorName("python")
-                    .setLibrary("jvm-okhttp4")
+                    .setLibrary("urllib3")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -412,19 +412,19 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report a library templated file as a generated file
-            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/exceptions.py");
 
             // Generated file should exist on the filesystem after generation
-            File generatedFile = new File(output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            File generatedFile = new File(output, "src/openapi_client/exceptions.py");
             Assert.assertTrue(generatedFile.exists());
 
             // Generated file should contain some expected text
-            TestUtils.assertFileContains(generatedFile.toPath(), "package org.openapijsonschematools.client.infrastructure",
-                    "open class ClientException",
-                    "open class ServerException");
+            TestUtils.assertFileContains(generatedFile.toPath(), "class OpenApiException(Exception):",
+                    "class ApiTypeError(OpenApiException, TypeError):",
+                    "class ApiValueError(OpenApiException, ValueError):");
         } finally {
             output.delete();
         }
