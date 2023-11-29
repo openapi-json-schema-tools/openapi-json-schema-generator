@@ -1,16 +1,24 @@
 {{#if forDocs}}
 &nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("enum", new EnumValidator(Set.of(<br>
-    {{~#each enumInfo}}
+    {{~#each enumInfo.valueToName}}
     {{#with @key}}
+        {{#eq type "string"}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{value}}}"{{#unless @last}},{{/unless}}<br>
+        {{~else}}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value}}{{#unless @last}},{{/unless}}<br>
-    {{~/with}}
+        {{~/eq}}
+    {{/with}}
     {{/each}}
 ))){{#unless @last}},{{/unless}}<br>
 {{~else}}
 new KeywordEntry("enum", new EnumValidator(Set.of(
-    {{#each enumInfo}}
+    {{#each enumInfo.valueToName}}
     {{#with @key}}
+        {{#eq type "string"}}
+    "{{{value}}}"{{#unless @last}},{{/unless}}
+        {{else}}
     {{value}}{{#unless @last}},{{/unless}}
+        {{/eq}}
     {{/with}}
     {{/each}}
 ))){{#unless @last}},{{/unless}}

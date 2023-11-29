@@ -5,6 +5,7 @@ import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.BooleanJsonSchema;
+import org.openapijsonschematools.schemas.validation.EnumValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -28,6 +29,9 @@ public class Whale {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                "whale"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

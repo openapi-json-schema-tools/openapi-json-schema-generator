@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.EnumValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
@@ -21,7 +22,10 @@ public class BooleanEnum {
         Do not edit the class manually.
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
+            new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                true
+            )))
         ));
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(BooleanEnum1.class, arg, configuration);

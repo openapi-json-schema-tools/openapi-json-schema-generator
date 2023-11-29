@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.EnumValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
@@ -26,6 +27,11 @@ public class IntegerEnum {
                 Long.class,
                 Float.class,
                 Double.class
+            ))),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                0,
+                1,
+                2
             )))
         ));
         public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {

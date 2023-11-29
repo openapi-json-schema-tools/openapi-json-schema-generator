@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.EnumValidator;
 import org.openapijsonschematools.schemas.validation.FormatValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
@@ -22,6 +23,11 @@ public class EnumTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                "UPPER",
+                "lower",
+                ""
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -33,6 +39,11 @@ public class EnumTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                "UPPER",
+                "lower",
+                ""
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -48,7 +59,11 @@ public class EnumTest {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("format", new FormatValidator("int32"))
+            new KeywordEntry("format", new FormatValidator("int32")),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                1,
+                -1
+            )))
         ));
         public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumInteger.class, Long.valueOf(arg), configuration);
@@ -75,7 +90,11 @@ public class EnumTest {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("format", new FormatValidator("double"))
+            new KeywordEntry("format", new FormatValidator("double")),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                1.1,
+                -1.2
+            )))
         ));
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(EnumNumber.class, arg, configuration);
