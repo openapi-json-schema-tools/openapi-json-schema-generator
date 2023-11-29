@@ -330,7 +330,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |DependentSchemas|✗|OAS3
 |Discriminator|✗|OAS2,OAS3
 |Else|✗|OAS3
-|Enum|✗|OAS2,OAS3
+|Enum|✓|OAS2,OAS3
 |ExclusiveMinimum|✓|OAS2,OAS3
 |ExclusiveMaximum|✓|OAS2,OAS3
 |Format|✓|OAS2,OAS3
@@ -350,7 +350,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Not|✓|OAS3
 |Nullable|✓|OAS3
 |OneOf|✓|OAS3
-|Pattern|✗|OAS2,OAS3
+|Pattern|✓|OAS2,OAS3
 |PatternProperties|✗|OAS3
 |PrefixItems|✗|OAS3
 |Properties|✓|OAS2,OAS3
