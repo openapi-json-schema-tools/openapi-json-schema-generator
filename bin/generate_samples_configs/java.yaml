@@ -2,6 +2,5 @@ generatorName: java
 outputDir: samples/client/petstore/java
 inputSpec: src/test/resources/3_0/python/petstore_customized.yaml
 additionalProperties:
-  booleanGetterPrefix: is
   artifactId: petstore
   hideGenerationTimestamp: "true"
