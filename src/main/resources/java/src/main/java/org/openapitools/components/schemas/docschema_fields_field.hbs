@@ -62,6 +62,9 @@
     {{#eq this "oneOf"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_oneOf }}
     {{~/eq}}
+    {{#eq this "uniqueItems"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_uniqueItems }}
+    {{~/eq}}
     {{#if @last ~}}
 )); |
     {{/if}}

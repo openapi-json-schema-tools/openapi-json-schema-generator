@@ -38,13 +38,13 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "oneOf"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_oneOf }}
         {{/eq}}
+        {{#eq this "uniqueItems"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_uniqueItems }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
     {{/each}}
-    {{#if uniqueItems}}
-    {{!> components/schemas/schema_cls/_unique_items }}
-    {{/if}}
     {{#if prefixItems}}
     {{!> components/schemas/schema_cls/_prefix_items }}
     {{/if}}

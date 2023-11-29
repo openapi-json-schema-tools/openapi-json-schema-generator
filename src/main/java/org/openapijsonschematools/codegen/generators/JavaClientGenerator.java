@@ -409,6 +409,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("TypeValidator");
+        keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
         keywordValidatorFiles.add("ValidationMetadata");
         for (String keywordValidatorFile: keywordValidatorFiles) {
@@ -1483,12 +1484,19 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addMaximumValidator(schema, imports);
                 addMinimumValidator(schema, imports);
                 addMultipleOfValidator(schema, imports);
+                addUniqueItemsValidator(schema, imports);
                 addAllOfValidator(schema, imports);
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
             }
         }
         return imports;
+    }
+
+    private void addUniqueItemsValidator(CodegenSchema schema, Set<String> imports) {
+        if (schema.uniqueItems != null) {
+            imports.add("import "+packageName + ".schemas.validation.UniqueItemsValidator;");
+        }
     }
 
     private void addPropertiesValidator(CodegenSchema schema, Set<String> imports) {
@@ -1638,6 +1646,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addItemsValidator(schema, imports);
         addMaxItemsValidator(schema, imports);
         addMinItemsValidator(schema, imports);
+        addUniqueItemsValidator(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
