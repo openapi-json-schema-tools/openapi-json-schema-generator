@@ -70,7 +70,6 @@ public class HealthCheckResult {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("NullableMessage", NullableMessage.class)
             )))
-            
         ));
         protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HealthCheckResultMap(arg);

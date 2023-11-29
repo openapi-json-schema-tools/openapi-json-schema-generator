@@ -56,7 +56,6 @@ public class ClassModel {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("_class", ClassSchema.class)
             )))
-            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ClassModel1.class, arg, configuration);

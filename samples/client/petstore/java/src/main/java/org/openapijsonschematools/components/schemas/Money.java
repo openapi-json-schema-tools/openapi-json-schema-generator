@@ -63,12 +63,10 @@ public class Money {
                 new PropertyEntry("amount", Amount.class),
                 new PropertyEntry("currency", Currency.Currency1.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "amount",
                 "currency"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

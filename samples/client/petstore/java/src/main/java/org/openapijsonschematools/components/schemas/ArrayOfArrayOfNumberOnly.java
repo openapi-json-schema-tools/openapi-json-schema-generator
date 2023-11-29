@@ -106,7 +106,6 @@ public class ArrayOfArrayOfNumberOnly {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("ArrayArrayNumber", ArrayArrayNumber.class)
             )))
-            
         ));
         protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayOfArrayOfNumberOnlyMap(arg);

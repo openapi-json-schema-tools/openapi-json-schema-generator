@@ -87,7 +87,6 @@ public class FileSchemaTestClass {
                 new PropertyEntry("file", File.File1.class),
                 new PropertyEntry("files", Files.class)
             )))
-            
         ));
         protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FileSchemaTestClassMap(arg);

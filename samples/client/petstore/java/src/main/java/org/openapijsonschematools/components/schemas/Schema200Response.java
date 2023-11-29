@@ -68,7 +68,6 @@ public class Schema200Response {
                 new PropertyEntry("name", Name.class),
                 new PropertyEntry("class", ClassSchema.class)
             )))
-            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema200Response1.class, arg, configuration);

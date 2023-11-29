@@ -83,13 +83,11 @@ public class JSONPatchRequestMoveCopy {
                 new PropertyEntry("path", Path.class),
                 new PropertyEntry("op", Op.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "from",
                 "op",
                 "path"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

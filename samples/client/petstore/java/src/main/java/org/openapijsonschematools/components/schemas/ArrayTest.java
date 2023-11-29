@@ -195,7 +195,6 @@ public class ArrayTest {
                 new PropertyEntry("array_array_of_integer", ArrayArrayOfInteger.class),
                 new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
             )))
-            
         ));
         protected static ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayTestMap(arg);

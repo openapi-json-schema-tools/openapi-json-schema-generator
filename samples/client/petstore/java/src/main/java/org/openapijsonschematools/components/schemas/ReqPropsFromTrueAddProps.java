@@ -56,7 +56,6 @@ public class ReqPropsFromTrueAddProps {
                 "invalid-name",
                 "validName"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

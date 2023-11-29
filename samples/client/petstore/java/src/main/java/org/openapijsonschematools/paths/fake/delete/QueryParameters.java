@@ -74,12 +74,10 @@ public class QueryParameters {
                 new PropertyEntry("string_group", Schema3.Schema31.class),
                 new PropertyEntry("required_int64_group", Schema2.Schema21.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "required_int64_group",
                 "required_string_group"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

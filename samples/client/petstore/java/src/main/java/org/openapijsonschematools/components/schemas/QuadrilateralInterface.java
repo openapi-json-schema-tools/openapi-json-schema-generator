@@ -77,12 +77,10 @@ public class QuadrilateralInterface {
                 new PropertyEntry("shapeType", ShapeType.class),
                 new PropertyEntry("quadrilateralType", QuadrilateralType.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "quadrilateralType",
                 "shapeType"
             )))
-            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);

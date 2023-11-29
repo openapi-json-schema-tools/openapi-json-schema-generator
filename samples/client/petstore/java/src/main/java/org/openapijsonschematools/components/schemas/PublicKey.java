@@ -59,7 +59,6 @@ public class PublicKey {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("key", Key.class)
             )))
-            
         ));
         protected static PublicKeyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PublicKeyMap(arg);

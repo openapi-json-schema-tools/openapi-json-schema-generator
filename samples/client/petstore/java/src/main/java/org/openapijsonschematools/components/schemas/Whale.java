@@ -87,11 +87,9 @@ public class Whale {
                 new PropertyEntry("hasTeeth", HasTeeth.class),
                 new PropertyEntry("className", ClassName.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))
-            
         ));
         protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new WhaleMap(arg);

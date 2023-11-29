@@ -76,11 +76,9 @@ public class Animal {
                 new PropertyEntry("className", ClassName.class),
                 new PropertyEntry("color", Color.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "className"
             )))
-            
         ));
         protected static AnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AnimalMap(arg);

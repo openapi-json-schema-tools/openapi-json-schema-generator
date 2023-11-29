@@ -77,12 +77,10 @@ public class TriangleInterface {
                 new PropertyEntry("shapeType", ShapeType.class),
                 new PropertyEntry("triangleType", TriangleType.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "shapeType",
                 "triangleType"
             )))
-            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(TriangleInterface1.class, arg, configuration);

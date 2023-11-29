@@ -62,7 +62,6 @@ public class Schema {
                 new PropertyEntry("name", Name.class),
                 new PropertyEntry("status", Status.class)
             )))
-            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);

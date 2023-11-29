@@ -307,14 +307,12 @@ public class Schema {
                 new PropertyEntry("password", Password.class),
                 new PropertyEntry("callback", Callback.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "byte",
                 "double",
                 "number",
                 "pattern_without_delimiter"
             )))
-            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);

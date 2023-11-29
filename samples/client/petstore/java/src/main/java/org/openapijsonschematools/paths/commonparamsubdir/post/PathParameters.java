@@ -48,11 +48,9 @@ public class PathParameters {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("subDir", PathParamSchema0.PathParamSchema01.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "subDir"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

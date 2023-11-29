@@ -67,11 +67,9 @@ public class ObjectWithDifficultlyNamedProps {
                 new PropertyEntry("123-list", Schema123list.class),
                 new PropertyEntry("123Number", Schema123Number.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "123-list"
             )))
-            
         ));
         protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithDifficultlyNamedPropsMap(arg);

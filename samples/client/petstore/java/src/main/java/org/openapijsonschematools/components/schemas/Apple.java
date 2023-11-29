@@ -86,11 +86,9 @@ public class Apple {
                 new PropertyEntry("cultivar", Cultivar.class),
                 new PropertyEntry("origin", Origin.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "cultivar"
             )))
-            
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Apple1.class, arg, configuration);

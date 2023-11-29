@@ -48,11 +48,9 @@ public class PathParameters {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("order_id", Schema0.Schema01.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "order_id"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

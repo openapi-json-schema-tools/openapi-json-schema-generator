@@ -12,6 +12,7 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.OneOfValidator;
 
 public class Shape {
     // nest classes so all schemas and input/output classes can be public
@@ -24,6 +25,12 @@ public class Shape {
     
         Do not edit the class manually.
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                Triangle.Triangle1.class,
+                Quadrilateral.Quadrilateral1.class
+            )))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Shape1.class, arg, configuration);
         }

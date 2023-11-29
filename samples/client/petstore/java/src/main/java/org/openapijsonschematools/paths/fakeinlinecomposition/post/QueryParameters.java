@@ -58,7 +58,6 @@ public class QueryParameters {
                 new PropertyEntry("compositionAtRoot", Schema0.Schema01.class),
                 new PropertyEntry("compositionInProperty", Schema1.Schema11.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

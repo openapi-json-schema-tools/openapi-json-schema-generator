@@ -182,11 +182,9 @@ public class EnumTest {
                 new PropertyEntry("IntegerEnumWithDefaultValue", IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.class),
                 new PropertyEntry("IntegerEnumOneValue", IntegerEnumOneValue.IntegerEnumOneValue1.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "enum_string_required"
             )))
-            
         ));
         protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumTestMap(arg);

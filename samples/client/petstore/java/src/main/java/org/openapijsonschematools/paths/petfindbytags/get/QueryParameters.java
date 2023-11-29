@@ -49,11 +49,9 @@ public class QueryParameters {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("tags", Schema0.Schema01.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "tags"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

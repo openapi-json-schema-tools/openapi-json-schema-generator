@@ -80,7 +80,6 @@ public class ApiResponseSchema {
                 new PropertyEntry("type", Type.class),
                 new PropertyEntry("message", Message.class)
             )))
-            
         ));
         protected static ApiResponseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ApiResponseMap(arg);

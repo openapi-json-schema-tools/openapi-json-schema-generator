@@ -76,11 +76,9 @@ public class Category {
                 new PropertyEntry("id", Id.class),
                 new PropertyEntry("name", Name.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "name"
             )))
-            
         ));
         protected static CategoryMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CategoryMap(arg);

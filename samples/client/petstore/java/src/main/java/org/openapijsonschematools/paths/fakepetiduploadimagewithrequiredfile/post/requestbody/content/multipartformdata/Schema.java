@@ -64,11 +64,9 @@ public class Schema {
                 new PropertyEntry("additionalMetadata", AdditionalMetadata.class),
                 new PropertyEntry("requiredFile", RequiredFile.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "requiredFile"
             )))
-            
         ));
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);

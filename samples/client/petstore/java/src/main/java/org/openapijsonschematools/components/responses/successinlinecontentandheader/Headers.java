@@ -49,7 +49,6 @@ public class Headers {
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                 new PropertyEntry("someHeader", SomeHeaderSchema.SomeHeaderSchema1.class)
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

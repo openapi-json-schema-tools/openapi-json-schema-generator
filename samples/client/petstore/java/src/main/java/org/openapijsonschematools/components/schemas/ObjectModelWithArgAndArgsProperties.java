@@ -65,12 +65,10 @@ public class ObjectModelWithArgAndArgsProperties {
                 new PropertyEntry("arg", Arg.class),
                 new PropertyEntry("args", Args.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "arg",
                 "args"
             )))
-            
         ));
         protected static ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);

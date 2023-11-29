@@ -1,0 +1,29 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("anyOf", new AnyOfValidator(List.of(<br>
+    {{~#each anyOf}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{/each}}
+&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
+{{~else}}
+new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+    {{#each anyOf}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+    {{refInfo.refModule}}.{{refInfo.refClass}}.class{{#unless @last}},{{/unless}}
+            {{else}}
+    {{refInfo.refClass}}.class{{#unless @last}},{{/unless}}
+            {{/if}}
+        {{else}}
+    {{jsonPathPiece.camelCase}}.class{{#unless @last}},{{/unless}}
+        {{/if}}
+    {{/each}}
+))){{#unless @last}},{{/unless}}
+{{/if}}

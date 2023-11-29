@@ -67,13 +67,11 @@ public class Headers {
                 new PropertyEntry("ref-content-schema-header", StringWithValidation.StringWithValidation1.class),
                 new PropertyEntry("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "X-Rate-Limit",
                 "int32",
                 "ref-content-schema-header"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));

@@ -83,13 +83,11 @@ public class JSONPatchRequestAddReplaceTest {
                 new PropertyEntry("value", Value.class),
                 new PropertyEntry("op", Op.class)
             ))),
-            
             new KeywordEntry("required", new RequiredValidator(Set.of(
                 "op",
                 "path",
                 "value"
             ))),
-            
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             
         ));
