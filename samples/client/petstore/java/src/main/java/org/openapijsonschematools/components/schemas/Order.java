@@ -8,6 +8,7 @@ import org.openapijsonschematools.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.schemas.Int32JsonSchema;
 import org.openapijsonschematools.schemas.Int64JsonSchema;
+import org.openapijsonschematools.schemas.validation.EnumValidator;
 import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
@@ -36,6 +37,11 @@ public class Order {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                "placed",
+                "approved",
+                "delivered"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

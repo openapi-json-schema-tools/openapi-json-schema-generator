@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.EnumValidator;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
@@ -24,6 +25,15 @@ public class StringEnum {
             new KeywordEntry("type", new TypeValidator(Set.of(
                 Void.class,
                 String.class
+            ))),
+            new KeywordEntry("enum", new EnumValidator(Set.of(
+                "placed",
+                "approved",
+                "delivered",
+                "single quoted",
+                "multiple\nlines",
+                "double quote \n with newline",
+                null
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {

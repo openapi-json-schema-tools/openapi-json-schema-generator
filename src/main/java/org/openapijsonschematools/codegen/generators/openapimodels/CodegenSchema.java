@@ -194,6 +194,15 @@ public class CodegenSchema {
         if (oneOf != null) {
             keywords.add("oneOf");
         }
+        if (uniqueItems != null) {
+            keywords.add("uniqueItems");
+        }
+        if (enumInfo != null) {
+            keywords.add("enum");
+        }
+        if (patternInfo != null) {
+            keywords.add("pattern");
+        }
         return keywords;
     }
 

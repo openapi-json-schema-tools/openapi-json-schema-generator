@@ -1,0 +1,33 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("enum", new EnumValidator(Set.of(<br>
+    {{~#each enumInfo.valueToName}}
+    {{#with @key}}
+        {{#eq type "string"}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{value}}}"{{#unless @last}},{{/unless}}<br>
+        {{~else}}
+            {{#eq type "null"}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null{{#unless @last}},{{/unless}}
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value}}{{#unless @last}},{{/unless}}
+            {{~/eq}}
+        {{~/eq}}
+    {{/with}}
+    {{/each}}
+))){{#unless @last}},{{/unless}}<br>
+{{~else}}
+new KeywordEntry("enum", new EnumValidator(Set.of(
+    {{#each enumInfo.valueToName}}
+    {{#with @key}}
+        {{#eq type "string"}}
+    "{{{value}}}"{{#unless @last}},{{/unless}}
+        {{else}}
+            {{#eq type "null"}}
+    null{{#unless @last}},{{/unless}}
+            {{else}}
+    {{value}}{{#unless @last}},{{/unless}}
+            {{/eq}}
+        {{/eq}}
+    {{/with}}
+    {{/each}}
+))){{#unless @last}},{{/unless}}
+{{/if}}

@@ -25,7 +25,7 @@ public class OneOfValidator implements KeywordValidator {
             if (oneOfClass == cls) {
                 /*
                 optimistically assume that cls schema will pass validation
-                do not invoke _validate on it because that is recursive
+                do not invoke validate on it because that is recursive
                 */
                 validatedOneOfClasses.add(oneOfClass);
                 continue;
@@ -38,12 +38,12 @@ public class OneOfValidator implements KeywordValidator {
                 // silence exceptions because the code needs to accumulate validatedOneOfClasses
             }
         }
-        if (validatedAnyOfClasses.isEmpty()) {
+        if (validatedOneOfClasses.isEmpty()) {
             throw new ValidationException("Invalid inputs given to generate an instance of "+cls+". None "+
                     "of the oneOf schemas matched the input data."
             );
         }
-        if (validatedAnyOfClasses.size() > 1) {
+        if (validatedOneOfClasses.size() > 1) {
             throw new ValidationException("Invalid inputs given to generate an instance of "+cls+". Multiple "+
                     "oneOf schemas validated the data, but a max of one is allowed."
             );

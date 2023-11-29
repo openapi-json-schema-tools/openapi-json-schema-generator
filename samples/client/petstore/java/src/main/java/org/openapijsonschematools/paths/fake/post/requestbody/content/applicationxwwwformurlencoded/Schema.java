@@ -3,6 +3,7 @@ import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.DateJsonSchema;
@@ -17,6 +18,7 @@ import org.openapijsonschematools.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.schemas.validation.PatternValidator;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
@@ -151,6 +153,9 @@ public class Schema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/[a-z]/i"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -162,6 +167,9 @@ public class Schema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/^[A-Z].*/"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

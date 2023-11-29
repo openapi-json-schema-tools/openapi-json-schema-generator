@@ -666,6 +666,7 @@ src/main/java/org/openapijsonschematools/schemas/validation/AdditionalProperties
 src/main/java/org/openapijsonschematools/schemas/validation/AllOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/AnyOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/CustomIsoparser.java
+src/main/java/org/openapijsonschematools/schemas/validation/EnumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMaximumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/ExclusiveMinimumValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/FakeValidator.java
@@ -687,10 +688,12 @@ src/main/java/org/openapijsonschematools/schemas/validation/MinimumValidator.jav
 src/main/java/org/openapijsonschematools/schemas/validation/MultipleOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/OneOfValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PathToSchemasMap.java
+src/main/java/org/openapijsonschematools/schemas/validation/PatternValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/RequiredValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/TypeValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/UnsetAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/validation/ValidationMetadata.java
 src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java

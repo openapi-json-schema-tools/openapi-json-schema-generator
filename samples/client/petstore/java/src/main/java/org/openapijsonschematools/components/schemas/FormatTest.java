@@ -3,6 +3,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.regex.Pattern;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.DateJsonSchema;
@@ -27,10 +28,12 @@ import org.openapijsonschematools.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.schemas.validation.MinimumValidator;
 import org.openapijsonschematools.schemas.validation.MultipleOfValidator;
+import org.openapijsonschematools.schemas.validation.PatternValidator;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.schemas.validation.UniqueItemsValidator;
 
 public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
@@ -185,7 +188,8 @@ public class FormatTest {
     public static class ArrayWithUniqueItems extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items.class))
+            new KeywordEntry("items", new ItemsValidator(Items.class)),
+            new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);
@@ -199,6 +203,9 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/[a-z]/i"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -244,6 +251,9 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/^\\d{10}$/"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -255,6 +265,9 @@ public class FormatTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(
                 String.class
+            ))),
+            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                "/^image_\\d{1,3}$/i"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
