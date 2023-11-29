@@ -65,6 +65,9 @@
     {{#eq this "uniqueItems"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_uniqueItems }}
     {{~/eq}}
+    {{#eq this "enum"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_enum }}
+    {{~/eq}}
     {{#if @last ~}}
 )); |
     {{/if}}

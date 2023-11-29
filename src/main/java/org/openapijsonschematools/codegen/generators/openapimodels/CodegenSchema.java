@@ -197,6 +197,9 @@ public class CodegenSchema {
         if (uniqueItems != null) {
             keywords.add("uniqueItems");
         }
+        if (enumInfo != null) {
+            keywords.add("enum");
+        }
         return keywords;
     }
 

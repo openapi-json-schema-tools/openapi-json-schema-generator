@@ -1,0 +1,17 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("enum", new EnumValidator(Set.of(<br>
+    {{~#each enumInfo}}
+    {{#with @key}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value}}{{#unless @last}},{{/unless}}<br>
+    {{~/with}}
+    {{/each}}
+))){{#unless @last}},{{/unless}}<br>
+{{~else}}
+new KeywordEntry("enum", new EnumValidator(Set.of(
+    {{#each enumInfo}}
+    {{#with @key}}
+    {{value}}{{#unless @last}},{{/unless}}
+    {{/with}}
+    {{/each}}
+))){{#unless @last}},{{/unless}}
+{{/if}}

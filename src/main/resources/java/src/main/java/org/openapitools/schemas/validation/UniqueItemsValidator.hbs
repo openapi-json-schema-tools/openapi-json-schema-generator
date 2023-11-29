@@ -15,7 +15,7 @@ public class UniqueItemsValidator implements KeywordValidator {
 
     @Override
     public Object getConstraint() {
-        return true;
+        return uniqueItems;
     }
 
     @Override

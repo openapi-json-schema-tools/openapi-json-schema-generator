@@ -191,7 +191,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         // SchemaFeature.DependentSchemas,
                         // SchemaFeature.Discriminator,
                         // SchemaFeature.Else,
-                        // SchemaFeature.Enum,
+                        SchemaFeature.Enum,
                         SchemaFeature.ExclusiveMaximum,
                         SchemaFeature.ExclusiveMinimum,
                         SchemaFeature.Format,
@@ -384,6 +384,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("AllOfValidator");
         keywordValidatorFiles.add("AnyOfValidator");
         keywordValidatorFiles.add("CustomIsoparser");
+        keywordValidatorFiles.add("EnumValidator");
         keywordValidatorFiles.add("ExclusiveMaximumValidator");
         keywordValidatorFiles.add("ExclusiveMinimumValidator");
         keywordValidatorFiles.add("FakeValidator");
@@ -1303,6 +1304,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         addAllOfValidator(schema, imports);
                         addAnyOfValidator(schema, imports);
                         addOneOfValidator(schema, imports);
+                        addEnumValidator(schema, imports);
                     }
                 } else if (schema.types.contains("null")) {
                     if (schema.isSimpleNull()) {
@@ -1318,6 +1320,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         addAllOfValidator(schema, imports);
                         addAnyOfValidator(schema, imports);
                         addOneOfValidator(schema, imports);
+                        addEnumValidator(schema, imports);
                     }
                 } else if (schema.types.contains("integer")) {
                     if (schema.isSimpleInteger()) {
@@ -1488,9 +1491,17 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addAllOfValidator(schema, imports);
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
+                addEnumValidator(schema, imports);
             }
         }
         return imports;
+    }
+
+    private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
+        if (schema.enumInfo != null) {
+            imports.add("import "+packageName + ".schemas.validation.EnumValidator;");
+            imports.add("import java.util.Set;");
+        }
     }
 
     private void addUniqueItemsValidator(CodegenSchema schema, Set<String> imports) {
@@ -1662,6 +1673,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
+        addEnumValidator(schema, imports);
     }
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1680,6 +1692,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
+        addEnumValidator(schema, imports);
     }
 
 

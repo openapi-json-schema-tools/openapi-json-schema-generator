@@ -47,13 +47,13 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "oneOf"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_oneOf }}
         {{/eq}}
+        {{#eq this "enum"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_enum }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
     {{/each}}
-{{#if enumInfo}}
-    {{!> components/schemas/schema_cls/_enum }}
-{{/if}}
 {{#if constInfo}}
     {{!> components/schemas/schema_cls/_const }}
 {{/if}}
