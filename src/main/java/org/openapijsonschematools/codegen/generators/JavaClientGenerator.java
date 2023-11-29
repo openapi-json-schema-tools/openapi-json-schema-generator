@@ -17,7 +17,6 @@
 
 package org.openapijsonschematools.codegen.generators;
 
-import org.apache.commons.lang3.StringUtils;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
@@ -26,7 +25,6 @@ import org.openapijsonschematools.codegen.generators.models.CliOption;
 import org.openapijsonschematools.codegen.common.CodegenConstants;
 import org.openapijsonschematools.codegen.generators.generatormetadata.GeneratorType;
 import org.openapijsonschematools.codegen.generators.models.VendorExtension;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
@@ -53,9 +51,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static com.google.common.base.CaseFormat.LOWER_CAMEL;
-import static com.google.common.base.CaseFormat.UPPER_UNDERSCORE;
-import static java.util.Collections.sort;
 import static org.openapijsonschematools.codegen.common.StringUtils.camelize;
 
 public class JavaClientGenerator extends AbstractJavaGenerator
@@ -185,7 +180,50 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata
         modifyFeatureSet(features -> features
                 .includeDocumentationFeatures(DocumentationFeature.Readme)
-                .includeSchemaFeatures(SchemaFeature.AllOf, SchemaFeature.AnyOf, SchemaFeature.OneOf, SchemaFeature.Not, SchemaFeature.Ref)
+                .includeSchemaFeatures(
+                        SchemaFeature.AdditionalProperties,
+                        SchemaFeature.AllOf,
+                        SchemaFeature.AnyOf,
+                        // SchemaFeature.Const,
+                        // SchemaFeature.Contains,
+                        // SchemaFeature.Default,
+                        // SchemaFeature.DependentRequired,
+                        // SchemaFeature.DependentSchemas,
+                        // SchemaFeature.Discriminator,
+                        // SchemaFeature.Else,
+                        // SchemaFeature.Enum,
+                        SchemaFeature.ExclusiveMaximum,
+                        SchemaFeature.ExclusiveMinimum,
+                        SchemaFeature.Format,
+                        // SchemaFeature.If,
+                        SchemaFeature.Items,
+                        // SchemaFeature.MaxContains,
+                        SchemaFeature.MaxItems,
+                        SchemaFeature.MaxLength,
+                        SchemaFeature.MaxProperties,
+                        SchemaFeature.Maximum,
+                        // SchemaFeature.MinContains,
+                        SchemaFeature.MinItems,
+                        SchemaFeature.MinLength,
+                        SchemaFeature.MinProperties,
+                        SchemaFeature.Minimum,
+                        SchemaFeature.MultipleOf,
+                        SchemaFeature.Not,
+                        SchemaFeature.Nullable,
+                        SchemaFeature.OneOf,
+                        // SchemaFeature.Pattern,
+                        // SchemaFeature.PatternProperties,
+                        // SchemaFeature.PrefixItems,
+                        SchemaFeature.Properties,
+                        // SchemaFeature.PropertyNames,
+                        SchemaFeature.Ref,
+                        SchemaFeature.Required,
+                        // SchemaFeature.Then,
+                        SchemaFeature.Type,
+                        // SchemaFeature.UnevaluatedItems,
+                        // SchemaFeature.UnevaluatedProperties,
+                        SchemaFeature.UniqueItems
+                )
         );
 
         outputFolder = "generated-code" + File.separator + "java";

@@ -1,5 +1,2 @@
-org.openapijsonschematools.codegen.generators.KotlinClientGenerator
 org.openapijsonschematools.codegen.generators.JavaClientGenerator
-org.openapijsonschematools.codegen.generators.JavaJerseyServerGenerator
-org.openapijsonschematools.codegen.generators.JMeterClientGenerator
 org.openapijsonschematools.codegen.generators.PythonClientGenerator

@@ -1,6 +1,6 @@
 {
   "!include": "common/jaxrs-datelib-j8.json",
-  "generatorName": "jaxrs-jersey",
+  "generatorName": "java",
   "outputDir": "outputDir",
   "additionalProperties": {
     "hideGenerationTimestamp": true,

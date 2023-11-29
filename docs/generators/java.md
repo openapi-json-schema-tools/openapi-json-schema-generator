@@ -320,7 +320,7 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 ### Schema Feature
 | Name | Supported | Defined By |
 | ---- | --------- | ---------- |
-|AdditionalProperties|✗|OAS2,OAS3
+|AdditionalProperties|✓|OAS2,OAS3
 |AllOf|✓|OAS2,OAS3
 |AnyOf|✓|OAS3
 |Const|✗|OAS3
@@ -328,9 +328,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Default|✗|OAS2,OAS3
 |DependentRequired|✗|OAS3
 |DependentSchemas|✗|OAS3
-|Discriminator|✓|OAS2,OAS3
+|Discriminator|✗|OAS2,OAS3
 |Else|✗|OAS3
-|Enum|✓|OAS2,OAS3
+|Enum|✗|OAS2,OAS3
 |ExclusiveMinimum|✓|OAS2,OAS3
 |ExclusiveMaximum|✓|OAS2,OAS3
 |Format|✓|OAS2,OAS3
@@ -348,9 +348,9 @@ These options may be applied as additional-properties (cli) or configOptions (pl
 |Minimum|✓|OAS2,OAS3
 |MultipleOf|✓|OAS2,OAS3
 |Not|✓|OAS3
-|Nullable|✗|OAS3
+|Nullable|✓|OAS3
 |OneOf|✓|OAS3
-|Pattern|✓|OAS2,OAS3
+|Pattern|✗|OAS2,OAS3
 |PatternProperties|✗|OAS3
 |PrefixItems|✗|OAS3
 |Properties|✓|OAS2,OAS3

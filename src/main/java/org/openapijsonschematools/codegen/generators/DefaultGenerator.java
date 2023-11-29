@@ -171,18 +171,10 @@ public class DefaultGenerator implements Generator {
                         GlobalFeature.Components
                 )
                 .includeSchemaFeatures(
-                        SchemaFeature.Discriminator, SchemaFeature.Enum,
-                        SchemaFeature.ExclusiveMaximum, SchemaFeature.ExclusiveMinimum,
-                        SchemaFeature.Format, SchemaFeature.Items,
-                        SchemaFeature.MaxItems, SchemaFeature.MaxLength,
-                        SchemaFeature.MaxProperties, SchemaFeature.Maximum,
-                        SchemaFeature.MinItems, SchemaFeature.MinLength,
-                        SchemaFeature.MinProperties, SchemaFeature.Minimum,
-                        SchemaFeature.MultipleOf,
-                        SchemaFeature.Pattern, SchemaFeature.Properties,
-                        SchemaFeature.Required, SchemaFeature.Type,
-                        SchemaFeature.UniqueItems
-                        // Union (OneOf) not 100% yet.
+                        SchemaFeature.Type, SchemaFeature.Format,
+                        SchemaFeature.Items, SchemaFeature.Properties,
+                        SchemaFeature.Required, SchemaFeature.AdditionalProperties,
+                        SchemaFeature.Ref
                 )
                 .includeParameterFeatures(
                         ParameterFeature.In_Path, ParameterFeature.In_Query, ParameterFeature.In_Header,

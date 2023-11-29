@@ -393,8 +393,8 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
-                    .setLibrary("jvm-okhttp4")
+                    .setGeneratorName("python")
+                    .setLibrary("urllib3")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -412,19 +412,19 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report a library templated file as a generated file
-            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/exceptions.py");
 
             // Generated file should exist on the filesystem after generation
-            File generatedFile = new File(output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            File generatedFile = new File(output, "src/openapi_client/exceptions.py");
             Assert.assertTrue(generatedFile.exists());
 
             // Generated file should contain some expected text
-            TestUtils.assertFileContains(generatedFile.toPath(), "package org.openapijsonschematools.client.infrastructure",
-                    "open class ClientException",
-                    "open class ServerException");
+            TestUtils.assertFileContains(generatedFile.toPath(), "class OpenApiException(Exception):",
+                    "class ApiTypeError(OpenApiException, TypeError):",
+                    "class ApiValueError(OpenApiException, ValueError):");
         } finally {
             output.delete();
         }
@@ -436,7 +436,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -454,7 +454,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report README.md as a generated file
             TestUtils.ensureContainsFile(files, output, "README.md");
@@ -464,10 +464,10 @@ public class DefaultGeneratorRunnerTest {
             Assert.assertTrue(readme.exists());
 
             // README.md should contain some expected text
-            TestUtils.assertFileContains(readme.toPath(), "# org.openapijsonschematools.client - Kotlin client library for OpenAPI Petstore",
-                    "## Requires",
-                    "## Build",
-                    "## Features/Implementation Notes");
+            TestUtils.assertFileContains(readme.toPath(), "# openapi-client",
+                    "## Requirements",
+                    "## Installation",
+                    "## Endpoints");
         } finally {
             output.delete();
         }
@@ -480,7 +480,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             // Create custom template
-            File customTemplate = new File(templates.toFile(), "libraries/jvm-okhttp/infrastructure/Errors.kt.mustache");
+            File customTemplate = new File(templates.toFile(), "exceptions.hbs");
             new File(customTemplate.getParent()).mkdirs();
             StringBuilder sb = new StringBuilder();
             sb.append("// {{someKey}}").append("\n");
@@ -498,10 +498,10 @@ public class DefaultGeneratorRunnerTest {
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
+                    .setGeneratorName("python")
                     .addAdditionalProperty("someKey", "testCustomLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
-                    .setLibrary("jvm-okhttp4")
+                    .setLibrary("urllib3")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -519,13 +519,13 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report a library templated file as a generated file
-            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/exceptions.py");
 
             // Generated file should exist on the filesystem after generation
-            File readme = new File(output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            File readme = new File(output, "src/openapi_client/exceptions.py");
             Assert.assertTrue(readme.exists());
 
             // Generated file should contain our custom templated text
@@ -546,14 +546,14 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             // Create custom template
-            File customTemplate = new File(templates.toFile(), "README.mustache");
+            File customTemplate = new File(templates.toFile(), "README.hbs");
             new File(customTemplate.getParent()).mkdirs();
             Files.write(customTemplate.toPath(),
                     "# {{someKey}}".getBytes(StandardCharsets.UTF_8),
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
+                    .setGeneratorName("python")
                     .addAdditionalProperty("someKey", "testCustomNonLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
@@ -573,7 +573,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report README.md as a generated file
             TestUtils.ensureContainsFile(files, output, "README.md");

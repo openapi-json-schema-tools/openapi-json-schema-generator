@@ -79,7 +79,7 @@ public class GenerateBatchTest {
         assertNotNull(workflowSettings);
         assertNotNull(generatorSettings);
 
-        assertEquals(generatorSettings.getGeneratorName(), "jaxrs-jersey");
+        assertEquals(generatorSettings.getGeneratorName(), "java");
         assertEquals(workflowSettings.getOutputDir(), "outputDir");
         assertEquals(workflowSettings.getInputSpec(), SPEC_FILE);
         assertTrue(generatorSettings.getAdditionalProperties().size() >= 7);

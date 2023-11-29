@@ -1,6 +1,6 @@
 ---
 "!include": common/jaxrs-datelib-j8.yaml
-generatorName: jaxrs-jersey
+generatorName: java
 # We expect this property to be ignored because it exists in the importing file
 outputDir: outputDir-should-be-ignored
 inputSpec: batch/specs/petstore.yaml
