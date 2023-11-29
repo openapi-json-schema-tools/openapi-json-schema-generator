@@ -211,7 +211,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         SchemaFeature.Not,
                         SchemaFeature.Nullable,
                         SchemaFeature.OneOf,
-                        // SchemaFeature.Pattern,
+                        SchemaFeature.Pattern,
                         // SchemaFeature.PatternProperties,
                         // SchemaFeature.PrefixItems,
                         SchemaFeature.Properties,

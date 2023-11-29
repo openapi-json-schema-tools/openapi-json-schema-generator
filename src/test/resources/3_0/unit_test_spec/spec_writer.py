@@ -492,7 +492,7 @@ def generate_post_operation_with_response_content_schema(
 
 
 def write_openapi_spec():
-    openapi = get_new_openapi()
+    openapi: OpenApiDocument = get_new_openapi()
     request_body_tag = OpenApiTag(name='operation.requestBody')
     post_tag = OpenApiTag(name='path.post')
     json_tag = OpenApiTag(name='contentType_json')
@@ -543,6 +543,17 @@ def write_openapi_spec():
         )
     )
     spec_out = '3_0_3_unit_test_spec.yaml'
+    with open(spec_out, 'w') as yaml_out:
+        yaml_out.write(
+            yaml.dump(
+                dataclasses.asdict(openapi),
+                sort_keys=False
+            )
+        )
+
+    spec_out = '3_0_3_unit_test_spec_nopaths.yaml'
+    openapi.paths = {}
+    openapi.tags = []
     with open(spec_out, 'w') as yaml_out:
         yaml_out.write(
             yaml.dump(
