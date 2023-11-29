@@ -31,11 +31,9 @@ public class StringEnum {
                 "approved",
                 "delivered",
                 "single quoted",
-                "multiple
-lines",
-                "double quote 
- with newline",
-                
+                "multiple\nlines",
+                "double quote \n with newline",
+                null
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {

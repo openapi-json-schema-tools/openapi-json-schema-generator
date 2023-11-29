@@ -962,6 +962,40 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return getSchemaCamelCaseName(name, sourceJsonPath, true);
     }
 
+    protected String handleSpecialCharacters(String value) {
+        // handles escape characters and the like
+        String stringValue = value;
+        String backslash = "\\";
+        if (stringValue.contains(backslash)) {
+            stringValue = stringValue.replace(backslash, "\\\\");
+        }
+        String nullChar = "\0";
+        if (stringValue.contains(nullChar)) {
+            stringValue = stringValue.replace(nullChar, "\\x00");
+        }
+        String doubleQuoteChar = "\"";
+        if (stringValue.contains(doubleQuoteChar)) {
+            stringValue = stringValue.replace(doubleQuoteChar, "\\\"");
+        }
+        String lineSep = System.lineSeparator();
+        if (stringValue.contains(lineSep)) {
+            stringValue = stringValue.replace(lineSep, "\\n");
+        }
+        String carriageReturn = "\r";
+        if (stringValue.contains(carriageReturn)) {
+            stringValue = stringValue.replace(carriageReturn, "\\r");
+        }
+        String tab = "\t";
+        if (stringValue.contains(tab)) {
+            stringValue = stringValue.replace(tab, "\\t");
+        }
+        String formFeed = "\f";
+        if (stringValue.contains(formFeed)) {
+            stringValue = stringValue.replace(formFeed, "\\f");
+        }
+        return stringValue;
+    }
+
     private String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
         String usedKey = handleSpecialCharacters(name);
         usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9_]+");
