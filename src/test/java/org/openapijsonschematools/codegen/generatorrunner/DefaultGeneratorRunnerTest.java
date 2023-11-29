@@ -480,7 +480,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             // Create custom template
-            File customTemplate = new File(templates.toFile(), "libraries/jvm-okhttp/infrastructure/Errors.kt.mustache");
+            File customTemplate = new File(templates.toFile(), "exceptions.hbs");
             new File(customTemplate.getParent()).mkdirs();
             StringBuilder sb = new StringBuilder();
             sb.append("// {{someKey}}").append("\n");
@@ -501,7 +501,7 @@ public class DefaultGeneratorRunnerTest {
                     .setGeneratorName("python")
                     .addAdditionalProperty("someKey", "testCustomLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
-                    .setLibrary("jvm-okhttp4")
+                    .setLibrary("urllib3")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -519,13 +519,13 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report a library templated file as a generated file
-            TestUtils.ensureContainsFile(files, output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            TestUtils.ensureContainsFile(files, output, "src/openapi_client/exceptions.py");
 
             // Generated file should exist on the filesystem after generation
-            File readme = new File(output, "src/main/kotlin/org/openapijsonschematools/client/infrastructure/Errors.kt");
+            File readme = new File(output, "src/openapi_client/exceptions.py");
             Assert.assertTrue(readme.exists());
 
             // Generated file should contain our custom templated text
