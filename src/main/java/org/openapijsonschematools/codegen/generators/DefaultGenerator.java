@@ -173,7 +173,8 @@ public class DefaultGenerator implements Generator {
                 .includeSchemaFeatures(
                         SchemaFeature.Type, SchemaFeature.Format,
                         SchemaFeature.Items, SchemaFeature.Properties,
-                        SchemaFeature.Required, SchemaFeature.AdditionalProperties
+                        SchemaFeature.Required, SchemaFeature.AdditionalProperties,
+                        SchemaFeature.Ref
                 )
                 .includeParameterFeatures(
                         ParameterFeature.In_Path, ParameterFeature.In_Query, ParameterFeature.In_Header,

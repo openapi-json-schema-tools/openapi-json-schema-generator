@@ -393,7 +393,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
+                    .setGeneratorName("java")
                     .setLibrary("jvm-okhttp4")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
@@ -436,7 +436,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
+                    .setGeneratorName("java")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -498,7 +498,7 @@ public class DefaultGeneratorRunnerTest {
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
+                    .setGeneratorName("java")
                     .addAdditionalProperty("someKey", "testCustomLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
                     .setLibrary("jvm-okhttp4")
@@ -553,7 +553,7 @@ public class DefaultGeneratorRunnerTest {
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("kotlin")
+                    .setGeneratorName("java")
                     .addAdditionalProperty("someKey", "testCustomNonLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")

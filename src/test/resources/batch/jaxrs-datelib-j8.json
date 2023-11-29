@@ -1,6 +1,6 @@
 {
   "!include": "common/jaxrs-datelib-j8.json",
-  "generatorName": "jaxrs-jersey",
+  "generatorName": "java",
   "inputSpec": "batch/specs/petstore.yaml",
   "outputDir": "outputDir",
   "additionalProperties": {
