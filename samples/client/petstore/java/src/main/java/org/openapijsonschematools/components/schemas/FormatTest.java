@@ -31,6 +31,7 @@ import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
+import org.openapijsonschematools.schemas.validation.UniqueItemsValidator;
 
 public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
@@ -185,7 +186,8 @@ public class FormatTest {
     public static class ArrayWithUniqueItems extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items.class))
+            new KeywordEntry("items", new ItemsValidator(Items.class)),
+            new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))
         ));
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);

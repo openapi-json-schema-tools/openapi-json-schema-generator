@@ -691,6 +691,7 @@ src/main/java/org/openapijsonschematools/schemas/validation/PropertiesValidator.
 src/main/java/org/openapijsonschematools/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/schemas/validation/RequiredValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/TypeValidator.java
+src/main/java/org/openapijsonschematools/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/schemas/validation/UnsetAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/validation/ValidationMetadata.java
 src/test/java/org/openapijsonschematools/configurations/JsonSchemaKeywordFlagsTest.java
