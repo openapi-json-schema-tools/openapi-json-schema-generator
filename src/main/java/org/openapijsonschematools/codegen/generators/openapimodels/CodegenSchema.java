@@ -200,6 +200,9 @@ public class CodegenSchema {
         if (enumInfo != null) {
             keywords.add("enum");
         }
+        if (patternInfo != null) {
+            keywords.add("pattern");
+        }
         return keywords;
     }
 

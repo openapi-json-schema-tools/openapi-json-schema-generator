@@ -68,6 +68,9 @@
     {{#eq this "enum"}}
 {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_enum }}
     {{~/eq}}
+    {{#eq this "pattern"}}
+{{> src/main/java/org/openapitools/components/schemas/SchemaClass/_pattern }}
+    {{~/eq}}
     {{#if @last ~}}
 )); |
     {{/if}}

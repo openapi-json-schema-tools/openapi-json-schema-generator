@@ -406,6 +406,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("MultipleOfValidator");
         keywordValidatorFiles.add("OneOfValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
+        keywordValidatorFiles.add("PatternValidator");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
@@ -1526,9 +1527,17 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
                 addEnumValidator(schema, imports);
+                addPatternValidator(schema, imports);
             }
         }
         return imports;
+    }
+
+    private void addPatternValidator(CodegenSchema schema, Set<String> imports) {
+        if (schema.patternInfo != null) {
+            imports.add("import "+packageName + ".schemas.validation.PatternValidator;");
+            imports.add("import java.util.regex.Pattern;");
+        }
     }
 
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
@@ -1727,6 +1736,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
+        addPatternValidator(schema, imports);
     }
 
 

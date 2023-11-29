@@ -83,6 +83,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "enum"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_enum }}
         {{/eq}}
+        {{#eq this "pattern"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_pattern }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
@@ -98,9 +101,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{/if}}
 {{#if hasDiscriminatorWithNonEmptyMapping}}
     {{!> components/schemas/schema_cls/_discriminator }}
-{{/if}}
-{{#if patternInfo}}
-    {{!> components/schemas/schema_cls/_pattern }}
 {{/if}}
 {{#if not}}
     {{!> components/schemas/schema_cls/_not }}

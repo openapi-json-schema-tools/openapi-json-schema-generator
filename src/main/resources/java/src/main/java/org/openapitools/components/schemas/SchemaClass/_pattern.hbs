@@ -1,0 +1,57 @@
+{{#if forDocs}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("pattern", new PatternValidator(<br>
+    {{~#with patternInfo}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{pattern}}}"{{#if flags}},{{/if}}<br>
+        {{~#if flags}}
+            {{#eq flags.size 1}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}},<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+                {{~#each flags}}
+                    {{#eq this "i"}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pattern.CASE_INSENSITIVE{{#unless @last}} |{{/unless}}<br>
+                    {{~/eq}}
+                    {{#eq this "m"}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pattern.MULTILINE{{#unless @last}} |{{/unless}}<br>
+                    {{~/eq}}
+                    {{#eq this "s"}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pattern.DOTALL{{#unless @last}} |{{/unless}}<br>
+                    {{~/eq}}
+                    {{#eq this "u"}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pattern.UNICODE_CHARACTER_CLASS{{#unless @last}} |{{/unless}}<br>
+                    {{~/eq}}
+                {{/each}}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+            {{~/eq}}
+        {{/if}}
+    {{/with}}
+&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
+{{~else}}
+new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+    {{#with patternInfo}}
+    "{{{pattern}}}"{{#if flags}},{{/if}}
+        {{#if flags}}
+            {{#eq flags.size 1}}
+    {{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}},
+            {{else}}
+    (
+                {{#each flags}}
+                    {{#eq this "i"}}
+        Pattern.CASE_INSENSITIVE{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "m"}}
+        Pattern.MULTILINE{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "s"}}
+        Pattern.DOTALL{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                    {{#eq this "u"}}
+        Pattern.UNICODE_CHARACTER_CLASS{{#unless @last}} |{{/unless}}
+                    {{/eq}}
+                {{/each}}
+    )
+            {{/eq}}
+        {{/if}}
+    {{/with}}
+))){{#unless @last}},{{/unless}}
+{{/if}}
