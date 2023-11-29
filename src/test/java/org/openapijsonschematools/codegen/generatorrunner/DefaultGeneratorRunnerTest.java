@@ -393,7 +393,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setLibrary("jvm-okhttp4")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
@@ -436,7 +436,7 @@ public class DefaultGeneratorRunnerTest {
         File output = target.toFile();
         try {
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
                     .setSkipOverwrite(false)
                     .setOutputDir(target.toAbsolutePath().toString());
@@ -454,7 +454,7 @@ public class DefaultGeneratorRunnerTest {
 
             List<File> files = generator.opts(clientOptInput).generate();
 
-            Assert.assertEquals(files.size(), 27);
+            Assert.assertEquals(files.size(), 57);
 
             // GeneratorRunner should report README.md as a generated file
             TestUtils.ensureContainsFile(files, output, "README.md");
@@ -464,10 +464,10 @@ public class DefaultGeneratorRunnerTest {
             Assert.assertTrue(readme.exists());
 
             // README.md should contain some expected text
-            TestUtils.assertFileContains(readme.toPath(), "# org.openapijsonschematools.client - Kotlin client library for OpenAPI Petstore",
-                    "## Requires",
-                    "## Build",
-                    "## Features/Implementation Notes");
+            TestUtils.assertFileContains(readme.toPath(), "# openapi-client",
+                    "## Requirements",
+                    "## Installation",
+                    "## Endpoints");
         } finally {
             output.delete();
         }
@@ -498,7 +498,7 @@ public class DefaultGeneratorRunnerTest {
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .addAdditionalProperty("someKey", "testCustomLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
                     .setLibrary("jvm-okhttp4")
@@ -553,7 +553,7 @@ public class DefaultGeneratorRunnerTest {
                     StandardOpenOption.CREATE);
 
             final CodegenConfigurator configurator = new CodegenConfigurator()
-                    .setGeneratorName("java")
+                    .setGeneratorName("python")
                     .addAdditionalProperty("someKey", "testCustomNonLibraryTemplates")
                     .setTemplateDir(templates.toAbsolutePath().toString())
                     .setInputSpec("src/test/resources/3_0/petstore.yaml")
