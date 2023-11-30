@@ -137,6 +137,12 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
         Do not edit the class manually.
         */
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class)),
+            new KeywordEntry("allOf", new AllOfValidator(List.of(
+                Schema0.class
+            )))
+        ));
         
         protected static AdditionalpropertiesShouldNotLookInApplicatorsMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
             return new AdditionalpropertiesShouldNotLookInApplicatorsMap(arg);
