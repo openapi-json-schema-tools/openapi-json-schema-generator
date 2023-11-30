@@ -112,7 +112,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return JsonSchema.validate(AdditionalpropertiesAreAllowedByDefault1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalpropertiesAreAllowedByDefaultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalpropertiesAreAllowedByDefault1.class, arg, configuration);
         }
         

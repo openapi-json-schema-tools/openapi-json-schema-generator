@@ -7,8 +7,8 @@ public static Void validate(Void arg, SchemaConfiguration configuration) throws 
         {{/eq}}
         {{#eq this "object"}}
             {{#if ../mapOutputJsonPathPiece}}
-                {{#if mapValueSchema}}
-public static {{../mapOutputJsonPathPiece.camelCase}} validate(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
+                {{#if ../mapValueSchema}}
+public static {{../mapOutputJsonPathPiece.camelCase}} validate(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
                 {{else}}
@@ -166,9 +166,21 @@ public static String validate(UUID arg, SchemaConfiguration configuration) throw
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
-public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+    {{#if mapOutputJsonPathPiece}}
+        {{#if mapValueSchema}}
+public static {{mapOutputJsonPathPiece.camelCase}} validate(Map<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
+        {{else}}
+public static {{mapOutputJsonPathPiece.camelCase}} validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
+}
+        {{/if}}
+    {{else}}
+public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
+}
+    {{/if}}
 
 public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);

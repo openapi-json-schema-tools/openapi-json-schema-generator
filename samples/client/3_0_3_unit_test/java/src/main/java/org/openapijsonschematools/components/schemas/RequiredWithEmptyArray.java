@@ -101,7 +101,7 @@ public class RequiredWithEmptyArray {
             return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static RequiredWithEmptyArrayMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
         }
         

@@ -113,7 +113,7 @@ public class ObjectPropertiesValidation {
             return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ObjectPropertiesValidationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
         }
         

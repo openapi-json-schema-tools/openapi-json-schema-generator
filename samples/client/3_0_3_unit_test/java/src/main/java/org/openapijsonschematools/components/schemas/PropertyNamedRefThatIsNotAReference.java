@@ -95,7 +95,7 @@ public class PropertyNamedRefThatIsNotAReference {
             return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PropertyNamedRefThatIsNotAReferenceMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         

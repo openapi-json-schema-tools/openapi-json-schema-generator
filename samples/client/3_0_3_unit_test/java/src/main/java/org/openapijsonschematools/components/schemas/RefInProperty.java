@@ -97,7 +97,7 @@ public class RefInProperty {
             return JsonSchema.validate(RefInProperty1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static RefInPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RefInProperty1.class, arg, configuration);
         }
         

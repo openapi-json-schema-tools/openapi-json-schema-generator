@@ -120,7 +120,7 @@ public class PropertiesWithEscapedCharacters {
             return JsonSchema.validate(PropertiesWithEscapedCharacters1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PropertiesWithEscapedCharactersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PropertiesWithEscapedCharacters1.class, arg, configuration);
         }
         

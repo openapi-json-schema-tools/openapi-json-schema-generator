@@ -19,7 +19,8 @@ public class MaxLengthValidator implements KeywordValidator {
         if (!(arg instanceof String)) {
             return null;
         }
-        if (((String) arg).length() > maxLength) {
+        int length = ((String) arg).codePointCount(0, ((String) arg).length());
+        if (length > maxLength) {
             throw new ValidationException("Value " + arg + " is invalid because has > the maxLength of " + maxLength);
         }
         return null;
