@@ -73,7 +73,6 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
                 new PropertyEntry("bar", Bar.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
         protected static AdditionalpropertiesAllowsASchemaWhichShouldValidateMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(arg);
