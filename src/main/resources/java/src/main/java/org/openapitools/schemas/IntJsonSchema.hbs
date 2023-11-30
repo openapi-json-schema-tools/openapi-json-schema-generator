@@ -15,7 +15,10 @@ import java.util.Set;
 
 public class IntJsonSchema extends JsonSchema {
     public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        new KeywordEntry("type", new TypeValidator(Set.of(Long.class))),
+        new KeywordEntry("type", new TypeValidator(Set.of(
+            Integer.class,
+            Long.class
+        ))),
         new KeywordEntry("format", new FormatValidator("int"))
     ));
 
