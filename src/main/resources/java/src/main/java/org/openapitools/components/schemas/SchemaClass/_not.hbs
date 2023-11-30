@@ -1,0 +1,17 @@
+{{#if forDocs}}
+    {{#with not}}
+        {{#if refInfo.refClass}}
+            {{#if refInfo.refModule}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("not", new NotValidator([{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})){{#unless @last}},{{/unless}}<br>
+            {{~else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("not", new NotValidator([{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
+            {{~/if}}
+        {{else}}
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("not", new NotValidator([{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
+        {{~/if}}
+    {{~/with}}
+{{else}}
+    {{#with not}}
+new KeywordEntry("not", new NotValidator({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class)){{#unless @last}},{{/unless}}
+    {{/with}}
+{{/if}}

@@ -14,5 +14,4 @@
     {{#with additionalProperties}}
 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator({{#if refInfo.refClass}}{{#if refInfo.refModule}}{{refInfo.refModule}}.{{/if}}{{refInfo.refClass}}{{else}}{{jsonPathPiece.camelCase}}{{/if}}.class)){{#unless @last}},{{/unless}}
     {{/with}}
-
 {{/if}}

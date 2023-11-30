@@ -47,6 +47,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "oneOf"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_oneOf }}
         {{/eq}}
+        {{#eq this "not"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_not }}
+        {{/eq}}
         {{#eq this "enum"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_enum }}
         {{/eq}}
@@ -56,9 +59,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{/each}}
 {{#if constInfo}}
     {{!> components/schemas/schema_cls/_const }}
-{{/if}}
-{{#if not}}
-    {{!> components/schemas/schema_cls/_not }}
 {{/if}}
 {{#if if_}}
     {{!> components/schemas/schema_cls/_if }}
