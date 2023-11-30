@@ -1,8 +1,21 @@
 package org.openapijsonschematools.schemas;
 
+import org.openapijsonschematools.configurations.SchemaConfiguration;
+import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.NotValidator;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class NotAnyTypeJsonSchema extends JsonSchema {
-    // todo add not definition here when that validator is added
+    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
+    ));
+
+    public static Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validateObject(NotAnyTypeJsonSchema.class, arg, configuration);
+    }
 }
