@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,8 @@ public class MinitemsValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
-        Assert.assertThrows(ValidationException.class, () -> MinitemsValidation.MinitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MinitemsValidation.MinitemsValidation1.class,
             List.of(
             ),
             configuration

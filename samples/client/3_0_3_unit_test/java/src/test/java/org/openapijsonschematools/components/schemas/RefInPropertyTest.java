@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -35,7 +36,8 @@ public class RefInPropertyTest {
     @Test
     public void testPropertyNamedRefInvalidFails() {
         // property named $ref invalid
-        Assert.assertThrows(ValidationException.class, () -> RefInProperty.RefInProperty1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            RefInProperty.RefInProperty1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "a",

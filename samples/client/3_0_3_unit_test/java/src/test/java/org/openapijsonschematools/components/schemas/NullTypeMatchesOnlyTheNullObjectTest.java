@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testZeroIsNotNullFails() {
         // zero is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             0,
             configuration
         ));
@@ -25,7 +27,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnArrayIsNotNullFails() {
         // an array is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             List.of(
             ),
             configuration
@@ -35,7 +38,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnObjectIsNotNullFails() {
         // an object is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             Map.ofEntries(
             ),
             configuration
@@ -45,7 +49,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testTrueIsNotNullFails() {
         // true is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             true,
             configuration
         ));
@@ -54,7 +59,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testFalseIsNotNullFails() {
         // false is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             false,
             configuration
         ));
@@ -64,7 +70,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     public void testNullIsNullPasses() {
         // null is null
         NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
-            null,
+            (Void) null,
             configuration
         );
     }
@@ -72,7 +78,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAStringIsNotNullFails() {
         // a string is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             "foo",
             configuration
         ));
@@ -81,7 +88,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnIntegerIsNotNullFails() {
         // an integer is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             1,
             configuration
         ));
@@ -90,7 +98,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnEmptyStringIsNotNullFails() {
         // an empty string is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             "",
             configuration
         ));
@@ -99,7 +108,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAFloatIsNotNullFails() {
         // a float is not null
-        Assert.assertThrows(ValidationException.class, () -> NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             1.1,
             configuration
         ));

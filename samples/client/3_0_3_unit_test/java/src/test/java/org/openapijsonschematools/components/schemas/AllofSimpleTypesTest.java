@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class AllofSimpleTypesTest {
     @Test
     public void testMismatchOneFails() {
         // mismatch one
-        Assert.assertThrows(ValidationException.class, () -> AllofSimpleTypes.AllofSimpleTypes1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            AllofSimpleTypes.AllofSimpleTypes1.class,
             35,
             configuration
         ));

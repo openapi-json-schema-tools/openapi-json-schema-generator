@@ -5,6 +5,7 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -27,7 +28,8 @@ public class {{containerJsonPathPiece.camelCase}}Test {
             configuration
         );
         {{else}}
-        Assert.assertThrows(ValidationException.class, () -> {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.class,
             {{#with data}}
             {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="," }}
             {{/with}}

@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAStringIsStillNotANumberEvenIfItLooksLikeOneFails() {
         // a string is still not a number, even if it looks like one
-        Assert.assertThrows(ValidationException.class, () -> NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             "1",
             configuration
         ));
@@ -43,7 +45,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testABooleanIsNotANumberFails() {
         // a boolean is not a number
-        Assert.assertThrows(ValidationException.class, () -> NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             true,
             configuration
         ));
@@ -61,8 +64,9 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testNullIsNotANumberFails() {
         // null is not a number
-        Assert.assertThrows(ValidationException.class, () -> NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
-            null,
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
+            (Void) null,
             configuration
         ));
     }
@@ -70,7 +74,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAStringIsNotANumberFails() {
         // a string is not a number
-        Assert.assertThrows(ValidationException.class, () -> NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             "foo",
             configuration
         ));
@@ -79,7 +84,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnArrayIsNotANumberFails() {
         // an array is not a number
-        Assert.assertThrows(ValidationException.class, () -> NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             List.of(
             ),
             configuration
@@ -89,7 +95,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnObjectIsNotANumberFails() {
         // an object is not a number
-        Assert.assertThrows(ValidationException.class, () -> NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             Map.ofEntries(
             ),
             configuration

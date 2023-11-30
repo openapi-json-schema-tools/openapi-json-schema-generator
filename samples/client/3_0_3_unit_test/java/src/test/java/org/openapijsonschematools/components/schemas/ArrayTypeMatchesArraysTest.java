@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testABooleanIsNotAnArrayFails() {
         // a boolean is not an array
-        Assert.assertThrows(ValidationException.class, () -> ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
             true,
             configuration
         ));
@@ -25,7 +27,8 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAFloatIsNotAnArrayFails() {
         // a float is not an array
-        Assert.assertThrows(ValidationException.class, () -> ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
             1.1,
             configuration
         ));
@@ -44,8 +47,9 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testNullIsNotAnArrayFails() {
         // null is not an array
-        Assert.assertThrows(ValidationException.class, () -> ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
-            null,
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
+            (Void) null,
             configuration
         ));
     }
@@ -53,7 +57,8 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAStringIsNotAnArrayFails() {
         // a string is not an array
-        Assert.assertThrows(ValidationException.class, () -> ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
             "foo",
             configuration
         ));
@@ -62,7 +67,8 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAnIntegerIsNotAnArrayFails() {
         // an integer is not an array
-        Assert.assertThrows(ValidationException.class, () -> ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
             1,
             configuration
         ));
@@ -71,7 +77,8 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAnObjectIsNotAnArrayFails() {
         // an object is not an array
-        Assert.assertThrows(ValidationException.class, () -> ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
             Map.ofEntries(
             ),
             configuration

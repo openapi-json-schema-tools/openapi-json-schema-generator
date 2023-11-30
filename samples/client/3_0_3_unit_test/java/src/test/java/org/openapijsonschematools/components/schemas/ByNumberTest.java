@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class ByNumberTest {
     @Test
     public void test35IsNotMultipleOf15Fails() {
         // 35 is not multiple of 1.5
-        Assert.assertThrows(ValidationException.class, () -> ByNumber.ByNumber1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ByNumber.ByNumber1.class,
             35,
             configuration
         ));

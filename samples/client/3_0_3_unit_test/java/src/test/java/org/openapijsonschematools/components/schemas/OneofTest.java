@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class OneofTest {
     @Test
     public void testBothOneofValidFails() {
         // both oneOf valid
-        Assert.assertThrows(ValidationException.class, () -> Oneof.Oneof1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            Oneof.Oneof1.class,
             3,
             configuration
         ));
@@ -25,7 +27,8 @@ public class OneofTest {
     @Test
     public void testNeitherOneofValidFails() {
         // neither oneOf valid
-        Assert.assertThrows(ValidationException.class, () -> Oneof.Oneof1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            Oneof.Oneof1.class,
             1.5,
             configuration
         ));

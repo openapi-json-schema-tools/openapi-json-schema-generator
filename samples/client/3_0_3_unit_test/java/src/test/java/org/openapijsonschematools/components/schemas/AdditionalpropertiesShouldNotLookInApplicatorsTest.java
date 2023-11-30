@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
     @Test
     public void testPropertiesDefinedInAllofAreNotExaminedFails() {
         // properties defined in allOf are not examined
-        Assert.assertThrows(ValidationException.class, () -> AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

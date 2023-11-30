@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class NestedItemsTest {
     @Test
     public void testNestedArrayWithInvalidTypeFails() {
         // nested array with invalid type
-        Assert.assertThrows(ValidationException.class, () -> NestedItems.NestedItems1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NestedItems.NestedItems1.class,
             List.of(
                 List.of(
                     List.of(
@@ -54,7 +56,8 @@ public class NestedItemsTest {
     @Test
     public void testNotDeepEnoughFails() {
         // not deep enough
-        Assert.assertThrows(ValidationException.class, () -> NestedItems.NestedItems1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NestedItems.NestedItems1.class,
             List.of(
                 List.of(
                     List.of(

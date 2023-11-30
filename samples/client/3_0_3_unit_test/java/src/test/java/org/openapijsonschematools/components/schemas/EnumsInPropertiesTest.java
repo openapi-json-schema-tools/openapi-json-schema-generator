@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class EnumsInPropertiesTest {
     @Test
     public void testWrongBarValueFails() {
         // wrong bar value
-        Assert.assertThrows(ValidationException.class, () -> EnumsInProperties.EnumsInProperties1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            EnumsInProperties.EnumsInProperties1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -34,7 +36,8 @@ public class EnumsInPropertiesTest {
     @Test
     public void testWrongFooValueFails() {
         // wrong foo value
-        Assert.assertThrows(ValidationException.class, () -> EnumsInProperties.EnumsInProperties1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            EnumsInProperties.EnumsInProperties1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -52,7 +55,8 @@ public class EnumsInPropertiesTest {
     @Test
     public void testMissingAllPropertiesIsInvalidFails() {
         // missing all properties is invalid
-        Assert.assertThrows(ValidationException.class, () -> EnumsInProperties.EnumsInProperties1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            EnumsInProperties.EnumsInProperties1.class,
             Map.ofEntries(
             ),
             configuration
@@ -94,7 +98,8 @@ public class EnumsInPropertiesTest {
     @Test
     public void testMissingRequiredPropertyIsInvalidFails() {
         // missing required property is invalid
-        Assert.assertThrows(ValidationException.class, () -> EnumsInProperties.EnumsInProperties1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            EnumsInProperties.EnumsInProperties1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

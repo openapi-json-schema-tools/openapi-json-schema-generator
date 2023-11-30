@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -43,7 +44,8 @@ public class MinlengthValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
-        Assert.assertThrows(ValidationException.class, () -> MinlengthValidation.MinlengthValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MinlengthValidation.MinlengthValidation1.class,
             "f",
             configuration
         ));
@@ -52,7 +54,8 @@ public class MinlengthValidationTest {
     @Test
     public void testOneSupplementaryUnicodeCodePointIsNotLongEnoughFails() {
         // one supplementary Unicode code point is not long enough
-        Assert.assertThrows(ValidationException.class, () -> MinlengthValidation.MinlengthValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MinlengthValidation.MinlengthValidation1.class,
             "💩",
             configuration
         ));

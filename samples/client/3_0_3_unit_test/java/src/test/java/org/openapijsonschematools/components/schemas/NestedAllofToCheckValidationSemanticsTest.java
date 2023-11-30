@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -17,7 +18,7 @@ public class NestedAllofToCheckValidationSemanticsTest {
     public void testNullIsValidPasses() {
         // null is valid
         NestedAllofToCheckValidationSemantics.NestedAllofToCheckValidationSemantics1.validate(
-            null,
+            (Void) null,
             configuration
         );
     }
@@ -25,7 +26,8 @@ public class NestedAllofToCheckValidationSemanticsTest {
     @Test
     public void testAnythingNonNullIsInvalidFails() {
         // anything non-null is invalid
-        Assert.assertThrows(ValidationException.class, () -> NestedAllofToCheckValidationSemantics.NestedAllofToCheckValidationSemantics1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            NestedAllofToCheckValidationSemantics.NestedAllofToCheckValidationSemantics1.class,
             123,
             configuration
         ));

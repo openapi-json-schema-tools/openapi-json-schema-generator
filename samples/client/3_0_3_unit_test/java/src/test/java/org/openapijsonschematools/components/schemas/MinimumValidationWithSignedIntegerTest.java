@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,8 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testIntBelowTheMinimumIsInvalidFails() {
         // int below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class,
             -3,
             configuration
         ));
@@ -70,7 +72,8 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testFloatBelowTheMinimumIsInvalidFails() {
         // float below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class,
             -2.0001,
             configuration
         ));

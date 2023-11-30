@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class MaximumValidationWithUnsignedIntegerTest {
     @Test
     public void testAboveTheMaximumIsInvalidFails() {
         // above the maximum is invalid
-        Assert.assertThrows(ValidationException.class, () -> MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.class,
             300.5,
             configuration
         ));

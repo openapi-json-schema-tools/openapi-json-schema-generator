@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void test1IsNotAStringFails() {
         // 1 is not a string
-        Assert.assertThrows(ValidationException.class, () -> StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             1,
             configuration
         ));
@@ -34,7 +36,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testABooleanIsNotAStringFails() {
         // a boolean is not a string
-        Assert.assertThrows(ValidationException.class, () -> StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             true,
             configuration
         ));
@@ -52,7 +55,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnArrayIsNotAStringFails() {
         // an array is not a string
-        Assert.assertThrows(ValidationException.class, () -> StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             List.of(
             ),
             configuration
@@ -62,7 +66,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnObjectIsNotAStringFails() {
         // an object is not a string
-        Assert.assertThrows(ValidationException.class, () -> StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             Map.ofEntries(
             ),
             configuration
@@ -72,8 +77,9 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testNullIsNotAStringFails() {
         // null is not a string
-        Assert.assertThrows(ValidationException.class, () -> StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
-            null,
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
+            (Void) null,
             configuration
         ));
     }
@@ -90,7 +96,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAFloatIsNotAStringFails() {
         // a float is not a string
-        Assert.assertThrows(ValidationException.class, () -> StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             1.1,
             configuration
         ));

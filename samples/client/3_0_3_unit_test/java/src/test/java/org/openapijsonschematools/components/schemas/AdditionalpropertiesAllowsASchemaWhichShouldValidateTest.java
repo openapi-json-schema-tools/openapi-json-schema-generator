@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -52,7 +53,8 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
     @Test
     public void testAnAdditionalInvalidPropertyIsInvalidFails() {
         // an additional invalid property is invalid
-        Assert.assertThrows(ValidationException.class, () -> AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,8 @@ public class OneofWithRequiredTest {
     @Test
     public void testBothValidInvalidFails() {
         // both valid - invalid
-        Assert.assertThrows(ValidationException.class, () -> OneofWithRequired.OneofWithRequired1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            OneofWithRequired.OneofWithRequired1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -74,7 +76,8 @@ public class OneofWithRequiredTest {
     @Test
     public void testBothInvalidInvalidFails() {
         // both invalid - invalid
-        Assert.assertThrows(ValidationException.class, () -> OneofWithRequired.OneofWithRequired1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            OneofWithRequired.OneofWithRequired1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "bar",

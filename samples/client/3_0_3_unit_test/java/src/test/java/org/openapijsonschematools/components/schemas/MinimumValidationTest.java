@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,8 @@ public class MinimumValidationTest {
     @Test
     public void testBelowTheMinimumIsInvalidFails() {
         // below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> MinimumValidation.MinimumValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MinimumValidation.MinimumValidation1.class,
             0.6,
             configuration
         ));

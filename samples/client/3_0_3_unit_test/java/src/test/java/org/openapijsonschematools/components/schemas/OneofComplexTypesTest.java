@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -30,7 +31,8 @@ public class OneofComplexTypesTest {
     @Test
     public void testBothOneofValidComplexFails() {
         // both oneOf valid (complex)
-        Assert.assertThrows(ValidationException.class, () -> OneofComplexTypes.OneofComplexTypes1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            OneofComplexTypes.OneofComplexTypes1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -62,7 +64,8 @@ public class OneofComplexTypesTest {
     @Test
     public void testNeitherOneofValidComplexFails() {
         // neither oneOf valid (complex)
-        Assert.assertThrows(ValidationException.class, () -> OneofComplexTypes.OneofComplexTypes1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            OneofComplexTypes.OneofComplexTypes1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

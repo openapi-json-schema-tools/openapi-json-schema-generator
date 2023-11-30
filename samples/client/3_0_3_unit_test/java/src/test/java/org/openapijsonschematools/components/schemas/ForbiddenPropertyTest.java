@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class ForbiddenPropertyTest {
     @Test
     public void testPropertyPresentFails() {
         // property present
-        Assert.assertThrows(ValidationException.class, () -> ForbiddenProperty.ForbiddenProperty1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ForbiddenProperty.ForbiddenProperty1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

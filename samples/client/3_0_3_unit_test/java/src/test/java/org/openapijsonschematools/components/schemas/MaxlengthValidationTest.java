@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -34,7 +35,8 @@ public class MaxlengthValidationTest {
     @Test
     public void testTooLongIsInvalidFails() {
         // too long is invalid
-        Assert.assertThrows(ValidationException.class, () -> MaxlengthValidation.MaxlengthValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            MaxlengthValidation.MaxlengthValidation1.class,
             "foo",
             configuration
         ));

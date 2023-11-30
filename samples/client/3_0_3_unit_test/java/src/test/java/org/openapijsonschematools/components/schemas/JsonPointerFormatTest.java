@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -26,7 +27,7 @@ public class JsonPointerFormatTest {
     public void testAllStringFormatsIgnoreNullsPasses() {
         // all string formats ignore nulls
         JsonPointerFormat.JsonPointerFormat1.validate(
-            null,
+            (Void) null,
             configuration
         );
     }

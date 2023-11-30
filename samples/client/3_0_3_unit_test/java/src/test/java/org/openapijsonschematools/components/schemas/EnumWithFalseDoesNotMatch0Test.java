@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class EnumWithFalseDoesNotMatch0Test {
     @Test
     public void testFloatZeroIsInvalidFails() {
         // float zero is invalid
-        Assert.assertThrows(ValidationException.class, () -> EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.class,
             0.0,
             configuration
         ));
@@ -34,7 +36,8 @@ public class EnumWithFalseDoesNotMatch0Test {
     @Test
     public void testIntegerZeroIsInvalidFails() {
         // integer zero is invalid
-        Assert.assertThrows(ValidationException.class, () -> EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.class,
             0,
             configuration
         ));

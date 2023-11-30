@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class AllofTest {
     @Test
     public void testMismatchSecondFails() {
         // mismatch second
-        Assert.assertThrows(ValidationException.class, () -> Allof.Allof1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            Allof.Allof1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -30,7 +32,8 @@ public class AllofTest {
     @Test
     public void testWrongTypeFails() {
         // wrong type
-        Assert.assertThrows(ValidationException.class, () -> Allof.Allof1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            Allof.Allof1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -48,7 +51,8 @@ public class AllofTest {
     @Test
     public void testMismatchFirstFails() {
         // mismatch first
-        Assert.assertThrows(ValidationException.class, () -> Allof.Allof1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            Allof.Allof1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "bar",

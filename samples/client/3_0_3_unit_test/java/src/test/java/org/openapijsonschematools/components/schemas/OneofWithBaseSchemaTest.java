@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testMismatchBaseSchemaFails() {
         // mismatch base schema
-        Assert.assertThrows(ValidationException.class, () -> OneofWithBaseSchema.OneofWithBaseSchema1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            OneofWithBaseSchema.OneofWithBaseSchema1.class,
             3,
             configuration
         ));
@@ -34,7 +36,8 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testBothOneofValidFails() {
         // both oneOf valid
-        Assert.assertThrows(ValidationException.class, () -> OneofWithBaseSchema.OneofWithBaseSchema1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            OneofWithBaseSchema.OneofWithBaseSchema1.class,
             "foo",
             configuration
         ));

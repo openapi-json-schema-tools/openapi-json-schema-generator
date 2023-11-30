@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -16,7 +17,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfMoreThanTwoIntegersIsInvalidFails() {
         // non-unique array of more than two integers is invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 1,
                 2,
@@ -29,7 +31,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfObjectsIsInvalidFails() {
         // non-unique array of objects is invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
@@ -89,7 +92,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfIntegersIsInvalidFails() {
         // non-unique array of integers is invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 1,
                 1
@@ -123,7 +127,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testObjectsAreNonUniqueDespiteKeyOrderFails() {
         // objects are non-unique despite key order
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
@@ -153,7 +158,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfArraysIsInvalidFails() {
         // non-unique array of arrays is invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 List.of(
                     "foo"
@@ -191,7 +197,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfMoreThanTwoArraysIsInvalidFails() {
         // non-unique array of more than two arrays is invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 List.of(
                     "foo"
@@ -226,7 +233,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfNestedObjectsIsInvalidFails() {
         // non-unique array of nested objects is invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
@@ -268,7 +276,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNumbersAreUniqueIfMathematicallyUnequalFails() {
         // numbers are unique if mathematically unequal
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 1.0,
                 1.0,
@@ -281,7 +290,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfStringsIsInvalidFails() {
         // non-unique array of strings is invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 "foo",
                 "bar",
@@ -461,7 +471,7 @@ public class UniqueitemsValidationTest {
                     1
                 ),
                 true,
-                null,
+                (Void) null,
                 1,
                 "{}"
             ),
@@ -494,7 +504,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueHeterogeneousTypesAreInvalidFails() {
         // non-unique heterogeneous types are invalid
-        Assert.assertThrows(ValidationException.class, () -> UniqueitemsValidation.UniqueitemsValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            UniqueitemsValidation.UniqueitemsValidation1.class,
             List.of(
                 Map.ofEntries(
                 ),
@@ -502,7 +513,7 @@ public class UniqueitemsValidationTest {
                     1
                 ),
                 true,
-                null,
+                (Void) null,
                 Map.ofEntries(
                 ),
                 1

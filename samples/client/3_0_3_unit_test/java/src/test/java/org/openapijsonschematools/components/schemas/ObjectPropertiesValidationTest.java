@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
+import org.openapijsonschematools.schemas.validation.JsonSchema;
 
 import java.util.List;
 import java.util.Map;
@@ -58,7 +59,8 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testBothPropertiesInvalidIsInvalidFails() {
         // both properties invalid is invalid
-        Assert.assertThrows(ValidationException.class, () -> ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -88,7 +90,8 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testOnePropertyInvalidIsInvalidFails() {
         // one property invalid is invalid
-        Assert.assertThrows(ValidationException.class, () -> ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+            ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
