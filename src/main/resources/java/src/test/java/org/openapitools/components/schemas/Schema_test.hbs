@@ -6,9 +6,9 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 {{#with schema}}
@@ -21,6 +21,8 @@ public class {{containerJsonPathPiece.camelCase}}Test {
     public void test{{@key}}{{#if valid}}Passes{{else}}Fails{{/if}}() {
         // {{description}}
         {{#if valid}}
+        // payload type = {{data.type}}
+        // dataType =
         {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.validate(
             {{#with data}}
             {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="," }}
@@ -31,7 +33,7 @@ public class {{containerJsonPathPiece.camelCase}}Test {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.class,
             {{#with data}}
-            {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="," }}
+            {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer any=true endChar="," }}
             {{/with}}
             configuration
         ));

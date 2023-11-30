@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class AdditionalpropertiesCanExistByItselfTest {
@@ -17,13 +17,15 @@ public class AdditionalpropertiesCanExistByItselfTest {
     @Test
     public void testAnAdditionalValidPropertyIsValidPasses() {
         // an additional valid property is valid
+        // payload type = object
+        // dataType =
         AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     true
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -33,12 +35,12 @@ public class AdditionalpropertiesCanExistByItselfTest {
         // an additional invalid property is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            ),
+            )),
             configuration
         ));
     }

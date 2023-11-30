@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class MinlengthValidationTest {
@@ -17,6 +17,8 @@ public class MinlengthValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        // payload type = string
+        // dataType =
         MinlengthValidation.MinlengthValidation1.validate(
             "fo",
             configuration
@@ -26,6 +28,8 @@ public class MinlengthValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
+        // payload type = string
+        // dataType =
         MinlengthValidation.MinlengthValidation1.validate(
             "foo",
             configuration
@@ -35,6 +39,8 @@ public class MinlengthValidationTest {
     @Test
     public void testIgnoresNonStringsPasses() {
         // ignores non-strings
+        // payload type = integer
+        // dataType =
         MinlengthValidation.MinlengthValidation1.validate(
             1,
             configuration

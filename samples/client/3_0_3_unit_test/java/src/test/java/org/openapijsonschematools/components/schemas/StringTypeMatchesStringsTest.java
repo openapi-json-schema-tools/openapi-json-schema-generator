@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class StringTypeMatchesStringsTest {
@@ -17,6 +17,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() {
         // a string is still a string, even if it looks like a number
+        // payload type = string
+        // dataType =
         StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
             "1",
             configuration
@@ -46,6 +48,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnEmptyStringIsStillAStringPasses() {
         // an empty string is still a string
+        // payload type = string
+        // dataType =
         StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
             "",
             configuration
@@ -68,8 +72,8 @@ public class StringTypeMatchesStringsTest {
         // an object is not a string
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         ));
     }
@@ -87,6 +91,8 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAStringIsAStringPasses() {
         // a string is a string
+        // payload type = string
+        // dataType =
         StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
             "foo",
             configuration

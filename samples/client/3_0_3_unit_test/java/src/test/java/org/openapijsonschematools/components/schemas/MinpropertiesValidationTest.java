@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class MinpropertiesValidationTest {
@@ -17,13 +17,15 @@ public class MinpropertiesValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        // payload type = object
+        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -31,6 +33,8 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
+        // payload type = integer
+        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             12,
             configuration
@@ -40,8 +44,10 @@ public class MinpropertiesValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
+        // payload type = object
+        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -50,7 +56,7 @@ public class MinpropertiesValidationTest {
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -58,6 +64,8 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
+        // payload type = array
+        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             Arrays.asList(
             ),
@@ -70,8 +78,8 @@ public class MinpropertiesValidationTest {
         // too short is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             MinpropertiesValidation.MinpropertiesValidation1.class,
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         ));
     }
@@ -79,6 +87,8 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresStringsPasses() {
         // ignores strings
+        // payload type = string
+        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             "",
             configuration

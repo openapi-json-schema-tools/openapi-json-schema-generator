@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class NestedOneofToCheckValidationSemanticsTest {
@@ -17,6 +17,8 @@ public class NestedOneofToCheckValidationSemanticsTest {
     @Test
     public void testNullIsValidPasses() {
         // null is valid
+        // payload type = null
+        // dataType =
         NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1.validate(
             (Void) null,
             configuration

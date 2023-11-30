@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class AnyofWithBaseSchemaTest {
@@ -27,6 +27,8 @@ public class AnyofWithBaseSchemaTest {
     @Test
     public void testOneAnyofValidPasses() {
         // one anyOf valid
+        // payload type = string
+        // dataType =
         AnyofWithBaseSchema.AnyofWithBaseSchema1.validate(
             "foobar",
             configuration

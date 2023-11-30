@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class EnumWithTrueDoesNotMatch1Test {
@@ -37,6 +37,8 @@ public class EnumWithTrueDoesNotMatch1Test {
     @Test
     public void testTrueIsValidPasses() {
         // true is valid
+        // payload type = boolean
+        // dataType =
         EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.validate(
             true,
             configuration

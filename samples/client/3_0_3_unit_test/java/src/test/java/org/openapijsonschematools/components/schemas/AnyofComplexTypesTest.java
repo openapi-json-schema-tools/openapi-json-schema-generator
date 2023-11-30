@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class AnyofComplexTypesTest {
@@ -17,13 +17,15 @@ public class AnyofComplexTypesTest {
     @Test
     public void testSecondAnyofValidComplexPasses() {
         // second anyOf valid (complex)
+        // payload type = object
+        // dataType =
         AnyofComplexTypes.AnyofComplexTypes1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -31,8 +33,10 @@ public class AnyofComplexTypesTest {
     @Test
     public void testBothAnyofValidComplexPasses() {
         // both anyOf valid (complex)
+        // payload type = object
+        // dataType =
         AnyofComplexTypes.AnyofComplexTypes1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
@@ -41,7 +45,7 @@ public class AnyofComplexTypesTest {
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -49,13 +53,15 @@ public class AnyofComplexTypesTest {
     @Test
     public void testFirstAnyofValidComplexPasses() {
         // first anyOf valid (complex)
+        // payload type = object
+        // dataType =
         AnyofComplexTypes.AnyofComplexTypes1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -65,7 +71,7 @@ public class AnyofComplexTypesTest {
         // neither anyOf valid (complex)
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             AnyofComplexTypes.AnyofComplexTypes1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     2
@@ -74,7 +80,7 @@ public class AnyofComplexTypesTest {
                     "bar",
                     "quux"
                 )
-            ),
+            )),
             configuration
         ));
     }

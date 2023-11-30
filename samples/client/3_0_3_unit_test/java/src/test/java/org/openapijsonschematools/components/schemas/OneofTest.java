@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class OneofTest {
@@ -37,6 +37,8 @@ public class OneofTest {
     @Test
     public void testSecondOneofValidPasses() {
         // second oneOf valid
+        // payload type = number
+        // dataType =
         Oneof.Oneof1.validate(
             2.5,
             configuration
@@ -46,6 +48,8 @@ public class OneofTest {
     @Test
     public void testFirstOneofValidPasses() {
         // first oneOf valid
+        // payload type = integer
+        // dataType =
         Oneof.Oneof1.validate(
             1,
             configuration

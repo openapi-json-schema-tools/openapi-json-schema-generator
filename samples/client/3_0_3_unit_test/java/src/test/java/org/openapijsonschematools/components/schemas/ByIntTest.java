@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class ByIntTest {
@@ -27,6 +27,8 @@ public class ByIntTest {
     @Test
     public void testIntByIntPasses() {
         // int by int
+        // payload type = integer
+        // dataType =
         ByInt.ByInt1.validate(
             10,
             configuration
@@ -36,6 +38,8 @@ public class ByIntTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
+        // payload type = string
+        // dataType =
         ByInt.ByInt1.validate(
             "foo",
             configuration

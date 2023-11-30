@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class RequiredValidationTest {
@@ -17,13 +17,15 @@ public class RequiredValidationTest {
     @Test
     public void testPresentRequiredPropertyIsValidPasses() {
         // present required property is valid
+        // payload type = object
+        // dataType =
         RequiredValidation.RequiredValidation1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -31,6 +33,8 @@ public class RequiredValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
+        // payload type = integer
+        // dataType =
         RequiredValidation.RequiredValidation1.validate(
             12,
             configuration
@@ -40,6 +44,8 @@ public class RequiredValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
+        // payload type = array
+        // dataType =
         RequiredValidation.RequiredValidation1.validate(
             Arrays.asList(
             ),
@@ -50,6 +56,8 @@ public class RequiredValidationTest {
     @Test
     public void testIgnoresStringsPasses() {
         // ignores strings
+        // payload type = string
+        // dataType =
         RequiredValidation.RequiredValidation1.validate(
             "",
             configuration
@@ -61,12 +69,12 @@ public class RequiredValidationTest {
         // non-present required property is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             RequiredValidation.RequiredValidation1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     1
                 )
-            ),
+            )),
             configuration
         ));
     }

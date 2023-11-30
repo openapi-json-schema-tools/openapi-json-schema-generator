@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class AdditionalpropertiesAreAllowedByDefaultTest {
@@ -17,8 +17,10 @@ public class AdditionalpropertiesAreAllowedByDefaultTest {
     @Test
     public void testAdditionalPropertiesAreAllowedPasses() {
         // additional properties are allowed
+        // payload type = object
+        // dataType =
         AdditionalpropertiesAreAllowedByDefault.AdditionalpropertiesAreAllowedByDefault1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -31,7 +33,7 @@ public class AdditionalpropertiesAreAllowedByDefaultTest {
                     "quux",
                     true
                 )
-            ),
+            )),
             configuration
         );
     }

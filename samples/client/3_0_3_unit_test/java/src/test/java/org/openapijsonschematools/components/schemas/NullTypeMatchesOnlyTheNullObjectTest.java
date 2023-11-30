@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class NullTypeMatchesOnlyTheNullObjectTest {
@@ -40,8 +40,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
         // an object is not null
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         ));
     }
@@ -69,6 +69,8 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testNullIsNullPasses() {
         // null is null
+        // payload type = null
+        // dataType =
         NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
             (Void) null,
             configuration

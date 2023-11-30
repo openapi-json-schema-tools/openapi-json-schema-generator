@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class RefInItemsTest {
@@ -17,14 +17,16 @@ public class RefInItemsTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
+        // payload type = array
+        // dataType =
         RefInItems.RefInItems1.validate(
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "$ref",
                         "a"
                     )
-                )
+                ))
             ),
             configuration
         );
@@ -36,12 +38,12 @@ public class RefInItemsTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             RefInItems.RefInItems1.class,
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "$ref",
                         2
                     )
-                )
+                ))
             ),
             configuration
         ));

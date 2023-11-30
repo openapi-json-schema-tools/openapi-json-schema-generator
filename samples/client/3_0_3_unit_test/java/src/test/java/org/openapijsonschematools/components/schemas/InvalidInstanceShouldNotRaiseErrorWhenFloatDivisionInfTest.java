@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
@@ -27,6 +27,8 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
     @Test
     public void testValidIntegerWithMultipleofFloatPasses() {
         // valid integer with multipleOf float
+        // payload type = integer
+        // dataType =
         InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.validate(
             123456789,
             configuration

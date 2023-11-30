@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class PropertyNamedRefThatIsNotAReferenceTest {
@@ -17,13 +17,15 @@ public class PropertyNamedRefThatIsNotAReferenceTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
+        // payload type = object
+        // dataType =
         PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "$ref",
                     "a"
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -33,12 +35,12 @@ public class PropertyNamedRefThatIsNotAReferenceTest {
         // property named $ref invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "$ref",
                     2
                 )
-            ),
+            )),
             configuration
         ));
     }

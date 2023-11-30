@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class MaxpropertiesValidationTest {
@@ -17,13 +17,15 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
+        // payload type = object
+        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -31,8 +33,10 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        // payload type = object
+        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -41,7 +45,7 @@ public class MaxpropertiesValidationTest {
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -51,7 +55,7 @@ public class MaxpropertiesValidationTest {
         // too long is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             MaxpropertiesValidation.MaxpropertiesValidation1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -64,7 +68,7 @@ public class MaxpropertiesValidationTest {
                     "baz",
                     3
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -72,6 +76,8 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
+        // payload type = integer
+        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             12,
             configuration
@@ -81,6 +87,8 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
+        // payload type = array
+        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             Arrays.asList(
                 1,
@@ -94,6 +102,8 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresStringsPasses() {
         // ignores strings
+        // payload type = string
+        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             "foobar",
             configuration

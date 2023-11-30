@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class MinimumValidationWithSignedIntegerTest {
@@ -17,6 +17,8 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testBoundaryPointWithFloatIsValidPasses() {
         // boundary point with float is valid
+        // payload type = number
+        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             -2.0,
             configuration
@@ -26,6 +28,8 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
+        // payload type = integer
+        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             -2,
             configuration
@@ -45,6 +49,8 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testPositiveAboveTheMinimumIsValidPasses() {
         // positive above the minimum is valid
+        // payload type = integer
+        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             0,
             configuration
@@ -54,6 +60,8 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testNegativeAboveTheMinimumIsValidPasses() {
         // negative above the minimum is valid
+        // payload type = integer
+        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             -1,
             configuration
@@ -63,6 +71,8 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
+        // payload type = string
+        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             "x",
             configuration

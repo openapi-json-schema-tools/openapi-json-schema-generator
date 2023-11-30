@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class NotMoreComplexSchemaTest {
@@ -17,13 +17,15 @@ public class NotMoreComplexSchemaTest {
     @Test
     public void testOtherMatchPasses() {
         // other match
+        // payload type = object
+        // dataType =
         NotMoreComplexSchema.NotMoreComplexSchema1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -33,12 +35,12 @@ public class NotMoreComplexSchemaTest {
         // mismatch
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             NotMoreComplexSchema.NotMoreComplexSchema1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "bar"
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -46,6 +48,8 @@ public class NotMoreComplexSchemaTest {
     @Test
     public void testMatchPasses() {
         // match
+        // payload type = integer
+        // dataType =
         NotMoreComplexSchema.NotMoreComplexSchema1.validate(
             1,
             configuration

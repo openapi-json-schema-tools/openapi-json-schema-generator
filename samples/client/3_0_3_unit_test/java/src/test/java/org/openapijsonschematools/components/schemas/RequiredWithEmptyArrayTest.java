@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class RequiredWithEmptyArrayTest {
@@ -17,9 +17,11 @@ public class RequiredWithEmptyArrayTest {
     @Test
     public void testPropertyNotRequiredPasses() {
         // property not required
+        // payload type = object
+        // dataType =
         RequiredWithEmptyArray.RequiredWithEmptyArray1.validate(
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         );
     }

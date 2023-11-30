@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class AllofTest {
@@ -19,12 +19,12 @@ public class AllofTest {
         // mismatch second
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             Allof.Allof1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -34,7 +34,7 @@ public class AllofTest {
         // wrong type
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             Allof.Allof1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
@@ -43,7 +43,7 @@ public class AllofTest {
                     "bar",
                     "quux"
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -53,12 +53,12 @@ public class AllofTest {
         // mismatch first
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             Allof.Allof1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -66,8 +66,10 @@ public class AllofTest {
     @Test
     public void testAllofPasses() {
         // allOf
+        // payload type = object
+        // dataType =
         Allof.Allof1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
@@ -76,7 +78,7 @@ public class AllofTest {
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         );
     }

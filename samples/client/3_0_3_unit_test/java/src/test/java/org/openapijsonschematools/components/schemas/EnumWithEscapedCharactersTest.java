@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class EnumWithEscapedCharactersTest {
@@ -27,6 +27,8 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testMember2IsValidPasses() {
         // member 2 is valid
+        // payload type = string
+        // dataType =
         EnumWithEscapedCharacters.EnumWithEscapedCharacters1.validate(
             "foo\rbar",
             configuration
@@ -36,6 +38,8 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testMember1IsValidPasses() {
         // member 1 is valid
+        // payload type = string
+        // dataType =
         EnumWithEscapedCharacters.EnumWithEscapedCharacters1.validate(
             "foo\nbar",
             configuration

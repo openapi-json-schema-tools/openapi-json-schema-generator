@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class NumberTypeMatchesNumbersTest {
@@ -17,6 +17,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAFloatIsANumberPasses() {
         // a float is a number
+        // payload type = number
+        // dataType =
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
             1.1,
             configuration
@@ -26,6 +28,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnIntegerIsANumberPasses() {
         // an integer is a number
+        // payload type = integer
+        // dataType =
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
             1,
             configuration
@@ -55,6 +59,8 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() {
         // a float with zero fractional part is a number (and an integer)
+        // payload type = number
+        // dataType =
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
             1.0,
             configuration
@@ -97,8 +103,8 @@ public class NumberTypeMatchesNumbersTest {
         // an object is not a number
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         ));
     }

@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class MinitemsValidationTest {
@@ -17,6 +17,8 @@ public class MinitemsValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        // payload type = array
+        // dataType =
         MinitemsValidation.MinitemsValidation1.validate(
             Arrays.asList(
                 1
@@ -28,6 +30,8 @@ public class MinitemsValidationTest {
     @Test
     public void testIgnoresNonArraysPasses() {
         // ignores non-arrays
+        // payload type = string
+        // dataType =
         MinitemsValidation.MinitemsValidation1.validate(
             "",
             configuration
@@ -37,6 +41,8 @@ public class MinitemsValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
+        // payload type = array
+        // dataType =
         MinitemsValidation.MinitemsValidation1.validate(
             Arrays.asList(
                 1,

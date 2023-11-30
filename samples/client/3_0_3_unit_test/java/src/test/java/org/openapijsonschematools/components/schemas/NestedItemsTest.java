@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class NestedItemsTest {
@@ -89,6 +89,8 @@ public class NestedItemsTest {
     @Test
     public void testValidNestedArrayPasses() {
         // valid nested array
+        // payload type = array
+        // dataType =
         NestedItems.NestedItems1.validate(
             Arrays.asList(
                 Arrays.asList(

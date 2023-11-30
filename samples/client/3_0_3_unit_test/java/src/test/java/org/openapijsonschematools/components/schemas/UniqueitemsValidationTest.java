@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class UniqueitemsValidationTest {
@@ -34,18 +34,18 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                )
+                ))
             ),
             configuration
         ));
@@ -54,20 +54,22 @@ public class UniqueitemsValidationTest {
     @Test
     public void testATrueAndA1AreUniquePasses() {
         // {&quot;a&quot;: true} and {&quot;a&quot;: 1} are unique
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         true
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         1
                     )
-                )
+                ))
             ),
             configuration
         );
@@ -76,6 +78,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void test1AndTrueAreUniquePasses() {
         // [1] and [true] are unique
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -105,6 +109,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNested0AndFalseAreUniquePasses() {
         // nested [0] and [false] are unique
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -130,7 +136,7 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         1
@@ -139,8 +145,8 @@ public class UniqueitemsValidationTest {
                         "b",
                         2
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "b",
                         2
@@ -149,7 +155,7 @@ public class UniqueitemsValidationTest {
                         "a",
                         1
                     )
-                )
+                ))
             ),
             configuration
         ));
@@ -175,20 +181,22 @@ public class UniqueitemsValidationTest {
     @Test
     public void testAFalseAndA0AreUniquePasses() {
         // {&quot;a&quot;: false} and {&quot;a&quot;: 0} are unique
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         false
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         0
                     )
-                )
+                ))
             ),
             configuration
         );
@@ -217,6 +225,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void test0AndFalseAreUniquePasses() {
         // [0] and [false] are unique
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -236,38 +246,38 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        Map.ofEntries(
+                        MapBuilder.of(Arrays.asList(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                Map.ofEntries(
+                                MapBuilder.of(Arrays.asList(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                )
+                                ))
                             )
-                        )
+                        ))
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        Map.ofEntries(
+                        MapBuilder.of(Arrays.asList(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                Map.ofEntries(
+                                MapBuilder.of(Arrays.asList(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                )
+                                ))
                             )
-                        )
+                        ))
                     )
-                )
+                ))
             ),
             configuration
         ));
@@ -304,40 +314,42 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfNestedObjectsIsValidPasses() {
         // unique array of nested objects is valid
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        Map.ofEntries(
+                        MapBuilder.of(Arrays.asList(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                Map.ofEntries(
+                                MapBuilder.of(Arrays.asList(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                )
+                                ))
                             )
-                        )
+                        ))
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        Map.ofEntries(
+                        MapBuilder.of(Arrays.asList(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                Map.ofEntries(
+                                MapBuilder.of(Arrays.asList(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         false
                                     )
-                                )
+                                ))
                             )
-                        )
+                        ))
                     )
-                )
+                ))
             ),
             configuration
         );
@@ -346,6 +358,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfArraysIsValidPasses() {
         // unique array of arrays is valid
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -362,6 +376,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testTrueIsNotEqualToOnePasses() {
         // true is not equal to one
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 1,
@@ -374,6 +390,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNested1AndTrueAreUniquePasses() {
         // nested [1] and [true] are unique
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -396,6 +414,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfStringsIsValidPasses() {
         // unique array of strings is valid
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 "foo",
@@ -409,6 +429,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testFalseIsNotEqualToZeroPasses() {
         // false is not equal to zero
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 0,
@@ -421,6 +443,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfIntegersIsValidPasses() {
         // unique array of integers is valid
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 1,
@@ -433,9 +457,11 @@ public class UniqueitemsValidationTest {
     @Test
     public void testDifferentObjectsAreUniquePasses() {
         // different objects are unique
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         1
@@ -444,8 +470,8 @@ public class UniqueitemsValidationTest {
                         "b",
                         2
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         2
@@ -454,7 +480,7 @@ public class UniqueitemsValidationTest {
                         "b",
                         1
                     )
-                )
+                ))
             ),
             configuration
         );
@@ -463,10 +489,12 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueHeterogeneousTypesAreValidPasses() {
         // unique heterogeneous types are valid
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                Map.ofEntries(
-                ),
+                MapBuilder.of(Arrays.asList(
+                )),
                 Arrays.asList(
                     1
                 ),
@@ -482,20 +510,22 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfObjectsIsValidPasses() {
         // unique array of objects is valid
+        // payload type = array
+        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                Map.ofEntries(
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                ),
-                Map.ofEntries(
+                )),
+                MapBuilder.of(Arrays.asList(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "baz"
                     )
-                )
+                ))
             ),
             configuration
         );
@@ -507,15 +537,15 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                Map.ofEntries(
-                ),
+                MapBuilder.of(Arrays.asList(
+                )),
                 Arrays.asList(
                     1
                 ),
                 true,
                 (Void) null,
-                Map.ofEntries(
-                ),
+                MapBuilder.of(Arrays.asList(
+                )),
                 1
             ),
             configuration

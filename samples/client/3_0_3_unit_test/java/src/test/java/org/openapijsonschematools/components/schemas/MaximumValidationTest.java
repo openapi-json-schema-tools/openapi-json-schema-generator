@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class MaximumValidationTest {
@@ -27,6 +27,8 @@ public class MaximumValidationTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
+        // payload type = number
+        // dataType =
         MaximumValidation.MaximumValidation1.validate(
             3.0,
             configuration
@@ -36,6 +38,8 @@ public class MaximumValidationTest {
     @Test
     public void testBelowTheMaximumIsValidPasses() {
         // below the maximum is valid
+        // payload type = number
+        // dataType =
         MaximumValidation.MaximumValidation1.validate(
             2.6,
             configuration
@@ -45,6 +49,8 @@ public class MaximumValidationTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
+        // payload type = string
+        // dataType =
         MaximumValidation.MaximumValidation1.validate(
             "x",
             configuration

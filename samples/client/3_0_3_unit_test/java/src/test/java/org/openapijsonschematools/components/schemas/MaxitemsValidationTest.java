@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class MaxitemsValidationTest {
@@ -17,6 +17,8 @@ public class MaxitemsValidationTest {
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
+        // payload type = array
+        // dataType =
         MaxitemsValidation.MaxitemsValidation1.validate(
             Arrays.asList(
                 1
@@ -28,6 +30,8 @@ public class MaxitemsValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        // payload type = array
+        // dataType =
         MaxitemsValidation.MaxitemsValidation1.validate(
             Arrays.asList(
                 1,
@@ -54,6 +58,8 @@ public class MaxitemsValidationTest {
     @Test
     public void testIgnoresNonArraysPasses() {
         // ignores non-arrays
+        // payload type = string
+        // dataType =
         MaxitemsValidation.MaxitemsValidation1.validate(
             "foobar",
             configuration

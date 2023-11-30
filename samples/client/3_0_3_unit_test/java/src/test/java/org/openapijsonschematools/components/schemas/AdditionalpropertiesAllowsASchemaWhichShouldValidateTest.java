@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
@@ -17,13 +17,15 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
     @Test
     public void testNoAdditionalPropertiesIsValidPasses() {
         // no additional properties is valid
+        // payload type = object
+        // dataType =
         AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -31,8 +33,10 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
     @Test
     public void testAnAdditionalValidPropertyIsValidPasses() {
         // an additional valid property is valid
+        // payload type = object
+        // dataType =
         AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -45,7 +49,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
                     "quux",
                     true
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -55,7 +59,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
         // an additional invalid property is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -68,7 +72,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
                     "quux",
                     12
                 )
-            ),
+            )),
             configuration
         ));
     }

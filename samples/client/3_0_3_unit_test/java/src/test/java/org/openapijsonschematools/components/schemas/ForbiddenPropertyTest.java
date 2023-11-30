@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class ForbiddenPropertyTest {
@@ -19,7 +19,7 @@ public class ForbiddenPropertyTest {
         // property present
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             ForbiddenProperty.ForbiddenProperty1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -28,7 +28,7 @@ public class ForbiddenPropertyTest {
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -36,8 +36,10 @@ public class ForbiddenPropertyTest {
     @Test
     public void testPropertyAbsentPasses() {
         // property absent
+        // payload type = object
+        // dataType =
         ForbiddenProperty.ForbiddenProperty1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     1
@@ -46,7 +48,7 @@ public class ForbiddenPropertyTest {
                     "baz",
                     2
                 )
-            ),
+            )),
             configuration
         );
     }

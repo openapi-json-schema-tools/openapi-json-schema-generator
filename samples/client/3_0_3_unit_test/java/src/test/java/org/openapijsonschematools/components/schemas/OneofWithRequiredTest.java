@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class OneofWithRequiredTest {
@@ -17,8 +17,10 @@ public class OneofWithRequiredTest {
     @Test
     public void testFirstValidValidPasses() {
         // first valid - valid
+        // payload type = object
+        // dataType =
         OneofWithRequired.OneofWithRequired1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -27,7 +29,7 @@ public class OneofWithRequiredTest {
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -37,7 +39,7 @@ public class OneofWithRequiredTest {
         // both valid - invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             OneofWithRequired.OneofWithRequired1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -50,7 +52,7 @@ public class OneofWithRequiredTest {
                     "baz",
                     3
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -58,8 +60,10 @@ public class OneofWithRequiredTest {
     @Test
     public void testSecondValidValidPasses() {
         // second valid - valid
+        // payload type = object
+        // dataType =
         OneofWithRequired.OneofWithRequired1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -68,7 +72,7 @@ public class OneofWithRequiredTest {
                     "baz",
                     3
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -78,12 +82,12 @@ public class OneofWithRequiredTest {
         // both invalid - invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             OneofWithRequired.OneofWithRequired1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            ),
+            )),
             configuration
         ));
     }

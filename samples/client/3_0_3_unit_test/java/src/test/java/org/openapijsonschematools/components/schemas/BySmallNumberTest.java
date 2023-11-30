@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class BySmallNumberTest {
@@ -27,6 +27,8 @@ public class BySmallNumberTest {
     @Test
     public void test00075IsMultipleOf00001Passes() {
         // 0.0075 is multiple of 0.0001
+        // payload type = number
+        // dataType =
         BySmallNumber.BySmallNumber1.validate(
             0.0075,
             configuration

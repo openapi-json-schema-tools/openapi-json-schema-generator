@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class Maxproperties0MeansTheObjectIsEmptyTest {
@@ -19,12 +19,12 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
         // one property is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            ),
+            )),
             configuration
         ));
     }
@@ -32,9 +32,11 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
     @Test
     public void testNoPropertiesIsValidPasses() {
         // no properties is valid
+        // payload type = object
+        // dataType =
         Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.validate(
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         );
     }

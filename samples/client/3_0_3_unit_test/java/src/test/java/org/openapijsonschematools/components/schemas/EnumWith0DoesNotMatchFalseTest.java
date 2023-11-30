@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class EnumWith0DoesNotMatchFalseTest {
@@ -17,6 +17,8 @@ public class EnumWith0DoesNotMatchFalseTest {
     @Test
     public void testFloatZeroIsValidPasses() {
         // float zero is valid
+        // payload type = number
+        // dataType =
         EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
             0.0,
             configuration
@@ -36,6 +38,8 @@ public class EnumWith0DoesNotMatchFalseTest {
     @Test
     public void testIntegerZeroIsValidPasses() {
         // integer zero is valid
+        // payload type = integer
+        // dataType =
         EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
             0,
             configuration

@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
@@ -17,9 +17,11 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testMissingPropertiesAreNotFilledInWithTheDefaultPasses() {
         // missing properties are not filled in with the default
+        // payload type = object
+        // dataType =
         TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.validate(
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         );
     }
@@ -27,13 +29,15 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testAnExplicitPropertyValueIsCheckedAgainstMaximumPassingPasses() {
         // an explicit property value is checked against maximum (passing)
+        // payload type = object
+        // dataType =
         TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "alpha",
                     1
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -43,12 +47,12 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
         // an explicit property value is checked against maximum (failing)
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "alpha",
                     5
                 )
-            ),
+            )),
             configuration
         ));
     }

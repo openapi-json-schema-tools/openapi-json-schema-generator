@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class PropertiesWithEscapedCharactersTest {
@@ -17,8 +17,10 @@ public class PropertiesWithEscapedCharactersTest {
     @Test
     public void testObjectWithAllNumbersIsValidPasses() {
         // object with all numbers is valid
+        // payload type = object
+        // dataType =
         PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.validate(
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",
                     1
@@ -43,7 +45,7 @@ public class PropertiesWithEscapedCharactersTest {
                     "foo\fbar",
                     1
                 )
-            ),
+            )),
             configuration
         );
     }
@@ -53,7 +55,7 @@ public class PropertiesWithEscapedCharactersTest {
         // object with strings is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.class,
-            Map.ofEntries(
+            MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",
                     "1"
@@ -78,7 +80,7 @@ public class PropertiesWithEscapedCharactersTest {
                     "foo\fbar",
                     "1"
                 )
-            ),
+            )),
             configuration
         ));
     }

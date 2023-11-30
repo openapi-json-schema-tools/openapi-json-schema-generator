@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class AllofCombinedWithAnyofOneofTest {
@@ -57,6 +57,8 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofTrueAnyofTrueOneofTruePasses() {
         // allOf: true, anyOf: true, oneOf: true
+        // payload type = integer
+        // dataType =
         AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.validate(
             30,
             configuration

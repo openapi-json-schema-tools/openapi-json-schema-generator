@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class NotTest {
@@ -27,6 +27,8 @@ public class NotTest {
     @Test
     public void testAllowedPasses() {
         // allowed
+        // payload type = string
+        // dataType =
         Not.Not1.validate(
             "foo",
             configuration

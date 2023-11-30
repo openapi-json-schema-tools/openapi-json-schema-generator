@@ -6,9 +6,9 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
+import org.openapijsonschematools.schemas.MapBuilder;
 
 import java.util.Arrays;
-import java.util.Map;
 import java.util.AbstractMap;
 
 public class ObjectTypeMatchesObjectsTest {
@@ -17,9 +17,11 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAnObjectIsAnObjectPasses() {
         // an object is an object
+        // payload type = object
+        // dataType =
         ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.validate(
-            Map.ofEntries(
-            ),
+            MapBuilder.of(Arrays.asList(
+            )),
             configuration
         );
     }
