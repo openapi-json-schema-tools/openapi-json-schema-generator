@@ -73,6 +73,7 @@ public class ObjectPropertiesValidation {
                 new PropertyEntry("bar", Bar.class)
             )))
         ));
+        
         protected static ObjectPropertiesValidationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectPropertiesValidationMap(arg);
         }
@@ -120,7 +121,7 @@ public class ObjectPropertiesValidation {
             return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
         }
     }}

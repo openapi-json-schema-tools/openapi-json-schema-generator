@@ -72,6 +72,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
                 new PropertyEntry("bar", Bar.class)
             )))
         ));
+        
         protected static AdditionalpropertiesAreAllowedByDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AdditionalpropertiesAreAllowedByDefaultMap(arg);
         }
@@ -119,7 +120,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return JsonSchema.validate(AdditionalpropertiesAreAllowedByDefault1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalpropertiesAreAllowedByDefault1.class, arg, configuration);
         }
     }}

@@ -28,7 +28,7 @@ public static {{../arrayOutputJsonPathPiece.camelCase}} validate(List<{{#with it
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
             {{else}}
-public static FrozenList<Object> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
             {{/if}}
@@ -182,7 +182,13 @@ public static FrozenMap<String, Object> validate(Map<String, Object> arg, Schema
 }
     {{/if}}
 
-public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+    {{#if arrayOutputJsonPathPiece}}
+public static {{../arrayOutputJsonPathPiece.camelCase}} validate(List<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
+    {{else}}
+public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+    return JsonSchema.validate({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
+}
+    {{/if}}
 {{/if}}

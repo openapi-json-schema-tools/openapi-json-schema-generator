@@ -37,6 +37,7 @@ public class RefInItems {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
         ));
+        
         protected static RefInItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new RefInItemsList(arg);
         }

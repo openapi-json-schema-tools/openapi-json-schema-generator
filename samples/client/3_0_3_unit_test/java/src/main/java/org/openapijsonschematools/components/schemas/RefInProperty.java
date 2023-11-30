@@ -57,6 +57,7 @@ public class RefInProperty {
                 new PropertyEntry("a", PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
             )))
         ));
+        
         protected static RefInPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new RefInPropertyMap(arg);
         }
@@ -104,7 +105,7 @@ public class RefInProperty {
             return JsonSchema.validate(RefInProperty1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RefInProperty1.class, arg, configuration);
         }
     }}

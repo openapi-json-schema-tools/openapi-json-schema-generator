@@ -42,6 +42,7 @@ public class RefInAdditionalproperties {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
         ));
+        
         protected static RefInAdditionalpropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new RefInAdditionalpropertiesMap(arg);
         }

@@ -41,6 +41,7 @@ public class ArrayTypeMatchesArrays {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayTypeMatchesArraysList(arg);
         }

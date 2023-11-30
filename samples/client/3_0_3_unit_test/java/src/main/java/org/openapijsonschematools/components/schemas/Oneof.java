@@ -71,7 +71,7 @@ public class Oneof {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema1.class, arg, configuration);
         }
     }    
@@ -133,7 +133,7 @@ public class Oneof {
             return JsonSchema.validate(Oneof1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Oneof1.class, arg, configuration);
         }
     }}

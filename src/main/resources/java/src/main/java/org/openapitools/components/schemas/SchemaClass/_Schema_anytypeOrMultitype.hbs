@@ -135,5 +135,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
 {{/or}}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_getMapOutputInstance }}
+    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_getListOutputInstance }}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
 }

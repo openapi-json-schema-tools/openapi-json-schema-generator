@@ -58,6 +58,7 @@ public class NotMoreComplexSchema {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
+        
         protected static NotMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new NotMap(arg);
         }
@@ -121,7 +122,7 @@ public class NotMoreComplexSchema {
             return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
         }
     }}

@@ -61,6 +61,7 @@ public class RequiredDefaultValidation {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
+        
         protected static RequiredDefaultValidationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new RequiredDefaultValidationMap(arg);
         }
@@ -108,7 +109,7 @@ public class RequiredDefaultValidation {
             return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
         }
     }}

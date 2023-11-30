@@ -74,7 +74,7 @@ public class RefInAnyof {
             return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
         }
     }}
