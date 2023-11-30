@@ -23,16 +23,17 @@ public class NotValidator implements KeywordValidator {
 
     @Override
     public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+        PathToSchemasMap pathToSchemas;
         try {
-            PathToSchemasMap pathToSchemas = JsonSchema.validate(not, arg, validationMetadata);
-            if (!pathToSchemas.isEmpty()) {
-                throw new ValidationException(
-                    "Invalid value "+arg+" was passed in to "+cls+". "+
-                    "Value is invalid because it is disallowed by not "+not
-                );
-            }
+            pathToSchemas = JsonSchema.validate(not, arg, validationMetadata);
         } catch (ValidationException e) {
             return null;
+        }
+        if (!pathToSchemas.isEmpty()) {
+            throw new ValidationException(
+                    "Invalid value "+arg+" was passed in to "+cls+". "+
+                            "Value is invalid because it is disallowed by not "+not
+            );
         }
         return null;
     }
