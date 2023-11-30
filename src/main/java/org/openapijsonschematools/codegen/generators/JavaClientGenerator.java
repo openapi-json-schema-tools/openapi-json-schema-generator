@@ -977,7 +977,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         String nullChar = "\0";
         if (stringValue.contains(nullChar)) {
-            stringValue = stringValue.replace(nullChar, "\\x00");
+            stringValue = stringValue.replace(nullChar, "\\0");
         }
         String doubleQuoteChar = "\"";
         if (stringValue.contains(doubleQuoteChar)) {
