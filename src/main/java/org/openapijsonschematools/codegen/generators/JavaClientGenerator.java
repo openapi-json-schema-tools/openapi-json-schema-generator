@@ -240,7 +240,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         updateOption(CodegenConstants.API_PACKAGE, apiPackage);
         updateOption(CodegenConstants.MODEL_PACKAGE, modelPackage);
 
-        modelTestTemplateFiles.put("model_test.mustache", ".java");
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                new HashMap<String, String>() {{
+                    put("src/test/java/org/openapitools/components/schemas/Schema_test.hbs", ".java");
+                }}
+        );
 
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA2, "Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA3, "Whether to use the RxJava3 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
@@ -1768,5 +1773,23 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
         String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
+    }
+
+    @Override
+    public String getTestFilepath(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        pathPieces[0] = outputFolder + File.separatorChar + testPackagePath();
+        if (jsonPath.startsWith("#/components")) {
+            // #/components/schemas/someSchema
+            updateComponentsFilepath(pathPieces);
+            if (pathPieces.length == 4) {
+                int lastIndex = pathPieces.length - 1;
+                pathPieces[lastIndex] = pathPieces[lastIndex] + "Test";
+            }
+        }
+        List<String> finalPathPieces = Arrays.stream(pathPieces)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return String.join(File.separator, finalPathPieces);
     }
 }

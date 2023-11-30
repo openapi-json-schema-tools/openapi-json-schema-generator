@@ -238,9 +238,6 @@ public class DefaultGenerator implements Generator {
     // for writing test files
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = new HashMap<>();
 
-    protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
-    protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
-    protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
@@ -3732,7 +3729,7 @@ public class DefaultGenerator implements Generator {
         return pieces[pieces.length-1];
     }
 
-    private void updateComponentsFilepath(String[] pathPieces) {
+    protected void updateComponentsFilepath(String[] pathPieces) {
         if (pathPieces.length < 3) {
             return;
         }

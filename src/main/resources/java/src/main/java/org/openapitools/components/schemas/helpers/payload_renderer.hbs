@@ -1,0 +1,38 @@
+{{#eq type "object"}}
+Map.ofEntries(
+    {{#each value}}
+    new AbstractMap.SimpleEntry<>(
+        "{{{@key}}}",
+        {{#with this}}
+        {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="" }}
+        {{/with}}
+    ){{#unless @last}},{{/unless}}
+    {{/each}}
+){{endChar}}
+{{/eq}}
+{{#eq type"array"}}
+List.of(
+    {{#each value}}
+        {{#unless @last}}
+    {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="," }}
+        {{else}}
+    {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="" }}
+        {{/unless}}
+    {{/each}}
+){{endChar}}
+{{/eq}}
+{{#eq type "number"}}
+{{value}}{{endChar}}
+{{/eq}}
+{{#eq type "integer"}}
+{{value}}{{endChar}}
+{{/eq}}
+{{#eq type "boolean"}}
+{{value}}{{endChar}}
+{{/eq}}
+{{#eq type "null"}}
+null{{endChar}}
+{{/eq}}
+{{#eq type "string"}}
+"{{{value}}}"{{endChar}}
+{{/eq}}
