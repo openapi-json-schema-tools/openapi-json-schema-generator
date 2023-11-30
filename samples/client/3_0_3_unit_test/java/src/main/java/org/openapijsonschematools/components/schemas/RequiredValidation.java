@@ -75,6 +75,9 @@ public class RequiredValidation {
                 "foo"
             )))
         ));
+        protected static RequiredValidationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RequiredValidationMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredValidation1.class, arg, configuration);
         }

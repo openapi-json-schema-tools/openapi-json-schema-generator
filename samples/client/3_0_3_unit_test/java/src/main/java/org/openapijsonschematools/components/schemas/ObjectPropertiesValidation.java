@@ -73,6 +73,9 @@ public class ObjectPropertiesValidation {
                 new PropertyEntry("bar", Bar.class)
             )))
         ));
+        protected static ObjectPropertiesValidationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ObjectPropertiesValidationMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
         }

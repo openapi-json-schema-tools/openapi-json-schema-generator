@@ -71,6 +71,9 @@ public class InvalidStringValueForDefault {
                 new PropertyEntry("bar", Bar.class)
             )))
         ));
+        protected static InvalidStringValueForDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new InvalidStringValueForDefaultMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(InvalidStringValueForDefault1.class, arg, configuration);
         }

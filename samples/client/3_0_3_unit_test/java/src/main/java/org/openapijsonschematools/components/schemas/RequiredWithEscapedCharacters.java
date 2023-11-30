@@ -60,6 +60,9 @@ public class RequiredWithEscapedCharacters {
                 "foo\\bar"
             )))
         ));
+        protected static RequiredWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RequiredWithEscapedCharactersMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
         }

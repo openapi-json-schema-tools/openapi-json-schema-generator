@@ -61,6 +61,9 @@ public class RequiredWithEmptyArray {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
+        protected static RequiredWithEmptyArrayMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RequiredWithEmptyArrayMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
         }

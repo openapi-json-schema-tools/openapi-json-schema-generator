@@ -80,6 +80,9 @@ public class PropertiesWithEscapedCharacters {
                 new PropertyEntry("foo\fbar", Foofbar.class)
             )))
         ));
+        protected static PropertiesWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new PropertiesWithEscapedCharactersMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PropertiesWithEscapedCharacters1.class, arg, configuration);
         }

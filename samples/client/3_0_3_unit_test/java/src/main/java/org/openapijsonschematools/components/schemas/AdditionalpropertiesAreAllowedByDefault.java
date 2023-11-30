@@ -72,6 +72,9 @@ public class AdditionalpropertiesAreAllowedByDefault {
                 new PropertyEntry("bar", Bar.class)
             )))
         ));
+        protected static AdditionalpropertiesAreAllowedByDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new AdditionalpropertiesAreAllowedByDefaultMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalpropertiesAreAllowedByDefault1.class, arg, configuration);
         }

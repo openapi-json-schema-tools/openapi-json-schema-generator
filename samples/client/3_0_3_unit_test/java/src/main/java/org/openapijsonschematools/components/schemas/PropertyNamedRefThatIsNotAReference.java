@@ -55,6 +55,9 @@ public class PropertyNamedRefThatIsNotAReference {
                 new PropertyEntry("$ref", Ref.class)
             )))
         ));
+        protected static PropertyNamedRefThatIsNotAReferenceMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new PropertyNamedRefThatIsNotAReferenceMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
