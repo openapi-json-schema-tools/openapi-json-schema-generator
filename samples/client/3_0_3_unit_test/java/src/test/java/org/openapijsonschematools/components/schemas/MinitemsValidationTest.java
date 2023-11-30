@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -18,7 +18,7 @@ public class MinitemsValidationTest {
     public void testExactLengthIsValidPasses() {
         // exact length is valid
         MinitemsValidation.MinitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1
             ),
             configuration
@@ -38,7 +38,7 @@ public class MinitemsValidationTest {
     public void testLongerIsValidPasses() {
         // longer is valid
         MinitemsValidation.MinitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 2
             ),
@@ -51,7 +51,7 @@ public class MinitemsValidationTest {
         // too short is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             MinitemsValidation.MinitemsValidation1.class,
-            List.of(
+            Arrays.asList(
             ),
             configuration
         ));

@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -19,7 +19,7 @@ public class UniqueitemsValidationTest {
         // non-unique array of more than two integers is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 1,
                 2,
                 1
@@ -33,7 +33,7 @@ public class UniqueitemsValidationTest {
         // non-unique array of objects is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -55,7 +55,7 @@ public class UniqueitemsValidationTest {
     public void testATrueAndA1AreUniquePasses() {
         // {&quot;a&quot;: true} and {&quot;a&quot;: 1} are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "a",
@@ -77,11 +77,11 @@ public class UniqueitemsValidationTest {
     public void test1AndTrueAreUniquePasses() {
         // [1] and [true] are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
-                List.of(
+            Arrays.asList(
+                Arrays.asList(
                     1
                 ),
-                List.of(
+                Arrays.asList(
                     true
                 )
             ),
@@ -94,7 +94,7 @@ public class UniqueitemsValidationTest {
         // non-unique array of integers is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 1,
                 1
             ),
@@ -106,15 +106,15 @@ public class UniqueitemsValidationTest {
     public void testNested0AndFalseAreUniquePasses() {
         // nested [0] and [false] are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
-                List.of(
-                    List.of(
+            Arrays.asList(
+                Arrays.asList(
+                    Arrays.asList(
                         0
                     ),
                     "foo"
                 ),
-                List.of(
-                    List.of(
+                Arrays.asList(
+                    Arrays.asList(
                         false
                     ),
                     "foo"
@@ -129,7 +129,7 @@ public class UniqueitemsValidationTest {
         // objects are non-unique despite key order
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "a",
@@ -160,11 +160,11 @@ public class UniqueitemsValidationTest {
         // non-unique array of arrays is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
-                List.of(
+            Arrays.asList(
+                Arrays.asList(
                     "foo"
                 ),
-                List.of(
+                Arrays.asList(
                     "foo"
                 )
             ),
@@ -176,7 +176,7 @@ public class UniqueitemsValidationTest {
     public void testAFalseAndA0AreUniquePasses() {
         // {&quot;a&quot;: false} and {&quot;a&quot;: 0} are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "a",
@@ -199,14 +199,14 @@ public class UniqueitemsValidationTest {
         // non-unique array of more than two arrays is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
-                List.of(
+            Arrays.asList(
+                Arrays.asList(
                     "foo"
                 ),
-                List.of(
+                Arrays.asList(
                     "bar"
                 ),
-                List.of(
+                Arrays.asList(
                     "foo"
                 )
             ),
@@ -218,11 +218,11 @@ public class UniqueitemsValidationTest {
     public void test0AndFalseAreUniquePasses() {
         // [0] and [false] are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
-                List.of(
+            Arrays.asList(
+                Arrays.asList(
                     0
                 ),
-                List.of(
+                Arrays.asList(
                     false
                 )
             ),
@@ -235,7 +235,7 @@ public class UniqueitemsValidationTest {
         // non-unique array of nested objects is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -278,7 +278,7 @@ public class UniqueitemsValidationTest {
         // numbers are unique if mathematically unequal
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 1.0,
                 1.0,
                 1
@@ -292,7 +292,7 @@ public class UniqueitemsValidationTest {
         // non-unique array of strings is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 "foo",
                 "bar",
                 "foo"
@@ -305,7 +305,7 @@ public class UniqueitemsValidationTest {
     public void testUniqueArrayOfNestedObjectsIsValidPasses() {
         // unique array of nested objects is valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -347,11 +347,11 @@ public class UniqueitemsValidationTest {
     public void testUniqueArrayOfArraysIsValidPasses() {
         // unique array of arrays is valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
-                List.of(
+            Arrays.asList(
+                Arrays.asList(
                     "foo"
                 ),
-                List.of(
+                Arrays.asList(
                     "bar"
                 )
             ),
@@ -363,7 +363,7 @@ public class UniqueitemsValidationTest {
     public void testTrueIsNotEqualToOnePasses() {
         // true is not equal to one
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 true
             ),
@@ -375,15 +375,15 @@ public class UniqueitemsValidationTest {
     public void testNested1AndTrueAreUniquePasses() {
         // nested [1] and [true] are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
-                List.of(
-                    List.of(
+            Arrays.asList(
+                Arrays.asList(
+                    Arrays.asList(
                         1
                     ),
                     "foo"
                 ),
-                List.of(
-                    List.of(
+                Arrays.asList(
+                    Arrays.asList(
                         true
                     ),
                     "foo"
@@ -397,7 +397,7 @@ public class UniqueitemsValidationTest {
     public void testUniqueArrayOfStringsIsValidPasses() {
         // unique array of strings is valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 "foo",
                 "bar",
                 "baz"
@@ -410,7 +410,7 @@ public class UniqueitemsValidationTest {
     public void testFalseIsNotEqualToZeroPasses() {
         // false is not equal to zero
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 0,
                 false
             ),
@@ -422,7 +422,7 @@ public class UniqueitemsValidationTest {
     public void testUniqueArrayOfIntegersIsValidPasses() {
         // unique array of integers is valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 2
             ),
@@ -434,7 +434,7 @@ public class UniqueitemsValidationTest {
     public void testDifferentObjectsAreUniquePasses() {
         // different objects are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "a",
@@ -464,10 +464,10 @@ public class UniqueitemsValidationTest {
     public void testUniqueHeterogeneousTypesAreValidPasses() {
         // unique heterogeneous types are valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                 ),
-                List.of(
+                Arrays.asList(
                     1
                 ),
                 true,
@@ -483,7 +483,7 @@ public class UniqueitemsValidationTest {
     public void testUniqueArrayOfObjectsIsValidPasses() {
         // unique array of objects is valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -506,10 +506,10 @@ public class UniqueitemsValidationTest {
         // non-unique heterogeneous types are invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                 ),
-                List.of(
+                Arrays.asList(
                     1
                 ),
                 true,

@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -18,7 +18,7 @@ public class NulCharactersInStringsTest {
     public void testMatchStringWithNulPasses() {
         // match string with nul
         NulCharactersInStrings.NulCharactersInStrings1.validate(
-            "hello\\x00there",
+            "hello\0there",
             configuration
         );
     }

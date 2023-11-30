@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -55,7 +55,7 @@ public class Ipv4FormatTest {
     public void testAllStringFormatsIgnoreArraysPasses() {
         // all string formats ignore arrays
         Ipv4Format.Ipv4Format1.validate(
-            List.of(
+            Arrays.asList(
             ),
             configuration
         );

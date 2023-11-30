@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -18,7 +18,7 @@ public class UniqueitemsFalseValidationTest {
     public void testNumbersAreUniqueIfMathematicallyUnequalPasses() {
         // numbers are unique if mathematically unequal
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1.0,
                 1.0,
                 1
@@ -31,7 +31,7 @@ public class UniqueitemsFalseValidationTest {
     public void testNonUniqueArrayOfIntegersIsValidPasses() {
         // non-unique array of integers is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 1
             ),
@@ -43,7 +43,7 @@ public class UniqueitemsFalseValidationTest {
     public void testNonUniqueArrayOfObjectsIsValidPasses() {
         // non-unique array of objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -65,11 +65,11 @@ public class UniqueitemsFalseValidationTest {
     public void testNonUniqueArrayOfArraysIsValidPasses() {
         // non-unique array of arrays is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
-                List.of(
+            Arrays.asList(
+                Arrays.asList(
                     "foo"
                 ),
-                List.of(
+                Arrays.asList(
                     "foo"
                 )
             ),
@@ -81,7 +81,7 @@ public class UniqueitemsFalseValidationTest {
     public void test1AndTrueAreUniquePasses() {
         // 1 and true are unique
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 true
             ),
@@ -93,7 +93,7 @@ public class UniqueitemsFalseValidationTest {
     public void testUniqueArrayOfNestedObjectsIsValidPasses() {
         // unique array of nested objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -135,11 +135,11 @@ public class UniqueitemsFalseValidationTest {
     public void testUniqueArrayOfArraysIsValidPasses() {
         // unique array of arrays is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
-                List.of(
+            Arrays.asList(
+                Arrays.asList(
                     "foo"
                 ),
-                List.of(
+                Arrays.asList(
                     "bar"
                 )
             ),
@@ -151,7 +151,7 @@ public class UniqueitemsFalseValidationTest {
     public void testTrueIsNotEqualToOnePasses() {
         // true is not equal to one
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 true
             ),
@@ -163,10 +163,10 @@ public class UniqueitemsFalseValidationTest {
     public void testNonUniqueHeterogeneousTypesAreValidPasses() {
         // non-unique heterogeneous types are valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                 ),
-                List.of(
+                Arrays.asList(
                     1
                 ),
                 true,
@@ -183,7 +183,7 @@ public class UniqueitemsFalseValidationTest {
     public void testFalseIsNotEqualToZeroPasses() {
         // false is not equal to zero
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 0,
                 false
             ),
@@ -195,7 +195,7 @@ public class UniqueitemsFalseValidationTest {
     public void testUniqueArrayOfIntegersIsValidPasses() {
         // unique array of integers is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 2
             ),
@@ -207,7 +207,7 @@ public class UniqueitemsFalseValidationTest {
     public void test0AndFalseAreUniquePasses() {
         // 0 and false are unique
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 0,
                 false
             ),
@@ -219,10 +219,10 @@ public class UniqueitemsFalseValidationTest {
     public void testUniqueHeterogeneousTypesAreValidPasses() {
         // unique heterogeneous types are valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                 ),
-                List.of(
+                Arrays.asList(
                     1
                 ),
                 true,
@@ -237,7 +237,7 @@ public class UniqueitemsFalseValidationTest {
     public void testUniqueArrayOfObjectsIsValidPasses() {
         // unique array of objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -259,7 +259,7 @@ public class UniqueitemsFalseValidationTest {
     public void testNonUniqueArrayOfNestedObjectsIsValidPasses() {
         // non-unique array of nested objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
-            List.of(
+            Arrays.asList(
                 Map.ofEntries(
                     new AbstractMap.SimpleEntry<>(
                         "foo",

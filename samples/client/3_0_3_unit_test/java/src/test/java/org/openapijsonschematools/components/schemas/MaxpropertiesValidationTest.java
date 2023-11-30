@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -82,7 +82,7 @@ public class MaxpropertiesValidationTest {
     public void testIgnoresArraysPasses() {
         // ignores arrays
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 2,
                 3

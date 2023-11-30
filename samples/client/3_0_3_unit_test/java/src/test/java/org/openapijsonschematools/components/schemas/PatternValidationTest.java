@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -64,7 +64,7 @@ public class PatternValidationTest {
     public void testIgnoresArraysPasses() {
         // ignores arrays
         PatternValidation.PatternValidation1.validate(
-            List.of(
+            Arrays.asList(
             ),
             configuration
         );

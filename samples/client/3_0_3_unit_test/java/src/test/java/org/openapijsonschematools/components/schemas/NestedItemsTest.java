@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -19,31 +19,31 @@ public class NestedItemsTest {
         // nested array with invalid type
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             NestedItems.NestedItems1.class,
-            List.of(
-                List.of(
-                    List.of(
-                        List.of(
+            Arrays.asList(
+                Arrays.asList(
+                    Arrays.asList(
+                        Arrays.asList(
                             "1"
                         )
                     ),
-                    List.of(
-                        List.of(
+                    Arrays.asList(
+                        Arrays.asList(
                             2
                         ),
-                        List.of(
+                        Arrays.asList(
                             3
                         )
                     )
                 ),
-                List.of(
-                    List.of(
-                        List.of(
+                Arrays.asList(
+                    Arrays.asList(
+                        Arrays.asList(
                             4
                         ),
-                        List.of(
+                        Arrays.asList(
                             5
                         ),
-                        List.of(
+                        Arrays.asList(
                             6
                         )
                     )
@@ -58,26 +58,26 @@ public class NestedItemsTest {
         // not deep enough
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             NestedItems.NestedItems1.class,
-            List.of(
-                List.of(
-                    List.of(
+            Arrays.asList(
+                Arrays.asList(
+                    Arrays.asList(
                         1
                     ),
-                    List.of(
+                    Arrays.asList(
                         2
                     ),
-                    List.of(
+                    Arrays.asList(
                         3
                     )
                 ),
-                List.of(
-                    List.of(
+                Arrays.asList(
+                    Arrays.asList(
                         4
                     ),
-                    List.of(
+                    Arrays.asList(
                         5
                     ),
-                    List.of(
+                    Arrays.asList(
                         6
                     )
                 )
@@ -90,31 +90,31 @@ public class NestedItemsTest {
     public void testValidNestedArrayPasses() {
         // valid nested array
         NestedItems.NestedItems1.validate(
-            List.of(
-                List.of(
-                    List.of(
-                        List.of(
+            Arrays.asList(
+                Arrays.asList(
+                    Arrays.asList(
+                        Arrays.asList(
                             1
                         )
                     ),
-                    List.of(
-                        List.of(
+                    Arrays.asList(
+                        Arrays.asList(
                             2
                         ),
-                        List.of(
+                        Arrays.asList(
                             3
                         )
                     )
                 ),
-                List.of(
-                    List.of(
-                        List.of(
+                Arrays.asList(
+                    Arrays.asList(
+                        Arrays.asList(
                             4
                         ),
-                        List.of(
+                        Arrays.asList(
                             5
                         ),
-                        List.of(
+                        Arrays.asList(
                             6
                         )
                     )

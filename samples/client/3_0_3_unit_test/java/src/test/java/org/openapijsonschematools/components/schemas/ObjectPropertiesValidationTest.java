@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -39,7 +39,7 @@ public class ObjectPropertiesValidationTest {
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "quux",
-                    List.of(
+                    Arrays.asList(
                     )
                 )
             ),
@@ -64,7 +64,7 @@ public class ObjectPropertiesValidationTest {
             Map.ofEntries(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
-                    List.of(
+                    Arrays.asList(
                     )
                 ),
                 new AbstractMap.SimpleEntry<>(
@@ -81,7 +81,7 @@ public class ObjectPropertiesValidationTest {
     public void testIgnoresArraysPasses() {
         // ignores arrays
         ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
-            List.of(
+            Arrays.asList(
             ),
             configuration
         );

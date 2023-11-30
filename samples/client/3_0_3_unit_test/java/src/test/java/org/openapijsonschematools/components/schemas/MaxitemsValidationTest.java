@@ -7,7 +7,7 @@ import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 
-import java.util.List;
+import java.util.Arrays;
 import java.util.Map;
 import java.util.AbstractMap;
 
@@ -18,7 +18,7 @@ public class MaxitemsValidationTest {
     public void testShorterIsValidPasses() {
         // shorter is valid
         MaxitemsValidation.MaxitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1
             ),
             configuration
@@ -29,7 +29,7 @@ public class MaxitemsValidationTest {
     public void testExactLengthIsValidPasses() {
         // exact length is valid
         MaxitemsValidation.MaxitemsValidation1.validate(
-            List.of(
+            Arrays.asList(
                 1,
                 2
             ),
@@ -42,7 +42,7 @@ public class MaxitemsValidationTest {
         // too long is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             MaxitemsValidation.MaxitemsValidation1.class,
-            List.of(
+            Arrays.asList(
                 1,
                 2,
                 3

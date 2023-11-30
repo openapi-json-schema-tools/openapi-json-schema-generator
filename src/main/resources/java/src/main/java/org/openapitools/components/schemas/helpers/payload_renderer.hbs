@@ -11,7 +11,7 @@ Map.ofEntries(
 ){{endChar}}
 {{/eq}}
 {{#eq type"array"}}
-List.of(
+Arrays.asList(
     {{#each value}}
         {{#unless @last}}
     {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="," }}
