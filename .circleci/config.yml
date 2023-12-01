@@ -147,8 +147,8 @@ jobs:
       - command_docker_build_and_test:
           jobId: "testPythonClientSamples"
   testJavaClientSamples:
-    machine:
-      image: ubuntu-2004:202201-02
+    docker:
+      - image: cimg/openjdk:17.0.9
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
     shell: /bin/bash --login
     environment:
