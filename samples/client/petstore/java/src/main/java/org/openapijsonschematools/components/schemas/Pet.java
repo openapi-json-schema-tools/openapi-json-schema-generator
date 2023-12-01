@@ -47,6 +47,7 @@ public class Pet {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
             return new PhotoUrlsList(arg);
         }
@@ -86,6 +87,7 @@ public class Pet {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
         ));
+        
         protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
             return new TagsList(arg);
         }
@@ -175,6 +177,7 @@ public class Pet {
                 "photoUrls"
             )))
         ));
+        
         protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PetMap(arg);
         }

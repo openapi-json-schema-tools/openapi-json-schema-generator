@@ -80,6 +80,7 @@ public class Category {
                 "name"
             )))
         ));
+        
         protected static CategoryMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CategoryMap(arg);
         }

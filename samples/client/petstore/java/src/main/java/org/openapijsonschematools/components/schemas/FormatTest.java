@@ -191,6 +191,7 @@ public class FormatTest {
             new KeywordEntry("items", new ItemsValidator(Items.class)),
             new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))
         ));
+        
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);
         }
@@ -205,7 +206,8 @@ public class FormatTest {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/[a-z]/i"
+                "[a-z]",
+                Pattern.CASE_INSENSITIVE,
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -253,7 +255,7 @@ public class FormatTest {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/^\\d{10}$/"
+                "^\d{10}$"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -267,7 +269,8 @@ public class FormatTest {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/^image_\\d{1,3}$/i"
+                "^image_\d{1,3}$",
+                Pattern.CASE_INSENSITIVE,
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -437,6 +440,7 @@ public class FormatTest {
                 "password"
             )))
         ));
+        
         protected static FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FormatTestMap(arg);
         }

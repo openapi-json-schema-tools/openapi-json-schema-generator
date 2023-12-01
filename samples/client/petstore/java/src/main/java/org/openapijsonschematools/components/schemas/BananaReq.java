@@ -74,8 +74,8 @@ public class BananaReq {
                 "lengthCm"
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static BananaReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BananaReqMap(arg);
         }

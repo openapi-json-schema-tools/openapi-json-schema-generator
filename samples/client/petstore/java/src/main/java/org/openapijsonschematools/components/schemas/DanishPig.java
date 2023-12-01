@@ -71,6 +71,7 @@ public class DanishPig {
                 "className"
             )))
         ));
+        
         protected static DanishPigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new DanishPigMap(arg);
         }

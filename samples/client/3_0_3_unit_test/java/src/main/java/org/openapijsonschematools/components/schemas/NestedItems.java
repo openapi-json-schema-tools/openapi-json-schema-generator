@@ -35,6 +35,7 @@ public class NestedItems {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items3.class))
         ));
+        
         protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ItemsList(arg);
         }
@@ -58,6 +59,7 @@ public class NestedItems {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
+        
         protected static ItemsList1 getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ItemsList1(arg);
         }
@@ -81,6 +83,7 @@ public class NestedItems {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
+        
         protected static ItemsList2 getListOutputInstance(FrozenList<ItemsList1> arg) {
             return new ItemsList2(arg);
         }
@@ -110,6 +113,7 @@ public class NestedItems {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static NestedItemsList getListOutputInstance(FrozenList<ItemsList2> arg) {
             return new NestedItemsList(arg);
         }

@@ -82,6 +82,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
                 new PropertyEntry("alpha", Alpha.class)
             )))
         ));
+        
         protected static TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap(arg);
         }

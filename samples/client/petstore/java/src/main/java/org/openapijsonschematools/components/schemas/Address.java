@@ -45,8 +45,8 @@ public class Address {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static AddressMap getMapOutputInstance(FrozenMap<String, Long> arg) {
             return new AddressMap(arg);
         }

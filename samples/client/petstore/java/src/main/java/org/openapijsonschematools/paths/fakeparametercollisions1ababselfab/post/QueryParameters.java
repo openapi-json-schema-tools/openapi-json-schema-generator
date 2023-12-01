@@ -74,8 +74,8 @@ public class QueryParameters {
                 new PropertyEntry("self", Schema3.Schema31.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new QueryParametersMap(arg);
         }

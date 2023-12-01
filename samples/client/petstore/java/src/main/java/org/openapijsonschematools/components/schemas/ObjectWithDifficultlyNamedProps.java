@@ -71,6 +71,7 @@ public class ObjectWithDifficultlyNamedProps {
                 "123-list"
             )))
         ));
+        
         protected static ObjectWithDifficultlyNamedPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }

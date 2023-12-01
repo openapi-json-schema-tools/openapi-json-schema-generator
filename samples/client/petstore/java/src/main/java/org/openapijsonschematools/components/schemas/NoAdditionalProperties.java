@@ -73,8 +73,8 @@ public class NoAdditionalProperties {
                 "id"
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long> arg) {
             return new NoAdditionalPropertiesMap(arg);
         }

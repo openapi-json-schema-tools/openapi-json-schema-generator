@@ -89,6 +89,10 @@ public class Name {
                 "name"
             )))
         ));
+        
+        protected static NameMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new NameMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
@@ -129,11 +133,11 @@ public class Name {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static NameMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Name1.class, arg, configuration);
         }
     }}

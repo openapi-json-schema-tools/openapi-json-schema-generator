@@ -2,7 +2,7 @@ package org.openapijsonschematools.schemas.validation;
 
 import org.openapijsonschematools.exceptions.ValidationException;
 
-public class MinLengthValidator implements KeywordValidator {
+public class MinLengthValidator extends LengthValidator implements KeywordValidator {
     public final int minLength;
 
     public MinLengthValidator(int minLength) {
@@ -19,7 +19,8 @@ public class MinLengthValidator implements KeywordValidator {
         if (!(arg instanceof String)) {
             return null;
         }
-        if (((String) arg).length() < minLength) {
+        int length = getLength((String) arg);
+        if (length < minLength) {
             throw new ValidationException("Value " + arg + " is invalid because has < the minLength of " + minLength);
         }
         return null;

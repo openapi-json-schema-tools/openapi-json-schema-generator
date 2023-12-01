@@ -33,6 +33,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(EnumClass.EnumClass1.class))
         ));
+        
         protected static AdditionalPropertiesList getListOutputInstance(FrozenList<String> arg) {
             return new AdditionalPropertiesList(arg);
         }
@@ -67,8 +68,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesList> arg) {
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }

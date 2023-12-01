@@ -79,6 +79,7 @@ public class AbstractStepMessage {
                 AbstractStepMessage1.class
             )))
         ));
+        
         protected static AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AbstractStepMessageMap(arg);
         }

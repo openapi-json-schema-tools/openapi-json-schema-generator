@@ -60,6 +60,7 @@ public class SpecialModelname {
                 new PropertyEntry("a", A.class)
             )))
         ));
+        
         protected static SpecialModelnameMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SpecialModelnameMap(arg);
         }

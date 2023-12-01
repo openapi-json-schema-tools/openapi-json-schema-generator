@@ -58,6 +58,7 @@ public class NumberOnly {
                 new PropertyEntry("JustNumber", JustNumber.class)
             )))
         ));
+        
         protected static NumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new NumberOnlyMap(arg);
         }

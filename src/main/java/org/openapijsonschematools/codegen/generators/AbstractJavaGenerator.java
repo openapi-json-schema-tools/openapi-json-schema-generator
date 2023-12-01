@@ -142,7 +142,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         );
 
         supportsInheritance = true;
-        apiTestTemplateFiles.put("api_test.mustache", ".java");
 
         hideGenerationTimestamp = false;
 

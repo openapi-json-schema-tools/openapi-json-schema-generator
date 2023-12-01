@@ -69,6 +69,10 @@ public class Schema200Response {
                 new PropertyEntry("class", ClassSchema.class)
             )))
         ));
+        
+        protected static Schema200ResponseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new Schema200ResponseMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema200Response1.class, arg, configuration);
         }
@@ -109,11 +113,11 @@ public class Schema200Response {
             return JsonSchema.validate(Schema200Response1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema200ResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema200Response1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(Schema200Response1.class, arg, configuration);
         }
     }}

@@ -69,6 +69,7 @@ public class HasOnlyReadOnly {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
+        
         protected static HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HasOnlyReadOnlyMap(arg);
         }

@@ -73,29 +73,30 @@ public class FormatValidator implements KeywordValidator {
                 return null;
             }
             return null;
-        }
-        BigDecimal decimalArg;
-        if (arg instanceof Float) {
-            decimalArg = new BigDecimal((Float) arg);
-        } else if (arg instanceof Double) {
-            decimalArg = BigDecimal.valueOf((Double) arg);
-        } else {
-            decimalArg = (BigDecimal) arg;
-        }
-        if (format.equals("float")) {
-            if (decimalArg.compareTo(floatInclusiveMinimum) < 0  || decimalArg.compareTo(floatInclusiveMaximum) > 0 ){
-                throw new ValidationException(
-                    "Invalid value "+arg+" for format float at "+validationMetadata.pathToItem()
-                );
+        } else if (format.equals("float") || format.equals("double")) {
+            BigDecimal decimalArg;
+            if (arg instanceof Float) {
+                decimalArg = new BigDecimal((Float) arg);
+            } else if (arg instanceof Double) {
+                decimalArg = BigDecimal.valueOf((Double) arg);
+            } else {
+                decimalArg = (BigDecimal) arg;
             }
-            return null;
-        } else if (format.equals("double")) {
-            if (decimalArg.compareTo(doubleInclusiveMinimum) < 0  || decimalArg.compareTo(doubleInclusiveMaximum) > 0 ){
-                throw new ValidationException(
-                    "Invalid value "+arg+" for format double at "+validationMetadata.pathToItem()
-                );
+            if (format.equals("float")) {
+                if (decimalArg.compareTo(floatInclusiveMinimum) < 0  || decimalArg.compareTo(floatInclusiveMaximum) > 0 ){
+                    throw new ValidationException(
+                        "Invalid value "+arg+" for format float at "+validationMetadata.pathToItem()
+                    );
+                }
+                return null;
+            } else if (format.equals("double")) {
+                if (decimalArg.compareTo(doubleInclusiveMinimum) < 0  || decimalArg.compareTo(doubleInclusiveMaximum) > 0 ){
+                    throw new ValidationException(
+                        "Invalid value "+arg+" for format double at "+validationMetadata.pathToItem()
+                    );
+                }
+                return null;
             }
-            return null;
         }
         return null;
     }

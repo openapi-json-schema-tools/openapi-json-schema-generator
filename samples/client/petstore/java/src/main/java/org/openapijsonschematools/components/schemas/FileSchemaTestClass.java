@@ -34,6 +34,7 @@ public class FileSchemaTestClass {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(File.File1.class))
         ));
+        
         protected static FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
             return new FilesList(arg);
         }
@@ -88,6 +89,7 @@ public class FileSchemaTestClass {
                 new PropertyEntry("files", Files.class)
             )))
         ));
+        
         protected static FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FileSchemaTestClassMap(arg);
         }

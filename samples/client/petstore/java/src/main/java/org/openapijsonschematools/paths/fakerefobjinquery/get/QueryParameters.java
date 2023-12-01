@@ -50,8 +50,8 @@ public class QueryParameters {
                 new PropertyEntry("mapBean", Foo.Foo1.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Foo.FooMap> arg) {
             return new QueryParametersMap(arg);
         }

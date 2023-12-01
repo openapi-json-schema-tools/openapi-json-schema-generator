@@ -50,8 +50,8 @@ public class Headers {
                 new PropertyEntry("someHeader", SomeHeaderSchema.SomeHeaderSchema1.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static HeadersMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new HeadersMap(arg);
         }

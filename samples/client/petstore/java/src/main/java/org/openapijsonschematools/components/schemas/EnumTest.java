@@ -205,6 +205,7 @@ public class EnumTest {
                 "enum_string_required"
             )))
         ));
+        
         protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumTestMap(arg);
         }

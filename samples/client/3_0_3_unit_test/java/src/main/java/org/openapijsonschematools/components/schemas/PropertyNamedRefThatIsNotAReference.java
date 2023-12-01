@@ -55,6 +55,10 @@ public class PropertyNamedRefThatIsNotAReference {
                 new PropertyEntry("$ref", Ref.class)
             )))
         ));
+        
+        protected static PropertyNamedRefThatIsNotAReferenceMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new PropertyNamedRefThatIsNotAReferenceMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
@@ -95,11 +99,11 @@ public class PropertyNamedRefThatIsNotAReference {
             return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PropertyNamedRefThatIsNotAReferenceMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
     }}

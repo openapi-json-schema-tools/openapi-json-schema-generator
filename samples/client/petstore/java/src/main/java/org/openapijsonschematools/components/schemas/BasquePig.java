@@ -71,6 +71,7 @@ public class BasquePig {
                 "className"
             )))
         ));
+        
         protected static BasquePigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BasquePigMap(arg);
         }

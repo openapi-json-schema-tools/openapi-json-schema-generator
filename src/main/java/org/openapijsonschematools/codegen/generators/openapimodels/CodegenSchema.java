@@ -131,9 +131,6 @@ public class CodegenSchema {
 
     public List<String> keywords() {
         List<String> keywords = new ArrayList<>();
-        if (type == null && format == null && items == null && properties == null && requiredProperties == null && additionalProperties != null) {
-            return null;
-        }
         if (type != null) {
             keywords.add("type");
         }
@@ -194,6 +191,9 @@ public class CodegenSchema {
         if (oneOf != null) {
             keywords.add("oneOf");
         }
+        if (not != null) {
+            keywords.add("not");
+        }
         if (uniqueItems != null) {
             keywords.add("uniqueItems");
         }
@@ -202,6 +202,9 @@ public class CodegenSchema {
         }
         if (patternInfo != null) {
             keywords.add("pattern");
+        }
+        if (keywords.isEmpty()) {
+            return null;
         }
         return keywords;
     }

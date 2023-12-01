@@ -155,7 +155,8 @@ public class Schema {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/[a-z]/i"
+                "[a-z]",
+                Pattern.CASE_INSENSITIVE,
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -169,7 +170,7 @@ public class Schema {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/^[A-Z].*/"
+                "^[A-Z].*"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -322,6 +323,7 @@ public class Schema {
                 "pattern_without_delimiter"
             )))
         ));
+        
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);
         }

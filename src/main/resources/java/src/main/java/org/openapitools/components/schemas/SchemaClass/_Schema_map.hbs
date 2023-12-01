@@ -44,15 +44,15 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "oneOf"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_oneOf }}
         {{/eq}}
+        {{#eq this "not"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_not }}
+        {{/eq}}
         {{#if @last}}
     ));
         {{/if}}
     {{/each}}
     {{#if hasDiscriminatorWithNonEmptyMapping}}
     {{!> components/schemas/schema_cls/_discriminator }}
-    {{/if}}
-    {{#if not}}
-    {{!> components/schemas/schema_cls/_not }}
     {{/if}}
     {{#if if_}}
     {{!> components/schemas/schema_cls/_if }}
@@ -78,16 +78,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{#if unevaluatedProperties}}
     {{!> components/schemas/schema_cls/_unevaluated_properties }}
     {{/if}}
-    {{#if mapOutputJsonPathPiece}}
-        {{#if mapValueSchema}}
-    protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> arg) {
-        return new {{mapOutputJsonPathPiece.camelCase}}(arg);
-    }
-        {{else}}
-    protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, Object> arg) {
-        return new {{mapOutputJsonPathPiece.camelCase}}(arg);
-    }
-        {{/if}}
-    {{/if}}
+    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_getMapOutputInstance }}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
 }

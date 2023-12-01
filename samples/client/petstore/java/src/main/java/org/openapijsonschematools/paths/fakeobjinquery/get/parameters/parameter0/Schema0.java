@@ -52,6 +52,7 @@ public class Schema0 {
                 new PropertyEntry("keyword", Keyword0.class)
             )))
         ));
+        
         protected static SchemaMap0 getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap0(arg);
         }

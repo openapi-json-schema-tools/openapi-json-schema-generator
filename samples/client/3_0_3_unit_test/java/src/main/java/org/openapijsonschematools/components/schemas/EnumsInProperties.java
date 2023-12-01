@@ -94,6 +94,7 @@ public class EnumsInProperties {
                 "bar"
             )))
         ));
+        
         protected static EnumsInPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumsInPropertiesMap(arg);
         }

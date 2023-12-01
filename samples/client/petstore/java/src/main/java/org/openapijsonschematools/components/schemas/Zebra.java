@@ -100,8 +100,8 @@ public class Zebra {
                 "className"
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static ZebraMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ZebraMap(arg);
         }

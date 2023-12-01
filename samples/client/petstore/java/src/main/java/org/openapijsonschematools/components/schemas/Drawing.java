@@ -35,6 +35,7 @@ public class Drawing {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
         ));
+        
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
             return new ShapesList(arg);
         }
@@ -104,8 +105,8 @@ public class Drawing {
                 new PropertyEntry("shapes", Shapes.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
-            
         ));
+        
         protected static DrawingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new DrawingMap(arg);
         }

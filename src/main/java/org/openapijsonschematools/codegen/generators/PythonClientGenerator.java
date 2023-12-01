@@ -361,13 +361,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             throw new RuntimeException("Only the HandlebarsEngineAdapter is supported for this generator");
         }
 
-        /*
-        The pyi stub files exists to allow pycharm to read and use typing.overload decorators for it to see that
-        dict_instance["someProp"] is of type SomeClass.properties.someProp
-        See https://youtrack.jetbrains.com/issue/PY-42137/PyCharm-type-hinting-doesnt-work-well-with-overload-decorator
-         */
-        modelTestTemplateFiles.put("components/schemas/schema_test.hbs", ".py");
-
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.API_TAG,
                 new HashMap<String, String>() {{

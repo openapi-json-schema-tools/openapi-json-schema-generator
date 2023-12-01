@@ -59,8 +59,8 @@ public class HeaderParameters {
                 new PropertyEntry("enum_header_string_array", Schema0.Schema01.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HeaderParametersMap(arg);
         }

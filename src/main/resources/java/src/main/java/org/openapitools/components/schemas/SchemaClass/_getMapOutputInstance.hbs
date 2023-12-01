@@ -1,0 +1,13 @@
+{{#if mapOutputJsonPathPiece}}
+    {{#if mapValueSchema}}
+
+protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> arg) {
+    return new {{mapOutputJsonPathPiece.camelCase}}(arg);
+}
+    {{else}}
+
+protected static {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, Object> arg) {
+    return new {{mapOutputJsonPathPiece.camelCase}}(arg);
+}
+    {{/if}}
+{{/if}}

@@ -71,6 +71,7 @@ public class HealthCheckResult {
                 new PropertyEntry("NullableMessage", NullableMessage.class)
             )))
         ));
+        
         protected static HealthCheckResultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HealthCheckResultMap(arg);
         }

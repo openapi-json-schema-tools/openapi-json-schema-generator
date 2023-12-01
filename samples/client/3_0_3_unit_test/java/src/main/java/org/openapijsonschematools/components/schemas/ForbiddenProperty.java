@@ -63,6 +63,10 @@ public class ForbiddenProperty {
                 new PropertyEntry("foo", Foo.class)
             )))
         ));
+        
+        protected static ForbiddenPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ForbiddenPropertyMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
         }
@@ -103,11 +107,11 @@ public class ForbiddenProperty {
             return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ForbiddenPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
         }
     }}

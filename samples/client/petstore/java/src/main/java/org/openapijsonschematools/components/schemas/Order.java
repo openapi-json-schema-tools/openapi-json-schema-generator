@@ -130,6 +130,7 @@ public class Order {
                 new PropertyEntry("complete", Complete.class)
             )))
         ));
+        
         protected static OrderMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new OrderMap(arg);
         }

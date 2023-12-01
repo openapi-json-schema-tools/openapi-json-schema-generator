@@ -26,7 +26,7 @@ public class NulCharactersInStrings {
                 String.class
             ))),
             new KeywordEntry("enum", new EnumValidator(Set.of(
-                "hello\x00there"
+                "hello\0there"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

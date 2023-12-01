@@ -68,8 +68,8 @@ public class QueryParameters {
                 "some_var"
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new QueryParametersMap(arg);
         }

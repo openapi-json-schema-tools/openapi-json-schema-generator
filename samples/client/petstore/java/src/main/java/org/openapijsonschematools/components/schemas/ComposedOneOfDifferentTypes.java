@@ -69,6 +69,7 @@ public class ComposedOneOfDifferentTypes {
             new KeywordEntry("maxItems", new MaxItemsValidator(4)),
             new KeywordEntry("minItems", new MinItemsValidator(4))
         ));
+        
         protected static Schema5List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema5List(arg);
         }
@@ -84,7 +85,7 @@ public class ComposedOneOfDifferentTypes {
             ))),
             new KeywordEntry("format", new FormatValidator("date-time")),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/^2020.*/"
+                "^2020.*"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -152,11 +153,11 @@ public class ComposedOneOfDifferentTypes {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedOneOfDifferentTypes1.class, arg, configuration);
         }
     }}

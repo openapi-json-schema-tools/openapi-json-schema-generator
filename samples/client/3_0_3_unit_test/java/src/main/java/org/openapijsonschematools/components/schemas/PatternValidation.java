@@ -28,7 +28,7 @@ public class PatternValidation {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/^a*$/"
+                "^a*$"
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
@@ -71,11 +71,11 @@ public class PatternValidation {
             return JsonSchema.validate(PatternValidation1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PatternValidation1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(PatternValidation1.class, arg, configuration);
         }
     }}

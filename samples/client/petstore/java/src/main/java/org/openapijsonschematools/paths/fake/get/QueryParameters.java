@@ -77,8 +77,8 @@ public class QueryParameters {
                 new PropertyEntry("enum_query_string_array", Schema2.Schema21.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new QueryParametersMap(arg);
         }

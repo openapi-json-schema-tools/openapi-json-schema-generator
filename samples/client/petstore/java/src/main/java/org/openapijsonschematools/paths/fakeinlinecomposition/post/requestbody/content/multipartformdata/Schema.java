@@ -81,11 +81,11 @@ public class Schema {
             return JsonSchema.validate(SomeProp.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(SomeProp.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(SomeProp.class, arg, configuration);
         }
     }    
@@ -122,6 +122,7 @@ public class Schema {
                 new PropertyEntry("someProp", SomeProp.class)
             )))
         ));
+        
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);
         }

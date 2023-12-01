@@ -38,6 +38,9 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
         {{#eq this "oneOf"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_oneOf }}
         {{/eq}}
+        {{#eq this "not"}}
+        {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_not }}
+        {{/eq}}
         {{#eq this "uniqueItems"}}
         {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_uniqueItems }}
         {{/eq}}
@@ -51,9 +54,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{#if contains}}
     {{!> components/schemas/schema_cls/_contains }}
     {{/if}}
-    {{#if not}}
-    {{!> components/schemas/schema_cls/_not }}
-    {{/if}}
     {{#if if_}}
     {{!> components/schemas/schema_cls/_if }}
     {{/if}}
@@ -66,10 +66,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{#if unevaluatedItems}}
     {{!> components/schemas/schema_cls/_unevaluated_items }}
     {{/if}}
-    {{#if arrayOutputJsonPathPiece}}
-    protected static {{arrayOutputJsonPathPiece.camelCase}} getListOutputInstance(FrozenList<{{#with items}}{{> src/main/java/org/openapitools/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> arg) {
-        return new {{arrayOutputJsonPathPiece.camelCase}}(arg);
-    }
-    {{/if}}
+    {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_getListOutputInstance }}
     {{> src/main/java/org/openapitools/components/schemas/SchemaClass/_validate }}
 }

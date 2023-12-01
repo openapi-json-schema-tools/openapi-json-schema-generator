@@ -41,6 +41,7 @@ public class ComposedArray {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
             return new ComposedArrayList(arg);
         }

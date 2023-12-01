@@ -17,6 +17,7 @@
 
 package org.openapijsonschematools.codegen.generators;
 
+import io.swagger.v3.oas.models.media.Schema;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
@@ -28,11 +29,13 @@ import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
+import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
@@ -48,6 +51,8 @@ import org.slf4j.LoggerFactory;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -133,6 +138,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
     protected boolean useSingleRequestParameter = false;
     protected HashMap<String, String> schemaJsonPathToModelName = new HashMap<>();
+    private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
 
     private static class MpRestClientVersion {
         public final String rootPackage;
@@ -240,7 +246,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         updateOption(CodegenConstants.API_PACKAGE, apiPackage);
         updateOption(CodegenConstants.MODEL_PACKAGE, modelPackage);
 
-        modelTestTemplateFiles.put("model_test.mustache", ".java");
+        jsonPathTestTemplateFiles.put(
+                CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
+                new HashMap<String, String>() {{
+                    put("src/test/java/org/openapitools/components/schemas/Schema_test.hbs", ".java");
+                }}
+        );
 
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA2, "Whether to use the RxJava2 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
         cliOptions.add(CliOption.newBoolean(USE_RX_JAVA3, "Whether to use the RxJava3 adapter with the retrofit2 library. IMPORTANT: This option has been deprecated."));
@@ -348,6 +359,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
         schemaSupportingFiles.add("ListJsonSchema");
+        schemaSupportingFiles.add("MapMaker");
         schemaSupportingFiles.add("MapJsonSchema");
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
@@ -395,6 +407,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
+        schemaSupportingFiles.add("LengthValidator");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
@@ -404,6 +417,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("MinLengthValidator");
         keywordValidatorFiles.add("MinPropertiesValidator");
         keywordValidatorFiles.add("MultipleOfValidator");
+        keywordValidatorFiles.add("NotValidator");
         keywordValidatorFiles.add("OneOfValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PatternValidator");
@@ -972,7 +986,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         String nullChar = "\0";
         if (stringValue.contains(nullChar)) {
-            stringValue = stringValue.replace(nullChar, "\\x00");
+            stringValue = stringValue.replace(nullChar, "\\0");
         }
         String doubleQuoteChar = "\"";
         if (stringValue.contains(doubleQuoteChar)) {
@@ -1339,6 +1353,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         addAllOfValidator(schema, imports);
                         addAnyOfValidator(schema, imports);
                         addOneOfValidator(schema, imports);
+                        addNotValidator(schema, imports);
                         addEnumValidator(schema, imports);
                     }
                 } else if (schema.types.contains("null")) {
@@ -1355,6 +1370,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         addAllOfValidator(schema, imports);
                         addAnyOfValidator(schema, imports);
                         addOneOfValidator(schema, imports);
+                        addNotValidator(schema, imports);
                         addEnumValidator(schema, imports);
                     }
                 } else if (schema.types.contains("integer")) {
@@ -1526,6 +1542,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addAllOfValidator(schema, imports);
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
+                addNotValidator(schema, imports);
                 addEnumValidator(schema, imports);
                 addPatternValidator(schema, imports);
             }
@@ -1580,6 +1597,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (schema.oneOf != null) {
             imports.add("import "+packageName + ".schemas.validation.OneOfValidator;");
             imports.add("import java.util.List;");
+        }
+    }
+
+    private void addNotValidator(CodegenSchema schema, Set<String> imports) {
+        if (schema.not != null) {
+            imports.add("import "+packageName + ".schemas.validation.NotValidator;");
         }
     }
 
@@ -1692,6 +1715,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
+        addNotValidator(schema, imports);
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1704,6 +1728,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
+        addNotValidator(schema, imports);
     }
 
     private void addNumberSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1716,6 +1741,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
+        addNotValidator(schema, imports);
         addEnumValidator(schema, imports);
     }
 
@@ -1735,6 +1761,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
+        addNotValidator(schema, imports);
         addEnumValidator(schema, imports);
         addPatternValidator(schema, imports);
     }
@@ -1768,5 +1795,77 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         String prefix = outputFolder + File.separatorChar + "src" + File.separatorChar + "main" + File.separatorChar + "java" + File.separatorChar;
         String localFilepath = filePath.substring(prefix.length());
         return localFilepath.replaceAll(String.valueOf(File.separatorChar), ".");
+    }
+
+    @Override
+    public String getTestFilepath(String jsonPath) {
+        String[] pathPieces = jsonPath.split("/");
+        pathPieces[0] = outputFolder + File.separatorChar + testPackagePath();
+        if (jsonPath.startsWith("#/components")) {
+            // #/components/schemas/someSchema
+            updateComponentsFilepath(pathPieces);
+            if (pathPieces.length == 4) {
+                int lastIndex = pathPieces.length - 1;
+                pathPieces[lastIndex] = pathPieces[lastIndex] + "Test";
+            }
+        }
+        List<String> finalPathPieces = Arrays.stream(pathPieces)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
+        return String.join(File.separator, finalPathPieces);
+    }
+
+    /**
+     * Notes:
+     * RgxGen does not support our ECMA dialect
+     * <a href="https://github.com/curious-odd-man/RgxGen/issues/56">...</a>
+     * So strip off the leading / and trailing / and turn on ignore case if we have it
+     *
+     * json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
+     *
+     * Flags:
+     * <a href="https://262.ecma-international.org/13.0/#sec-get-regexp.prototype.flags">...</a>
+     * d hasIndices: indicates that the result of a regular expression match should contain the start and end indices of the substrings of each capture group
+     * g global: the regular expression should be tested against all possible matches in a string
+     * i ignoreCase: case should be ignored while attempting a match in a string
+     * m multiline: a multiline input string should be treated as multiple lines
+     * s dotAll: the dot special character (.) should additionally match 4 line terminator ("newline") characters in a string
+     * u unicode: enables various Unicode-related features such as unicode code point escapes
+     * y sticky: the regex attempts to match the target string only from the index indicated by the lastIndex property
+     *
+     * Python flags:
+     * <a href="https://docs.python.org/3/library/re.html#flags">...</a>
+     * i, m, s u
+     *
+     * @param pattern the pattern (regular expression)
+     * @return the resultant regex for python
+     */
+    @Override
+    public CodegenPatternInfo getPatternInfo(String pattern) {
+        if (pattern == null) {
+            return null;
+        }
+        Matcher m = patternRegex.matcher(pattern);
+        if (m.find()) {
+            int groupCount = m.groupCount();
+            if (groupCount == 1) {
+                // only pattern found
+                String isolatedPattern = m.group(1);
+                return new CodegenPatternInfo(isolatedPattern, null);
+            } else if (groupCount == 2) {
+                // patterns and flag found
+                String isolatedPattern = m.group(1);
+                String foundFlags = m.group(2);
+                if (foundFlags.isEmpty()) {
+                    return new CodegenPatternInfo(isolatedPattern, null);
+                }
+                LinkedHashSet<String> flags = new LinkedHashSet<>();
+                for (Character c: foundFlags.toCharArray()) {
+                    flags.add(c.toString());
+                }
+                return new CodegenPatternInfo(isolatedPattern, flags);
+            }
+        }
+        return new CodegenPatternInfo(pattern, null);
     }
 }

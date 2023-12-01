@@ -238,9 +238,6 @@ public class DefaultGenerator implements Generator {
     // for writing test files
     protected HashMap<CodegenConstants.JSON_PATH_LOCATION_TYPE, HashMap<String, String>> jsonPathTestTemplateFiles = new HashMap<>();
 
-    protected Set<String> pathEndpointTestTemplateFiles = new HashSet<>();
-    protected Map<String, String> apiTestTemplateFiles = new HashMap<>();
-    protected Map<String, String> modelTestTemplateFiles = new HashMap<>();
     protected Map<String, String> reservedWordsMappings = new HashMap<>();
     protected String templateDir;
     protected String embeddedTemplateDir;
@@ -3732,7 +3729,7 @@ public class DefaultGenerator implements Generator {
         return pieces[pieces.length-1];
     }
 
-    private void updateComponentsFilepath(String[] pathPieces) {
+    protected void updateComponentsFilepath(String[] pathPieces) {
         if (pathPieces.length < 3) {
             return;
         }
@@ -4329,6 +4326,20 @@ public class DefaultGenerator implements Generator {
         }
 
         return tag;
+    }
+
+    private BigDecimal getBigDecimal(Number arg) {
+        if (arg instanceof Integer) {
+            return new BigDecimal((Integer) arg);
+        } else if (arg instanceof Long) {
+            return new BigDecimal((Long) arg);
+        } else if (arg instanceof Float) {
+            return new BigDecimal(Float.toString((Float) arg));
+        } else if (arg instanceof  Double) {
+            return new BigDecimal(Double.toString((Double) arg));
+        } else {
+            throw new RuntimeException("Invalid type input for arg");
+        }
     }
 
     protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {

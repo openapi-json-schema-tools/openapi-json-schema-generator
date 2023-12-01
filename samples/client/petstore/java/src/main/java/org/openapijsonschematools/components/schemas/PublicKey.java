@@ -60,6 +60,7 @@ public class PublicKey {
                 new PropertyEntry("key", Key.class)
             )))
         ));
+        
         protected static PublicKeyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PublicKeyMap(arg);
         }

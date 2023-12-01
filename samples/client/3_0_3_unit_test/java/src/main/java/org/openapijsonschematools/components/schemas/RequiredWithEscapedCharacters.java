@@ -60,6 +60,10 @@ public class RequiredWithEscapedCharacters {
                 "foo\\bar"
             )))
         ));
+        
+        protected static RequiredWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RequiredWithEscapedCharactersMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
@@ -100,11 +104,11 @@ public class RequiredWithEscapedCharacters {
             return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static RequiredWithEscapedCharactersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
     }}

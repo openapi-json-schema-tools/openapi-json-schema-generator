@@ -41,8 +41,8 @@ public class RefInAdditionalproperties {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
-            
         ));
+        
         protected static RefInAdditionalpropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new RefInAdditionalpropertiesMap(arg);
         }

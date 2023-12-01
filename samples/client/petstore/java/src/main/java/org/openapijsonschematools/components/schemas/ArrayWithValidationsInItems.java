@@ -69,6 +69,7 @@ public class ArrayWithValidationsInItems {
             new KeywordEntry("items", new ItemsValidator(Items.class)),
             new KeywordEntry("maxItems", new MaxItemsValidator(2))
         ));
+        
         protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ArrayWithValidationsInItemsList(arg);
         }

@@ -60,6 +60,7 @@ public class GrandparentAnimal {
                 "pet_type"
             )))
         ));
+        
         protected static GrandparentAnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new GrandparentAnimalMap(arg);
         }

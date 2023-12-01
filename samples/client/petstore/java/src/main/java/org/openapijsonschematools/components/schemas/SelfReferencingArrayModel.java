@@ -37,6 +37,7 @@ public class SelfReferencingArrayModel {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(SelfReferencingArrayModel1.class))
         ));
+        
         protected static SelfReferencingArrayModelList getListOutputInstance(FrozenList<SelfReferencingArrayModelList> arg) {
             return new SelfReferencingArrayModelList(arg);
         }
