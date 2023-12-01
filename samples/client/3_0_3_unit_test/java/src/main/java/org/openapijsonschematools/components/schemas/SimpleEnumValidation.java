@@ -31,7 +31,10 @@ public class SimpleEnumValidation {
             new KeywordEntry("enum", new EnumValidator(Set.of(
                 1,
                 2,
-                3
+                3,
+                1.0,
+                2.0,
+                3.0
             )))
         ));
         public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {

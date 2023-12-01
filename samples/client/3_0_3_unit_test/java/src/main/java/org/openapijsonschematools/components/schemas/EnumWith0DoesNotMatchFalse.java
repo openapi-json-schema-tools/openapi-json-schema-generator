@@ -29,7 +29,8 @@ public class EnumWith0DoesNotMatchFalse {
                 Double.class
             ))),
             new KeywordEntry("enum", new EnumValidator(Set.of(
-                0
+                0,
+                0.0
             )))
         ));
         public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {

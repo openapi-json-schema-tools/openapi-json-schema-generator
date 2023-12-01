@@ -17,6 +17,7 @@
 
 package org.openapijsonschematools.codegen.generators;
 
+import io.swagger.v3.oas.models.media.Schema;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
@@ -33,6 +34,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenReques
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
+import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
@@ -1806,5 +1808,27 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
+    }
+
+    /**
+     * Add additional enum value if an int/long is input because floats need to match too in json schema tests
+     * @param values enum values
+     * @param schema source schema
+     * @param currentJsonPath the schemas current json path
+     * @param sourceJsonPath the entrypoint json path
+     * @param types the types that are in this schema
+     * @param classSuffix a class suffix
+     * @return EnumInfo
+     */
+    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
+        ArrayList<Object> usedValues = new ArrayList<>();
+        usedValues.addAll(values);
+        for (Object value: values) {
+            if (value instanceof Integer || value instanceof Long) {
+                float additionalVal = Float.parseFloat(value.toString()+".0");
+                usedValues.add(additionalVal);
+            }
+        }
+        return super.getEnumInfo(usedValues, schema, currentJsonPath, sourceJsonPath, types, classSuffix);
     }
 }
