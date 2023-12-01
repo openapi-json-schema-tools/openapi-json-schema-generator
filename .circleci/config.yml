@@ -146,7 +146,7 @@ jobs:
       - checkout
       - command_docker_build_and_test:
           jobId: "testPythonClientSamples"
-  testJavaClientSamples:
+  testJava17ClientSamples:
     docker:
       - image: cimg/openjdk:17.0.9
     working_directory: ~/OpenAPITools/openapi-json-schema-generator
@@ -156,7 +156,7 @@ jobs:
       CIRCLE_TEST_REPORTS: /tmp/circleci-test-results
     steps:
       - command_build_and_test:
-          jobId: "testJavaClientSamples"
+          jobId: "testJava17ClientSamples"
 workflows:
   version: 2
   build:
@@ -165,4 +165,4 @@ workflows:
       - mvnCleanInstall
       - testPython38ClientSamples
       - testPython39ClientSamples
-      - testJavaClientSamples
+      - testJava17ClientSamples

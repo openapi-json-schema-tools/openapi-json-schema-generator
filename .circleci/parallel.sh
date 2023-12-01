@@ -25,7 +25,7 @@ elif [ "$JOB_ID" = "testPythonClientSamples" ]; then
   (cd samples/client/openapi_features/nonCompliantUseDiscriminatorIfCompositionFails/python && make test)
   (cd samples/client/openapi_features/security/python && make test)
 
-elif [ "$JOB_ID" = "testJavaClientSamples" ]; then
+elif [ "$JOB_ID" = "testJava17ClientSamples" ]; then
   echo "Running job $JOB_ID ..."
   java -version
 
