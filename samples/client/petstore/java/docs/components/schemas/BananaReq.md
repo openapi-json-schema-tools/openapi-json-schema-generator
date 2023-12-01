@@ -1,5 +1,5 @@
 # BananaReq
-org.openapijsonschematools.components.schemas.BananaReq.java
+org.openapijsonschematools.client.components.schemas.BananaReq.java
 public class BananaReq
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -56,7 +56,7 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -72,7 +72,7 @@ extends NotAnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

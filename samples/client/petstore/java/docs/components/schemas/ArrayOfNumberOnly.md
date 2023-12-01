@@ -1,5 +1,5 @@
 # ArrayOfNumberOnly
-org.openapijsonschematools.components.schemas.ArrayOfNumberOnly.java
+org.openapijsonschematools.client.components.schemas.ArrayOfNumberOnly.java
 public class ArrayOfNumberOnly
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

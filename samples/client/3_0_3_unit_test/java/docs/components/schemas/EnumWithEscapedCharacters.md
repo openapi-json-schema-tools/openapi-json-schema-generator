@@ -1,5 +1,5 @@
 # EnumWithEscapedCharacters
-org.openapijsonschematools.components.schemas.EnumWithEscapedCharacters.java
+org.openapijsonschematools.client.components.schemas.EnumWithEscapedCharacters.java
 public class EnumWithEscapedCharacters
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

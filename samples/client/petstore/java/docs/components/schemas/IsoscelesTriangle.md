@@ -1,5 +1,5 @@
 # IsoscelesTriangle
-org.openapijsonschematools.components.schemas.IsoscelesTriangle.java
+org.openapijsonschematools.client.components.schemas.IsoscelesTriangle.java
 public class IsoscelesTriangle
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

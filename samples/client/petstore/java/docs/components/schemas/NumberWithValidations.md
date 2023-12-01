@@ -1,5 +1,5 @@
 # NumberWithValidations
-org.openapijsonschematools.components.schemas.NumberWithValidations.java
+org.openapijsonschematools.client.components.schemas.NumberWithValidations.java
 public class NumberWithValidations
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # Ipv4Format
-org.openapijsonschematools.components.schemas.Ipv4Format.java
+org.openapijsonschematools.client.components.schemas.Ipv4Format.java
 public class Ipv4Format
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
-org.openapijsonschematools.components.schemas.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.java
+org.openapijsonschematools.client.components.schemas.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.java
 public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

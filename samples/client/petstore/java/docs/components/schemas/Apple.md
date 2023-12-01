@@ -1,5 +1,5 @@
 # Apple
-org.openapijsonschematools.components.schemas.Apple.java
+org.openapijsonschematools.client.components.schemas.Apple.java
 public class Apple
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

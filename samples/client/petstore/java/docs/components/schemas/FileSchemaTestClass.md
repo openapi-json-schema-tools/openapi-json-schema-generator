@@ -1,5 +1,5 @@
 # FileSchemaTestClass
-org.openapijsonschematools.components.schemas.FileSchemaTestClass.java
+org.openapijsonschematools.client.components.schemas.FileSchemaTestClass.java
 public class FileSchemaTestClass
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

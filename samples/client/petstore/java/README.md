@@ -29,7 +29,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import org.openapijsonschematools
+import org.openapijsonschematools.client
 ```
 
 ### Setuptools
@@ -43,7 +43,7 @@ python -m pip install . --user
 
 Then import the package:
 ```python
-import org.openapijsonschematools
+import org.openapijsonschematools.client
 ```
 
 ## Usage Notes
@@ -416,22 +416,22 @@ All URIs are relative to the selected server
 
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in org.openapijsonschematools.apis.tags.tag_to_api and org.openapijsonschematools.components.schemass may fail with a
+If the OpenAPI document is large, imports in org.openapijsonschematools.client.apis.tags.tag_to_api and org.openapijsonschematools.client.components.schemass may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
-- tagged api: `from org.openapijsonschematools.apis.tags.default_api import DefaultApi`
-- api for one path: `from org.openapijsonschematools.apis.paths.some_path import SomePath`
-- api for one operation (path + verb): `from org.openapijsonschematools.paths.some_path.get import ApiForget`
-- single model import: `from org.openapijsonschematools.components.schemas.pet import Pet`
+- tagged api: `from org.openapijsonschematools.client.apis.tags.default_api import DefaultApi`
+- api for one path: `from org.openapijsonschematools.client.apis.paths.some_path import SomePath`
+- api for one operation (path + verb): `from org.openapijsonschematools.client.paths.some_path.get import ApiForget`
+- single model import: `from org.openapijsonschematools.client.components.schemas.pet import Pet`
 
 Solution 2:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
-import org.openapijsonschematools
-from org.openapijsonschematools.apis.tags.tag_to_api import *
-from org.openapijsonschematools.components.schemass import *
+import org.openapijsonschematools.client
+from org.openapijsonschematools.client.apis.tags.tag_to_api import *
+from org.openapijsonschematools.client.components.schemass import *
 ```

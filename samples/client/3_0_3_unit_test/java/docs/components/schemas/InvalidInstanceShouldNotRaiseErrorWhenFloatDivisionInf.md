@@ -1,5 +1,5 @@
 # InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
-org.openapijsonschematools.components.schemas.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.java
+org.openapijsonschematools.client.components.schemas.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.java
 public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

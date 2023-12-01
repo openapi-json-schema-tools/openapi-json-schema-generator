@@ -1,5 +1,5 @@
 # JSONPatchRequestMoveCopy
-org.openapijsonschematools.components.schemas.JSONPatchRequestMoveCopy.java
+org.openapijsonschematools.client.components.schemas.JSONPatchRequestMoveCopy.java
 public class JSONPatchRequestMoveCopy
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -80,7 +80,7 @@ A schema class that validates payloads
 ## Description
 A JSON Pointer path.
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -93,7 +93,7 @@ A schema class that validates payloads
 ## Description
 A JSON Pointer path.
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -103,7 +103,7 @@ extends NotAnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

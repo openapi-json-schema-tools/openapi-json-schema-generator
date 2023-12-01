@@ -1,5 +1,5 @@
 # NullableString
-org.openapijsonschematools.components.schemas.NullableString.java
+org.openapijsonschematools.client.components.schemas.NullableString.java
 public class NullableString
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

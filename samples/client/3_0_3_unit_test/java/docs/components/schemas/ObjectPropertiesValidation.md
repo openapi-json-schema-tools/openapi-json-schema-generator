@@ -1,5 +1,5 @@
 # ObjectPropertiesValidation
-org.openapijsonschematools.components.schemas.ObjectPropertiesValidation.java
+org.openapijsonschematools.client.components.schemas.ObjectPropertiesValidation.java
 public class ObjectPropertiesValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -65,7 +65,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

@@ -1,5 +1,5 @@
 # StringSchema
-org.openapijsonschematools.components.schemas.StringSchema.java
+org.openapijsonschematools.client.components.schemas.StringSchema.java
 public class StringSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,7 +15,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

@@ -1,5 +1,5 @@
 # ShapeOrNull
-org.openapijsonschematools.components.schemas.ShapeOrNull.java
+org.openapijsonschematools.client.components.schemas.ShapeOrNull.java
 public class ShapeOrNull
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -42,7 +42,7 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

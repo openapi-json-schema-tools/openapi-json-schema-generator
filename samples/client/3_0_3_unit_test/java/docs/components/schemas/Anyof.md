@@ -1,5 +1,5 @@
 # Anyof
-org.openapijsonschematools.components.schemas.Anyof.java
+org.openapijsonschematools.client.components.schemas.Anyof.java
 public class Anyof
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

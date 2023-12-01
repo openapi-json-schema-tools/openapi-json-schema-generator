@@ -1,5 +1,5 @@
 # HealthCheckResult
-org.openapijsonschematools.components.schemas.HealthCheckResult.java
+org.openapijsonschematools.client.components.schemas.HealthCheckResult.java
 public class HealthCheckResult
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # PaginatedResultMyObjectDto
-org.openapijsonschematools.components.schemas.PaginatedResultMyObjectDto.java
+org.openapijsonschematools.client.components.schemas.PaginatedResultMyObjectDto.java
 public class PaginatedResultMyObjectDto
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -97,7 +97,7 @@ extends NotAnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

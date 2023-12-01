@@ -1,5 +1,5 @@
 # OneofWithRequired
-org.openapijsonschematools.components.schemas.OneofWithRequired.java
+org.openapijsonschematools.client.components.schemas.OneofWithRequired.java
 public class OneofWithRequired
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

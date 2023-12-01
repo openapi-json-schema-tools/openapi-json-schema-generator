@@ -1,5 +1,5 @@
 # PropertiesWithEscapedCharacters
-org.openapijsonschematools.components.schemas.PropertiesWithEscapedCharacters.java
+org.openapijsonschematools.client.components.schemas.PropertiesWithEscapedCharacters.java
 public class PropertiesWithEscapedCharacters
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

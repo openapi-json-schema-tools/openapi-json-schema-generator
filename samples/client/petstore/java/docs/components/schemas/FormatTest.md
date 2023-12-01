@@ -1,5 +1,5 @@
 # FormatTest
-org.openapijsonschematools.components.schemas.FormatTest.java
+org.openapijsonschematools.client.components.schemas.FormatTest.java
 public class FormatTest
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -110,7 +110,7 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -171,7 +171,7 @@ extends UuidJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -181,7 +181,7 @@ extends UuidJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -191,7 +191,7 @@ extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -201,7 +201,7 @@ extends DateJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DateJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

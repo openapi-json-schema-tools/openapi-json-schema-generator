@@ -1,5 +1,5 @@
 # NestedItems
-org.openapijsonschematools.components.schemas.NestedItems.java
+org.openapijsonschematools.client.components.schemas.NestedItems.java
 public class NestedItems
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # RefInAdditionalproperties
-org.openapijsonschematools.components.schemas.RefInAdditionalproperties.java
+org.openapijsonschematools.client.components.schemas.RefInAdditionalproperties.java
 public class RefInAdditionalproperties
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

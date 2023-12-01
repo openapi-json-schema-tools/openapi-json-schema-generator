@@ -1,5 +1,5 @@
 # Schema4
-org.openapijsonschematools.paths.fake.get.parameters.parameter4.Schema4.java
+org.openapijsonschematools.client.paths.fake.get.parameters.parameter4.Schema4.java
 public class Schema4
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

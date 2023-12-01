@@ -1,5 +1,5 @@
 # MaxpropertiesValidation
-org.openapijsonschematools.components.schemas.MaxpropertiesValidation.java
+org.openapijsonschematools.client.components.schemas.MaxpropertiesValidation.java
 public class MaxpropertiesValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

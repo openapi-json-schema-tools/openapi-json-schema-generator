@@ -1,5 +1,5 @@
 # RequiredValidation
-org.openapijsonschematools.components.schemas.RequiredValidation.java
+org.openapijsonschematools.client.components.schemas.RequiredValidation.java
 public class RequiredValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -65,7 +65,7 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -75,7 +75,7 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

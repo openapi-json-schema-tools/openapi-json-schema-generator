@@ -1,5 +1,5 @@
 # Mammal
-org.openapijsonschematools.components.schemas.Mammal.java
+org.openapijsonschematools.client.components.schemas.Mammal.java
 public class Mammal
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

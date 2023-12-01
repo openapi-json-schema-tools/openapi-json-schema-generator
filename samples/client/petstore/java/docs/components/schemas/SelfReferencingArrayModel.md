@@ -1,5 +1,5 @@
 # SelfReferencingArrayModel
-org.openapijsonschematools.components.schemas.SelfReferencingArrayModel.java
+org.openapijsonschematools.client.components.schemas.SelfReferencingArrayModel.java
 public class SelfReferencingArrayModel
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

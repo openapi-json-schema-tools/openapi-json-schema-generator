@@ -1,5 +1,5 @@
 # Currency
-org.openapijsonschematools.components.schemas.Currency.java
+org.openapijsonschematools.client.components.schemas.Currency.java
 public class Currency
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

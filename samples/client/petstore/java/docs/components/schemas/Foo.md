@@ -1,5 +1,5 @@
 # Foo
-org.openapijsonschematools.components.schemas.Foo.java
+org.openapijsonschematools.client.components.schemas.Foo.java
 public class Foo
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

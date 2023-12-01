@@ -1,5 +1,5 @@
 # BySmallNumber
-org.openapijsonschematools.components.schemas.BySmallNumber.java
+org.openapijsonschematools.client.components.schemas.BySmallNumber.java
 public class BySmallNumber
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # DateTimeTest
-org.openapijsonschematools.components.schemas.DateTimeTest.java
+org.openapijsonschematools.client.components.schemas.DateTimeTest.java
 public class DateTimeTest
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

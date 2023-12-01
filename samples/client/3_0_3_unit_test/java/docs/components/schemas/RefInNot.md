@@ -1,5 +1,5 @@
 # RefInNot
-org.openapijsonschematools.components.schemas.RefInNot.java
+org.openapijsonschematools.client.components.schemas.RefInNot.java
 public class RefInNot
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

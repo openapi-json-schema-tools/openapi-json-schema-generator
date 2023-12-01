@@ -1,5 +1,5 @@
 # Schema
-org.openapijsonschematools.paths.fakerefsenum.post.responses.response200.content.applicationjson.Schema.java
+org.openapijsonschematools.client.paths.fakerefsenum.post.responses.response200.content.applicationjson.Schema.java
 public class Schema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

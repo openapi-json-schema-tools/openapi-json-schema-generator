@@ -1,5 +1,5 @@
 # EnumWith1DoesNotMatchTrue
-org.openapijsonschematools.components.schemas.EnumWith1DoesNotMatchTrue.java
+org.openapijsonschematools.client.components.schemas.EnumWith1DoesNotMatchTrue.java
 public class EnumWith1DoesNotMatchTrue
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

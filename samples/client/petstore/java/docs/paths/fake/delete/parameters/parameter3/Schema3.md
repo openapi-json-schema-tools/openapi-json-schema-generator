@@ -1,5 +1,5 @@
 # Schema3
-org.openapijsonschematools.paths.fake.delete.parameters.parameter3.Schema3.java
+org.openapijsonschematools.client.paths.fake.delete.parameters.parameter3.Schema3.java
 public class Schema3
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,6 +15,6 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

@@ -1,5 +1,5 @@
 # ArrayOfEnums
-org.openapijsonschematools.components.schemas.ArrayOfEnums.java
+org.openapijsonschematools.client.components.schemas.ArrayOfEnums.java
 public class ArrayOfEnums
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

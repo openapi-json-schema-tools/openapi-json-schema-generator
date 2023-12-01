@@ -1,5 +1,5 @@
 # UriTemplateFormat
-org.openapijsonschematools.components.schemas.UriTemplateFormat.java
+org.openapijsonschematools.client.components.schemas.UriTemplateFormat.java
 public class UriTemplateFormat
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # Schema
-org.openapijsonschematools.paths.fake.post.requestbody.content.applicationxwwwformurlencoded.Schema.java
+org.openapijsonschematools.client.paths.fake.post.requestbody.content.applicationxwwwformurlencoded.Schema.java
 public class Schema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -91,7 +91,7 @@ A schema class that validates payloads
 ## Description
 None
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -140,7 +140,7 @@ A schema class that validates payloads
 ## Description
 None
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DateJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

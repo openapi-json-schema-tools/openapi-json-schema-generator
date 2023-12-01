@@ -1,5 +1,5 @@
 # MinimumValidationWithSignedInteger
-org.openapijsonschematools.components.schemas.MinimumValidationWithSignedInteger.java
+org.openapijsonschematools.client.components.schemas.MinimumValidationWithSignedInteger.java
 public class MinimumValidationWithSignedInteger
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

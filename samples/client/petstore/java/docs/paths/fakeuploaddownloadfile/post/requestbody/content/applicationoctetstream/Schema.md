@@ -1,5 +1,5 @@
 # Schema
-org.openapijsonschematools.paths.fakeuploaddownloadfile.post.requestbody.content.applicationoctetstream.Schema.java
+org.openapijsonschematools.client.paths.fakeuploaddownloadfile.post.requestbody.content.applicationoctetstream.Schema.java
 public class Schema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

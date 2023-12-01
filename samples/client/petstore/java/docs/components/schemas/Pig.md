@@ -1,5 +1,5 @@
 # Pig
-org.openapijsonschematools.components.schemas.Pig.java
+org.openapijsonschematools.client.components.schemas.Pig.java
 public class Pig
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

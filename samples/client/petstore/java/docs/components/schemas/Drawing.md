@@ -1,5 +1,5 @@
 # Drawing
-org.openapijsonschematools.components.schemas.Drawing.java
+org.openapijsonschematools.client.components.schemas.Drawing.java
 public class Drawing
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

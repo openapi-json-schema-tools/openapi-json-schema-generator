@@ -1,5 +1,5 @@
 # IntegerMax10
-org.openapijsonschematools.components.schemas.IntegerMax10.java
+org.openapijsonschematools.client.components.schemas.IntegerMax10.java
 public class IntegerMax10
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

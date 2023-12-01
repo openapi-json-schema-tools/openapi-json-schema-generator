@@ -1,5 +1,5 @@
 # Whale
-org.openapijsonschematools.components.schemas.Whale.java
+org.openapijsonschematools.client.components.schemas.Whale.java
 public class Whale
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -75,7 +75,7 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -85,7 +85,7 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

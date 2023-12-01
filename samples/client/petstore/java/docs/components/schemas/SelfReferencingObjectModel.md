@@ -1,5 +1,5 @@
 # SelfReferencingObjectModel
-org.openapijsonschematools.components.schemas.SelfReferencingObjectModel.java
+org.openapijsonschematools.client.components.schemas.SelfReferencingObjectModel.java
 public class SelfReferencingObjectModel
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # ComposedArray
-org.openapijsonschematools.components.schemas.ComposedArray.java
+org.openapijsonschematools.client.components.schemas.ComposedArray.java
 public class ComposedArray
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -51,7 +51,7 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

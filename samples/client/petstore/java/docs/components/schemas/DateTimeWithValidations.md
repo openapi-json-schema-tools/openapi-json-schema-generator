@@ -1,5 +1,5 @@
 # DateTimeWithValidations
-org.openapijsonschematools.components.schemas.DateTimeWithValidations.java
+org.openapijsonschematools.client.components.schemas.DateTimeWithValidations.java
 public class DateTimeWithValidations
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

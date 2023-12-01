@@ -1,5 +1,5 @@
 # ParentPet
-org.openapijsonschematools.components.schemas.ParentPet.java
+org.openapijsonschematools.client.components.schemas.ParentPet.java
 public class ParentPet
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

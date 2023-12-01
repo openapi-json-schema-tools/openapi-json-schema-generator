@@ -1,5 +1,5 @@
 # Banana
-org.openapijsonschematools.components.schemas.Banana.java
+org.openapijsonschematools.client.components.schemas.Banana.java
 public class Banana
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

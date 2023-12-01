@@ -1,0 +1,58 @@
+package org.openapijsonschematools.client.schemas.validation;
+
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.UUID;
+
+
+public class UnsetAnyTypeJsonSchema extends JsonSchema {
+    static Void validate(Void arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateVoid(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static boolean validate(boolean arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateBoolean(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static int validate(int arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateInt(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    public static long validate(long arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateLong(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static float validate(float arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateFloat(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static double validate(double arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateDouble(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static String validate(String arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateString(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateZonedDateTime(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static String validate(LocalDate arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateLocalDate(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateMap(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+
+    static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
+        return JsonSchema.validateList(UnsetAnyTypeJsonSchema.class, arg, configuration);
+    }
+}

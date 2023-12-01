@@ -1,5 +1,5 @@
 # RefInAllof
-org.openapijsonschematools.components.schemas.RefInAllof.java
+org.openapijsonschematools.client.components.schemas.RefInAllof.java
 public class RefInAllof
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # EmailFormat
-org.openapijsonschematools.components.schemas.EmailFormat.java
+org.openapijsonschematools.client.components.schemas.EmailFormat.java
 public class EmailFormat
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

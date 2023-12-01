@@ -1,5 +1,5 @@
 # ArrayWithValidationsInItems
-org.openapijsonschematools.components.schemas.ArrayWithValidationsInItems.java
+org.openapijsonschematools.client.components.schemas.ArrayWithValidationsInItems.java
 public class ArrayWithValidationsInItems
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

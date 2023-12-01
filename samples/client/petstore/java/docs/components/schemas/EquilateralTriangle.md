@@ -1,5 +1,5 @@
 # EquilateralTriangle
-org.openapijsonschematools.components.schemas.EquilateralTriangle.java
+org.openapijsonschematools.client.components.schemas.EquilateralTriangle.java
 public class EquilateralTriangle
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

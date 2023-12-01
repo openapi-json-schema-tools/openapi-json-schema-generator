@@ -1,5 +1,5 @@
 # RefInProperty
-org.openapijsonschematools.components.schemas.RefInProperty.java
+org.openapijsonschematools.client.components.schemas.RefInProperty.java
 public class RefInProperty
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

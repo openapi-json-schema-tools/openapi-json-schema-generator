@@ -1,5 +1,5 @@
 # Address
-org.openapijsonschematools.components.schemas.Address.java
+org.openapijsonschematools.client.components.schemas.Address.java
 public class Address
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # ByNumber
-org.openapijsonschematools.components.schemas.ByNumber.java
+org.openapijsonschematools.client.components.schemas.ByNumber.java
 public class ByNumber
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # Schema
-org.openapijsonschematools.components.parameters.refschemastringwithvalidation.Schema.java
+org.openapijsonschematools.client.components.parameters.refschemastringwithvalidation.Schema.java
 public class Schema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

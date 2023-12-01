@@ -1,5 +1,5 @@
 # NulCharactersInStrings
-org.openapijsonschematools.components.schemas.NulCharactersInStrings.java
+org.openapijsonschematools.client.components.schemas.NulCharactersInStrings.java
 public class NulCharactersInStrings
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

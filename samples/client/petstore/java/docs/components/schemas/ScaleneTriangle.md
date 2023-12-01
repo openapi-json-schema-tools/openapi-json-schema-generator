@@ -1,5 +1,5 @@
 # ScaleneTriangle
-org.openapijsonschematools.components.schemas.ScaleneTriangle.java
+org.openapijsonschematools.client.components.schemas.ScaleneTriangle.java
 public class ScaleneTriangle
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # SimpleEnumValidation
-org.openapijsonschematools.components.schemas.SimpleEnumValidation.java
+org.openapijsonschematools.client.components.schemas.SimpleEnumValidation.java
 public class SimpleEnumValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # StringWithValidation
-org.openapijsonschematools.components.schemas.StringWithValidation.java
+org.openapijsonschematools.client.components.schemas.StringWithValidation.java
 public class StringWithValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # JSONPatchRequestAddReplaceTest
-org.openapijsonschematools.components.schemas.JSONPatchRequestAddReplaceTest.java
+org.openapijsonschematools.client.components.schemas.JSONPatchRequestAddReplaceTest.java
 public class JSONPatchRequestAddReplaceTest
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -80,7 +80,7 @@ A schema class that validates payloads
 ## Description
 The value to add, replace or test.
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -93,7 +93,7 @@ A schema class that validates payloads
 ## Description
 A JSON Pointer path.
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -103,7 +103,7 @@ extends NotAnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

@@ -1,5 +1,5 @@
 # ReqPropsFromUnsetAddProps
-org.openapijsonschematools.components.schemas.ReqPropsFromUnsetAddProps.java
+org.openapijsonschematools.client.components.schemas.ReqPropsFromUnsetAddProps.java
 public class ReqPropsFromUnsetAddProps
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # RefContentSchemaHeaderSchema
-org.openapijsonschematools.components.headers.refcontentschemaheader.content.applicationjson.RefContentSchemaHeaderSchema.java
+org.openapijsonschematools.client.components.headers.refcontentschemaheader.content.applicationjson.RefContentSchemaHeaderSchema.java
 public class RefContentSchemaHeaderSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

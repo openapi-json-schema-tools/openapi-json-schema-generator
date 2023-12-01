@@ -1,5 +1,5 @@
 # Order
-org.openapijsonschematools.components.schemas.Order.java
+org.openapijsonschematools.client.components.schemas.Order.java
 public class Order
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -69,7 +69,7 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -97,7 +97,7 @@ extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

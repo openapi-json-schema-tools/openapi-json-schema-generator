@@ -1,5 +1,5 @@
 # ReturnSchema
-org.openapijsonschematools.components.schemas.ReturnSchema.java
+org.openapijsonschematools.client.components.schemas.ReturnSchema.java
 public class ReturnSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

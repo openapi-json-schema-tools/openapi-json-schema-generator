@@ -1,5 +1,5 @@
 # HostnameFormat
-org.openapijsonschematools.components.schemas.HostnameFormat.java
+org.openapijsonschematools.client.components.schemas.HostnameFormat.java
 public class HostnameFormat
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # NumberHeaderSchema
-org.openapijsonschematools.components.headers.numberheader.NumberHeaderSchema.java
+org.openapijsonschematools.client.components.headers.numberheader.NumberHeaderSchema.java
 public class NumberHeaderSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,6 +15,6 @@ extends DecimalJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DecimalJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

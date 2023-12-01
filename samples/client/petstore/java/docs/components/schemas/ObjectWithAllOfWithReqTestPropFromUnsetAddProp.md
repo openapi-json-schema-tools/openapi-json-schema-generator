@@ -1,5 +1,5 @@
 # ObjectWithAllOfWithReqTestPropFromUnsetAddProp
-org.openapijsonschematools.components.schemas.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.java
+org.openapijsonschematools.client.components.schemas.ObjectWithAllOfWithReqTestPropFromUnsetAddProp.java
 public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -80,7 +80,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

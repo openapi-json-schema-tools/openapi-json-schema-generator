@@ -1,5 +1,5 @@
 # ArrayHoldingAnyType
-org.openapijsonschematools.components.schemas.ArrayHoldingAnyType.java
+org.openapijsonschematools.client.components.schemas.ArrayHoldingAnyType.java
 public class ArrayHoldingAnyType
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -54,7 +54,7 @@ A schema class that validates payloads
 ## Description
 any type can be stored here
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

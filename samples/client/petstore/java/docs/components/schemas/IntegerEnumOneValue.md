@@ -1,5 +1,5 @@
 # IntegerEnumOneValue
-org.openapijsonschematools.components.schemas.IntegerEnumOneValue.java
+org.openapijsonschematools.client.components.schemas.IntegerEnumOneValue.java
 public class IntegerEnumOneValue
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

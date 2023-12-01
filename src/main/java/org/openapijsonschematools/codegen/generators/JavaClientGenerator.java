@@ -172,7 +172,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         requestBodiesIdentifier = "requestbodies";
         securitySchemesIdentifier = "securityschemes";
         requestBodyIdentifier = "requestbody";
-        packageName = "org.openapijsonschematools";
+        packageName = "org.openapijsonschematools.client";
         addSchemaImportsFromV3SpecLocations = true;
         deepestRefSchemaImportNeeded = true;
         // this must be false for parameter numbers to stay the same as the ones in the spec
