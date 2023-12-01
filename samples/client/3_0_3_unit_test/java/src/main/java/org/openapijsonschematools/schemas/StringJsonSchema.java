@@ -32,6 +32,6 @@ public class StringJsonSchema extends JsonSchema {
     }
 
     public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateUUIDs(StringJsonSchema.class, arg, configuration);
+        return JsonSchema.validateUUID(StringJsonSchema.class, arg, configuration);
     }
 }
