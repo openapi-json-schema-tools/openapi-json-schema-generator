@@ -28,7 +28,7 @@ public class RefBooleanSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 RefBooleanSchema.RefBooleanSchema1.class, (Void) null, configuration
         ));
     }

@@ -32,19 +32,19 @@ public class EnumWith1DoesNotMatchTrue {
                 1
             )))
         ));
-        public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
         }
         
-        public static Number validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateLong(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
         }
         
-        public static Number validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
         }
         
-        public static Number validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(EnumWith1DoesNotMatchTrue1.class, arg, configuration);
         }
     }}

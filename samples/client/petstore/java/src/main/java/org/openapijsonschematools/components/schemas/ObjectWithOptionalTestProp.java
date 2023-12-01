@@ -63,7 +63,7 @@ public class ObjectWithOptionalTestProp {
             return new ObjectWithOptionalTestPropMap(arg);
         }
         public static ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithOptionalTestProp1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithOptionalTestProp1.class, arg, configuration);
         }
     }
 }

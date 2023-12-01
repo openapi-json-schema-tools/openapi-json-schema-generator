@@ -18,7 +18,7 @@ public class OneofTest {
     @Test
     public void testBothOneofValidFails() {
         // both oneOf valid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Oneof.Oneof1.class,
             3,
             configuration
@@ -28,7 +28,7 @@ public class OneofTest {
     @Test
     public void testNeitherOneofValidFails() {
         // neither oneOf valid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Oneof.Oneof1.class,
             1.5,
             configuration

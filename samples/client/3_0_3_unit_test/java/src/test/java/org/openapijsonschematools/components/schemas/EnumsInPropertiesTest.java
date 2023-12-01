@@ -18,7 +18,7 @@ public class EnumsInPropertiesTest {
     @Test
     public void testWrongBarValueFails() {
         // wrong bar value
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumsInProperties.EnumsInProperties1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -37,7 +37,7 @@ public class EnumsInPropertiesTest {
     @Test
     public void testWrongFooValueFails() {
         // wrong foo value
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumsInProperties.EnumsInProperties1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -56,7 +56,7 @@ public class EnumsInPropertiesTest {
     @Test
     public void testMissingAllPropertiesIsInvalidFails() {
         // missing all properties is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumsInProperties.EnumsInProperties1.class,
             MapMaker.makeMap(
             ),
@@ -99,7 +99,7 @@ public class EnumsInPropertiesTest {
     @Test
     public void testMissingRequiredPropertyIsInvalidFails() {
         // missing required property is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumsInProperties.EnumsInProperties1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

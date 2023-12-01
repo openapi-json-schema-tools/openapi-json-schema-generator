@@ -51,7 +51,7 @@ public class AdditionalpropertiesCanExistByItself {
             return new AdditionalpropertiesCanExistByItselfMap(arg);
         }
         public static AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesCanExistByItself1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalpropertiesCanExistByItself1.class, arg, configuration);
         }
     }
 }

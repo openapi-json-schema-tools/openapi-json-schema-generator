@@ -78,50 +78,50 @@ public class ObjectPropertiesValidation {
             return new ObjectPropertiesValidationMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateVoid(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateInt(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateLong(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateFloat(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateDouble(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateString(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateUUID(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static ObjectPropertiesValidationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectPropertiesValidation1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectPropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateList(ObjectPropertiesValidation1.class, arg, configuration);
         }
     }}

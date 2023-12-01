@@ -35,50 +35,50 @@ public class AllofWithOneEmptySchema {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateVoid(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateBoolean(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateInt(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateLong(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateFloat(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateDouble(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateString(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateUUID(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateMap(AllofWithOneEmptySchema1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofWithOneEmptySchema1.class, arg, configuration);
+            return JsonSchema.validateList(AllofWithOneEmptySchema1.class, arg, configuration);
         }
     }}

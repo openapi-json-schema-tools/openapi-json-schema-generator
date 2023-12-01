@@ -29,7 +29,7 @@ public class Apple {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Cultivar.class, arg, configuration);
+            return JsonSchema.validateString(Cultivar.class, arg, configuration);
         }
     }    
     
@@ -44,7 +44,7 @@ public class Apple {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Origin.class, arg, configuration);
+            return JsonSchema.validateString(Origin.class, arg, configuration);
         }
     }    
     
@@ -104,9 +104,9 @@ public class Apple {
             return new AppleMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Apple1.class, arg, configuration);
+            return JsonSchema.validateVoid(Apple1.class, arg, configuration);
         }
         public static AppleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Apple1.class, arg, configuration);
+            return JsonSchema.validateMap(Apple1.class, arg, configuration);
         }
     }}

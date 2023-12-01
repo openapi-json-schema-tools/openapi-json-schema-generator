@@ -16,10 +16,10 @@ public class UuidJsonSchema extends JsonSchema {
     public static final String format = "uuid";
 
     public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(UuidJsonSchema.class, arg, configuration);
+        return JsonSchema.validateString(UuidJsonSchema.class, arg, configuration);
     }
 
     public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(UuidJsonSchema.class, arg, configuration);
+        return JsonSchema.validateUUID(UuidJsonSchema.class, arg, configuration);
     }
 }

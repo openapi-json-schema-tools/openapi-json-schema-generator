@@ -30,7 +30,7 @@ public class ParentPet {
             )))
         ));
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ParentPet1.class, arg, configuration);
+            return JsonSchema.validateMap(ParentPet1.class, arg, configuration);
         }
     }
 }

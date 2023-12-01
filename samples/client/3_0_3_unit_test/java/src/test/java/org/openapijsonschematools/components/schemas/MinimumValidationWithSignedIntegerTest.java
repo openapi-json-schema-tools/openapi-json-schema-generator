@@ -36,7 +36,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testIntBelowTheMinimumIsInvalidFails() {
         // int below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class,
             -3,
             configuration
@@ -73,7 +73,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testFloatBelowTheMinimumIsInvalidFails() {
         // float below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class,
             -2.0001,
             configuration

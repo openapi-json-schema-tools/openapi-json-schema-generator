@@ -74,7 +74,7 @@ public class Money {
             return new MoneyMap(arg);
         }
         public static MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Money1.class, arg, configuration);
+            return JsonSchema.validateMap(Money1.class, arg, configuration);
         }
     }
 }

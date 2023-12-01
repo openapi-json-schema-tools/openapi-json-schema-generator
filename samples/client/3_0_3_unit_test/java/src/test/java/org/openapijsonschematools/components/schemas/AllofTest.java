@@ -18,7 +18,7 @@ public class AllofTest {
     @Test
     public void testMismatchSecondFails() {
         // mismatch second
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Allof.Allof1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -33,7 +33,7 @@ public class AllofTest {
     @Test
     public void testWrongTypeFails() {
         // wrong type
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Allof.Allof1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -52,7 +52,7 @@ public class AllofTest {
     @Test
     public void testMismatchFirstFails() {
         // mismatch first
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Allof.Allof1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

@@ -34,6 +34,6 @@ public class DateTimeWithValidations {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DateTimeWithValidations1.class, arg, configuration);
+            return JsonSchema.validateString(DateTimeWithValidations1.class, arg, configuration);
         }
     }}

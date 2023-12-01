@@ -30,6 +30,6 @@ public class Schema5 {
             )))
         ));
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema51.class, arg, configuration);
+            return JsonSchema.validateDouble(Schema51.class, arg, configuration);
         }
     }}

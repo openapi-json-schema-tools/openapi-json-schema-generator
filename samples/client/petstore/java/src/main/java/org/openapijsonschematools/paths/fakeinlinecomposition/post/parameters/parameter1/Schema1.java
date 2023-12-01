@@ -31,7 +31,7 @@ public class Schema1 {
             new KeywordEntry("minLength", new MinLengthValidator(1))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateString(Schema01.class, arg, configuration);
         }
     }    
     
@@ -42,51 +42,51 @@ public class Schema1 {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateVoid(SomeProp1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateBoolean(SomeProp1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateInt(SomeProp1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateLong(SomeProp1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateFloat(SomeProp1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateDouble(SomeProp1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateString(SomeProp1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(SomeProp1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(SomeProp1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateUUID(SomeProp1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateMap(SomeProp1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SomeProp1.class, arg, configuration);
+            return JsonSchema.validateList(SomeProp1.class, arg, configuration);
         }
     }    
     
@@ -127,7 +127,7 @@ public class Schema1 {
             return new SchemaMap1(arg);
         }
         public static SchemaMap1 validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema11.class, arg, configuration);
+            return JsonSchema.validateMap(Schema11.class, arg, configuration);
         }
     }
 }

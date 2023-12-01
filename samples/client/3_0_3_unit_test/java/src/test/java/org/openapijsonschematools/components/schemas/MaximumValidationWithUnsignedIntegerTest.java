@@ -18,7 +18,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     @Test
     public void testAboveTheMaximumIsInvalidFails() {
         // above the maximum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.class,
             300.5,
             configuration

@@ -18,7 +18,7 @@ public class NotTest {
     @Test
     public void testDisallowedFails() {
         // disallowed
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Not.Not1.class,
             1,
             configuration

@@ -84,7 +84,7 @@ public class AbstractStepMessage {
             return new AbstractStepMessageMap(arg);
         }
         public static AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AbstractStepMessage1.class, arg, configuration);
+            return JsonSchema.validateMap(AbstractStepMessage1.class, arg, configuration);
         }
     }
 }

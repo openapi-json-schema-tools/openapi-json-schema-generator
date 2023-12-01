@@ -18,7 +18,7 @@ public class SimpleEnumValidationTest {
     @Test
     public void testSomethingElseIsInvalidFails() {
         // something else is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             SimpleEnumValidation.SimpleEnumValidation1.class,
             4,
             configuration

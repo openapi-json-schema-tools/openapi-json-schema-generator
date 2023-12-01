@@ -27,7 +27,7 @@ public class AnyofTest {
     @Test
     public void testNeitherAnyofValidFails() {
         // neither anyOf valid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Anyof.Anyof1.class,
             1.5,
             configuration

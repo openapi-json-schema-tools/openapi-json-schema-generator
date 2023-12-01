@@ -50,7 +50,7 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testTooLongIsInvalidFails() {
         // too long is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MaxpropertiesValidation.MaxpropertiesValidation1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

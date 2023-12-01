@@ -69,7 +69,7 @@ public class MinpropertiesValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinpropertiesValidation.MinpropertiesValidation1.class,
             MapMaker.makeMap(
             ),

@@ -18,7 +18,7 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testMismatchBaseSchemaFails() {
         // mismatch base schema
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             OneofWithBaseSchema.OneofWithBaseSchema1.class,
             3,
             configuration
@@ -37,7 +37,7 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testBothOneofValidFails() {
         // both oneOf valid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             OneofWithBaseSchema.OneofWithBaseSchema1.class,
             "foo",
             configuration

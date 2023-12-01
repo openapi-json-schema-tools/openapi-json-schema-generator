@@ -16,7 +16,7 @@ public class ListSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 ListJsonSchema.class, (Void) null, configuration
         ));
     }

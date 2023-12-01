@@ -18,7 +18,7 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
     @Test
     public void testPropertiesDefinedInAllofAreNotExaminedFails() {
         // properties defined in allOf are not examined
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

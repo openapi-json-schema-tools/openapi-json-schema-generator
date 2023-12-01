@@ -62,50 +62,50 @@ public class ClassModel {
             return new ClassModelMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateVoid(ClassModel1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ClassModel1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateInt(ClassModel1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateLong(ClassModel1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateFloat(ClassModel1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateDouble(ClassModel1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateString(ClassModel1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ClassModel1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ClassModel1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateUUID(ClassModel1.class, arg, configuration);
         }
         
         public static ClassModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateMap(ClassModel1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassModel1.class, arg, configuration);
+            return JsonSchema.validateList(ClassModel1.class, arg, configuration);
         }
     }}

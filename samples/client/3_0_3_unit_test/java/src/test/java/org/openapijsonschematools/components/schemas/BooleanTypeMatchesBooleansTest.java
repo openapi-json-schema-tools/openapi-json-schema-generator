@@ -18,7 +18,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAFloatIsNotABooleanFails() {
         // a float is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             1.1,
             configuration
@@ -28,7 +28,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAStringIsNotABooleanFails() {
         // a string is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             "foo",
             configuration
@@ -56,7 +56,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnObjectIsNotABooleanFails() {
         // an object is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             MapMaker.makeMap(
             ),
@@ -67,7 +67,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnArrayIsNotABooleanFails() {
         // an array is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             Arrays.asList(
             ),
@@ -78,7 +78,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testNullIsNotABooleanFails() {
         // null is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             (Void) null,
             configuration
@@ -88,7 +88,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnIntegerIsNotABooleanFails() {
         // an integer is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             1,
             configuration
@@ -98,7 +98,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testZeroIsNotABooleanFails() {
         // zero is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             0,
             configuration
@@ -108,7 +108,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnEmptyStringIsNotABooleanFails() {
         // an empty string is not a boolean
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
             "",
             configuration

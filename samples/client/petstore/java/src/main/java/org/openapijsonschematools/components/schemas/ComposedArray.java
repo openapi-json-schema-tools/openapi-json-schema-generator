@@ -46,6 +46,6 @@ public class ComposedArray {
             return new ComposedArrayList(arg);
         }
         public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedArray1.class, arg, configuration);
+            return JsonSchema.validateList(ComposedArray1.class, arg, configuration);
         }
     }}

@@ -18,7 +18,7 @@ public class EnumWithTrueDoesNotMatch1Test {
     @Test
     public void testFloatOneIsInvalidFails() {
         // float one is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.class,
             1.0,
             configuration
@@ -28,7 +28,7 @@ public class EnumWithTrueDoesNotMatch1Test {
     @Test
     public void testIntegerOneIsInvalidFails() {
         // integer one is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.class,
             1,
             configuration

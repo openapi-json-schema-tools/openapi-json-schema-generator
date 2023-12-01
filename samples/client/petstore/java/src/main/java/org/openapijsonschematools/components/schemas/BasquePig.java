@@ -28,7 +28,7 @@ public class BasquePig {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassName.class, arg, configuration);
+            return JsonSchema.validateString(ClassName.class, arg, configuration);
         }
     }    
     
@@ -76,7 +76,7 @@ public class BasquePig {
             return new BasquePigMap(arg);
         }
         public static BasquePigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(BasquePig1.class, arg, configuration);
+            return JsonSchema.validateMap(BasquePig1.class, arg, configuration);
         }
     }
 }

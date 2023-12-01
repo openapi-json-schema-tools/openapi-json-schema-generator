@@ -28,19 +28,19 @@ public class Schema0 {
             new KeywordEntry("maximum", new MaximumValidator(5)),
             new KeywordEntry("minimum", new MinimumValidator(1))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, Long.valueOf(arg), configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(Schema01.class, arg, configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(Schema01.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateLong(Schema01.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(Schema01.class, arg, configuration);
         }
     }}

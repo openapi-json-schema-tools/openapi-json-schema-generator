@@ -35,7 +35,7 @@ public class Zebra {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Type.class, arg, configuration);
+            return JsonSchema.validateString(Type.class, arg, configuration);
         }
     }    
     
@@ -49,7 +49,7 @@ public class Zebra {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassName.class, arg, configuration);
+            return JsonSchema.validateString(ClassName.class, arg, configuration);
         }
     }    
     
@@ -106,7 +106,7 @@ public class Zebra {
             return new ZebraMap(arg);
         }
         public static ZebraMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Zebra1.class, arg, configuration);
+            return JsonSchema.validateMap(Zebra1.class, arg, configuration);
         }
     }
 }

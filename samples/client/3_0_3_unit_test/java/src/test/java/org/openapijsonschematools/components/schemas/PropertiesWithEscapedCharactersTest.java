@@ -52,7 +52,7 @@ public class PropertiesWithEscapedCharactersTest {
     @Test
     public void testObjectWithStringsIsInvalidFails() {
         // object with strings is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

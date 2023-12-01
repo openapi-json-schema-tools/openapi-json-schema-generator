@@ -42,7 +42,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testAnExplicitPropertyValueIsCheckedAgainstMaximumFailingFails() {
         // an explicit property value is checked against maximum (failing)
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

@@ -18,6 +18,6 @@ public class BooleanJsonSchema extends JsonSchema {
     ));
 
     public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(BooleanJsonSchema.class, arg, configuration);
+        return JsonSchema.validateBoolean(BooleanJsonSchema.class, arg, configuration);
     }
 }

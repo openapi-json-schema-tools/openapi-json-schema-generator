@@ -36,7 +36,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testTooLongIsInvalidFails() {
         // too long is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MaxlengthValidation.MaxlengthValidation1.class,
             "foo",
             configuration

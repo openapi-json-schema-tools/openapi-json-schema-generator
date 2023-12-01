@@ -32,7 +32,7 @@ public class AdditionalpropertiesCanExistByItselfTest {
     @Test
     public void testAnAdditionalInvalidPropertyIsInvalidFails() {
         // an additional invalid property is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

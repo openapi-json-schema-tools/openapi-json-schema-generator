@@ -18,7 +18,7 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofFalseAnyofFalseOneofTrueFails() {
         // allOf: false, anyOf: false, oneOf: true
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.class,
             5,
             configuration
@@ -28,7 +28,7 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofFalseAnyofTrueOneofFalseFails() {
         // allOf: false, anyOf: true, oneOf: false
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.class,
             3,
             configuration
@@ -38,7 +38,7 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofFalseAnyofTrueOneofTrueFails() {
         // allOf: false, anyOf: true, oneOf: true
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.class,
             15,
             configuration
@@ -48,7 +48,7 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofTrueAnyofFalseOneofFalseFails() {
         // allOf: true, anyOf: false, oneOf: false
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.class,
             2,
             configuration
@@ -67,7 +67,7 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofFalseAnyofFalseOneofFalseFails() {
         // allOf: false, anyOf: false, oneOf: false
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.class,
             1,
             configuration
@@ -77,7 +77,7 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofTrueAnyofFalseOneofTrueFails() {
         // allOf: true, anyOf: false, oneOf: true
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.class,
             10,
             configuration
@@ -87,7 +87,7 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofTrueAnyofTrueOneofFalseFails() {
         // allOf: true, anyOf: true, oneOf: false
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.class,
             6,
             configuration

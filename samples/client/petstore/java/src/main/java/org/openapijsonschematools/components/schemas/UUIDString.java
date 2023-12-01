@@ -31,6 +31,6 @@ public class UUIDString {
             new KeywordEntry("minLength", new MinLengthValidator(1))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UUIDString1.class, arg, configuration);
+            return JsonSchema.validateString(UUIDString1.class, arg, configuration);
         }
     }}

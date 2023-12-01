@@ -18,7 +18,7 @@ public class ByNumberTest {
     @Test
     public void test35IsNotMultipleOf15Fails() {
         // 35 is not multiple of 1.5
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ByNumber.ByNumber1.class,
             35,
             configuration

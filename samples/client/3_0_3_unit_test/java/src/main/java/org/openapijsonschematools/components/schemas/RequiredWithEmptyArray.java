@@ -66,50 +66,50 @@ public class RequiredWithEmptyArray {
             return new RequiredWithEmptyArrayMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateVoid(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateBoolean(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateInt(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateLong(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateFloat(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateDouble(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateString(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateUUID(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static RequiredWithEmptyArrayMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateMap(RequiredWithEmptyArray1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEmptyArray1.class, arg, configuration);
+            return JsonSchema.validateList(RequiredWithEmptyArray1.class, arg, configuration);
         }
     }}

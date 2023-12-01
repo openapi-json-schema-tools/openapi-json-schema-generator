@@ -79,7 +79,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(arg);
         }
         public static AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesAllowsASchemaWhichShouldValidate1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalpropertiesAllowsASchemaWhichShouldValidate1.class, arg, configuration);
         }
     }
 }

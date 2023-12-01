@@ -29,50 +29,50 @@ public class Maxproperties0MeansTheObjectIsEmpty {
             new KeywordEntry("maxProperties", new MaxPropertiesValidator(0))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateVoid(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateBoolean(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateInt(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateLong(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateFloat(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateDouble(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateString(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateUUID(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateMap(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
+            return JsonSchema.validateList(Maxproperties0MeansTheObjectIsEmpty1.class, arg, configuration);
         }
     }}

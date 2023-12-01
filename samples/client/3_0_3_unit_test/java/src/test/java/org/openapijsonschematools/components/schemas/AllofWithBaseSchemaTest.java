@@ -18,7 +18,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchBaseSchemaFails() {
         // mismatch base schema
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -37,7 +37,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchFirstAllofFails() {
         // mismatch first allOf
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -78,7 +78,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchBothFails() {
         // mismatch both
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -93,7 +93,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchSecondAllofFails() {
         // mismatch second allOf
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

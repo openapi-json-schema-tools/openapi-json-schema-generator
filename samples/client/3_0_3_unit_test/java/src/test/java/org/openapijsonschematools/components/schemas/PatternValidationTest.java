@@ -36,7 +36,7 @@ public class PatternValidationTest {
     @Test
     public void testANonMatchingPatternIsInvalidFails() {
         // a non-matching pattern is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             PatternValidation.PatternValidation1.class,
             "abc",
             configuration

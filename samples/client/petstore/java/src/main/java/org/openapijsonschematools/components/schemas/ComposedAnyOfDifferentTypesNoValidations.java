@@ -86,7 +86,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return new Schema9List(arg);
         }
         public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema9.class, arg, configuration);
+            return JsonSchema.validateList(Schema9.class, arg, configuration);
         }
     }    
     
@@ -136,50 +136,50 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateVoid(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateInt(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateLong(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateFloat(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateDouble(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateString(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateUUID(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateMap(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
+            return JsonSchema.validateList(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
     }}

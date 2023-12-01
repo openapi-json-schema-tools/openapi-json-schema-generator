@@ -27,7 +27,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void test1IsNotAStringFails() {
         // 1 is not a string
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             1,
             configuration
@@ -37,7 +37,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testABooleanIsNotAStringFails() {
         // a boolean is not a string
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             true,
             configuration
@@ -56,7 +56,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnArrayIsNotAStringFails() {
         // an array is not a string
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             Arrays.asList(
             ),
@@ -67,7 +67,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnObjectIsNotAStringFails() {
         // an object is not a string
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             MapMaker.makeMap(
             ),
@@ -78,7 +78,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testNullIsNotAStringFails() {
         // null is not a string
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             (Void) null,
             configuration
@@ -97,7 +97,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAFloatIsNotAStringFails() {
         // a float is not a string
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
             1.1,
             configuration

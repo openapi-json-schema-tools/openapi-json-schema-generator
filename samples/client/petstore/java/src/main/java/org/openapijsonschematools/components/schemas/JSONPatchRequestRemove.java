@@ -39,7 +39,7 @@ public class JSONPatchRequestRemove {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Op.class, arg, configuration);
+            return JsonSchema.validateString(Op.class, arg, configuration);
         }
     }    
     
@@ -89,7 +89,7 @@ public class JSONPatchRequestRemove {
             return new JSONPatchRequestRemoveMap(arg);
         }
         public static JSONPatchRequestRemoveMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JSONPatchRequestRemove1.class, arg, configuration);
+            return JsonSchema.validateMap(JSONPatchRequestRemove1.class, arg, configuration);
         }
     }
 }

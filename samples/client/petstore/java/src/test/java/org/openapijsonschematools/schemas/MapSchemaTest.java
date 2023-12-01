@@ -17,7 +17,7 @@ public class MapSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 MapJsonSchema.class, (Void) null, configuration
         ));
     }

@@ -28,7 +28,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAnArrayIsNotAnObjectFails() {
         // an array is not an object
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.class,
             Arrays.asList(
             ),
@@ -39,7 +39,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAnIntegerIsNotAnObjectFails() {
         // an integer is not an object
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.class,
             1,
             configuration
@@ -49,7 +49,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testABooleanIsNotAnObjectFails() {
         // a boolean is not an object
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.class,
             true,
             configuration
@@ -59,7 +59,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAStringIsNotAnObjectFails() {
         // a string is not an object
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.class,
             "foo",
             configuration
@@ -69,7 +69,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAFloatIsNotAnObjectFails() {
         // a float is not an object
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.class,
             1.1,
             configuration
@@ -79,7 +79,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testNullIsNotAnObjectFails() {
         // null is not an object
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.class,
             (Void) null,
             configuration

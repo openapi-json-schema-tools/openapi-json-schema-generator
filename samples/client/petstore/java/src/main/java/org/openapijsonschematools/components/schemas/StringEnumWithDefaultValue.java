@@ -32,6 +32,6 @@ public class StringEnumWithDefaultValue {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(StringEnumWithDefaultValue1.class, arg, configuration);
+            return JsonSchema.validateString(StringEnumWithDefaultValue1.class, arg, configuration);
         }
     }}

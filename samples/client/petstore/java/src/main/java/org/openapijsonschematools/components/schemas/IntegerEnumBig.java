@@ -34,19 +34,19 @@ public class IntegerEnumBig {
                 12
             )))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerEnumBig1.class, Long.valueOf(arg), configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(IntegerEnumBig1.class, arg, configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerEnumBig1.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(IntegerEnumBig1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerEnumBig1.class, arg, configuration);
+            return JsonSchema.validateLong(IntegerEnumBig1.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerEnumBig1.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(IntegerEnumBig1.class, arg, configuration);
         }
     }}

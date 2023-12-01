@@ -76,7 +76,7 @@ public class ObjectWithDifficultlyNamedProps {
             return new ObjectWithDifficultlyNamedPropsMap(arg);
         }
         public static ObjectWithDifficultlyNamedPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithDifficultlyNamedProps1.class, arg, configuration);
         }
     }
 }

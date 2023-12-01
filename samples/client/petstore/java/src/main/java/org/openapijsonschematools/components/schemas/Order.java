@@ -45,7 +45,7 @@ public class Order {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Status.class, arg, configuration);
+            return JsonSchema.validateString(Status.class, arg, configuration);
         }
     }    
     
@@ -135,7 +135,7 @@ public class Order {
             return new OrderMap(arg);
         }
         public static OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Order1.class, arg, configuration);
+            return JsonSchema.validateMap(Order1.class, arg, configuration);
         }
     }
 }

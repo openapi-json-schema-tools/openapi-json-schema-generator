@@ -45,7 +45,7 @@ public class MinlengthValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinlengthValidation.MinlengthValidation1.class,
             "f",
             configuration
@@ -55,7 +55,7 @@ public class MinlengthValidationTest {
     @Test
     public void testOneSupplementaryUnicodeCodePointIsNotLongEnoughFails() {
         // one supplementary Unicode code point is not long enough
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinlengthValidation.MinlengthValidation1.class,
             "💩",
             configuration

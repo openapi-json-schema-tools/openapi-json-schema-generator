@@ -39,50 +39,50 @@ public class ShapeOrNull {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateVoid(ShapeOrNull1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ShapeOrNull1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateInt(ShapeOrNull1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateLong(ShapeOrNull1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateFloat(ShapeOrNull1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateDouble(ShapeOrNull1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateString(ShapeOrNull1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ShapeOrNull1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ShapeOrNull1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateUUID(ShapeOrNull1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateMap(ShapeOrNull1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeOrNull1.class, arg, configuration);
+            return JsonSchema.validateList(ShapeOrNull1.class, arg, configuration);
         }
     }}

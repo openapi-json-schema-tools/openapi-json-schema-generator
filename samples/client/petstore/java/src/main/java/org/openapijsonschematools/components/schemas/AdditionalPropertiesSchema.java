@@ -53,7 +53,7 @@ public class AdditionalPropertiesSchema {
             return new Schema0Map(arg);
         }
         public static Schema0Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateMap(Schema0.class, arg, configuration);
         }
     }
     
@@ -63,51 +63,51 @@ public class AdditionalPropertiesSchema {
             new KeywordEntry("minLength", new MinLengthValidator(3))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateVoid(AdditionalProperties1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateBoolean(AdditionalProperties1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateInt(AdditionalProperties1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateLong(AdditionalProperties1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateFloat(AdditionalProperties1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateDouble(AdditionalProperties1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateString(AdditionalProperties1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(AdditionalProperties1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(AdditionalProperties1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateUUID(AdditionalProperties1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalProperties1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateList(AdditionalProperties1.class, arg, configuration);
         }
     }    
     
@@ -137,7 +137,7 @@ public class AdditionalPropertiesSchema {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
     
@@ -147,51 +147,51 @@ public class AdditionalPropertiesSchema {
             new KeywordEntry("maxLength", new MaxLengthValidator(5))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateVoid(AdditionalProperties2.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateBoolean(AdditionalProperties2.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateInt(AdditionalProperties2.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateLong(AdditionalProperties2.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateFloat(AdditionalProperties2.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateDouble(AdditionalProperties2.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateString(AdditionalProperties2.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(AdditionalProperties2.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateLocalDate(AdditionalProperties2.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateUUID(AdditionalProperties2.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalProperties2.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateList(AdditionalProperties2.class, arg, configuration);
         }
     }    
     
@@ -221,7 +221,7 @@ public class AdditionalPropertiesSchema {
             return new Schema2Map(arg);
         }
         public static Schema2Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema2.class, arg, configuration);
+            return JsonSchema.validateMap(Schema2.class, arg, configuration);
         }
     }
     
@@ -242,7 +242,7 @@ public class AdditionalPropertiesSchema {
             )))
         ));
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalPropertiesSchema1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalPropertiesSchema1.class, arg, configuration);
         }
     }
 }

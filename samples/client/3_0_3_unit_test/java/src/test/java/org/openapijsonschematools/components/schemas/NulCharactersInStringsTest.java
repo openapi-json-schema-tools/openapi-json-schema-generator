@@ -27,7 +27,7 @@ public class NulCharactersInStringsTest {
     @Test
     public void testDoNotMatchStringLackingNulFails() {
         // do not match string lacking nul
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NulCharactersInStrings.NulCharactersInStrings1.class,
             "hellothere",
             configuration

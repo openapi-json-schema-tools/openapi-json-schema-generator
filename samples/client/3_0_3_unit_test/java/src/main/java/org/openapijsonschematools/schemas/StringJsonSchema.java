@@ -20,18 +20,18 @@ public class StringJsonSchema extends JsonSchema {
     ));
 
     public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
+        return JsonSchema.validateString(StringJsonSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
+        return JsonSchema.validateZonedDateTime(StringJsonSchema.class, arg, configuration);
     }
 
     public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
+        return JsonSchema.validateLocalDate(StringJsonSchema.class, arg, configuration);
     }
 
     public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(StringJsonSchema.class, arg, configuration);
+        return JsonSchema.validateUUID(StringJsonSchema.class, arg, configuration);
     }
 }

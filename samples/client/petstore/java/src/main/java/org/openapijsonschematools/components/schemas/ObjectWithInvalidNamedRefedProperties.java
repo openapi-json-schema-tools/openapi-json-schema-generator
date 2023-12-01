@@ -64,7 +64,7 @@ public class ObjectWithInvalidNamedRefedProperties {
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
         public static ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithInvalidNamedRefedProperties1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithInvalidNamedRefedProperties1.class, arg, configuration);
         }
     }
 }

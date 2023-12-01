@@ -18,7 +18,7 @@ public class BySmallNumberTest {
     @Test
     public void test000751IsNotMultipleOf00001Fails() {
         // 0.00751 is not multiple of 0.0001
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BySmallNumber.BySmallNumber1.class,
             0.00751,
             configuration

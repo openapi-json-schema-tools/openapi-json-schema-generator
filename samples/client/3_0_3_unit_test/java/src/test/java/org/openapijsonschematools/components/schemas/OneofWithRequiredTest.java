@@ -36,7 +36,7 @@ public class OneofWithRequiredTest {
     @Test
     public void testBothValidInvalidFails() {
         // both valid - invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             OneofWithRequired.OneofWithRequired1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -77,7 +77,7 @@ public class OneofWithRequiredTest {
     @Test
     public void testBothInvalidInvalidFails() {
         // both invalid - invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             OneofWithRequired.OneofWithRequired1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

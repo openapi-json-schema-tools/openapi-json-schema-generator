@@ -36,7 +36,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAStringIsStillNotANumberEvenIfItLooksLikeOneFails() {
         // a string is still not a number, even if it looks like one
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             "1",
             configuration
@@ -46,7 +46,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testABooleanIsNotANumberFails() {
         // a boolean is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             true,
             configuration
@@ -65,7 +65,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testNullIsNotANumberFails() {
         // null is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             (Void) null,
             configuration
@@ -75,7 +75,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAStringIsNotANumberFails() {
         // a string is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             "foo",
             configuration
@@ -85,7 +85,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnArrayIsNotANumberFails() {
         // an array is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             Arrays.asList(
             ),
@@ -96,7 +96,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnObjectIsNotANumberFails() {
         // an object is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
             MapMaker.makeMap(
             ),

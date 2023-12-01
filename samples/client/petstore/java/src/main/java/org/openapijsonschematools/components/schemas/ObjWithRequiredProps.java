@@ -70,7 +70,7 @@ public class ObjWithRequiredProps {
             return new ObjWithRequiredPropsMap(arg);
         }
         public static ObjWithRequiredPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjWithRequiredProps1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjWithRequiredProps1.class, arg, configuration);
         }
     }
 }

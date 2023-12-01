@@ -60,7 +60,7 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testBothPropertiesInvalidIsInvalidFails() {
         // both properties invalid is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -91,7 +91,7 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testOnePropertyInvalidIsInvalidFails() {
         // one property invalid is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

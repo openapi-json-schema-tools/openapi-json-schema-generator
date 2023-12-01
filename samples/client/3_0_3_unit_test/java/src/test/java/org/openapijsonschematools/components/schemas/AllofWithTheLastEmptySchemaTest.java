@@ -18,7 +18,7 @@ public class AllofWithTheLastEmptySchemaTest {
     @Test
     public void testStringIsInvalidFails() {
         // string is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1.class,
             "foo",
             configuration

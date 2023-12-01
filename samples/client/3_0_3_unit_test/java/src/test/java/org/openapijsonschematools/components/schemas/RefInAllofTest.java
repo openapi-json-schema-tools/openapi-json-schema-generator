@@ -32,7 +32,7 @@ public class RefInAllofTest {
     @Test
     public void testPropertyNamedRefInvalidFails() {
         // property named $ref invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             RefInAllof.RefInAllof1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

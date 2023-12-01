@@ -51,7 +51,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return new MapMap(arg);
         }
         public static MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapSchema.class, arg, configuration);
+            return JsonSchema.validateMap(MapSchema.class, arg, configuration);
         }
     }
     
@@ -103,7 +103,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
         }
         public static MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MixedPropertiesAndAdditionalPropertiesClass1.class, arg, configuration);
+            return JsonSchema.validateMap(MixedPropertiesAndAdditionalPropertiesClass1.class, arg, configuration);
         }
     }
 }

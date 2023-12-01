@@ -33,7 +33,7 @@ public class ScaleneTriangle {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleType.class, arg, configuration);
+            return JsonSchema.validateString(TriangleType.class, arg, configuration);
         }
     }    
     
@@ -74,7 +74,7 @@ public class ScaleneTriangle {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
     
@@ -93,50 +93,50 @@ public class ScaleneTriangle {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateVoid(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateInt(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateLong(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateFloat(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateDouble(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateString(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateUUID(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateMap(ScaleneTriangle1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ScaleneTriangle1.class, arg, configuration);
+            return JsonSchema.validateList(ScaleneTriangle1.class, arg, configuration);
         }
     }}

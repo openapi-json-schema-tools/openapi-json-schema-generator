@@ -57,7 +57,7 @@ public class Schema0 {
             return new SchemaMap0(arg);
         }
         public static SchemaMap0 validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateMap(Schema01.class, arg, configuration);
         }
     }
 }

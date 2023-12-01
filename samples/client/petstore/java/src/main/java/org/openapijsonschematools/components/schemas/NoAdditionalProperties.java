@@ -79,7 +79,7 @@ public class NoAdditionalProperties {
             return new NoAdditionalPropertiesMap(arg);
         }
         public static NoAdditionalPropertiesMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NoAdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateMap(NoAdditionalProperties1.class, arg, configuration);
         }
     }
 }

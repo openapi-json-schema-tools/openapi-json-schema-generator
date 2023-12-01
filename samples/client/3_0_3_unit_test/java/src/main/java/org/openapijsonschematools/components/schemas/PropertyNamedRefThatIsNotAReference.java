@@ -60,50 +60,50 @@ public class PropertyNamedRefThatIsNotAReference {
             return new PropertyNamedRefThatIsNotAReferenceMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateVoid(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateBoolean(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateInt(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateLong(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateFloat(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateDouble(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateString(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateUUID(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static PropertyNamedRefThatIsNotAReferenceMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateMap(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
+            return JsonSchema.validateList(PropertyNamedRefThatIsNotAReference1.class, arg, configuration);
         }
     }}

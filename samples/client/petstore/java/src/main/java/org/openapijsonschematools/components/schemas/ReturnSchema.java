@@ -62,50 +62,50 @@ public class ReturnSchema {
             return new ReturnMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateVoid(ReturnSchema1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ReturnSchema1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateInt(ReturnSchema1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateLong(ReturnSchema1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateFloat(ReturnSchema1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateDouble(ReturnSchema1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateString(ReturnSchema1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ReturnSchema1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ReturnSchema1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateUUID(ReturnSchema1.class, arg, configuration);
         }
         
         public static ReturnMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateMap(ReturnSchema1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
+            return JsonSchema.validateList(ReturnSchema1.class, arg, configuration);
         }
     }}

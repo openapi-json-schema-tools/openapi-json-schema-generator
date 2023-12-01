@@ -20,6 +20,6 @@ public class ListJsonSchema extends JsonSchema {
     ));
 
     public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(ListJsonSchema.class, arg, configuration);
+        return JsonSchema.validateList(ListJsonSchema.class, arg, configuration);
     }
 }

@@ -63,7 +63,7 @@ public class NumberOnly {
             return new NumberOnlyMap(arg);
         }
         public static NumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberOnly1.class, arg, configuration);
+            return JsonSchema.validateMap(NumberOnly1.class, arg, configuration);
         }
     }
 }

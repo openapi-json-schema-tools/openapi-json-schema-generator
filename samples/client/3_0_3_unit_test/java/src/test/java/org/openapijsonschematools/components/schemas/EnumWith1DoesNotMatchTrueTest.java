@@ -18,7 +18,7 @@ public class EnumWith1DoesNotMatchTrueTest {
     @Test
     public void testTrueIsInvalidFails() {
         // true is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.class,
             true,
             configuration

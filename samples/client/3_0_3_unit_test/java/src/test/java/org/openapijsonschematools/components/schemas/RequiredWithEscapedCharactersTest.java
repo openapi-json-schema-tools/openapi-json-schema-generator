@@ -18,7 +18,7 @@ public class RequiredWithEscapedCharactersTest {
     @Test
     public void testObjectWithSomePropertiesMissingIsInvalidFails() {
         // object with some properties missing is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

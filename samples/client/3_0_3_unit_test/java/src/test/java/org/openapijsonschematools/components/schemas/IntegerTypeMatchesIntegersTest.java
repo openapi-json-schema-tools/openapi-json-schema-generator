@@ -18,7 +18,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAnObjectIsNotAnIntegerFails() {
         // an object is not an integer
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
             MapMaker.makeMap(
             ),
@@ -29,7 +29,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAnArrayIsNotAnIntegerFails() {
         // an array is not an integer
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
             Arrays.asList(
             ),
@@ -40,7 +40,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testNullIsNotAnIntegerFails() {
         // null is not an integer
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
             (Void) null,
             configuration
@@ -59,7 +59,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testABooleanIsNotAnIntegerFails() {
         // a boolean is not an integer
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
             true,
             configuration
@@ -69,7 +69,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAStringIsStillNotAnIntegerEvenIfItLooksLikeOneFails() {
         // a string is still not an integer, even if it looks like one
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
             "1",
             configuration
@@ -79,7 +79,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAStringIsNotAnIntegerFails() {
         // a string is not an integer
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
             "foo",
             configuration
@@ -98,7 +98,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAFloatIsNotAnIntegerFails() {
         // a float is not an integer
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
             1.1,
             configuration

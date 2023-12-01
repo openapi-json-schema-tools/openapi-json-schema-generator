@@ -74,7 +74,7 @@ public class HasOnlyReadOnly {
             return new HasOnlyReadOnlyMap(arg);
         }
         public static HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HasOnlyReadOnly1.class, arg, configuration);
+            return JsonSchema.validateMap(HasOnlyReadOnly1.class, arg, configuration);
         }
     }
 }

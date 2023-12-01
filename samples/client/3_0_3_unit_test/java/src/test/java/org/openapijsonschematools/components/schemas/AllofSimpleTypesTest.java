@@ -18,7 +18,7 @@ public class AllofSimpleTypesTest {
     @Test
     public void testMismatchOneFails() {
         // mismatch one
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             AllofSimpleTypes.AllofSimpleTypes1.class,
             35,
             configuration

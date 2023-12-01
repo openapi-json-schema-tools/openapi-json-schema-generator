@@ -29,50 +29,50 @@ public class RefInNot {
             new KeywordEntry("not", new NotValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateVoid(RefInNot1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateBoolean(RefInNot1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateInt(RefInNot1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateLong(RefInNot1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateFloat(RefInNot1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateDouble(RefInNot1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateString(RefInNot1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(RefInNot1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(RefInNot1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateUUID(RefInNot1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateMap(RefInNot1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInNot1.class, arg, configuration);
+            return JsonSchema.validateList(RefInNot1.class, arg, configuration);
         }
     }}

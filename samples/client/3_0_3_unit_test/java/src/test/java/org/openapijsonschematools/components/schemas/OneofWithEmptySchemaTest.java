@@ -27,7 +27,7 @@ public class OneofWithEmptySchemaTest {
     @Test
     public void testBothValidInvalidFails() {
         // both valid - invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             OneofWithEmptySchema.OneofWithEmptySchema1.class,
             123,
             configuration

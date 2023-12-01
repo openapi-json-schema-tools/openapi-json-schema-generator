@@ -27,7 +27,7 @@ public class NestedOneofToCheckValidationSemanticsTest {
     @Test
     public void testAnythingNonNullIsInvalidFails() {
         // anything non-null is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1.class,
             123,
             configuration

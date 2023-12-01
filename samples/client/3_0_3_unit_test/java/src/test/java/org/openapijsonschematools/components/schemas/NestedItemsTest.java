@@ -18,7 +18,7 @@ public class NestedItemsTest {
     @Test
     public void testNestedArrayWithInvalidTypeFails() {
         // nested array with invalid type
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NestedItems.NestedItems1.class,
             Arrays.asList(
                 Arrays.asList(
@@ -57,7 +57,7 @@ public class NestedItemsTest {
     @Test
     public void testNotDeepEnoughFails() {
         // not deep enough
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NestedItems.NestedItems1.class,
             Arrays.asList(
                 Arrays.asList(

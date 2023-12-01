@@ -25,6 +25,6 @@ public class Schema4 {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema41.class, arg, configuration);
+            return JsonSchema.validateString(Schema41.class, arg, configuration);
         }
     }}

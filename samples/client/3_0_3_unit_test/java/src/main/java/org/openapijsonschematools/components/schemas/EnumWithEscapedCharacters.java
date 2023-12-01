@@ -31,6 +31,6 @@ public class EnumWithEscapedCharacters {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateString(EnumWithEscapedCharacters1.class, arg, configuration);
         }
     }}

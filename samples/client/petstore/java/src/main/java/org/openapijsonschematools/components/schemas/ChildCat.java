@@ -63,7 +63,7 @@ public class ChildCat {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
     
@@ -82,50 +82,50 @@ public class ChildCat {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateVoid(ChildCat1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ChildCat1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateInt(ChildCat1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateLong(ChildCat1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateFloat(ChildCat1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateDouble(ChildCat1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateString(ChildCat1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ChildCat1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ChildCat1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateUUID(ChildCat1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateMap(ChildCat1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ChildCat1.class, arg, configuration);
+            return JsonSchema.validateList(ChildCat1.class, arg, configuration);
         }
     }}

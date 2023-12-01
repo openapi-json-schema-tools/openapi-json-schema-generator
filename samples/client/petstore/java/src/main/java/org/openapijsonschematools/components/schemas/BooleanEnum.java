@@ -28,6 +28,6 @@ public class BooleanEnum {
             )))
         ));
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(BooleanEnum1.class, arg, configuration);
+            return JsonSchema.validateBoolean(BooleanEnum1.class, arg, configuration);
         }
     }}

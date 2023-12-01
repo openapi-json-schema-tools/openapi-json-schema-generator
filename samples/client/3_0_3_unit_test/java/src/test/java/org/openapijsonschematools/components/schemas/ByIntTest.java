@@ -18,7 +18,7 @@ public class ByIntTest {
     @Test
     public void testIntByIntFailFails() {
         // int by int fail
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ByInt.ByInt1.class,
             7,
             configuration

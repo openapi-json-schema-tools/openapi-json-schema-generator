@@ -65,7 +65,7 @@ public class SpecialModelname {
             return new SpecialModelnameMap(arg);
         }
         public static SpecialModelnameMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SpecialModelname1.class, arg, configuration);
+            return JsonSchema.validateMap(SpecialModelname1.class, arg, configuration);
         }
     }
 }

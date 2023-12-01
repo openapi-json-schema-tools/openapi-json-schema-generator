@@ -18,7 +18,7 @@ public class EnumWithFalseDoesNotMatch0Test {
     @Test
     public void testFloatZeroIsInvalidFails() {
         // float zero is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.class,
             0.0,
             configuration
@@ -37,7 +37,7 @@ public class EnumWithFalseDoesNotMatch0Test {
     @Test
     public void testIntegerZeroIsInvalidFails() {
         // integer zero is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.class,
             0,
             configuration

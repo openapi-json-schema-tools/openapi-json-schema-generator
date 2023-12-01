@@ -79,7 +79,7 @@ public class Headers {
             return new HeadersMap(arg);
         }
         public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Headers1.class, arg, configuration);
+            return JsonSchema.validateMap(Headers1.class, arg, configuration);
         }
     }
 }

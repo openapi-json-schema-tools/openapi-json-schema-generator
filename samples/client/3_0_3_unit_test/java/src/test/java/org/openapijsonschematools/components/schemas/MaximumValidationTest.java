@@ -18,7 +18,7 @@ public class MaximumValidationTest {
     @Test
     public void testAboveTheMaximumIsInvalidFails() {
         // above the maximum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MaximumValidation.MaximumValidation1.class,
             3.5,
             configuration

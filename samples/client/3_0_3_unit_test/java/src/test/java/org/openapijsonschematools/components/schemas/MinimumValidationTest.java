@@ -27,7 +27,7 @@ public class MinimumValidationTest {
     @Test
     public void testBelowTheMinimumIsInvalidFails() {
         // below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinimumValidation.MinimumValidation1.class,
             0.6,
             configuration

@@ -18,7 +18,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testZeroIsNotNullFails() {
         // zero is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             0,
             configuration
@@ -28,7 +28,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnArrayIsNotNullFails() {
         // an array is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             Arrays.asList(
             ),
@@ -39,7 +39,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnObjectIsNotNullFails() {
         // an object is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             MapMaker.makeMap(
             ),
@@ -50,7 +50,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testTrueIsNotNullFails() {
         // true is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             true,
             configuration
@@ -60,7 +60,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testFalseIsNotNullFails() {
         // false is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             false,
             configuration
@@ -79,7 +79,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAStringIsNotNullFails() {
         // a string is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             "foo",
             configuration
@@ -89,7 +89,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnIntegerIsNotNullFails() {
         // an integer is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             1,
             configuration
@@ -99,7 +99,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnEmptyStringIsNotNullFails() {
         // an empty string is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             "",
             configuration
@@ -109,7 +109,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAFloatIsNotNullFails() {
         // a float is not null
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
             1.1,
             configuration

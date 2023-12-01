@@ -35,6 +35,6 @@ public class ComposedString {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedString1.class, arg, configuration);
+            return JsonSchema.validateString(ComposedString1.class, arg, configuration);
         }
     }}

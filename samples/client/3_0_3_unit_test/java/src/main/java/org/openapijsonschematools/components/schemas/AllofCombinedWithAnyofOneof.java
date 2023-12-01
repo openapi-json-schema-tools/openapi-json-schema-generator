@@ -26,51 +26,51 @@ public class AllofCombinedWithAnyofOneof {
             new KeywordEntry("multipleOf", new MultipleOfValidator(2))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateVoid(Schema02.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateBoolean(Schema02.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateInt(Schema02.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateLong(Schema02.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateFloat(Schema02.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateDouble(Schema02.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateString(Schema02.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Schema02.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Schema02.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateUUID(Schema02.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateMap(Schema02.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema02.class, arg, configuration);
+            return JsonSchema.validateList(Schema02.class, arg, configuration);
         }
     }    
     
@@ -79,51 +79,51 @@ public class AllofCombinedWithAnyofOneof {
             new KeywordEntry("multipleOf", new MultipleOfValidator(3))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateVoid(Schema01.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateBoolean(Schema01.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateInt(Schema01.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateLong(Schema01.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateFloat(Schema01.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateDouble(Schema01.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateString(Schema01.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Schema01.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Schema01.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateUUID(Schema01.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateMap(Schema01.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema01.class, arg, configuration);
+            return JsonSchema.validateList(Schema01.class, arg, configuration);
         }
     }    
     
@@ -132,51 +132,51 @@ public class AllofCombinedWithAnyofOneof {
             new KeywordEntry("multipleOf", new MultipleOfValidator(5))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateVoid(Schema0.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateBoolean(Schema0.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateInt(Schema0.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateLong(Schema0.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateFloat(Schema0.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateDouble(Schema0.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateString(Schema0.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Schema0.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Schema0.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateUUID(Schema0.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateMap(Schema0.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateList(Schema0.class, arg, configuration);
         }
     }    
     
@@ -199,50 +199,50 @@ public class AllofCombinedWithAnyofOneof {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateVoid(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateBoolean(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateInt(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateLong(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateFloat(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateDouble(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateString(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateUUID(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateMap(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AllofCombinedWithAnyofOneof1.class, arg, configuration);
+            return JsonSchema.validateList(AllofCombinedWithAnyofOneof1.class, arg, configuration);
         }
     }}

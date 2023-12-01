@@ -42,6 +42,6 @@ public class ArrayOfEnums {
             return new ArrayOfEnumsList(arg);
         }
         public static ArrayOfEnumsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ArrayOfEnums1.class, arg, configuration);
+            return JsonSchema.validateList(ArrayOfEnums1.class, arg, configuration);
         }
     }}

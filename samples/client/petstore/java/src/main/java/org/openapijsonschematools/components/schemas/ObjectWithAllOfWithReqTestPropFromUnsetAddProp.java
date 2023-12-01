@@ -73,7 +73,7 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
     
@@ -92,50 +92,50 @@ public class ObjectWithAllOfWithReqTestPropFromUnsetAddProp {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateVoid(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateInt(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateLong(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateFloat(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateDouble(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateString(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateUUID(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
+            return JsonSchema.validateList(ObjectWithAllOfWithReqTestPropFromUnsetAddProp1.class, arg, configuration);
         }
     }}

@@ -27,51 +27,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("uuid"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateVoid(UuidSchema.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateBoolean(UuidSchema.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateInt(UuidSchema.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateLong(UuidSchema.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateFloat(UuidSchema.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateDouble(UuidSchema.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateString(UuidSchema.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(UuidSchema.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateLocalDate(UuidSchema.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateUUID(UuidSchema.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateMap(UuidSchema.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UuidSchema.class, arg, configuration);
+            return JsonSchema.validateList(UuidSchema.class, arg, configuration);
         }
     }    
     
@@ -80,51 +80,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("date"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateVoid(Date.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateBoolean(Date.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateInt(Date.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateLong(Date.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateFloat(Date.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateDouble(Date.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateString(Date.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Date.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Date.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateUUID(Date.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateMap(Date.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Date.class, arg, configuration);
+            return JsonSchema.validateList(Date.class, arg, configuration);
         }
     }    
     
@@ -133,51 +133,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("date-time"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateVoid(Datetime.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateBoolean(Datetime.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateInt(Datetime.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateLong(Datetime.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateFloat(Datetime.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateDouble(Datetime.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateString(Datetime.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Datetime.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Datetime.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateUUID(Datetime.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateMap(Datetime.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Datetime.class, arg, configuration);
+            return JsonSchema.validateList(Datetime.class, arg, configuration);
         }
     }    
     
@@ -186,51 +186,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("number"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateVoid(NumberSchema.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateBoolean(NumberSchema.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateInt(NumberSchema.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateLong(NumberSchema.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateFloat(NumberSchema.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateDouble(NumberSchema.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateString(NumberSchema.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(NumberSchema.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateLocalDate(NumberSchema.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateUUID(NumberSchema.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateMap(NumberSchema.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+            return JsonSchema.validateList(NumberSchema.class, arg, configuration);
         }
     }    
     
@@ -239,51 +239,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("binary"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateVoid(Binary.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateBoolean(Binary.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateInt(Binary.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateLong(Binary.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateFloat(Binary.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateDouble(Binary.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateString(Binary.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Binary.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Binary.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateUUID(Binary.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateMap(Binary.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Binary.class, arg, configuration);
+            return JsonSchema.validateList(Binary.class, arg, configuration);
         }
     }    
     
@@ -292,51 +292,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("int32"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateVoid(Int32.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateBoolean(Int32.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateInt(Int32.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateLong(Int32.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateFloat(Int32.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateDouble(Int32.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateString(Int32.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Int32.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Int32.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateUUID(Int32.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateMap(Int32.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateList(Int32.class, arg, configuration);
         }
     }    
     
@@ -345,51 +345,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("int64"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateVoid(Int64.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateBoolean(Int64.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateInt(Int64.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateLong(Int64.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateFloat(Int64.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateDouble(Int64.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateString(Int64.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Int64.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Int64.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateUUID(Int64.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateMap(Int64.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int64.class, arg, configuration);
+            return JsonSchema.validateList(Int64.class, arg, configuration);
         }
     }    
     
@@ -398,51 +398,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("double"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateVoid(DoubleSchema.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateBoolean(DoubleSchema.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateInt(DoubleSchema.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateLong(DoubleSchema.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateFloat(DoubleSchema.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateDouble(DoubleSchema.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateString(DoubleSchema.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(DoubleSchema.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateLocalDate(DoubleSchema.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateUUID(DoubleSchema.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateMap(DoubleSchema.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateList(DoubleSchema.class, arg, configuration);
         }
     }    
     
@@ -451,51 +451,51 @@ public class AnyTypeAndFormat {
             new KeywordEntry("format", new FormatValidator("float"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateVoid(FloatSchema.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateBoolean(FloatSchema.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateInt(FloatSchema.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateLong(FloatSchema.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateFloat(FloatSchema.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateDouble(FloatSchema.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateString(FloatSchema.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(FloatSchema.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateLocalDate(FloatSchema.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateUUID(FloatSchema.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateMap(FloatSchema.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateList(FloatSchema.class, arg, configuration);
         }
     }    
     
@@ -576,7 +576,7 @@ public class AnyTypeAndFormat {
             return new AnyTypeAndFormatMap(arg);
         }
         public static AnyTypeAndFormatMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeAndFormat1.class, arg, configuration);
+            return JsonSchema.validateMap(AnyTypeAndFormat1.class, arg, configuration);
         }
     }
 }

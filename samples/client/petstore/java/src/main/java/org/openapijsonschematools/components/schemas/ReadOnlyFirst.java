@@ -74,7 +74,7 @@ public class ReadOnlyFirst {
             return new ReadOnlyFirstMap(arg);
         }
         public static ReadOnlyFirstMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReadOnlyFirst1.class, arg, configuration);
+            return JsonSchema.validateMap(ReadOnlyFirst1.class, arg, configuration);
         }
     }
 }

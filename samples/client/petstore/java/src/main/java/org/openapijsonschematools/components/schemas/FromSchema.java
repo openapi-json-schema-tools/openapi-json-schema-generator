@@ -75,7 +75,7 @@ public class FromSchema {
             return new FromSchemaMap(arg);
         }
         public static FromSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FromSchema1.class, arg, configuration);
+            return JsonSchema.validateMap(FromSchema1.class, arg, configuration);
         }
     }
 }

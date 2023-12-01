@@ -24,10 +24,10 @@ public class HealthCheckResult {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NullableMessage.class, arg, configuration);
+            return JsonSchema.validateVoid(NullableMessage.class, arg, configuration);
         }
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NullableMessage.class, arg, configuration);
+            return JsonSchema.validateString(NullableMessage.class, arg, configuration);
         }
     }    
     
@@ -76,7 +76,7 @@ public class HealthCheckResult {
             return new HealthCheckResultMap(arg);
         }
         public static HealthCheckResultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HealthCheckResult1.class, arg, configuration);
+            return JsonSchema.validateMap(HealthCheckResult1.class, arg, configuration);
         }
     }
 }

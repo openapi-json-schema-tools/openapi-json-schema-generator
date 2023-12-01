@@ -19,6 +19,6 @@ public class MapJsonSchema extends JsonSchema {
     ));
 
     public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(MapJsonSchema.class, arg, configuration);
+        return JsonSchema.validateMap(MapJsonSchema.class, arg, configuration);
     }
 }

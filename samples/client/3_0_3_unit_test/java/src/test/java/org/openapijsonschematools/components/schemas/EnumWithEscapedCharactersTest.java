@@ -18,7 +18,7 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testAnotherStringIsInvalidFails() {
         // another string is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWithEscapedCharacters.EnumWithEscapedCharacters1.class,
             "abc",
             configuration

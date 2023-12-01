@@ -65,50 +65,50 @@ public class RequiredWithEscapedCharacters {
             return new RequiredWithEscapedCharactersMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateVoid(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateBoolean(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateInt(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateLong(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateFloat(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateDouble(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateString(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateUUID(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static RequiredWithEscapedCharactersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateMap(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredWithEscapedCharacters1.class, arg, configuration);
+            return JsonSchema.validateList(RequiredWithEscapedCharacters1.class, arg, configuration);
         }
     }}

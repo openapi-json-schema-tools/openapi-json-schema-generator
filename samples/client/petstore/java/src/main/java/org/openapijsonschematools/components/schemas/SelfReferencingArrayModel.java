@@ -42,6 +42,6 @@ public class SelfReferencingArrayModel {
             return new SelfReferencingArrayModelList(arg);
         }
         public static SelfReferencingArrayModelList validate(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SelfReferencingArrayModel1.class, arg, configuration);
+            return JsonSchema.validateList(SelfReferencingArrayModel1.class, arg, configuration);
         }
     }}

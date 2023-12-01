@@ -60,7 +60,7 @@ public class RequiredValidationTest {
     @Test
     public void testNonPresentRequiredPropertyIsInvalidFails() {
         // non-present required property is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             RequiredValidation.RequiredValidation1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

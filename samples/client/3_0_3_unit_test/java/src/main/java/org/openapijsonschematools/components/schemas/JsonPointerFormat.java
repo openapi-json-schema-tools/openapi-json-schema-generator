@@ -29,50 +29,50 @@ public class JsonPointerFormat {
             new KeywordEntry("format", new FormatValidator("json-pointer"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateVoid(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateBoolean(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateInt(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateLong(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateFloat(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateDouble(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateString(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateUUID(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateMap(JsonPointerFormat1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JsonPointerFormat1.class, arg, configuration);
+            return JsonSchema.validateList(JsonPointerFormat1.class, arg, configuration);
         }
     }}

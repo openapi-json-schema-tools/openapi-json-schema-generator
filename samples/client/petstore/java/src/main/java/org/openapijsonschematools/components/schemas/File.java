@@ -65,7 +65,7 @@ public class File {
             return new FileMap(arg);
         }
         public static FileMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(File1.class, arg, configuration);
+            return JsonSchema.validateMap(File1.class, arg, configuration);
         }
     }
 }

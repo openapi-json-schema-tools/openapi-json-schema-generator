@@ -52,7 +52,7 @@ public class Pet {
             return new PhotoUrlsList(arg);
         }
         public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PhotoUrls.class, arg, configuration);
+            return JsonSchema.validateList(PhotoUrls.class, arg, configuration);
         }
     }    
     
@@ -68,7 +68,7 @@ public class Pet {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Status.class, arg, configuration);
+            return JsonSchema.validateString(Status.class, arg, configuration);
         }
     }    
     
@@ -92,7 +92,7 @@ public class Pet {
             return new TagsList(arg);
         }
         public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Tags.class, arg, configuration);
+            return JsonSchema.validateList(Tags.class, arg, configuration);
         }
     }    
     
@@ -182,7 +182,7 @@ public class Pet {
             return new PetMap(arg);
         }
         public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Pet1.class, arg, configuration);
+            return JsonSchema.validateMap(Pet1.class, arg, configuration);
         }
     }
 }

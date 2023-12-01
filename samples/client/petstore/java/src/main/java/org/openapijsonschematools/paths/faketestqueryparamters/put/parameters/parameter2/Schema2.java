@@ -40,6 +40,6 @@ public class Schema2 {
             return new SchemaList2(arg);
         }
         public static SchemaList2 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema21.class, arg, configuration);
+            return JsonSchema.validateList(Schema21.class, arg, configuration);
         }
     }}

@@ -50,7 +50,7 @@ public class MinitemsValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinitemsValidation.MinitemsValidation1.class,
             Arrays.asList(
             ),

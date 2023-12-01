@@ -18,7 +18,7 @@ public class ForbiddenPropertyTest {
     @Test
     public void testPropertyPresentFails() {
         // property present
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ForbiddenProperty.ForbiddenProperty1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

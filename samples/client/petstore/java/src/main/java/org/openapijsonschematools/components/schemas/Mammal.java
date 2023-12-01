@@ -33,50 +33,50 @@ public class Mammal {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateVoid(Mammal1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateBoolean(Mammal1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateInt(Mammal1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateLong(Mammal1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateFloat(Mammal1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateDouble(Mammal1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateString(Mammal1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Mammal1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Mammal1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateUUID(Mammal1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateMap(Mammal1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Mammal1.class, arg, configuration);
+            return JsonSchema.validateList(Mammal1.class, arg, configuration);
         }
     }}

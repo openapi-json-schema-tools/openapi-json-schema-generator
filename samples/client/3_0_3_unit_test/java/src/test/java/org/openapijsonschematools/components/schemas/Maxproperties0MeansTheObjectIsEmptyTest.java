@@ -18,7 +18,7 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
     @Test
     public void testOnePropertyIsInvalidFails() {
         // one property is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

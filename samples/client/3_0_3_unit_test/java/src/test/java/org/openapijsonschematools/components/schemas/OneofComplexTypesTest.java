@@ -32,7 +32,7 @@ public class OneofComplexTypesTest {
     @Test
     public void testBothOneofValidComplexFails() {
         // both oneOf valid (complex)
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             OneofComplexTypes.OneofComplexTypes1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -65,7 +65,7 @@ public class OneofComplexTypesTest {
     @Test
     public void testNeitherOneofValidComplexFails() {
         // neither oneOf valid (complex)
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             OneofComplexTypes.OneofComplexTypes1.class,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

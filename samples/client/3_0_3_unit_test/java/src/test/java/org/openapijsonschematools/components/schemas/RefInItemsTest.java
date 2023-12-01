@@ -34,7 +34,7 @@ public class RefInItemsTest {
     @Test
     public void testPropertyNamedRefInvalidFails() {
         // property named $ref invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             RefInItems.RefInItems1.class,
             Arrays.asList(
                 MapMaker.makeMap(

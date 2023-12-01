@@ -18,7 +18,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
     @Test
     public void testAlwaysInvalidButNaiveImplementationsMayRaiseAnOverflowErrorFails() {
         // always invalid, but naive implementations may raise an overflow error
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class,
             1.0E308,
             configuration

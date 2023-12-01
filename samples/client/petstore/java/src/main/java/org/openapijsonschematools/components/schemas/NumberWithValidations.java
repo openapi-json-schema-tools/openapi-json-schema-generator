@@ -32,19 +32,19 @@ public class NumberWithValidations {
             new KeywordEntry("maximum", new MaximumValidator(20)),
             new KeywordEntry("minimum", new MinimumValidator(10))
         ));
-        public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(NumberWithValidations1.class, arg, configuration);
         }
         
-        public static Number validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateLong(NumberWithValidations1.class, arg, configuration);
         }
         
-        public static Number validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(NumberWithValidations1.class, arg, configuration);
         }
         
-        public static Number validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberWithValidations1.class, arg, configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(NumberWithValidations1.class, arg, configuration);
         }
     }}

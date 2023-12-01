@@ -31,7 +31,7 @@ public class ObjectTypeSchemaTest {
         ));
 
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ObjectWithPropsSchema.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithPropsSchema.class, arg, configuration);
         }
     }
 
@@ -42,7 +42,7 @@ public class ObjectTypeSchemaTest {
         ));
 
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ObjectWithAddpropsSchema.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithAddpropsSchema.class, arg, configuration);
         }
     }
 
@@ -56,7 +56,7 @@ public class ObjectTypeSchemaTest {
         ));
 
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
         }
     }
 
@@ -84,13 +84,13 @@ public class ObjectTypeSchemaTest {
         }
 
         public static ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ObjectWithOutputTypeSchema.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithOutputTypeSchema.class, arg, configuration);
         }
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 ObjectWithPropsSchema.class, (Void) null, configuration
         ));
     }

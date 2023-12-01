@@ -40,7 +40,7 @@ public class Drawing {
             return new ShapesList(arg);
         }
         public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Shapes.class, arg, configuration);
+            return JsonSchema.validateList(Shapes.class, arg, configuration);
         }
     }    
     
@@ -111,7 +111,7 @@ public class Drawing {
             return new DrawingMap(arg);
         }
         public static DrawingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Drawing1.class, arg, configuration);
+            return JsonSchema.validateMap(Drawing1.class, arg, configuration);
         }
     }
 }
