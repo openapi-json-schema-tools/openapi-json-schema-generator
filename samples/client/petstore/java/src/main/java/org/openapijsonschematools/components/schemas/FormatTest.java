@@ -255,7 +255,7 @@ public class FormatTest {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "^\d{10}$"
+                "^\\d{10}$"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -269,7 +269,7 @@ public class FormatTest {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "^image_\d{1,3}$",
+                "^image_\\d{1,3}$",
                 Pattern.CASE_INSENSITIVE
             )))
         ));

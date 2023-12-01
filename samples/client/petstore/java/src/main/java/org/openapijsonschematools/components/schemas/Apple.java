@@ -25,7 +25,7 @@ public class Apple {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "^[a-zA-Z\s]*$"
+                "^[a-zA-Z\\s]*$"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
@@ -39,7 +39,7 @@ public class Apple {
                 String.class
             ))),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "^[A-Z\s]*$",
+                "^[A-Z\\s]*$",
                 Pattern.CASE_INSENSITIVE
             )))
         ));

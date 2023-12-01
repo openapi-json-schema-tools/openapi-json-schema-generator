@@ -407,7 +407,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
-        schemaSupportingFiles.add("LengthValidator");
+        keywordValidatorFiles.add("LengthValidator");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
@@ -1845,7 +1845,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (pattern == null) {
             return null;
         }
-        Matcher m = patternRegex.matcher(pattern);
+        String usedPattern = handleSpecialCharacters(pattern);
+        Matcher m = patternRegex.matcher(usedPattern);
         if (m.find()) {
             int groupCount = m.groupCount();
             if (groupCount == 1) {
@@ -1866,6 +1867,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 return new CodegenPatternInfo(isolatedPattern, flags);
             }
         }
-        return new CodegenPatternInfo(pattern, null);
+        return new CodegenPatternInfo(usedPattern, null);
     }
 }
