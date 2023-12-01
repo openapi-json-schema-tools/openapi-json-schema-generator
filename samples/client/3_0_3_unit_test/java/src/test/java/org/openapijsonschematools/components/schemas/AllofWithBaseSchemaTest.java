@@ -55,8 +55,6 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testValidPasses() {
         // valid
-        // payload type = object
-        // dataType =
         AllofWithBaseSchema.AllofWithBaseSchema1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

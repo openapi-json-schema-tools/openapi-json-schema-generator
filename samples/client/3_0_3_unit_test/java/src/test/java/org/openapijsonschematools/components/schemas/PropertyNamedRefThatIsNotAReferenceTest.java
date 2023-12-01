@@ -17,8 +17,6 @@ public class PropertyNamedRefThatIsNotAReferenceTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
-        // payload type = object
-        // dataType =
         PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

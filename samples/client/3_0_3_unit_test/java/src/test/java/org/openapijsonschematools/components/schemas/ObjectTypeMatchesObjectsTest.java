@@ -17,8 +17,6 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAnObjectIsAnObjectPasses() {
         // an object is an object
-        // payload type = object
-        // dataType =
         ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.validate(
             MapBuilder.of(Arrays.asList(
             )),

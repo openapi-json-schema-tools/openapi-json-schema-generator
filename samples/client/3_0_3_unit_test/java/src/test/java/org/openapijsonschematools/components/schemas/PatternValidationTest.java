@@ -17,8 +17,6 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresBooleansPasses() {
         // ignores booleans
-        // payload type = boolean
-        // dataType =
         PatternValidation.PatternValidation1.validate(
             true,
             configuration
@@ -28,8 +26,6 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresFloatsPasses() {
         // ignores floats
-        // payload type = number
-        // dataType =
         PatternValidation.PatternValidation1.validate(
             1.0,
             configuration
@@ -49,8 +45,6 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresIntegersPasses() {
         // ignores integers
-        // payload type = integer
-        // dataType =
         PatternValidation.PatternValidation1.validate(
             123,
             configuration
@@ -60,8 +54,6 @@ public class PatternValidationTest {
     @Test
     public void testAMatchingPatternIsValidPasses() {
         // a matching pattern is valid
-        // payload type = string
-        // dataType =
         PatternValidation.PatternValidation1.validate(
             "aaa",
             configuration
@@ -71,8 +63,6 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        // payload type = array
-        // dataType =
         PatternValidation.PatternValidation1.validate(
             Arrays.asList(
             ),
@@ -83,8 +73,6 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresObjectsPasses() {
         // ignores objects
-        // payload type = object
-        // dataType =
         PatternValidation.PatternValidation1.validate(
             MapBuilder.of(Arrays.asList(
             )),
@@ -95,8 +83,6 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresNullPasses() {
         // ignores null
-        // payload type = null
-        // dataType =
         PatternValidation.PatternValidation1.validate(
             (Void) null,
             configuration

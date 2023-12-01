@@ -17,8 +17,6 @@ public class NotMoreComplexSchemaTest {
     @Test
     public void testOtherMatchPasses() {
         // other match
-        // payload type = object
-        // dataType =
         NotMoreComplexSchema.NotMoreComplexSchema1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -48,8 +46,6 @@ public class NotMoreComplexSchemaTest {
     @Test
     public void testMatchPasses() {
         // match
-        // payload type = integer
-        // dataType =
         NotMoreComplexSchema.NotMoreComplexSchema1.validate(
             1,
             configuration

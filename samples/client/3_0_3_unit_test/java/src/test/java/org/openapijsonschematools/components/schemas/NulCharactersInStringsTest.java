@@ -17,8 +17,6 @@ public class NulCharactersInStringsTest {
     @Test
     public void testMatchStringWithNulPasses() {
         // match string with nul
-        // payload type = string
-        // dataType =
         NulCharactersInStrings.NulCharactersInStrings1.validate(
             "hello\0there",
             configuration

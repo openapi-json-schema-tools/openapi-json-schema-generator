@@ -36,8 +36,6 @@ public class ForbiddenPropertyTest {
     @Test
     public void testPropertyAbsentPasses() {
         // property absent
-        // payload type = object
-        // dataType =
         ForbiddenProperty.ForbiddenProperty1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

@@ -17,8 +17,6 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
     @Test
     public void testNoAdditionalPropertiesIsValidPasses() {
         // no additional properties is valid
-        // payload type = object
-        // dataType =
         AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -33,8 +31,6 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
     @Test
     public void testAnAdditionalValidPropertyIsValidPasses() {
         // an additional valid property is valid
-        // payload type = object
-        // dataType =
         AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

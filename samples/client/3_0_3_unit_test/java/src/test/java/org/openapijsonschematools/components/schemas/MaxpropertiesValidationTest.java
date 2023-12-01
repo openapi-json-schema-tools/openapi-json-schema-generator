@@ -17,8 +17,6 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
-        // payload type = object
-        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -33,8 +31,6 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        // payload type = object
-        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -76,8 +72,6 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
-        // payload type = integer
-        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             12,
             configuration
@@ -87,8 +81,6 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        // payload type = array
-        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             Arrays.asList(
                 1,
@@ -102,8 +94,6 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresStringsPasses() {
         // ignores strings
-        // payload type = string
-        // dataType =
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
             "foobar",
             configuration

@@ -17,8 +17,6 @@ public class MaxlengthValidationTest {
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
-        // payload type = string
-        // dataType =
         MaxlengthValidation.MaxlengthValidation1.validate(
             "f",
             configuration
@@ -28,8 +26,6 @@ public class MaxlengthValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        // payload type = string
-        // dataType =
         MaxlengthValidation.MaxlengthValidation1.validate(
             "fo",
             configuration
@@ -49,8 +45,6 @@ public class MaxlengthValidationTest {
     @Test
     public void testIgnoresNonStringsPasses() {
         // ignores non-strings
-        // payload type = integer
-        // dataType =
         MaxlengthValidation.MaxlengthValidation1.validate(
             100,
             configuration
@@ -60,8 +54,6 @@ public class MaxlengthValidationTest {
     @Test
     public void testTwoSupplementaryUnicodeCodePointsIsLongEnoughPasses() {
         // two supplementary Unicode code points is long enough
-        // payload type = string
-        // dataType =
         MaxlengthValidation.MaxlengthValidation1.validate(
             "💩💩",
             configuration

@@ -37,8 +37,6 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAnArrayIsAnArrayPasses() {
         // an array is an array
-        // payload type = array
-        // dataType =
         ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
             Arrays.asList(
             ),

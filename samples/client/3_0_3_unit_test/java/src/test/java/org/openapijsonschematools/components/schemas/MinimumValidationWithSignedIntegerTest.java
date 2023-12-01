@@ -17,8 +17,6 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testBoundaryPointWithFloatIsValidPasses() {
         // boundary point with float is valid
-        // payload type = number
-        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             -2.0,
             configuration
@@ -28,8 +26,6 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
-        // payload type = integer
-        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             -2,
             configuration
@@ -49,8 +45,6 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testPositiveAboveTheMinimumIsValidPasses() {
         // positive above the minimum is valid
-        // payload type = integer
-        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             0,
             configuration
@@ -60,8 +54,6 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testNegativeAboveTheMinimumIsValidPasses() {
         // negative above the minimum is valid
-        // payload type = integer
-        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             -1,
             configuration
@@ -71,8 +63,6 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
-        // payload type = string
-        // dataType =
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
             "x",
             configuration

@@ -27,8 +27,6 @@ public class SimpleEnumValidationTest {
     @Test
     public void testOneOfTheEnumIsValidPasses() {
         // one of the enum is valid
-        // payload type = integer
-        // dataType =
         SimpleEnumValidation.SimpleEnumValidation1.validate(
             1,
             configuration

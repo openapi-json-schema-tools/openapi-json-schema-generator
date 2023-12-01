@@ -17,8 +17,6 @@ public class MinpropertiesValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        // payload type = object
-        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -33,8 +31,6 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
-        // payload type = integer
-        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             12,
             configuration
@@ -44,8 +40,6 @@ public class MinpropertiesValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
-        // payload type = object
-        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -64,8 +58,6 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        // payload type = array
-        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             Arrays.asList(
             ),
@@ -87,8 +79,6 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresStringsPasses() {
         // ignores strings
-        // payload type = string
-        // dataType =
         MinpropertiesValidation.MinpropertiesValidation1.validate(
             "",
             configuration

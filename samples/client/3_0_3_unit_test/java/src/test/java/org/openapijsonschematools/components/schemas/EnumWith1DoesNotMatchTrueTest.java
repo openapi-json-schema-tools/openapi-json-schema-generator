@@ -27,8 +27,6 @@ public class EnumWith1DoesNotMatchTrueTest {
     @Test
     public void testFloatOneIsValidPasses() {
         // float one is valid
-        // payload type = number
-        // dataType =
         EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.validate(
             1.0,
             configuration
@@ -38,8 +36,6 @@ public class EnumWith1DoesNotMatchTrueTest {
     @Test
     public void testIntegerOneIsValidPasses() {
         // integer one is valid
-        // payload type = integer
-        // dataType =
         EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.validate(
             1,
             configuration

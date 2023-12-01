@@ -17,8 +17,6 @@ public class AllofWithTwoEmptySchemasTest {
     @Test
     public void testAnyDataIsValidPasses() {
         // any data is valid
-        // payload type = integer
-        // dataType =
         AllofWithTwoEmptySchemas.AllofWithTwoEmptySchemas1.validate(
             1,
             configuration

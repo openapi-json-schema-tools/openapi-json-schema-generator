@@ -17,8 +17,6 @@ public class PropertiesWithEscapedCharactersTest {
     @Test
     public void testObjectWithAllNumbersIsValidPasses() {
         // object with all numbers is valid
-        // payload type = object
-        // dataType =
         PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

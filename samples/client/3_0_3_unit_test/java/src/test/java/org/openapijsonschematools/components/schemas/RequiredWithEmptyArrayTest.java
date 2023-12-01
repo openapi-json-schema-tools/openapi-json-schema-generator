@@ -17,8 +17,6 @@ public class RequiredWithEmptyArrayTest {
     @Test
     public void testPropertyNotRequiredPasses() {
         // property not required
-        // payload type = object
-        // dataType =
         RequiredWithEmptyArray.RequiredWithEmptyArray1.validate(
             MapBuilder.of(Arrays.asList(
             )),

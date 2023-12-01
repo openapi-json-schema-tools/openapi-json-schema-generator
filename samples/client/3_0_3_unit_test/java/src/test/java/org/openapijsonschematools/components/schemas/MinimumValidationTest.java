@@ -17,8 +17,6 @@ public class MinimumValidationTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
-        // payload type = number
-        // dataType =
         MinimumValidation.MinimumValidation1.validate(
             1.1,
             configuration
@@ -38,8 +36,6 @@ public class MinimumValidationTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
-        // payload type = string
-        // dataType =
         MinimumValidation.MinimumValidation1.validate(
             "x",
             configuration
@@ -49,8 +45,6 @@ public class MinimumValidationTest {
     @Test
     public void testAboveTheMinimumIsValidPasses() {
         // above the minimum is valid
-        // payload type = number
-        // dataType =
         MinimumValidation.MinimumValidation1.validate(
             2.6,
             configuration

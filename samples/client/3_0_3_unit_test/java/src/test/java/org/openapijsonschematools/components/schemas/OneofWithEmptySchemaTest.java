@@ -17,8 +17,6 @@ public class OneofWithEmptySchemaTest {
     @Test
     public void testOneValidValidPasses() {
         // one valid - valid
-        // payload type = string
-        // dataType =
         OneofWithEmptySchema.OneofWithEmptySchema1.validate(
             "foo",
             configuration

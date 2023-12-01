@@ -27,8 +27,6 @@ public class AllofSimpleTypesTest {
     @Test
     public void testValidPasses() {
         // valid
-        // payload type = integer
-        // dataType =
         AllofSimpleTypes.AllofSimpleTypes1.validate(
             25,
             configuration

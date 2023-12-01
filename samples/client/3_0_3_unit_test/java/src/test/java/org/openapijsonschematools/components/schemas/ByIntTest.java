@@ -27,8 +27,6 @@ public class ByIntTest {
     @Test
     public void testIntByIntPasses() {
         // int by int
-        // payload type = integer
-        // dataType =
         ByInt.ByInt1.validate(
             10,
             configuration
@@ -38,8 +36,6 @@ public class ByIntTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
-        // payload type = string
-        // dataType =
         ByInt.ByInt1.validate(
             "foo",
             configuration

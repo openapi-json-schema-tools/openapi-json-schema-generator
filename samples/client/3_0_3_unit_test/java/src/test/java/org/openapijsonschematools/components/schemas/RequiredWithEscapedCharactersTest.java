@@ -36,8 +36,6 @@ public class RequiredWithEscapedCharactersTest {
     @Test
     public void testObjectWithAllPropertiesPresentIsValidPasses() {
         // object with all properties present is valid
-        // payload type = object
-        // dataType =
         RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

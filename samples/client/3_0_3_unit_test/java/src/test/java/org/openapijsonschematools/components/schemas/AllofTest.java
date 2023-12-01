@@ -66,8 +66,6 @@ public class AllofTest {
     @Test
     public void testAllofPasses() {
         // allOf
-        // payload type = object
-        // dataType =
         Allof.Allof1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

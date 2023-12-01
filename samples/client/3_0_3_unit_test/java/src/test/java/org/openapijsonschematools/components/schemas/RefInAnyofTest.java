@@ -17,8 +17,6 @@ public class RefInAnyofTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
-        // payload type = object
-        // dataType =
         RefInAnyof.RefInAnyof1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

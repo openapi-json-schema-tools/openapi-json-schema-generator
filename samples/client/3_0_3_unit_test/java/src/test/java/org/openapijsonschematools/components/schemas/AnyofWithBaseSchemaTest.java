@@ -27,8 +27,6 @@ public class AnyofWithBaseSchemaTest {
     @Test
     public void testOneAnyofValidPasses() {
         // one anyOf valid
-        // payload type = string
-        // dataType =
         AnyofWithBaseSchema.AnyofWithBaseSchema1.validate(
             "foobar",
             configuration

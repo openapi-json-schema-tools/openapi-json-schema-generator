@@ -89,8 +89,6 @@ public class NestedItemsTest {
     @Test
     public void testValidNestedArrayPasses() {
         // valid nested array
-        // payload type = array
-        // dataType =
         NestedItems.NestedItems1.validate(
             Arrays.asList(
                 Arrays.asList(

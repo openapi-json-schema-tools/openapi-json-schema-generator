@@ -66,8 +66,6 @@ public class EnumsInPropertiesTest {
     @Test
     public void testBothPropertiesAreValidPasses() {
         // both properties are valid
-        // payload type = object
-        // dataType =
         EnumsInProperties.EnumsInProperties1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -86,8 +84,6 @@ public class EnumsInPropertiesTest {
     @Test
     public void testMissingOptionalPropertyIsValidPasses() {
         // missing optional property is valid
-        // payload type = object
-        // dataType =
         EnumsInProperties.EnumsInProperties1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

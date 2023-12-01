@@ -17,8 +17,6 @@ public class AdditionalpropertiesAreAllowedByDefaultTest {
     @Test
     public void testAdditionalPropertiesAreAllowedPasses() {
         // additional properties are allowed
-        // payload type = object
-        // dataType =
         AdditionalpropertiesAreAllowedByDefault.AdditionalpropertiesAreAllowedByDefault1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

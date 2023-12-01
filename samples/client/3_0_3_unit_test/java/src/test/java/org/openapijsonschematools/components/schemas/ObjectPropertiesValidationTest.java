@@ -17,8 +17,6 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testBothPropertiesPresentAndValidIsValidPasses() {
         // both properties present and valid is valid
-        // payload type = object
-        // dataType =
         ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -37,8 +35,6 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testDoesnTInvalidateOtherPropertiesPasses() {
         // doesn&#x27;t invalidate other properties
-        // payload type = object
-        // dataType =
         ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -54,8 +50,6 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
-        // payload type = integer
-        // dataType =
         ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
             12,
             configuration
@@ -86,8 +80,6 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        // payload type = array
-        // dataType =
         ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
             Arrays.asList(
             ),

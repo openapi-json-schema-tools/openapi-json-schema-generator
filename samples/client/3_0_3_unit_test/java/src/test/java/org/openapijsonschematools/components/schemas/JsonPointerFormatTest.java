@@ -17,8 +17,6 @@ public class JsonPointerFormatTest {
     @Test
     public void testAllStringFormatsIgnoreIntegersPasses() {
         // all string formats ignore integers
-        // payload type = integer
-        // dataType =
         JsonPointerFormat.JsonPointerFormat1.validate(
             12,
             configuration
@@ -28,8 +26,6 @@ public class JsonPointerFormatTest {
     @Test
     public void testAllStringFormatsIgnoreNullsPasses() {
         // all string formats ignore nulls
-        // payload type = null
-        // dataType =
         JsonPointerFormat.JsonPointerFormat1.validate(
             (Void) null,
             configuration
@@ -39,8 +35,6 @@ public class JsonPointerFormatTest {
     @Test
     public void testAllStringFormatsIgnoreObjectsPasses() {
         // all string formats ignore objects
-        // payload type = object
-        // dataType =
         JsonPointerFormat.JsonPointerFormat1.validate(
             MapBuilder.of(Arrays.asList(
             )),
@@ -51,8 +45,6 @@ public class JsonPointerFormatTest {
     @Test
     public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
-        // payload type = number
-        // dataType =
         JsonPointerFormat.JsonPointerFormat1.validate(
             13.7,
             configuration
@@ -62,8 +54,6 @@ public class JsonPointerFormatTest {
     @Test
     public void testAllStringFormatsIgnoreArraysPasses() {
         // all string formats ignore arrays
-        // payload type = array
-        // dataType =
         JsonPointerFormat.JsonPointerFormat1.validate(
             Arrays.asList(
             ),
@@ -74,8 +64,6 @@ public class JsonPointerFormatTest {
     @Test
     public void testAllStringFormatsIgnoreBooleansPasses() {
         // all string formats ignore booleans
-        // payload type = boolean
-        // dataType =
         JsonPointerFormat.JsonPointerFormat1.validate(
             false,
             configuration

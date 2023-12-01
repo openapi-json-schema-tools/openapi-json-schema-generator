@@ -17,8 +17,6 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testMissingPropertiesAreNotFilledInWithTheDefaultPasses() {
         // missing properties are not filled in with the default
-        // payload type = object
-        // dataType =
         TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.validate(
             MapBuilder.of(Arrays.asList(
             )),
@@ -29,8 +27,6 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testAnExplicitPropertyValueIsCheckedAgainstMaximumPassingPasses() {
         // an explicit property value is checked against maximum (passing)
-        // payload type = object
-        // dataType =
         TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

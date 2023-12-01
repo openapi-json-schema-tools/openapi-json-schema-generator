@@ -17,8 +17,6 @@ public class AdditionalpropertiesCanExistByItselfTest {
     @Test
     public void testAnAdditionalValidPropertyIsValidPasses() {
         // an additional valid property is valid
-        // payload type = object
-        // dataType =
         AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

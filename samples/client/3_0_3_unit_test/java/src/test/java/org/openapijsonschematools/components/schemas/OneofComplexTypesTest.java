@@ -17,8 +17,6 @@ public class OneofComplexTypesTest {
     @Test
     public void testSecondOneofValidComplexPasses() {
         // second oneOf valid (complex)
-        // payload type = object
-        // dataType =
         OneofComplexTypes.OneofComplexTypes1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -52,8 +50,6 @@ public class OneofComplexTypesTest {
     @Test
     public void testFirstOneofValidComplexPasses() {
         // first oneOf valid (complex)
-        // payload type = object
-        // dataType =
         OneofComplexTypes.OneofComplexTypes1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

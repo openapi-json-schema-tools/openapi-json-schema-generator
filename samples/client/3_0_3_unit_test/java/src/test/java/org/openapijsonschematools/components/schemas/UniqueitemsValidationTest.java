@@ -54,8 +54,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testATrueAndA1AreUniquePasses() {
         // {&quot;a&quot;: true} and {&quot;a&quot;: 1} are unique
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapBuilder.of(Arrays.asList(
@@ -78,8 +76,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void test1AndTrueAreUniquePasses() {
         // [1] and [true] are unique
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -109,8 +105,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNested0AndFalseAreUniquePasses() {
         // nested [0] and [false] are unique
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -181,8 +175,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testAFalseAndA0AreUniquePasses() {
         // {&quot;a&quot;: false} and {&quot;a&quot;: 0} are unique
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapBuilder.of(Arrays.asList(
@@ -225,8 +217,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void test0AndFalseAreUniquePasses() {
         // [0] and [false] are unique
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -314,8 +304,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfNestedObjectsIsValidPasses() {
         // unique array of nested objects is valid
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapBuilder.of(Arrays.asList(
@@ -358,8 +346,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfArraysIsValidPasses() {
         // unique array of arrays is valid
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -376,8 +362,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testTrueIsNotEqualToOnePasses() {
         // true is not equal to one
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 1,
@@ -390,8 +374,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNested1AndTrueAreUniquePasses() {
         // nested [1] and [true] are unique
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -414,8 +396,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfStringsIsValidPasses() {
         // unique array of strings is valid
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 "foo",
@@ -429,8 +409,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testFalseIsNotEqualToZeroPasses() {
         // false is not equal to zero
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 0,
@@ -443,8 +421,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfIntegersIsValidPasses() {
         // unique array of integers is valid
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 1,
@@ -457,8 +433,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testDifferentObjectsAreUniquePasses() {
         // different objects are unique
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapBuilder.of(Arrays.asList(
@@ -489,8 +463,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueHeterogeneousTypesAreValidPasses() {
         // unique heterogeneous types are valid
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapBuilder.of(Arrays.asList(
@@ -510,8 +482,6 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfObjectsIsValidPasses() {
         // unique array of objects is valid
-        // payload type = array
-        // dataType =
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapBuilder.of(Arrays.asList(

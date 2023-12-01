@@ -21,8 +21,6 @@ public class {{containerJsonPathPiece.camelCase}}Test {
     public void test{{@key}}{{#if valid}}Passes{{else}}Fails{{/if}}() {
         // {{description}}
         {{#if valid}}
-        // payload type = {{data.type}}
-        // dataType =
         {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.validate(
             {{#with data}}
             {{> src/main/java/org/openapitools/components/schemas/helpers/payload_renderer endChar="," }}

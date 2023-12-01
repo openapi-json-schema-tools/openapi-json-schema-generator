@@ -37,8 +37,6 @@ public class OneofTest {
     @Test
     public void testSecondOneofValidPasses() {
         // second oneOf valid
-        // payload type = number
-        // dataType =
         Oneof.Oneof1.validate(
             2.5,
             configuration
@@ -48,8 +46,6 @@ public class OneofTest {
     @Test
     public void testFirstOneofValidPasses() {
         // first oneOf valid
-        // payload type = integer
-        // dataType =
         Oneof.Oneof1.validate(
             1,
             configuration

@@ -27,8 +27,6 @@ public class AllofWithTheLastEmptySchemaTest {
     @Test
     public void testNumberIsValidPasses() {
         // number is valid
-        // payload type = integer
-        // dataType =
         AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1.validate(
             1,
             configuration

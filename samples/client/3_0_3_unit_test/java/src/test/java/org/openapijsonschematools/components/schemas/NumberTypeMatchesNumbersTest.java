@@ -17,8 +17,6 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAFloatIsANumberPasses() {
         // a float is a number
-        // payload type = number
-        // dataType =
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
             1.1,
             configuration
@@ -28,8 +26,6 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnIntegerIsANumberPasses() {
         // an integer is a number
-        // payload type = integer
-        // dataType =
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
             1,
             configuration
@@ -59,8 +55,6 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() {
         // a float with zero fractional part is a number (and an integer)
-        // payload type = number
-        // dataType =
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
             1.0,
             configuration

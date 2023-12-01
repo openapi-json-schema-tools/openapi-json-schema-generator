@@ -36,8 +36,6 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
     @Test
     public void testValidTestCasePasses() {
         // valid test case
-        // payload type = object
-        // dataType =
         AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

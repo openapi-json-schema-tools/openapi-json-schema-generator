@@ -17,8 +17,6 @@ public class RefInItemsTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
-        // payload type = array
-        // dataType =
         RefInItems.RefInItems1.validate(
             Arrays.asList(
                 MapBuilder.of(Arrays.asList(

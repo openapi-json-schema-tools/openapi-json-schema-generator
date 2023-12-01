@@ -17,8 +17,6 @@ public class PatternIsNotAnchoredTest {
     @Test
     public void testMatchesASubstringPasses() {
         // matches a substring
-        // payload type = string
-        // dataType =
         PatternIsNotAnchored.PatternIsNotAnchored1.validate(
             "xxaayy",
             configuration

@@ -27,8 +27,6 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testOneOneofValidPasses() {
         // one oneOf valid
-        // payload type = string
-        // dataType =
         OneofWithBaseSchema.OneofWithBaseSchema1.validate(
             "foobar",
             configuration

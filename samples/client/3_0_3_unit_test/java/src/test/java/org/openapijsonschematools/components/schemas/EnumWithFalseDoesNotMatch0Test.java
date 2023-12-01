@@ -27,8 +27,6 @@ public class EnumWithFalseDoesNotMatch0Test {
     @Test
     public void testFalseIsValidPasses() {
         // false is valid
-        // payload type = boolean
-        // dataType =
         EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.validate(
             false,
             configuration

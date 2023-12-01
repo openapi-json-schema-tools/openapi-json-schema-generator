@@ -17,8 +17,6 @@ public class OneofWithRequiredTest {
     @Test
     public void testFirstValidValidPasses() {
         // first valid - valid
-        // payload type = object
-        // dataType =
         OneofWithRequired.OneofWithRequired1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -60,8 +58,6 @@ public class OneofWithRequiredTest {
     @Test
     public void testSecondValidValidPasses() {
         // second valid - valid
-        // payload type = object
-        // dataType =
         OneofWithRequired.OneofWithRequired1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

@@ -49,8 +49,6 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAFloatWithZeroFractionalPartIsAnIntegerPasses() {
         // a float with zero fractional part is an integer
-        // payload type = number
-        // dataType =
         IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.validate(
             1.0,
             configuration
@@ -90,8 +88,6 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAnIntegerIsAnIntegerPasses() {
         // an integer is an integer
-        // payload type = integer
-        // dataType =
         IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.validate(
             1,
             configuration

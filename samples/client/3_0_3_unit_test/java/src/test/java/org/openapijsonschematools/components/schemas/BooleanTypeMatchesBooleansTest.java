@@ -37,8 +37,6 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testFalseIsABooleanPasses() {
         // false is a boolean
-        // payload type = boolean
-        // dataType =
         BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.validate(
             false,
             configuration
@@ -48,8 +46,6 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testTrueIsABooleanPasses() {
         // true is a boolean
-        // payload type = boolean
-        // dataType =
         BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.validate(
             true,
             configuration

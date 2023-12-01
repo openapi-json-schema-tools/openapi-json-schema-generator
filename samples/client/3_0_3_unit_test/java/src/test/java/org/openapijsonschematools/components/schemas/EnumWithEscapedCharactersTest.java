@@ -27,8 +27,6 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testMember2IsValidPasses() {
         // member 2 is valid
-        // payload type = string
-        // dataType =
         EnumWithEscapedCharacters.EnumWithEscapedCharacters1.validate(
             "foo\rbar",
             configuration
@@ -38,8 +36,6 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testMember1IsValidPasses() {
         // member 1 is valid
-        // payload type = string
-        // dataType =
         EnumWithEscapedCharacters.EnumWithEscapedCharacters1.validate(
             "foo\nbar",
             configuration

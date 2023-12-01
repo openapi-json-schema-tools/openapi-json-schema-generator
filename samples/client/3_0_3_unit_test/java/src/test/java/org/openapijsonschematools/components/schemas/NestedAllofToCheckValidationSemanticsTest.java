@@ -17,8 +17,6 @@ public class NestedAllofToCheckValidationSemanticsTest {
     @Test
     public void testNullIsValidPasses() {
         // null is valid
-        // payload type = null
-        // dataType =
         NestedAllofToCheckValidationSemantics.NestedAllofToCheckValidationSemantics1.validate(
             (Void) null,
             configuration

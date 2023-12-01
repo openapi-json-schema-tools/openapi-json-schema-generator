@@ -17,8 +17,6 @@ public class MaxitemsValidationTest {
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
-        // payload type = array
-        // dataType =
         MaxitemsValidation.MaxitemsValidation1.validate(
             Arrays.asList(
                 1
@@ -30,8 +28,6 @@ public class MaxitemsValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        // payload type = array
-        // dataType =
         MaxitemsValidation.MaxitemsValidation1.validate(
             Arrays.asList(
                 1,
@@ -58,8 +54,6 @@ public class MaxitemsValidationTest {
     @Test
     public void testIgnoresNonArraysPasses() {
         // ignores non-arrays
-        // payload type = string
-        // dataType =
         MaxitemsValidation.MaxitemsValidation1.validate(
             "foobar",
             configuration

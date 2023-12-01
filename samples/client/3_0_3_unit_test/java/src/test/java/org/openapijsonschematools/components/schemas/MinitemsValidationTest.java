@@ -17,8 +17,6 @@ public class MinitemsValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        // payload type = array
-        // dataType =
         MinitemsValidation.MinitemsValidation1.validate(
             Arrays.asList(
                 1
@@ -30,8 +28,6 @@ public class MinitemsValidationTest {
     @Test
     public void testIgnoresNonArraysPasses() {
         // ignores non-arrays
-        // payload type = string
-        // dataType =
         MinitemsValidation.MinitemsValidation1.validate(
             "",
             configuration
@@ -41,8 +37,6 @@ public class MinitemsValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
-        // payload type = array
-        // dataType =
         MinitemsValidation.MinitemsValidation1.validate(
             Arrays.asList(
                 1,

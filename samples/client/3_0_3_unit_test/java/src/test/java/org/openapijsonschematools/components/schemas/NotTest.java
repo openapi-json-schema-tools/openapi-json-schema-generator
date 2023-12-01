@@ -27,8 +27,6 @@ public class NotTest {
     @Test
     public void testAllowedPasses() {
         // allowed
-        // payload type = string
-        // dataType =
         Not.Not1.validate(
             "foo",
             configuration

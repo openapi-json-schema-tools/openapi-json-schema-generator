@@ -17,8 +17,6 @@ public class RefInNotTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
-        // payload type = object
-        // dataType =
         RefInNot.RefInNot1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

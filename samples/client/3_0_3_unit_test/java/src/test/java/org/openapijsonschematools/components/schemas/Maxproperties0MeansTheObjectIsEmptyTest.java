@@ -32,8 +32,6 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
     @Test
     public void testNoPropertiesIsValidPasses() {
         // no properties is valid
-        // payload type = object
-        // dataType =
         Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.validate(
             MapBuilder.of(Arrays.asList(
             )),

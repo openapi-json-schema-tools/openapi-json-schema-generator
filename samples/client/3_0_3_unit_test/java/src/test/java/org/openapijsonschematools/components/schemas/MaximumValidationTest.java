@@ -27,8 +27,6 @@ public class MaximumValidationTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
-        // payload type = number
-        // dataType =
         MaximumValidation.MaximumValidation1.validate(
             3.0,
             configuration
@@ -38,8 +36,6 @@ public class MaximumValidationTest {
     @Test
     public void testBelowTheMaximumIsValidPasses() {
         // below the maximum is valid
-        // payload type = number
-        // dataType =
         MaximumValidation.MaximumValidation1.validate(
             2.6,
             configuration
@@ -49,8 +45,6 @@ public class MaximumValidationTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
-        // payload type = string
-        // dataType =
         MaximumValidation.MaximumValidation1.validate(
             "x",
             configuration

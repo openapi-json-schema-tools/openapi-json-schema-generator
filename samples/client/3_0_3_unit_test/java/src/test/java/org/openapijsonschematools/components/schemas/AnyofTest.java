@@ -17,8 +17,6 @@ public class AnyofTest {
     @Test
     public void testBothAnyofValidPasses() {
         // both anyOf valid
-        // payload type = integer
-        // dataType =
         Anyof.Anyof1.validate(
             3,
             configuration
@@ -38,8 +36,6 @@ public class AnyofTest {
     @Test
     public void testFirstAnyofValidPasses() {
         // first anyOf valid
-        // payload type = integer
-        // dataType =
         Anyof.Anyof1.validate(
             1,
             configuration
@@ -49,8 +45,6 @@ public class AnyofTest {
     @Test
     public void testSecondAnyofValidPasses() {
         // second anyOf valid
-        // payload type = number
-        // dataType =
         Anyof.Anyof1.validate(
             2.5,
             configuration

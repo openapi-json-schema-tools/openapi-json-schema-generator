@@ -27,8 +27,6 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
     @Test
     public void testValidIntegerWithMultipleofFloatPasses() {
         // valid integer with multipleOf float
-        // payload type = integer
-        // dataType =
         InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.validate(
             123456789,
             configuration

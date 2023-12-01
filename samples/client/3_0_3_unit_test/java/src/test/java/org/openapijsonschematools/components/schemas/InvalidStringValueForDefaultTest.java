@@ -17,8 +17,6 @@ public class InvalidStringValueForDefaultTest {
     @Test
     public void testValidWhenPropertyIsSpecifiedPasses() {
         // valid when property is specified
-        // payload type = object
-        // dataType =
         InvalidStringValueForDefault.InvalidStringValueForDefault1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(
@@ -33,8 +31,6 @@ public class InvalidStringValueForDefaultTest {
     @Test
     public void testStillValidWhenTheInvalidDefaultIsUsedPasses() {
         // still valid when the invalid default is used
-        // payload type = object
-        // dataType =
         InvalidStringValueForDefault.InvalidStringValueForDefault1.validate(
             MapBuilder.of(Arrays.asList(
             )),

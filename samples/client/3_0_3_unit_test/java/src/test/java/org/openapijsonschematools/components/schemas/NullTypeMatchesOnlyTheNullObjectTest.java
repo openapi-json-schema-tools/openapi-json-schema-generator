@@ -69,8 +69,6 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testNullIsNullPasses() {
         // null is null
-        // payload type = null
-        // dataType =
         NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.validate(
             (Void) null,
             configuration

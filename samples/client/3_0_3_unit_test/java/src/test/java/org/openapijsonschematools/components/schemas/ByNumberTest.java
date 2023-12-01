@@ -27,8 +27,6 @@ public class ByNumberTest {
     @Test
     public void test45IsMultipleOf15Passes() {
         // 4.5 is multiple of 1.5
-        // payload type = number
-        // dataType =
         ByNumber.ByNumber1.validate(
             4.5,
             configuration
@@ -38,8 +36,6 @@ public class ByNumberTest {
     @Test
     public void testZeroIsMultipleOfAnythingPasses() {
         // zero is multiple of anything
-        // payload type = integer
-        // dataType =
         ByNumber.ByNumber1.validate(
             0,
             configuration

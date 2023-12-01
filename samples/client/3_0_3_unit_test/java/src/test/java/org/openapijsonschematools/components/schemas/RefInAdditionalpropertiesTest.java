@@ -17,8 +17,6 @@ public class RefInAdditionalpropertiesTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
-        // payload type = object
-        // dataType =
         RefInAdditionalproperties.RefInAdditionalproperties1.validate(
             MapBuilder.of(Arrays.asList(
                 new AbstractMap.SimpleEntry<>(

@@ -27,8 +27,6 @@ public class BySmallNumberTest {
     @Test
     public void test00075IsMultipleOf00001Passes() {
         // 0.0075 is multiple of 0.0001
-        // payload type = number
-        // dataType =
         BySmallNumber.BySmallNumber1.validate(
             0.0075,
             configuration

@@ -17,8 +17,6 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() {
         // a string is still a string, even if it looks like a number
-        // payload type = string
-        // dataType =
         StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
             "1",
             configuration
@@ -48,8 +46,6 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnEmptyStringIsStillAStringPasses() {
         // an empty string is still a string
-        // payload type = string
-        // dataType =
         StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
             "",
             configuration
@@ -91,8 +87,6 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAStringIsAStringPasses() {
         // a string is a string
-        // payload type = string
-        // dataType =
         StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
             "foo",
             configuration

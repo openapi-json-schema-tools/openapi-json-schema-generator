@@ -57,8 +57,6 @@ public class AllofCombinedWithAnyofOneofTest {
     @Test
     public void testAllofTrueAnyofTrueOneofTruePasses() {
         // allOf: true, anyOf: true, oneOf: true
-        // payload type = integer
-        // dataType =
         AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.validate(
             30,
             configuration

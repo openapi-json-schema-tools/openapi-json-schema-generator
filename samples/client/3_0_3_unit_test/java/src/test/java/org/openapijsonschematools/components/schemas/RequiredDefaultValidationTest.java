@@ -17,8 +17,6 @@ public class RequiredDefaultValidationTest {
     @Test
     public void testNotRequiredByDefaultPasses() {
         // not required by default
-        // payload type = object
-        // dataType =
         RequiredDefaultValidation.RequiredDefaultValidation1.validate(
             MapBuilder.of(Arrays.asList(
             )),
