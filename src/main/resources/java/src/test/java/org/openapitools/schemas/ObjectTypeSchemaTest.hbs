@@ -90,7 +90,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 ObjectWithPropsSchema.class, (Void) null, configuration
         ));
     }

@@ -18,6 +18,6 @@ public class NullJsonSchema extends JsonSchema {
     ));
 
     public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(NullJsonSchema.class, arg, configuration);
+        return JsonSchema.validateVoid(NullJsonSchema.class, arg, configuration);
     }
 }

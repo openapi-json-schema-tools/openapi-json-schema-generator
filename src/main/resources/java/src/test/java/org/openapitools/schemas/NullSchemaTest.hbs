@@ -18,7 +18,7 @@ public class NullSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 NullJsonSchema.class, Boolean.TRUE, configuration
         ));
     }

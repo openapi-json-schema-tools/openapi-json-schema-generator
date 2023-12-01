@@ -60,7 +60,7 @@ public class ArrayTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 ArrayWithItemsSchema.class, (Void) null, configuration
         ));
     }

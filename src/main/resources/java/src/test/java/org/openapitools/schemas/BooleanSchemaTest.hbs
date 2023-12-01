@@ -24,7 +24,7 @@ public class BooleanSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 BooleanJsonSchema.class, (Void) null, configuration
         ));
     }

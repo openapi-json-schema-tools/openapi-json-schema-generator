@@ -20,6 +20,6 @@ public class DecimalJsonSchema extends JsonSchema {
     ));
 
     public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(DecimalJsonSchema.class, arg, configuration);
+        return JsonSchema.validateString(DecimalJsonSchema.class, arg, configuration);
     }
 }

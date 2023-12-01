@@ -25,18 +25,18 @@ public class Int64JsonSchema extends JsonSchema {
     ));
 
     public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(Int64JsonSchema.class, Long.valueOf(arg), configuration);
+        return JsonSchema.validateInt(Int64JsonSchema.class, Long.valueOf(arg), configuration);
     }
 
     public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
+        return JsonSchema.validateFloat(Int64JsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
     }
 
     public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(Int64JsonSchema.class, arg, configuration);
+        return JsonSchema.validateLong(Int64JsonSchema.class, arg, configuration);
     }
 
     public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(Int64JsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
+        return JsonSchema.validateDouble(Int64JsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
     }
 }
