@@ -4,7 +4,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{pattern}}}"{{#if flags}},{{/if}}<br>
         {{~#if flags}}
             {{#eq flags.size 1}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}}<br>
             {{~else}}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
                 {{~#each flags}}
@@ -32,7 +32,7 @@ new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
     "{{{pattern}}}"{{#if flags}},{{/if}}
         {{#if flags}}
             {{#eq flags.size 1}}
-    {{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}},
+    {{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}}
             {{else}}
     (
                 {{#each flags}}

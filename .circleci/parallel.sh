@@ -25,6 +25,13 @@ elif [ "$JOB_ID" = "testPythonClientSamples" ]; then
   (cd samples/client/openapi_features/nonCompliantUseDiscriminatorIfCompositionFails/python && make test)
   (cd samples/client/openapi_features/security/python && make test)
 
+elif [ "$JOB_ID" = "testJava17ClientSamples" ]; then
+  echo "Running job $JOB_ID ..."
+  java -version
+
+  (cd samples/client/petstore/java && mvn test)
+  (cd samples/client/3_0_3_unit_test/java && mvn test)
+
 else
   echo "Running job $JOB_ID"
 
