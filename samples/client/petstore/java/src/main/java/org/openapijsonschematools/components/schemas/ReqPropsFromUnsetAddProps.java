@@ -53,6 +53,7 @@ public class ReqPropsFromUnsetAddProps {
                 "validName"
             )))
         ));
+        
         protected static ReqPropsFromUnsetAddPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }

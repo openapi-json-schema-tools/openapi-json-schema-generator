@@ -47,8 +47,8 @@ public class AdditionalPropertiesSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema0Map(arg);
         }
@@ -102,11 +102,11 @@ public class AdditionalPropertiesSchema {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
         }
     }    
@@ -131,8 +131,8 @@ public class AdditionalPropertiesSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            
         ));
+        
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);
         }
@@ -186,11 +186,11 @@ public class AdditionalPropertiesSchema {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
         }
     }    
@@ -215,8 +215,8 @@ public class AdditionalPropertiesSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            
         ));
+        
         protected static Schema2Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema2Map(arg);
         }

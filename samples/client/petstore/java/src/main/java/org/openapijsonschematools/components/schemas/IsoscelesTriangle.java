@@ -69,6 +69,7 @@ public class IsoscelesTriangle {
                 new PropertyEntry("triangleType", TriangleType.class)
             )))
         ));
+        
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);
         }
@@ -131,11 +132,11 @@ public class IsoscelesTriangle {
             return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
         }
     }}

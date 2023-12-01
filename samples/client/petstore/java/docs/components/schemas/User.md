@@ -109,6 +109,7 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
+| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("not", new NotValidator([Not.class](#not)))<br>)); |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

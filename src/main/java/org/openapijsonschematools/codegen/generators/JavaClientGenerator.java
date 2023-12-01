@@ -359,7 +359,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("Int64JsonSchema");
         schemaSupportingFiles.add("IntJsonSchema");
         schemaSupportingFiles.add("ListJsonSchema");
-        schemaSupportingFiles.add("MapBuilder");
+        schemaSupportingFiles.add("MapMaker");
         schemaSupportingFiles.add("MapJsonSchema");
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
@@ -407,6 +407,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
+        schemaSupportingFiles.add("LengthValidator");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
@@ -1812,28 +1813,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
-    }
-
-    /**
-     * Add additional enum value if an int/long is input because floats need to match too in json schema tests
-     * @param values enum values
-     * @param schema source schema
-     * @param currentJsonPath the schemas current json path
-     * @param sourceJsonPath the entrypoint json path
-     * @param types the types that are in this schema
-     * @param classSuffix a class suffix
-     * @return EnumInfo
-     */
-    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
-        ArrayList<Object> usedValues = new ArrayList<>();
-        usedValues.addAll(values);
-        for (Object value: values) {
-            if (value instanceof Integer || value instanceof Long) {
-                float additionalVal = Float.parseFloat(value.toString()+".0");
-                usedValues.add(additionalVal);
-            }
-        }
-        return super.getEnumInfo(usedValues, schema, currentJsonPath, sourceJsonPath, types, classSuffix);
     }
 
     /**

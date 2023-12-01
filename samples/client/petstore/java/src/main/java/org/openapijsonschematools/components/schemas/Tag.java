@@ -70,6 +70,7 @@ public class Tag {
                 new PropertyEntry("name", Name.class)
             )))
         ));
+        
         protected static TagMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new TagMap(arg);
         }

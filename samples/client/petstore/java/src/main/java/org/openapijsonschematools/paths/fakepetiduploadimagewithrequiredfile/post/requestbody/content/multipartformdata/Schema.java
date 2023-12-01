@@ -68,6 +68,7 @@ public class Schema {
                 "requiredFile"
             )))
         ));
+        
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);
         }

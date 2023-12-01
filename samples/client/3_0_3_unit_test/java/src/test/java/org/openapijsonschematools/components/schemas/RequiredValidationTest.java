@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class RequiredValidationTest {
@@ -18,12 +19,12 @@ public class RequiredValidationTest {
     public void testPresentRequiredPropertyIsValidPasses() {
         // present required property is valid
         RequiredValidation.RequiredValidation1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -61,12 +62,12 @@ public class RequiredValidationTest {
         // non-present required property is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             RequiredValidation.RequiredValidation1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     1
                 )
-            )),
+            ),
             configuration
         ));
     }

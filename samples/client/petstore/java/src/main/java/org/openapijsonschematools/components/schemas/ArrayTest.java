@@ -39,6 +39,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayOfStringList(arg);
         }
@@ -65,6 +66,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items2.class))
         ));
+        
         protected static ItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ItemsList(arg);
         }
@@ -88,6 +90,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
+        
         protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ArrayArrayOfIntegerList(arg);
         }
@@ -111,6 +114,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class))
         ));
+        
         protected static ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
             return new ItemsList1(arg);
         }
@@ -134,6 +138,7 @@ public class ArrayTest {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items3.class))
         ));
+        
         protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
             return new ArrayArrayOfModelList(arg);
         }
@@ -196,6 +201,7 @@ public class ArrayTest {
                 new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
             )))
         ));
+        
         protected static ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayTestMap(arg);
         }

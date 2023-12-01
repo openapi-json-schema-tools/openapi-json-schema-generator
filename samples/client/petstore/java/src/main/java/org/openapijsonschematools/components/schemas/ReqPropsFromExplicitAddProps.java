@@ -57,8 +57,8 @@ public class ReqPropsFromExplicitAddProps {
                 "validName"
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }

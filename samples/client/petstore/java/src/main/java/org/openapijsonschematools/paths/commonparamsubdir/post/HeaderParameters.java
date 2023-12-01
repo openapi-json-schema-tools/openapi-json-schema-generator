@@ -50,8 +50,8 @@ public class HeaderParameters {
                 new PropertyEntry("someHeader", Schema0.Schema01.class)
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new HeaderParametersMap(arg);
         }

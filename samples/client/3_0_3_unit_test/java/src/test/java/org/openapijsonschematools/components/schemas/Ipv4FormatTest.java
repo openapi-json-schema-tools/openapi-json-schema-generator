@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class Ipv4FormatTest {
@@ -36,8 +37,8 @@ public class Ipv4FormatTest {
     public void testAllStringFormatsIgnoreObjectsPasses() {
         // all string formats ignore objects
         Ipv4Format.Ipv4Format1.validate(
-            MapBuilder.of(Arrays.asList(
-            )),
+            MapMaker.makeMap(
+            ),
             configuration
         );
     }

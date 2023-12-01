@@ -58,6 +58,7 @@ public class Client {
                 new PropertyEntry("client", Client2.class)
             )))
         ));
+        
         protected static ClientMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ClientMap(arg);
         }

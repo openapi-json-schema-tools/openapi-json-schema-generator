@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class MaxpropertiesValidationTest {
@@ -18,12 +19,12 @@ public class MaxpropertiesValidationTest {
     public void testShorterIsValidPasses() {
         // shorter is valid
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -32,7 +33,7 @@ public class MaxpropertiesValidationTest {
     public void testExactLengthIsValidPasses() {
         // exact length is valid
         MaxpropertiesValidation.MaxpropertiesValidation1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -41,7 +42,7 @@ public class MaxpropertiesValidationTest {
                     "bar",
                     2
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -51,7 +52,7 @@ public class MaxpropertiesValidationTest {
         // too long is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             MaxpropertiesValidation.MaxpropertiesValidation1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -64,7 +65,7 @@ public class MaxpropertiesValidationTest {
                     "baz",
                     3
                 )
-            )),
+            ),
             configuration
         ));
     }

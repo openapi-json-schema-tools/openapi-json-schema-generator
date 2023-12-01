@@ -15,7 +15,12 @@ import java.util.Set;
 
 public class IntJsonSchema extends JsonSchema {
     public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        new KeywordEntry("type", new TypeValidator(Set.of(Long.class))),
+        new KeywordEntry("type", new TypeValidator(Set.of(
+            Integer.class,
+            Long.class,
+            Float.class,
+            Double.class
+        ))),
         new KeywordEntry("format", new FormatValidator("int"))
     ));
 
@@ -23,15 +28,15 @@ public class IntJsonSchema extends JsonSchema {
         return JsonSchema.validate(IntJsonSchema.class, Long.valueOf(arg), configuration);
     }
 
-    public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
+    public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
     }
 
     public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
     }
 
-    public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(IntJsonSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
+    public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
     }
 }

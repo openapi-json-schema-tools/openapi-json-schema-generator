@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class UniqueitemsValidationTest {
@@ -34,18 +35,18 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                ))
+                )
             ),
             configuration
         ));
@@ -56,18 +57,18 @@ public class UniqueitemsValidationTest {
         // {&quot;a&quot;: true} and {&quot;a&quot;: 1} are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         true
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         1
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -130,7 +131,7 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         1
@@ -139,8 +140,8 @@ public class UniqueitemsValidationTest {
                         "b",
                         2
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "b",
                         2
@@ -149,7 +150,7 @@ public class UniqueitemsValidationTest {
                         "a",
                         1
                     )
-                ))
+                )
             ),
             configuration
         ));
@@ -177,18 +178,18 @@ public class UniqueitemsValidationTest {
         // {&quot;a&quot;: false} and {&quot;a&quot;: 0} are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         false
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         0
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -236,38 +237,38 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                ))
+                )
             ),
             configuration
         ));
@@ -306,38 +307,38 @@ public class UniqueitemsValidationTest {
         // unique array of nested objects is valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         false
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -435,7 +436,7 @@ public class UniqueitemsValidationTest {
         // different objects are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         1
@@ -444,8 +445,8 @@ public class UniqueitemsValidationTest {
                         "b",
                         2
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
                         2
@@ -454,7 +455,7 @@ public class UniqueitemsValidationTest {
                         "b",
                         1
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -465,8 +466,8 @@ public class UniqueitemsValidationTest {
         // unique heterogeneous types are valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
-                )),
+                MapMaker.makeMap(
+                ),
                 Arrays.asList(
                     1
                 ),
@@ -484,18 +485,18 @@ public class UniqueitemsValidationTest {
         // unique array of objects is valid
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "baz"
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -507,15 +508,15 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
-                )),
+                MapMaker.makeMap(
+                ),
                 Arrays.asList(
                     1
                 ),
                 true,
                 (Void) null,
-                MapBuilder.of(Arrays.asList(
-                )),
+                MapMaker.makeMap(
+                ),
                 1
             ),
             configuration

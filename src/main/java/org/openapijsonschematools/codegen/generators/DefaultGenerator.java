@@ -4328,6 +4328,20 @@ public class DefaultGenerator implements Generator {
         return tag;
     }
 
+    private BigDecimal getBigDecimal(Number arg) {
+        if (arg instanceof Integer) {
+            return new BigDecimal((Integer) arg);
+        } else if (arg instanceof Long) {
+            return new BigDecimal((Long) arg);
+        } else if (arg instanceof Float) {
+            return new BigDecimal(Float.toString((Float) arg));
+        } else if (arg instanceof  Double) {
+            return new BigDecimal(Double.toString((Double) arg));
+        } else {
+            throw new RuntimeException("Invalid type input for arg");
+        }
+    }
+
     protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
         LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
         HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();

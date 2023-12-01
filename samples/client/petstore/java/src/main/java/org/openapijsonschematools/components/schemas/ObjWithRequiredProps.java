@@ -65,6 +65,7 @@ public class ObjWithRequiredProps {
                 ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1.class
             )))
         ));
+        
         protected static ObjWithRequiredPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjWithRequiredPropsMap(arg);
         }

@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class InvalidStringValueForDefaultTest {
@@ -18,12 +19,12 @@ public class InvalidStringValueForDefaultTest {
     public void testValidWhenPropertyIsSpecifiedPasses() {
         // valid when property is specified
         InvalidStringValueForDefault.InvalidStringValueForDefault1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     "good"
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -32,8 +33,8 @@ public class InvalidStringValueForDefaultTest {
     public void testStillValidWhenTheInvalidDefaultIsUsedPasses() {
         // still valid when the invalid default is used
         InvalidStringValueForDefault.InvalidStringValueForDefault1.validate(
-            MapBuilder.of(Arrays.asList(
-            )),
+            MapMaker.makeMap(
+            ),
             configuration
         );
     }

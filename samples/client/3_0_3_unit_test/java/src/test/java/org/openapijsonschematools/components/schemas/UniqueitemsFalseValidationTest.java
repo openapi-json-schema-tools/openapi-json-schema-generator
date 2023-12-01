@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class UniqueitemsFalseValidationTest {
@@ -44,18 +45,18 @@ public class UniqueitemsFalseValidationTest {
         // non-unique array of objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -94,38 +95,38 @@ public class UniqueitemsFalseValidationTest {
         // unique array of nested objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         false
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -164,15 +165,15 @@ public class UniqueitemsFalseValidationTest {
         // non-unique heterogeneous types are valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
-                )),
+                MapMaker.makeMap(
+                ),
                 Arrays.asList(
                     1
                 ),
                 true,
                 (Void) null,
-                MapBuilder.of(Arrays.asList(
-                )),
+                MapMaker.makeMap(
+                ),
                 1
             ),
             configuration
@@ -220,8 +221,8 @@ public class UniqueitemsFalseValidationTest {
         // unique heterogeneous types are valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
-                )),
+                MapMaker.makeMap(
+                ),
                 Arrays.asList(
                     1
                 ),
@@ -238,18 +239,18 @@ public class UniqueitemsFalseValidationTest {
         // unique array of objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
                         "baz"
                     )
-                ))
+                )
             ),
             configuration
         );
@@ -260,38 +261,38 @@ public class UniqueitemsFalseValidationTest {
         // non-unique array of nested objects is valid
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
             Arrays.asList(
-                MapBuilder.of(Arrays.asList(
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                )),
-                MapBuilder.of(Arrays.asList(
+                ),
+                MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
-                        MapBuilder.of(Arrays.asList(
+                        MapMaker.makeMap(
                             new AbstractMap.SimpleEntry<>(
                                 "bar",
-                                MapBuilder.of(Arrays.asList(
+                                MapMaker.makeMap(
                                     new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
-                                ))
+                                )
                             )
-                        ))
+                        )
                     )
-                ))
+                )
             ),
             configuration
         );

@@ -60,6 +60,7 @@ public class Banana {
                 "lengthCm"
             )))
         ));
+        
         protected static BananaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BananaMap(arg);
         }

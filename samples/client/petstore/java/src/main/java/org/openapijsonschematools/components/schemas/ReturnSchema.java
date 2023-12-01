@@ -57,6 +57,10 @@ public class ReturnSchema {
                 new PropertyEntry("return", ReturnSchema2.class)
             )))
         ));
+        
+        protected static ReturnMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ReturnMap(arg);
+        }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
         }
@@ -97,11 +101,11 @@ public class ReturnSchema {
             return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ReturnMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ReturnSchema1.class, arg, configuration);
         }
     }}

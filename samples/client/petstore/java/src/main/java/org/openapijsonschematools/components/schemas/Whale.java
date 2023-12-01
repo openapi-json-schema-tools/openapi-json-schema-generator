@@ -95,6 +95,7 @@ public class Whale {
                 "className"
             )))
         ));
+        
         protected static WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new WhaleMap(arg);
         }

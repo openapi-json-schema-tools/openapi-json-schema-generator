@@ -30,7 +30,7 @@ public class DateTimeWithValidations {
             ))),
             new KeywordEntry("format", new FormatValidator("date-time")),
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/^2020.*/"
+                "^2020.*"
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

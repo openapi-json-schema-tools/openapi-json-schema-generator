@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class OneofComplexTypesTest {
@@ -18,12 +19,12 @@ public class OneofComplexTypesTest {
     public void testSecondOneofValidComplexPasses() {
         // second oneOf valid (complex)
         OneofComplexTypes.OneofComplexTypes1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -33,7 +34,7 @@ public class OneofComplexTypesTest {
         // both oneOf valid (complex)
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             OneofComplexTypes.OneofComplexTypes1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
@@ -42,7 +43,7 @@ public class OneofComplexTypesTest {
                     "bar",
                     2
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -51,12 +52,12 @@ public class OneofComplexTypesTest {
     public void testFirstOneofValidComplexPasses() {
         // first oneOf valid (complex)
         OneofComplexTypes.OneofComplexTypes1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -66,7 +67,7 @@ public class OneofComplexTypesTest {
         // neither oneOf valid (complex)
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             OneofComplexTypes.OneofComplexTypes1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     2
@@ -75,7 +76,7 @@ public class OneofComplexTypesTest {
                     "bar",
                     "quux"
                 )
-            )),
+            ),
             configuration
         ));
     }

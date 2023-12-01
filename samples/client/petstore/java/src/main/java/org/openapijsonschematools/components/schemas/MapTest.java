@@ -43,8 +43,8 @@ public class MapTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            
         ));
+        
         protected static AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new AdditionalPropertiesMap(arg);
         }
@@ -74,8 +74,8 @@ public class MapTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static MapMapOfStringMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
             return new MapMapOfStringMap(arg);
         }
@@ -120,8 +120,8 @@ public class MapTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            
         ));
+        
         protected static MapOfEnumStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapOfEnumStringMap(arg);
         }
@@ -154,8 +154,8 @@ public class MapTest {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
-            
         ));
+        
         protected static DirectMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
             return new DirectMapMap(arg);
         }
@@ -227,6 +227,7 @@ public class MapTest {
                 new PropertyEntry("indirect_map", StringBooleanMap.StringBooleanMap1.class)
             )))
         ));
+        
         protected static MapTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MapTestMap(arg);
         }

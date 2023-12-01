@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class EnumsInPropertiesTest {
@@ -19,7 +20,7 @@ public class EnumsInPropertiesTest {
         // wrong bar value
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             EnumsInProperties.EnumsInProperties1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
@@ -28,7 +29,7 @@ public class EnumsInPropertiesTest {
                     "bar",
                     "bart"
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -38,7 +39,7 @@ public class EnumsInPropertiesTest {
         // wrong foo value
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             EnumsInProperties.EnumsInProperties1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foot"
@@ -47,7 +48,7 @@ public class EnumsInPropertiesTest {
                     "bar",
                     "bar"
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -57,8 +58,8 @@ public class EnumsInPropertiesTest {
         // missing all properties is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             EnumsInProperties.EnumsInProperties1.class,
-            MapBuilder.of(Arrays.asList(
-            )),
+            MapMaker.makeMap(
+            ),
             configuration
         ));
     }
@@ -67,7 +68,7 @@ public class EnumsInPropertiesTest {
     public void testBothPropertiesAreValidPasses() {
         // both properties are valid
         EnumsInProperties.EnumsInProperties1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
@@ -76,7 +77,7 @@ public class EnumsInPropertiesTest {
                     "bar",
                     "bar"
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -85,12 +86,12 @@ public class EnumsInPropertiesTest {
     public void testMissingOptionalPropertyIsValidPasses() {
         // missing optional property is valid
         EnumsInProperties.EnumsInProperties1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     "bar"
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -100,12 +101,12 @@ public class EnumsInPropertiesTest {
         // missing required property is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             EnumsInProperties.EnumsInProperties1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
                 )
-            )),
+            ),
             configuration
         ));
     }

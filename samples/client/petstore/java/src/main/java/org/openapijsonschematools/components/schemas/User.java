@@ -19,6 +19,7 @@ import org.openapijsonschematools.schemas.validation.FrozenMap;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
 import org.openapijsonschematools.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.schemas.validation.NotValidator;
 import org.openapijsonschematools.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.schemas.validation.TypeValidator;
@@ -76,6 +77,9 @@ public class User {
     
     
     public static class AnyTypeExceptNullProp extends JsonSchema {
+        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            new KeywordEntry("not", new NotValidator(Not.class))
+        ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
@@ -116,11 +120,11 @@ public class User {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
         }
     }    
@@ -262,6 +266,7 @@ public class User {
                 new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
             )))
         ));
+        
         protected static UserMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new UserMap(arg);
         }

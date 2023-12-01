@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class IntegerTypeMatchesIntegersTest {
@@ -19,8 +20,8 @@ public class IntegerTypeMatchesIntegersTest {
         // an object is not an integer
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
-            MapBuilder.of(Arrays.asList(
-            )),
+            MapMaker.makeMap(
+            ),
             configuration
         ));
     }

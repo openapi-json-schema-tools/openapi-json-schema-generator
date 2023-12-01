@@ -192,8 +192,8 @@ src/main/java/org/openapijsonschematools/schemas/Int32JsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/Int64JsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/IntJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/ListJsonSchema.java
-src/main/java/org/openapijsonschematools/schemas/MapBuilder.java
 src/main/java/org/openapijsonschematools/schemas/MapJsonSchema.java
+src/main/java/org/openapijsonschematools/schemas/MapMaker.java
 src/main/java/org/openapijsonschematools/schemas/NotAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/NullJsonSchema.java
 src/main/java/org/openapijsonschematools/schemas/NumberJsonSchema.java

@@ -1,5 +1,5 @@
 {{#eq type "object"}}
-MapBuilder.of(Arrays.asList(
+MapMaker.makeMap(
     {{#each value}}
     new AbstractMap.SimpleEntry<>(
         "{{{@key}}}",
@@ -8,7 +8,7 @@ MapBuilder.of(Arrays.asList(
         {{/with}}
     ){{#unless @last}},{{/unless}}
     {{/each}}
-)){{endChar}}
+){{endChar}}
 {{/eq}}
 {{#eq type"array"}}
 Arrays.asList(

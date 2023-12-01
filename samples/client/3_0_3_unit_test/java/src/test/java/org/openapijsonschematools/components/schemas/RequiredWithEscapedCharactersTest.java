@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class RequiredWithEscapedCharactersTest {
@@ -19,7 +20,7 @@ public class RequiredWithEscapedCharactersTest {
         // object with some properties missing is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",
                     "1"
@@ -28,7 +29,7 @@ public class RequiredWithEscapedCharactersTest {
                     "foo\"bar",
                     "1"
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -37,7 +38,7 @@ public class RequiredWithEscapedCharactersTest {
     public void testObjectWithAllPropertiesPresentIsValidPasses() {
         // object with all properties present is valid
         RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",
                     1
@@ -62,7 +63,7 @@ public class RequiredWithEscapedCharactersTest {
                     "foo\fbar",
                     1
                 )
-            )),
+            ),
             configuration
         );
     }

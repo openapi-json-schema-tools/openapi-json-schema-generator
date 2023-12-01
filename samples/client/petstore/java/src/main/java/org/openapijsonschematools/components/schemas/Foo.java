@@ -54,6 +54,7 @@ public class Foo {
                 new PropertyEntry("bar", Bar.Bar1.class)
             )))
         ));
+        
         protected static FooMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FooMap(arg);
         }

@@ -73,8 +73,8 @@ public class Headers {
                 "ref-content-schema-header"
             ))),
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            
         ));
+        
         protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HeadersMap(arg);
         }

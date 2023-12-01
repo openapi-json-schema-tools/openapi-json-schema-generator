@@ -39,6 +39,7 @@ public class Schema {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static FilesList getListOutputInstance(FrozenList<String> arg) {
             return new FilesList(arg);
         }
@@ -79,6 +80,7 @@ public class Schema {
                 new PropertyEntry("files", Files.class)
             )))
         ));
+        
         protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);
         }

@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class AllofWithBaseSchemaTest {
@@ -19,7 +20,7 @@ public class AllofWithBaseSchemaTest {
         // mismatch base schema
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "quux"
@@ -28,7 +29,7 @@ public class AllofWithBaseSchemaTest {
                     "baz",
                     (Void) null
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -38,7 +39,7 @@ public class AllofWithBaseSchemaTest {
         // mismatch first allOf
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
@@ -47,7 +48,7 @@ public class AllofWithBaseSchemaTest {
                     "baz",
                     (Void) null
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -56,7 +57,7 @@ public class AllofWithBaseSchemaTest {
     public void testValidPasses() {
         // valid
         AllofWithBaseSchema.AllofWithBaseSchema1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "quux"
@@ -69,7 +70,7 @@ public class AllofWithBaseSchemaTest {
                     "baz",
                     (Void) null
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -79,12 +80,12 @@ public class AllofWithBaseSchemaTest {
         // mismatch both
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -94,7 +95,7 @@ public class AllofWithBaseSchemaTest {
         // mismatch second allOf
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             AllofWithBaseSchema.AllofWithBaseSchema1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "quux"
@@ -103,7 +104,7 @@ public class AllofWithBaseSchemaTest {
                     "bar",
                     2
                 )
-            )),
+            ),
             configuration
         ));
     }

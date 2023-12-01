@@ -37,6 +37,7 @@ public class AnimalFarm {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Animal.Animal1.class))
         ));
+        
         protected static AnimalFarmList getListOutputInstance(FrozenList<Animal.AnimalMap> arg) {
             return new AnimalFarmList(arg);
         }

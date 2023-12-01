@@ -71,6 +71,7 @@ public class ObjectWithCollidingProperties {
                 new PropertyEntry("someprop", Someprop.class)
             )))
         ));
+        
         protected static ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithCollidingPropertiesMap(arg);
         }

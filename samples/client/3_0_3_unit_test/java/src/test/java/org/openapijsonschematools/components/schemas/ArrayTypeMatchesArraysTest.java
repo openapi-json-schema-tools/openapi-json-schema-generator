@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class ArrayTypeMatchesArraysTest {
@@ -79,8 +80,8 @@ public class ArrayTypeMatchesArraysTest {
         // an object is not an array
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
-            MapBuilder.of(Arrays.asList(
-            )),
+            MapMaker.makeMap(
+            ),
             configuration
         ));
     }

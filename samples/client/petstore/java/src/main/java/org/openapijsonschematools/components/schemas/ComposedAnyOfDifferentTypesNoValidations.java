@@ -81,6 +81,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema9List(arg);
         }
@@ -174,11 +175,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
-        public static <T extends FrozenMap> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
         
-        public static <U extends FrozenList> U validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validate(ComposedAnyOfDifferentTypesNoValidations1.class, arg, configuration);
         }
     }}

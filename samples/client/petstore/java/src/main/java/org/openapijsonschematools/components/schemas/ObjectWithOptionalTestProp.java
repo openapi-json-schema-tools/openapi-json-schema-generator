@@ -58,6 +58,7 @@ public class ObjectWithOptionalTestProp {
                 new PropertyEntry("test", Test.class)
             )))
         ));
+        
         protected static ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithOptionalTestPropMap(arg);
         }

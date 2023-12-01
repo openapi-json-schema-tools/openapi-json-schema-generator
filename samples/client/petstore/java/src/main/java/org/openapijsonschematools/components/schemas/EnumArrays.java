@@ -65,6 +65,7 @@ public class EnumArrays {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static ArrayEnumList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayEnumList(arg);
         }
@@ -119,6 +120,7 @@ public class EnumArrays {
                 new PropertyEntry("array_enum", ArrayEnum.class)
             )))
         ));
+        
         protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumArraysMap(arg);
         }

@@ -70,6 +70,7 @@ public class FromSchema {
                 new PropertyEntry("id", Id.class)
             )))
         ));
+        
         protected static FromSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FromSchemaMap(arg);
         }

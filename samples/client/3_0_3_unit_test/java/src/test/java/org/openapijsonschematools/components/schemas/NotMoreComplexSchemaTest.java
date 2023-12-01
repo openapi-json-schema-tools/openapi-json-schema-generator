@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class NotMoreComplexSchemaTest {
@@ -18,12 +19,12 @@ public class NotMoreComplexSchemaTest {
     public void testOtherMatchPasses() {
         // other match
         NotMoreComplexSchema.NotMoreComplexSchema1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -33,12 +34,12 @@ public class NotMoreComplexSchemaTest {
         // mismatch
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             NotMoreComplexSchema.NotMoreComplexSchema1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "bar"
                 )
-            )),
+            ),
             configuration
         ));
     }

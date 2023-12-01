@@ -38,6 +38,7 @@ public class ArrayOfArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items1.class))
         ));
+        
         protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ItemsList(arg);
         }
@@ -61,6 +62,7 @@ public class ArrayOfArrayOfNumberOnly {
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
+        
         protected static ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ArrayArrayNumberList(arg);
         }
@@ -107,6 +109,7 @@ public class ArrayOfArrayOfNumberOnly {
                 new PropertyEntry("ArrayArrayNumber", ArrayArrayNumber.class)
             )))
         ));
+        
         protected static ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayOfArrayOfNumberOnlyMap(arg);
         }

@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class RefInAdditionalpropertiesTest {
@@ -18,17 +19,17 @@ public class RefInAdditionalpropertiesTest {
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
         RefInAdditionalproperties.RefInAdditionalproperties1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "someProp",
-                    MapBuilder.of(Arrays.asList(
+                    MapMaker.makeMap(
                         new AbstractMap.SimpleEntry<>(
                             "$ref",
                             "a"
                         )
-                    ))
+                    )
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -38,17 +39,17 @@ public class RefInAdditionalpropertiesTest {
         // property named $ref invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             RefInAdditionalproperties.RefInAdditionalproperties1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "someProp",
-                    MapBuilder.of(Arrays.asList(
+                    MapMaker.makeMap(
                         new AbstractMap.SimpleEntry<>(
                             "$ref",
                             2
                         )
-                    ))
+                    )
                 )
-            )),
+            ),
             configuration
         ));
     }

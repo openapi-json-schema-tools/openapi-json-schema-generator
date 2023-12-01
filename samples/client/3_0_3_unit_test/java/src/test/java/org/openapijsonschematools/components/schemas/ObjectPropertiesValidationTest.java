@@ -6,9 +6,10 @@ import org.openapijsonschematools.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.configurations.SchemaConfiguration;
 import org.openapijsonschematools.exceptions.ValidationException;
 import org.openapijsonschematools.schemas.validation.JsonSchema;
-import org.openapijsonschematools.schemas.MapBuilder;
+import org.openapijsonschematools.schemas.MapMaker;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.AbstractMap;
 
 public class ObjectPropertiesValidationTest {
@@ -18,7 +19,7 @@ public class ObjectPropertiesValidationTest {
     public void testBothPropertiesPresentAndValidIsValidPasses() {
         // both properties present and valid is valid
         ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -27,7 +28,7 @@ public class ObjectPropertiesValidationTest {
                     "bar",
                     "baz"
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -36,13 +37,13 @@ public class ObjectPropertiesValidationTest {
     public void testDoesnTInvalidateOtherPropertiesPasses() {
         // doesn&#x27;t invalidate other properties
         ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "quux",
                     Arrays.asList(
                     )
                 )
-            )),
+            ),
             configuration
         );
     }
@@ -61,7 +62,7 @@ public class ObjectPropertiesValidationTest {
         // both properties invalid is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     Arrays.asList(
@@ -69,10 +70,10 @@ public class ObjectPropertiesValidationTest {
                 ),
                 new AbstractMap.SimpleEntry<>(
                     "bar",
-                    MapBuilder.of(Arrays.asList(
-                    ))
+                    MapMaker.makeMap(
+                    )
                 )
-            )),
+            ),
             configuration
         ));
     }
@@ -92,17 +93,17 @@ public class ObjectPropertiesValidationTest {
         // one property invalid is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validateObject(
             ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
-            MapBuilder.of(Arrays.asList(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 ),
                 new AbstractMap.SimpleEntry<>(
                     "bar",
-                    MapBuilder.of(Arrays.asList(
-                    ))
+                    MapMaker.makeMap(
+                    )
                 )
-            )),
+            ),
             configuration
         ));
     }
