@@ -28,7 +28,7 @@ public class PatternValidation {
         */
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "/^a*$/"
+                "^a*$"
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {

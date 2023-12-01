@@ -29,6 +29,7 @@ import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
@@ -50,6 +51,8 @@ import org.slf4j.LoggerFactory;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -135,6 +138,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     protected Map<String, MpRestClientVersion> mpRestClientVersions = new HashMap<>();
     protected boolean useSingleRequestParameter = false;
     protected HashMap<String, String> schemaJsonPathToModelName = new HashMap<>();
+    private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
 
     private static class MpRestClientVersion {
         public final String rootPackage;
@@ -1830,5 +1834,59 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             }
         }
         return super.getEnumInfo(usedValues, schema, currentJsonPath, sourceJsonPath, types, classSuffix);
+    }
+
+    /**
+     * Notes:
+     * RgxGen does not support our ECMA dialect
+     * <a href="https://github.com/curious-odd-man/RgxGen/issues/56">...</a>
+     * So strip off the leading / and trailing / and turn on ignore case if we have it
+     *
+     * json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
+     *
+     * Flags:
+     * <a href="https://262.ecma-international.org/13.0/#sec-get-regexp.prototype.flags">...</a>
+     * d hasIndices: indicates that the result of a regular expression match should contain the start and end indices of the substrings of each capture group
+     * g global: the regular expression should be tested against all possible matches in a string
+     * i ignoreCase: case should be ignored while attempting a match in a string
+     * m multiline: a multiline input string should be treated as multiple lines
+     * s dotAll: the dot special character (.) should additionally match 4 line terminator ("newline") characters in a string
+     * u unicode: enables various Unicode-related features such as unicode code point escapes
+     * y sticky: the regex attempts to match the target string only from the index indicated by the lastIndex property
+     *
+     * Python flags:
+     * <a href="https://docs.python.org/3/library/re.html#flags">...</a>
+     * i, m, s u
+     *
+     * @param pattern the pattern (regular expression)
+     * @return the resultant regex for python
+     */
+    @Override
+    public CodegenPatternInfo getPatternInfo(String pattern) {
+        if (pattern == null) {
+            return null;
+        }
+        Matcher m = patternRegex.matcher(pattern);
+        if (m.find()) {
+            int groupCount = m.groupCount();
+            if (groupCount == 1) {
+                // only pattern found
+                String isolatedPattern = m.group(1);
+                return new CodegenPatternInfo(isolatedPattern, null);
+            } else if (groupCount == 2) {
+                // patterns and flag found
+                String isolatedPattern = m.group(1);
+                String foundFlags = m.group(2);
+                if (foundFlags.isEmpty()) {
+                    return new CodegenPatternInfo(isolatedPattern, null);
+                }
+                LinkedHashSet<String> flags = new LinkedHashSet<>();
+                for (Character c: foundFlags.toCharArray()) {
+                    flags.add(c.toString());
+                }
+                return new CodegenPatternInfo(isolatedPattern, flags);
+            }
+        }
+        return new CodegenPatternInfo(pattern, null);
     }
 }
