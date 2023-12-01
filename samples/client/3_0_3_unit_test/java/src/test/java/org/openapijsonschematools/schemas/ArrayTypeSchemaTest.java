@@ -29,7 +29,7 @@ public class ArrayTypeSchemaTest {
         ));
 
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ArrayWithItemsSchema.class, arg, configuration);
+            return JsonSchema.validateList(ArrayWithItemsSchema.class, arg, configuration);
         }
     }
 
@@ -54,7 +54,7 @@ public class ArrayTypeSchemaTest {
         }
 
         public static ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validate(ArrayWithOutputClsSchema.class, arg, configuration);
+            return JsonSchema.validateList(ArrayWithOutputClsSchema.class, arg, configuration);
         }
     }
 

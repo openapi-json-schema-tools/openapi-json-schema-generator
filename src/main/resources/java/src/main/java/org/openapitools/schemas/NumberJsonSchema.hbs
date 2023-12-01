@@ -34,7 +34,7 @@ public class NumberJsonSchema extends JsonSchema {
         return JsonSchema.validateFloat(NumberJsonSchema.class, arg, configuration);
     }
 
-    public static double validateDouble(Double arg, SchemaConfiguration configuration) throws ValidationException {
+    public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validateDouble(NumberJsonSchema.class, arg, configuration);
     }
 }
