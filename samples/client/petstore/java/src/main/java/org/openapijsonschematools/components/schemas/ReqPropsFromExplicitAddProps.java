@@ -63,7 +63,7 @@ public class ReqPropsFromExplicitAddProps {
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
         public static ReqPropsFromExplicitAddPropsMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReqPropsFromExplicitAddProps1.class, arg, configuration);
+            return JsonSchema.validateMap(ReqPropsFromExplicitAddProps1.class, arg, configuration);
         }
     }
 }

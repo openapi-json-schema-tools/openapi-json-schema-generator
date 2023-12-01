@@ -65,7 +65,7 @@ public class GrandparentAnimal {
             return new GrandparentAnimalMap(arg);
         }
         public static GrandparentAnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GrandparentAnimal1.class, arg, configuration);
+            return JsonSchema.validateMap(GrandparentAnimal1.class, arg, configuration);
         }
     }
 }

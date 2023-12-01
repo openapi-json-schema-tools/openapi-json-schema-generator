@@ -33,50 +33,50 @@ public class Triangle {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateVoid(Triangle1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateBoolean(Triangle1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateInt(Triangle1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateLong(Triangle1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateFloat(Triangle1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateDouble(Triangle1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateString(Triangle1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Triangle1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Triangle1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateUUID(Triangle1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateMap(Triangle1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Triangle1.class, arg, configuration);
+            return JsonSchema.validateList(Triangle1.class, arg, configuration);
         }
     }}

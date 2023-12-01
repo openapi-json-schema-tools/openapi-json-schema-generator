@@ -80,7 +80,7 @@ public class BananaReq {
             return new BananaReqMap(arg);
         }
         public static BananaReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(BananaReq1.class, arg, configuration);
+            return JsonSchema.validateMap(BananaReq1.class, arg, configuration);
         }
     }
 }

@@ -71,50 +71,50 @@ public class GmFruit {
             return new GmFruitMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateVoid(GmFruit1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateBoolean(GmFruit1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateInt(GmFruit1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateLong(GmFruit1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateFloat(GmFruit1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateDouble(GmFruit1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateString(GmFruit1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(GmFruit1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(GmFruit1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateUUID(GmFruit1.class, arg, configuration);
         }
         
         public static GmFruitMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateMap(GmFruit1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(GmFruit1.class, arg, configuration);
+            return JsonSchema.validateList(GmFruit1.class, arg, configuration);
         }
     }}

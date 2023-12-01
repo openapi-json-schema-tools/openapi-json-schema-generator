@@ -44,7 +44,7 @@ public class JSONPatchRequestAddReplaceTest {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Op.class, arg, configuration);
+            return JsonSchema.validateString(Op.class, arg, configuration);
         }
     }    
     
@@ -101,7 +101,7 @@ public class JSONPatchRequestAddReplaceTest {
             return new JSONPatchRequestAddReplaceTestMap(arg);
         }
         public static JSONPatchRequestAddReplaceTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JSONPatchRequestAddReplaceTest1.class, arg, configuration);
+            return JsonSchema.validateMap(JSONPatchRequestAddReplaceTest1.class, arg, configuration);
         }
     }
 }

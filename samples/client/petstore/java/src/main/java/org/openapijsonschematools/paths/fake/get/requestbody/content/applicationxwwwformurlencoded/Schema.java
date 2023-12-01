@@ -31,7 +31,7 @@ public class Schema {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Items.class, arg, configuration);
+            return JsonSchema.validateString(Items.class, arg, configuration);
         }
     }    
     
@@ -55,7 +55,7 @@ public class Schema {
             return new EnumFormStringArrayList(arg);
         }
         public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumFormStringArray.class, arg, configuration);
+            return JsonSchema.validateList(EnumFormStringArray.class, arg, configuration);
         }
     }    
     
@@ -71,7 +71,7 @@ public class Schema {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumFormString.class, arg, configuration);
+            return JsonSchema.validateString(EnumFormString.class, arg, configuration);
         }
     }    
     
@@ -120,7 +120,7 @@ public class Schema {
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
 }

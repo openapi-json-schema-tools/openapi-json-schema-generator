@@ -25,6 +25,6 @@ public class PathParamSchema0 {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PathParamSchema01.class, arg, configuration);
+            return JsonSchema.validateString(PathParamSchema01.class, arg, configuration);
         }
     }}

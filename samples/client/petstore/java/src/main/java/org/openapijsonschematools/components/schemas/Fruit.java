@@ -71,50 +71,50 @@ public class Fruit {
             return new FruitMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateVoid(Fruit1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateBoolean(Fruit1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateInt(Fruit1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateLong(Fruit1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateFloat(Fruit1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateDouble(Fruit1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateString(Fruit1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Fruit1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Fruit1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateUUID(Fruit1.class, arg, configuration);
         }
         
         public static FruitMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateMap(Fruit1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Fruit1.class, arg, configuration);
+            return JsonSchema.validateList(Fruit1.class, arg, configuration);
         }
     }}

@@ -28,7 +28,7 @@ public class DanishPig {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ClassName.class, arg, configuration);
+            return JsonSchema.validateString(ClassName.class, arg, configuration);
         }
     }    
     
@@ -76,7 +76,7 @@ public class DanishPig {
             return new DanishPigMap(arg);
         }
         public static DanishPigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DanishPig1.class, arg, configuration);
+            return JsonSchema.validateMap(DanishPig1.class, arg, configuration);
         }
     }
 }

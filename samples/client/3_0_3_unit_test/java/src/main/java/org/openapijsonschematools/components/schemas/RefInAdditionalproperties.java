@@ -47,7 +47,7 @@ public class RefInAdditionalproperties {
             return new RefInAdditionalpropertiesMap(arg);
         }
         public static RefInAdditionalpropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAdditionalproperties1.class, arg, configuration);
+            return JsonSchema.validateMap(RefInAdditionalproperties1.class, arg, configuration);
         }
     }
 }

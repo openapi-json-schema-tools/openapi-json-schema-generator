@@ -29,50 +29,50 @@ public class MinpropertiesValidation {
             new KeywordEntry("minProperties", new MinPropertiesValidator(1))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateVoid(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateBoolean(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateInt(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateLong(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateFloat(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateDouble(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateString(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateUUID(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateMap(MinpropertiesValidation1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinpropertiesValidation1.class, arg, configuration);
+            return JsonSchema.validateList(MinpropertiesValidation1.class, arg, configuration);
         }
     }}

@@ -65,7 +65,7 @@ public class MyObjectDto {
             return new MyObjectDtoMap(arg);
         }
         public static MyObjectDtoMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MyObjectDto1.class, arg, configuration);
+            return JsonSchema.validateMap(MyObjectDto1.class, arg, configuration);
         }
     }
 }

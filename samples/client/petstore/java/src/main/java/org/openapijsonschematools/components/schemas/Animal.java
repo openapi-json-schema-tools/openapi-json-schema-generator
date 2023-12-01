@@ -28,7 +28,7 @@ public class Animal {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Color.class, arg, configuration);
+            return JsonSchema.validateString(Color.class, arg, configuration);
         }
     }    
     
@@ -85,7 +85,7 @@ public class Animal {
             return new AnimalMap(arg);
         }
         public static AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Animal1.class, arg, configuration);
+            return JsonSchema.validateMap(Animal1.class, arg, configuration);
         }
     }
 }

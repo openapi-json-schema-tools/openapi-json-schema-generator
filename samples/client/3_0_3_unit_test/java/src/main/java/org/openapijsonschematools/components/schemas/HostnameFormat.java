@@ -29,50 +29,50 @@ public class HostnameFormat {
             new KeywordEntry("format", new FormatValidator("hostname"))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateVoid(HostnameFormat1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateBoolean(HostnameFormat1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateInt(HostnameFormat1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateLong(HostnameFormat1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateFloat(HostnameFormat1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateDouble(HostnameFormat1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateString(HostnameFormat1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(HostnameFormat1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(HostnameFormat1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateUUID(HostnameFormat1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateMap(HostnameFormat1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HostnameFormat1.class, arg, configuration);
+            return JsonSchema.validateList(HostnameFormat1.class, arg, configuration);
         }
     }}

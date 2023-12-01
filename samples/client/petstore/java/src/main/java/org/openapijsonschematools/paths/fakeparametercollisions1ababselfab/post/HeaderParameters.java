@@ -71,7 +71,7 @@ public class HeaderParameters {
             return new HeaderParametersMap(arg);
         }
         public static HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(HeaderParameters1.class, arg, configuration);
+            return JsonSchema.validateMap(HeaderParameters1.class, arg, configuration);
         }
     }
 }

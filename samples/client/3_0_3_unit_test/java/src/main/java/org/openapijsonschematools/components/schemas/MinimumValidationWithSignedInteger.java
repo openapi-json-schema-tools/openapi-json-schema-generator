@@ -29,50 +29,50 @@ public class MinimumValidationWithSignedInteger {
             new KeywordEntry("minimum", new MinimumValidator(-2))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateVoid(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateBoolean(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateInt(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateLong(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateFloat(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateDouble(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateString(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateUUID(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateMap(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MinimumValidationWithSignedInteger1.class, arg, configuration);
+            return JsonSchema.validateList(MinimumValidationWithSignedInteger1.class, arg, configuration);
         }
     }}

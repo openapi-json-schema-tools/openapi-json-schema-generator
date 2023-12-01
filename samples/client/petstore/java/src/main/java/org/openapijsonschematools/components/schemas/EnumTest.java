@@ -31,7 +31,7 @@ public class EnumTest {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumString.class, arg, configuration);
+            return JsonSchema.validateString(EnumString.class, arg, configuration);
         }
     }    
     
@@ -47,7 +47,7 @@ public class EnumTest {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumStringRequired.class, arg, configuration);
+            return JsonSchema.validateString(EnumStringRequired.class, arg, configuration);
         }
     }    
     
@@ -65,20 +65,20 @@ public class EnumTest {
                 -1
             )))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumInteger.class, Long.valueOf(arg), configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(EnumInteger.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumInteger.class, arg, configuration);
+            return JsonSchema.validateLong(EnumInteger.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(EnumInteger.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
@@ -97,7 +97,7 @@ public class EnumTest {
             )))
         ));
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumNumber.class, arg, configuration);
+            return JsonSchema.validateDouble(EnumNumber.class, arg, configuration);
         }
     }    
     
@@ -210,7 +210,7 @@ public class EnumTest {
             return new EnumTestMap(arg);
         }
         public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumTest1.class, arg, configuration);
+            return JsonSchema.validateMap(EnumTest1.class, arg, configuration);
         }
     }
 }

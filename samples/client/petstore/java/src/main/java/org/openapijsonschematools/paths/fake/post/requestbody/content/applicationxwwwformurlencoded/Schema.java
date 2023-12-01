@@ -39,20 +39,20 @@ public class Schema {
             new KeywordEntry("maximum", new MaximumValidator(100)),
             new KeywordEntry("minimum", new MinimumValidator(10))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerSchema.class, Long.valueOf(arg), configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(IntegerSchema.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(IntegerSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerSchema.class, arg, configuration);
+            return JsonSchema.validateLong(IntegerSchema.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IntegerSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(IntegerSchema.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
@@ -68,20 +68,20 @@ public class Schema {
             new KeywordEntry("maximum", new MaximumValidator(200)),
             new KeywordEntry("minimum", new MinimumValidator(20))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, Long.valueOf(arg), configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(Int32.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(Int32.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, arg, configuration);
+            return JsonSchema.validateLong(Int32.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Int32.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(Int32.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
@@ -99,20 +99,20 @@ public class Schema {
             new KeywordEntry("maximum", new MaximumValidator(543.2)),
             new KeywordEntry("minimum", new MinimumValidator(32.1))
         ));
-        public static Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(NumberSchema.class, arg, configuration);
         }
         
-        public static Number validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateLong(NumberSchema.class, arg, configuration);
         }
         
-        public static Number validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(NumberSchema.class, arg, configuration);
         }
         
-        public static Number validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NumberSchema.class, arg, configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(NumberSchema.class, arg, configuration);
         }
     }    
     
@@ -128,7 +128,7 @@ public class Schema {
             new KeywordEntry("maximum", new MaximumValidator(987.6))
         ));
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(FloatSchema.class, arg, configuration);
+            return JsonSchema.validateFloat(FloatSchema.class, arg, configuration);
         }
     }    
     
@@ -145,7 +145,7 @@ public class Schema {
             new KeywordEntry("minimum", new MinimumValidator(67.8))
         ));
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DoubleSchema.class, arg, configuration);
+            return JsonSchema.validateDouble(DoubleSchema.class, arg, configuration);
         }
     }    
     
@@ -160,7 +160,7 @@ public class Schema {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(StringSchema.class, arg, configuration);
+            return JsonSchema.validateString(StringSchema.class, arg, configuration);
         }
     }    
     
@@ -174,7 +174,7 @@ public class Schema {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PatternWithoutDelimiter.class, arg, configuration);
+            return JsonSchema.validateString(PatternWithoutDelimiter.class, arg, configuration);
         }
     }    
     
@@ -197,7 +197,7 @@ public class Schema {
             new KeywordEntry("format", new FormatValidator("date-time"))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DateTime.class, arg, configuration);
+            return JsonSchema.validateString(DateTime.class, arg, configuration);
         }
     }    
     
@@ -211,7 +211,7 @@ public class Schema {
             new KeywordEntry("minLength", new MinLengthValidator(10))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Password.class, arg, configuration);
+            return JsonSchema.validateString(Password.class, arg, configuration);
         }
     }    
     
@@ -328,7 +328,7 @@ public class Schema {
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
 }

@@ -29,50 +29,50 @@ public class UniqueitemsFalseValidation {
             new KeywordEntry("uniqueItems", new UniqueItemsValidator(false))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateVoid(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateBoolean(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateInt(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateLong(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateFloat(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateDouble(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateString(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateUUID(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateMap(UniqueitemsFalseValidation1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(UniqueitemsFalseValidation1.class, arg, configuration);
+            return JsonSchema.validateList(UniqueitemsFalseValidation1.class, arg, configuration);
         }
     }}

@@ -33,6 +33,6 @@ public class ComposedNone {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedNone1.class, arg, configuration);
+            return JsonSchema.validateVoid(ComposedNone1.class, arg, configuration);
         }
     }}

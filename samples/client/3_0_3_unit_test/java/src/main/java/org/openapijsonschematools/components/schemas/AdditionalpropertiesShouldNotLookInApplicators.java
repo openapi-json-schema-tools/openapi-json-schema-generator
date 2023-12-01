@@ -66,51 +66,51 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return new Schema0Map(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateVoid(Schema0.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateBoolean(Schema0.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateInt(Schema0.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateLong(Schema0.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateFloat(Schema0.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateDouble(Schema0.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateString(Schema0.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(Schema0.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateLocalDate(Schema0.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateUUID(Schema0.class, arg, configuration);
         }
         
         public static Schema0Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateMap(Schema0.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema0.class, arg, configuration);
+            return JsonSchema.validateList(Schema0.class, arg, configuration);
         }
     }    
     
@@ -148,50 +148,50 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return new AdditionalpropertiesShouldNotLookInApplicatorsMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateVoid(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateBoolean(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateInt(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateLong(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateFloat(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateDouble(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateString(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateUUID(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static AdditionalpropertiesShouldNotLookInApplicatorsMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
+            return JsonSchema.validateList(AdditionalpropertiesShouldNotLookInApplicators1.class, arg, configuration);
         }
     }}

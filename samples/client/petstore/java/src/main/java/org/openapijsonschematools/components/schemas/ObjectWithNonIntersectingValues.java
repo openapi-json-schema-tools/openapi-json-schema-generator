@@ -68,7 +68,7 @@ public class ObjectWithNonIntersectingValues {
             return new ObjectWithNonIntersectingValuesMap(arg);
         }
         public static ObjectWithNonIntersectingValuesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithNonIntersectingValues1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithNonIntersectingValues1.class, arg, configuration);
         }
     }
 }

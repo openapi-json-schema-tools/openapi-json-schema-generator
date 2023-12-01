@@ -63,7 +63,7 @@ public class NotMoreComplexSchema {
             return new NotMap(arg);
         }
         public static NotMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Not.class, arg, configuration);
+            return JsonSchema.validateMap(Not.class, arg, configuration);
         }
     }
     
@@ -79,50 +79,50 @@ public class NotMoreComplexSchema {
             new KeywordEntry("not", new NotValidator(Not.class))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateVoid(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateBoolean(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateInt(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateLong(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateFloat(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateDouble(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateString(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateUUID(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateMap(NotMoreComplexSchema1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NotMoreComplexSchema1.class, arg, configuration);
+            return JsonSchema.validateList(NotMoreComplexSchema1.class, arg, configuration);
         }
     }}

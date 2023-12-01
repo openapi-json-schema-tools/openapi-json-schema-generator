@@ -44,7 +44,7 @@ public class Schema {
             return new FilesList(arg);
         }
         public static FilesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Files.class, arg, configuration);
+            return JsonSchema.validateList(Files.class, arg, configuration);
         }
     }    
     
@@ -85,7 +85,7 @@ public class Schema {
             return new SchemaMap(arg);
         }
         public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
 }

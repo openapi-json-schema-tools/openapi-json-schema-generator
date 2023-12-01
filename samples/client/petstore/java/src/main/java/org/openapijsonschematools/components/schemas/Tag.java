@@ -75,7 +75,7 @@ public class Tag {
             return new TagMap(arg);
         }
         public static TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Tag1.class, arg, configuration);
+            return JsonSchema.validateMap(Tag1.class, arg, configuration);
         }
     }
 }

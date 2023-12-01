@@ -43,7 +43,7 @@ public class JSONPatchRequestMoveCopy {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Op.class, arg, configuration);
+            return JsonSchema.validateString(Op.class, arg, configuration);
         }
     }    
     
@@ -100,7 +100,7 @@ public class JSONPatchRequestMoveCopy {
             return new JSONPatchRequestMoveCopyMap(arg);
         }
         public static JSONPatchRequestMoveCopyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(JSONPatchRequestMoveCopy1.class, arg, configuration);
+            return JsonSchema.validateMap(JSONPatchRequestMoveCopy1.class, arg, configuration);
         }
     }
 }

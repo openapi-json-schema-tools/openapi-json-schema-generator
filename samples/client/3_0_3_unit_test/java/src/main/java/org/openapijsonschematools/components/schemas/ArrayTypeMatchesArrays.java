@@ -46,6 +46,6 @@ public class ArrayTypeMatchesArrays {
             return new ArrayTypeMatchesArraysList(arg);
         }
         public static ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ArrayTypeMatchesArrays1.class, arg, configuration);
+            return JsonSchema.validateList(ArrayTypeMatchesArrays1.class, arg, configuration);
         }
     }}

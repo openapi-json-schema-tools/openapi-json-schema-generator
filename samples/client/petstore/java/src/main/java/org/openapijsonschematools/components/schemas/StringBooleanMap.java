@@ -51,7 +51,7 @@ public class StringBooleanMap {
             return new StringBooleanMapMap(arg);
         }
         public static StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(StringBooleanMap1.class, arg, configuration);
+            return JsonSchema.validateMap(StringBooleanMap1.class, arg, configuration);
         }
     }
 }

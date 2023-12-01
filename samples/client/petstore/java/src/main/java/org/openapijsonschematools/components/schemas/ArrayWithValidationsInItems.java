@@ -30,20 +30,20 @@ public class ArrayWithValidationsInItems {
             new KeywordEntry("format", new FormatValidator("int64")),
             new KeywordEntry("maximum", new MaximumValidator(7))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Items.class, Long.valueOf(arg), configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(Items.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Items.class, arg, configuration);
+            return JsonSchema.validateLong(Items.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }    
     
@@ -74,6 +74,6 @@ public class ArrayWithValidationsInItems {
             return new ArrayWithValidationsInItemsList(arg);
         }
         public static ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ArrayWithValidationsInItems1.class, arg, configuration);
+            return JsonSchema.validateList(ArrayWithValidationsInItems1.class, arg, configuration);
         }
     }}

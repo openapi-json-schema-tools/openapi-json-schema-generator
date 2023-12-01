@@ -22,19 +22,19 @@ public class NumberJsonSchema extends JsonSchema {
         )))
     ));
 
-    public static Number validate(Integer arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
+    public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validateInt(NumberJsonSchema.class, arg, configuration);
     }
 
-    public static Number validate(Long arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
+    public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validateLong(NumberJsonSchema.class, arg, configuration);
     }
 
-    public static Number validate(Float arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
+    public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validateFloat(NumberJsonSchema.class, arg, configuration);
     }
 
-    public static Number validate(Double arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(NumberJsonSchema.class, arg, configuration);
+    public static double validateDouble(Double arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validateDouble(NumberJsonSchema.class, arg, configuration);
     }
 }

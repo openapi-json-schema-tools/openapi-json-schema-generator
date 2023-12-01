@@ -60,7 +60,7 @@ public class SelfReferencingObjectModel {
             return new SelfReferencingObjectModelMap(arg);
         }
         public static SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(SelfReferencingObjectModel1.class, arg, configuration);
+            return JsonSchema.validateMap(SelfReferencingObjectModel1.class, arg, configuration);
         }
     }
 }

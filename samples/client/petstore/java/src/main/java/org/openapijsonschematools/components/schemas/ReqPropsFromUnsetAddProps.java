@@ -58,7 +58,7 @@ public class ReqPropsFromUnsetAddProps {
             return new ReqPropsFromUnsetAddPropsMap(arg);
         }
         public static ReqPropsFromUnsetAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReqPropsFromUnsetAddProps1.class, arg, configuration);
+            return JsonSchema.validateMap(ReqPropsFromUnsetAddProps1.class, arg, configuration);
         }
     }
 }

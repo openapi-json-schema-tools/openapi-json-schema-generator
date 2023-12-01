@@ -75,7 +75,7 @@ public class ObjectModelWithArgAndArgsProperties {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
         public static ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectModelWithArgAndArgsProperties1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectModelWithArgAndArgsProperties1.class, arg, configuration);
         }
     }
 }

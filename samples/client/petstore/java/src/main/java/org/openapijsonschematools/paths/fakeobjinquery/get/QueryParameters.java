@@ -56,7 +56,7 @@ public class QueryParameters {
             return new QueryParametersMap(arg);
         }
         public static QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QueryParameters1.class, arg, configuration);
+            return JsonSchema.validateMap(QueryParameters1.class, arg, configuration);
         }
     }
 }

@@ -80,7 +80,7 @@ public class CookieParameters {
             return new CookieParametersMap(arg);
         }
         public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(CookieParameters1.class, arg, configuration);
+            return JsonSchema.validateMap(CookieParameters1.class, arg, configuration);
         }
     }
 }

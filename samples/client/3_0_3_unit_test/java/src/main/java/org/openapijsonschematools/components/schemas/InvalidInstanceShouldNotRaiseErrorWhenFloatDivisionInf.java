@@ -30,19 +30,19 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
             ))),
             new KeywordEntry("multipleOf", new MultipleOfValidator(0.123456789))
         ));
-        public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.valueOf(arg), configuration);
+        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateInt(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.valueOf(arg), configuration);
         }
         
-        public static long validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateFloat(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, arg, configuration);
+            return JsonSchema.validateLong(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, arg, configuration);
         }
         
-        public static long validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.parseLong(String.valueOf(arg)), configuration);
+        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return JsonSchema.validateDouble(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.parseLong(String.valueOf(arg)), configuration);
         }
     }}

@@ -43,7 +43,7 @@ public class ArrayOfNumberOnly {
             return new ArrayNumberList(arg);
         }
         public static ArrayNumberList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ArrayNumber.class, arg, configuration);
+            return JsonSchema.validateList(ArrayNumber.class, arg, configuration);
         }
     }    
     
@@ -90,7 +90,7 @@ public class ArrayOfNumberOnly {
             return new ArrayOfNumberOnlyMap(arg);
         }
         public static ArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ArrayOfNumberOnly1.class, arg, configuration);
+            return JsonSchema.validateMap(ArrayOfNumberOnly1.class, arg, configuration);
         }
     }
 }

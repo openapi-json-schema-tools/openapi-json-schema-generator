@@ -33,7 +33,7 @@ public class IsoscelesTriangle {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleType.class, arg, configuration);
+            return JsonSchema.validateString(TriangleType.class, arg, configuration);
         }
     }    
     
@@ -74,7 +74,7 @@ public class IsoscelesTriangle {
             return new Schema1Map(arg);
         }
         public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema1.class, arg, configuration);
+            return JsonSchema.validateMap(Schema1.class, arg, configuration);
         }
     }
     
@@ -93,50 +93,50 @@ public class IsoscelesTriangle {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateVoid(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateBoolean(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateInt(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateLong(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateFloat(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateDouble(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateString(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateUUID(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateMap(IsoscelesTriangle1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(IsoscelesTriangle1.class, arg, configuration);
+            return JsonSchema.validateList(IsoscelesTriangle1.class, arg, configuration);
         }
     }}

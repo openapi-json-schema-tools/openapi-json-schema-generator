@@ -118,7 +118,7 @@ public class Capitalization {
             return new CapitalizationMap(arg);
         }
         public static CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Capitalization1.class, arg, configuration);
+            return JsonSchema.validateMap(Capitalization1.class, arg, configuration);
         }
     }
 }

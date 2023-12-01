@@ -34,7 +34,7 @@ public class QuadrilateralInterface {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeType.class, arg, configuration);
+            return JsonSchema.validateString(ShapeType.class, arg, configuration);
         }
     }    
     
@@ -91,50 +91,50 @@ public class QuadrilateralInterface {
             return new QuadrilateralInterfaceMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateVoid(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateBoolean(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateInt(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateLong(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateFloat(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateDouble(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateString(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateUUID(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static QuadrilateralInterfaceMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateMap(QuadrilateralInterface1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(QuadrilateralInterface1.class, arg, configuration);
+            return JsonSchema.validateList(QuadrilateralInterface1.class, arg, configuration);
         }
     }}

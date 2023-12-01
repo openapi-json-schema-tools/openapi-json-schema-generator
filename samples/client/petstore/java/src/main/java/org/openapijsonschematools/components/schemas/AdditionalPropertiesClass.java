@@ -50,7 +50,7 @@ public class AdditionalPropertiesClass {
             return new MapPropertyMap(arg);
         }
         public static MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapProperty.class, arg, configuration);
+            return JsonSchema.validateMap(MapProperty.class, arg, configuration);
         }
     }
     
@@ -84,7 +84,7 @@ public class AdditionalPropertiesClass {
             return new AdditionalPropertiesMap(arg);
         }
         public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalProperties1.class, arg, configuration);
         }
     }
     
@@ -115,7 +115,7 @@ public class AdditionalPropertiesClass {
             return new MapOfMapPropertyMap(arg);
         }
         public static MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapOfMapProperty.class, arg, configuration);
+            return JsonSchema.validateMap(MapOfMapProperty.class, arg, configuration);
         }
     }
     
@@ -158,7 +158,7 @@ public class AdditionalPropertiesClass {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
         public static MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapWithUndeclaredPropertiesAnytype3.class, arg, configuration);
+            return JsonSchema.validateMap(MapWithUndeclaredPropertiesAnytype3.class, arg, configuration);
         }
     }
     
@@ -189,7 +189,7 @@ public class AdditionalPropertiesClass {
             return new EmptyMapMap(arg);
         }
         public static EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EmptyMap.class, arg, configuration);
+            return JsonSchema.validateMap(EmptyMap.class, arg, configuration);
         }
     }
     
@@ -223,7 +223,7 @@ public class AdditionalPropertiesClass {
             return new MapWithUndeclaredPropertiesStringMap(arg);
         }
         public static MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapWithUndeclaredPropertiesString.class, arg, configuration);
+            return JsonSchema.validateMap(MapWithUndeclaredPropertiesString.class, arg, configuration);
         }
     }
     
@@ -327,7 +327,7 @@ public class AdditionalPropertiesClass {
             return new AdditionalPropertiesClassMap(arg);
         }
         public static AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalPropertiesClass1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalPropertiesClass1.class, arg, configuration);
         }
     }
 }

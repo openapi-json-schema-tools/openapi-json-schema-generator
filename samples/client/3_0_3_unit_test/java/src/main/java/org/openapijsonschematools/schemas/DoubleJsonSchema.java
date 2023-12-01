@@ -20,6 +20,6 @@ public class DoubleJsonSchema extends JsonSchema {
     ));
 
     public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(DoubleJsonSchema.class, arg, configuration);
+        return JsonSchema.validateDouble(DoubleJsonSchema.class, arg, configuration);
     }
 }

@@ -37,9 +37,9 @@ public class StringEnum {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(StringEnum1.class, arg, configuration);
+            return JsonSchema.validateVoid(StringEnum1.class, arg, configuration);
         }
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(StringEnum1.class, arg, configuration);
+            return JsonSchema.validateString(StringEnum1.class, arg, configuration);
         }
     }}

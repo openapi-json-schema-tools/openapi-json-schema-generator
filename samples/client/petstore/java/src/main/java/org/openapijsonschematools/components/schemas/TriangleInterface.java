@@ -34,7 +34,7 @@ public class TriangleInterface {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ShapeType.class, arg, configuration);
+            return JsonSchema.validateString(ShapeType.class, arg, configuration);
         }
     }    
     
@@ -91,50 +91,50 @@ public class TriangleInterface {
             return new TriangleInterfaceMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateVoid(TriangleInterface1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateBoolean(TriangleInterface1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateInt(TriangleInterface1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateLong(TriangleInterface1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateFloat(TriangleInterface1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateDouble(TriangleInterface1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateString(TriangleInterface1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(TriangleInterface1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(TriangleInterface1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateUUID(TriangleInterface1.class, arg, configuration);
         }
         
         public static TriangleInterfaceMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateMap(TriangleInterface1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(TriangleInterface1.class, arg, configuration);
+            return JsonSchema.validateList(TriangleInterface1.class, arg, configuration);
         }
     }}

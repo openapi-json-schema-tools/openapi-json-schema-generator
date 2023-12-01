@@ -28,7 +28,7 @@ public class Schema2 {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Items2.class, arg, configuration);
+            return JsonSchema.validateString(Items2.class, arg, configuration);
         }
     }    
     
@@ -52,6 +52,6 @@ public class Schema2 {
             return new SchemaList2(arg);
         }
         public static SchemaList2 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Schema21.class, arg, configuration);
+            return JsonSchema.validateList(Schema21.class, arg, configuration);
         }
     }}

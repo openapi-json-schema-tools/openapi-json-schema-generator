@@ -42,6 +42,6 @@ public class RefInItems {
             return new RefInItemsList(arg);
         }
         public static RefInItemsList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInItems1.class, arg, configuration);
+            return JsonSchema.validateList(RefInItems1.class, arg, configuration);
         }
     }}

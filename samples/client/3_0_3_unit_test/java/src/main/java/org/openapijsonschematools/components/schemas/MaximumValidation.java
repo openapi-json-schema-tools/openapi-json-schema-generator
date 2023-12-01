@@ -29,50 +29,50 @@ public class MaximumValidation {
             new KeywordEntry("maximum", new MaximumValidator(3.0))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateVoid(MaximumValidation1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateBoolean(MaximumValidation1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateInt(MaximumValidation1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateLong(MaximumValidation1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateFloat(MaximumValidation1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateDouble(MaximumValidation1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateString(MaximumValidation1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(MaximumValidation1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(MaximumValidation1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateUUID(MaximumValidation1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateMap(MaximumValidation1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MaximumValidation1.class, arg, configuration);
+            return JsonSchema.validateList(MaximumValidation1.class, arg, configuration);
         }
     }}

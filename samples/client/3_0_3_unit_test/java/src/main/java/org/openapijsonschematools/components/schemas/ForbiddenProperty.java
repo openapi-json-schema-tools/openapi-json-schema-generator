@@ -68,50 +68,50 @@ public class ForbiddenProperty {
             return new ForbiddenPropertyMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateVoid(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateInt(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateLong(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateFloat(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateDouble(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateString(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateUUID(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static ForbiddenPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateMap(ForbiddenProperty1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ForbiddenProperty1.class, arg, configuration);
+            return JsonSchema.validateList(ForbiddenProperty1.class, arg, configuration);
         }
     }}

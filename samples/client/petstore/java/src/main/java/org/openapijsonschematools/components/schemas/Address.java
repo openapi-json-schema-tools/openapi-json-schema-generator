@@ -51,7 +51,7 @@ public class Address {
             return new AddressMap(arg);
         }
         public static AddressMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Address1.class, arg, configuration);
+            return JsonSchema.validateMap(Address1.class, arg, configuration);
         }
     }
 }

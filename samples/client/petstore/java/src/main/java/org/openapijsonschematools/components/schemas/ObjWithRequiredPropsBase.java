@@ -65,7 +65,7 @@ public class ObjWithRequiredPropsBase {
             return new ObjWithRequiredPropsBaseMap(arg);
         }
         public static ObjWithRequiredPropsBaseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjWithRequiredPropsBase1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjWithRequiredPropsBase1.class, arg, configuration);
         }
     }
 }

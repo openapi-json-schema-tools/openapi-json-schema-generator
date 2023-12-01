@@ -63,7 +63,7 @@ public class ReqPropsFromTrueAddProps {
             return new ReqPropsFromTrueAddPropsMap(arg);
         }
         public static ReqPropsFromTrueAddPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ReqPropsFromTrueAddProps1.class, arg, configuration);
+            return JsonSchema.validateMap(ReqPropsFromTrueAddProps1.class, arg, configuration);
         }
     }
 }

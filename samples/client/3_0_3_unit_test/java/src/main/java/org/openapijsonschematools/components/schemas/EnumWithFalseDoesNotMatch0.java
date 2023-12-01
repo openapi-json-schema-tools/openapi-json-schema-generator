@@ -28,6 +28,6 @@ public class EnumWithFalseDoesNotMatch0 {
             )))
         ));
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(EnumWithFalseDoesNotMatch01.class, arg, configuration);
+            return JsonSchema.validateBoolean(EnumWithFalseDoesNotMatch01.class, arg, configuration);
         }
     }}

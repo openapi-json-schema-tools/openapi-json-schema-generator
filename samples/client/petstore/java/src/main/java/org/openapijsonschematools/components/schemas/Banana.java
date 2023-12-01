@@ -65,7 +65,7 @@ public class Banana {
             return new BananaMap(arg);
         }
         public static BananaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Banana1.class, arg, configuration);
+            return JsonSchema.validateMap(Banana1.class, arg, configuration);
         }
     }
 }

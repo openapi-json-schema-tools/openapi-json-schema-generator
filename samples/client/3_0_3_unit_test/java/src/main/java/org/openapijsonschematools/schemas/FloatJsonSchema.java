@@ -20,6 +20,6 @@ public class FloatJsonSchema extends JsonSchema {
     ));
 
     public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(FloatJsonSchema.class, arg, configuration);
+        return JsonSchema.validateFloat(FloatJsonSchema.class, arg, configuration);
     }
 }

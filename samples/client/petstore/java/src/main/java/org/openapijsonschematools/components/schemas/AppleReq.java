@@ -80,7 +80,7 @@ public class AppleReq {
             return new AppleReqMap(arg);
         }
         public static AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AppleReq1.class, arg, configuration);
+            return JsonSchema.validateMap(AppleReq1.class, arg, configuration);
         }
     }
 }

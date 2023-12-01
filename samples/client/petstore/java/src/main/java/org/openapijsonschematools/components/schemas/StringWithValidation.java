@@ -28,6 +28,6 @@ public class StringWithValidation {
             new KeywordEntry("minLength", new MinLengthValidator(7))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(StringWithValidation1.class, arg, configuration);
+            return JsonSchema.validateString(StringWithValidation1.class, arg, configuration);
         }
     }}

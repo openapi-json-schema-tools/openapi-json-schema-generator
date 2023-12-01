@@ -46,6 +46,6 @@ public class ArrayHoldingAnyType {
             return new ArrayHoldingAnyTypeList(arg);
         }
         public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ArrayHoldingAnyType1.class, arg, configuration);
+            return JsonSchema.validateList(ArrayHoldingAnyType1.class, arg, configuration);
         }
     }}

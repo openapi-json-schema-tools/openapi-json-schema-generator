@@ -33,6 +33,6 @@ public class ComposedBool {
             )))
         ));
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedBool1.class, arg, configuration);
+            return JsonSchema.validateBoolean(ComposedBool1.class, arg, configuration);
         }
     }}

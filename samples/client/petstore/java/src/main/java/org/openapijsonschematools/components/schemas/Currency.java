@@ -31,6 +31,6 @@ public class Currency {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Currency1.class, arg, configuration);
+            return JsonSchema.validateString(Currency1.class, arg, configuration);
         }
     }}

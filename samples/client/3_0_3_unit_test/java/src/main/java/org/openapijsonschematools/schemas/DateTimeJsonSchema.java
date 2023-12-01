@@ -21,10 +21,10 @@ public class DateTimeJsonSchema extends JsonSchema {
     ));
 
     public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
+        return JsonSchema.validateString(DateTimeJsonSchema.class, arg, configuration);
     }
 
     public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(DateTimeJsonSchema.class, arg, configuration);
+        return JsonSchema.validateZonedDateTime(DateTimeJsonSchema.class, arg, configuration);
     }
 }

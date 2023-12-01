@@ -76,7 +76,7 @@ public class ObjectWithCollidingProperties {
             return new ObjectWithCollidingPropertiesMap(arg);
         }
         public static ObjectWithCollidingPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithCollidingProperties1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithCollidingProperties1.class, arg, configuration);
         }
     }
 }

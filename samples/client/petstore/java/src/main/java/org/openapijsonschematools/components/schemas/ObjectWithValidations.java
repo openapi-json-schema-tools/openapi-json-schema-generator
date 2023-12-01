@@ -27,7 +27,7 @@ public class ObjectWithValidations {
             new KeywordEntry("minProperties", new MinPropertiesValidator(2))
         ));
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithValidations1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithValidations1.class, arg, configuration);
         }
     }
 }

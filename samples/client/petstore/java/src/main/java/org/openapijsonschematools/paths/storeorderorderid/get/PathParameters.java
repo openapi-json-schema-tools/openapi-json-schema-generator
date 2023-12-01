@@ -58,7 +58,7 @@ public class PathParameters {
             return new PathParametersMap(arg);
         }
         public static PathParametersMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PathParameters1.class, arg, configuration);
+            return JsonSchema.validateMap(PathParameters1.class, arg, configuration);
         }
     }
 }

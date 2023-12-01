@@ -63,10 +63,10 @@ public class User {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
+            return JsonSchema.validateVoid(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectWithNoDeclaredPropsNullable.class, arg, configuration);
         }
     }    
     
@@ -81,51 +81,51 @@ public class User {
             new KeywordEntry("not", new NotValidator(Not.class))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateVoid(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateBoolean(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateInt(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateLong(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateFloat(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateDouble(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateString(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateLocalDate(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateUUID(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateMap(AnyTypeExceptNullProp.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnyTypeExceptNullProp.class, arg, configuration);
+            return JsonSchema.validateList(AnyTypeExceptNullProp.class, arg, configuration);
         }
     }    
     
@@ -271,7 +271,7 @@ public class User {
             return new UserMap(arg);
         }
         public static UserMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(User1.class, arg, configuration);
+            return JsonSchema.validateMap(User1.class, arg, configuration);
         }
     }
 }

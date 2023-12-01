@@ -25,18 +25,18 @@ public class IntJsonSchema extends JsonSchema {
     ));
 
     public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(IntJsonSchema.class, Long.valueOf(arg), configuration);
+        return JsonSchema.validateInt(IntJsonSchema.class, Long.valueOf(arg), configuration);
     }
 
     public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
+        return JsonSchema.validateFloat(IntJsonSchema.class, arg, configuration);
     }
 
     public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
+        return JsonSchema.validateLong(IntJsonSchema.class, arg, configuration);
     }
 
     public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(IntJsonSchema.class, arg, configuration);
+        return JsonSchema.validateDouble(IntJsonSchema.class, arg, configuration);
     }
 }

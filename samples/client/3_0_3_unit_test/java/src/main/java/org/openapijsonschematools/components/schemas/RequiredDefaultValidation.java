@@ -66,50 +66,50 @@ public class RequiredDefaultValidation {
             return new RequiredDefaultValidationMap(arg);
         }
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateVoid(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateBoolean(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateInt(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateLong(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateFloat(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateDouble(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateString(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateUUID(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static RequiredDefaultValidationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateMap(RequiredDefaultValidation1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RequiredDefaultValidation1.class, arg, configuration);
+            return JsonSchema.validateList(RequiredDefaultValidation1.class, arg, configuration);
         }
     }}

@@ -77,7 +77,7 @@ public class ObjectModelWithRefProps {
             return new ObjectModelWithRefPropsMap(arg);
         }
         public static ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ObjectModelWithRefProps1.class, arg, configuration);
+            return JsonSchema.validateMap(ObjectModelWithRefProps1.class, arg, configuration);
         }
     }
 }

@@ -38,7 +38,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return new AdditionalPropertiesList(arg);
         }
         public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
+            return JsonSchema.validateList(AdditionalProperties.class, arg, configuration);
         }
     }    
     
@@ -74,7 +74,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
         }
         public static AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalPropertiesWithArrayOfEnums1.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalPropertiesWithArrayOfEnums1.class, arg, configuration);
         }
     }
 }

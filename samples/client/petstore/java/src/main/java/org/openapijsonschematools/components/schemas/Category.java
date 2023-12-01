@@ -28,7 +28,7 @@ public class Category {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Name.class, arg, configuration);
+            return JsonSchema.validateString(Name.class, arg, configuration);
         }
     }    
     
@@ -85,7 +85,7 @@ public class Category {
             return new CategoryMap(arg);
         }
         public static CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Category1.class, arg, configuration);
+            return JsonSchema.validateMap(Category1.class, arg, configuration);
         }
     }
 }

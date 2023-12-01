@@ -27,9 +27,9 @@ public class NullableString {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NullableString1.class, arg, configuration);
+            return JsonSchema.validateVoid(NullableString1.class, arg, configuration);
         }
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NullableString1.class, arg, configuration);
+            return JsonSchema.validateString(NullableString1.class, arg, configuration);
         }
     }}

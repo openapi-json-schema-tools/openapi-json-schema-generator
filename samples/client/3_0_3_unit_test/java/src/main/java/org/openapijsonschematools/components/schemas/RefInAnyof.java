@@ -31,50 +31,50 @@ public class RefInAnyof {
             )))
         ));
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateVoid(RefInAnyof1.class, arg, configuration);
         }
         
         public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateBoolean(RefInAnyof1.class, arg, configuration);
         }
         
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateInt(RefInAnyof1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateLong(RefInAnyof1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateFloat(RefInAnyof1.class, arg, configuration);
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateDouble(RefInAnyof1.class, arg, configuration);
         }
         
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateString(RefInAnyof1.class, arg, configuration);
         }
         
         public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateZonedDateTime(RefInAnyof1.class, arg, configuration);
         }
         
         public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateLocalDate(RefInAnyof1.class, arg, configuration);
         }
         
         public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateUUID(RefInAnyof1.class, arg, configuration);
         }
         
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateMap(RefInAnyof1.class, arg, configuration);
         }
         
         public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(RefInAnyof1.class, arg, configuration);
+            return JsonSchema.validateList(RefInAnyof1.class, arg, configuration);
         }
     }}

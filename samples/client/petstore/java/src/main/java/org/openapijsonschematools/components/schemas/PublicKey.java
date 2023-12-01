@@ -65,7 +65,7 @@ public class PublicKey {
             return new PublicKeyMap(arg);
         }
         public static PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(PublicKey1.class, arg, configuration);
+            return JsonSchema.validateMap(PublicKey1.class, arg, configuration);
         }
     }
 }

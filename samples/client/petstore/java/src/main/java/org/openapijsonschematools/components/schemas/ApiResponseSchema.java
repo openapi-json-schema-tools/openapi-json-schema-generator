@@ -86,7 +86,7 @@ public class ApiResponseSchema {
             return new ApiResponseMap(arg);
         }
         public static ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ApiResponseSchema1.class, arg, configuration);
+            return JsonSchema.validateMap(ApiResponseSchema1.class, arg, configuration);
         }
     }
 }

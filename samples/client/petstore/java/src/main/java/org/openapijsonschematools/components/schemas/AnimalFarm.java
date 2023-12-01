@@ -42,6 +42,6 @@ public class AnimalFarm {
             return new AnimalFarmList(arg);
         }
         public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AnimalFarm1.class, arg, configuration);
+            return JsonSchema.validateList(AnimalFarm1.class, arg, configuration);
         }
     }}

@@ -49,6 +49,6 @@ public class Items {
             return new ItemsList(arg);
         }
         public static ItemsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Items1.class, arg, configuration);
+            return JsonSchema.validateList(Items1.class, arg, configuration);
         }
     }}

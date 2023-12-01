@@ -16,6 +16,6 @@ public class NotAnyTypeJsonSchema extends JsonSchema {
     ));
 
     public static Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateObject(NotAnyTypeJsonSchema.class, arg, configuration);
+        return JsonSchema.validate(NotAnyTypeJsonSchema.class, arg, configuration);
     }
 }

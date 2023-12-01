@@ -34,7 +34,7 @@ public class ComposedObject {
             )))
         ));
         public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(ComposedObject1.class, arg, configuration);
+            return JsonSchema.validateMap(ComposedObject1.class, arg, configuration);
         }
     }
 }

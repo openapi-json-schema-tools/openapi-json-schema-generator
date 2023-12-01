@@ -59,7 +59,7 @@ public class Foo {
             return new FooMap(arg);
         }
         public static FooMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Foo1.class, arg, configuration);
+            return JsonSchema.validateMap(Foo1.class, arg, configuration);
         }
     }
 }

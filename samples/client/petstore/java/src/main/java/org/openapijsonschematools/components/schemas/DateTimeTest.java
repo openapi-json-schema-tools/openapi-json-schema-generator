@@ -29,6 +29,6 @@ public class DateTimeTest {
             new KeywordEntry("format", new FormatValidator("date-time"))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DateTimeTest1.class, arg, configuration);
+            return JsonSchema.validateString(DateTimeTest1.class, arg, configuration);
         }
     }}

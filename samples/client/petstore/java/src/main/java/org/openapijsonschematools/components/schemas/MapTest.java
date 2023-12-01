@@ -49,7 +49,7 @@ public class MapTest {
             return new AdditionalPropertiesMap(arg);
         }
         public static AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties.class, arg, configuration);
+            return JsonSchema.validateMap(AdditionalProperties.class, arg, configuration);
         }
     }
     
@@ -80,7 +80,7 @@ public class MapTest {
             return new MapMapOfStringMap(arg);
         }
         public static MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapMapOfString.class, arg, configuration);
+            return JsonSchema.validateMap(MapMapOfString.class, arg, configuration);
         }
     }
     
@@ -96,7 +96,7 @@ public class MapTest {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(AdditionalProperties2.class, arg, configuration);
+            return JsonSchema.validateString(AdditionalProperties2.class, arg, configuration);
         }
     }    
     
@@ -126,7 +126,7 @@ public class MapTest {
             return new MapOfEnumStringMap(arg);
         }
         public static MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapOfEnumString.class, arg, configuration);
+            return JsonSchema.validateMap(MapOfEnumString.class, arg, configuration);
         }
     }
     
@@ -160,7 +160,7 @@ public class MapTest {
             return new DirectMapMap(arg);
         }
         public static DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(DirectMap.class, arg, configuration);
+            return JsonSchema.validateMap(DirectMap.class, arg, configuration);
         }
     }
     
@@ -232,7 +232,7 @@ public class MapTest {
             return new MapTestMap(arg);
         }
         public static MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(MapTest1.class, arg, configuration);
+            return JsonSchema.validateMap(MapTest1.class, arg, configuration);
         }
     }
 }

@@ -30,6 +30,6 @@ public class NulCharactersInStrings {
             )))
         ));
         public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(NulCharactersInStrings1.class, arg, configuration);
+            return JsonSchema.validateString(NulCharactersInStrings1.class, arg, configuration);
         }
     }}

@@ -63,7 +63,7 @@ public class Client {
             return new ClientMap(arg);
         }
         public static ClientMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validate(Client1.class, arg, configuration);
+            return JsonSchema.validateMap(Client1.class, arg, configuration);
         }
     }
 }
