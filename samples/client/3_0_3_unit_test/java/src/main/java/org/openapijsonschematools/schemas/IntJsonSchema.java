@@ -24,8 +24,8 @@ public class IntJsonSchema extends JsonSchema {
         new KeywordEntry("format", new FormatValidator("int"))
     ));
 
-    public static long validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateInt(IntJsonSchema.class, Long.valueOf(arg), configuration);
+    public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validateInt(IntJsonSchema.class, arg, configuration);
     }
 
     public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {

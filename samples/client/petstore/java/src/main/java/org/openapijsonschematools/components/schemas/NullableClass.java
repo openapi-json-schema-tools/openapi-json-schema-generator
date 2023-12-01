@@ -53,11 +53,11 @@ public class NullableClass {
             return JsonSchema.validateVoid(IntegerProp.class, arg, configuration);
         }
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(IntegerProp.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validateInt(IntegerProp.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateFloat(IntegerProp.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -65,7 +65,7 @@ public class NullableClass {
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(IntegerProp.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateDouble(IntegerProp.class, arg, configuration);
         }
     }    
     

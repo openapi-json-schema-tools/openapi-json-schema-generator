@@ -31,11 +31,11 @@ public class ArrayWithValidationsInItems {
             new KeywordEntry("maximum", new MaximumValidator(7))
         ));
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(Items.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validateInt(Items.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateFloat(Items.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -43,7 +43,7 @@ public class ArrayWithValidationsInItems {
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(Items.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateDouble(Items.class, arg, configuration);
         }
     }    
     

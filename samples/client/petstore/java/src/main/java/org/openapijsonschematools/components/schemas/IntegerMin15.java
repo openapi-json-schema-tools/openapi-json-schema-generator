@@ -33,11 +33,11 @@ public class IntegerMin15 {
             new KeywordEntry("minimum", new MinimumValidator(15))
         ));
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(IntegerMin151.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validateInt(IntegerMin151.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(IntegerMin151.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateFloat(IntegerMin151.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -45,6 +45,6 @@ public class IntegerMin15 {
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(IntegerMin151.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateDouble(IntegerMin151.class, arg, configuration);
         }
     }}

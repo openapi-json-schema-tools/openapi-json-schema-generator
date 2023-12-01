@@ -26,7 +26,7 @@ public class Int32JsonSchema extends JsonSchema {
         return JsonSchema.validateInt(Int32JsonSchema.class, arg, configuration);
     }
 
-    public static int validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateFloat(Int32JsonSchema.class, Integer.parseInt(String.valueOf(arg)), configuration);
+    public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        return JsonSchema.validateFloat(Int32JsonSchema.class, arg, configuration);
     }
 }

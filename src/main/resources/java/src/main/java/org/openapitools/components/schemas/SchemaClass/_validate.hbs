@@ -45,11 +45,11 @@ public static String validate(String arg, SchemaConfiguration configuration) thr
         {{/eq}}
         {{#eq this "integer"}}
 public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return JsonSchema.validateInt({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.valueOf(arg), configuration);
+    return JsonSchema.validateInt({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return JsonSchema.validateFloat({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(String.valueOf(arg)), configuration);
+    return JsonSchema.validateFloat({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -57,7 +57,7 @@ public static long validate(long arg, SchemaConfiguration configuration) throws 
 }
 
 public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-    return JsonSchema.validateDouble({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(String.valueOf(arg)), configuration);
+    return JsonSchema.validateDouble({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
         {{/eq}}
         {{#eq this "number"}}
@@ -84,16 +84,16 @@ public static int validate(int arg, SchemaConfiguration configuration) throws Va
 }
 
 public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return JsonSchema.validateFloat({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Integer.parseInt(String.valueOf(arg)), configuration);
+    return JsonSchema.validateFloat({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
                 {{else}}
                     {{#eq ../format "int64"}}
 public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return JsonSchema.validateInt({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.valueOf(arg), configuration);
+    return JsonSchema.validateInt({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-    return JsonSchema.validateFloat({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(String.valueOf(arg)), configuration);
+    return JsonSchema.validateFloat({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
 
 public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -101,7 +101,7 @@ public static long validate(long arg, SchemaConfiguration configuration) throws 
 }
 
 public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-    return JsonSchema.validateDouble({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, Long.parseLong(String.valueOf(arg)), configuration);
+    return JsonSchema.validateDouble({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
                     {{else}}
                         {{#eq ../format "float"}}

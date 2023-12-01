@@ -54,7 +54,7 @@ public class AnyTypeJsonSchema extends JsonSchema {
         return JsonSchema.validateUUID(AnyTypeJsonSchema.class, arg, configuration);
     }
 
-    public static FrozenMap<String, Object> T validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+    public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
         return JsonSchema.validateMap(AnyTypeJsonSchema.class, arg, configuration);
     }
 

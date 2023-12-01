@@ -35,11 +35,11 @@ public class IntegerEnumWithDefaultValue {
             )))
         ));
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(IntegerEnumWithDefaultValue1.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validateInt(IntegerEnumWithDefaultValue1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(IntegerEnumWithDefaultValue1.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateFloat(IntegerEnumWithDefaultValue1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -47,6 +47,6 @@ public class IntegerEnumWithDefaultValue {
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(IntegerEnumWithDefaultValue1.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateDouble(IntegerEnumWithDefaultValue1.class, arg, configuration);
         }
     }}

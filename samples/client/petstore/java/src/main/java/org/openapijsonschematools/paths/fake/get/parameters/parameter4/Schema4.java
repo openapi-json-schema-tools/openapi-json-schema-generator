@@ -30,11 +30,11 @@ public class Schema4 {
             )))
         ));
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(Schema41.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validateInt(Schema41.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(Schema41.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateFloat(Schema41.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -42,6 +42,6 @@ public class Schema4 {
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(Schema41.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateDouble(Schema41.class, arg, configuration);
         }
     }}

@@ -31,11 +31,11 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
             new KeywordEntry("multipleOf", new MultipleOfValidator(0.123456789))
         ));
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validateInt(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateFloat(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -43,6 +43,6 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateDouble(InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class, arg, configuration);
         }
     }}

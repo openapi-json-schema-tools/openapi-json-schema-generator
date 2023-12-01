@@ -33,11 +33,11 @@ public class IntegerMax10 {
             new KeywordEntry("maximum", new MaximumValidator(10))
         ));
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(IntegerMax101.class, Long.valueOf(arg), configuration);
+            return JsonSchema.validateInt(IntegerMax101.class, arg, configuration);
         }
         
         public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(IntegerMax101.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateFloat(IntegerMax101.class, arg, configuration);
         }
         
         public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
@@ -45,6 +45,6 @@ public class IntegerMax10 {
         }
         
         public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(IntegerMax101.class, Long.parseLong(String.valueOf(arg)), configuration);
+            return JsonSchema.validateDouble(IntegerMax101.class, arg, configuration);
         }
     }}
