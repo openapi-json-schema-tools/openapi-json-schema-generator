@@ -149,8 +149,12 @@ is stored as a string.
 
 ## Getting Started
 
-Please follow the [installation procedure](#installation) and then run the following:
+Please follow the [installation procedure](#installation) and then use the JsonSchema classes in
+{{packageName}}.components.schemas to validate input payloads and instances of validated Map and List
+output classes. Json schemas allow multiple types for one schema, so a schema's validate method can have
+allowed input and output types.
 
+{{!--
 {{#each paths}}
     {{#if @first}}
         {{#each operations}}
@@ -200,6 +204,7 @@ All URIs are relative to the selected server
 {{/each}}
 {{/each}}
 {{/if}}
+--}}
 {{#if schemas}}
 
 ## Component Schemas
@@ -212,6 +217,7 @@ All URIs are relative to the selected server
     {{/with}}
 {{/each}}
 {{/if}}
+{{!--
 {{#if requestBodies}}
 
 ## Component RequestBodies
@@ -279,4 +285,5 @@ All URIs are relative to the selected server
 
 {{infoEmail}}
 {{/if}}
+--}}
 

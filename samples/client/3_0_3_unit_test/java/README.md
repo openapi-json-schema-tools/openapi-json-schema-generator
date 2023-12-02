@@ -144,23 +144,11 @@ is stored as a string.
 
 ## Getting Started
 
-Please follow the [installation procedure](#installation) and then run the following:
+Please follow the [installation procedure](#installation) and then use the JsonSchema classes in
+org.openapijsonschematools.client.components.schemas to validate input payloads and instances of validated Map and List
+output classes. Json schemas allow multiple types for one schema, so a schema's validate method can have
+allowed input and output types.
 
-
-## Servers
-| server_index | Class | Description |
-| ------------ | ----- | ----------- |
-| 0 | [Model0](docs/servers/0.md) | |
-
-## Endpoints
-
-All URIs are relative to the selected server
-- The server is selected by passing in server_info and server_index into api_configuration.ApiConfiguration
-- Code samples in endpoints documents show how to do this
-- server_index can also be passed in to endpoint calls, see endpoint documentation
-
-| HTTP request | Method | Description |
-| ------------ | ------ | ----------- |
 
 ## Component Schemas
 
