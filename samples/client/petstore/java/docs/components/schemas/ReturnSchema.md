@@ -68,4 +68,8 @@ A schema class that validates payloads
 ## Description
 this is a reserved python keyword
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

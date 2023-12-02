@@ -6,7 +6,7 @@
     {{/if}}
 {{else}}
     {{#eq types null }}
-        {{#and isSimpleAnyType (eq ../refInfo null) }}
+        {{#and isSimpleAnyType (eq refInfo null) }}
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="AnyTypeJsonSchema" }}
         {{/and}}
     {{else}}
@@ -29,7 +29,7 @@
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="BooleanJsonSchema" }}
                             {{/and}}
                         {{else}}
-                            {{#if eq this "integer" }}
+                            {{#eq this "integer" }}
                                 {{#and isSimpleInteger (eq ../refInfo null) }}
                                     {{#eq ../format null }}
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="IntJsonSchema" }}
@@ -42,7 +42,7 @@
                                     {{/eq}}
                                 {{/and}}
                             {{else}}
-                                {{#if eq this "number" }}
+                                {{#eq this "number" }}
                                     {{#and isSimpleNumber (eq ../refInfo null) }}
                                     {{#eq ../format null}}
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
@@ -88,8 +88,8 @@
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
                                         {{/and}}
                                     {{/eq}}
-                                {{/if}}
-                            {{/if}}
+                                {{/eq}}
+                            {{/eq}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}

@@ -72,11 +72,19 @@ extends NumberJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Footbar
 public static class Footbar<br>
 extends NumberJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Foorbar
 public static class Foorbar<br>
@@ -84,11 +92,19 @@ extends NumberJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Foobar1
 public static class Foobar1<br>
 extends NumberJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Foobar
 public static class Foobar<br>
@@ -96,10 +112,18 @@ extends NumberJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Foonbar
 public static class Foonbar<br>
 extends NumberJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

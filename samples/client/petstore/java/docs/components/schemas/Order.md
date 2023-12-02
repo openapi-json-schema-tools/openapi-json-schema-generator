@@ -107,16 +107,28 @@ extends Int32JsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## PetId
 public static class PetId<br>
 extends Int64JsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Id
 public static class Id<br>
 extends Int64JsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

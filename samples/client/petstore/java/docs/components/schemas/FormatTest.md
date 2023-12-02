@@ -272,11 +272,19 @@ extends NumberJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Float64
 public static class Float64<br>
 extends DoubleJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DoubleJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## DoubleSchema
 public static class DoubleSchema<br>
@@ -298,6 +306,10 @@ public static class Float32<br>
 extends FloatJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.FloatJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## FloatSchema
 public static class FloatSchema<br>
@@ -338,6 +350,10 @@ extends Int64JsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Int32withValidations
 public static class Int32withValidations<br>
 extends JsonSchema
@@ -358,6 +374,10 @@ public static class Int32<br>
 extends Int32JsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## IntegerSchema
 public static class IntegerSchema<br>

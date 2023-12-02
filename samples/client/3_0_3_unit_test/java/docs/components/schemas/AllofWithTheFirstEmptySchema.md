@@ -40,6 +40,10 @@ extends NumberJsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema0
 public static class Schema0<br>
 extends AnyTypeJsonSchema
