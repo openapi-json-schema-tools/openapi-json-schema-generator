@@ -16,7 +16,7 @@ Method | Description
 [**body_with_query_params**](../../paths/fake_body_with_query_params/put.md) | 
 [**boolean**](../../paths/fake_refs_boolean/post.md) | 
 [**case_sensitive_params**](../../paths/fake_case_sensitive_params/put.md) | 
-[**client_model**](../../paths/fake/patch.md) | To test \&quot;client\&quot; model
+[**client_model**](../../paths/fake/patch.md) | To test \\\&quot;client\\\&quot; model
 [**composed_one_of_different_types**](../../paths/fake_refs_composed_one_of_number_with_validations/post.md) | 
 [**delete_coffee**](../../paths/fake_delete_coffee_id/delete.md) | Delete coffee
 [**delete_common_param**](../../paths/common_param_sub_dir/delete.md) | 
