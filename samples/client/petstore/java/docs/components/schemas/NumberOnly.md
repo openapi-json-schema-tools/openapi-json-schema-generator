@@ -1,5 +1,5 @@
 # NumberOnly
-org.openapijsonschematools.components.schemas.NumberOnly.java
+org.openapijsonschematools.client.components.schemas.NumberOnly.java
 public class NumberOnly
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # PathParamSchema0
-org.openapijsonschematools.paths.commonparamsubdir.parameters.parameter0.PathParamSchema0.java
+org.openapijsonschematools.client.paths.commonparamsubdir.parameters.parameter0.PathParamSchema0.java
 public class PathParamSchema0
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

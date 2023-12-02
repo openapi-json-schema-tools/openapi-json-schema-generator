@@ -1,5 +1,5 @@
 # AnyTypeNotString
-org.openapijsonschematools.components.schemas.AnyTypeNotString.java
+org.openapijsonschematools.client.components.schemas.AnyTypeNotString.java
 public class AnyTypeNotString
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -39,7 +39,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

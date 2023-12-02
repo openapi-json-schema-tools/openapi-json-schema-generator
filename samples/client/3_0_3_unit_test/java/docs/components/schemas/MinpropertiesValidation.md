@@ -1,5 +1,5 @@
 # MinpropertiesValidation
-org.openapijsonschematools.components.schemas.MinpropertiesValidation.java
+org.openapijsonschematools.client.components.schemas.MinpropertiesValidation.java
 public class MinpropertiesValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

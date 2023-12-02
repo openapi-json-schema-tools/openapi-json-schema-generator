@@ -1,5 +1,5 @@
 # Money
-org.openapijsonschematools.components.schemas.Money.java
+org.openapijsonschematools.client.components.schemas.Money.java
 public class Money
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -55,7 +55,7 @@ extends DecimalJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DecimalJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DecimalJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -65,7 +65,7 @@ extends NotAnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

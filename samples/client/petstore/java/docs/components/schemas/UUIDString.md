@@ -1,5 +1,5 @@
 # UUIDString
-org.openapijsonschematools.components.schemas.UUIDString.java
+org.openapijsonschematools.client.components.schemas.UUIDString.java
 public class UUIDString
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

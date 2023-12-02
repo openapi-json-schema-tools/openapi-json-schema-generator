@@ -1,5 +1,5 @@
 # MyObjectDto
-org.openapijsonschematools.components.schemas.MyObjectDto.java
+org.openapijsonschematools.client.components.schemas.MyObjectDto.java
 public class MyObjectDto
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -53,7 +53,7 @@ extends UuidJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -63,7 +63,7 @@ extends NotAnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NotAnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

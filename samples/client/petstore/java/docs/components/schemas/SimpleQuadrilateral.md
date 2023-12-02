@@ -1,5 +1,5 @@
 # SimpleQuadrilateral
-org.openapijsonschematools.components.schemas.SimpleQuadrilateral.java
+org.openapijsonschematools.client.components.schemas.SimpleQuadrilateral.java
 public class SimpleQuadrilateral
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

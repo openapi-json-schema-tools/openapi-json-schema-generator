@@ -1,5 +1,5 @@
 # File
-org.openapijsonschematools.components.schemas.File.java
+org.openapijsonschematools.client.components.schemas.File.java
 public class File
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -60,7 +60,7 @@ A schema class that validates payloads
 ## Description
 Test capitalization
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

@@ -1,5 +1,5 @@
 # AdditionalPropertiesSchema
-org.openapijsonschematools.components.schemas.AdditionalPropertiesSchema.java
+org.openapijsonschematools.client.components.schemas.AdditionalPropertiesSchema.java
 public class AdditionalPropertiesSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -190,7 +190,7 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

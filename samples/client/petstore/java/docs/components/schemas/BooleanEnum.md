@@ -1,5 +1,5 @@
 # BooleanEnum
-org.openapijsonschematools.components.schemas.BooleanEnum.java
+org.openapijsonschematools.client.components.schemas.BooleanEnum.java
 public class BooleanEnum
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

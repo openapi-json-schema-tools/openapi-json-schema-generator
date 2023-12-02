@@ -1,5 +1,5 @@
 # Schema3
-org.openapijsonschematools.paths.fake.get.parameters.parameter3.Schema3.java
+org.openapijsonschematools.client.paths.fake.get.parameters.parameter3.Schema3.java
 public class Schema3
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # DateTimeFormat
-org.openapijsonschematools.components.schemas.DateTimeFormat.java
+org.openapijsonschematools.client.components.schemas.DateTimeFormat.java
 public class DateTimeFormat
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # Schema
-org.openapijsonschematools.paths.fakewildcardresponses.get.responses.response1xx.content.applicationjson.Schema.java
+org.openapijsonschematools.client.paths.fakewildcardresponses.get.responses.response1xx.content.applicationjson.Schema.java
 public class Schema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,6 +15,6 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

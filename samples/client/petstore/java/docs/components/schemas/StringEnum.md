@@ -1,5 +1,5 @@
 # StringEnum
-org.openapijsonschematools.components.schemas.StringEnum.java
+org.openapijsonschematools.client.components.schemas.StringEnum.java
 public class StringEnum
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

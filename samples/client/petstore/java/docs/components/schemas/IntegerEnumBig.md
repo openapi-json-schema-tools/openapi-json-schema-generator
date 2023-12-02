@@ -1,5 +1,5 @@
 # IntegerEnumBig
-org.openapijsonschematools.components.schemas.IntegerEnumBig.java
+org.openapijsonschematools.client.components.schemas.IntegerEnumBig.java
 public class IntegerEnumBig
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

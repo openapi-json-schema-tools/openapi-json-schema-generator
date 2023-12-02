@@ -1,5 +1,5 @@
 # Shape
-org.openapijsonschematools.components.schemas.Shape.java
+org.openapijsonschematools.client.components.schemas.Shape.java
 public class Shape
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

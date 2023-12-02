@@ -1,5 +1,5 @@
 # RefInOneof
-org.openapijsonschematools.components.schemas.RefInOneof.java
+org.openapijsonschematools.client.components.schemas.RefInOneof.java
 public class RefInOneof
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

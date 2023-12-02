@@ -1,5 +1,5 @@
 # RefPet
-org.openapijsonschematools.components.schemas.RefPet.java
+org.openapijsonschematools.client.components.schemas.RefPet.java
 public class RefPet
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

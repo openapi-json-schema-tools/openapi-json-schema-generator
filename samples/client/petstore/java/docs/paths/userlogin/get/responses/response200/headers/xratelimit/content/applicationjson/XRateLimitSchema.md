@@ -1,5 +1,5 @@
 # XRateLimitSchema
-org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema.java
+org.openapijsonschematools.client.paths.userlogin.get.responses.response200.headers.xratelimit.content.applicationjson.XRateLimitSchema.java
 public class XRateLimitSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

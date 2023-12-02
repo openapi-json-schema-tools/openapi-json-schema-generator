@@ -1,5 +1,5 @@
 # MixedPropertiesAndAdditionalPropertiesClass
-org.openapijsonschematools.components.schemas.MixedPropertiesAndAdditionalPropertiesClass.java
+org.openapijsonschematools.client.components.schemas.MixedPropertiesAndAdditionalPropertiesClass.java
 public class MixedPropertiesAndAdditionalPropertiesClass
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -95,7 +95,7 @@ extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -105,7 +105,7 @@ extends UuidJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.UuidJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.UuidJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

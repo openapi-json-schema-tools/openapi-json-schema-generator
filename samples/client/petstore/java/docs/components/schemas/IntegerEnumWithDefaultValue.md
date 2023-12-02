@@ -1,5 +1,5 @@
 # IntegerEnumWithDefaultValue
-org.openapijsonschematools.components.schemas.IntegerEnumWithDefaultValue.java
+org.openapijsonschematools.client.components.schemas.IntegerEnumWithDefaultValue.java
 public class IntegerEnumWithDefaultValue
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # EnumArrays
-org.openapijsonschematools.components.schemas.EnumArrays.java
+org.openapijsonschematools.client.components.schemas.EnumArrays.java
 public class EnumArrays
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # AllofCombinedWithAnyofOneof
-org.openapijsonschematools.components.schemas.AllofCombinedWithAnyofOneof.java
+org.openapijsonschematools.client.components.schemas.AllofCombinedWithAnyofOneof.java
 public class AllofCombinedWithAnyofOneof
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

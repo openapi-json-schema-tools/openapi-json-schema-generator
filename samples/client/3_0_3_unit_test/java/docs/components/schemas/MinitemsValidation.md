@@ -1,5 +1,5 @@
 # MinitemsValidation
-org.openapijsonschematools.components.schemas.MinitemsValidation.java
+org.openapijsonschematools.client.components.schemas.MinitemsValidation.java
 public class MinitemsValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

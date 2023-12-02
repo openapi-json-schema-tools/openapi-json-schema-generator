@@ -1,5 +1,5 @@
 # PatternIsNotAnchored
-org.openapijsonschematools.components.schemas.PatternIsNotAnchored.java
+org.openapijsonschematools.client.components.schemas.PatternIsNotAnchored.java
 public class PatternIsNotAnchored
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

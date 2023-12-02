@@ -1,5 +1,5 @@
 # UniqueitemsFalseValidation
-org.openapijsonschematools.components.schemas.UniqueitemsFalseValidation.java
+org.openapijsonschematools.client.components.schemas.UniqueitemsFalseValidation.java
 public class UniqueitemsFalseValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

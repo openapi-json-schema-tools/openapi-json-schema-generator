@@ -1,5 +1,5 @@
 # PatternValidation
-org.openapijsonschematools.components.schemas.PatternValidation.java
+org.openapijsonschematools.client.components.schemas.PatternValidation.java
 public class PatternValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

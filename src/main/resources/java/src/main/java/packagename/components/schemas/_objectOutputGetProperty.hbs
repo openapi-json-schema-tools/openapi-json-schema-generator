@@ -1,0 +1,15 @@
+{{#if required}}
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+return get("{{{@key.original}}}");
+    {{else}}
+return ({{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) get("{{{@key.original}}}");
+    {{/and}}
+{{else}}
+String key = "{{{@key.original}}}";
+throwIfKeyNotPresent(key);
+    {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+return get(key);
+    {{else}}
+return ({{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) get(key);
+    {{/and}}
+{{/if}}

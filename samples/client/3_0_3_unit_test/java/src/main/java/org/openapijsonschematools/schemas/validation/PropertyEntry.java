@@ -1,9 +1,0 @@
-package org.openapijsonschematools.schemas.validation;
-
-import java.util.AbstractMap;
-
-public class PropertyEntry extends AbstractMap.SimpleEntry<String, Class<? extends JsonSchema>> {
-    public PropertyEntry(String key, Class<? extends JsonSchema> value) {
-        super(key, value);
-    }
-}

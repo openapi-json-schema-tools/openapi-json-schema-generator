@@ -1,5 +1,5 @@
 # Maxproperties0MeansTheObjectIsEmpty
-org.openapijsonschematools.components.schemas.Maxproperties0MeansTheObjectIsEmpty.java
+org.openapijsonschematools.client.components.schemas.Maxproperties0MeansTheObjectIsEmpty.java
 public class Maxproperties0MeansTheObjectIsEmpty
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # MaximumValidation
-org.openapijsonschematools.components.schemas.MaximumValidation.java
+org.openapijsonschematools.client.components.schemas.MaximumValidation.java
 public class MaximumValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

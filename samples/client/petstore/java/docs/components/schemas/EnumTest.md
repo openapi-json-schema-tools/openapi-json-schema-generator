@@ -1,5 +1,5 @@
 # EnumTest
-org.openapijsonschematools.components.schemas.EnumTest.java
+org.openapijsonschematools.client.components.schemas.EnumTest.java
 public class EnumTest
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

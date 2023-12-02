@@ -1,5 +1,5 @@
 # RefInAnyof
-org.openapijsonschematools.components.schemas.RefInAnyof.java
+org.openapijsonschematools.client.components.schemas.RefInAnyof.java
 public class RefInAnyof
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

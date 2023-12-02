@@ -1,5 +1,5 @@
 # MaxlengthValidation
-org.openapijsonschematools.components.schemas.MaxlengthValidation.java
+org.openapijsonschematools.client.components.schemas.MaxlengthValidation.java
 public class MaxlengthValidation
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

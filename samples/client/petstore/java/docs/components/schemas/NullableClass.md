@@ -1,5 +1,5 @@
 # NullableClass
-org.openapijsonschematools.components.schemas.NullableClass.java
+org.openapijsonschematools.client.components.schemas.NullableClass.java
 public class NullableClass
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -239,7 +239,7 @@ extends MapJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -385,7 +385,7 @@ extends MapJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

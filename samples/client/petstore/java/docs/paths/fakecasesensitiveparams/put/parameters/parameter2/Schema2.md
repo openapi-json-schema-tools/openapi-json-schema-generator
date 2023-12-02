@@ -1,5 +1,5 @@
 # Schema2
-org.openapijsonschematools.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2.java
+org.openapijsonschematools.client.paths.fakecasesensitiveparams.put.parameters.parameter2.Schema2.java
 public class Schema2
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,6 +15,6 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

@@ -1,5 +1,5 @@
 # UriReferenceFormat
-org.openapijsonschematools.components.schemas.UriReferenceFormat.java
+org.openapijsonschematools.client.components.schemas.UriReferenceFormat.java
 public class UriReferenceFormat
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

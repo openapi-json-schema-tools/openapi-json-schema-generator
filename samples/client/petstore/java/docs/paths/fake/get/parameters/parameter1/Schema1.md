@@ -1,5 +1,5 @@
 # Schema1
-org.openapijsonschematools.paths.fake.get.parameters.parameter1.Schema1.java
+org.openapijsonschematools.client.paths.fake.get.parameters.parameter1.Schema1.java
 public class Schema1
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

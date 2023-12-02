@@ -1,5 +1,5 @@
 # JSONPatchRequest
-org.openapijsonschematools.components.schemas.JSONPatchRequest.java
+org.openapijsonschematools.client.components.schemas.JSONPatchRequest.java
 public class JSONPatchRequest
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

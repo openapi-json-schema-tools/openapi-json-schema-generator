@@ -1,5 +1,5 @@
 # User
-org.openapijsonschematools.components.schemas.User.java
+org.openapijsonschematools.client.components.schemas.User.java
 public class User
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -94,7 +94,7 @@ A schema class that validates payloads
 ## Description
 test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values.
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -130,7 +130,7 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -143,7 +143,7 @@ A schema class that validates payloads
 ## Description
 test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -175,7 +175,7 @@ A schema class that validates payloads
 ## Description
 test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value.
 
-| Methods Inherited from class org.openapijsonschematools.schemas.MapJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.MapJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -194,7 +194,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -204,7 +204,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -214,7 +214,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -224,7 +224,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -234,7 +234,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -244,7 +244,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

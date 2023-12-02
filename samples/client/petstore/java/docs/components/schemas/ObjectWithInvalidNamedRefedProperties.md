@@ -1,5 +1,5 @@
 # ObjectWithInvalidNamedRefedProperties
-org.openapijsonschematools.components.schemas.ObjectWithInvalidNamedRefedProperties.java
+org.openapijsonschematools.client.components.schemas.ObjectWithInvalidNamedRefedProperties.java
 public class ObjectWithInvalidNamedRefedProperties
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

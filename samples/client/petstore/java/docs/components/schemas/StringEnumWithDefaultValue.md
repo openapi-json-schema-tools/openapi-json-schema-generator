@@ -1,5 +1,5 @@
 # StringEnumWithDefaultValue
-org.openapijsonschematools.components.schemas.StringEnumWithDefaultValue.java
+org.openapijsonschematools.client.components.schemas.StringEnumWithDefaultValue.java
 public class StringEnumWithDefaultValue
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

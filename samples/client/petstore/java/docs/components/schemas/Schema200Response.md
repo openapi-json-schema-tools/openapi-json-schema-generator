@@ -1,5 +1,5 @@
 # Schema200Response
-org.openapijsonschematools.components.schemas.Schema200Response.java
+org.openapijsonschematools.client.components.schemas.Schema200Response.java
 public class Schema200Response
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -71,7 +71,7 @@ A schema class that validates payloads
 ## Description
 this is a reserved python keyword
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

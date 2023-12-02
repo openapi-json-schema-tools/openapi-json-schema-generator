@@ -1,5 +1,5 @@
 # RefInItems
-org.openapijsonschematools.components.schemas.RefInItems.java
+org.openapijsonschematools.client.components.schemas.RefInItems.java
 public class RefInItems
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

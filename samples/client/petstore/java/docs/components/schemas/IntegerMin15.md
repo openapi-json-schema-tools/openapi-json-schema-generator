@@ -1,5 +1,5 @@
 # IntegerMin15
-org.openapijsonschematools.components.schemas.IntegerMin15.java
+org.openapijsonschematools.client.components.schemas.IntegerMin15.java
 public class IntegerMin15
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

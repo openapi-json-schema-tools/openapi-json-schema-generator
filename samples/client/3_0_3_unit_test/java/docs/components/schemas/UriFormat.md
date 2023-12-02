@@ -1,5 +1,5 @@
 # UriFormat
-org.openapijsonschematools.components.schemas.UriFormat.java
+org.openapijsonschematools.client.components.schemas.UriFormat.java
 public class UriFormat
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

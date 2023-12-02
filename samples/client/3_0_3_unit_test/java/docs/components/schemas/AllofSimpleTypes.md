@@ -1,5 +1,5 @@
 # AllofSimpleTypes
-org.openapijsonschematools.components.schemas.AllofSimpleTypes.java
+org.openapijsonschematools.client.components.schemas.AllofSimpleTypes.java
 public class AllofSimpleTypes
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

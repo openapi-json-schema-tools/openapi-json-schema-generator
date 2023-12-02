@@ -1,5 +1,5 @@
 # AnyofWithBaseSchema
-org.openapijsonschematools.components.schemas.AnyofWithBaseSchema.java
+org.openapijsonschematools.client.components.schemas.AnyofWithBaseSchema.java
 public class AnyofWithBaseSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

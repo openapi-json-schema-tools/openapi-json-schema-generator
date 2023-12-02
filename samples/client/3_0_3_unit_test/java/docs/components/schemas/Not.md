@@ -1,5 +1,5 @@
 # Not
-org.openapijsonschematools.components.schemas.Not.java
+org.openapijsonschematools.client.components.schemas.Not.java
 public class Not
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

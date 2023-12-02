@@ -1,5 +1,5 @@
 # ObjWithRequiredProps
-org.openapijsonschematools.components.schemas.ObjWithRequiredProps.java
+org.openapijsonschematools.client.components.schemas.ObjWithRequiredProps.java
 public class ObjWithRequiredProps
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -54,7 +54,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

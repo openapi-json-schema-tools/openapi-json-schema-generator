@@ -1,5 +1,5 @@
 # AllofWithBaseSchema
-org.openapijsonschematools.components.schemas.AllofWithBaseSchema.java
+org.openapijsonschematools.client.components.schemas.AllofWithBaseSchema.java
 public class AllofWithBaseSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -119,7 +119,7 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -174,7 +174,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

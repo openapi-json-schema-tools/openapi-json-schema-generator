@@ -1,5 +1,5 @@
 # Schema5
-org.openapijsonschematools.paths.faketestqueryparamters.put.parameters.parameter5.Schema5.java
+org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.parameter5.Schema5.java
 public class Schema5
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

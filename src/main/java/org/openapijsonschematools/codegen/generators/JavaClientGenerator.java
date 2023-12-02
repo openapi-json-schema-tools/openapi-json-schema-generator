@@ -172,7 +172,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         requestBodiesIdentifier = "requestbodies";
         securitySchemesIdentifier = "securityschemes";
         requestBodyIdentifier = "requestbody";
-        packageName = "org.openapijsonschematools";
+        packageName = "org.openapijsonschematools.client";
         addSchemaImportsFromV3SpecLocations = true;
         deepestRefSchemaImportNeeded = true;
         // this must be false for parameter numbers to stay the same as the ones in the spec
@@ -249,7 +249,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         jsonPathTestTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 new HashMap<String, String>() {{
-                    put("src/test/java/org/openapitools/components/schemas/Schema_test.hbs", ".java");
+                    put("src/test/java/packagename/components/schemas/Schema_test.hbs", ".java");
                 }}
         );
 
@@ -368,7 +368,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("UuidJsonSchema");
         for (String schemaSupportingFile: schemaSupportingFiles) {
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/org/openapitools/schemas/"+schemaSupportingFile+".hbs",
+                    "src/main/java/packagename/schemas/"+schemaSupportingFile+".hbs",
                     packagePath() + File.separatorChar + "schemas",
                     schemaSupportingFile + ".java"));
         }
@@ -385,7 +385,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaTestSupportingFiles.add("RefBooleanSchemaTest");
         for (String schemaTestSupportingFile: schemaTestSupportingFiles) {
             supportingFiles.add(new SupportingFile(
-                    "src/test/java/org/openapitools/schemas/"+schemaTestSupportingFile+".hbs",
+                    "src/test/java/packagename/schemas/"+schemaTestSupportingFile+".hbs",
                     testPackagePath() + File.separatorChar + "schemas",
                     schemaTestSupportingFile + ".java"));
         }
@@ -430,7 +430,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("ValidationMetadata");
         for (String keywordValidatorFile: keywordValidatorFiles) {
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/org/openapitools/schemas/validation/"+keywordValidatorFile+".hbs",
+                    "src/main/java/packagename/schemas/validation/"+keywordValidatorFile+".hbs",
                     packagePath() + File.separatorChar + "schemas" + File.separatorChar + "validation",
                     keywordValidatorFile + ".java"));
         }
@@ -446,7 +446,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorTestFiles.add("JsonSchemaTest");
         for (String keywordValidatorTestFile: keywordValidatorTestFiles) {
             supportingFiles.add(new SupportingFile(
-                    "src/test/java/org/openapitools/schemas/validation/"+keywordValidatorTestFile+".hbs",
+                    "src/test/java/packagename/schemas/validation/"+keywordValidatorTestFile+".hbs",
                     testPackagePath() + File.separatorChar + "schemas" + File.separatorChar + "validation",
                     keywordValidatorTestFile + ".java"));
         }
@@ -460,7 +460,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         exceptionClasses.add("ValidationException");
         for (String exceptionClass: exceptionClasses) {
             supportingFiles.add(new SupportingFile(
-                    "src/main/java/org/openapitools/exceptions/"+exceptionClass+".hbs",
+                    "src/main/java/packagename/exceptions/"+exceptionClass+".hbs",
                     packagePath() + File.separatorChar + "exceptions",
                     exceptionClass + ".java"));
         }
@@ -468,20 +468,20 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
         // configuration
         supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/configurations/JsonSchemaKeywordFlags.hbs",
+                "src/main/java/packagename/configurations/JsonSchemaKeywordFlags.hbs",
                 packagePath() + File.separatorChar + "configurations",
                 "JsonSchemaKeywordFlags.java"));
         supportingFiles.add(new SupportingFile(
-                "src/test/java/org/openapitools/configurations/JsonSchemaKeywordFlagsTest.hbs",
+                "src/test/java/packagename/configurations/JsonSchemaKeywordFlagsTest.hbs",
                 testPackagePath() + File.separatorChar + "configurations",
                 "JsonSchemaKeywordFlagsTest.java"));
         supportingFiles.add(new SupportingFile(
-                "src/main/java/org/openapitools/configurations/SchemaConfiguration.hbs",
+                "src/main/java/packagename/configurations/SchemaConfiguration.hbs",
                 packagePath() + File.separatorChar + "configurations",
                 "SchemaConfiguration.java"));
 
         HashMap<String, String> schemaTemplates = new HashMap<>();
-        schemaTemplates.put("src/main/java/org/openapitools/components/schemas/Schema.hbs", ".java");
+        schemaTemplates.put("src/main/java/packagename/components/schemas/Schema.hbs", ".java");
         jsonPathTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 schemaTemplates
@@ -489,7 +489,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         jsonPathDocTemplateFiles.put(
                 CodegenConstants.JSON_PATH_LOCATION_TYPE.SCHEMA,
                 new HashMap<String, String>() {{
-                    put("src/main/java/org/openapitools/components/schemas/Schema_doc.hbs", ".md");
+                    put("src/main/java/packagename/components/schemas/Schema_doc.hbs", ".md");
                 }}
         );
 

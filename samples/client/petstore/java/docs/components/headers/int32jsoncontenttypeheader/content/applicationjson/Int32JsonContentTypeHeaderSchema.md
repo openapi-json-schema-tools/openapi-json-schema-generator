@@ -1,5 +1,5 @@
 # Int32JsonContentTypeHeaderSchema
-org.openapijsonschematools.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema.java
+org.openapijsonschematools.client.components.headers.int32jsoncontenttypeheader.content.applicationjson.Int32JsonContentTypeHeaderSchema.java
 public class Int32JsonContentTypeHeaderSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

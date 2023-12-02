@@ -1,5 +1,5 @@
 # Category
-org.openapijsonschematools.components.schemas.Category.java
+org.openapijsonschematools.client.components.schemas.Category.java
 public class Category
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

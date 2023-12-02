@@ -1,5 +1,5 @@
 # Player
-org.openapijsonschematools.components.schemas.Player.java
+org.openapijsonschematools.client.components.schemas.Player.java
 public class Player
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -59,7 +59,7 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

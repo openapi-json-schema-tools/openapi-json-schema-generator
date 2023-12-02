@@ -1,5 +1,5 @@
 # Schema0
-org.openapijsonschematools.paths.commonparamsubdir.post.parameters.parameter0.Schema0.java
+org.openapijsonschematools.client.paths.commonparamsubdir.post.parameters.parameter0.Schema0.java
 public class Schema0
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,6 +15,6 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

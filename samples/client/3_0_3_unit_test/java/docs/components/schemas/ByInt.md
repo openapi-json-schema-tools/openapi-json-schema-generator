@@ -1,5 +1,5 @@
 # ByInt
-org.openapijsonschematools.components.schemas.ByInt.java
+org.openapijsonschematools.client.components.schemas.ByInt.java
 public class ByInt
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

@@ -1,5 +1,5 @@
 # AdditionalpropertiesCanExistByItself
-org.openapijsonschematools.components.schemas.AdditionalpropertiesCanExistByItself.java
+org.openapijsonschematools.client.components.schemas.AdditionalpropertiesCanExistByItself.java
 public class AdditionalpropertiesCanExistByItself
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -52,7 +52,7 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.BooleanJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.BooleanJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

@@ -1,5 +1,5 @@
 # InvalidStringValueForDefault
-org.openapijsonschematools.components.schemas.InvalidStringValueForDefault.java
+org.openapijsonschematools.client.components.schemas.InvalidStringValueForDefault.java
 public class InvalidStringValueForDefault
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

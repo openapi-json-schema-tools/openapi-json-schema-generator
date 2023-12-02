@@ -1,5 +1,5 @@
 # Schema0
-org.openapijsonschematools.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0.java
+org.openapijsonschematools.client.paths.fakequeryparamwithjsoncontenttype.get.parameters.parameter0.content.applicationjson.Schema0.java
 public class Schema0
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,6 +15,6 @@ extends AnyTypeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.AnyTypeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.AnyTypeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

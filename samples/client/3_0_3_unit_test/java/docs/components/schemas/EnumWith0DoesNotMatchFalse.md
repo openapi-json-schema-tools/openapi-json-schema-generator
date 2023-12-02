@@ -1,5 +1,5 @@
 # EnumWith0DoesNotMatchFalse
-org.openapijsonschematools.components.schemas.EnumWith0DoesNotMatchFalse.java
+org.openapijsonschematools.client.components.schemas.EnumWith0DoesNotMatchFalse.java
 public class EnumWith0DoesNotMatchFalse
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

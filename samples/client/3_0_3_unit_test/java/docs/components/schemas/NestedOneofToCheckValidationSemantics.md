@@ -1,5 +1,5 @@
 # NestedOneofToCheckValidationSemantics
-org.openapijsonschematools.components.schemas.NestedOneofToCheckValidationSemantics.java
+org.openapijsonschematools.client.components.schemas.NestedOneofToCheckValidationSemantics.java
 public class NestedOneofToCheckValidationSemantics
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -63,7 +63,7 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.NumberJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 

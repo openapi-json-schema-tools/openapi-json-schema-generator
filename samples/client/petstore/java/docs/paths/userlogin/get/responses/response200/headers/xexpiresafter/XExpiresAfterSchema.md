@@ -1,5 +1,5 @@
 # XExpiresAfterSchema
-org.openapijsonschematools.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema.java
+org.openapijsonschematools.client.paths.userlogin.get.responses.response200.headers.xexpiresafter.XExpiresAfterSchema.java
 public class XExpiresAfterSchema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -15,6 +15,6 @@ extends DateTimeJsonSchema
 
 A schema class that validates payloads
 
-| Methods Inherited from class org.openapijsonschematools.schemas.DateTimeJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.DateTimeJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

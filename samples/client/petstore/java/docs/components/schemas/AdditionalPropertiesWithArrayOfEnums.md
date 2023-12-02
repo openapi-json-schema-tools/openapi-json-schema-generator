@@ -1,5 +1,5 @@
 # AdditionalPropertiesWithArrayOfEnums
-org.openapijsonschematools.components.schemas.AdditionalPropertiesWithArrayOfEnums.java
+org.openapijsonschematools.client.components.schemas.AdditionalPropertiesWithArrayOfEnums.java
 public class AdditionalPropertiesWithArrayOfEnums
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads

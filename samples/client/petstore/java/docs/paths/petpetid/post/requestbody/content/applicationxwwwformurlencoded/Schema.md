@@ -1,5 +1,5 @@
 # Schema
-org.openapijsonschematools.paths.petpetid.post.requestbody.content.applicationxwwwformurlencoded.Schema.java
+org.openapijsonschematools.client.paths.petpetid.post.requestbody.content.applicationxwwwformurlencoded.Schema.java
 public class Schema
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
@@ -60,7 +60,7 @@ A schema class that validates payloads
 ## Description
 Updated status of the pet
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
 
@@ -73,6 +73,6 @@ A schema class that validates payloads
 ## Description
 Updated name of the pet
 
-| Methods Inherited from class org.openapijsonschematools.schemas.StringJsonSchema |
+| Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |

@@ -1,5 +1,5 @@
 # NumberTypeMatchesNumbers
-org.openapijsonschematools.components.schemas.NumberTypeMatchesNumbers.java
+org.openapijsonschematools.client.components.schemas.NumberTypeMatchesNumbers.java
 public class NumberTypeMatchesNumbers
 
 A class that contains necessary nested schema classes, and classes to store validated list and map payloads
