@@ -14,3 +14,7 @@ public static class Int32JsonContentTypeHeaderSchema1<br>
 extends Int32JsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |

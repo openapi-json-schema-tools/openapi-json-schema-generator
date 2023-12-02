@@ -338,6 +338,10 @@ extends Int64JsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Int32withValidations
 public static class Int32withValidations<br>
 extends JsonSchema
@@ -358,6 +362,10 @@ public static class Int32<br>
 extends Int32JsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## IntegerSchema
 public static class IntegerSchema<br>

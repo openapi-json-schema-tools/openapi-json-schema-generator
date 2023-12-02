@@ -56,17 +56,29 @@ extends Int64JsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema14
 public static class Schema14<br>
 extends Int32JsonSchema
 
 A schema class that validates payloads
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int32JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Schema13
 public static class Schema13<br>
 extends IntJsonSchema
 
 A schema class that validates payloads
+
+| Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
 
 ## Schema12
 public static class Schema12<br>

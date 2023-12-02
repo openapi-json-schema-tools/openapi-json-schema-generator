@@ -261,6 +261,10 @@ A schema class that validates payloads
 ## Description
 None
 
+| Methods Inherited from class org.openapijsonschematools.client.schemas.Int64JsonSchema |
+| ------------------------------------------------------------------ |
+| validate                                                           |
+
 ## Int32
 public static class Int32<br>
 extends JsonSchema
