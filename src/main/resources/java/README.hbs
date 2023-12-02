@@ -66,35 +66,37 @@ Then manually install the following JARs:
 
 ## Usage Notes
 ### Validation, Immutability, and Data Type
-This python code validates data to schema classes and return back an immutable instance containing the data. This ensure that
+This Java code validates data to schema classes and return back an immutable instance containing the data. This ensure that
 - valid data cannot be mutated and become invalid to a set of schemas
   - the one exception is that files are not immutable, so schema instances storing/sending/receiving files are not immutable
 
-Here is the mapping from json schema types to python subclassed types:
+Here is the mapping from json schema types to Java types:
 
 | Json Schema Type | Java Base Class |
 | ---------------- | --------------- |
 | object           | FrozenMap (HashMap) |
 | array            | FrozenList (ArrayList) |
 | string           | String |
-| number           | Number, float, double, int, long |
-| integer          | int, long |
+| number           | Number (int, long, float, double) |
+| integer          | int, long, float, double (with values equal to integers) |
 | boolean          | boolean |
 | null             | Void (null) |
 | AnyType (unset)  | Object |
 
-### Storage of Json Schema Definition in Python Classes
+### Storage of Json Schema Definition in Java JsonSchema Classes
 In openapi v3.0.3 there are ~ 28 json schema keywords. Almost all of them can apply if
-type is unset. I have chosen to separate the storage of json schema definition info and output
-validated classes for payload instantiation.
+type is unset. I have chosen to separate the storage of
+- json schema definition info
+- output classes for validated Map (json schema type object) payloads
+- output classes for validated List (json schema type array) payloads
 
 <details>
   <summary>Reason</summary>
 
 This json schema data is stored in each class that is written for a schema, in a component or
 other openapi document location. This class is only responsible for storing schema info.
-Output classes like those that store dict payloads are written separately and are
-returned by the Schema.validate method when that method is passed in dict input.
+Output classes like those that store map payloads are written separately and are
+returned by the JsonSchema.validate method when that method is passed in Map input.
 This prevents payload property access methods from
 colliding with json schema definition.
 </details>
@@ -102,22 +104,23 @@ colliding with json schema definition.
 ### Json Schema Type Object
 Most component schemas (models) are probably of type object. Which is a map data structure.
 Json schema allows string keys in this map, which means schema properties can have key names that are
-invalid python variable names. Names like:
+invalid Java variable names. Names like:
 - "hi-there"
 - "1variable"
 - "@now"
 - " "
 - "from"
 
-To allow these use cases to work, schemas.immutabledict is used as the base class of type object schemas.
-This means that one can use normal dict methods on instances of these classes.
+To allow these use cases to work, FrozenMap (which extends HashMap) is used as the base class of type object schemas.
+This means that one can use normal Map methods on instances of these classes.
 
 <details>
   <summary>Other Details</summary>
 
-- optional properties which were not set will not exist in the instance
-- None is only allowed in as a value if type: "null" was included or nullable: true was set
-- preserving the original key names is required to properly validate a payload to multiple json schemas
+- getters are written for validly named required and optional properties
+- null is only allowed in as a value if type: "null" was included or nullable: true was set
+  - because null is an allowed property value, it is not used to represent an unset property state
+- if an optional property is requested and it does not exist in the Map, an UnsetPropertyException is thrown
 </details>
 
 ### Json Schema Type + Format, Validated Data Storage
