@@ -1159,7 +1159,8 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, specTestCaseName);
     }
 
-    protected String handleSpecialCharacters(String value) {
+    @Override
+    public String escapeUnsafeCharacters(String value) {
         // handles escape characters and the like
         String stringValue = value;
         String backslash = "\\";
@@ -1445,7 +1446,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             return fullPrefix + example + closeChars;
         } else if (ModelUtils.isStringSchema(schema)) {
             if (example != null) {
-                return fullPrefix + ensureQuotes(handleSpecialCharacters(example)) + closeChars;
+                return fullPrefix + ensureQuotes(escapeUnsafeCharacters(example)) + closeChars;
             }
             if (ModelUtils.isDateSchema(schema)) {
                 if (objExample == null) {
@@ -2187,7 +2188,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
 
     @Override
     public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
-        String usedKey = handleSpecialCharacters(name);
+        String usedKey = escapeUnsafeCharacters(name);
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
             sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);

@@ -1595,11 +1595,11 @@ public class DefaultGenerator implements Generator {
             type = "number";
         } else if (value instanceof String) {
             type = "string";
-            usedValue = handleSpecialCharacters((String) value);
+            usedValue = escapeUnsafeCharacters((String) value);
         } else if (value instanceof LinkedHashMap) {
             LinkedHashMap<String, EnumValue> castMap = new LinkedHashMap<>();
             for (Map.Entry entry: ((LinkedHashMap<?, ?>) value).entrySet()) {
-                String entryKey = handleSpecialCharacters((String) entry.getKey());
+                String entryKey = escapeUnsafeCharacters((String) entry.getKey());
                 Object entryValue = entry.getValue();
                 EnumValue castValue = getEnumValue(entryValue, null);
                 castMap.put(entryKey, castValue);
@@ -2232,10 +2232,10 @@ public class DefaultGenerator implements Generator {
         for (Entry<String, List<String>> entry: schemaDepReq.entrySet()) {
             String key = entry.getKey();
             List<String> values = entry.getValue();
-            String fixedKey = handleSpecialCharacters(key);
+            String fixedKey = escapeUnsafeCharacters(key);
             ArrayList<String> fixedValues = new ArrayList<>();
             for (String value: values) {
-                fixedValues.add(handleSpecialCharacters(value));
+                fixedValues.add(escapeUnsafeCharacters(value));
             }
             dependenteRequired.put(fixedKey, fixedValues);
         }
@@ -4915,7 +4915,7 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath) {
-        String usedKey = handleSpecialCharacters(name);
+        String usedKey = escapeUnsafeCharacters(name);
         HashMap<String, Integer> keyToQty = sourceJsonPathToKeyToQty.getOrDefault(sourceJsonPath, new HashMap<>());
         if (!sourceJsonPathToKeyToQty.containsKey(sourceJsonPath)) {
             sourceJsonPathToKeyToQty.put(sourceJsonPath, keyToQty);
@@ -4959,56 +4959,56 @@ public class DefaultGenerator implements Generator {
         switch (keyType) {
             case "schemaProperty":
             case "schemas":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = getSchemaCamelCaseName(key, sourceJsonPath);
                 break;
             case "paths":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = camelize(toPathFilename(usedKey, null));;
                 break;
             case "misc":
             case "verb":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toModelFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "parameters":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toParameterFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseParameter(usedKey);
                 break;
             case "requestBodies":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toRequestBodyFilename(usedKey);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "headers":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toHeaderFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "responses":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toResponseModuleName(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseResponse(usedKey);
                 break;
             case "securitySchemes":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toSecuritySchemeFilename(usedKey, sourceJsonPath);
                 camelCaseName = toModelName(usedKey, sourceJsonPath);
                 break;
             case "servers":
-                usedKey = handleSpecialCharacters(key);
+                usedKey = escapeUnsafeCharacters(key);
                 isValid = isValid(usedKey);
                 snakeCaseName = toServerFilename(usedKey, sourceJsonPath);
                 camelCaseName = getCamelCaseServer(usedKey);
@@ -5506,13 +5506,6 @@ public class DefaultGenerator implements Generator {
     public List<VendorExtension> getSupportedVendorExtensions() {
         return new ArrayList<>();
     }
-
-    /*
-    A function to convert yaml or json ingested strings like property names
-    And convert special characters like newline, tab, carriage return
-    Into strings that can be rendered in the language that the generator will output to
-    */
-    protected String handleSpecialCharacters(String name) { return name; }
 
     /**
      * Used to ensure that null or Schema is returned given an input Boolean/Schema/null

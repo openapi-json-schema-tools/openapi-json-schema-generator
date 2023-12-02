@@ -977,7 +977,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return getSchemaCamelCaseName(name, sourceJsonPath, true);
     }
 
-    protected String handleSpecialCharacters(String value) {
+    @Override
+    public String escapeUnsafeCharacters(String value) {
         // handles escape characters and the like
         String stringValue = value;
         String backslash = "\\";
@@ -1012,7 +1013,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private String getSchemaCamelCaseName(String name, @NotNull String sourceJsonPath, boolean useCache) {
-        String usedKey = handleSpecialCharacters(name);
+        String usedKey = escapeUnsafeCharacters(name);
         usedKey = sanitizeName(usedKey, "[^a-zA-Z0-9_]+");
         /*
         schemas named Schema can collide in:
@@ -1845,7 +1846,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (pattern == null) {
             return null;
         }
-        String usedPattern = handleSpecialCharacters(pattern);
+        String usedPattern = escapeUnsafeCharacters(pattern);
         Matcher m = patternRegex.matcher(usedPattern);
         if (m.find()) {
             int groupCount = m.groupCount();
