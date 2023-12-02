@@ -42,7 +42,7 @@
                                     {{/eq}}
                                 {{/and}}
                             {{else}}
-                                {{#if eq this "number" }}
+                                {{#eq this "number" }}
                                     {{#and isSimpleNumber (eq ../refInfo null) }}
                                     {{#eq ../format null}}
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
@@ -88,7 +88,7 @@
 {{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
                                         {{/and}}
                                     {{/eq}}
-                                {{/if}}
+                                {{/eq}}
                             {{/eq}}
                         {{/eq}}
                     {{/eq}}
