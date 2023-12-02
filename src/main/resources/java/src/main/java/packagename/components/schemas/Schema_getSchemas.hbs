@@ -1,0 +1,50 @@
+{{#each getSchemas}}
+    {{! generate all schemas in post order traversal }}
+    {{#eq instanceType "schema" }}
+{{> src/main/java/packagename/components/schemas/SchemaClass/SchemaClass identifierPieces=(append identifierPieces jsonPathPiece) }}
+    {{else}}
+        {{#eq instanceType "allOfType" }}
+{{!> components/schemas/_allof_type }}
+        {{else}}
+            {{#eq instanceType "anyOfType" }}
+{{!> components/schemas/_anyof_type }}
+            {{else}}
+                {{#eq instanceType "enumClass" }}
+{{!> components/schemas/_enum_class }}
+                {{else}}
+                    {{#eq instanceType "oneOfType" }}
+{{!> components/schemas/_oneof_type }}
+                    {{else}}
+                        {{#eq instanceType "propertiesType" }}
+{{!> components/schemas/_properties_type }}
+                        {{else}}
+                            {{#eq instanceType "requiredPropertiesInputType" }}
+{{!> components/schemas/_required_properties_input_type }}
+                            {{else}}
+                                {{#eq instanceType "optionalPropertiesInputType" }}
+{{!> components/schemas/_optional_properties_input_type }}
+                                {{else}}
+                                    {{#eq instanceType "propertiesInputType" }}
+{{!> components/schemas/_object_input_type }}
+                                    {{else}}
+                                        {{#eq instanceType "propertiesOutputType" }}
+{{> src/main/java/packagename/components/schemas/_objectOutputType }}
+                                        {{else}}
+                                            {{#eq instanceType "arrayOutputType" }}
+{{> src/main/java/packagename/components/schemas/_arrayOutputType }}
+                                            {{else}}
+                                                {{#eq instanceType "arrayInputType" }}
+{{!> src/main/java/packagename/components/schemas/_arrayInputType }}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{/each}}

@@ -1,0 +1,101 @@
+{{#or isBooleanSchemaFalse isBooleanSchemaTrue}}
+    {{#if isBooleanSchemaTrue}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="AnyTypeJsonSchema" }}
+    {{else}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NotAnyTypeJsonSchema" }}
+    {{/if}}
+{{else}}
+    {{#eq types null }}
+        {{#and isSimpleAnyType (eq ../refInfo null) }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="AnyTypeJsonSchema" }}
+        {{/and}}
+    {{else}}
+        {{! types exist }}
+        {{#eq types.size 1}}
+            {{! one type }}
+            {{#each types}}
+                {{#eq this "object"}}
+                    {{#and isSimpleObject (eq ../refInfo null) }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="MapJsonSchema" }}
+                    {{/and}}
+                {{else}}
+                    {{#eq this "array"}}
+                        {{#and isSimpleArray (eq ../refInfo null) }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="ListJsonSchema" }}
+                        {{/and}}
+                    {{else}}
+                        {{#eq this "boolean"}}
+                            {{#and isSimpleBoolean (eq ../refInfo null) }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="BooleanJsonSchema" }}
+                            {{/and}}
+                        {{else}}
+                            {{#if eq this "integer" }}
+                                {{#and isSimpleInteger (eq ../refInfo null) }}
+                                    {{#eq ../format null }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="IntJsonSchema" }}
+                                    {{/eq}}
+                                    {{#eq ../format "int32"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="Int32JsonSchema" }}
+                                    {{/eq}}
+                                    {{#eq ../format "int64"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="Int64JsonSchema" }}
+                                    {{/eq}}
+                                {{/and}}
+                            {{else}}
+                                {{#if eq this "number" }}
+                                    {{#and isSimpleNumber (eq ../refInfo null) }}
+                                    {{#eq ../format null}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
+                                    {{else}}
+                                        {{#eq ../format "float"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="FloatJsonSchema" }}
+                                        {{else}}
+                                            {{#eq ../format "double"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="DoubleJsonSchema" }}
+                                            {{else}}
+                                                {{#eq ../format "int32"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="Int32JsonSchema" }}
+                                                {{else}}
+                                                    {{#eq ../format "int64"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="Int64JsonSchema" }}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                    {{/and}}
+                                {{else}}
+                                    {{#eq this "string"}}
+                                        {{#and isSimpleString (eq ../refInfo null) }}
+                                            {{#eq ../format null}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="StringJsonSchema" }}
+                                            {{/eq}}
+                                            {{#eq ../format "date"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="DateJsonSchema" }}
+                                            {{/eq}}
+                                            {{#eq ../format "date-time"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="DateTimeJsonSchema" }}
+                                            {{/eq}}
+                                            {{#eq ../format "uuid"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="UuidJsonSchema" }}
+                                            {{/eq}}
+                                            {{#eq ../format "number"}}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="DecimalJsonSchema" }}
+                                            {{/eq}}
+                                        {{/and}}
+                                    {{else}}
+                                        {{#and isSimpleNull (eq ../refInfo null) }}
+{{> src/main/java/packagename/components/schemas/_docschema_methodsInheritedFn className="NumberJsonSchema" }}
+                                        {{/and}}
+                                    {{/eq}}
+                                {{/if}}
+                            {{/if}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/each}}
+        {{else}}
+            {{! multiple types }}
+        {{/eq}}
+    {{/eq}}
+{{/or}}
