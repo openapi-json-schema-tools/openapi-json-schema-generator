@@ -152,7 +152,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "complete": False,
     })
     try:
-        # Place an order for a pet
+        ''' Place an order for a pet
+        '''
         api_response = api_instance.place_order(
             body=body,
         )

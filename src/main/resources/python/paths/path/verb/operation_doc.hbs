@@ -32,10 +32,10 @@
 | Field | Value |
 | ----- | ----- |
 {{#if summary}}
-| Summary | {{{summary}}} |
+| Summary | {{summary}} |
 {{/if}}
-{{#if description}}
-| Description | {{{description}}} |
+{{#if unescapedDescription}}
+| Description | {{unescapedDescription}} |
 {{/if}}
 | Path | "{{{path.original}}}" |
 | HTTP Method | {{{httpMethod.original}}} |

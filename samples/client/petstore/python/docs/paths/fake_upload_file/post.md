@@ -155,7 +155,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "file": open('/path/to/file', 'rb'),
     }
     try:
-        # uploads a file using multipart/form-data
+        ''' uploads a file using multipart/form-data
+        '''
         api_response = api_instance.upload_file(
             body=body,
         )

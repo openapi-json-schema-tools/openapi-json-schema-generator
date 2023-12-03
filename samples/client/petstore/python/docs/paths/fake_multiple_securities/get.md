@@ -152,7 +152,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # multiple security requirements
+        ''' multiple security requirements
+        '''
         api_response = api_instance.multiple_securities()
         pprint(api_response)
     except petstore_api.ApiException as e:

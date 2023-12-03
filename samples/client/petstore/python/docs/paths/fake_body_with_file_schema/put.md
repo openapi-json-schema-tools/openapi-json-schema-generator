@@ -17,7 +17,7 @@ petstore_api.paths.fake_body_with_file_schema.operation
 ## General Info
 | Field | Value |
 | ----- | ----- |
-| Description | For this test, the body for this request much reference a schema named `File`. |
+| Description | For this test, the body for this request much reference a schema named &#x60;File&#x60;. |
 | Path | "/fake/body-with-file-schema" |
 | HTTP Method | put |
 

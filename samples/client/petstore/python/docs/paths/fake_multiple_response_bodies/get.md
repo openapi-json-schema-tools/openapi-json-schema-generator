@@ -127,7 +127,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # multiple responses have response bodies
+        ''' multiple responses have response bodies
+        '''
         api_response = api_instance.multiple_response_bodies()
         pprint(api_response)
     except petstore_api.ApiException as e:

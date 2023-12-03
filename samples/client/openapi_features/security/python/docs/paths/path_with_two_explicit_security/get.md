@@ -121,7 +121,8 @@ with this_package.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        # path with two explicit security
+        ''' path with two explicit security
+        '''
         api_response = api_instance.path_with_two_explicit_security()
         pprint(api_response)
     except this_package.ApiException as e:

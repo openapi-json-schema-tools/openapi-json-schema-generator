@@ -125,7 +125,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "param2": "param2_example",
     }
     try:
-        # test json serialization of form data
+        ''' test json serialization of form data
+        '''
         api_response = api_instance.json_form_data(
             body=body,
         )

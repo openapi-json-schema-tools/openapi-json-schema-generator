@@ -17,8 +17,8 @@ petstore_api.paths.fake.operation
 ## General Info
 | Field | Value |
 | ----- | ----- |
-| Summary | To test "client" model |
-| Description | To test \\\"client\\\" model |
+| Summary | To test &quot;client&quot; model |
+| Description | To test &quot;client&quot; model |
 | Path | "/fake" |
 | HTTP Method | patch |
 
@@ -103,7 +103,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "client": "client_example",
     })
     try:
-        # To test "client" model
+        ''' To test &quot;client&quot; model
+        '''
         api_response = api_instance.client_model(
             body=body,
         )

@@ -206,7 +206,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     header_params: operation.HeaderParametersDictInput = {
     }
     try:
-        # Deletes a pet
+        ''' Deletes a pet
+        '''
         api_response = api_instance.delete_pet(
             path_params=path_params,
             header_params=header_params,
@@ -223,7 +224,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'api_key': "api_key_example",
     }
     try:
-        # Deletes a pet
+        ''' Deletes a pet
+        '''
         api_response = api_instance.delete_pet(
             path_params=path_params,
             header_params=header_params,

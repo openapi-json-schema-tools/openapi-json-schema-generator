@@ -140,7 +140,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'someParam': ,
     }
     try:
-        # query param with json content-type
+        ''' query param with json content-type
+        '''
         api_response = api_instance.query_param_with_json_content_type(
             query_params=query_params,
         )
