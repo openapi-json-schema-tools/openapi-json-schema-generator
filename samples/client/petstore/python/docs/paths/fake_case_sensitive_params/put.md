@@ -17,7 +17,7 @@ petstore_api.paths.fake_case_sensitive_params.operation
 ## General Info
 | Field | Value |
 | ----- | ----- |
-| Description | Ensures that original naming is used in endpoint params, that way we on&#x27;t have collisions |
+| Description | Ensures that original naming is used in endpoint params, that way we don&#x27;t have collisions |
 | Path | "/fake/case-sensitive-params" |
 | HTTP Method | put |
 

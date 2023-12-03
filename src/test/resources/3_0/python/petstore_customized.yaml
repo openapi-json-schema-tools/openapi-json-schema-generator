@@ -1174,7 +1174,7 @@ paths:
     put:
       tags:
         - fake
-      description: Ensures that original naming is used in endpoint params, that way we on't have collisions
+      description: Ensures that original naming is used in endpoint params, that way we don't have collisions
       operationId: CaseSensitiveParams
       parameters:
         - name: someVar
