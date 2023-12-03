@@ -2654,7 +2654,7 @@ public class DefaultGenerator implements Generator {
             codegenServers = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
-        String summary = escapeText(operation.getSummary());
+        String summary = operation.getSummary();
         String unescapedDescription = operation.getDescription();
         String description = escapeText(operation.getDescription());
         Boolean deprecated = operation.getDeprecated();

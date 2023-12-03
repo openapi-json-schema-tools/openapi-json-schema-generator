@@ -91,7 +91,11 @@ class BaseApi(api_client.Api):
         timeout: typing.Optional[typing.Union[int, float, typing.Tuple]] = None,
     ):
         """
-        Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+        Fake endpoint for testing various parameters
+假端點
+偽のエンドポイント
+가짜 엔드 포인트
+
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances

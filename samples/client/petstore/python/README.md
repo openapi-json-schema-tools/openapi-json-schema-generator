@@ -177,8 +177,12 @@ HTTP request | Method | Description
 /commonParam/{subDir}/ **post** | [FakeApi](docs/apis/tags/fake_api.md).[post_common_param](docs/paths/common_param_sub_dir/post.md)  | 
 /fake **delete** | [FakeApi](docs/apis/tags/fake_api.md).[group_parameters](docs/paths/fake/delete.md)  | Fake endpoint to test group parameters (optional)
 /fake **get** | [FakeApi](docs/apis/tags/fake_api.md).[enum_parameters](docs/paths/fake/get.md)  | To test enum parameters
-/fake **patch** | [FakeApi](docs/apis/tags/fake_api.md).[client_model](docs/paths/fake/patch.md)  | To test \\\&quot;client\\\&quot; model
-/fake **post** | [FakeApi](docs/apis/tags/fake_api.md).[endpoint_parameters](docs/paths/fake/post.md)  | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+/fake **patch** | [FakeApi](docs/apis/tags/fake_api.md).[client_model](docs/paths/fake/patch.md)  | To test &quot;client&quot; model
+/fake **post** | [FakeApi](docs/apis/tags/fake_api.md).[endpoint_parameters](docs/paths/fake/post.md)  | Fake endpoint for testing various parameters
+假端點
+偽のエンドポイント
+가짜 엔드 포인트
+
 /fake/additional-properties-with-array-of-enums **get** | [FakeApi](docs/apis/tags/fake_api.md).[additional_properties_with_array_of_enums](docs/paths/fake_additional_properties_with_array_of_enums/get.md)  | Additional Properties with Array of Enums
 /fake/body-with-file-schema **put** | [FakeApi](docs/apis/tags/fake_api.md).[body_with_file_schema](docs/paths/fake_body_with_file_schema/put.md)  | 
 /fake/body-with-query-params **put** | [FakeApi](docs/apis/tags/fake_api.md).[body_with_query_params](docs/paths/fake_body_with_query_params/put.md)  | 
