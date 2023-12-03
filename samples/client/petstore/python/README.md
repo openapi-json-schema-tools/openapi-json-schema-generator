@@ -266,7 +266,7 @@ Class | Description
 [Cat](docs/components/schema/cat.md) |
 [Category](docs/components/schema/category.md) |
 [ChildCat](docs/components/schema/child_cat.md) |
-[ClassModel](docs/components/schema/class_model.md) | Model for testing model with \\\&quot;_class\\\&quot; property
+[ClassModel](docs/components/schema/class_model.md) | Model for testing model with &quot;_class&quot; property
 [Client](docs/components/schema/client.md) |
 [ComplexQuadrilateral](docs/components/schema/complex_quadrilateral.md) |
 [ComposedAnyOfDifferentTypesNoValidations](docs/components/schema/composed_any_of_different_types_no_validations.md) |

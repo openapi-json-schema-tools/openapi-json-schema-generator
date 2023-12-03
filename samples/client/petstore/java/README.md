@@ -182,7 +182,7 @@ allowed input and output types.
 | [Cat.Cat1](docs/components/schemas/Cat.md#cat1) | |
 | [Category.Category1](docs/components/schemas/Category.md#category1) | |
 | [ChildCat.ChildCat1](docs/components/schemas/ChildCat.md#childcat1) | |
-| [ClassModel.ClassModel1](docs/components/schemas/ClassModel.md#classmodel1) | Model for testing model with \\\&quot;_class\\\&quot; property |
+| [ClassModel.ClassModel1](docs/components/schemas/ClassModel.md#classmodel1) | Model for testing model with &quot;_class&quot; property |
 | [Client.Client1](docs/components/schemas/Client.md#client1) | |
 | [ComplexQuadrilateral.ComplexQuadrilateral1](docs/components/schemas/ComplexQuadrilateral.md#complexquadrilateral1) | |
 | [ComposedAnyOfDifferentTypesNoValidations.ComposedAnyOfDifferentTypesNoValidations1](docs/components/schemas/ComposedAnyOfDifferentTypesNoValidations.md#composedanyofdifferenttypesnovalidations1) | |

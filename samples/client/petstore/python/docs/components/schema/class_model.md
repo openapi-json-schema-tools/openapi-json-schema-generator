@@ -5,7 +5,7 @@ type: schemas.Schema
 ```
 
 ## Description
-Model for testing model with \\\&quot;_class\\\&quot; property
+Model for testing model with &quot;_class&quot; property
 
 ## validate method
 Input Type | Return Type | Notes
@@ -30,7 +30,7 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
 **_class** | str, schemas.Unset |  | [optional]
-**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type Model for testing model with \\\&quot;_class\\\&quot; property | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type Model for testing model with &quot;_class&quot; property | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
