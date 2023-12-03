@@ -18,7 +18,7 @@ petstore_api.paths.store_order_order_id.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Delete purchase order by ID |
-| Description | For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors |
+| Description | For valid response try integer IDs with value &lt; 1000. Anything above 1000 or nonintegers will generate API errors |
 | Path | "/store/order/{order_id}" |
 | HTTP Method | delete |
 
@@ -136,7 +136,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'order_id': "order_id_example",
     }
     try:
-        # Delete purchase order by ID
+        ''' Delete purchase order by ID
+        '''
         api_response = api_instance.delete_order(
             path_params=path_params,
         )

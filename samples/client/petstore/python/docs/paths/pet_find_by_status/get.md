@@ -212,7 +212,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     ],
     }
     try:
-        # Finds Pets by status
+        ''' Finds Pets by status
+        '''
         api_response = api_instance.find_pets_by_status(
             query_params=query_params,
         )

@@ -124,7 +124,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'username': "username_example",
     }
     try:
-        # Delete user
+        ''' Delete user
+        '''
         api_response = api_instance.delete_user(
             path_params=path_params,
         )

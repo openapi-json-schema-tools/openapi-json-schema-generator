@@ -18,8 +18,16 @@ petstore_api.paths.fake.operation
 ## General Info
 | Field | Value |
 | ----- | ----- |
-| Summary | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트  |
-| Description | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트  |
+| Summary | Fake endpoint for testing various parameters
+假端點
+偽のエンドポイント
+가짜 엔드 포인트
+ |
+| Description | Fake endpoint for testing various parameters
+假端點
+偽のエンドポイント
+가짜 엔드 포인트
+ |
 | Path | "/fake" |
 | HTTP Method | post |
 
@@ -214,7 +222,12 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "callback": "callback_example",
     }
     try:
-        # Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+        ''' Fake endpoint for testing various parameters
+假端點
+偽のエンドポイント
+가짜 엔드 포인트
+
+        '''
         api_response = api_instance.endpoint_parameters(
             body=body,
         )

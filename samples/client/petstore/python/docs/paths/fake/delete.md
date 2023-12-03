@@ -193,7 +193,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'required_boolean_group': "true",
     }
     try:
-        # Fake endpoint to test group parameters (optional)
+        ''' Fake endpoint to test group parameters (optional)
+        '''
         api_response = api_instance.group_parameters(
             query_params=query_params,
             header_params=header_params,
@@ -214,7 +215,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'boolean_group': "true",
     }
     try:
-        # Fake endpoint to test group parameters (optional)
+        ''' Fake endpoint to test group parameters (optional)
+        '''
         api_response = api_instance.group_parameters(
             query_params=query_params,
             header_params=header_params,

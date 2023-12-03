@@ -16,11 +16,15 @@ Method | Description
 [**body_with_query_params**](../../paths/fake_body_with_query_params/put.md) | 
 [**boolean**](../../paths/fake_refs_boolean/post.md) | 
 [**case_sensitive_params**](../../paths/fake_case_sensitive_params/put.md) | 
-[**client_model**](../../paths/fake/patch.md) | To test \&quot;client\&quot; model
+[**client_model**](../../paths/fake/patch.md) | To test &quot;client&quot; model
 [**composed_one_of_different_types**](../../paths/fake_refs_composed_one_of_number_with_validations/post.md) | 
 [**delete_coffee**](../../paths/fake_delete_coffee_id/delete.md) | Delete coffee
 [**delete_common_param**](../../paths/common_param_sub_dir/delete.md) | 
-[**endpoint_parameters**](../../paths/fake/post.md) | Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
+[**endpoint_parameters**](../../paths/fake/post.md) | Fake endpoint for testing various parameters
+假端點
+偽のエンドポイント
+가짜 엔드 포인트
+
 [**enum_parameters**](../../paths/fake/get.md) | To test enum parameters
 [**fake_health_get**](../../paths/fake_health/get.md) | Health check endpoint
 [**get_common_param**](../../paths/common_param_sub_dir/get.md) | 

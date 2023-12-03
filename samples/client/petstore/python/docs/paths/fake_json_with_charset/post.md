@@ -118,7 +118,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     # example passing only optional values
     body = None
     try:
-        # json with charset tx and rx
+        ''' json with charset tx and rx
+        '''
         api_response = api_instance.json_with_charset(
             body=body,
         )

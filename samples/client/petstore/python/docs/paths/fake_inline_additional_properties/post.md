@@ -120,7 +120,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "key": "key_example",
     }
     try:
-        # test inline additionalProperties
+        ''' test inline additionalProperties
+        '''
         api_response = api_instance.inline_additional_properties(
             body=body,
         )

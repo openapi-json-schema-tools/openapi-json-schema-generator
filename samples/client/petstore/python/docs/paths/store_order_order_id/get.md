@@ -18,7 +18,7 @@ petstore_api.paths.store_order_order_id.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Find purchase order by ID |
-| Description | For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions |
+| Description | For valid response try integer IDs with value &lt;&#x3D; 5 or &gt; 10. Other values will generated exceptions |
 | Path | "/store/order/{order_id}" |
 | HTTP Method | get |
 
@@ -178,7 +178,8 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'order_id': 1,
     }
     try:
-        # Find purchase order by ID
+        ''' Find purchase order by ID
+        '''
         api_response = api_instance.get_order_by_id(
             path_params=path_params,
         )
