@@ -26,6 +26,7 @@ class _If(
     schemas.AnyTypeSchema[schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES], typing.Tuple[schemas.OUTPUT_BASE_TYPES, ...]],
 ):
     # any type
+    exclusive_maximum: typing.Union[int, float] = 0
 
 
 

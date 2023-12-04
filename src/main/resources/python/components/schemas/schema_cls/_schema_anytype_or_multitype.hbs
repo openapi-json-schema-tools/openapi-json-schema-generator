@@ -81,12 +81,12 @@ class {{jsonPathPiece.camelCase}}(
 {{#if minimum}}
     {{> components/schemas/schema_cls/_minimum }}
 {{/if}}
-{{#if exclusiveMaximum}}
+{{#neq exclusiveMaximum null }}
     {{> components/schemas/schema_cls/_exclusive_maximum }}
-{{/if}}
-{{#if exclusiveMinimum}}
+{{/neq}}
+{{#neq exclusiveMinimum null }}
     {{> components/schemas/schema_cls/_exclusive_minimum }}
-{{/if}}
+{{/neq}}
 {{#if multipleOf}}
     {{> components/schemas/schema_cls/_multiple_of }}
 {{/if}}
