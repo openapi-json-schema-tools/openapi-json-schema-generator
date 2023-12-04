@@ -115,7 +115,7 @@ Class | Description
 ----- | ------------
     {{#each securitySchemes}}
         {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
         {{/with}}
     {{/each}}
 

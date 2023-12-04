@@ -3137,7 +3137,8 @@ public class DefaultGenerator implements Generator {
         if (tag != null) {
             return tag;
         }
-        tag = new CodegenTag(name, toApiFilename(name), toApiName(name), description);
+        CodegenText castDescription = getCodegenText(description);
+        tag = new CodegenTag(name, toApiFilename(name), toApiName(name), castDescription);
         codegenTagCache.put(name, tag);
         return tag;
     }
@@ -3439,7 +3440,7 @@ public class DefaultGenerator implements Generator {
         boolean componentModule = pathPieces.length == 4 && jsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String type = securityScheme.getType().toString();
-        String description = securityScheme.getDescription();
+        CodegenText description = getCodegenText(securityScheme.getDescription());
         String name = securityScheme.getName();
         String in = null;
         if (securityScheme.getIn() != null) {

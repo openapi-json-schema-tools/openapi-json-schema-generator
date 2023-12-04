@@ -152,7 +152,6 @@ org.openapijsonschematools.client.components.schemas to validate input payloads 
 output classes. Json schemas allow multiple types for one schema, so a schema's validate method can have
 allowed input and output types.
 
-
 ## Component Schemas
 
 | Class | Description |
@@ -244,4 +243,3 @@ allowed input and output types.
 | [UriFormat.UriFormat1](docs/components/schemas/UriFormat.md#uriformat1) | |
 | [UriReferenceFormat.UriReferenceFormat1](docs/components/schemas/UriReferenceFormat.md#urireferenceformat1) | |
 | [UriTemplateFormat.UriTemplateFormat1](docs/components/schemas/UriTemplateFormat.md#uritemplateformat1) | |
-
