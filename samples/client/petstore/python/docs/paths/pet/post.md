@@ -173,8 +173,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "status": "available",
     })
     try:
-        ''' Add a new pet to the store
-        '''
+        # Add a new pet to the store
         api_response = api_instance.add_pet(
             body=body,
         )

@@ -92,8 +92,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        ''' operation with redirection responses
-        '''
+        # operation with redirection responses
         api_response = api_instance.redirection()
         pprint(api_response)
     except petstore_api.ApiException as e:

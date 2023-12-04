@@ -152,6 +152,7 @@ with this_package.ApiClient(used_configuration) as api_client:
         "operator_id": "ADD",
     )
     try:
+        # 
         api_response = api_instance.post_operators(
             body=body,
         )

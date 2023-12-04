@@ -91,8 +91,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         None
     ])
     try:
-        ''' json patch
-        '''
+        # json patch
         api_response = api_instance.json_patch(
             body=body,
         )

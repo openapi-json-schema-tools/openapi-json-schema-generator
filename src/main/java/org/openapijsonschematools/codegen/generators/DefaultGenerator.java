@@ -71,6 +71,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecuri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
@@ -2654,7 +2655,11 @@ public class DefaultGenerator implements Generator {
             codegenServers = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
-        String summary = operation.getSummary();
+        CodegenText summary = null;
+        if (operation.getSummary() != null) {
+            String sum = operation.getSummary();
+            summary = new CodegenText(sum, escapeText(sum));
+        }
         String unescapedDescription = operation.getDescription();
         String description = escapeText(operation.getDescription());
         Boolean deprecated = operation.getDeprecated();

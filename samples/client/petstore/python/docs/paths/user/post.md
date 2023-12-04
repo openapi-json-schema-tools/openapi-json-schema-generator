@@ -118,8 +118,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "any_type_prop_nullable": None,
     })
     try:
-        ''' Create user
-        '''
+        # Create user
         api_response = api_instance.create_user(
             body=body,
         )

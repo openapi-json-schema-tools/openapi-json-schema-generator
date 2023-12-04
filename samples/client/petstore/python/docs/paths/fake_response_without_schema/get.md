@@ -86,8 +86,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        ''' receives a response without schema
-        '''
+        # receives a response without schema
         api_response = api_instance.response_without_schema()
         pprint(api_response)
     except petstore_api.ApiException as e:

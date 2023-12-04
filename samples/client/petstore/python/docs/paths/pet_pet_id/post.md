@@ -219,8 +219,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'petId': 1,
     }
     try:
-        ''' Updates a pet in the store with form data
-        '''
+        # Updates a pet in the store with form data
         api_response = api_instance.update_pet_with_form(
             path_params=path_params,
         )
@@ -237,8 +236,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "status": "status_example",
     }
     try:
-        ''' Updates a pet in the store with form data
-        '''
+        # Updates a pet in the store with form data
         api_response = api_instance.update_pet_with_form(
             path_params=path_params,
             body=body,

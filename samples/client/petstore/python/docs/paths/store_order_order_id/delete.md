@@ -136,8 +136,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'order_id': "order_id_example",
     }
     try:
-        ''' Delete purchase order by ID
-        '''
+        # Delete purchase order by ID
         api_response = api_instance.delete_order(
             path_params=path_params,
         )

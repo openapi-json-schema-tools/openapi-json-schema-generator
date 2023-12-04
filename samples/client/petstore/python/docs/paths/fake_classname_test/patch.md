@@ -130,8 +130,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "client": "client_example",
     })
     try:
-        ''' To test class name in snake case
-        '''
+        # To test class name in snake case
         api_response = api_instance.classname(
             body=body,
         )

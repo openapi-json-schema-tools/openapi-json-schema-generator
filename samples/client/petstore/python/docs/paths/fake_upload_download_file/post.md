@@ -124,8 +124,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     # example passing only required values which don't have defaults set
     body = open('/path/to/file', 'rb')
     try:
-        ''' uploads a file and downloads a file using application/octet-stream
-        '''
+        # uploads a file and downloads a file using application/octet-stream
         api_response = api_instance.upload_download_file(
             body=body,
         )

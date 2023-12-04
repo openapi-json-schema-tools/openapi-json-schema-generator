@@ -191,8 +191,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'petId': 1,
     }
     try:
-        ''' uploads an image
-        '''
+        # uploads an image
         api_response = api_instance.upload_image(
             path_params=path_params,
         )
@@ -209,8 +208,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "file": open('/path/to/file', 'rb'),
     }
     try:
-        ''' uploads an image
-        '''
+        # uploads an image
         api_response = api_instance.upload_image(
             path_params=path_params,
             body=body,

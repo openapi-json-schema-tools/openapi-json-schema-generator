@@ -28,7 +28,8 @@ public class CodegenOperation {
     public final LinkedHashSet<Integer> nonErrorWildcardStatusCodes; // values like 2 for @2XX
     public final LinkedHashSet<String> errorStatusCodes; // values like 401
     public final LinkedHashSet<Integer> errorWildcardStatusCodes; // values like 4 for 4XX
-    public final String summary, unescapedDescription, description;
+    public final CodegenText summary;
+    public final String unescapedDescription, description;
     public final LinkedHashSet<String> produces;
     public final List<CodegenServer> servers;
     public final CodegenRequestBody requestBody;
@@ -62,7 +63,7 @@ public class CodegenOperation {
             LinkedHashSet<Integer> nonErrorWildcardStatusCodes,
             LinkedHashSet<String> errorStatusCodes,
             LinkedHashSet<Integer> errorWildcardStatusCodes,
-            String summary,
+            CodegenText summary,
             String unescapedDescription,
             String description,
             LinkedHashSet<String> produces,

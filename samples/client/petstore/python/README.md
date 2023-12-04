@@ -147,8 +147,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        ''' slash route
-        '''
+        # slash route
         api_response = api_instance.slash_route()
         pprint(api_response)
     except petstore_api.ApiException as e:

@@ -103,8 +103,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "client": "client_example",
     })
     try:
-        ''' To test special tags
-        '''
+        # To test special tags
         api_response = api_instance.call_123_test__special_tags(
             body=body,
         )

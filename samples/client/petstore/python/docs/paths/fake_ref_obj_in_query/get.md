@@ -112,8 +112,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     }),
     }
     try:
-        ''' user list
-        '''
+        # user list
         api_response = api_instance.ref_object_in_query(
             query_params=query_params,
         )

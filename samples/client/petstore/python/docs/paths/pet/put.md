@@ -185,8 +185,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "status": "available",
     })
     try:
-        ''' Update an existing pet
-        '''
+        # Update an existing pet
         api_response = api_instance.update_pet(
             body=body,
         )

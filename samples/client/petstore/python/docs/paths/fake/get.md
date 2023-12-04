@@ -317,8 +317,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "enum_form_string": "-efg",
     }
     try:
-        ''' To test enum parameters
-        '''
+        # To test enum parameters
         api_response = api_instance.enum_parameters(
             query_params=query_params,
             header_params=header_params,
