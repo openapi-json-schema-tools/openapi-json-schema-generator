@@ -13,38 +13,42 @@
             {{! one type }}
             {{#each types}}
                 {{#eq this "object"}}
-                    {{#or allOf anyOf oneOf not if_ then else_ properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties }}
-{{> components/schemas/schema_cls/_schema_dict }}
-                    {{else}}
+                    {{#if isSimpleObject }}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
-                    {{/or}}
+                    {{else}}
+{{> components/schemas/schema_cls/_schema_dict }}
+                    {{/if}}
                 {{else}}
                     {{#eq this "array"}}
-                        {{#or allOf anyOf oneOf not if_ then else_ items uniqueItems contains (neq maxContains null) (neq minContains null) (neq maxItems null) (neq minItems null) prefixItems unevaluatedItems }}
-{{> components/schemas/schema_cls/_schema_list }}
-                        {{else}}
+                        {{#if isSimpleArray }}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
-                        {{/or}}
+                        {{else}}
+{{> components/schemas/schema_cls/_schema_list }}
+                        {{/if}}
                     {{else}}
                         {{#eq this "boolean"}}
-                            {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo }}
-{{> components/schemas/schema_cls/_schema_boolean }}
-                            {{else}}
+                            {{#if isSimpleBoolean }}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
-                            {{/or}}
+                            {{else}}
+{{> components/schemas/schema_cls/_schema_boolean }}
+                            {{/if}}
                         {{else}}
                             {{#or (eq this "number") (eq this "integer") }}
-                                {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo maximum minimum exclusiveMaximum exclusiveMinimum multipleOf }}
-{{> components/schemas/schema_cls/_schema_number }}
-                                {{else}}
+                                {{#or isSimpleInteger isSimpleNumber }}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                                {{else}}
+{{> components/schemas/schema_cls/_schema_number }}
                                 {{/or}}
                             {{else}}
-                                {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo defaultValue (neq maxLength null) (neq minLength null) patternInfo }}
+                                {{#eq this "string"}}
+                                    {{#if isSimpleString }}
+{{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                                    {{else}}
 {{> components/schemas/schema_cls/_schema_string }}
+                                    {{/if}}
                                 {{else}}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
-                                {{/or}}
+                                {{/eq}}
                             {{/or}}
                         {{/eq}}
                     {{/eq}}
