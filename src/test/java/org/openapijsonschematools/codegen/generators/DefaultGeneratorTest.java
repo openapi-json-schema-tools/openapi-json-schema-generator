@@ -66,6 +66,7 @@ import org.testng.Assert;
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
+import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
@@ -2069,7 +2070,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName,
                 "#/components/schemas/" + modelName
         );
-        assertEquals(cm.items.maximum, "7");
+        assertEquals(cm.items.maximum, new BigDecimal(7));
 
         modelName = "ObjectWithValidationsInArrayPropItems";
         sc = openAPI.getComponents().getSchemas().get(modelName);
@@ -2079,7 +2080,7 @@ public class DefaultGeneratorTest {
                 "#/components/schemas/" + modelName
         );
         CodegenKey ck = codegen.getKey("arrayProp", "misc");
-        assertEquals(cm.properties.get(ck).items.maximum, "7");
+        assertEquals(cm.properties.get(ck).items.maximum, new BigDecimal(7));
 
         String path;
         Operation operation;
@@ -2088,17 +2089,17 @@ public class DefaultGeneratorTest {
         path = "/ref_array_with_validations_in_items/{items}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"), null);
-        assertEquals(co.parameters.pathParameters.get(0).schema.refInfo.ref.items.maximum, "7"); // disabled because refed
+        assertEquals(co.parameters.pathParameters.get(0).schema.refInfo.ref.items.maximum, new BigDecimal(7));
         CodegenKey applicationJson = codegen.getKey("application/json", "misc");
-        assertEquals(co.requestBody.content.get(applicationJson).schema.refInfo.ref.items.maximum, "7");  // disabled because refed
-        assertEquals(co.responses.get("200").content.get(applicationJson).schema.refInfo.ref.items.maximum, "7");  // disabled because refed
+        assertEquals(co.requestBody.content.get(applicationJson).schema.refInfo.ref.items.maximum, new BigDecimal(7));
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.refInfo.ref.items.maximum, new BigDecimal(7));
 
         path = "/array_with_validations_in_items/{items}";
         operation = openAPI.getPaths().get(path).getPost();
         co = codegen.fromOperation(operation, getOperationPath(path, "post"), null);
-        assertEquals(co.parameters.pathParameters.get(0).schema.items.maximum, "7");
-        assertEquals(co.requestBody.content.get(applicationJson).schema.items.maximum, "7");
-        assertEquals(co.responses.get("200").content.get(applicationJson).schema.items.maximum, "7");
+        assertEquals(co.parameters.pathParameters.get(0).schema.items.maximum, new BigDecimal(7));
+        assertEquals(co.requestBody.content.get(applicationJson).schema.items.maximum, new BigDecimal(7));
+        assertEquals(co.responses.get("200").content.get(applicationJson).schema.items.maximum, new BigDecimal(7));
     }
 
     @Test
