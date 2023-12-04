@@ -19,6 +19,7 @@ petstore_api.paths.fake_pet_id_upload_image_with_required_file.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | uploads an image (required) |
+| Description |  |
 | Path | "/fake/{petId}/uploadImageWithRequiredFile" |
 | HTTP Method | post |
 
@@ -220,8 +221,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'petId': 1,
     }
     try:
-        ''' uploads an image (required)
-        '''
+        # uploads an image (required)
         api_response = api_instance.upload_file_with_required_file(
             path_params=path_params,
         )
@@ -238,8 +238,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "required_file": open('/path/to/file', 'rb'),
     }
     try:
-        ''' uploads an image (required)
-        '''
+        # uploads an image (required)
         api_response = api_instance.upload_file_with_required_file(
             path_params=path_params,
             body=body,

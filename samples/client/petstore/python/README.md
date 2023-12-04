@@ -147,8 +147,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        ''' slash route
-        '''
+        # slash route
         api_response = api_instance.slash_route()
         pprint(api_response)
     except petstore_api.ApiException as e:
@@ -398,7 +397,8 @@ Class | Description
 
 Class | Description
 ----- | ------------
-[HeadersWithNoBody](docs/components/responses/response_headers_with_no_body.md) | A response that contains headers but no body 
+[HeadersWithNoBody](docs/components/responses/response_headers_with_no_body.md) | A response that contains headers but no body
+
 [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md) |
 [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md) |
 [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md) | Success

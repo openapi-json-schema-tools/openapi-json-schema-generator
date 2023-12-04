@@ -20,7 +20,7 @@ package org.openapijsonschematools.codegen.generators.openapimodels;
 import java.util.*;
 
 public class CodegenResponse {
-    public final String description;
+    public final CodegenText description;
     public final Map<String, CodegenHeader> headers;
     public final CodegenSchema headersObjectSchema;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
@@ -43,7 +43,7 @@ public class CodegenResponse {
         return refObject;
     }
 
-    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, CodegenSchema headersObjectSchema, String description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule, String pathFromDocRoot) {
+    public CodegenResponse(CodegenKey jsonPathPiece, Map<String, CodegenHeader> headers, CodegenSchema headersObjectSchema, CodegenText description, Map<String, Object> vendorExtensions, LinkedHashMap<CodegenKey, CodegenMediaType> content, CodegenRefInfo<CodegenResponse> refInfo, TreeSet<String> imports, boolean componentModule, String pathFromDocRoot) {
         this.jsonPathPiece = jsonPathPiece;
         this.headers = headers;
         this.headersObjectSchema = headersObjectSchema;

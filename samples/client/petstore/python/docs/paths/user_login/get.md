@@ -18,6 +18,7 @@ petstore_api.paths.user_login.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Logs user into the system |
+| Description |  |
 | Path | "/user/login" |
 | HTTP Method | get |
 
@@ -251,8 +252,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'password': "password_example",
     }
     try:
-        ''' Logs user into the system
-        '''
+        # Logs user into the system
         api_response = api_instance.login_user(
             query_params=query_params,
         )

@@ -18,6 +18,7 @@ petstore_api.paths.user_logout.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Logs out current logged in user session |
+| Description |  |
 | Path | "/user/logout" |
 | HTTP Method | get |
 
@@ -67,8 +68,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        ''' Logs out current logged in user session
-        '''
+        # Logs out current logged in user session
         api_response = api_instance.logout_user()
         pprint(api_response)
     except petstore_api.ApiException as e:

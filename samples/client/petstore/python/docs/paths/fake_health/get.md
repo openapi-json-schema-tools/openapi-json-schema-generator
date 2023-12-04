@@ -97,8 +97,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        ''' Health check endpoint
-        '''
+        # Health check endpoint
         api_response = api_instance.fake_health_get()
         pprint(api_response)
     except petstore_api.ApiException as e:

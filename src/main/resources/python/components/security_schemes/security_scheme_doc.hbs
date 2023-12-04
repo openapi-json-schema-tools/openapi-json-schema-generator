@@ -8,12 +8,12 @@
     {{#if description}}
 
 {{headerSize}}# Description
-{{description}}
+{{description.original}}
     {{/if}}
     {{#if refInfo}}
 | Ref Class | Description |
 | --------- | ----------- |
-| [{{refInfo.refClass}}](../../components/security_schemes/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description}}{{/if}}{{/with}}
+| [{{refInfo.refClass}}](../../components/security_schemes/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.original}}{{/if}}{{/with}}
     {{else}}
 
 {{headerSize}}# Type

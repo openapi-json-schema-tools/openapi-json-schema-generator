@@ -18,6 +18,7 @@ petstore_api.paths.user_create_with_array.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Creates list of users with given input array |
+| Description |  |
 | Path | "/user/createWithArray" |
 | HTTP Method | post |
 
@@ -98,8 +99,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         })
     ]
     try:
-        ''' Creates list of users with given input array
-        '''
+        # Creates list of users with given input array
         api_response = api_instance.create_users_with_array_input(
             body=body,
         )

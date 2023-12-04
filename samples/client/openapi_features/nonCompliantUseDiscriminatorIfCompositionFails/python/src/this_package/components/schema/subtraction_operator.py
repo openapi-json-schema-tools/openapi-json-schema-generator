@@ -122,6 +122,8 @@ class SubtractionOperator(
     Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
 
     Do not edit the class manually.
+
+    
     """
     types: typing.FrozenSet[typing.Type] = frozenset({schemas.immutabledict})
     required: typing.FrozenSet[str] = frozenset({

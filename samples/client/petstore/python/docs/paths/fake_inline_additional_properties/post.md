@@ -18,6 +18,7 @@ petstore_api.paths.fake_inline_additional_properties.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | test inline additionalProperties |
+| Description |  |
 | Path | "/fake/inline-additionalProperties" |
 | HTTP Method | post |
 
@@ -120,8 +121,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "key": "key_example",
     }
     try:
-        ''' test inline additionalProperties
-        '''
+        # test inline additionalProperties
         api_response = api_instance.inline_additional_properties(
             body=body,
         )

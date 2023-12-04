@@ -5,12 +5,12 @@ import java.util.Objects;
 public class CodegenServer {
     public final String url;
     public final String defaultUrl;
-    public final String description;
+    public final CodegenText description;
     public final CodegenSchema variables;
     public final CodegenKey jsonPathPiece;
     public final boolean rootServer;
 
-    public CodegenServer(String url, String description, CodegenSchema variables, CodegenKey jsonPathPiece, boolean rootServer) {
+    public CodegenServer(String url, CodegenText description, CodegenSchema variables, CodegenKey jsonPathPiece, boolean rootServer) {
         this.url = url;
         this.description = description;
         this.variables = variables;

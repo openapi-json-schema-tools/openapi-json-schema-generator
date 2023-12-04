@@ -18,7 +18,7 @@ from {{packageName}}.shared_imports.server_imports import *  # pyright: ignore [
 class {{jsonPathPiece.camelCase}}(server.Server{{#if variables}}With{{else}}Without{{/if}}Variables):
     {{#if description}}
     '''
-    {{description}}
+    {{description.original}}
     '''
     {{/if}}
     {{#if variables}}

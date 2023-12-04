@@ -1416,8 +1416,8 @@ public class DefaultGeneratorTest {
         codegen.setOpenAPI(openAPI);
 
         CodegenOperation co = codegen.fromOperation(myOperation, getOperationPath("/here", "get"), null);
-        Assert.assertEquals(co.responses.get("422").description, "Error");
-        Assert.assertEquals(co.responses.get("default").description, "Default");
+        Assert.assertEquals(co.responses.get("422").description.original, "Error");
+        Assert.assertEquals(co.responses.get("default").description.original, "Default");
     }
 
     @Test
@@ -3136,7 +3136,7 @@ public class DefaultGeneratorTest {
         CodegenKey ck = codegen.getKey("application/json", "misc");
         for (CodegenResponse cr : co.responses.values()) {
             LinkedHashMap<CodegenKey, CodegenSchema> reqProps = cr.content.get(ck).schema.requiredProperties;
-            if (modelNamesWithoutRequired.contains(cr.description)) {
+            if (modelNamesWithoutRequired.contains(cr.description.original)) {
                 assertNull(reqProps);
             } else {
                 assertNotNull(reqProps);

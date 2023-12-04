@@ -222,12 +222,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "callback": "callback_example",
     }
     try:
-        ''' Fake endpoint for testing various parameters
-假端點
-偽のエンドポイント
-가짜 엔드 포인트
-
-        '''
+        # Fake endpoint for testing various parameters 假端點 偽のエンドポイント 가짜 엔드 포인트 
         api_response = api_instance.endpoint_parameters(
             body=body,
         )

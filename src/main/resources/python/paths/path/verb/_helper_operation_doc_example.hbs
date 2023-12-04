@@ -162,8 +162,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{/with}}
     try:
     {{#if summary}}
-        ''' {{summary}}
-        '''
+        # {{{summary.codeEscaped}}}
     {{/if}}
         api_response = api_instance.{{{operationId.snakeCase}}}(
     {{#if pathParametersSchema}}
@@ -298,8 +297,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     {{/with}}
     try:
     {{#if summary}}
-        ''' {{summary}}
-        '''
+        # {{{summary.codeEscaped}}}
     {{/if}}
         api_response = api_instance.{{{operationId.snakeCase}}}(
     {{#if pathParametersSchema}}
@@ -336,8 +334,7 @@ with {{{packageName}}}.ApiClient(used_configuration) as api_client:
     # example, this endpoint has no required or optional parameters
     try:
     {{#if summary}}
-        ''' {{summary}}
-        '''
+        # {{{summary.codeEscaped}}}
     {{/if}}
         api_response = api_instance.{{{operationId.snakeCase}}}()
         pprint(api_response)

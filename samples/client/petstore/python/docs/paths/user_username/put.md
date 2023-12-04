@@ -174,8 +174,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "any_type_prop_nullable": None,
     })
     try:
-        ''' Updated user
-        '''
+        # Updated user
         api_response = api_instance.update_user(
             path_params=path_params,
             body=body,

@@ -125,8 +125,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         ],
     })
     try:
-        ''' Additional Properties with Array of Enums
-        '''
+        # Additional Properties with Array of Enums
         api_response = api_instance.additional_properties_with_array_of_enums(
             body=body,
         )

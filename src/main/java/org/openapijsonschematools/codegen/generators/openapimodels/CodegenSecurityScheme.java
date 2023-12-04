@@ -23,7 +23,7 @@ import java.util.TreeSet;
 
 public class CodegenSecurityScheme {
     public final String type;
-    public final String description;
+    public final CodegenText description;
     public final String name;
     public final String in;
     public final String scheme;
@@ -36,7 +36,7 @@ public class CodegenSecurityScheme {
     public final CodegenRefInfo<CodegenSecurityScheme> refInfo;
     public final Map<String, Object> vendorExtensions;
 
-    public CodegenSecurityScheme(String type, String description, String name, String in, String scheme, String bearerFormat, CodegenOauthFlows flows, String openIdConnectUrl, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenSecurityScheme> refInfo, Map<String, Object> vendorExtensions) {
+    public CodegenSecurityScheme(String type, CodegenText description, String name, String in, String scheme, String bearerFormat, CodegenOauthFlows flows, String openIdConnectUrl, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenSecurityScheme> refInfo, Map<String, Object> vendorExtensions) {
         this.type = type;
         this.description = description;
         this.name = name;

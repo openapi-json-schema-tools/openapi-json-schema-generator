@@ -54,7 +54,7 @@ public class CodegenSchema {
     public CodegenSchema items;
     public LinkedHashMapWithContext<CodegenSchema> properties;
     public CodegenSchema additionalProperties;
-    public String description;
+    public CodegenText description;
     public String format;
     public EnumValue defaultValue;
     public CodegenRefInfo<CodegenSchema> refInfo;  // $ref
@@ -98,7 +98,6 @@ public class CodegenSchema {
     public boolean componentModule;
     public TreeSet<String> imports;
     public CodegenKey jsonPathPiece;
-    public String unescapedDescription;
     public LinkedHashMapWithContext<CodegenSchema> optionalProperties;
     public CodegenKey mapInputJsonPathPiece;
     public CodegenKey mapOutputJsonPathPiece;
@@ -877,7 +876,6 @@ public class CodegenSchema {
         sb.append(", jsonPathPiece='").append(jsonPathPiece).append('\'');
         sb.append(", defaultValue='").append(defaultValue).append('\'');
         sb.append(", title='").append(title).append('\'');
-        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", maxLength=").append(maxLength);
         sb.append(", minLength=").append(minLength);
         sb.append(", patternInfo='").append(patternInfo).append('\'');
@@ -971,7 +969,6 @@ public class CodegenSchema {
                 Objects.equals(jsonPathPiece, that.jsonPathPiece) &&
                 Objects.equals(defaultValue, that.defaultValue) &&
                 Objects.equals(title, that.title) &&
-                Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(maxLength, that.maxLength) &&
                 Objects.equals(minLength, that.minLength) &&
                 Objects.equals(patternInfo, that.patternInfo) &&
@@ -993,7 +990,7 @@ public class CodegenSchema {
     public int hashCode() {
         return Objects.hash(description,
                 jsonPathPiece, defaultValue,
-                title, unescapedDescription,
+                title,
                 maxLength, minLength, patternInfo, example, minimum, maximum,
                 exclusiveMinimum, exclusiveMaximum, deprecated, types,
                 readOnly, writeOnly, nullable,

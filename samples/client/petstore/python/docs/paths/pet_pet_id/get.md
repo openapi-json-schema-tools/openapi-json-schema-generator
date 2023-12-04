@@ -205,8 +205,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'petId': 1,
     }
     try:
-        ''' Find pet by ID
-        '''
+        # Find pet by ID
         api_response = api_instance.get_pet_by_id(
             path_params=path_params,
         )

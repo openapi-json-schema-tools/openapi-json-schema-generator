@@ -18,6 +18,7 @@ petstore_api.paths.fake_upload_file.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | uploads a file using multipart/form-data |
+| Description |  |
 | Path | "/fake/uploadFile" |
 | HTTP Method | post |
 
@@ -155,8 +156,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "file": open('/path/to/file', 'rb'),
     }
     try:
-        ''' uploads a file using multipart/form-data
-        '''
+        # uploads a file using multipart/form-data
         api_response = api_instance.upload_file(
             body=body,
         )

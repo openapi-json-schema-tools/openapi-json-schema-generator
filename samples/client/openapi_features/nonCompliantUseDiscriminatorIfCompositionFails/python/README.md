@@ -152,6 +152,7 @@ with this_package.ApiClient(used_configuration) as api_client:
         "operator_id": "ADD",
     )
     try:
+        # 
         api_response = api_instance.post_operators(
             body=body,
         )
@@ -180,9 +181,9 @@ HTTP request | Method | Description
 
 Class | Description
 ----- | ------------
-[AdditionOperator](docs/components/schema/addition_operator.md) |
-[Operator](docs/components/schema/operator.md) |
-[SubtractionOperator](docs/components/schema/subtraction_operator.md) |
+[AdditionOperator](docs/components/schema/addition_operator.md) | 
+[Operator](docs/components/schema/operator.md) | 
+[SubtractionOperator](docs/components/schema/subtraction_operator.md) | 
 
 ## Notes for Large OpenAPI documents
 If the OpenAPI document is large, imports in this_package.apis.tags.tag_to_api and this_package.components.schemas may fail with a

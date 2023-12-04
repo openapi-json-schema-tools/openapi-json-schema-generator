@@ -312,8 +312,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     header_params: operation.HeaderParametersDictInput = {
     }
     try:
-        ''' parameter collision case
-        '''
+        # parameter collision case
         api_response = api_instance.parameter_collisions(
             path_params=path_params,
             query_params=query_params,
@@ -354,8 +353,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     }
     body = None
     try:
-        ''' parameter collision case
-        '''
+        # parameter collision case
         api_response = api_instance.parameter_collisions(
             path_params=path_params,
             query_params=query_params,

@@ -123,8 +123,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         string_enum.StringEnum.validate("string_example")
     ])
     try:
-        ''' Array of Enums
-        '''
+        # Array of Enums
         api_response = api_instance.array_of_enums(
             body=body,
         )

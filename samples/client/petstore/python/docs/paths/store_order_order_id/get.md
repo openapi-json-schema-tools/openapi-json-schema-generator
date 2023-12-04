@@ -178,8 +178,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'order_id': 1,
     }
     try:
-        ''' Find purchase order by ID
-        '''
+        # Find purchase order by ID
         api_response = api_instance.get_order_by_id(
             path_params=path_params,
         )

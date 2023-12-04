@@ -124,8 +124,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'id': "id_example",
     }
     try:
-        ''' Delete coffee
-        '''
+        # Delete coffee
         api_response = api_instance.delete_coffee(
             path_params=path_params,
         )

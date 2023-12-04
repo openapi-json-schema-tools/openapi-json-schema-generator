@@ -17,7 +17,7 @@ from {{packageName}}.shared_imports.security_scheme_imports import *  # pyright:
 class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
             {{#if description}}
     '''
-    {{description}}
+    {{description.original}}
     '''
             {{/if}}
     name: str = "{{name}}"
@@ -38,7 +38,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.ApiKeySecurityScheme):
 class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Basic{{/eq}}{{#eq scheme "bearer"}}Bearer{{/eq}}{{#eq scheme "signature"}}Signature{{/eq}}{{#eq scheme "digest"}}Digest{{/eq}}SecurityScheme):
                 {{#if description}}
     '''
-    {{description}}
+    {{description.original}}
     '''
                 {{/if}}
                 {{#eq scheme "bearer"}}
@@ -50,7 +50,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.HTTP{{#eq scheme "basic"}}Bas
 class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
                     {{#if description}}
     '''
-    {{description}}
+    {{description.original}}
     '''
                     {{else}}
     pass
@@ -61,7 +61,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.MutualTLSSecurityScheme):
 class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
                         {{#if description}}
     '''
-    {{description}}
+    {{description.original}}
     '''
                         {{/if}}
     flows = security_schemes.OAuthFlows(
@@ -127,7 +127,7 @@ class {{jsonPathPiece.camelCase}}(security_schemes.OAuth2SecurityScheme):
 class {{jsonPathPiece.camelCase}}(security_schemes.OpenIdConnectSecurityScheme):
                             {{#if description}}
     '''
-    {{description}}
+    {{description.original}}
     '''
                             {{/if}}
     openid_connect_url = "{{openIdConnectUrl}}"

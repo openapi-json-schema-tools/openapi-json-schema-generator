@@ -197,8 +197,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "a": "a_example",
     }
     try:
-        ''' testing composed schemas at inline locations
-        '''
+        # testing composed schemas at inline locations
         api_response = api_instance.multiple_request_body_content_types(
             body=body,
         )

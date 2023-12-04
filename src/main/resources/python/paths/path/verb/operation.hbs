@@ -282,7 +282,7 @@ class BaseApi(api_client.Api):
     {{> paths/path/verb/_helper_operation_args rootSecurity=../security isOverload=false skipDeserialization=null}}
         """
     {{#if summary}}
-        {{summary}}
+        {{{summary.codeEscaped}}}
     {{/if}}
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema

@@ -20,7 +20,7 @@ public class {{containerJsonPathPiece.camelCase}}Test {
 
     @Test
     public void test{{@key}}{{#if valid}}Passes{{else}}Fails{{/if}}() {
-        // {{description}}
+        // {{description.codeEscaped}}
         {{#if valid}}
         {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.validate(
             {{#with data}}

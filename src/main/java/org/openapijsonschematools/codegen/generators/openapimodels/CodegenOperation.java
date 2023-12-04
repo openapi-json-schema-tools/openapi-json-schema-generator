@@ -28,7 +28,7 @@ public class CodegenOperation {
     public final LinkedHashSet<Integer> nonErrorWildcardStatusCodes; // values like 2 for @2XX
     public final LinkedHashSet<String> errorStatusCodes; // values like 401
     public final LinkedHashSet<Integer> errorWildcardStatusCodes; // values like 4 for 4XX
-    public final String summary, unescapedDescription, description;
+    public final CodegenText summary, description;
     public final LinkedHashSet<String> produces;
     public final List<CodegenServer> servers;
     public final CodegenRequestBody requestBody;
@@ -62,9 +62,8 @@ public class CodegenOperation {
             LinkedHashSet<Integer> nonErrorWildcardStatusCodes,
             LinkedHashSet<String> errorStatusCodes,
             LinkedHashSet<Integer> errorWildcardStatusCodes,
-            String summary,
-            String unescapedDescription,
-            String description,
+            CodegenText summary,
+            CodegenText description,
             LinkedHashSet<String> produces,
             List<CodegenServer> servers,
             CodegenRequestBody requestBody,
@@ -96,7 +95,6 @@ public class CodegenOperation {
         this.errorStatusCodes = errorStatusCodes;
         this.errorWildcardStatusCodes = errorWildcardStatusCodes;
         this.summary = summary;
-        this.unescapedDescription = unescapedDescription;
         this.description = description;
         this.produces = produces;
         this.servers = servers;
@@ -184,8 +182,7 @@ public class CodegenOperation {
         sb.append(", deprecated=").append(deprecated);
         sb.append(", operationId='").append(operationId).append('\'');
         sb.append(", summary='").append(summary).append('\'');
-        sb.append(", unescapedNotes='").append(unescapedDescription).append('\'');
-        sb.append(", notes='").append(description).append('\'');
+        sb.append(", description='").append(description).append('\'');
         sb.append(", defaultResponse='").append(defaultResponse).append('\'');
         sb.append(", produces=").append(produces);
         sb.append(", servers=").append(servers);
@@ -215,7 +212,6 @@ public class CodegenOperation {
         return deprecated == that.deprecated &&
                 Objects.equals(operationId, that.operationId) &&
                 Objects.equals(summary, that.summary) &&
-                Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(description, that.description) &&
                 Objects.equals(defaultResponse, that.defaultResponse) &&
                 Objects.equals(produces, that.produces) &&
@@ -240,7 +236,7 @@ public class CodegenOperation {
     public int hashCode() {
 
         return Objects.hash(deprecated, operationId,
-                summary, unescapedDescription, description, defaultResponse,
+                summary, description, defaultResponse,
                 produces, servers, requestBody, parameters,
                 hasRequiredParamOrBody, hasOptionalParamOrBody,
                 security, tags, responses, callbacks, externalDocs,

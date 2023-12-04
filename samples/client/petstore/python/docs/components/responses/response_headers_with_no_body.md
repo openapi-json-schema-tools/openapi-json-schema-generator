@@ -2,7 +2,8 @@ petstore_api.components.responses.response_headers_with_no_body
 # Response HeadersWithNoBody
 
 ## Description
-A response that contains headers but no body 
+A response that contains headers but no body
+
 
 ## ApiResponse
 Name | Type | Description  | Notes

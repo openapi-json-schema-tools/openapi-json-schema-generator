@@ -186,8 +186,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     ],
     }
     try:
-        ''' Finds Pets by tags
-        '''
+        # Finds Pets by tags
         api_response = api_instance.find_pets_by_tags(
             query_params=query_params,
         )

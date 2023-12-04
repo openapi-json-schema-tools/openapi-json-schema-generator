@@ -71,6 +71,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecuri
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenServer;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenTag;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenXml;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
@@ -1669,7 +1670,7 @@ public class DefaultGenerator implements Generator {
             }
             LinkedHashMap castTestExample = (LinkedHashMap) testExample;
             Object data = castTestExample.get("data");
-            String description = (String) castTestExample.get("description");
+            CodegenText description = getCodegenText((String) castTestExample.get("description"));
             boolean valid = (boolean) castTestExample.get("valid");
             SchemaTestCase testCase = new SchemaTestCase(
                     description,
@@ -2504,8 +2505,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
-        property.description = escapeText(p.getDescription());
-        property.unescapedDescription = p.getDescription();
+        property.description = getCodegenText(p.getDescription());
         property.title = p.getTitle();
         property.defaultValue = toDefaultValue(p);
 
@@ -2654,9 +2654,12 @@ public class DefaultGenerator implements Generator {
             codegenServers = fromServers(operation.getServers(), jsonPath + "/servers");
         }
 
-        String summary = operation.getSummary();
-        String unescapedDescription = operation.getDescription();
-        String description = escapeText(operation.getDescription());
+        CodegenText summary = null;
+        if (operation.getSummary() != null) {
+            String sum = operation.getSummary();
+            summary = new CodegenText(sum, escapeText(sum));
+        }
+        CodegenText description = getCodegenText(operation.getDescription());
         Boolean deprecated = operation.getDeprecated();
 
         TreeMap<String, CodegenResponse> responses = null;
@@ -2919,7 +2922,6 @@ public class DefaultGenerator implements Generator {
                 errorStatusCodes,
                 errorWildcardStatusCodes,
                 summary,
-                unescapedDescription,
                 description,
                 produces,
                 codegenServers,
@@ -2989,6 +2991,13 @@ public class DefaultGenerator implements Generator {
         return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
     }
 
+    private CodegenText getCodegenText(String input) {
+        if (input == null) {
+            return null;
+        }
+        return new CodegenText(input, escapeText(input));
+    }
+
     /**
      * Convert OAS Response object to Codegen Response object
      *
@@ -3008,7 +3017,7 @@ public class DefaultGenerator implements Generator {
             return r;
         }
 
-        String description = escapeText(response.getDescription());
+        CodegenText description = getCodegenText(response.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (response.getExtensions() != null && !response.getExtensions().isEmpty()) {
             vendorExtensions = response.getExtensions();
@@ -3128,7 +3137,8 @@ public class DefaultGenerator implements Generator {
         if (tag != null) {
             return tag;
         }
-        tag = new CodegenTag(name, toApiFilename(name), toApiName(name), description);
+        CodegenText castDescription = getCodegenText(description);
+        tag = new CodegenTag(name, toApiFilename(name), toApiName(name), castDescription);
         codegenTagCache.put(name, tag);
         return tag;
     }
@@ -3161,8 +3171,7 @@ public class DefaultGenerator implements Generator {
         // #/components/headers/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        String description = escapeText(header.getDescription());
-        String unescapedDescription = header.getDescription();
+        CodegenText description = getCodegenText(header.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (header.getExtensions() != null && !header.getExtensions().isEmpty()) {
             vendorExtensions = header.getExtensions();
@@ -3198,7 +3207,7 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, refInfo);
+        codegenHeader = new CodegenHeader(description, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, refInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }
@@ -3242,8 +3251,7 @@ public class DefaultGenerator implements Generator {
         // #/components/parameters/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        String description = escapeText(parameter.getDescription());
-        String unescapedDescription = parameter.getDescription();
+        CodegenText description = getCodegenText(parameter.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (parameter.getExtensions() != null && !parameter.getExtensions().isEmpty()) {
             vendorExtensions = parameter.getExtensions();
@@ -3292,7 +3300,7 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         Boolean allowReserved = parameter.getAllowReserved();
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, refInfo, allowReserved);
+        codegenParameter = new CodegenParameter(description, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, refInfo, allowReserved);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
@@ -3432,7 +3440,7 @@ public class DefaultGenerator implements Generator {
         boolean componentModule = pathPieces.length == 4 && jsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
         String type = securityScheme.getType().toString();
-        String description = securityScheme.getDescription();
+        CodegenText description = getCodegenText(securityScheme.getDescription());
         String name = securityScheme.getName();
         String in = null;
         if (securityScheme.getIn() != null) {
@@ -4886,8 +4894,7 @@ public class DefaultGenerator implements Generator {
         // #/components/requestBodies/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        String description = escapeText(requestBody.getDescription());
-        String unescapedDescription = requestBody.getDescription();
+        CodegenText description = getCodegenText(requestBody.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (requestBody.getExtensions() != null && !requestBody.getExtensions().isEmpty()) {
             vendorExtensions = requestBody.getExtensions();
@@ -4903,7 +4910,7 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
 
-        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
+        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }
@@ -5170,8 +5177,8 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
-        String summary = pathItem.getSummary();
-        String description = pathItem.getDescription();
+        CodegenText summary = getCodegenText(pathItem.getSummary());
+        CodegenText description = getCodegenText(pathItem.getDescription());
         ArrayList<CodegenParameter> parameters = null;
         LinkedHashMap<Pair<String, String>, CodegenParameter> pairToParameter = new LinkedHashMap<>();
         if (pathItem.getParameters() != null && !pathItem.getParameters().isEmpty()) {
@@ -5227,9 +5234,10 @@ public class DefaultGenerator implements Generator {
         for (Server server : servers) {
             String serverJsonPath = jsonPath + "/" + i;
             CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
+            CodegenText description = getCodegenText(server.getDescription());
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
-                escapeText(server.getDescription()),
+                description,
                 fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
                 jsonPathPiece,
                 rootServer

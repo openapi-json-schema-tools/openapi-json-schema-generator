@@ -18,6 +18,7 @@ petstore_api.paths.store_order.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Place an order for a pet |
+| Description |  |
 | Path | "/store/order" |
 | HTTP Method | post |
 
@@ -152,8 +153,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         "complete": False,
     })
     try:
-        ''' Place an order for a pet
-        '''
+        # Place an order for a pet
         api_response = api_instance.place_order(
             body=body,
         )

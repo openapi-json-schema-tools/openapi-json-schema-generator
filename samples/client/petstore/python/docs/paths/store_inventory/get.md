@@ -96,8 +96,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
 
     # example, this endpoint has no required or optional parameters
     try:
-        ''' Returns pet inventories by status
-        '''
+        # Returns pet inventories by status
         api_response = api_instance.get_inventory()
         pprint(api_response)
     except petstore_api.ApiException as e:

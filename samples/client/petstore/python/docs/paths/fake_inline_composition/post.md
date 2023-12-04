@@ -339,8 +339,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
     }
     body = None
     try:
-        ''' testing composed schemas at inline locations
-        '''
+        # testing composed schemas at inline locations
         api_response = api_instance.inline_composition(
             query_params=query_params,
             body=body,

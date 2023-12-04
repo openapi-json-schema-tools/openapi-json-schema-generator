@@ -5,7 +5,7 @@
     {{#if description}}
 
 ## Description
-{{description}}
+{{description.original}}
     {{/if}}
 {{/with}}
 
@@ -18,7 +18,7 @@ Method | Description
 ------ | -------------
 {{#each operationIdToPathToOperation}}
     {{#each this}}
-[**{{../@key.snakeCase}}**](../../paths/{{@key.snakeCase}}/{{jsonPathPiece.original}}.md) | {{#if summary}}{{summary}}{{/if}}
+[**{{../@key.snakeCase}}**](../../paths/{{@key.snakeCase}}/{{jsonPathPiece.original}}.md) | {{#if summary}}{{summary.original}}{{/if}}
     {{/each}}
 {{/each}}
 

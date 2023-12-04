@@ -6,9 +6,9 @@ public class CodegenTag {
     public final String name;
     public final String moduleName;
     public final String className;
-    public final String description;
+    public final CodegenText description;
 
-    public CodegenTag(String name, String moduleName, String className, String description) {
+    public CodegenTag(String name, String moduleName, String className, CodegenText description) {
         this.name = name;
         this.moduleName = moduleName;
         this.className = className;

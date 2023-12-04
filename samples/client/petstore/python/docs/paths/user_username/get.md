@@ -18,6 +18,7 @@ petstore_api.paths.user_username.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Get user by user name |
+| Description |  |
 | Path | "/user/{username}" |
 | HTTP Method | get |
 
@@ -177,8 +178,7 @@ with petstore_api.ApiClient(used_configuration) as api_client:
         'username': "username_example",
     }
     try:
-        ''' Get user by user name
-        '''
+        # Get user by user name
         api_response = api_instance.get_user_by_name(
             path_params=path_params,
         )

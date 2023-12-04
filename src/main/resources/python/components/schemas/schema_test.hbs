@@ -19,7 +19,7 @@ class Test{{jsonPathPiece.camelCase}}(unittest.TestCase):
 {{#each testCases}}
 {{#with this }}
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
-        # {{description}}
+        # {{description.codeEscaped}}
 {{#if valid}}
         {{jsonPathPiece.camelCase}}.validate(
 {{#with data}}

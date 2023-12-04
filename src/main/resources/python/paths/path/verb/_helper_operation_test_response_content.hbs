@@ -9,7 +9,7 @@ assert response_body_schema is not None
 {{#with this }}
 
 def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
-    # {{description}}
+    # {{description.codeEscaped}}
     accept_content_type = '{{{../@key.original}}}'
 
     with patch.object(urllib3.PoolManager, 'request') as mock_request:
