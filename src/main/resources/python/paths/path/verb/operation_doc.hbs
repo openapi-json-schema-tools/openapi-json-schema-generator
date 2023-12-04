@@ -129,17 +129,17 @@ n/a | api_response.ApiResponseWithoutDeserialization | When skip_deserialization
 {{#if defaultResponse}}
     {{#with defaultResponse}}
         {{#if refInfo}}
-default | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description}}{{/with}}
+default | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description.original}}{{/with}}
         {{else}}
-default | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description}}
+default | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description.original}}
         {{/if}}
     {{/with}}
 {{/if}}
 {{#each nonDefaultResponses}}
     {{#if refInfo}}
-{{@key}} | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description}}{{/with}}
+{{@key}} | [{{refInfo.refClass}}.ApiResponse](../../components/responses/{{refInfo.refModule}}.md#apiresponse) | {{#with getDeepestRef}}{{description.original}}{{/with}}
     {{else}}
-{{@key}} | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description}}
+{{@key}} | [{{jsonPathPiece.camelCase}}.ApiResponse](#{{jsonPathPiece.anchorPiece}}-apiresponse) | {{description.original}}
     {{/if}}
 {{/each}}
 {{#each responses}}

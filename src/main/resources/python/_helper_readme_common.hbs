@@ -67,7 +67,7 @@ Class | Description
 ----- | ------------
 {{#each requestBodies}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -79,7 +79,7 @@ Class | Description
 ----- | ------------
 {{#each responses}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -91,7 +91,7 @@ Class | Description
 ----- | ------------
 {{#each headers}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}

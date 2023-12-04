@@ -2505,11 +2505,7 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
-        property.description = null;
-        if (p.getDescription() != null) {
-            String desc = p.getDescription();
-            property.description = new CodegenText(desc, escapeText(desc));
-        }
+        property.description = getCodegenText(p.getDescription());
         property.title = p.getTitle();
         property.defaultValue = toDefaultValue(p);
 
@@ -2663,11 +2659,7 @@ public class DefaultGenerator implements Generator {
             String sum = operation.getSummary();
             summary = new CodegenText(sum, escapeText(sum));
         }
-        CodegenText description = null;
-        if (operation.getDescription() != null) {
-            String desc = operation.getDescription();
-            description = new CodegenText(desc, escapeText(desc));
-        }
+        CodegenText description = getCodegenText(operation.getDescription());
         Boolean deprecated = operation.getDeprecated();
 
         TreeMap<String, CodegenResponse> responses = null;
@@ -2999,6 +2991,13 @@ public class DefaultGenerator implements Generator {
         return moduleLocation.replace('.', File.separatorChar).substring(packageName.length()+1);
     }
 
+    private CodegenText getCodegenText(String input) {
+        if (input == null) {
+            return null;
+        }
+        return new CodegenText(input, escapeText(input));
+    }
+
     /**
      * Convert OAS Response object to Codegen Response object
      *
@@ -3018,7 +3017,7 @@ public class DefaultGenerator implements Generator {
             return r;
         }
 
-        String description = escapeText(response.getDescription());
+        CodegenText description = getCodegenText(response.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (response.getExtensions() != null && !response.getExtensions().isEmpty()) {
             vendorExtensions = response.getExtensions();
@@ -3171,11 +3170,7 @@ public class DefaultGenerator implements Generator {
         // #/components/headers/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        CodegenText description = null;
-        if (header.getDescription() != null) {
-            String desc = header.getDescription();
-            description = new CodegenText(desc, escapeText(desc));
-        }
+        CodegenText description = getCodegenText(header.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (header.getExtensions() != null && !header.getExtensions().isEmpty()) {
             vendorExtensions = header.getExtensions();
@@ -3255,11 +3250,7 @@ public class DefaultGenerator implements Generator {
         // #/components/parameters/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        CodegenText description = null;
-        if (parameter.getDescription() != null) {
-            String desc = parameter.getDescription();
-            description = new CodegenText(desc, escapeText(desc));
-        }
+        CodegenText description = getCodegenText(parameter.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (parameter.getExtensions() != null && !parameter.getExtensions().isEmpty()) {
             vendorExtensions = parameter.getExtensions();
@@ -4902,11 +4893,7 @@ public class DefaultGenerator implements Generator {
         // #/components/requestBodies/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        CodegenText description = null;
-        if (requestBody.getDescription() != null) {
-            String desc = requestBody.getDescription();
-            description = new CodegenText(desc, escapeText(desc));
-        }
+        CodegenText description = getCodegenText(requestBody.getDescription());
         Map<String, Object> vendorExtensions = null;
         if (requestBody.getExtensions() != null && !requestBody.getExtensions().isEmpty()) {
             vendorExtensions = requestBody.getExtensions();

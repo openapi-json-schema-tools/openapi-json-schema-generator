@@ -388,16 +388,17 @@ Class | Description
 
 Class | Description
 ----- | ------------
-[Client](docs/components/request_bodies/request_body_client.md) | CodegenText{original&#x3D;client model, codeEscaped&#x3D;client model}
-[Pet](docs/components/request_bodies/request_body_pet.md) | CodegenText{original&#x3D;Pet object that needs to be added to the store, multiple content types, codeEscaped&#x3D;Pet object that needs to be added to the store, multiple content types}
+[Client](docs/components/request_bodies/request_body_client.md) | client model
+[Pet](docs/components/request_bodies/request_body_pet.md) | Pet object that needs to be added to the store, multiple content types
 [RefUserArray](docs/components/request_bodies/request_body_ref_user_array.md) |
-[UserArray](docs/components/request_bodies/request_body_user_array.md) | CodegenText{original&#x3D;List of user object, codeEscaped&#x3D;List of user object}
+[UserArray](docs/components/request_bodies/request_body_user_array.md) | List of user object
 
 ## Component Responses
 
 Class | Description
 ----- | ------------
-[HeadersWithNoBody](docs/components/responses/response_headers_with_no_body.md) | A response that contains headers but no body 
+[HeadersWithNoBody](docs/components/responses/response_headers_with_no_body.md) | A response that contains headers but no body
+
 [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md) |
 [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md) |
 [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md) | Success
@@ -409,12 +410,12 @@ Class | Description
 
 Class | Description
 ----- | ------------
-[Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md) | CodegenText{original&#x3D;int32 JSON content-type header, codeEscaped&#x3D;int32 JSON content-type header}
-[NumberHeader](docs/components/headers/header_number_header.md) | CodegenText{original&#x3D;number header description, codeEscaped&#x3D;number header description}
-[RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md) | CodegenText{original&#x3D;int32 JSON content-type header, codeEscaped&#x3D;int32 JSON content-type header}
-[RefSchemaHeader](docs/components/headers/header_ref_schema_header.md) | CodegenText{original&#x3D;header that has a ref in the schema, codeEscaped&#x3D;header that has a ref in the schema}
+[Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md) | int32 JSON content-type header
+[NumberHeader](docs/components/headers/header_number_header.md) | number header description
+[RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md) | int32 JSON content-type header
+[RefSchemaHeader](docs/components/headers/header_ref_schema_header.md) | header that has a ref in the schema
 [RefStringHeader](docs/components/headers/header_ref_string_header.md) |
-[StringHeader](docs/components/headers/header_string_header.md) | CodegenText{original&#x3D;string header description, codeEscaped&#x3D;string header description}
+[StringHeader](docs/components/headers/header_string_header.md) | string header description
 
 ## Component Parameters
 
