@@ -13,8 +13,7 @@ import java.util.TreeSet;
  * Parameters may be located in a path, query, header or cookie.
  */
 public class CodegenRequestBody {
-    public final String description;
-    public final String unescapedDescription;
+    public final CodegenText description;
     public final Map<String, Object> vendorExtensions;
     public final Boolean required;
     public final LinkedHashMap<CodegenKey, CodegenMediaType> content;
@@ -66,9 +65,8 @@ public class CodegenRequestBody {
         return schemas;
     }
 
-    public CodegenRequestBody(String description, String unescapedDescription, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
+    public CodegenRequestBody(CodegenText description, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, CodegenRefInfo<CodegenRequestBody> refInfo) {
         this.description = description;
-        this.unescapedDescription = unescapedDescription;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
         this.content = content;
@@ -91,7 +89,7 @@ public class CodegenRequestBody {
 
     @Override
     public int hashCode() {
-        return Objects.hash(description, unescapedDescription, jsonPathPiece, vendorExtensions, required, content, refInfo, imports, componentModule);
+        return Objects.hash(description, jsonPathPiece, vendorExtensions, required, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -105,7 +103,6 @@ public class CodegenRequestBody {
             Objects.equals(imports, that.imports) &&
             Objects.equals(content, that.content) &&
             Objects.equals(description, that.description) &&
-            Objects.equals(unescapedDescription, that.unescapedDescription) &&
             Objects.equals(vendorExtensions, that.vendorExtensions) &&
             Objects.equals(refInfo, that.refInfo);
     }
@@ -113,7 +110,6 @@ public class CodegenRequestBody {
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append("name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
-        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);
         sb.append(", content=").append(content);

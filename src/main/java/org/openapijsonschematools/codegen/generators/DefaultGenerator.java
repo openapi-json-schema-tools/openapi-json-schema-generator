@@ -4902,8 +4902,11 @@ public class DefaultGenerator implements Generator {
         // #/components/requestBodies/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        String description = escapeText(requestBody.getDescription());
-        String unescapedDescription = requestBody.getDescription();
+        CodegenText description = null;
+        if (requestBody.getDescription() != null) {
+            String desc = requestBody.getDescription();
+            description = new CodegenText(desc, escapeText(desc));
+        }
         Map<String, Object> vendorExtensions = null;
         if (requestBody.getExtensions() != null && !requestBody.getExtensions().isEmpty()) {
             vendorExtensions = requestBody.getExtensions();
@@ -4919,7 +4922,7 @@ public class DefaultGenerator implements Generator {
         Map<String, Object> finalVendorExtensions = vendorExtensions;
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
 
-        codegenRequestBody = new CodegenRequestBody(description, unescapedDescription, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
+        codegenRequestBody = new CodegenRequestBody(description, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, refInfo);
         codegenRequestBodyCache.put(sourceJsonPath, codegenRequestBody);
         return codegenRequestBody;
     }

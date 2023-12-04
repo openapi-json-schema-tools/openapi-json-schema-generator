@@ -388,10 +388,10 @@ Class | Description
 
 Class | Description
 ----- | ------------
-[Client](docs/components/request_bodies/request_body_client.md) | client model
-[Pet](docs/components/request_bodies/request_body_pet.md) | Pet object that needs to be added to the store, multiple content types
+[Client](docs/components/request_bodies/request_body_client.md) | CodegenText{original&#x3D;client model, codeEscaped&#x3D;client model}
+[Pet](docs/components/request_bodies/request_body_pet.md) | CodegenText{original&#x3D;Pet object that needs to be added to the store, multiple content types, codeEscaped&#x3D;Pet object that needs to be added to the store, multiple content types}
 [RefUserArray](docs/components/request_bodies/request_body_ref_user_array.md) |
-[UserArray](docs/components/request_bodies/request_body_user_array.md) | List of user object
+[UserArray](docs/components/request_bodies/request_body_user_array.md) | CodegenText{original&#x3D;List of user object, codeEscaped&#x3D;List of user object}
 
 ## Component Responses
 
