@@ -19,6 +19,7 @@ petstore_api.paths.pet_pet_id.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Deletes a pet |
+| Description |  |
 | Path | "/pet/{petId}" |
 | HTTP Method | delete |
 

@@ -19,6 +19,7 @@ petstore_api.paths.pet_pet_id.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Updates a pet in the store with form data |
+| Description |  |
 | Path | "/pet/{petId}" |
 | HTTP Method | post |
 

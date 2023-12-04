@@ -18,6 +18,7 @@ petstore_api.paths.fake_json_form_data.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | test json serialization of form data |
+| Description |  |
 | Path | "/fake/jsonFormData" |
 | HTTP Method | get |
 

@@ -2505,8 +2505,11 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
-        property.description = escapeText(p.getDescription());
-        property.unescapedDescription = p.getDescription();
+        property.description = null;
+        if (p.getDescription() != null) {
+            String desc = p.getDescription();
+            property.description = new CodegenText(desc, escapeText(desc));
+        }
         property.title = p.getTitle();
         property.defaultValue = toDefaultValue(p);
 

@@ -19,6 +19,7 @@ petstore_api.paths.pet_pet_id_upload_image.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | uploads an image |
+| Description |  |
 | Path | "/pet/{petId}/uploadImage" |
 | HTTP Method | post |
 

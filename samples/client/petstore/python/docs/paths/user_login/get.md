@@ -18,6 +18,7 @@ petstore_api.paths.user_login.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Logs user into the system |
+| Description |  |
 | Path | "/user/login" |
 | HTTP Method | get |
 

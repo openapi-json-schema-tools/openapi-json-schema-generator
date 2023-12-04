@@ -19,6 +19,7 @@ petstore_api.paths.fake_pet_id_upload_image_with_required_file.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | uploads an image (required) |
+| Description |  |
 | Path | "/fake/{petId}/uploadImageWithRequiredFile" |
 | HTTP Method | post |
 

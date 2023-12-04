@@ -4,6 +4,9 @@ this_package.components.schema.operator
 type: schemas.Schema
 ```
 
+## Description
+
+
 ## validate method
 Input Type | Return Type | Notes
 ------------ | ------------- | -------------

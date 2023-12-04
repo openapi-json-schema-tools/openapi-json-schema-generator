@@ -18,6 +18,7 @@ petstore_api.paths.user_username.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Get user by user name |
+| Description |  |
 | Path | "/user/{username}" |
 | HTTP Method | get |
 

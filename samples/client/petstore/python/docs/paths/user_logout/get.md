@@ -18,6 +18,7 @@ petstore_api.paths.user_logout.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Logs out current logged in user session |
+| Description |  |
 | Path | "/user/logout" |
 | HTTP Method | get |
 

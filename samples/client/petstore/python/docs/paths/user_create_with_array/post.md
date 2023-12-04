@@ -18,6 +18,7 @@ petstore_api.paths.user_create_with_array.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Creates list of users with given input array |
+| Description |  |
 | Path | "/user/createWithArray" |
 | HTTP Method | post |
 

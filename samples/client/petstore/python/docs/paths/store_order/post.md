@@ -18,6 +18,7 @@ petstore_api.paths.store_order.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Place an order for a pet |
+| Description |  |
 | Path | "/store/order" |
 | HTTP Method | post |
 

@@ -19,6 +19,7 @@ petstore_api.paths.pet.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | Update an existing pet |
+| Description |  |
 | Path | "/pet" |
 | HTTP Method | put |
 

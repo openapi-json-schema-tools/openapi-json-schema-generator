@@ -18,6 +18,7 @@ petstore_api.paths.fake_inline_additional_properties.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | test inline additionalProperties |
+| Description |  |
 | Path | "/fake/inline-additionalProperties" |
 | HTTP Method | post |
 

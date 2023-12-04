@@ -18,6 +18,7 @@ petstore_api.paths.fake_upload_download_file.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | uploads a file and downloads a file using application/octet-stream |
+| Description |  |
 | Path | "/fake/uploadDownloadFile" |
 | HTTP Method | post |
 

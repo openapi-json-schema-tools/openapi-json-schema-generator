@@ -18,6 +18,7 @@ petstore_api.paths.fake_upload_files.operation
 | Field | Value |
 | ----- | ----- |
 | Summary | uploads files using multipart/form-data |
+| Description |  |
 | Path | "/fake/uploadFiles" |
 | HTTP Method | post |
 
