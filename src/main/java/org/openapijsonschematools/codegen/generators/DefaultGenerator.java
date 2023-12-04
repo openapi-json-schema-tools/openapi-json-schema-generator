@@ -2660,8 +2660,11 @@ public class DefaultGenerator implements Generator {
             String sum = operation.getSummary();
             summary = new CodegenText(sum, escapeText(sum));
         }
-        String unescapedDescription = operation.getDescription();
-        String description = escapeText(operation.getDescription());
+        CodegenText description = null;
+        if (operation.getDescription() != null) {
+            String desc = operation.getDescription();
+            description = new CodegenText(desc, escapeText(desc));
+        }
         Boolean deprecated = operation.getDeprecated();
 
         TreeMap<String, CodegenResponse> responses = null;
@@ -2924,7 +2927,6 @@ public class DefaultGenerator implements Generator {
                 errorStatusCodes,
                 errorWildcardStatusCodes,
                 summary,
-                unescapedDescription,
                 description,
                 produces,
                 codegenServers,
