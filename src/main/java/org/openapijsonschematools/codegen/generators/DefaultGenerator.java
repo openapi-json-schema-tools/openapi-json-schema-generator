@@ -1670,7 +1670,7 @@ public class DefaultGenerator implements Generator {
             }
             LinkedHashMap castTestExample = (LinkedHashMap) testExample;
             Object data = castTestExample.get("data");
-            String description = (String) castTestExample.get("description");
+            CodegenText description = getCodegenText((String) castTestExample.get("description"));
             boolean valid = (boolean) castTestExample.get("valid");
             SchemaTestCase testCase = new SchemaTestCase(
                     description,
@@ -5177,8 +5177,8 @@ public class DefaultGenerator implements Generator {
 
     @Override
     public CodegenPathItem fromPathItem(PathItem pathItem, String jsonPath) {
-        String summary = pathItem.getSummary();
-        String description = pathItem.getDescription();
+        CodegenText summary = getCodegenText(pathItem.getSummary());
+        CodegenText description = getCodegenText(pathItem.getDescription());
         ArrayList<CodegenParameter> parameters = null;
         LinkedHashMap<Pair<String, String>, CodegenParameter> pairToParameter = new LinkedHashMap<>();
         if (pathItem.getParameters() != null && !pathItem.getParameters().isEmpty()) {
@@ -5234,9 +5234,10 @@ public class DefaultGenerator implements Generator {
         for (Server server : servers) {
             String serverJsonPath = jsonPath + "/" + i;
             CodegenKey jsonPathPiece = getKey(String.valueOf(i), "servers");
+            CodegenText description = getCodegenText(server.getDescription());
             CodegenServer cs = new CodegenServer(
                 removeTrailingSlash(server.getUrl()),  // because trailing slash has no impact on server and path needs slash as first char
-                escapeText(server.getDescription()),
+                description,
                 fromServerVariables(server.getVariables(), serverJsonPath + "/variables"),
                 jsonPathPiece,
                 rootServer

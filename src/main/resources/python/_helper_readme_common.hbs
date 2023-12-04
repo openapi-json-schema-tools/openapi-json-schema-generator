@@ -13,7 +13,7 @@
 server_index | Class | Description
 ------------ | ----- | ------------
 {{#each servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
 {{/each}}
 {{/if}}
 {{#if security}}

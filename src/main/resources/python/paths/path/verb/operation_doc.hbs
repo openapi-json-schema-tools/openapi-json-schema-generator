@@ -220,16 +220,16 @@ server_index | Class | Description
 ------------ | ----- | ------------
 {{#if servers}}
     {{#each servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description.original}}{{/if}}
     {{/each}}
 {{else}}
     {{#if pathItem.servers}}
         {{#each pathItem.servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description}}{{/if}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description.original}}{{/if}}
         {{/each}}
     {{else}}
         {{#each ../servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](../../servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
         {{/each}}
     {{/if}}
 {{/if}}

@@ -79,7 +79,7 @@ class Test{{httpMethod.camelCase}}(ApiTestMixin, unittest.TestCase):
 
     def test_{{@key}}_{{#if valid}}passes{{else}}fails{{/if}}(self):
         content_type = '{{{../@key.original}}}'
-        # {{description}}
+        # {{description.codeEscaped}}
         with patch.object(urllib3.PoolManager, 'request') as mock_request:
             payload = (
 {{#with data}}
