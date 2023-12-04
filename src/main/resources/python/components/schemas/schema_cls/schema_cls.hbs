@@ -2,11 +2,11 @@
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
 {{else}}
     {{#eq types null }}
-        {{#or allOf anyOf oneOf not if_ then else_ enumInfo constInfo properties requiredProperties hasDiscriminatorWithNonEmptyMapping additionalProperties dependentRequired dependentSchemas propertyNames (neq maxProperties null) (neq minProperties null) patternProperties unevaluatedProperties items uniqueItems (neq maxItems null) (neq minItems null) contains (neq maxContains null) (neq minContains null) prefixItems unevaluatedItems format (neq maxLength null) (neq minLength null) maximum minimum exclusiveMaximum exclusiveMinimum multipleOf patternInfo }}
-{{> components/schemas/schema_cls/_schema_anytype_or_multitype }}
-        {{else}}
+        {{#if isSimpleAnyType }}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
-        {{/or}}
+        {{else}}
+{{> components/schemas/schema_cls/_schema_anytype_or_multitype }}
+        {{/if}}
     {{else}}
         {{! types exist }}
         {{#eq types.size 1}}
@@ -47,7 +47,11 @@
 {{> components/schemas/schema_cls/_schema_string }}
                                     {{/if}}
                                 {{else}}
+                                    {{#if isSimpleNull }}
 {{> components/schemas/schema_cls/_schema_var_equals_cls }}
+                                    {{else}}
+{{> components/schemas/schema_cls/_schema_anytype_or_multitype }}
+                                    {{/if}}
                                 {{/eq}}
                             {{/or}}
                         {{/eq}}
