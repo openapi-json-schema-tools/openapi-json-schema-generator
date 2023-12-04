@@ -3171,8 +3171,11 @@ public class DefaultGenerator implements Generator {
         // #/components/headers/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        String description = escapeText(header.getDescription());
-        String unescapedDescription = header.getDescription();
+        CodegenText description = null;
+        if (header.getDescription() != null) {
+            String desc = header.getDescription();
+            description = new CodegenText(desc, escapeText(desc));
+        }
         Map<String, Object> vendorExtensions = null;
         if (header.getExtensions() != null && !header.getExtensions().isEmpty()) {
             vendorExtensions = header.getExtensions();
@@ -3208,7 +3211,7 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         String example = getHeaderExampleValue(header);
-        codegenHeader = new CodegenHeader(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, refInfo);
+        codegenHeader = new CodegenHeader(description, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, refInfo);
         codegenHeaderCache.put(sourceJsonPath, codegenHeader);
         return codegenHeader;
     }

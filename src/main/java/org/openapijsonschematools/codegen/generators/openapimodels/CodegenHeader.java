@@ -30,8 +30,7 @@ import java.util.TreeSet;
  * Parameters may be located in a path, query, header or cookie.
  */
 public class CodegenHeader {
-    public final String description;
-    public final String unescapedDescription;
+    public final CodegenText description;
     public final String example; // example value (x-example)
     public final Map<String, Object> vendorExtensions;
     public final Boolean required;
@@ -45,9 +44,8 @@ public class CodegenHeader {
     public final CodegenSchema schema;
     public final CodegenRefInfo<CodegenHeader> refInfo;
 
-    public CodegenHeader(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
+    public CodegenHeader(CodegenText description, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, TreeSet<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, CodegenRefInfo<CodegenHeader> refInfo) {
         this.description = description;
-        this.unescapedDescription = unescapedDescription;
         this.example = example;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
@@ -89,7 +87,7 @@ public class CodegenHeader {
 
     @Override
     public int hashCode() {
-        return Objects.hash(jsonPathPiece, explode, description, unescapedDescription, style, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule);
+        return Objects.hash(jsonPathPiece, explode, description, style, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule);
     }
 
     @Override
@@ -103,7 +101,6 @@ public class CodegenHeader {
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(content, that.content) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(example, that.example) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 explode == that.explode &&
@@ -116,7 +113,6 @@ public class CodegenHeader {
     protected void addInstanceInfo(StringBuilder sb) {
         sb.append("name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
-        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", example='").append(example).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);

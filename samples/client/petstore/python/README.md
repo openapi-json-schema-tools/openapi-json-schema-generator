@@ -409,12 +409,12 @@ Class | Description
 
 Class | Description
 ----- | ------------
-[Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md) | int32 JSON content-type header
-[NumberHeader](docs/components/headers/header_number_header.md) | number header description
-[RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md) | int32 JSON content-type header
-[RefSchemaHeader](docs/components/headers/header_ref_schema_header.md) | header that has a ref in the schema
+[Int32JsonContentTypeHeader](docs/components/headers/header_int32_json_content_type_header.md) | CodegenText{original&#x3D;int32 JSON content-type header, codeEscaped&#x3D;int32 JSON content-type header}
+[NumberHeader](docs/components/headers/header_number_header.md) | CodegenText{original&#x3D;number header description, codeEscaped&#x3D;number header description}
+[RefContentSchemaHeader](docs/components/headers/header_ref_content_schema_header.md) | CodegenText{original&#x3D;int32 JSON content-type header, codeEscaped&#x3D;int32 JSON content-type header}
+[RefSchemaHeader](docs/components/headers/header_ref_schema_header.md) | CodegenText{original&#x3D;header that has a ref in the schema, codeEscaped&#x3D;header that has a ref in the schema}
 [RefStringHeader](docs/components/headers/header_ref_string_header.md) |
-[StringHeader](docs/components/headers/header_string_header.md) | string header description
+[StringHeader](docs/components/headers/header_string_header.md) | CodegenText{original&#x3D;string header description, codeEscaped&#x3D;string header description}
 
 ## Component Parameters
 
