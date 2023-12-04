@@ -27,8 +27,7 @@ import java.util.*;
  * Parameters may be located in a path, query, header or cookie.
  */
 public class CodegenParameter {
-    public final String description;
-    public final String unescapedDescription;
+    public final CodegenText description;
     public final String example; // example value (x-example)
     public final Map<String, Object> vendorExtensions;
     public final Boolean required;
@@ -72,9 +71,8 @@ public class CodegenParameter {
         return schema.jsonPath;
     }
 
-    public CodegenParameter(String description, String unescapedDescription, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved) {
+    public CodegenParameter(CodegenText description, String example, Map<String, Object> vendorExtensions, Boolean required, LinkedHashMap<CodegenKey, CodegenMediaType> content, Set<String> imports, boolean componentModule, CodegenKey jsonPathPiece, Boolean explode, String style, Boolean deprecated, CodegenSchema schema, String in, Boolean allowEmptyValue, String name, CodegenRefInfo<CodegenParameter> refInfo, Boolean allowReserved) {
         this.description = description;
-        this.unescapedDescription = unescapedDescription;
         this.example = example;
         this.vendorExtensions = vendorExtensions;
         this.required = required;
@@ -133,7 +131,7 @@ public class CodegenParameter {
 
     @Override
     public int hashCode() {
-        return Objects.hash(jsonPathPiece, in, explode, name, description, unescapedDescription, style, allowEmptyValue, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule, allowReserved);
+        return Objects.hash(jsonPathPiece, in, explode, name, description, style, allowEmptyValue, example, vendorExtensions, deprecated, required, schema, content, refInfo, imports, componentModule, allowReserved);
     }
 
     @Override
@@ -147,7 +145,6 @@ public class CodegenParameter {
                 Objects.equals(imports, that.imports) &&
                 Objects.equals(content, that.content) &&
                 Objects.equals(description, that.description) &&
-                Objects.equals(unescapedDescription, that.unescapedDescription) &&
                 Objects.equals(example, that.example) &&
                 Objects.equals(vendorExtensions, that.vendorExtensions) &&
                 explode == that.explode &&
@@ -165,7 +162,6 @@ public class CodegenParameter {
         final StringBuilder sb = new StringBuilder("CodegenParameter{");
         sb.append(", name='").append(jsonPathPiece).append('\'');
         sb.append(", description='").append(description).append('\'');
-        sb.append(", unescapedDescription='").append(unescapedDescription).append('\'');
         sb.append(", example='").append(example).append('\'');
         sb.append(", vendorExtensions=").append(vendorExtensions);
         sb.append(", required=").append(required);

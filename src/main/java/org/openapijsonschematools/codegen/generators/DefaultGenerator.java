@@ -3252,8 +3252,11 @@ public class DefaultGenerator implements Generator {
         // #/components/parameters/A
         boolean componentModule = pathPieces.length == 4 && sourceJsonPath.startsWith("#/components/" + expectedComponentType + "/");
 
-        String description = escapeText(parameter.getDescription());
-        String unescapedDescription = parameter.getDescription();
+        CodegenText description = null;
+        if (parameter.getDescription() != null) {
+            String desc = parameter.getDescription();
+            description = new CodegenText(desc, escapeText(desc));
+        }
         Map<String, Object> vendorExtensions = null;
         if (parameter.getExtensions() != null && !parameter.getExtensions().isEmpty()) {
             vendorExtensions = parameter.getExtensions();
@@ -3302,7 +3305,7 @@ public class DefaultGenerator implements Generator {
         LinkedHashMap<CodegenKey, CodegenMediaType> finalContent = content;
         CodegenSchema finalSchema = schema;
         Boolean allowReserved = parameter.getAllowReserved();
-        codegenParameter = new CodegenParameter(description, unescapedDescription, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, refInfo, allowReserved);
+        codegenParameter = new CodegenParameter(description, example, finalVendorExtensions, required, finalContent, finalImports, componentModule, jsonPathPiece, explode, finalStyle, deprecated, finalSchema, in, allowEmptyValue, baseName, refInfo, allowReserved);
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
