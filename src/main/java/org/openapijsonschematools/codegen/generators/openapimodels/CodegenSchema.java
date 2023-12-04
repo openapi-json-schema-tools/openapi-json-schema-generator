@@ -304,7 +304,7 @@ public class CodegenSchema {
         if (!types.contains("integer")) {
             return false;
         }
-        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || multipleOf != null) {
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || exclusiveMaximum != null || exclusiveMinimum != null || multipleOf != null) {
             return false;
         }
         return true;
@@ -320,7 +320,7 @@ public class CodegenSchema {
         if (!types.contains("number")) {
             return false;
         }
-        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || multipleOf != null) {
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || exclusiveMaximum != null || exclusiveMinimum != null || multipleOf != null) {
             return false;
         }
         return true;
@@ -378,7 +378,7 @@ public class CodegenSchema {
         if (types != null) {
             return false;
         }
-        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null || unevaluatedProperties != null || items != null || uniqueItems != null || maxItems != null || minItems != null || contains != null || maxContains != null || minContains != null || prefixItems != null || unevaluatedItems != null || format != null || maxLength != null || minLength != null || maximum != null || minimum != null || multipleOf != null || patternInfo != null) {
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null || unevaluatedProperties != null || items != null || uniqueItems != null || maxItems != null || minItems != null || contains != null || maxContains != null || minContains != null || prefixItems != null || unevaluatedItems != null || format != null || maxLength != null || minLength != null || maximum != null || minimum != null || exclusiveMaximum != null || exclusiveMinimum != null || multipleOf != null || patternInfo != null) {
             return false;
         }
         return true;
