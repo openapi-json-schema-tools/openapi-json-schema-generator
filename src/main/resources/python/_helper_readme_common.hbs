@@ -55,7 +55,7 @@ Class | Description
 ----- | ------------
 {{#each schemas}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if unescapedDescription}} {{unescapedDescription}}{{/if}}
+[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}

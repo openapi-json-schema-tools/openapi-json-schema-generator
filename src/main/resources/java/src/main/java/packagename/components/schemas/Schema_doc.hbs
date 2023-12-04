@@ -39,10 +39,10 @@ public static class {{jsonPathPiece.camelCase}}<br>
 {{> src/main/java/packagename/components/schemas/docschema_extends }}
 
 A schema class that validates payloads
-        {{#if unescapedDescription}}
+        {{#if description}}
 
 {{headerSize}}# Description
-{{unescapedDescription}}
+{{description.original}}
         {{/if}}
         {{#if isCustomSchema}}
 {{headerSize}}## Field Summary
@@ -111,17 +111,17 @@ type: Map<String, Object>
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
                 {{#each requiredProperties}}
-| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if unescapedDescription}}{{unescapedDescription}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.original}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
                 {{/each}}
                 {{#each optionalProperties}}
-| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if unescapedDescription}}{{unescapedDescription}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.original}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
                 {{/each}}
                 {{#with additionalProperties}}
                     {{#unless isBooleanSchemaFalse}}
                         {{#if isBooleanSchemaTrue}}
-| **anyStringName** | Object | any string name can be used but the value must be the correct type{{#if unescapedDescription}} {{unescapedDescription}}{{/if}} | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description.original}}{{/if}} | [optional] |
                         {{else}}
-| **anyStringName** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if unescapedDescription}} {{unescapedDescription}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+| **anyStringName** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description.original}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
                         {{/if}}
                     {{/unless}}
                 {{else}}
@@ -149,7 +149,7 @@ type: List<{{#with items}}{{> src/main/java/packagename/components/schemas/types
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
                 {{#with items}}
-{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if unescapedDescription}}{{unescapedDescription}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }}
+{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description.original}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/with}}
             {{/eq}}
         {{/eq}}
