@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -32,10 +33,10 @@ public class CodegenSchema {
     // 3.0.0
     public String title;
     public Number multipleOf;
-    public String maximum;
-    public Boolean exclusiveMaximum;
-    public String minimum;
-    public Boolean exclusiveMinimum;
+    public BigDecimal maximum;
+    public BigDecimal exclusiveMaximum;
+    public BigDecimal minimum;
+    public BigDecimal exclusiveMinimum;
     public Integer maxLength;
     public Integer minLength;
     public CodegenPatternInfo patternInfo;

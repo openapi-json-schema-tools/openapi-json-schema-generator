@@ -1503,16 +1503,8 @@ public class ModelUtils {
             BigDecimal multipleOf = schema.getMultipleOf();
             BigDecimal minimum = schema.getMinimum();
             BigDecimal maximum = schema.getMaximum();
-            Boolean exclusiveMinimum = schema.getExclusiveMinimum();
-            if (minimum == null && schema.getExclusiveMinimumValue() != null) {
-                minimum = schema.getExclusiveMinimumValue();
-                exclusiveMinimum = Boolean.TRUE;
-            }
-            Boolean exclusiveMaximum = schema.getExclusiveMaximum();
-            if (maximum == null && schema.getExclusiveMaximumValue() != null) {
-                maximum = schema.getExclusiveMaximumValue();
-                exclusiveMaximum = Boolean.TRUE;
-            }
+            BigDecimal exclusiveMinimum = schema.getExclusiveMinimumValue();
+            BigDecimal exclusiveMaximum = schema.getExclusiveMaximumValue();
 
             if (isArraySchema(schema)) {
                 setArrayValidations(minItems, maxItems, uniqueItems, target);
@@ -1551,24 +1543,12 @@ public class ModelUtils {
         if (maxLength != null) target.maxLength = maxLength;
     }
 
-    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, Boolean exclusiveMinimum, Boolean exclusiveMaximum, CodegenSchema target) {
-        if (multipleOf != null) target.multipleOf = multipleOf;
-        if (minimum != null) {
-            if (isIntegerSchema(schema)) {
-                target.minimum = String.valueOf(minimum.longValue());
-            } else {
-                target.minimum = String.valueOf(minimum);
-            }
-            if (exclusiveMinimum != null) target.exclusiveMinimum = exclusiveMinimum;
-        }
-        if (maximum != null) {
-            if (isIntegerSchema(schema)) {
-                target.maximum = String.valueOf(maximum.longValue());
-            } else {
-                target.maximum = String.valueOf(maximum);
-            }
-            if (exclusiveMaximum != null) target.exclusiveMaximum = exclusiveMaximum;
-        }
+    private static void setNumericValidations(Schema schema, BigDecimal multipleOf, BigDecimal minimum, BigDecimal maximum, BigDecimal exclusiveMinimum, BigDecimal exclusiveMaximum, CodegenSchema target) {
+        target.multipleOf = multipleOf;
+        target.minimum = minimum;
+        target.maximum = maximum;
+        target.exclusiveMinimum = exclusiveMinimum;
+        target.exclusiveMaximum = exclusiveMaximum;
     }
 
     private static ObjectMapper getRightMapper(String data) {
