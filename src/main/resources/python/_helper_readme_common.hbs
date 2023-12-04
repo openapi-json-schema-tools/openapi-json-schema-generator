@@ -103,7 +103,7 @@ Class | Description
 ----- | ------------
 {{#each parameters}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
