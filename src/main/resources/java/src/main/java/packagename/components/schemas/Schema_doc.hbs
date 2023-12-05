@@ -44,7 +44,34 @@ A schema class that validates payloads
 {{headerSize}}# Description
 {{description.original}}
         {{/if}}
+        {{#if typeToExample}}
+
+{{headerSize}}# Code Sample
+```
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.MapMaker;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+        {{#each typeToExample}}
+
+// json schema type {{@key}} validation
+{{../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+            {{#with this}}
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+            {{/with}}
+    configuration
+);
+        {{/each}}
+```
+        {{/if}}
         {{#if isCustomSchema}}
+
 {{headerSize}}## Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

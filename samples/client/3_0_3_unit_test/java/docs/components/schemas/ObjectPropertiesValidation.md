@@ -17,6 +17,7 @@ public static class ObjectPropertiesValidation1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -65,6 +66,26 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
+## Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// json schema type string validation
+ObjectPropertiesValidation.Bar.validate(
+    a,
+    configuration
+);
+```
+
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
@@ -74,6 +95,26 @@ public static class Foo<br>
 extends IntJsonSchema
 
 A schema class that validates payloads
+
+## Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// json schema type integer validation
+ObjectPropertiesValidation.Foo.validate(
+    1,
+    configuration
+);
+```
 
 | Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
 | ------------------------------------------------------------------ |

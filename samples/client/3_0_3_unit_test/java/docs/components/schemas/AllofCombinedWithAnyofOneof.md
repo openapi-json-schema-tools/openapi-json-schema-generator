@@ -17,6 +17,7 @@ public static class AllofCombinedWithAnyofOneof1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -40,6 +41,7 @@ public static class Schema0<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -63,6 +65,7 @@ public static class Schema01<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -86,6 +89,7 @@ public static class Schema02<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

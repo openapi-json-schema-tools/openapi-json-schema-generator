@@ -22,6 +22,7 @@ public static class AllofWithBaseSchema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -68,6 +69,26 @@ extends IntJsonSchema
 
 A schema class that validates payloads
 
+## Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// json schema type integer validation
+AllofWithBaseSchema.Bar.validate(
+    1,
+    configuration
+);
+```
+
 | Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
@@ -77,6 +98,7 @@ public static class Schema1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -123,6 +145,26 @@ extends NullJsonSchema
 
 A schema class that validates payloads
 
+## Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// json schema type null validation
+AllofWithBaseSchema.Baz.validate(
+    (Void) null,
+    configuration
+);
+```
+
 | Methods Inherited from class org.openapijsonschematools.client.schemas.NumberJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
@@ -132,6 +174,7 @@ public static class Schema0<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -177,6 +220,26 @@ public static class Foo<br>
 extends StringJsonSchema
 
 A schema class that validates payloads
+
+## Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// json schema type string validation
+AllofWithBaseSchema.Foo.validate(
+    a,
+    configuration
+);
+```
 
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
