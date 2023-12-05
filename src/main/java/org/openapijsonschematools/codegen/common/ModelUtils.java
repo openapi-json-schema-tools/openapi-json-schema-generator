@@ -1503,9 +1503,20 @@ public class ModelUtils {
             BigDecimal multipleOf = schema.getMultipleOf();
             BigDecimal minimum = schema.getMinimum();
             BigDecimal maximum = schema.getMaximum();
+            // 3.1.0 use case
             BigDecimal exclusiveMinimum = schema.getExclusiveMinimumValue();
+            // 3.1.0 use case
             BigDecimal exclusiveMaximum = schema.getExclusiveMaximumValue();
-
+            // 3.0.0-3.0.3 use case
+            if (Boolean.TRUE.equals(schema.getExclusiveMinimum())) {
+                exclusiveMinimum = minimum;
+                minimum = null;
+            }
+            // 3.0.0-3.0.3 use case
+            if (Boolean.TRUE.equals(schema.getExclusiveMaximum())) {
+                exclusiveMaximum = maximum;
+                maximum = null;
+            }
             if (isArraySchema(schema)) {
                 setArrayValidations(minItems, maxItems, uniqueItems, target);
             } else if (isTypeObjectSchema(schema)) {
