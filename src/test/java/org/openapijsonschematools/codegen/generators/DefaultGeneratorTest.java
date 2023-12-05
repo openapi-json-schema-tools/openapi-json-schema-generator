@@ -3945,7 +3945,189 @@ public class DefaultGeneratorTest {
         assertEquals(schema.mapValueSchema.types, expectedTypes);
     }
 
-    
+    @Test
+    public void testExclusiveMinimum300() {
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMinimum300.yaml");
+        final DefaultGenerator codegen = new DefaultGenerator();
+        codegen.setOpenAPI(openAPI);
+        String schemaPrefix = "#/components/schemas/";
+
+        String schemaName;
+        CodegenSchema schema;
+
+        schemaName = "AnyTypeWithExclusiveMinimumTrue";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, null);
+        assertEquals(schema.exclusiveMinimum, new BigDecimal(10));
+
+        schemaName = "NumberWithExclusiveMinimumTrue";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, null);
+        assertEquals(schema.exclusiveMinimum, new BigDecimal(10));
+
+        schemaName = "AnyTypeWithExclusiveMinimumFalse";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMinimum, null);
+
+        schemaName = "NumberWithExclusiveMinimumFalse";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMinimum, null);
+    }
+
+    @Test
+    public void testExclusiveMinimum303() {
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMinimum303.yaml");
+        final DefaultGenerator codegen = new DefaultGenerator();
+        codegen.setOpenAPI(openAPI);
+        String schemaPrefix = "#/components/schemas/";
+
+        String schemaName;
+        CodegenSchema schema;
+
+        schemaName = "AnyTypeWithExclusiveMinimumTrue";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, null);
+        assertEquals(schema.exclusiveMinimum, new BigDecimal(10));
+
+        schemaName = "NumberWithExclusiveMinimumTrue";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, null);
+        assertEquals(schema.exclusiveMinimum, new BigDecimal(10));
+
+        schemaName = "AnyTypeWithExclusiveMinimumFalse";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMinimum, null);
+
+        schemaName = "NumberWithExclusiveMinimumFalse";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMinimum, null);
+    }
+
+    @Test
+    public void testExclusiveMinimum310() {
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMinimum310.yaml");
+        final DefaultGenerator codegen = new DefaultGenerator();
+        codegen.setOpenAPI(openAPI);
+        String schemaPrefix = "#/components/schemas/";
+
+        String schemaName;
+        CodegenSchema schema;
+
+        schemaName = "AnyTypeWithExclusiveMinimum";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMinimum, new BigDecimal(11));
+
+        schemaName = "NumberWithExclusiveMinimum";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.minimum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMinimum, new BigDecimal(11));
+    }
+
+    @Test
+    public void testExclusiveMaximum300() {
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMaximum300.yaml");
+        final DefaultGenerator codegen = new DefaultGenerator();
+        codegen.setOpenAPI(openAPI);
+        String schemaPrefix = "#/components/schemas/";
+
+        String schemaName;
+        CodegenSchema schema;
+
+        schemaName = "AnyTypeWithExclusiveMaximumTrue";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.maximum, null);
+        assertEquals(schema.exclusiveMaximum, new BigDecimal(10));
+
+        schemaName = "NumberWithExclusiveMaximumTrue";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.maximum, null);
+        assertEquals(schema.exclusiveMaximum, new BigDecimal(10));
+
+        schemaName = "AnyTypeWithExclusiveMaximumFalse";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.maximum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMaximum, null);
+
+        schemaName = "NumberWithExclusiveMaximumFalse";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.maximum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMaximum, null);
+    }
+
+    @Test
+    public void testExclusiveMaximum310() {
+        final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/exclusiveMaximum310.yaml");
+        final DefaultGenerator codegen = new DefaultGenerator();
+        codegen.setOpenAPI(openAPI);
+        String schemaPrefix = "#/components/schemas/";
+
+        String schemaName;
+        CodegenSchema schema;
+
+        schemaName = "AnyTypeWithExclusiveMaximum";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.maximum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMaximum, new BigDecimal(11));
+
+        schemaName = "NumberWithExclusiveMaximum";
+        schema = codegen.fromSchema(
+                codegen.openAPI.getComponents().getSchemas().get(schemaName),
+                schemaPrefix + schemaName,
+                schemaPrefix + schemaName);
+        assertEquals(schema.maximum, new BigDecimal(10));
+        assertEquals(schema.exclusiveMaximum, new BigDecimal(11));
+    }
+
     public static class FromParameter {
         private CodegenParameter codegenParameter(String path) {
             final OpenAPI openAPI = TestUtils.parseFlattenSpec("src/test/resources/3_0/fromParameter.yaml");
