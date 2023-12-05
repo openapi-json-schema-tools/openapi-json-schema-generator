@@ -29,8 +29,8 @@ public class NumberWithExclusiveMinMax {
                 Float.class,
                 Double.class
             ))),
-            new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator()),
-            new KeywordEntry("exclusiveMinimum", new ExclusiveMinimumValidator())
+            new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator(12)),
+            new KeywordEntry("exclusiveMinimum", new ExclusiveMinimumValidator(10))
         ));
         public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateInt(NumberWithExclusiveMinMax1.class, arg, configuration);
