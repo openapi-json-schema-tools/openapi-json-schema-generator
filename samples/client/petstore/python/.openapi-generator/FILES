@@ -1595,5 +1595,4 @@ test-requirements.txt
 test/__init__.py
 test/components/__init__.py
 test/components/schema/__init__.py
-test/components/schema/test_number_with_exclusive_min_max.py
 tox.ini
