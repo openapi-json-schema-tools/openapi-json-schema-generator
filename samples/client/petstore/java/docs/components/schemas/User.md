@@ -29,6 +29,31 @@ public static class User1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+User.UserMap validatedPayload =
+    User.User1.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -106,6 +131,7 @@ A schema class that validates payloads
 
 ## Description
 any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object.
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -155,6 +181,29 @@ A schema class that validates payloads
 
 ## Description
 test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value.
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// null validation
+Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
+    (Void) null,
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

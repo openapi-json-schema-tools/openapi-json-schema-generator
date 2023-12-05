@@ -24,6 +24,7 @@ A schema class that validates payloads
 
 ## Description
 this is a model that allows payloads of type object or number
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -47,6 +48,29 @@ public static class Schema6<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// String validation
+String validatedPayload = ComposedOneOfDifferentTypes.Schema6.validate(
+    "a",
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -62,6 +86,31 @@ public static class Schema5<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// List validation
+ComposedOneOfDifferentTypes.Schema5List validatedPayload =
+    ComposedOneOfDifferentTypes.Schema5.validate(
+    Arrays.asList(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -106,6 +155,7 @@ public static class Schema4<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

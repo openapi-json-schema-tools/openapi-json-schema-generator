@@ -19,6 +19,7 @@ A schema class that validates payloads
 
 ## Description
 Model for testing model with &quot;_class&quot; property
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

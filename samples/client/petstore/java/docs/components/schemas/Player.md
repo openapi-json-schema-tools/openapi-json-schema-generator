@@ -19,6 +19,31 @@ A schema class that validates payloads
 
 ## Description
 a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+Player.PlayerMap validatedPayload =
+    Player.Player1.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

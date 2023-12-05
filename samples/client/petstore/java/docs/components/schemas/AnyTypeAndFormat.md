@@ -24,6 +24,31 @@ public static class AnyTypeAndFormat1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
+    AnyTypeAndFormat.AnyTypeAndFormat1.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -73,6 +98,7 @@ public static class FloatSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -96,6 +122,7 @@ public static class DoubleSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -119,6 +146,7 @@ public static class Int64<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -142,6 +170,7 @@ public static class Int32<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -165,6 +194,7 @@ public static class Binary<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -188,6 +218,7 @@ public static class NumberSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -211,6 +242,7 @@ public static class Datetime<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -234,6 +266,7 @@ public static class Date<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -257,6 +290,7 @@ public static class UuidSchema<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

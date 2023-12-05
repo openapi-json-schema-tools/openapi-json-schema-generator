@@ -27,6 +27,31 @@ public static class ArrayTest1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+ArrayTest.ArrayTestMap validatedPayload =
+    ArrayTest.ArrayTest1.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -68,6 +93,33 @@ public static class ArrayArrayOfModel<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// List validation
+ArrayTest.ArrayArrayOfModelList validatedPayload =
+    ArrayTest.ArrayArrayOfModel.validate(
+    Arrays.asList(
+        Arrays.asList(
+        )
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -102,6 +154,31 @@ public static class Items3<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// List validation
+ArrayTest.ItemsList1 validatedPayload =
+    ArrayTest.Items3.validate(
+    Arrays.asList(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -136,6 +213,34 @@ public static class ArrayArrayOfInteger<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// List validation
+ArrayTest.ArrayArrayOfIntegerList validatedPayload =
+    ArrayTest.ArrayArrayOfInteger.validate(
+    Arrays.asList(
+        Arrays.asList(
+            1
+        )
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -170,6 +275,32 @@ public static class Items1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// List validation
+ArrayTest.ItemsList validatedPayload =
+    ArrayTest.Items1.validate(
+    Arrays.asList(
+        1
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -214,6 +345,32 @@ public static class ArrayOfString<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// List validation
+ArrayTest.ArrayOfStringList validatedPayload =
+    ArrayTest.ArrayOfString.validate(
+    Arrays.asList(
+        "a"
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
