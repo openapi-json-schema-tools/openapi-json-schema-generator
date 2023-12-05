@@ -2243,6 +2243,146 @@ public class DefaultGenerator implements Generator {
         return dependenteRequired;
     }
 
+    private Object getBooleanFromSchema(CodegenSchema schema) {
+        if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("boolean")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("boolean")) {
+                return enumValue.value;
+            }
+            return null;
+        }
+        if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("boolean")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("boolean")) {
+                return enumValue.value;
+            }
+        }
+        // todo handle not const or not enum here
+        return true;
+    }
+
+    private Object getIntegerFromSchema(CodegenSchema schema) {
+        if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("integer")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("integer")) {
+                return enumValue.value;
+            }
+            return null;
+        }
+        if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("integer")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("integer")) {
+                return enumValue.value;
+            }
+        }
+        // todo handle not const or not enum here
+        return 1;
+    }
+
+    private Object getNumberFromSchema(CodegenSchema schema) {
+        if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("number")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("number")) {
+                return enumValue.value;
+            }
+            return null;
+        }
+        if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("number")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("number")) {
+                return enumValue.value;
+            }
+        }
+        // todo handle not const or not enum here
+        return 3.14;
+    }
+
+    private Object getStringFromSchema(CodegenSchema schema) {
+        if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("string")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("string")) {
+                return enumValue.value;
+            }
+            return null;
+        }
+        if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("string")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("string")) {
+                return enumValue.value;
+            }
+        }
+        // todo handle not const or not enum here
+        return "a";
+    }
+
+    private Object getListFromSchema(CodegenSchema listSchema) {
+        // todo add enum and const handling once those support array types
+        if (listSchema.items == null) {
+            return null;
+        }
+        ArrayList<Object> listVal = new ArrayList<>();
+        return listVal;
+    }
+
+    private Object getMapFromSchema(CodegenSchema mapSchema) {
+        // todo add enum and const handling once those support array types
+        if (mapSchema.properties == null && mapSchema.additionalProperties == null && mapSchema.requiredProperties == null) {
+            return null;
+        }
+        Map<String, Object> mapVal = new LinkedHashMap<>();
+        return mapVal;
+    }
+
+    private Map<String, EnumValue> getTypeToExample(CodegenSchema schema) {
+        if (schema == null) {
+            return null;
+        }
+        Map<String, EnumValue> typeToExample = new LinkedHashMap<>();
+        if (schema.types != null) {
+            for (String type: schema.types) {
+                switch(type) {
+                    case "null":
+                        typeToExample.put("null", new EnumValue(null, "null", null));
+                        break;
+                    case "boolean":
+                        Object boolVal = getBooleanFromSchema(schema);
+                        if (boolVal != null) {
+                            typeToExample.put("boolean", new EnumValue(boolVal, "boolean", null));
+                        }
+                        break;
+                    case "integer":
+                        Object intVal = getIntegerFromSchema(schema);
+                        if (intVal != null) {
+                            typeToExample.put("integer", new EnumValue(intVal, "integer", null));
+                        }
+                        break;
+                    case "number":
+                        Object numberVal = getNumberFromSchema(schema);
+                        if (numberVal != null) {
+                            typeToExample.put("number", new EnumValue(numberVal, "number", null));
+                        }
+                        break;
+                    case "string":
+                        Object stringVal = getStringFromSchema(schema);
+                        if (stringVal != null) {
+                            typeToExample.put("string", new EnumValue(stringVal, "number", null));
+                        }
+                        break;
+                    case "array":
+                        Object listVal = getListFromSchema(schema);
+                        if (listVal != null) {
+                            typeToExample.put("array", new EnumValue(listVal, "array", null));
+                        }
+                        break;
+                    case "object":
+                        Object mapVal = getMapFromSchema(schema);
+                        if (mapVal != null) {
+                            typeToExample.put("object", new EnumValue(mapVal, "object", null));
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        if (typeToExample.isEmpty()) {
+            return null;
+        }
+        return typeToExample;
+    }
+
     /**
      * Convert OAS Property object to Codegen Property object.
      * <p>
@@ -2539,6 +2679,7 @@ public class DefaultGenerator implements Generator {
         property.patternInfo = getPatternInfo(p.getPattern());
 
         property.example = toExampleValue(p);
+        property.typeToExample = getTypeToExample(property);
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             // imports from properties/items/additionalProperties/oneOf/anyOf/allOf/not
             property.imports = new TreeSet<>();
