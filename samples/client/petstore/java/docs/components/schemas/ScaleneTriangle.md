@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ScaleneTriangle.Schema1Map validatedPayload =
     ScaleneTriangle.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "triangleType",
+            "ScaleneTriangle"
+        )
     ),
     configuration
 );

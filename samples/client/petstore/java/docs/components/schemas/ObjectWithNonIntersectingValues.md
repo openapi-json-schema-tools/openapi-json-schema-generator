@@ -37,6 +37,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayload =
     ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValues1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "a",
+            3.14
+        )
     ),
     configuration
 );

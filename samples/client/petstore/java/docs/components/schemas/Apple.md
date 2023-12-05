@@ -46,6 +46,10 @@ Apple.AppleMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "cultivar",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "origin",
+            "a"
         )
     ),
     configuration

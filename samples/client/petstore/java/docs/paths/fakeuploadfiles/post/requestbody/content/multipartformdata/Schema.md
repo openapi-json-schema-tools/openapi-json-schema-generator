@@ -38,6 +38,12 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "files",
+            Arrays.asList(
+                "a"
+            )
+        )
     ),
     configuration
 );

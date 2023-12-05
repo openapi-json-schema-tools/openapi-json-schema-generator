@@ -40,6 +40,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
     ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "ArrayArrayNumber",
+            Arrays.asList(
+                Arrays.asList(
+                    3.14
+                )
+            )
+        )
     ),
     configuration
 );

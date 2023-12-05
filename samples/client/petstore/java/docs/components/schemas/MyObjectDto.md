@@ -37,6 +37,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 MyObjectDto.MyObjectDtoMap validatedPayload =
     MyObjectDto.MyObjectDto1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "id",
+            "a"
+        )
     ),
     configuration
 );

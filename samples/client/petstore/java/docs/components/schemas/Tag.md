@@ -37,6 +37,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Tag.TagMap validatedPayload =
     Tag.Tag1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "id",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "name",
+            "a"
+        )
     ),
     configuration
 );

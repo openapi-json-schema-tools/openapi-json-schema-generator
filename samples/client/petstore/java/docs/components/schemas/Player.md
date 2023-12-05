@@ -39,6 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Player.PlayerMap validatedPayload =
     Player.Player1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "name",
+            "a"
+        )
     ),
     configuration
 );

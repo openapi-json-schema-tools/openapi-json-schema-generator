@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map validatedPayload =
     ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "name",
+            "a"
+        )
     ),
     configuration
 );

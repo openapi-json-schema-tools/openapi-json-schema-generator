@@ -36,6 +36,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
     ObjectWithDecimalProperties.ObjectWithDecimalProperties1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "width",
+            "a"
+        )
     ),
     configuration
 );

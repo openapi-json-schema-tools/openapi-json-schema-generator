@@ -39,6 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 SpecialModelname.SpecialModelnameMap validatedPayload =
     SpecialModelname.SpecialModelname1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "a",
+            "a"
+        )
     ),
     configuration
 );

@@ -39,6 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 HealthCheckResult.HealthCheckResultMap validatedPayload =
     HealthCheckResult.HealthCheckResult1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "NullableMessage",
+            (Void) null
+        )
     ),
     configuration
 );

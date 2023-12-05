@@ -41,6 +41,14 @@ Whale.WhaleMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "className",
             "whale"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "hasBaleen",
+            true
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "hasTeeth",
+            true
         )
     ),
     configuration

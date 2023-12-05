@@ -39,6 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 File.FileMap validatedPayload =
     File.File1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "sourceURI",
+            "a"
+        )
     ),
     configuration
 );

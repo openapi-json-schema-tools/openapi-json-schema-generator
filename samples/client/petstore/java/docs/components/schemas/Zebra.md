@@ -41,6 +41,10 @@ Zebra.ZebraMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "className",
             "zebra"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "type",
+            "plains"
         )
     ),
     configuration

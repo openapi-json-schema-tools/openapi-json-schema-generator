@@ -37,6 +37,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Drawing.DrawingMap validatedPayload =
     Drawing.Drawing1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "shapes",
+            Arrays.asList(
+            )
+        )
     ),
     configuration
 );

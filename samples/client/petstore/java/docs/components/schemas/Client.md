@@ -36,6 +36,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Client.ClientMap validatedPayload =
     Client.Client1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "client",
+            "a"
+        )
     ),
     configuration
 );

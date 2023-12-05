@@ -36,6 +36,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
     ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "test",
+            "a"
+        )
     ),
     configuration
 );

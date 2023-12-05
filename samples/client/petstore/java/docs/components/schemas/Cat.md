@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Cat.Schema1Map validatedPayload =
     Cat.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "declawed",
+            true
+        )
     ),
     configuration
 );

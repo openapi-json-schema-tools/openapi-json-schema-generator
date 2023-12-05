@@ -38,6 +38,18 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ApiResponseSchema.ApiResponseMap validatedPayload =
     ApiResponseSchema.ApiResponseSchema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "code",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "type",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "message",
+            "a"
+        )
     ),
     configuration
 );

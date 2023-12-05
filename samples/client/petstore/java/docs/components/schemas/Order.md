@@ -41,6 +41,30 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Order.OrderMap validatedPayload =
     Order.Order1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "id",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "petId",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "quantity",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "shipDate",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "status",
+            "placed"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "complete",
+            true
+        )
     ),
     configuration
 );

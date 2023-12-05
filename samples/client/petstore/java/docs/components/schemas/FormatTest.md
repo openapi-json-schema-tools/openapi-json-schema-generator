@@ -73,6 +73,76 @@ FormatTest.FormatTestMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "password",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "integer",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "int32",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "int32withValidations",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "int64",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "float",
+            3.14
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "float32",
+            3.14
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "double",
+            3.14
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "float64",
+            3.14
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "arrayWithUniqueItems",
+            Arrays.asList(
+                3.14
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "string",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "binary",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "dateTime",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "uuid",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "uuidNoExample",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "pattern_with_digits",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "pattern_with_digits_and_delimiter",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "noneProp",
+            (Void) null
         )
     ),
     configuration

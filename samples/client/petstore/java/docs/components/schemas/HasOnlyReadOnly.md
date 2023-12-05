@@ -37,6 +37,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
     HasOnlyReadOnly.HasOnlyReadOnly1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "bar",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "foo",
+            "a"
+        )
     ),
     configuration
 );

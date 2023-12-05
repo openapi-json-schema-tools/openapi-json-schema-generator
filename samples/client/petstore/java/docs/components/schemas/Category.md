@@ -40,6 +40,10 @@ Category.CategoryMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "name",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "id",
+            1
         )
     ),
     configuration

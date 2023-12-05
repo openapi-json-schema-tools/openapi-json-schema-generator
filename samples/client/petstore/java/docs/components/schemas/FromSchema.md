@@ -37,6 +37,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 FromSchema.FromSchemaMap validatedPayload =
     FromSchema.FromSchema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "data",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "id",
+            1
+        )
     ),
     configuration
 );

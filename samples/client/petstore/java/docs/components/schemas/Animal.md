@@ -40,6 +40,10 @@ Animal.AnimalMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "className",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "color",
+            "a"
         )
     ),
     configuration

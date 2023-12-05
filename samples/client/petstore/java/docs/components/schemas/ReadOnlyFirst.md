@@ -37,6 +37,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
     ReadOnlyFirst.ReadOnlyFirst1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "bar",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "baz",
+            "a"
+        )
     ),
     configuration
 );

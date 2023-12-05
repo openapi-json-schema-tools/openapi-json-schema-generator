@@ -37,6 +37,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
     FileSchemaTestClass.FileSchemaTestClass1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "files",
+            Arrays.asList(
+            )
+        )
     ),
     configuration
 );

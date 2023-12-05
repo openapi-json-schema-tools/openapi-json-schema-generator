@@ -42,6 +42,18 @@ EnumTest.EnumTestMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "enum_string_required",
             "UPPER"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "enum_string",
+            "UPPER"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "enum_integer",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "enum_number",
+            1.1
         )
     ),
     configuration

@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 SimpleQuadrilateral.Schema1Map validatedPayload =
     SimpleQuadrilateral.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "quadrilateralType",
+            "SimpleQuadrilateral"
+        )
     ),
     configuration
 );

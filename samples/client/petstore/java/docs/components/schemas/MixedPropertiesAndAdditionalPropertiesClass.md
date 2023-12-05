@@ -39,6 +39,19 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap validatedPayload =
     MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "uuid",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "dateTime",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map",
+            MapMaker.makeMap(
+            )
+        )
     ),
     configuration
 );

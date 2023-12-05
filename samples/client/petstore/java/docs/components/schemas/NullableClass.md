@@ -60,6 +60,57 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NullableClass.NullableClassMap validatedPayload =
     NullableClass.NullableClass1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "integer_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "number_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "boolean_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "string_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "date_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "datetime_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "array_nullable_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "array_and_items_nullable_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "array_items_nullable",
+            Arrays.asList(
+                (Void) null
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "object_nullable_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "object_and_items_nullable_prop",
+            (Void) null
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "object_items_nullable",
+            MapMaker.makeMap(
+            )
+        )
     ),
     configuration
 );

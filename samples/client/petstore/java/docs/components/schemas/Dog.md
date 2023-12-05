@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Dog.Schema1Map validatedPayload =
     Dog.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "breed",
+            "a"
+        )
     ),
     configuration
 );

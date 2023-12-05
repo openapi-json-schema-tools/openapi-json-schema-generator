@@ -39,6 +39,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "enum_form_string_array",
+            Arrays.asList(
+                ">"
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "enum_form_string",
+            "_abc"
+        )
     ),
     configuration
 );

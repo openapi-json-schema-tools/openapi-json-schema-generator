@@ -44,6 +44,14 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
         new AbstractMap.SimpleEntry<>(
             "123-list",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "$special[property.name]",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "123Number",
+            1
         )
     ),
     configuration

@@ -41,6 +41,10 @@ BananaReq.BananaReqMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "lengthCm",
             3.14
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "sweet",
+            true
         )
     ),
     configuration

@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 EquilateralTriangle.Schema1Map validatedPayload =
     EquilateralTriangle.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "triangleType",
+            "EquilateralTriangle"
+        )
     ),
     configuration
 );

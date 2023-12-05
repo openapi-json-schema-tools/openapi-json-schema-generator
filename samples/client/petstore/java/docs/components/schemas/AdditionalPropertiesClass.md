@@ -55,6 +55,31 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
     AdditionalPropertiesClass.AdditionalPropertiesClass1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "map_property",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map_of_map_property",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map_with_undeclared_properties_anytype_3",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "empty_map",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map_with_undeclared_properties_string",
+            MapMaker.makeMap(
+            )
+        )
     ),
     configuration
 );

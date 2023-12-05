@@ -64,6 +64,46 @@ Schema.SchemaMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "pattern_without_delimiter",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "integer",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "int32",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "int64",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "float",
+            3.14
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "string",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "binary",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "date",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "dateTime",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "password",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "callback",
+            "a"
         )
     ),
     configuration

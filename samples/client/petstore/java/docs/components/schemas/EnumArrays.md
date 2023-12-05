@@ -39,6 +39,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 EnumArrays.EnumArraysMap validatedPayload =
     EnumArrays.EnumArrays1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "just_symbol",
+            ">="
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "array_enum",
+            Arrays.asList(
+                "fish"
+            )
+        )
     ),
     configuration
 );

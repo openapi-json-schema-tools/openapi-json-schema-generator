@@ -49,6 +49,42 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 User.UserMap validatedPayload =
     User.User1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "id",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "username",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "firstName",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "lastName",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "email",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "password",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "phone",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "userStatus",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "objectWithNoDeclaredPropsNullable",
+            (Void) null
+        )
     ),
     configuration
 );

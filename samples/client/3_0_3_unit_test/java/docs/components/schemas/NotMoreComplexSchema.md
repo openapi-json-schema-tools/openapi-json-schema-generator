@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NotMoreComplexSchema.NotMap validatedPayload =
     NotMoreComplexSchema.Not.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "foo",
+            "a"
+        )
     ),
     configuration
 );

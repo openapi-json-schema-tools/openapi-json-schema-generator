@@ -61,6 +61,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ChildCat.Schema1Map validatedPayload =
     ChildCat.Schema1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "name",
+            "a"
+        )
     ),
     configuration
 );

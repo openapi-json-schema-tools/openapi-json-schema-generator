@@ -2341,6 +2341,18 @@ public class DefaultGenerator implements Generator {
                 }
             }
         }
+        if (mapSchema.optionalProperties != null && !mapSchema.optionalProperties.isEmpty()) {
+            for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.optionalProperties.entrySet()) {
+                String propName = entry.getKey().original;
+                Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue());
+                if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
+                    for(EnumValue exampleValue: propertyTypeToExample.values()) {
+                        mapVal.put(propName, exampleValue);
+                        break;
+                    }
+                }
+            }
+        }
         return mapVal;
     }
 

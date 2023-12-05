@@ -55,6 +55,19 @@ Pet.PetMap validatedPayload =
             Arrays.asList(
                 "a"
             )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "id",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "tags",
+            Arrays.asList(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "status",
+            "available"
         )
     ),
     configuration

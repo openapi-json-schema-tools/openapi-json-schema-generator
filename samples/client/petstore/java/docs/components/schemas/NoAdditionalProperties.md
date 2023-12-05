@@ -41,6 +41,10 @@ NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "id",
             1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "petId",
+            1
         )
     ),
     configuration

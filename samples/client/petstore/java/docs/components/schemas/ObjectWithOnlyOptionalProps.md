@@ -38,6 +38,14 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap validatedPayload =
     ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "a",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "b",
+            3.14
+        )
     ),
     configuration
 );

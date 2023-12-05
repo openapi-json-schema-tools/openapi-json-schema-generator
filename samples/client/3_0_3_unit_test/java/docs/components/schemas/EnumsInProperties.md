@@ -40,6 +40,10 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "bar",
             "bar"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "foo",
+            "foo"
         )
     ),
     configuration

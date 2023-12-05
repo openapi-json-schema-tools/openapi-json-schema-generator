@@ -40,6 +40,10 @@ Schema.SchemaMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "file",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "additionalMetadata",
+            "a"
         )
     ),
     configuration

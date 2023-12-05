@@ -47,6 +47,27 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayTest.ArrayTestMap validatedPayload =
     ArrayTest.ArrayTest1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "array_of_string",
+            Arrays.asList(
+                "a"
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "array_array_of_integer",
+            Arrays.asList(
+                Arrays.asList(
+                    1
+                )
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "array_array_of_model",
+            Arrays.asList(
+                Arrays.asList(
+                )
+            )
+        )
     ),
     configuration
 );

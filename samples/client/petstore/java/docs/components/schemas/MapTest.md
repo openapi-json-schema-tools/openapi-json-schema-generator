@@ -46,6 +46,21 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 MapTest.MapTestMap validatedPayload =
     MapTest.MapTest1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "map_map_of_string",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map_of_enum_string",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "direct_map",
+            MapMaker.makeMap(
+            )
+        )
     ),
     configuration
 );

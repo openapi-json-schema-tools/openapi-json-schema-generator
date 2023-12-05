@@ -41,6 +41,10 @@ AppleReq.AppleReqMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "cultivar",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "mealy",
+            true
         )
     ),
     configuration

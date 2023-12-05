@@ -39,6 +39,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 PublicKey.PublicKeyMap validatedPayload =
     PublicKey.PublicKey1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "key",
+            "a"
+        )
     ),
     configuration
 );
