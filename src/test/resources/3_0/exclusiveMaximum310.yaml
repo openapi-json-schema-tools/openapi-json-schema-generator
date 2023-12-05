@@ -1,0 +1,14 @@
+openapi: 3.1.0
+info:
+  title: exclusiveMaximum test
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    AnyTypeWithExclusiveMaximum:
+      exclusiveMaximum: 11
+      maximum: 10
+    NumberWithExclusiveMaximum:
+      type: number
+      exclusiveMaximum: 11
+      maximum: 10

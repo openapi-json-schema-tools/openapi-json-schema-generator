@@ -136,6 +136,7 @@ docs/components/schema/nullable_shape.md
 docs/components/schema/nullable_string.md
 docs/components/schema/number.md
 docs/components/schema/number_only.md
+docs/components/schema/number_with_exclusive_min_max.md
 docs/components/schema/number_with_validations.md
 docs/components/schema/obj_with_required_props.md
 docs/components/schema/obj_with_required_props_base.md
@@ -646,6 +647,7 @@ src/petstore_api/components/schema/nullable_shape.py
 src/petstore_api/components/schema/nullable_string.py
 src/petstore_api/components/schema/number.py
 src/petstore_api/components/schema/number_only.py
+src/petstore_api/components/schema/number_with_exclusive_min_max.py
 src/petstore_api/components/schema/number_with_validations.py
 src/petstore_api/components/schema/obj_with_required_props.py
 src/petstore_api/components/schema/obj_with_required_props_base.py

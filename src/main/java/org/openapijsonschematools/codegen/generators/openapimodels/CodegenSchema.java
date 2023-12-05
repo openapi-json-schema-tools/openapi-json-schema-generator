@@ -19,6 +19,7 @@ package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import io.swagger.v3.oas.models.ExternalDocumentation;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -32,10 +33,10 @@ public class CodegenSchema {
     // 3.0.0
     public String title;
     public Number multipleOf;
-    public String maximum;
-    public Boolean exclusiveMaximum;
-    public String minimum;
-    public Boolean exclusiveMinimum;
+    public BigDecimal maximum;
+    public BigDecimal exclusiveMaximum;
+    public BigDecimal minimum;
+    public BigDecimal exclusiveMinimum;
     public Integer maxLength;
     public Integer minLength;
     public CodegenPatternInfo patternInfo;
@@ -169,10 +170,10 @@ public class CodegenSchema {
         if (minProperties != null) {
             keywords.add("minProperties");
         }
-        if (maximum != null && exclusiveMaximum == null) {
+        if (maximum != null) {
             keywords.add("maximum");
         }
-        if (minimum != null && exclusiveMinimum == null) {
+        if (minimum != null) {
             keywords.add("minimum");
         }
         if (multipleOf != null) {
@@ -303,7 +304,7 @@ public class CodegenSchema {
         if (!types.contains("integer")) {
             return false;
         }
-        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || multipleOf != null) {
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || exclusiveMaximum != null || exclusiveMinimum != null || multipleOf != null) {
             return false;
         }
         return true;
@@ -319,7 +320,7 @@ public class CodegenSchema {
         if (!types.contains("number")) {
             return false;
         }
-        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || multipleOf != null) {
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || maximum != null || minimum != null || exclusiveMaximum != null || exclusiveMinimum != null || multipleOf != null) {
             return false;
         }
         return true;
@@ -377,7 +378,7 @@ public class CodegenSchema {
         if (types != null) {
             return false;
         }
-        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null || unevaluatedProperties != null || items != null || uniqueItems != null || maxItems != null || minItems != null || contains != null || maxContains != null || minContains != null || prefixItems != null || unevaluatedItems != null || format != null || maxLength != null || minLength != null || maximum != null || minimum != null || multipleOf != null || patternInfo != null) {
+        if (allOf != null || anyOf != null || oneOf != null || not != null || if_ != null || then != null || else_ != null || enumInfo != null || constInfo != null || properties != null || requiredProperties != null || hasDiscriminatorWithNonEmptyMapping() != false || additionalProperties != null || dependentRequired != null || dependentSchemas != null || propertyNames != null || maxProperties != null || minProperties != null || patternProperties != null || unevaluatedProperties != null || items != null || uniqueItems != null || maxItems != null || minItems != null || contains != null || maxContains != null || minContains != null || prefixItems != null || unevaluatedItems != null || format != null || maxLength != null || minLength != null || maximum != null || minimum != null || exclusiveMaximum != null || exclusiveMinimum != null || multipleOf != null || patternInfo != null) {
             return false;
         }
         return true;

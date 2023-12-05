@@ -323,6 +323,7 @@ Class | Description
 [NullableString](docs/components/schema/nullable_string.md) |
 [Number](docs/components/schema/number.md) |
 [NumberOnly](docs/components/schema/number_only.md) |
+[NumberWithExclusiveMinMax](docs/components/schema/number_with_exclusive_min_max.md) |
 [NumberWithValidations](docs/components/schema/number_with_validations.md) |
 [ObjWithRequiredProps](docs/components/schema/obj_with_required_props.md) |
 [ObjWithRequiredPropsBase](docs/components/schema/obj_with_required_props_base.md) |

@@ -31,4 +31,5 @@ class UniqueitemsFalseWithAnArrayOfItems(
         _0,
         _1,
     )
+    unique_items: bool = False
 

@@ -54,9 +54,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if properties}}
     {{> components/schemas/schema_cls/_properties }}
 {{/if}}
-{{#if uniqueItems}}
+{{#neq uniqueItems null }}
     {{> components/schemas/schema_cls/_unique_items }}
-{{/if}}
+{{/neq}}
 {{#neq maxLength null}}
     {{> components/schemas/schema_cls/_max_length }}
 {{/neq}}
@@ -81,6 +81,12 @@ class {{jsonPathPiece.camelCase}}(
 {{#if minimum}}
     {{> components/schemas/schema_cls/_minimum }}
 {{/if}}
+{{#neq exclusiveMaximum null }}
+    {{> components/schemas/schema_cls/_exclusive_maximum }}
+{{/neq}}
+{{#neq exclusiveMinimum null }}
+    {{> components/schemas/schema_cls/_exclusive_minimum }}
+{{/neq}}
 {{#if multipleOf}}
     {{> components/schemas/schema_cls/_multiple_of }}
 {{/if}}

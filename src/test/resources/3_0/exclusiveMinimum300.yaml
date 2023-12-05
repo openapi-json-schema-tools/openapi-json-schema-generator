@@ -1,0 +1,21 @@
+openapi: 3.0.0
+info:
+  title: exclusiveMinimum test
+  version: 1.0.0
+paths: {}
+components:
+  schemas:
+    AnyTypeWithExclusiveMinimumTrue:
+      exclusiveMinimum: true
+      minimum: 10
+    NumberWithExclusiveMinimumTrue:
+      type: number
+      exclusiveMinimum: true
+      minimum: 10
+    AnyTypeWithExclusiveMinimumFalse:
+      exclusiveMinimum: false
+      minimum: 10
+    NumberWithExclusiveMinimumFalse:
+      type: number
+      exclusiveMinimum: false
+      minimum: 10

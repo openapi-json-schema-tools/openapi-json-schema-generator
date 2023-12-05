@@ -103,6 +103,7 @@ docs/components/schemas/NullableShape.md
 docs/components/schemas/NullableString.md
 docs/components/schemas/NumberOnly.md
 docs/components/schemas/NumberSchema.md
+docs/components/schemas/NumberWithExclusiveMinMax.md
 docs/components/schemas/NumberWithValidations.md
 docs/components/schemas/ObjWithRequiredProps.md
 docs/components/schemas/ObjWithRequiredPropsBase.md
@@ -406,6 +407,7 @@ src/main/java/org/openapijsonschematools/client/components/schemas/NullableShape
 src/main/java/org/openapijsonschematools/client/components/schemas/NullableString.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NumberOnly.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NumberSchema.java
+src/main/java/org/openapijsonschematools/client/components/schemas/NumberWithExclusiveMinMax.java
 src/main/java/org/openapijsonschematools/client/components/schemas/NumberWithValidations.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ObjWithRequiredProps.java
 src/main/java/org/openapijsonschematools/client/components/schemas/ObjWithRequiredPropsBase.java

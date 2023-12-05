@@ -89,6 +89,7 @@ from petstore_api.components.schema.nullable_shape import NullableShape
 from petstore_api.components.schema.nullable_string import NullableString
 from petstore_api.components.schema.number import Number
 from petstore_api.components.schema.number_only import NumberOnly
+from petstore_api.components.schema.number_with_exclusive_min_max import NumberWithExclusiveMinMax
 from petstore_api.components.schema.number_with_validations import NumberWithValidations
 from petstore_api.components.schema.obj_with_required_props import ObjWithRequiredProps
 from petstore_api.components.schema.obj_with_required_props_base import ObjWithRequiredPropsBase
