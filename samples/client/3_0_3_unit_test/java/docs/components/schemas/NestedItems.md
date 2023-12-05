@@ -39,7 +39,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // List validation
-NestedItems.NestedItemsList validatedPayload = NestedItems.NestedItems1.validate(
+NestedItems.NestedItemsList validatedPayload =
+    NestedItems.NestedItems1.validate(
     Arrays.asList(
     ),
     configuration
@@ -97,7 +98,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // List validation
-NestedItems.ItemsList2 validatedPayload = NestedItems.Items.validate(
+NestedItems.ItemsList2 validatedPayload =
+    NestedItems.Items.validate(
     Arrays.asList(
     ),
     configuration
@@ -155,7 +157,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // List validation
-NestedItems.ItemsList1 validatedPayload = NestedItems.Items1.validate(
+NestedItems.ItemsList1 validatedPayload =
+    NestedItems.Items1.validate(
     Arrays.asList(
     ),
     configuration
@@ -213,7 +216,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // List validation
-NestedItems.ItemsList validatedPayload = NestedItems.Items2.validate(
+NestedItems.ItemsList validatedPayload =
+    NestedItems.Items2.validate(
     Arrays.asList(
     ),
     configuration

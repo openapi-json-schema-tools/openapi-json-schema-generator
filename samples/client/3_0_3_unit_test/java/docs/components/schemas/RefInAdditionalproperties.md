@@ -32,7 +32,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // Map validation
-RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload = RefInAdditionalproperties.RefInAdditionalproperties1.validate(
+RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
+    RefInAdditionalproperties.RefInAdditionalproperties1.validate(
     MapMaker.makeMap(
     ),
     configuration

@@ -21,7 +21,8 @@ Void validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonP
     {{#eq @key "object"}}
         {{#if ../mapOutputJsonPathPiece}}
 // Map validation
-{{../../../containerJsonPathPiece.camelCase}}.{{../mapOutputJsonPathPiece.camelCase}} validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+{{../../../containerJsonPathPiece.camelCase}}.{{../mapOutputJsonPathPiece.camelCase}} validatedPayload =
+    {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
         {{else}}
 // Map validation
 FrozenMap<String, Object> validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
@@ -30,7 +31,8 @@ FrozenMap<String, Object> validatedPayload = {{../../../containerJsonPathPiece.c
         {{#eq @key "array"}}
             {{#if ../arrayOutputJsonPathPiece}}
 // List validation
-{{../../../containerJsonPathPiece.camelCase}}.{{../arrayOutputJsonPathPiece.camelCase}} validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+{{../../../containerJsonPathPiece.camelCase}}.{{../arrayOutputJsonPathPiece.camelCase}} validatedPayload =
+    {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
             {{else}}
 // List validation
 FrozenList<Object> validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(

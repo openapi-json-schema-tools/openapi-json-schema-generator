@@ -32,7 +32,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // List validation
-RefInItems.RefInItemsList validatedPayload = RefInItems.RefInItems1.validate(
+RefInItems.RefInItemsList validatedPayload =
+    RefInItems.RefInItems1.validate(
     Arrays.asList(
     ),
     configuration

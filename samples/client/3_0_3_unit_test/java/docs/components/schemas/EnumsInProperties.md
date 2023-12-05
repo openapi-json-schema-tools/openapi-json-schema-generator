@@ -34,7 +34,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // Map validation
-EnumsInProperties.EnumsInPropertiesMap validatedPayload = EnumsInProperties.EnumsInProperties1.validate(
+EnumsInProperties.EnumsInPropertiesMap validatedPayload =
+    EnumsInProperties.EnumsInProperties1.validate(
     MapMaker.makeMap(
     ),
     configuration

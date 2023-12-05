@@ -33,7 +33,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // Map validation
-AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap validatedPayload = AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
+AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap validatedPayload =
+    AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.validate(
     MapMaker.makeMap(
     ),
     configuration

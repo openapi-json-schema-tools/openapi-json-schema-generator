@@ -58,7 +58,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // Map validation
-NotMoreComplexSchema.NotMap validatedPayload = NotMoreComplexSchema.Not.validate(
+NotMoreComplexSchema.NotMap validatedPayload =
+    NotMoreComplexSchema.Not.validate(
     MapMaker.makeMap(
     ),
     configuration

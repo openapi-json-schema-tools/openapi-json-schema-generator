@@ -33,7 +33,8 @@ import java.util.AbstractMap;
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
 // List validation
-ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
+ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
+    ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
     Arrays.asList(
     ),
     configuration
