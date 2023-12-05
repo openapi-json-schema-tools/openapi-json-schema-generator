@@ -2357,7 +2357,7 @@ public class DefaultGenerator implements Generator {
                     case "string":
                         Object stringVal = getStringFromSchema(schema);
                         if (stringVal != null) {
-                            typeToExample.put("string", new EnumValue(stringVal, "number", null));
+                            typeToExample.put("string", new EnumValue(stringVal, "string", null));
                         }
                         break;
                     case "array":

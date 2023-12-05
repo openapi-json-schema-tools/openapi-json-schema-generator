@@ -24,6 +24,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -31,8 +33,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type object validation
-EnumsInProperties.EnumsInProperties1.validate(
+// Map validation
+EnumsInProperties.EnumsInPropertiesMap validatedPayload = EnumsInProperties.EnumsInProperties1.validate(
     MapMaker.makeMap(
     ),
     configuration
@@ -85,6 +87,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -92,9 +96,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type string validation
-EnumsInProperties.Bar.validate(
-    bar,
+// String validation
+String validatedPayload = EnumsInProperties.Bar.validate(
+    "bar",
     configuration
 );
 ```
@@ -121,6 +125,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -128,9 +134,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type string validation
-EnumsInProperties.Foo.validate(
-    foo,
+// String validation
+String validatedPayload = EnumsInProperties.Foo.validate(
+    "foo",
     configuration
 );
 ```

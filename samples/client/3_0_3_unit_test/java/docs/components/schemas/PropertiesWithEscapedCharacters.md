@@ -79,6 +79,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -86,8 +88,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type number validation
-PropertiesWithEscapedCharacters.Foofbar.validate(
+// Number validation
+Number validatedPayload = PropertiesWithEscapedCharacters.Foofbar.validate(
     3.14,
     configuration
 );
@@ -109,6 +111,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -116,8 +120,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type number validation
-PropertiesWithEscapedCharacters.Footbar.validate(
+// Number validation
+Number validatedPayload = PropertiesWithEscapedCharacters.Footbar.validate(
     3.14,
     configuration
 );
@@ -139,6 +143,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -146,8 +152,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type number validation
-PropertiesWithEscapedCharacters.Foorbar.validate(
+// Number validation
+Number validatedPayload = PropertiesWithEscapedCharacters.Foorbar.validate(
     3.14,
     configuration
 );
@@ -169,6 +175,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -176,8 +184,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type number validation
-PropertiesWithEscapedCharacters.Foobar1.validate(
+// Number validation
+Number validatedPayload = PropertiesWithEscapedCharacters.Foobar1.validate(
     3.14,
     configuration
 );
@@ -199,6 +207,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -206,8 +216,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type number validation
-PropertiesWithEscapedCharacters.Foobar.validate(
+// Number validation
+Number validatedPayload = PropertiesWithEscapedCharacters.Foobar.validate(
     3.14,
     configuration
 );
@@ -229,6 +239,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -236,8 +248,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type number validation
-PropertiesWithEscapedCharacters.Foonbar.validate(
+// Number validation
+Number validatedPayload = PropertiesWithEscapedCharacters.Foonbar.validate(
     3.14,
     configuration
 );

@@ -21,6 +21,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
 import java.util.Arrays;
 import java.util.List;
@@ -28,9 +30,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// json schema type string validation
-StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
-    a,
+// String validation
+String validatedPayload = StringTypeMatchesStrings.StringTypeMatchesStrings1.validate(
+    "a",
     configuration
 );
 ```
