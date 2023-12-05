@@ -44,11 +44,11 @@ A schema class that validates payloads
 {{headerSize}}# Description
 {{description.original}}
         {{/if}}
-        {{#if typeToExample}}
+        {{#if isCustomSchema}}
+            {{#if typeToExample}}
 
 {{> src/main/java/packagename/components/schemas/docschema_codeSample }}
-        {{/if}}
-        {{#if isCustomSchema}}
+            {{/if}}
 
 {{headerSize}}## Field Summary
 | Modifier and Type | Field and Description |

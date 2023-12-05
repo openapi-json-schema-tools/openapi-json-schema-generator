@@ -91,28 +91,6 @@ extends StringJsonSchema
 
 A schema class that validates payloads
 
-### Code Sample
-```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-
-// String validation
-String validatedPayload = OneofComplexTypes.Foo.validate(
-    "a",
-    configuration
-);
-```
-
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |
 | validate                                                           |
@@ -168,28 +146,6 @@ public static class Bar<br>
 extends IntJsonSchema
 
 A schema class that validates payloads
-
-### Code Sample
-```
-import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.MapMaker;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-
-import java.util.Arrays;
-import java.util.List;
-import java.util.AbstractMap;
-
-static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-
-// Integer validation
-Integer validatedPayload = OneofComplexTypes.Bar.validate(
-    1,
-    configuration
-);
-```
 
 | Methods Inherited from class org.openapijsonschematools.client.schemas.IntJsonSchema |
 | ------------------------------------------------------------------ |
