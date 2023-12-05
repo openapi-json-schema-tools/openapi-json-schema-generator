@@ -22,4 +22,5 @@ class UniqueitemsFalseValidation(
     Do not edit the class manually.
     """
     # any type
+    unique_items: bool = False
 

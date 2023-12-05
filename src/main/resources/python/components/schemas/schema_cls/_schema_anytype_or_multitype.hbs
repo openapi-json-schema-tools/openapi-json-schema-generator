@@ -54,9 +54,9 @@ class {{jsonPathPiece.camelCase}}(
 {{#if properties}}
     {{> components/schemas/schema_cls/_properties }}
 {{/if}}
-{{#if uniqueItems}}
+{{#neq uniqueItems null }}
     {{> components/schemas/schema_cls/_unique_items }}
-{{/if}}
+{{/neq}}
 {{#neq maxLength null}}
     {{> components/schemas/schema_cls/_max_length }}
 {{/neq}}

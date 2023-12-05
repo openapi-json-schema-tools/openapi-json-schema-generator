@@ -16,9 +16,9 @@ class {{jsonPathPiece.camelCase}}(
     """
 {{/if}}
     types: typing.FrozenSet[typing.Type] = frozenset({tuple})
-    {{#if uniqueItems}}
+    {{#neq uniqueItems null }}
     {{> components/schemas/schema_cls/_unique_items }}
-    {{/if}}
+    {{/neq}}
     {{#neq maxItems null}}
     {{> components/schemas/schema_cls/_max_items }}
     {{/neq}}
