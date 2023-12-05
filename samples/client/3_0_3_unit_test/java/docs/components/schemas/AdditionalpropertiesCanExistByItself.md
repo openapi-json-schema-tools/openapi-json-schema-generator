@@ -17,7 +17,7 @@ extends JsonSchema
 
 A schema class that validates payloads
 
-## Code Sample
+### Code Sample
 ```
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -76,7 +76,7 @@ extends BooleanJsonSchema
 
 A schema class that validates payloads
 
-## Code Sample
+### Code Sample
 ```
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
