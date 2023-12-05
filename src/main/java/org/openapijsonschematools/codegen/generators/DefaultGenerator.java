@@ -2313,6 +2313,13 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         ArrayList<Object> listVal = new ArrayList<>();
+        Map<String, EnumValue> itemsTypeToExample = getTypeToExample(listSchema.items);
+        if (itemsTypeToExample != null && !itemsTypeToExample.isEmpty()) {
+            for(EnumValue exampleValue: itemsTypeToExample.values()) {
+                listVal.add(exampleValue);
+                break;
+            }
+        }
         return listVal;
     }
 

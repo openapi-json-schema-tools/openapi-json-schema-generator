@@ -42,6 +42,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NestedItems.NestedItemsList validatedPayload =
     NestedItems.NestedItems1.validate(
     Arrays.asList(
+        Arrays.asList(
+            Arrays.asList(
+                Arrays.asList(
+                    3.14
+                )
+            )
+        )
     ),
     configuration
 );
@@ -101,6 +108,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NestedItems.ItemsList2 validatedPayload =
     NestedItems.Items.validate(
     Arrays.asList(
+        Arrays.asList(
+            Arrays.asList(
+                3.14
+            )
+        )
     ),
     configuration
 );
@@ -160,6 +172,9 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NestedItems.ItemsList1 validatedPayload =
     NestedItems.Items1.validate(
     Arrays.asList(
+        Arrays.asList(
+            3.14
+        )
     ),
     configuration
 );
@@ -219,6 +234,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NestedItems.ItemsList validatedPayload =
     NestedItems.Items2.validate(
     Arrays.asList(
+        3.14
     ),
     configuration
 );
