@@ -2329,6 +2329,18 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         Map<String, Object> mapVal = new LinkedHashMap<>();
+        if (mapSchema.requiredProperties != null && !mapSchema.requiredProperties.isEmpty()) {
+            for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.requiredProperties.entrySet()) {
+                String propName = entry.getKey().original;
+                Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue());
+                if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
+                    for(EnumValue exampleValue: propertyTypeToExample.values()) {
+                        mapVal.put(propName, exampleValue);
+                        break;
+                    }
+                }
+            }
+        }
         return mapVal;
     }
 

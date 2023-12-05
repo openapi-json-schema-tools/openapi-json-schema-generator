@@ -37,6 +37,10 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 EnumsInProperties.EnumsInPropertiesMap validatedPayload =
     EnumsInProperties.EnumsInProperties1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "bar",
+            "bar"
+        )
     ),
     configuration
 );
