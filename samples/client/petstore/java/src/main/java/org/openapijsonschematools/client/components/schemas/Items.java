@@ -25,7 +25,7 @@ public class Items {
         ItemsList(FrozenList<FrozenMap<String, Object>> m) {
             super(m);
         }
-        public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Items1.validate(arg, configuration);
         }
     }

@@ -20,7 +20,7 @@ public class AnimalFarm {
         AnimalFarmList(FrozenList<Animal.AnimalMap> m) {
             super(m);
         }
-        public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AnimalFarmList of(AnimalFarmListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return AnimalFarm1.validate(arg, configuration);
         }
     }

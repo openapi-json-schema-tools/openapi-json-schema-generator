@@ -23,7 +23,7 @@ public class FileSchemaTestClass {
         FilesList(FrozenList<File.FileMap> m) {
             super(m);
         }
-        public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList of(FilesListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Files.validate(arg, configuration);
         }
     }

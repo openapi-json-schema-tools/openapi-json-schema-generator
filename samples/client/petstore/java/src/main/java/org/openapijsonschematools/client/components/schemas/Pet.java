@@ -36,7 +36,7 @@ public class Pet {
         PhotoUrlsList(FrozenList<String> m) {
             super(m);
         }
-        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PhotoUrlsList of(PhotoUrlsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return PhotoUrls.validate(arg, configuration);
         }
     }
@@ -78,7 +78,7 @@ public class Pet {
         TagsList(FrozenList<Tag.TagMap> m) {
             super(m);
         }
-        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static TagsList of(TagsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Tags.validate(arg, configuration);
         }
     }

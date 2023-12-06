@@ -22,7 +22,7 @@ public class Schema {
         SchemaList(FrozenList<Pet.PetMap> m) {
             super(m);
         }
-        public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList of(SchemaListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema1.validate(arg, configuration);
         }
     }

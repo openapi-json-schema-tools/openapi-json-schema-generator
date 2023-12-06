@@ -35,7 +35,7 @@ public class PaginatedResultMyObjectDto {
         ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
             super(m);
         }
-        public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ResultsList of(ResultsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Results.validate(arg, configuration);
         }
     }

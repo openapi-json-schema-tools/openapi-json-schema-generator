@@ -54,7 +54,7 @@ public class EnumArrays {
         ArrayEnumList(FrozenList<String> m) {
             super(m);
         }
-        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayEnumList of(ArrayEnumListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayEnum.validate(arg, configuration);
         }
     }

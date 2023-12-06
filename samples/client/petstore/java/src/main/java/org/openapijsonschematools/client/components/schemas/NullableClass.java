@@ -168,7 +168,7 @@ public class NullableClass {
         ArrayNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
             super(m);
         }
-        public static ArrayNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayNullablePropList of(ArrayNullablePropListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayNullableProp.validate(arg, configuration);
         }
     }
@@ -215,7 +215,7 @@ public class NullableClass {
         ArrayAndItemsNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
             super(m);
         }
-        public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayAndItemsNullablePropList of(ArrayAndItemsNullablePropListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayAndItemsNullableProp.validate(arg, configuration);
         }
     }
@@ -262,7 +262,7 @@ public class NullableClass {
         ArrayItemsNullableList(FrozenList<FrozenMap<String, Object>> m) {
             super(m);
         }
-        public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayItemsNullableList of(ArrayItemsNullableListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayItemsNullable.validate(arg, configuration);
         }
     }

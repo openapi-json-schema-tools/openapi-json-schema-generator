@@ -51,7 +51,7 @@ public class ArrayWithValidationsInItems {
         ArrayWithValidationsInItemsList(FrozenList<Long> m) {
             super(m);
         }
-        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithValidationsInItemsList of(ArrayWithValidationsInItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayWithValidationsInItems1.validate(arg, configuration);
         }
     }

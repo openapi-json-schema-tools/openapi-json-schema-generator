@@ -22,7 +22,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         AdditionalPropertiesList(FrozenList<String> m) {
             super(m);
         }
-        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalPropertiesList of(AdditionalPropertiesListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return AdditionalProperties.validate(arg, configuration);
         }
     }

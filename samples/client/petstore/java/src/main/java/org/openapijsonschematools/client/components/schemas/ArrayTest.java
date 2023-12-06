@@ -28,7 +28,7 @@ public class ArrayTest {
         ArrayOfStringList(FrozenList<String> m) {
             super(m);
         }
-        public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfStringList of(ArrayOfStringListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayOfString.validate(arg, configuration);
         }
     }
@@ -57,7 +57,7 @@ public class ArrayTest {
         ItemsList(FrozenList<Long> m) {
             super(m);
         }
-        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Items1.validate(arg, configuration);
         }
     }
@@ -83,7 +83,7 @@ public class ArrayTest {
         ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayOfIntegerList of(ArrayArrayOfIntegerListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
     }
@@ -109,7 +109,7 @@ public class ArrayTest {
         ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
             super(m);
         }
-        public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList1 of(ItemsListInput1 arg, SchemaConfiguration configuration) throws ValidationException {
             return Items3.validate(arg, configuration);
         }
     }
@@ -135,7 +135,7 @@ public class ArrayTest {
         ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
             super(m);
         }
-        public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayOfModelList of(ArrayArrayOfModelListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayArrayOfModel.validate(arg, configuration);
         }
     }

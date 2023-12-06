@@ -24,7 +24,7 @@ public class Schema2 {
         SchemaList2(FrozenList<String> m) {
             super(m);
         }
-        public static SchemaList2 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList2 of(SchemaListInput2 arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema21.validate(arg, configuration);
         }
     }

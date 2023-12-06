@@ -70,7 +70,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         Schema9List(FrozenList<Object> m) {
             super(m);
         }
-        public static Schema9List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema9List of(Schema9ListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema9.validate(arg, configuration);
         }
     }

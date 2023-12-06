@@ -24,7 +24,7 @@ public class Drawing {
         ShapesList(FrozenList<Object> m) {
             super(m);
         }
-        public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ShapesList of(ShapesListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Shapes.validate(arg, configuration);
         }
     }

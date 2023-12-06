@@ -39,7 +39,7 @@ public class Schema {
         EnumFormStringArrayList(FrozenList<String> m) {
             super(m);
         }
-        public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static EnumFormStringArrayList of(EnumFormStringArrayListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return EnumFormStringArray.validate(arg, configuration);
         }
     }

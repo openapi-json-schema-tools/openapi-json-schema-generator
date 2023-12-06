@@ -82,7 +82,7 @@ public class JSONPatchRequest {
         JSONPatchRequestList(FrozenList<Object> m) {
             super(m);
         }
-        public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static JSONPatchRequestList of(JSONPatchRequestListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JSONPatchRequest1.validate(arg, configuration);
         }
     }

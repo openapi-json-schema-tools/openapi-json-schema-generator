@@ -36,7 +36,7 @@ public class Schema0 {
         SchemaList0(FrozenList<String> m) {
             super(m);
         }
-        public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList0 of(SchemaListInput0 arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema01.validate(arg, configuration);
         }
     }

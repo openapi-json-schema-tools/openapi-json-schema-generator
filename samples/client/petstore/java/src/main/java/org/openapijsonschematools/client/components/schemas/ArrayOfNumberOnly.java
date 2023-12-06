@@ -27,7 +27,7 @@ public class ArrayOfNumberOnly {
         ArrayNumberList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayNumberList of(ArrayNumberListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayNumber.validate(arg, configuration);
         }
     }

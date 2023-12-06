@@ -24,7 +24,7 @@ public class ArrayHoldingAnyType {
         ArrayHoldingAnyTypeList(FrozenList<Object> m) {
             super(m);
         }
-        public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayHoldingAnyTypeList of(ArrayHoldingAnyTypeListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayHoldingAnyType1.validate(arg, configuration);
         }
     }

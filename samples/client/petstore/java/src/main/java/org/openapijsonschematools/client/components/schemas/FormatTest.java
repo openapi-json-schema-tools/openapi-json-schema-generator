@@ -179,7 +179,7 @@ public class FormatTest {
         ArrayWithUniqueItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithUniqueItemsList of(ArrayWithUniqueItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayWithUniqueItems.validate(arg, configuration);
         }
     }

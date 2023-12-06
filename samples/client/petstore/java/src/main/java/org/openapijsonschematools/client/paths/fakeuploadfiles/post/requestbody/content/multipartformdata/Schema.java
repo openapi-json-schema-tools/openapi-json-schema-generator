@@ -28,7 +28,7 @@ public class Schema {
         FilesList(FrozenList<String> m) {
             super(m);
         }
-        public static FilesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList of(FilesListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Files.validate(arg, configuration);
         }
     }

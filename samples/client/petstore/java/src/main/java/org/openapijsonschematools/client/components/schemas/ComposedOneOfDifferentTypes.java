@@ -56,7 +56,7 @@ public class ComposedOneOfDifferentTypes {
         Schema5List(FrozenList<Object> m) {
             super(m);
         }
-        public static Schema5List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema5List of(Schema5ListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema5.validate(arg, configuration);
         }
     }
