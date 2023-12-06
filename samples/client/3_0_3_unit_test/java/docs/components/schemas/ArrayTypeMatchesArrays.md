@@ -54,7 +54,7 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([ArrayTypeMatchesArraysListInput](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayTypeMatchesArraysListInput
 public interface ArrayTypeMatchesArraysListInput<br>
@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([ArrayTypeMatchesArraysListInput](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

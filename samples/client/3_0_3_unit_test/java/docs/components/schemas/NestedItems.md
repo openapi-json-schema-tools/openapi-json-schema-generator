@@ -70,7 +70,7 @@ NestedItems.NestedItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NestedItemsList](#nesteditemslist) | validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) |
+| static [NestedItemsList](#nesteditemslist) | validate([NestedItemsListInput](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
 
 ## NestedItemsListInput
 public interface NestedItemsListInput<br>
@@ -92,7 +92,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NestedItemsList](#nesteditemslist) | of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) |
+| static [NestedItemsList](#nesteditemslist) | of([NestedItemsListInput](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
@@ -137,7 +137,7 @@ NestedItems.ItemsList2 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList2](#itemslist2) | validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) |
+| static [ItemsList2](#itemslist2) | validate([ItemsListInput2](#itemslistinput2) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput2
 public interface ItemsListInput2<br>
@@ -159,7 +159,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList2](#itemslist2) | of(List<List<List<Number>>> arg, SchemaConfiguration configuration) |
+| static [ItemsList2](#itemslist2) | of([ItemsListInput2](#itemslistinput2) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>
@@ -202,7 +202,7 @@ NestedItems.ItemsList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | validate([ItemsListInput1](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput1
 public interface ItemsListInput1<br>
@@ -224,7 +224,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | of(List<List<Number>> arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | of([ItemsListInput1](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>
@@ -265,7 +265,7 @@ NestedItems.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
 public interface ItemsListInput<br>
@@ -287,7 +287,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items3
 public static class Items3<br>
