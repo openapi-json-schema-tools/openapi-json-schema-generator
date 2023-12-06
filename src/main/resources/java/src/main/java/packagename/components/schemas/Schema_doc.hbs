@@ -31,6 +31,10 @@ A class that contains necessary nested
         {{else}}
             {{#eq instanceType "arrayOutputType"}}
 | static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }})<br> output class for List payloads |
+            {{else}}
+                {{#eq instanceType "arrayInputType"}}
+| static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }})<br> input class for List payloads |
+                {{/eq}}
             {{/eq}}
         {{/eq}}
     {{/eq}}
@@ -150,16 +154,22 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | of(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
+            {{else}}
+                {{#eq instanceType "arrayInputType"}}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
+public interface {{arrayInputJsonPathPiece.camelCase}}<br>
+extends `List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>`
+
+A class that describes the List input type
 
 {{headerSize}}# Input List Items
-```
-type: List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
-```
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-                {{#with items}}
+                    {{#with items}}
 {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }}
-                {{/with}}
+                    {{/with}}
+                {{/eq}}
             {{/eq}}
         {{/eq}}
     {{/eq}}
