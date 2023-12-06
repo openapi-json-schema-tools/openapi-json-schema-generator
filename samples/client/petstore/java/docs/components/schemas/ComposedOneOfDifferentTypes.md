@@ -66,7 +66,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = ComposedOneOfDifferentTypes.Schema6.validate(
-    "a",
+    "1970-01-01T00:00:00.00Z",
     configuration
 );
 ```

@@ -762,7 +762,7 @@ Void validatedPayload = NullableClass.DatetimeProp.validate(
 
 // String validation
 String validatedPayload = NullableClass.DatetimeProp.validate(
-    "a",
+    "1970-01-01T00:00:00.00Z",
     configuration
 );
 ```
@@ -807,7 +807,7 @@ Void validatedPayload = NullableClass.DateProp.validate(
 
 // String validation
 String validatedPayload = NullableClass.DateProp.validate(
-    "a",
+    "2020-12-13",
     configuration
 );
 ```

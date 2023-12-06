@@ -32,7 +32,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = DateWithValidations.DateWithValidations1.validate(
-    "a",
+    "2020-12-13",
     configuration
 );
 ```

@@ -2325,6 +2325,15 @@ public class DefaultGenerator implements Generator {
             }
         }
         // todo handle not const or not enum here
+        if ("date".equals(schema.format)) {
+            return "2020-12-13";
+        } else if ("date-time".equals(schema.format)) {
+            return "1970-01-01T00:00:00.00Z";
+        } else if ("number".equals(schema.format)) {
+            return "3.14";
+        } else if ("uuid".equals(schema.format)) {
+            return "046b6c7f-0b8a-43b9-b35d-6489e6daee91";
+        }
         return "a";
     }
 

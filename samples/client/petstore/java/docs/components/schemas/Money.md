@@ -39,7 +39,7 @@ Money.MoneyMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "amount",
-            "a"
+            "3.14"
         ),
         new AbstractMap.SimpleEntry<>(
             "currency",
