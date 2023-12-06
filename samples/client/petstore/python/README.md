@@ -398,8 +398,7 @@ Class | Description
 
 Class | Description
 ----- | ------------
-[HeadersWithNoBody](docs/components/responses/response_headers_with_no_body.md) | A response that contains headers but no body
-
+[HeadersWithNoBody](docs/components/responses/response_headers_with_no_body.md) | A response that contains headers but no body<br>
 [RefSuccessDescriptionOnly](docs/components/responses/response_ref_success_description_only.md) |
 [RefSuccessfulXmlAndJsonArrayOfPet](docs/components/responses/response_ref_successful_xml_and_json_array_of_pet.md) |
 [SuccessDescriptionOnly](docs/components/responses/response_success_description_only.md) | Success

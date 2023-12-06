@@ -1,16 +1,20 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
+import com.github.jknack.handlebars.Handlebars;
+
 import java.util.Objects;
 
 public class CodegenText  {
     public final String original;
     public final String codeEscaped;
-    public final String originalWithBr;
+    public final Handlebars.SafeString originalWithBr;
 
     public CodegenText(String original, String codeEscaped) {
         this.original = original;
         this.codeEscaped = codeEscaped;
-        this.originalWithBr = original.replaceAll("(\r\n|\n)", "<br>");
+        String escaped = (String) Handlebars.Utils.escapeExpression(original);
+        escaped = escaped.replaceAll("(\r\n|\n)", "<br>");
+        this.originalWithBr =  new Handlebars.SafeString(escaped);
     }
 
     @Override
