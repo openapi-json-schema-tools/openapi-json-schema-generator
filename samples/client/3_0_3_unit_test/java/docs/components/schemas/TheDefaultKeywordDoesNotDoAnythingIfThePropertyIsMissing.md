@@ -38,7 +38,7 @@ TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNo
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "alpha",
-            3.14
+            1
         )
     ),
     configuration
@@ -65,7 +65,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| Number | alpha()<br>[optional] if omitted the server will use the default value of 5 |
+| Number | alpha()<br>[optional] if omitted the server will use the default value of 5.0 |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Input Map Keys
@@ -74,7 +74,7 @@ type: Map<String, Object>
 ```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **alpha** | Number |  | [optional] if omitted the server will use the default value of 5 |
+| **alpha** | Number |  | [optional] if omitted the server will use the default value of 5.0 |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Alpha
@@ -98,9 +98,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.Alpha.validate(
-    3.14,
+// int validation
+int validatedPayload = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.Alpha.validate(
+    1,
     configuration
 );
 ```
