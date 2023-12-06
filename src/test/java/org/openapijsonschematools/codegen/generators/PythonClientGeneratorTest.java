@@ -186,7 +186,7 @@ public class PythonClientGeneratorTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}";
-        Assert.assertEquals(cm.patternInfo.pattern, expectedRegexPattern);
+        Assert.assertEquals(cm.patternInfo.pattern.original, expectedRegexPattern);
         Assert.assertNull(cm.patternInfo.flags);
     }
 
@@ -205,7 +205,7 @@ public class PythonClientGeneratorTest {
                 "#/components/schemas/" + modelName
         );
         String expectedRegexPattern = "a.";
-        Assert.assertEquals(cm.patternInfo.pattern, expectedRegexPattern);
+        Assert.assertEquals(cm.patternInfo.pattern.original, expectedRegexPattern);
         Assert.assertEquals(cm.patternInfo.flags, new LinkedHashSet<>(Arrays.asList("s", "i", "m")));
     }
 

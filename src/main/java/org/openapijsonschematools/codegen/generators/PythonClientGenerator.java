@@ -33,6 +33,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
@@ -79,7 +80,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
     // nose is a python testing framework, we use pytest if USE_NOSE is unset
     public static final String USE_NOSE = "useNose";
     public static final String RECURSION_LIMIT = "recursionLimit";
-    private final Pattern patternRegex = Pattern.compile("^/?(.+?)/?([simu]{0,4})$");
 
     protected String packageUrl;
     protected String apiDocPath = "docs/apis/tags/";
@@ -1476,7 +1476,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             } else if (StringUtils.isNotBlank(schema.getPattern())) {
                 String pattern = schema.getPattern();
                 CodegenPatternInfo results = getPatternInfo(pattern);
-                String extractedPattern = results.pattern;
+                String extractedPattern = results.pattern.original;
                 LinkedHashSet<String> regexFlags = results.flags;
                 /*
                 RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
@@ -1754,60 +1754,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             modelNameToSchemaCache = Collections.unmodifiableMap(m);
         }
         return modelNameToSchemaCache;
-    }
-
-    /**
-     * Notes:
-     * RgxGen does not support our ECMA dialect
-     * <a href="https://github.com/curious-odd-man/RgxGen/issues/56">...</a>
-     * So strip off the leading / and trailing / and turn on ignore case if we have it
-     *
-     * json schema test cases omit the leading and trailing /s, so make sure that the regex allows that
-     *
-      * Flags:
-     * <a href="https://262.ecma-international.org/13.0/#sec-get-regexp.prototype.flags">...</a>
-     * d hasIndices: indicates that the result of a regular expression match should contain the start and end indices of the substrings of each capture group
-     * g global: the regular expression should be tested against all possible matches in a string
-     * i ignoreCase: case should be ignored while attempting a match in a string
-     * m multiline: a multiline input string should be treated as multiple lines
-     * s dotAll: the dot special character (.) should additionally match 4 line terminator ("newline") characters in a string
-     * u unicode: enables various Unicode-related features such as unicode code point escapes
-     * y sticky: the regex attempts to match the target string only from the index indicated by the lastIndex property
-     *
-     * Python flags:
-     * <a href="https://docs.python.org/3/library/re.html#flags">...</a>
-     * i, m, s u
-     *
-     * @param pattern the pattern (regular expression)
-     * @return the resultant regex for python
-     */
-    @Override
-    public CodegenPatternInfo getPatternInfo(String pattern) {
-        if (pattern == null) {
-            return null;
-        }
-        Matcher m = patternRegex.matcher(pattern);
-        if (m.find()) {
-            int groupCount = m.groupCount();
-            if (groupCount == 1) {
-                // only pattern found
-                String isolatedPattern = m.group(1);
-                return new CodegenPatternInfo(isolatedPattern, null);
-            } else if (groupCount == 2) {
-                // patterns and flag found
-                String isolatedPattern = m.group(1);
-                String foundFlags = m.group(2);
-                if (foundFlags.isEmpty()) {
-                    return new CodegenPatternInfo(isolatedPattern, null);
-                }
-                LinkedHashSet<String> flags = new LinkedHashSet<>();
-                for (Character c: foundFlags.toCharArray()) {
-                    flags.add(c.toString());
-                }
-                return new CodegenPatternInfo(isolatedPattern, flags);
-            }
-        }
-        return new CodegenPatternInfo(pattern, null);
     }
 
     @Override

@@ -1,7 +1,7 @@
 {{#if forDocs}}
 &nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("pattern", new PatternValidator(<br>
     {{~#with patternInfo}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{pattern}}}"{{#if flags}},{{/if}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{pattern.codeEscaped}}}"{{#if flags}},{{/if}}<br>
         {{~#if flags}}
             {{#eq flags.size 1}}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}}<br>
@@ -29,7 +29,7 @@
 {{~else}}
 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
     {{#with patternInfo}}
-    "{{{pattern}}}"{{#if flags}},{{/if}}
+    "{{{pattern.codeEscaped}}}"{{#if flags}},{{/if}}
         {{#if flags}}
             {{#eq flags.size 1}}
     {{#each flags}}Pattern.{{#eq this "i"}}CASE_INSENSITIVE{{/eq}}{{#eq this "m"}}MULTILINE{{/eq}}{{#eq this "s"}}DOTALL{{/eq}}{{#eq this "u"}}UNICODE_CHARACTER_CLASS{{/eq}}{{/each}}

@@ -41,11 +41,11 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "uuid",
-            "a"
+            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
         ),
         new AbstractMap.SimpleEntry<>(
             "dateTime",
-            "a"
+            "1970-01-01T00:00:00.00Z"
         ),
         new AbstractMap.SimpleEntry<>(
             "map",

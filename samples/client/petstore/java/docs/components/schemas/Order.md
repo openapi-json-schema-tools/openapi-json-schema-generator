@@ -55,7 +55,7 @@ Order.OrderMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "shipDate",
-            "a"
+            "1970-01-01T00:00:00.00Z"
         ),
         new AbstractMap.SimpleEntry<>(
             "status",

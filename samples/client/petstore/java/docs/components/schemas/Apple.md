@@ -45,11 +45,11 @@ Apple.AppleMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "cultivar",
-            "a"
+            "IaQnEaqioxT	oASzjxaSH"
         ),
         new AbstractMap.SimpleEntry<>(
             "origin",
-            "a"
+            "IaQnEaqioxT	oASzjxaSH"
         )
     ),
     configuration
@@ -114,7 +114,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = Apple.Origin.validate(
-    "a",
+    "IaQnEaqioxT	oASzjxaSH",
     configuration
 );
 ```
@@ -152,7 +152,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = Apple.Cultivar.validate(
-    "a",
+    "IaQnEaqioxT	oASzjxaSH",
     configuration
 );
 ```

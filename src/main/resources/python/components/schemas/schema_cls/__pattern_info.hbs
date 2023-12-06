@@ -1,6 +1,6 @@
 {{#if propertyName}}{{propertyName}}: schemas.PatternInfo = {{/if}}schemas.PatternInfo(
 {{#with patternInfo}}
-    pattern=r'{{{pattern}}}'{{#if flags}},{{/if}}  # noqa: E501
+    pattern=r'{{{pattern.original}}}'{{#if flags}},{{/if}}  # noqa: E501
     {{#if flags}}
         {{#eq flags.size 1}}
     flags={{#each flags}}re.{{#eq this "i"}}I{{/eq}}{{#eq this "m"}}M{{/eq}}{{#eq this "s"}}S{{/eq}}{{#eq this "u"}}U{{/eq}}{{/each}},

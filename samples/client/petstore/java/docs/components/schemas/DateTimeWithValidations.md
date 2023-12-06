@@ -32,7 +32,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = DateTimeWithValidations.DateTimeWithValidations1.validate(
-    "a",
+    "2020jUR,rZ#UM/?R,Fp^l6$ARj",
     configuration
 );
 ```

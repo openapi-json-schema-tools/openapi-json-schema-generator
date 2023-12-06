@@ -63,7 +63,7 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_without_delimiter",
-            "a"
+            "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>"
         ),
         new AbstractMap.SimpleEntry<>(
             "integer",
@@ -83,7 +83,7 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "string",
-            "a"
+            "A"
         ),
         new AbstractMap.SimpleEntry<>(
             "binary",
@@ -91,11 +91,11 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "date",
-            "a"
+            "2020-12-13"
         ),
         new AbstractMap.SimpleEntry<>(
             "dateTime",
-            "a"
+            "1970-01-01T00:00:00.00Z"
         ),
         new AbstractMap.SimpleEntry<>(
             "password",
@@ -243,7 +243,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = Schema.DateTime.validate(
-    "a",
+    "1970-01-01T00:00:00.00Z",
     configuration
 );
 ```
@@ -315,7 +315,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = Schema.PatternWithoutDelimiter.validate(
-    "a",
+    "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
     configuration
 );
 ```
@@ -356,7 +356,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = Schema.StringSchema.validate(
-    "a",
+    "A",
     configuration
 );
 ```

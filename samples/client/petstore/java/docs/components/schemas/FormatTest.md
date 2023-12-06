@@ -64,7 +64,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "date",
-            "a"
+            "2020-12-13"
         ),
         new AbstractMap.SimpleEntry<>(
             "number",
@@ -114,7 +114,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "string",
-            "a"
+            "A"
         ),
         new AbstractMap.SimpleEntry<>(
             "binary",
@@ -122,23 +122,23 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "dateTime",
-            "a"
+            "1970-01-01T00:00:00.00Z"
         ),
         new AbstractMap.SimpleEntry<>(
             "uuid",
-            "a"
+            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
         ),
         new AbstractMap.SimpleEntry<>(
             "uuidNoExample",
-            "a"
+            "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_with_digits",
-            "a"
+            "0480728880"
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_with_digits_and_delimiter",
-            "a"
+            "IMage_88"
         ),
         new AbstractMap.SimpleEntry<>(
             "noneProp",
@@ -251,7 +251,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
-    "a",
+    "IMage_88",
     configuration
 );
 ```
@@ -292,7 +292,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.PatternWithDigits.validate(
-    "a",
+    "0480728880",
     configuration
 );
 ```
@@ -420,7 +420,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.StringSchema.validate(
-    "a",
+    "A",
     configuration
 );
 ```
