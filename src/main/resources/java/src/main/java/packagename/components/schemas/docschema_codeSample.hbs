@@ -54,7 +54,7 @@ int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPa
                     {{#eq @key "number"}}
                         {{#eq ../format "int64"}}
 // long validation
-Number validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+long validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
                         {{else}}
                             {{#eq ../format "float"}}
 // float validation
