@@ -31,8 +31,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = ComposedNumber.ComposedNumber1.validate(
+// int validation
+int validatedPayload = ComposedNumber.ComposedNumber1.validate(
     1,
     configuration
 );

@@ -30,8 +30,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1.validate(
+// int validation
+int validatedPayload = NumberWithExclusiveMinMax.NumberWithExclusiveMinMax1.validate(
     1,
     configuration
 );

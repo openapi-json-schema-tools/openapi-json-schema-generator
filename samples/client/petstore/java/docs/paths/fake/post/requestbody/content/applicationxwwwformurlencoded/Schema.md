@@ -395,8 +395,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = Schema.DoubleSchema.validate(
+// double validation
+double validatedPayload = Schema.DoubleSchema.validate(
     3.14d,
     configuration
 );
@@ -436,8 +436,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = Schema.FloatSchema.validate(
+// float validation
+float validatedPayload = Schema.FloatSchema.validate(
     3.14f,
     configuration
 );
@@ -477,8 +477,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = Schema.NumberSchema.validate(
+// int validation
+int validatedPayload = Schema.NumberSchema.validate(
     1,
     configuration
 );

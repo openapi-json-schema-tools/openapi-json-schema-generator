@@ -52,8 +52,23 @@ int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPa
                     {{/or}}
                 {{else}}
                     {{#eq @key "number"}}
-// Number validation
+                        {{#eq ../format "int64"}}
+// long validation
 Number validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                        {{else}}
+                            {{#eq ../format "float"}}
+// float validation
+float validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                            {{else}}
+                                {{#eq ../format "double"}}
+// double validation
+double validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                                {{else}}
+// int validation
+int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
                     {{else}}
                         {{#eq @key "boolean"}}
 // boolean validation

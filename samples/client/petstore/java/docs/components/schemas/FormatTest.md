@@ -536,8 +536,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = FormatTest.DoubleSchema.validate(
+// double validation
+double validatedPayload = FormatTest.DoubleSchema.validate(
     3.14d,
     configuration
 );
@@ -587,8 +587,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = FormatTest.FloatSchema.validate(
+// float validation
+float validatedPayload = FormatTest.FloatSchema.validate(
     3.14f,
     configuration
 );
@@ -625,8 +625,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = FormatTest.NumberSchema.validate(
+// int validation
+int validatedPayload = FormatTest.NumberSchema.validate(
     1,
     configuration
 );

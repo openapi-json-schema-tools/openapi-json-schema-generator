@@ -940,8 +940,8 @@ Void validatedPayload = NullableClass.NumberProp.validate(
     configuration
 );
 
-// Number validation
-Number validatedPayload = NullableClass.NumberProp.validate(
+// int validation
+int validatedPayload = NullableClass.NumberProp.validate(
     1,
     configuration
 );
