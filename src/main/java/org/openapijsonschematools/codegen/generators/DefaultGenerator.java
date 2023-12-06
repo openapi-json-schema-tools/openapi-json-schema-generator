@@ -2316,7 +2316,7 @@ public class DefaultGenerator implements Generator {
     }
 
     private String getPatternExample(CodegenPatternInfo patternInfo) {
-        String extractedPattern = patternInfo.pattern;
+        String extractedPattern = patternInfo.pattern.original;
         LinkedHashSet<String> regexFlags = patternInfo.flags;
                 /*
                 RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
@@ -2334,7 +2334,8 @@ public class DefaultGenerator implements Generator {
 
         // this seed makes it so if we have [a-z] we pick a
         Random random = new Random(18);
-        return rgxGen.generate(random);
+        String result = rgxGen.generate(random);
+        return result;
     }
 
     private Object getStringFromSchema(CodegenSchema schema) {
@@ -4704,7 +4705,10 @@ public class DefaultGenerator implements Generator {
      */
     public CodegenPatternInfo addRegularExpressionDelimiter(String pattern) {
         if (StringUtils.isEmpty(pattern)) {
-            return new CodegenPatternInfo(pattern, null);
+            return new CodegenPatternInfo(
+                    new CodegenText(pattern, escapeUnsafeCharacters(pattern)),
+                    null
+            );
         }
 
         String usedPattern = pattern;
@@ -4712,7 +4716,10 @@ public class DefaultGenerator implements Generator {
             usedPattern = "/" + pattern.replaceAll("/", "\\\\/") + "/";
         }
 
-        return new CodegenPatternInfo(usedPattern, null);
+        return new CodegenPatternInfo(
+                new CodegenText(usedPattern, escapeUnsafeCharacters(usedPattern)),
+                null
+        );
     }
 
     /**

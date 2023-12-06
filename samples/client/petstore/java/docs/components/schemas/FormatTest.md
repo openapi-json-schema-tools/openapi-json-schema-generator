@@ -134,11 +134,11 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_with_digits",
-            "\dddddddddd"
+            "0480728880"
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_with_digits_and_delimiter",
-            "IMage_\dd"
+            "IMage_88"
         ),
         new AbstractMap.SimpleEntry<>(
             "noneProp",
@@ -251,7 +251,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
-    "IMage_\dd",
+    "IMage_88",
     configuration
 );
 ```
@@ -292,7 +292,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.PatternWithDigits.validate(
-    "\dddddddddd",
+    "0480728880",
     configuration
 );
 ```

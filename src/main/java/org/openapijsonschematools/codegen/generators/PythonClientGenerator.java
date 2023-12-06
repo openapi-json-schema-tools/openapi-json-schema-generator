@@ -33,6 +33,7 @@ import org.openapijsonschematools.codegen.generators.generatormetadata.features.
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenDiscriminator;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.templating.MustacheEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DataTypeFeature;
@@ -1476,7 +1477,7 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
             } else if (StringUtils.isNotBlank(schema.getPattern())) {
                 String pattern = schema.getPattern();
                 CodegenPatternInfo results = getPatternInfo(pattern);
-                String extractedPattern = results.pattern;
+                String extractedPattern = results.pattern.original;
                 LinkedHashSet<String> regexFlags = results.flags;
                 /*
                 RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
@@ -1789,25 +1790,28 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         Matcher m = patternRegex.matcher(pattern);
         if (m.find()) {
             int groupCount = m.groupCount();
-            if (groupCount == 1) {
-                // only pattern found
+            boolean patternWithNoFlags = groupCount == 1;
+            boolean patternWithFlags = groupCount == 2;
+            if (patternWithNoFlags) {
                 String isolatedPattern = m.group(1);
-                return new CodegenPatternInfo(isolatedPattern, null);
-            } else if (groupCount == 2) {
-                // patterns and flag found
+                CodegenText usedPattern = new CodegenText(isolatedPattern, escapeUnsafeCharacters(isolatedPattern));
+                return new CodegenPatternInfo(usedPattern, null);
+            } else if (patternWithFlags) {
                 String isolatedPattern = m.group(1);
+                CodegenText usedPattern = new CodegenText(isolatedPattern, escapeUnsafeCharacters(isolatedPattern));
                 String foundFlags = m.group(2);
                 if (foundFlags.isEmpty()) {
-                    return new CodegenPatternInfo(isolatedPattern, null);
+                    return new CodegenPatternInfo(usedPattern, null);
                 }
                 LinkedHashSet<String> flags = new LinkedHashSet<>();
                 for (Character c: foundFlags.toCharArray()) {
                     flags.add(c.toString());
                 }
-                return new CodegenPatternInfo(isolatedPattern, flags);
+                return new CodegenPatternInfo(usedPattern, flags);
             }
         }
-        return new CodegenPatternInfo(pattern, null);
+        CodegenText usedPattern = new CodegenText(pattern, escapeUnsafeCharacters(pattern));
+        return new CodegenPatternInfo(usedPattern, null);
     }
 
     @Override

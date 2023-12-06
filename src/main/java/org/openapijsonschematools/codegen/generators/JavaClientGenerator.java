@@ -35,6 +35,7 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenReques
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
+import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
 import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
@@ -1846,28 +1847,30 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (pattern == null) {
             return null;
         }
-        String usedPattern = escapeUnsafeCharacters(pattern);
-        Matcher m = patternRegex.matcher(usedPattern);
+        Matcher m = patternRegex.matcher(pattern);
         if (m.find()) {
             int groupCount = m.groupCount();
-            if (groupCount == 1) {
-                // only pattern found
+            boolean patternWithNoFlags = groupCount == 1;
+            boolean patternWithFlags = groupCount == 2;
+            if (patternWithNoFlags) {
                 String isolatedPattern = m.group(1);
-                return new CodegenPatternInfo(isolatedPattern, null);
-            } else if (groupCount == 2) {
-                // patterns and flag found
+                CodegenText usedPattern = new CodegenText(isolatedPattern, escapeUnsafeCharacters(isolatedPattern));
+                return new CodegenPatternInfo(usedPattern, null);
+            } else if (patternWithFlags) {
                 String isolatedPattern = m.group(1);
+                CodegenText usedPattern = new CodegenText(isolatedPattern, escapeUnsafeCharacters(isolatedPattern));
                 String foundFlags = m.group(2);
                 if (foundFlags.isEmpty()) {
-                    return new CodegenPatternInfo(isolatedPattern, null);
+                    return new CodegenPatternInfo(usedPattern, null);
                 }
                 LinkedHashSet<String> flags = new LinkedHashSet<>();
                 for (Character c: foundFlags.toCharArray()) {
                     flags.add(c.toString());
                 }
-                return new CodegenPatternInfo(isolatedPattern, flags);
+                return new CodegenPatternInfo(usedPattern, flags);
             }
         }
+        CodegenText usedPattern = new CodegenText(pattern, escapeUnsafeCharacters(pattern));
         return new CodegenPatternInfo(usedPattern, null);
     }
 }
