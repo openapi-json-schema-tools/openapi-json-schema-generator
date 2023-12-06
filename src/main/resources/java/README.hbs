@@ -164,7 +164,7 @@ allowed input and output types.
 | ----- | ----------- |
 {{#each schemas}}
     {{#with this}}
-| [{{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](docs/components/schemas/{{containerJsonPathPiece.camelCase}}.md#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description.original}}{{/if}} |
+| [{{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](docs/components/schemas/{{containerJsonPathPiece.camelCase}}.md#{{jsonPathPiece.anchorPiece}}) |{{#if description}} {{description.originalWithBr}}{{/if}} |
     {{/with}}
 {{/each}}
 {{/if}}

@@ -17,7 +17,7 @@ type: schemas.Schema
 {{#if description}}
 
 {{headerSize}}# Description
-{{description.original}}
+{{description.originalWithBr}}
 {{/if}}
 
 {{#if refInfo}}
@@ -115,17 +115,17 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
         {{#each requiredProperties}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.original}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#each optionalProperties}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.original}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.originalWithBr}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-**any_string_name** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.original}}{{/if}} | [optional]
+**any_string_name** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional]
             {{else}}
-**any_string_name** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.original}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+**any_string_name** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/unless}}
         {{else}}
@@ -149,24 +149,24 @@ Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
         {{#each requiredProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.original}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#each optionalProperties}}
             {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_io_types optional=true }} | {{#if description}}{{description.original}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_io_types optional=true }} | {{#if description}}{{description.originalWithBr}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
             {{/if}}
         {{/each}}
         {{#with additionalProperties}}
             {{#unless isBooleanSchemaFalse}}
                 {{#if isBooleanSchemaTrue}}
-**kwargs** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.original}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | {{> _helper_schema_python_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
             {{else}}
-**kwargs** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.original}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
+**kwargs** | {{> components/schemas/types/docschema_io_types }} | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }} typed value is accessed with the get_additional_property_ method
                 {{/if}}
             {{/unless}}
         {{else}}
-**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type{{#if description}} {{description.original}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
+**kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional] typed value is accessed with the get_additional_property_ method
         {{/with}}
         {{#or (and requiredProperties requiredProperties.hasValidKey) (and optionalProperties optionalProperties.hasValidKey) }}
 
@@ -175,12 +175,12 @@ Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_output_types }} | {{#if description}}{{description.original}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_output_types }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
             {{#each optionalProperties}}
                 {{#if @key.isValid}}
-**{{@key.original}}** | {{> components/schemas/types/docschema_output_types optional=true }} | {{#if description}}{{description.original}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+**{{@key.original}}** | {{> components/schemas/types/docschema_output_types optional=true }} | {{#if description}}{{description.originalWithBr}}{{/if}} | [optional]{{> components/schemas/helpers/notes_msg defaultUser="server" }}
                 {{/if}}
             {{/each}}
         {{/or}}
@@ -229,7 +229,7 @@ type: typing.Union[
 List/Tuple Item Type | Description | Notes
 -------------------- | ------------- | -------------
         {{#with items}}
-{{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.original}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
+{{> components/schemas/types/docschema_io_types }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> components/schemas/helpers/notes_msg defaultUser="server" }}
         {{/with}}
 
         {{#if arrayOutputJsonPathPiece}}

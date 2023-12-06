@@ -10,7 +10,7 @@
     {{#if description}}
 
 {{headerSize}}# Description
-{{description.original}}
+{{description.originalWithBr}}
     {{/if}}
     {{#if refInfo}}
         {{#with getDeepestRef}}
@@ -19,7 +19,7 @@
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) jsonPathPiece) }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../refInfo.refClass}}.schema](../../components/headers/{{../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) jsonPathPiece) }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description.original}}{{/if}}
+[{{../../refInfo.refClass}}.schema](../../components/headers/{{../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) jsonPathPiece) }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../description}}{{../../description.originalWithBr}}{{/if}}
                 {{/with}}
             {{/if}}
             {{#each content}}
@@ -36,7 +36,7 @@ Content-Type | Schema
 {{> components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}
 Ref Class | Input Type | Accessed Type | Description
 --------- | ---------- | ------------- | ------------
-[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/headers/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description.original}}{{/if}}
+[{{../../../refInfo.refClass}}.content.{{../@key.snakeCase}}.schema](../../components/headers/{{../../../refInfo.refModule}}.md#{{> components/_helper_anchor_id identifierPieces=(append (newArray ) "content" ../@key jsonPathPiece) }}) | {{> _helper_schema_python_types }} | {{> components/_helper_schema_accessed_types }} | {{#if ../../../description}}{{../../../description.originalWithBr}}{{/if}}
                 {{/with}}
             {{/each}}
         {{/with}}
