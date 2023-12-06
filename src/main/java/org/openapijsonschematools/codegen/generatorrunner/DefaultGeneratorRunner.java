@@ -1113,7 +1113,7 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
             }
         }
 
-        HashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new HashMap<>();
+        LinkedHashMap<CodegenTag, HashMap<CodegenKey, ArrayList<CodegenOperation>>> tagToPathToOperations = new LinkedHashMap<>();
         HashMap<CodegenTag, TreeMap<CodegenKey, HashMap<CodegenKey, CodegenOperation>>> tagToOperationIdToPathToOperation = new HashMap<>();
         Map<String, String> apiPathTemplates = generator.jsonPathTemplateFiles().get(CodegenConstants.JSON_PATH_LOCATION_TYPE.API_PATH);
         for(Map.Entry<CodegenKey, CodegenPathItem> entry: paths.entrySet()) {

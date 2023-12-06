@@ -18,7 +18,7 @@ Method | Description
 ------ | -------------
 {{#each operationIdToPathToOperation}}
     {{#each this}}
-[**{{../@key.snakeCase}}**](../../paths/{{@key.snakeCase}}/{{jsonPathPiece.original}}.md) | {{#if summary}}{{summary.original}}{{/if}}
+[**{{../@key.snakeCase}}**](../../paths/{{@key.snakeCase}}/{{jsonPathPiece.original}}.md) | {{#if summary}}{{summary.originalWithBr}}{{/if}}
     {{/each}}
 {{/each}}
 

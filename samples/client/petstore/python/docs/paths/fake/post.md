@@ -18,11 +18,7 @@ petstore_api.paths.fake.operation
 ## General Info
 | Field | Value |
 | ----- | ----- |
-| Summary | Fake endpoint for testing various parameters
-假端點
-偽のエンドポイント
-가짜 엔드 포인트
- |
+| Summary | Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
 | Description | Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br> |
 | Path | "/fake" |
 | HTTP Method | post |
