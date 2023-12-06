@@ -35,6 +35,50 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Schema.SchemaList validatedPayload =
     Schema.Schema1.validate(
     Arrays.asList(
+        MapMaker.makeMap(
+            new AbstractMap.SimpleEntry<>(
+                "name",
+                "a"
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "photoUrls",
+                Arrays.asList(
+                    "a"
+                )
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "id",
+                1L
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "category",
+                MapMaker.makeMap(
+                    new AbstractMap.SimpleEntry<>(
+                        "name",
+                        "a"
+                    ),
+                    new AbstractMap.SimpleEntry<>(
+                        "id",
+                        1L
+                    )
+                )
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "tags",
+                Arrays.asList(
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "name",
+                            "a"
+                        )
+                    )
+                )
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "status",
+                "available"
+            )
+        )
     ),
     configuration
 );

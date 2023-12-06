@@ -39,10 +39,6 @@ ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "invalid-name",
             "a"
-        ),
-        new AbstractMap.SimpleEntry<>(
-            "validName",
-            "a"
         )
     ),
     configuration

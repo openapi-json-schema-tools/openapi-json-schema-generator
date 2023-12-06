@@ -40,6 +40,10 @@ Money.MoneyMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "amount",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "currency",
+            "eur"
         )
     ),
     configuration

@@ -2328,13 +2328,13 @@ public class DefaultGenerator implements Generator {
         return "a";
     }
 
-    private Object getListFromSchema(CodegenSchema listSchema) {
+    private Object getListFromSchema(CodegenSchema listSchema, Set<CodegenSchema> seenSchemas) {
         // todo add enum and const handling once those support array types
         if (listSchema.items == null) {
             return null;
         }
         ArrayList<Object> listVal = new ArrayList<>();
-        Map<String, EnumValue> itemsTypeToExample = getTypeToExample(listSchema.items);
+        Map<String, EnumValue> itemsTypeToExample = getTypeToExample(listSchema.items, seenSchemas);
         if (itemsTypeToExample != null && !itemsTypeToExample.isEmpty()) {
             for(EnumValue exampleValue: itemsTypeToExample.values()) {
                 listVal.add(exampleValue);
@@ -2344,7 +2344,7 @@ public class DefaultGenerator implements Generator {
         return listVal;
     }
 
-    private Object getMapFromSchema(CodegenSchema mapSchema) {
+    private Object getMapFromSchema(CodegenSchema mapSchema, Set<CodegenSchema> seenSchemas) {
         // todo add enum and const handling once those support array types
         if (mapSchema.properties == null && mapSchema.additionalProperties == null && mapSchema.requiredProperties == null) {
             return null;
@@ -2353,7 +2353,7 @@ public class DefaultGenerator implements Generator {
         if (mapSchema.requiredProperties != null && !mapSchema.requiredProperties.isEmpty()) {
             for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.requiredProperties.entrySet()) {
                 String propName = entry.getKey().original;
-                Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue());
+                Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue(), seenSchemas);
                 if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                     for(EnumValue exampleValue: propertyTypeToExample.values()) {
                         mapVal.put(propName, exampleValue);
@@ -2365,7 +2365,7 @@ public class DefaultGenerator implements Generator {
         if (mapSchema.optionalProperties != null && !mapSchema.optionalProperties.isEmpty()) {
             for (Entry<CodegenKey, CodegenSchema> entry: mapSchema.optionalProperties.entrySet()) {
                 String propName = entry.getKey().original;
-                Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue());
+                Map<String, EnumValue> propertyTypeToExample = getTypeToExample(entry.getValue(), seenSchemas);
                 if (propertyTypeToExample != null && !propertyTypeToExample.isEmpty()) {
                     for(EnumValue exampleValue: propertyTypeToExample.values()) {
                         mapVal.put(propName, exampleValue);
@@ -2377,49 +2377,62 @@ public class DefaultGenerator implements Generator {
         return mapVal;
     }
 
-    private Map<String, EnumValue> getTypeToExample(CodegenSchema schema) {
+    private Map<String, EnumValue> getTypeToExample(CodegenSchema schema, Set<CodegenSchema> seenSchemas) {
         if (schema == null) {
             return null;
         }
+        if (seenSchemas.contains(schema)) {
+            return null;
+        }
+        seenSchemas.add(schema);
+        CodegenSchema usedSchema = schema;
+        if (schema.refInfo != null) {
+            // todo adjust this when ref can be adjacent to other properties
+            usedSchema = schema.getDeepestRef();
+            if (seenSchemas.contains(usedSchema)) {
+                return null;
+            }
+            seenSchemas.add(usedSchema);
+        }
         Map<String, EnumValue> typeToExample = new LinkedHashMap<>();
-        if (schema.types != null) {
-            for (String type: schema.types) {
+        if (usedSchema.types != null) {
+            for (String type: usedSchema.types) {
                 switch(type) {
                     case "null":
                         typeToExample.put("null", new EnumValue(null, "null", null));
                         break;
                     case "boolean":
-                        Object boolVal = getBooleanFromSchema(schema);
+                        Object boolVal = getBooleanFromSchema(usedSchema);
                         if (boolVal != null) {
                             typeToExample.put("boolean", new EnumValue(boolVal, "boolean", null));
                         }
                         break;
                     case "integer":
-                        Object intVal = getIntegerFromSchema(schema);
+                        Object intVal = getIntegerFromSchema(usedSchema);
                         if (intVal != null) {
                             typeToExample.put("integer", new EnumValue(intVal, "integer", null));
                         }
                         break;
                     case "number":
-                        Object numberVal = getNumberFromSchema(schema);
+                        Object numberVal = getNumberFromSchema(usedSchema);
                         if (numberVal != null) {
                             typeToExample.put("number", new EnumValue(numberVal, "number", null));
                         }
                         break;
                     case "string":
-                        Object stringVal = getStringFromSchema(schema);
+                        Object stringVal = getStringFromSchema(usedSchema);
                         if (stringVal != null) {
                             typeToExample.put("string", new EnumValue(stringVal, "string", null));
                         }
                         break;
                     case "array":
-                        Object listVal = getListFromSchema(schema);
+                        Object listVal = getListFromSchema(usedSchema, seenSchemas);
                         if (listVal != null) {
                             typeToExample.put("array", new EnumValue(listVal, "array", null));
                         }
                         break;
                     case "object":
-                        Object mapVal = getMapFromSchema(schema);
+                        Object mapVal = getMapFromSchema(usedSchema, seenSchemas);
                         if (mapVal != null) {
                             typeToExample.put("object", new EnumValue(mapVal, "object", null));
                         }
@@ -2731,7 +2744,8 @@ public class DefaultGenerator implements Generator {
         property.patternInfo = getPatternInfo(p.getPattern());
 
         property.example = toExampleValue(p);
-        property.typeToExample = getTypeToExample(property);
+        Set<CodegenSchema> seenSchemas = new HashSet<>();
+        property.typeToExample = getTypeToExample(property, seenSchemas);
         if (addSchemaImportsFromV3SpecLocations && sourceJsonPath != null && sourceJsonPath.equals(currentJsonPath)) {
             // imports from properties/items/additionalProperties/oneOf/anyOf/allOf/not
             property.imports = new TreeSet<>();

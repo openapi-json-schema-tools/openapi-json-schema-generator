@@ -35,6 +35,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayOfEnums.ArrayOfEnumsList validatedPayload =
     ArrayOfEnums.ArrayOfEnums1.validate(
     Arrays.asList(
+        (Void) null
     ),
     configuration
 );

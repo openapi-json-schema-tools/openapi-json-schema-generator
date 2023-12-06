@@ -37,8 +37,25 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
     ObjectWithDecimalProperties.ObjectWithDecimalProperties1.validate(
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
+            "length",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
             "width",
             "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "cost",
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<>(
+                    "amount",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<>(
+                    "currency",
+                    "eur"
+                )
+            )
         )
     ),
     configuration

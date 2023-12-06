@@ -35,6 +35,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AnimalFarm.AnimalFarmList validatedPayload =
     AnimalFarm.AnimalFarm1.validate(
     Arrays.asList(
+        MapMaker.makeMap(
+            new AbstractMap.SimpleEntry<>(
+                "className",
+                "a"
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "color",
+                "a"
+            )
+        )
     ),
     configuration
 );

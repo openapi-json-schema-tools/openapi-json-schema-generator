@@ -65,6 +65,16 @@ ArrayTest.ArrayTestMap validatedPayload =
             "array_array_of_model",
             Arrays.asList(
                 Arrays.asList(
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "bar",
+                            "a"
+                        ),
+                        new AbstractMap.SimpleEntry<>(
+                            "baz",
+                            "a"
+                        )
+                    )
                 )
             )
         )
@@ -135,6 +145,16 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
     ArrayTest.ArrayArrayOfModel.validate(
     Arrays.asList(
         Arrays.asList(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<>(
+                    "bar",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<>(
+                    "baz",
+                    "a"
+                )
+            )
         )
     ),
     configuration
@@ -195,6 +215,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayTest.ItemsList1 validatedPayload =
     ArrayTest.Items3.validate(
     Arrays.asList(
+        MapMaker.makeMap(
+            new AbstractMap.SimpleEntry<>(
+                "bar",
+                "a"
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "baz",
+                "a"
+            )
+        )
     ),
     configuration
 );
