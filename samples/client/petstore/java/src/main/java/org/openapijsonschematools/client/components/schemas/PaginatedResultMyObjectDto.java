@@ -40,6 +40,8 @@ public class PaginatedResultMyObjectDto {
         }
     }
     
+    public static interface ResultsListInput extends List<Map<String, String>> {}
+    
     
     public static class Results extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

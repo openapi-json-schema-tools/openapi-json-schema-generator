@@ -32,6 +32,8 @@ public class ArrayOfNumberOnly {
         }
     }
     
+    public static interface ArrayNumberListInput extends List<Number> {}
+    
     
     public static class ArrayNumber extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

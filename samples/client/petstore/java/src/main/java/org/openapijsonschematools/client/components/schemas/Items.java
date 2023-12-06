@@ -30,6 +30,8 @@ public class Items {
         }
     }
     
+    public static interface ItemsListInput extends List<Map<String, Object>> {}
+    
     
     public static class Items1 extends JsonSchema {
         /*

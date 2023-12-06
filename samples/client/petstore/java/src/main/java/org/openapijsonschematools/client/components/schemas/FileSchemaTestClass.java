@@ -28,6 +28,8 @@ public class FileSchemaTestClass {
         }
     }
     
+    public static interface FilesListInput extends List<Map<String, Object>> {}
+    
     
     public static class Files extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

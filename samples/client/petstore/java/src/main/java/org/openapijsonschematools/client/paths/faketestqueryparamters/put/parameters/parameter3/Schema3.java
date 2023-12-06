@@ -29,6 +29,8 @@ public class Schema3 {
         }
     }
     
+    public static interface SchemaListInput3 extends List<String> {}
+    
     
     public static class Schema31 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

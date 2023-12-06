@@ -184,6 +184,8 @@ public class FormatTest {
         }
     }
     
+    public static interface ArrayWithUniqueItemsListInput extends List<Number> {}
+    
     
     public static class ArrayWithUniqueItems extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

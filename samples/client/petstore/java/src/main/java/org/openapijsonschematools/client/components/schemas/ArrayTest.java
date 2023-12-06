@@ -33,6 +33,8 @@ public class ArrayTest {
         }
     }
     
+    public static interface ArrayOfStringListInput extends List<String> {}
+    
     
     public static class ArrayOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -60,6 +62,8 @@ public class ArrayTest {
         }
     }
     
+    public static interface ItemsListInput extends List<Long> {}
+    
     
     public static class Items1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -83,6 +87,8 @@ public class ArrayTest {
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
     }
+    
+    public static interface ArrayArrayOfIntegerListInput extends List<List<Long>> {}
     
     
     public static class ArrayArrayOfInteger extends JsonSchema {
@@ -108,6 +114,8 @@ public class ArrayTest {
         }
     }
     
+    public static interface ItemsListInput1 extends List<Map<String, Object>> {}
+    
     
     public static class Items3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -131,6 +139,8 @@ public class ArrayTest {
             return ArrayArrayOfModel.validate(arg, configuration);
         }
     }
+    
+    public static interface ArrayArrayOfModelListInput extends List<List<Map<String, Object>>> {}
     
     
     public static class ArrayArrayOfModel extends JsonSchema {

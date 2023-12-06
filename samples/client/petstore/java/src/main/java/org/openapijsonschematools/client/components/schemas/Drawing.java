@@ -29,6 +29,8 @@ public class Drawing {
         }
     }
     
+    public static interface ShapesListInput extends List<Object> {}
+    
     
     public static class Shapes extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

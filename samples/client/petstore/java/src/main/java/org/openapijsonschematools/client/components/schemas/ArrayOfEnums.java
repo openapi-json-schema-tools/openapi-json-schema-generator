@@ -25,6 +25,8 @@ public class ArrayOfEnums {
         }
     }
     
+    public static interface ArrayOfEnumsListInput extends List<String> {}
+    
     
     public static class ArrayOfEnums1 extends JsonSchema {
         /*

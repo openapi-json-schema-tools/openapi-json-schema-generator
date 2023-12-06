@@ -59,6 +59,8 @@ public class EnumArrays {
         }
     }
     
+    public static interface ArrayEnumListInput extends List<String> {}
+    
     
     public static class ArrayEnum extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

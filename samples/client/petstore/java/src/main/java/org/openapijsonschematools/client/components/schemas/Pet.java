@@ -41,6 +41,8 @@ public class Pet {
         }
     }
     
+    public static interface PhotoUrlsListInput extends List<String> {}
+    
     
     public static class PhotoUrls extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -80,6 +82,8 @@ public class Pet {
             return Tags.validate(arg, configuration);
         }
     }
+    
+    public static interface TagsListInput extends List<Map<String, Object>> {}
     
     
     public static class Tags extends JsonSchema {

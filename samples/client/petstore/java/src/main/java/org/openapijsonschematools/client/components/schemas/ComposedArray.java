@@ -29,6 +29,8 @@ public class ComposedArray {
         }
     }
     
+    public static interface ComposedArrayListInput extends List<Object> {}
+    
     
     public static class ComposedArray1 extends JsonSchema {
         /*

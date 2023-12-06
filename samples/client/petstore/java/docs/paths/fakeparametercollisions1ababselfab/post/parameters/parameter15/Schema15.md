@@ -2,7 +2,10 @@
 org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter15.Schema15.java
 public class Schema15
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads)
+- classes to store validated list payloads
+- classes to store validated map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |

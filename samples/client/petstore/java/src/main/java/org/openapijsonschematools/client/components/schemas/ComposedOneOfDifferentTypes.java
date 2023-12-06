@@ -61,6 +61,8 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
+    public static interface Schema5ListInput extends List<Object> {}
+    
     
     public static class Schema5 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

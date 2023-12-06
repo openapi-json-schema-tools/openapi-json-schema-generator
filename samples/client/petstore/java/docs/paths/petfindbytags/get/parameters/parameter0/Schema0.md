@@ -2,7 +2,10 @@
 org.openapijsonschematools.client.paths.petfindbytags.get.parameters.parameter0.Schema0.java
 public class Schema0
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads)
+- classes to store validated list payloads
+- classes to store validated map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |

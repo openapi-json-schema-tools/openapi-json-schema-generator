@@ -56,6 +56,8 @@ public class ArrayWithValidationsInItems {
         }
     }
     
+    public static interface ArrayWithValidationsInItemsListInput extends List<Long> {}
+    
     
     public static class ArrayWithValidationsInItems1 extends JsonSchema {
         /*
