@@ -35,6 +35,56 @@ public static class AdditionalPropertiesClass1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
+    AdditionalPropertiesClass.AdditionalPropertiesClass1.validate(
+    MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "map_property",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map_of_map_property",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map_with_undeclared_properties_anytype_3",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "empty_map",
+            MapMaker.makeMap(
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "map_with_undeclared_properties_string",
+            MapMaker.makeMap(
+            )
+        )
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -86,6 +136,31 @@ public static class MapWithUndeclaredPropertiesString<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap validatedPayload =
+    AdditionalPropertiesClass.MapWithUndeclaredPropertiesString.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -134,6 +209,31 @@ A schema class that validates payloads
 
 ## Description
 an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map.
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AdditionalPropertiesClass.EmptyMapMap validatedPayload =
+    AdditionalPropertiesClass.EmptyMap.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -177,6 +277,31 @@ public static class MapWithUndeclaredPropertiesAnytype3<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayload =
+    AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -252,6 +377,31 @@ public static class MapOfMapProperty<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
+    AdditionalPropertiesClass.MapOfMapProperty.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -287,6 +437,31 @@ public static class AdditionalProperties1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
+    AdditionalPropertiesClass.AdditionalProperties1.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
@@ -332,6 +507,31 @@ public static class MapProperty<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+AdditionalPropertiesClass.MapPropertyMap validatedPayload =
+    AdditionalPropertiesClass.MapProperty.validate(
+    MapMaker.makeMap(
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

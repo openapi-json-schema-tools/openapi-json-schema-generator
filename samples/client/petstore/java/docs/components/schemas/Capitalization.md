@@ -21,6 +21,55 @@ public static class Capitalization1<br>
 extends JsonSchema
 
 A schema class that validates payloads
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+Capitalization.CapitalizationMap validatedPayload =
+    Capitalization.Capitalization1.validate(
+    MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "smallCamel",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "CapitalCamel",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "small_Snake",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "Capital_Snake",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "SCA_ETH_Flow_Points",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "ATT_NAME",
+            "a"
+        )
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

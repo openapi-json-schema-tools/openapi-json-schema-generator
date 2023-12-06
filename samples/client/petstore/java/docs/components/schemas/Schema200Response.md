@@ -20,6 +20,7 @@ A schema class that validates payloads
 
 ## Description
 model with an invalid class name for python, starts with a number
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

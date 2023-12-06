@@ -45,6 +45,11 @@ A schema class that validates payloads
 {{description.original}}
         {{/if}}
         {{#if isCustomSchema}}
+            {{#if typeToExample}}
+
+{{> src/main/java/packagename/components/schemas/docschema_codeSample }}
+            {{/if}}
+
 {{headerSize}}## Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |

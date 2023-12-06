@@ -21,6 +21,43 @@ A schema class that validates payloads
 
 ## Description
 model with properties that have invalid names for python
+
+### Code Sample
+```
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
+import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.AbstractMap;
+
+static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+
+// Map validation
+ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayload =
+    ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1.validate(
+    MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "123-list",
+            "a"
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "$special[property.name]",
+            1
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "123Number",
+            1
+        )
+    ),
+    configuration
+);
+```
+
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
