@@ -39,7 +39,7 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "a",
-            3.14
+            1
         )
     ),
     configuration

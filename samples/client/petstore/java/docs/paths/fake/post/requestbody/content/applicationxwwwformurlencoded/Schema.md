@@ -55,11 +55,11 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "double",
-            3.14
+            3.14d
         ),
         new AbstractMap.SimpleEntry<>(
             "number",
-            3.14
+            1
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_without_delimiter",
@@ -79,7 +79,7 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "float",
-            3.14
+            3.14f
         ),
         new AbstractMap.SimpleEntry<>(
             "string",
@@ -397,7 +397,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = Schema.DoubleSchema.validate(
-    3.14,
+    3.14d,
     configuration
 );
 ```
@@ -438,7 +438,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = Schema.FloatSchema.validate(
-    3.14,
+    3.14f,
     configuration
 );
 ```
@@ -479,7 +479,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = Schema.NumberSchema.validate(
-    3.14,
+    1,
     configuration
 );
 ```

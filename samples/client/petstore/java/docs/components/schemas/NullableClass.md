@@ -942,7 +942,7 @@ Void validatedPayload = NullableClass.NumberProp.validate(
 
 // Number validation
 Number validatedPayload = NullableClass.NumberProp.validate(
-    3.14,
+    1,
     configuration
 );
 ```

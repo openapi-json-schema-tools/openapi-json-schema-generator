@@ -1593,6 +1593,9 @@ public class DefaultGenerator implements Generator {
         if (value instanceof Integer || value instanceof Long){
             type = "integer";
         } else if (value instanceof Double || value instanceof Float || value instanceof BigDecimal){
+            if (value instanceof BigDecimal) {
+                usedValue = ((BigDecimal) value).doubleValue();
+            }
             type = "number";
         } else if (value instanceof String) {
             type = "string";
@@ -2294,7 +2297,19 @@ public class DefaultGenerator implements Generator {
             }
         }
         // todo handle not const or not enum here
-        return 3.14;
+        if (schema.format == null) {
+            return 1;
+        } else if (schema.format.equals("int32")) {
+            return 1;
+        } else if (schema.format.equals("int64")) {
+            return 1L;
+        } else if (schema.format.equals("float")) {
+            return 3.14f;
+        } else if (schema.format.equals("double")) {
+            return 3.14d;
+        } else {
+            return 1;
+        }
     }
 
     private Object getStringFromSchema(CodegenSchema schema) {

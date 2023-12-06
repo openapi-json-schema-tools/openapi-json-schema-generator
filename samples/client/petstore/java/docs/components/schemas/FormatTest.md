@@ -68,7 +68,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "number",
-            3.14
+            1
         ),
         new AbstractMap.SimpleEntry<>(
             "password",
@@ -92,24 +92,24 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "float",
-            3.14
+            3.14f
         ),
         new AbstractMap.SimpleEntry<>(
             "float32",
-            3.14
+            3.14f
         ),
         new AbstractMap.SimpleEntry<>(
             "double",
-            3.14
+            3.14d
         ),
         new AbstractMap.SimpleEntry<>(
             "float64",
-            3.14
+            3.14d
         ),
         new AbstractMap.SimpleEntry<>(
             "arrayWithUniqueItems",
             Arrays.asList(
-                3.14
+                1
             )
         ),
         new AbstractMap.SimpleEntry<>(
@@ -460,7 +460,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 FormatTest.ArrayWithUniqueItemsList validatedPayload =
     FormatTest.ArrayWithUniqueItems.validate(
     Arrays.asList(
-        3.14
+        1
     ),
     configuration
 );
@@ -538,7 +538,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = FormatTest.DoubleSchema.validate(
-    3.14,
+    3.14d,
     configuration
 );
 ```
@@ -589,7 +589,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = FormatTest.FloatSchema.validate(
-    3.14,
+    3.14f,
     configuration
 );
 ```
@@ -627,7 +627,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = FormatTest.NumberSchema.validate(
-    3.14,
+    1,
     configuration
 );
 ```

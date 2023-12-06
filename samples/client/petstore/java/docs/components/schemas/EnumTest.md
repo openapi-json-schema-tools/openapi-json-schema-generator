@@ -53,7 +53,7 @@ EnumTest.EnumTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "enum_number",
-            1.1
+            1.1d
         )
     ),
     configuration
@@ -131,7 +131,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = EnumTest.EnumNumber.validate(
-    1.1,
+    1.1d,
     configuration
 );
 ```

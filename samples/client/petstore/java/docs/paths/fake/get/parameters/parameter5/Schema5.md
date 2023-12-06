@@ -32,7 +32,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = Schema5.Schema51.validate(
-    1.1,
+    1.1d,
     configuration
 );
 ```

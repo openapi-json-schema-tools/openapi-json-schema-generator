@@ -44,7 +44,7 @@ ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
             "ArrayArrayNumber",
             Arrays.asList(
                 Arrays.asList(
-                    3.14
+                    1
                 )
             )
         )
@@ -111,7 +111,7 @@ ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
     ArrayOfArrayOfNumberOnly.ArrayArrayNumber.validate(
     Arrays.asList(
         Arrays.asList(
-            3.14
+            1
         )
     ),
     configuration
@@ -172,7 +172,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
     ArrayOfArrayOfNumberOnly.Items.validate(
     Arrays.asList(
-        3.14
+        1
     ),
     configuration
 );

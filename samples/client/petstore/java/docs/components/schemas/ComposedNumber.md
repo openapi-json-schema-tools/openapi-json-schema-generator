@@ -33,7 +33,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // Number validation
 Number validatedPayload = ComposedNumber.ComposedNumber1.validate(
-    3.14,
+    1,
     configuration
 );
 ```
