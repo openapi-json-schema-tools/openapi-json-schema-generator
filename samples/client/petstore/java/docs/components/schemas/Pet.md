@@ -189,7 +189,7 @@ Pet.TagsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | validate([TagsListInput](#tagslistinput) arg, SchemaConfiguration configuration) |
 
 ## TagsListInput
 public interface TagsListInput<br>
@@ -211,7 +211,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | of([TagsListInput](#tagslistinput) arg, SchemaConfiguration configuration) |
 
 ## Status
 public static class Status<br>
@@ -293,7 +293,7 @@ Pet.PhotoUrlsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | validate([PhotoUrlsListInput](#photourlslistinput) arg, SchemaConfiguration configuration) |
 
 ## PhotoUrlsListInput
 public interface PhotoUrlsListInput<br>
@@ -315,7 +315,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | of(List<String> arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | of([PhotoUrlsListInput](#photourlslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

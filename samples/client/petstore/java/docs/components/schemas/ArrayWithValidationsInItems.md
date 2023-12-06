@@ -55,7 +55,7 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
+| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate([ArrayWithValidationsInItemsListInput](#arraywithvalidationsinitemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayWithValidationsInItemsListInput
 public interface ArrayWithValidationsInItemsListInput<br>
@@ -77,7 +77,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of(List<Long> arg, SchemaConfiguration configuration) |
+| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of([ArrayWithValidationsInItemsListInput](#arraywithvalidationsinitemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

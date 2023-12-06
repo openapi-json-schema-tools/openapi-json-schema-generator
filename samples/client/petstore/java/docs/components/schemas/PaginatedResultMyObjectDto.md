@@ -128,7 +128,7 @@ PaginatedResultMyObjectDto.ResultsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ResultsList](#resultslist) | validate(List<Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [ResultsList](#resultslist) | validate([ResultsListInput](#resultslistinput) arg, SchemaConfiguration configuration) |
 
 ## ResultsListInput
 public interface ResultsListInput<br>
@@ -150,7 +150,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ResultsList](#resultslist) | of(List<Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [ResultsList](#resultslist) | of([ResultsListInput](#resultslistinput) arg, SchemaConfiguration configuration) |
 
 ## Count
 public static class Count<br>

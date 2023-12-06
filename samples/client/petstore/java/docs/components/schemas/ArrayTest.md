@@ -178,7 +178,7 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([ArrayArrayOfModelListInput](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfModelListInput
 public interface ArrayArrayOfModelListInput<br>
@@ -200,7 +200,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of([ArrayArrayOfModelListInput](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
 
 ## Items3
 public static class Items3<br>
@@ -250,7 +250,7 @@ ArrayTest.ItemsList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | validate([ItemsListInput1](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput1
 public interface ItemsListInput1<br>
@@ -272,7 +272,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | of([ItemsListInput1](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
@@ -315,7 +315,7 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate(List<List<Long>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([ArrayArrayOfIntegerListInput](#arrayarrayofintegerlistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfIntegerListInput
 public interface ArrayArrayOfIntegerListInput<br>
@@ -337,7 +337,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of(List<List<Long>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of([ArrayArrayOfIntegerListInput](#arrayarrayofintegerlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>
@@ -378,7 +378,7 @@ ArrayTest.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
 public interface ItemsListInput<br>
@@ -400,7 +400,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of(List<Long> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>
@@ -451,7 +451,7 @@ ArrayTest.ArrayOfStringList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfStringList](#arrayofstringlist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfStringList](#arrayofstringlist) | validate([ArrayOfStringListInput](#arrayofstringlistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayOfStringListInput
 public interface ArrayOfStringListInput<br>
@@ -473,7 +473,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfStringList](#arrayofstringlist) | of(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfStringList](#arrayofstringlist) | of([ArrayOfStringListInput](#arrayofstringlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

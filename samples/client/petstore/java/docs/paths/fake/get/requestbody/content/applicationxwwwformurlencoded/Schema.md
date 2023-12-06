@@ -176,7 +176,7 @@ Schema.EnumFormStringArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumFormStringArrayList](#enumformstringarraylist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [EnumFormStringArrayList](#enumformstringarraylist) | validate([EnumFormStringArrayListInput](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## EnumFormStringArrayListInput
 public interface EnumFormStringArrayListInput<br>
@@ -198,7 +198,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumFormStringArrayList](#enumformstringarraylist) | of(List<String> arg, SchemaConfiguration configuration) |
+| static [EnumFormStringArrayList](#enumformstringarraylist) | of([EnumFormStringArrayListInput](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

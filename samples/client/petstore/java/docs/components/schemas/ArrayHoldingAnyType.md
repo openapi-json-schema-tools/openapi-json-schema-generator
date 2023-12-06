@@ -54,7 +54,7 @@ ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayHoldingAnyTypeListInput
 public interface ArrayHoldingAnyTypeListInput<br>
@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -116,7 +116,7 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesList](#additionalpropertieslist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesList](#additionalpropertieslist) | validate([AdditionalPropertiesListInput](#additionalpropertieslistinput) arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesListInput
 public interface AdditionalPropertiesListInput<br>
@@ -138,6 +138,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesList](#additionalpropertieslist) | of(List<String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesList](#additionalpropertieslist) | of([AdditionalPropertiesListInput](#additionalpropertieslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

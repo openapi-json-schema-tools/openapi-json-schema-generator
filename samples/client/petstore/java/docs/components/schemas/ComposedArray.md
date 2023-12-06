@@ -54,7 +54,7 @@ ComposedArray.ComposedArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | validate([ComposedArrayListInput](#composedarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## ComposedArrayListInput
 public interface ComposedArrayListInput<br>
@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | of([ComposedArrayListInput](#composedarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

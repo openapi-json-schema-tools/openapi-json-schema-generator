@@ -125,7 +125,7 @@ Schema.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | validate([FilesListInput](#fileslistinput) arg, SchemaConfiguration configuration) |
 
 ## FilesListInput
 public interface FilesListInput<br>
@@ -147,7 +147,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | of(List<String> arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | of([FilesListInput](#fileslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

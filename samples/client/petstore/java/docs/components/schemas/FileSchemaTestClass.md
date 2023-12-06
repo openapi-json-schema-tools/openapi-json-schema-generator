@@ -124,7 +124,7 @@ FileSchemaTestClass.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | validate([FilesListInput](#fileslistinput) arg, SchemaConfiguration configuration) |
 
 ## FilesListInput
 public interface FilesListInput<br>
@@ -146,6 +146,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | of([FilesListInput](#fileslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

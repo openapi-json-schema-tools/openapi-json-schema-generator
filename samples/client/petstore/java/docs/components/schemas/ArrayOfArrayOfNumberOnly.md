@@ -132,7 +132,7 @@ ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayNumberList](#arrayarraynumberlist) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayNumberList](#arrayarraynumberlist) | validate([ArrayArrayNumberListInput](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayNumberListInput
 public interface ArrayArrayNumberListInput<br>
@@ -154,7 +154,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayNumberList](#arrayarraynumberlist) | of(List<List<Number>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayNumberList](#arrayarraynumberlist) | of([ArrayArrayNumberListInput](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
@@ -195,7 +195,7 @@ ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
 public interface ItemsListInput<br>
@@ -217,7 +217,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>

@@ -54,7 +54,7 @@ JSONPatchRequest.JSONPatchRequestList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestList](#jsonpatchrequestlist) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | validate([JSONPatchRequestListInput](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestListInput
 public interface JSONPatchRequestListInput<br>
@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestList](#jsonpatchrequestlist) | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | of([JSONPatchRequestListInput](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

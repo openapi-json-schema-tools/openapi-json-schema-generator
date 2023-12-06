@@ -97,7 +97,7 @@ Schema.SchemaList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList](#schemalist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [SchemaList](#schemalist) | validate([SchemaListInput](#schemalistinput) arg, SchemaConfiguration configuration) |
 
 ## SchemaListInput
 public interface SchemaListInput<br>
@@ -119,4 +119,4 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList](#schemalist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [SchemaList](#schemalist) | of([SchemaListInput](#schemalistinput) arg, SchemaConfiguration configuration) |

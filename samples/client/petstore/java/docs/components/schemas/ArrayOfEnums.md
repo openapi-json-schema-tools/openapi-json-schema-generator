@@ -54,7 +54,7 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfEnumsList](#arrayofenumslist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | validate([ArrayOfEnumsListInput](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayOfEnumsListInput
 public interface ArrayOfEnumsListInput<br>
@@ -76,6 +76,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfEnumsList](#arrayofenumslist) | of(List<String> arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | of([ArrayOfEnumsListInput](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

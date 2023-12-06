@@ -125,7 +125,7 @@ ArrayOfNumberOnly.ArrayNumberList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayNumberList](#arraynumberlist) | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayNumberList](#arraynumberlist) | validate([ArrayNumberListInput](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayNumberListInput
 public interface ArrayNumberListInput<br>
@@ -147,7 +147,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayNumberList](#arraynumberlist) | of(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayNumberList](#arraynumberlist) | of([ArrayNumberListInput](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

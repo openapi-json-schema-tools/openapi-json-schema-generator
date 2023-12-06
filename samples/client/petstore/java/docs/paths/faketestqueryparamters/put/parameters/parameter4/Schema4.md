@@ -55,7 +55,7 @@ Schema4.SchemaList4 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList4](#schemalist4) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [SchemaList4](#schemalist4) | validate([SchemaListInput4](#schemalistinput4) arg, SchemaConfiguration configuration) |
 
 ## SchemaListInput4
 public interface SchemaListInput4<br>
@@ -77,7 +77,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList4](#schemalist4) | of(List<String> arg, SchemaConfiguration configuration) |
+| static [SchemaList4](#schemalist4) | of([SchemaListInput4](#schemalistinput4) arg, SchemaConfiguration configuration) |
 
 ## Items4
 public static class Items4<br>

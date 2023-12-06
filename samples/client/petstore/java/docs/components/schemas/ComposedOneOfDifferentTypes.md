@@ -124,7 +124,7 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | validate([Schema5ListInput](#schema5listinput) arg, SchemaConfiguration configuration) |
 
 ## Schema5ListInput
 public interface Schema5ListInput<br>
@@ -146,7 +146,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | of([Schema5ListInput](#schema5listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

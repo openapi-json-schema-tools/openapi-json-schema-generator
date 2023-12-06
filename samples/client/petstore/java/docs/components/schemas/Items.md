@@ -57,7 +57,7 @@ Items.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
 public interface ItemsListInput<br>
@@ -79,7 +79,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>

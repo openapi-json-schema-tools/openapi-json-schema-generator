@@ -154,7 +154,7 @@ ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | validate([Schema9ListInput](#schema9listinput) arg, SchemaConfiguration configuration) |
 
 ## Schema9ListInput
 public interface Schema9ListInput<br>
@@ -176,7 +176,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | of(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | of([Schema9ListInput](#schema9listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

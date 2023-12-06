@@ -479,7 +479,7 @@ FormatTest.ArrayWithUniqueItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | validate([ArrayWithUniqueItemsListInput](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayWithUniqueItemsListInput
 public interface ArrayWithUniqueItemsListInput<br>
@@ -501,7 +501,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
+| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([ArrayWithUniqueItemsListInput](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
