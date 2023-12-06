@@ -63,7 +63,7 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_without_delimiter",
-            "a"
+            "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>"
         ),
         new AbstractMap.SimpleEntry<>(
             "integer",
@@ -83,7 +83,7 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "string",
-            "a"
+            "A"
         ),
         new AbstractMap.SimpleEntry<>(
             "binary",
@@ -315,7 +315,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = Schema.PatternWithoutDelimiter.validate(
-    "a",
+    "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>",
     configuration
 );
 ```
@@ -356,7 +356,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = Schema.StringSchema.validate(
-    "a",
+    "A",
     configuration
 );
 ```

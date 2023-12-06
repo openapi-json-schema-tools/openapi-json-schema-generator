@@ -114,7 +114,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "string",
-            "a"
+            "A"
         ),
         new AbstractMap.SimpleEntry<>(
             "binary",
@@ -134,11 +134,11 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_with_digits",
-            "a"
+            "\dddddddddd"
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_with_digits_and_delimiter",
-            "a"
+            "IMage_\dd"
         ),
         new AbstractMap.SimpleEntry<>(
             "noneProp",
@@ -251,7 +251,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.PatternWithDigitsAndDelimiter.validate(
-    "a",
+    "IMage_\dd",
     configuration
 );
 ```
@@ -292,7 +292,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.PatternWithDigits.validate(
-    "a",
+    "\dddddddddd",
     configuration
 );
 ```
@@ -420,7 +420,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // String validation
 String validatedPayload = FormatTest.StringSchema.validate(
-    "a",
+    "A",
     configuration
 );
 ```

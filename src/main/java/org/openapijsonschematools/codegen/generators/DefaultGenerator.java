@@ -20,6 +20,9 @@ package org.openapijsonschematools.codegen.generators;
 import com.github.benmanes.caffeine.cache.Cache;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import com.github.benmanes.caffeine.cache.Ticker;
+import com.github.curiousoddman.rgxgen.RgxGen;
+import com.github.curiousoddman.rgxgen.config.RgxGenOption;
+import com.github.curiousoddman.rgxgen.config.RgxGenProperties;
 import com.google.common.collect.ImmutableMap;
 import com.samskivert.mustache.Mustache;
 import com.samskivert.mustache.Mustache.Compiler;
@@ -2312,6 +2315,28 @@ public class DefaultGenerator implements Generator {
         }
     }
 
+    private String getPatternExample(CodegenPatternInfo patternInfo) {
+        String extractedPattern = patternInfo.pattern;
+        LinkedHashSet<String> regexFlags = patternInfo.flags;
+                /*
+                RxGen does not support our ECMA dialect https://github.com/curious-odd-man/RgxGen/issues/56
+                So strip off the leading / and trailing / and turn on ignore case if we have it
+                 */
+        RgxGen rgxGen;
+        if (regexFlags != null && regexFlags.contains("i")) {
+            rgxGen = new RgxGen(extractedPattern);
+            RgxGenProperties properties = new RgxGenProperties();
+            RgxGenOption.CASE_INSENSITIVE.setInProperties(properties, true);
+            rgxGen.setProperties(properties);
+        } else {
+            rgxGen = new RgxGen(extractedPattern);
+        }
+
+        // this seed makes it so if we have [a-z] we pick a
+        Random random = new Random(18);
+        return rgxGen.generate(random);
+    }
+
     private Object getStringFromSchema(CodegenSchema schema) {
         if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("string")) {
             for(EnumValue enumValue: schema.enumInfo.typeToValues.get("string")) {
@@ -2325,6 +2350,9 @@ public class DefaultGenerator implements Generator {
             }
         }
         // todo handle not const or not enum here
+        if (schema.patternInfo != null) {
+            return getPatternExample(schema.patternInfo);
+        }
         if ("date".equals(schema.format)) {
             return "2020-12-13";
         } else if ("date-time".equals(schema.format)) {
