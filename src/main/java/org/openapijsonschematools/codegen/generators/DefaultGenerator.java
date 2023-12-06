@@ -2272,6 +2272,12 @@ public class DefaultGenerator implements Generator {
             }
         }
         // todo handle not const or not enum here
+        Object longVal = 1L;
+        if (schema.format == null) {
+            return longVal;
+        } else if ("int64".equals(schema.format)) {
+            return longVal;
+        }
         return 1;
     }
 

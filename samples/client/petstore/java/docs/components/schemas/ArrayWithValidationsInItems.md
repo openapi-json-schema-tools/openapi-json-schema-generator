@@ -36,7 +36,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
     ArrayWithValidationsInItems.ArrayWithValidationsInItems1.validate(
     Arrays.asList(
-        1
+        1L
     ),
     configuration
 );
@@ -92,9 +92,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = ArrayWithValidationsInItems.Items.validate(
-    1,
+// long validation
+long validatedPayload = ArrayWithValidationsInItems.Items.validate(
+    1L,
     configuration
 );
 ```

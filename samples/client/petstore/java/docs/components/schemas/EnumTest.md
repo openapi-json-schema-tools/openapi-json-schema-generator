@@ -167,8 +167,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = EnumTest.EnumInteger.validate(
+// int validation
+int validatedPayload = EnumTest.EnumInteger.validate(
     1,
     configuration
 );

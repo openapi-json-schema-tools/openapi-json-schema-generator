@@ -30,8 +30,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = Schema4.Schema41.validate(
+// int validation
+int validatedPayload = Schema4.Schema41.validate(
     1,
     configuration
 );

@@ -43,7 +43,7 @@ FromSchema.FromSchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "id",
-            1
+            1L
         )
     ),
     configuration

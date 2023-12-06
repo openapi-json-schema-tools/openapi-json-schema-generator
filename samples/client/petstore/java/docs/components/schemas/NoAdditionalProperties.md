@@ -40,11 +40,11 @@ NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "id",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "petId",
-            1
+            1L
         )
     ),
     configuration

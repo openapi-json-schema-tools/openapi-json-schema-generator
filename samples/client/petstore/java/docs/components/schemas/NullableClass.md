@@ -985,9 +985,9 @@ Void validatedPayload = NullableClass.IntegerProp.validate(
     configuration
 );
 
-// Integer validation
-Integer validatedPayload = NullableClass.IntegerProp.validate(
-    1,
+// long validation
+long validatedPayload = NullableClass.IntegerProp.validate(
+    1L,
     configuration
 );
 ```

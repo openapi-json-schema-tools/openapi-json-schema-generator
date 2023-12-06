@@ -57,7 +57,7 @@ ArrayTest.ArrayTestMap validatedPayload =
             "array_array_of_integer",
             Arrays.asList(
                 Arrays.asList(
-                    1
+                    1L
                 )
             )
         ),
@@ -255,7 +255,7 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
     ArrayTest.ArrayArrayOfInteger.validate(
     Arrays.asList(
         Arrays.asList(
-            1
+            1L
         )
     ),
     configuration
@@ -316,7 +316,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayTest.ItemsList validatedPayload =
     ArrayTest.Items1.validate(
     Arrays.asList(
-        1
+        1L
     ),
     configuration
 );

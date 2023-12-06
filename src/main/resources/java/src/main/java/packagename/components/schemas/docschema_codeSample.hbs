@@ -43,8 +43,13 @@ FrozenList<Object> validatedPayload = {{../../../containerJsonPathPiece.camelCas
 String validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
             {{else}}
                 {{#eq @key "integer"}}
-// Integer validation
-Integer validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                    {{#or (eq ../format null) (eq ../format "int64") }}
+// long validation
+long validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                    {{else}}
+// int validation
+int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                    {{/or}}
                 {{else}}
                     {{#eq @key "number"}}
 // Number validation

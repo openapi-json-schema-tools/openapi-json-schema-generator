@@ -76,7 +76,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "integer",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "int32",
@@ -88,7 +88,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "int64",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "float",
@@ -673,8 +673,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = FormatTest.Int32withValidations.validate(
+// int validation
+int validatedPayload = FormatTest.Int32withValidations.validate(
     1,
     configuration
 );
@@ -721,9 +721,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = FormatTest.IntegerSchema.validate(
-    1,
+// long validation
+long validatedPayload = FormatTest.IntegerSchema.validate(
+    1L,
     configuration
 );
 ```

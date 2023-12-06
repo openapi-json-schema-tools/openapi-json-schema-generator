@@ -25,7 +25,7 @@ Arrays.asList(
 {{value}}{{endChar}}
 {{/eq}}
 {{#eq type "integer"}}
-{{value}}{{endChar}}
+{{value}}{{#eq javaType "Long"}}L{{/eq}}{{endChar}}
 {{/eq}}
 {{#eq type "boolean"}}
 {{value}}{{endChar}}

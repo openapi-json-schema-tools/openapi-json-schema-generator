@@ -13,6 +13,11 @@ public class EnumValue {
         this.description = description;
     }
 
+    public String javaType() {
+        // Integer etc
+        return this.value.getClass().getSimpleName();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

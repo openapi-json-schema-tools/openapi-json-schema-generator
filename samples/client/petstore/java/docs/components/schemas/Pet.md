@@ -58,7 +58,7 @@ Pet.PetMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "id",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "tags",

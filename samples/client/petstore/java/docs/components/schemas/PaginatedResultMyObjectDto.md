@@ -41,7 +41,7 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "count",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "results",
