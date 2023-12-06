@@ -13,7 +13,7 @@
 server_index | Class | Description
 ------------ | ----- | ------------
 {{#each servers}}
-{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
+{{@key}} | [{{jsonPathPiece.camelCase}}](docs/servers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
 {{/each}}
 {{/if}}
 {{#if security}}
@@ -43,7 +43,7 @@ HTTP request | Method | Description
 ------------ | ------ | -------------
 {{#each paths}}
 {{#each operations}}
-{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{moduleName}}.md).[{{operationId.snakeCase}}](docs/paths/{{../../@key.snakeCase}}/{{../@key.original}}.md) {{/each}} | {{#if summary}}{{summary.original}}{{/if}}
+{{../@key.original}} **{{@key.original}}** | {{#each tags}}[{{className}}]({{apiDocPath}}{{moduleName}}.md).[{{operationId.snakeCase}}](docs/paths/{{../../@key.snakeCase}}/{{../@key.original}}.md) {{/each}} | {{#if summary}}{{summary.originalWithBr}}{{/if}}
 {{/each}}
 {{/each}}
 {{/if}}
@@ -55,7 +55,7 @@ Class | Description
 ----- | ------------
 {{#each schemas}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
+[{{jsonPathPiece.camelCase}}]({{modelDocPath}}{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -67,7 +67,7 @@ Class | Description
 ----- | ------------
 {{#each requestBodies}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/request_bodies/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -79,7 +79,7 @@ Class | Description
 ----- | ------------
 {{#each responses}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/responses/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -91,7 +91,7 @@ Class | Description
 ----- | ------------
 {{#each headers}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/headers/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -103,7 +103,7 @@ Class | Description
 ----- | ------------
 {{#each parameters}}
     {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/parameters/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
     {{/with}}
 {{/each}}
 {{/if}}
@@ -115,7 +115,7 @@ Class | Description
 ----- | ------------
     {{#each securitySchemes}}
         {{#with this}}
-[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.original}}{{/if}}
+[{{jsonPathPiece.camelCase}}](docs/components/security_schemes/{{jsonPathPiece.snakeCase}}.md) |{{#if description}} {{description.originalWithBr}}{{/if}}
         {{/with}}
     {{/each}}
 

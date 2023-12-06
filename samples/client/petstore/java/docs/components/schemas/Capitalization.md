@@ -109,8 +109,7 @@ type: Map<String, Object>
 | **small_Snake** | String |  | [optional] |
 | **Capital_Snake** | String |  | [optional] |
 | **SCA_ETH_Flow_Points** | String |  | [optional] |
-| **ATT_NAME** | String | Name of the pet
- | [optional] |
+| **ATT_NAME** | String | Name of the pet<br> | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ATTNAME
@@ -120,8 +119,7 @@ extends StringJsonSchema
 A schema class that validates payloads
 
 ## Description
-Name of the pet
-
+Name of the pet<br>
 
 | Methods Inherited from class org.openapijsonschematools.client.schemas.StringJsonSchema |
 | ------------------------------------------------------------------ |

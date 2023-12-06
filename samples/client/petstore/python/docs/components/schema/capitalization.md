@@ -20,8 +20,7 @@ Key | Type |  Description | Notes
 **small_Snake** | str |  | [optional]
 **Capital_Snake** | str |  | [optional]
 **SCA_ETH_Flow_Points** | str |  | [optional]
-**ATT_NAME** | str | Name of the pet
- | [optional]
+**ATT_NAME** | str | Name of the pet<br> | [optional]
 **any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## CapitalizationDict
@@ -37,8 +36,7 @@ Keyword Argument | Type | Description | Notes
 **small_Snake** | str, schemas.Unset |  | [optional]
 **Capital_Snake** | str, schemas.Unset |  | [optional]
 **SCA_ETH_Flow_Points** | str, schemas.Unset |  | [optional]
-**ATT_NAME** | str, schemas.Unset | Name of the pet
- | [optional]
+**ATT_NAME** | str, schemas.Unset | Name of the pet<br> | [optional]
 **kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
@@ -49,8 +47,7 @@ Property | Type | Description | Notes
 **small_Snake** | str, schemas.Unset |  | [optional]
 **Capital_Snake** | str, schemas.Unset |  | [optional]
 **SCA_ETH_Flow_Points** | str, schemas.Unset |  | [optional]
-**ATT_NAME** | str, schemas.Unset | Name of the pet
- | [optional]
+**ATT_NAME** | str, schemas.Unset | Name of the pet<br> | [optional]
 
 ### methods
 Method | Input Type | Return Type | Notes

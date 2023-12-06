@@ -10,12 +10,12 @@
     {{#if description}}
 
 {{headerSize}}# Description
-{{description.original}}
+{{description.originalWithBr}}
     {{/if}}
     {{#if refInfo}}
 | Ref Class | Description |
 | --------- | ----------- |
-| [{{refInfo.refClass}}](../../servers/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.original}}{{/if}}{{/with}}
+| [{{refInfo.refClass}}](../../servers/{{refInfo.refModule}}.{{refInfo.refClass}}.md#) |{{#with getDeepestRef}}{{#if description}} {{description.originalWithBr}}{{/if}}{{/with}}
     {{else}}
 
 {{headerSize}}# Url
@@ -27,7 +27,7 @@ Key | Type | Description | Notes
 --- | ---- | ----------- | ------
             {{#with variables}}
                 {{#each properties}}
-**{{@key.original}}** | {{> _helper_schema_python_types }} | {{#if description}}{{description.original}}{{/if}} | {{> components/schemas/helpers/notes_msg defaultUser="client" }}
+**{{@key.original}}** | {{> _helper_schema_python_types }} | {{#if description}}{{description.originalWithBr}}{{/if}} | {{> components/schemas/helpers/notes_msg defaultUser="client" }}
                 {{/each}}
             {{/with}}
         {{/if}}

@@ -20,11 +20,7 @@ Method | Description
 [**composed_one_of_different_types**](../../paths/fake_refs_composed_one_of_number_with_validations/post.md) | 
 [**delete_coffee**](../../paths/fake_delete_coffee_id/delete.md) | Delete coffee
 [**delete_common_param**](../../paths/common_param_sub_dir/delete.md) | 
-[**endpoint_parameters**](../../paths/fake/post.md) | Fake endpoint for testing various parameters
-假端點
-偽のエンドポイント
-가짜 엔드 포인트
-
+[**endpoint_parameters**](../../paths/fake/post.md) | Fake endpoint for testing various parameters<br>假端點<br>偽のエンドポイント<br>가짜 엔드 포인트<br>
 [**enum_parameters**](../../paths/fake/get.md) | To test enum parameters
 [**fake_health_get**](../../paths/fake_health/get.md) | Health check endpoint
 [**get_common_param**](../../paths/common_param_sub_dir/get.md) | 
