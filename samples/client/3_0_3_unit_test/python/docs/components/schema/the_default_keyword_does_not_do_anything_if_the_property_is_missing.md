@@ -15,7 +15,7 @@ type: typing.Mapping[str, schemas.INPUT_TYPES_ALL]
 ```
 Key | Type |  Description | Notes
 ------------ | ------------- | ------------- | -------------
-**alpha** | float, int |  | [optional] if omitted the server will use the default value of 5
+**alpha** | float, int |  | [optional] if omitted the server will use the default value of 5.0
 **any_string_name** | dict, schemas.immutabledict, list, tuple, decimal.Decimal, float, int, str, datetime.date, datetime.datetime, uuid.UUID, bool, None, bytes, io.FileIO, io.BufferedReader, schemas.FileIO | any string name can be used but the value must be the correct type | [optional]
 
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDict
@@ -26,13 +26,13 @@ base class: schemas.immutabledict[str, schemas.OUTPUT_BASE_TYPES]
 ### &lowbar;&lowbar;new&lowbar;&lowbar; method
 Keyword Argument | Type | Description | Notes
 ---------------- | ---- | ----------- | -----
-**alpha** | float, int, schemas.Unset |  | [optional] if omitted the server will use the default value of 5
+**alpha** | float, int, schemas.Unset |  | [optional] if omitted the server will use the default value of 5.0
 **kwargs** | schemas.immutabledict, tuple, float, int, str, bool, None, bytes, schemas.FileIO | any string name can be used but the value must be the correct type | [optional] typed value is accessed with the get_additional_property_ method
 
 ### properties
 Property | Type | Description | Notes
 -------- | ---- | ----------- | -----
-**alpha** | float, int, schemas.Unset |  | [optional] if omitted the server will use the default value of 5
+**alpha** | float, int, schemas.Unset |  | [optional] if omitted the server will use the default value of 5.0
 
 ### methods
 Method | Input Type | Return Type | Notes

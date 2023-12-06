@@ -47,11 +47,11 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
         ),
         new AbstractMap.SimpleEntry<>(
             "$special[property.name]",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "123Number",
-            1
+            1L
         )
     ),
     configuration

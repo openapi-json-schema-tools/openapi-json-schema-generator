@@ -39,7 +39,7 @@ Tag.TagMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "id",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "name",

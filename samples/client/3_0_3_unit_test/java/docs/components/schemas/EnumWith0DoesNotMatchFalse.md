@@ -30,8 +30,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
+// int validation
+int validatedPayload = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
     0,
     configuration
 );

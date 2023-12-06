@@ -58,11 +58,30 @@ Pet.PetMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "id",
-            1
+            1L
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "category",
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<>(
+                    "name",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<>(
+                    "id",
+                    1L
+                )
+            )
         ),
         new AbstractMap.SimpleEntry<>(
             "tags",
             Arrays.asList(
+                MapMaker.makeMap(
+                    new AbstractMap.SimpleEntry<>(
+                        "name",
+                        "a"
+                    )
+                )
             )
         ),
         new AbstractMap.SimpleEntry<>(
@@ -141,6 +160,16 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Pet.TagsList validatedPayload =
     Pet.Tags.validate(
     Arrays.asList(
+        MapMaker.makeMap(
+            new AbstractMap.SimpleEntry<>(
+                "id",
+                1L
+            ),
+            new AbstractMap.SimpleEntry<>(
+                "name",
+                "a"
+            )
+        )
     ),
     configuration
 );

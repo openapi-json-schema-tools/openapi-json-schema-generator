@@ -68,7 +68,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "number",
-            3.14
+            1
         ),
         new AbstractMap.SimpleEntry<>(
             "password",
@@ -76,7 +76,7 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "integer",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "int32",
@@ -88,28 +88,28 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "int64",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "float",
-            3.14
+            3.14f
         ),
         new AbstractMap.SimpleEntry<>(
             "float32",
-            3.14
+            3.14f
         ),
         new AbstractMap.SimpleEntry<>(
             "double",
-            3.14
+            3.14d
         ),
         new AbstractMap.SimpleEntry<>(
             "float64",
-            3.14
+            3.14d
         ),
         new AbstractMap.SimpleEntry<>(
             "arrayWithUniqueItems",
             Arrays.asList(
-                3.14
+                1
             )
         ),
         new AbstractMap.SimpleEntry<>(
@@ -460,7 +460,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 FormatTest.ArrayWithUniqueItemsList validatedPayload =
     FormatTest.ArrayWithUniqueItems.validate(
     Arrays.asList(
-        3.14
+        1
     ),
     configuration
 );
@@ -536,9 +536,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = FormatTest.DoubleSchema.validate(
-    3.14,
+// double validation
+double validatedPayload = FormatTest.DoubleSchema.validate(
+    3.14d,
     configuration
 );
 ```
@@ -587,9 +587,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = FormatTest.FloatSchema.validate(
-    3.14,
+// float validation
+float validatedPayload = FormatTest.FloatSchema.validate(
+    3.14f,
     configuration
 );
 ```
@@ -625,9 +625,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = FormatTest.NumberSchema.validate(
-    3.14,
+// int validation
+int validatedPayload = FormatTest.NumberSchema.validate(
+    1,
     configuration
 );
 ```
@@ -673,8 +673,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = FormatTest.Int32withValidations.validate(
+// int validation
+int validatedPayload = FormatTest.Int32withValidations.validate(
     1,
     configuration
 );
@@ -721,9 +721,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = FormatTest.IntegerSchema.validate(
-    1,
+// long validation
+long validatedPayload = FormatTest.IntegerSchema.validate(
+    1L,
     configuration
 );
 ```

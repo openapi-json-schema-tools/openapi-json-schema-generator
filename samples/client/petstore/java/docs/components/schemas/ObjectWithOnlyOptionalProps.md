@@ -44,7 +44,7 @@ ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "b",
-            3.14
+            1
         )
     ),
     configuration

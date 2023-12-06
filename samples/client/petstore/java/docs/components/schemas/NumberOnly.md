@@ -38,7 +38,7 @@ NumberOnly.NumberOnlyMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "JustNumber",
-            3.14
+            1
         )
     ),
     configuration

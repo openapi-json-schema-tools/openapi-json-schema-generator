@@ -30,9 +30,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = NumberWithValidations.NumberWithValidations1.validate(
-    3.14,
+// int validation
+int validatedPayload = NumberWithValidations.NumberWithValidations1.validate(
+    1,
     configuration
 );
 ```

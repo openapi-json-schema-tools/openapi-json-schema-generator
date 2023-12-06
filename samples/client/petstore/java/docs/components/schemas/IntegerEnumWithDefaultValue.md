@@ -30,8 +30,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.validate(
+// long validation
+long validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.validate(
     0,
     configuration
 );

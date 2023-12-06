@@ -35,6 +35,25 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap validatedPayload =
     ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1.validate(
     MapMaker.makeMap(
+        new AbstractMap.SimpleEntry<>(
+            "!reference",
+            Arrays.asList(
+                1L
+            )
+        ),
+        new AbstractMap.SimpleEntry<>(
+            "from",
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<>(
+                    "data",
+                    "a"
+                ),
+                new AbstractMap.SimpleEntry<>(
+                    "id",
+                    1L
+                )
+            )
+        )
     ),
     configuration
 );

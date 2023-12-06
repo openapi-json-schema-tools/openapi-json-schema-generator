@@ -41,7 +41,7 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
         new AbstractMap.SimpleEntry<>(
             "ArrayNumber",
             Arrays.asList(
-                3.14
+                1
             )
         )
     ),
@@ -106,7 +106,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayOfNumberOnly.ArrayNumberList validatedPayload =
     ArrayOfNumberOnly.ArrayNumber.validate(
     Arrays.asList(
-        3.14
+        1
     ),
     configuration
 );

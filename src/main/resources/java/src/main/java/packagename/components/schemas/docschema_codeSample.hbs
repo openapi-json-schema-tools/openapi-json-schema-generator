@@ -43,12 +43,32 @@ FrozenList<Object> validatedPayload = {{../../../containerJsonPathPiece.camelCas
 String validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
             {{else}}
                 {{#eq @key "integer"}}
-// Integer validation
-Integer validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                    {{#or (eq ../format null) (eq ../format "int64") }}
+// long validation
+long validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                    {{else}}
+// int validation
+int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                    {{/or}}
                 {{else}}
                     {{#eq @key "number"}}
-// Number validation
+                        {{#eq ../format "int64"}}
+// long validation
 Number validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                        {{else}}
+                            {{#eq ../format "float"}}
+// float validation
+float validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                            {{else}}
+                                {{#eq ../format "double"}}
+// double validation
+double validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                                {{else}}
+// int validation
+int validatedPayload = {{../../../containerJsonPathPiece.camelCase}}.{{../jsonPathPiece.camelCase}}.validate(
+                                {{/eq}}
+                            {{/eq}}
+                        {{/eq}}
                     {{else}}
                         {{#eq @key "boolean"}}
 // boolean validation

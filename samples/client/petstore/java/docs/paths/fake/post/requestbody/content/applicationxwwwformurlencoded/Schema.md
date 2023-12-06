@@ -55,11 +55,11 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "double",
-            3.14
+            3.14d
         ),
         new AbstractMap.SimpleEntry<>(
             "number",
-            3.14
+            1
         ),
         new AbstractMap.SimpleEntry<>(
             "pattern_without_delimiter",
@@ -67,7 +67,7 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "integer",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "int32",
@@ -75,11 +75,11 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "int64",
-            1
+            1L
         ),
         new AbstractMap.SimpleEntry<>(
             "float",
-            3.14
+            3.14f
         ),
         new AbstractMap.SimpleEntry<>(
             "string",
@@ -395,9 +395,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = Schema.DoubleSchema.validate(
-    3.14,
+// double validation
+double validatedPayload = Schema.DoubleSchema.validate(
+    3.14d,
     configuration
 );
 ```
@@ -436,9 +436,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = Schema.FloatSchema.validate(
-    3.14,
+// float validation
+float validatedPayload = Schema.FloatSchema.validate(
+    3.14f,
     configuration
 );
 ```
@@ -477,9 +477,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = Schema.NumberSchema.validate(
-    3.14,
+// int validation
+int validatedPayload = Schema.NumberSchema.validate(
+    1,
     configuration
 );
 ```
@@ -531,8 +531,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = Schema.Int32.validate(
+// int validation
+int validatedPayload = Schema.Int32.validate(
     1,
     configuration
 );
@@ -572,9 +572,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = Schema.IntegerSchema.validate(
-    1,
+// long validation
+long validatedPayload = Schema.IntegerSchema.validate(
+    1L,
     configuration
 );
 ```

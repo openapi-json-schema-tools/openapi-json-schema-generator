@@ -30,8 +30,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
+// int validation
+int validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
     1,
     configuration
 );

@@ -22,10 +22,22 @@ Arrays.asList(
 ){{endChar}}
 {{/eq}}
 {{#eq type "number"}}
-{{value}}{{endChar}}
+    {{#eq javaType "Long"}}
+{{value}}L{{endChar}}
+    {{else}}
+        {{#eq javaType "Float"}}
+{{value}}f{{endChar}}
+        {{else}}
+            {{#eq javaType "Double"}}
+{{value}}d{{endChar}}
+            {{else}}
+{{value}}{{endChar}}{{! Integer }}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
 {{/eq}}
 {{#eq type "integer"}}
-{{value}}{{endChar}}
+{{value}}{{#eq javaType "Long"}}L{{/eq}}{{endChar}}
 {{/eq}}
 {{#eq type "boolean"}}
 {{value}}{{endChar}}

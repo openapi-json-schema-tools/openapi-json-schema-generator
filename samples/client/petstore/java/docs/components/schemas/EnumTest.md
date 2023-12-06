@@ -53,7 +53,7 @@ EnumTest.EnumTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<>(
             "enum_number",
-            1.1
+            1.1d
         )
     ),
     configuration
@@ -129,9 +129,9 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Number validation
-Number validatedPayload = EnumTest.EnumNumber.validate(
-    1.1,
+// double validation
+double validatedPayload = EnumTest.EnumNumber.validate(
+    1.1d,
     configuration
 );
 ```
@@ -167,8 +167,8 @@ import java.util.AbstractMap;
 
 static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-// Integer validation
-Integer validatedPayload = EnumTest.EnumInteger.validate(
+// int validation
+int validatedPayload = EnumTest.EnumInteger.validate(
     1,
     configuration
 );

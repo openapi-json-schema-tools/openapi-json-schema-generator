@@ -45,7 +45,7 @@ NestedItems.NestedItemsList validatedPayload =
         Arrays.asList(
             Arrays.asList(
                 Arrays.asList(
-                    3.14
+                    1
                 )
             )
         )
@@ -110,7 +110,7 @@ NestedItems.ItemsList2 validatedPayload =
     Arrays.asList(
         Arrays.asList(
             Arrays.asList(
-                3.14
+                1
             )
         )
     ),
@@ -173,7 +173,7 @@ NestedItems.ItemsList1 validatedPayload =
     NestedItems.Items1.validate(
     Arrays.asList(
         Arrays.asList(
-            3.14
+            1
         )
     ),
     configuration
@@ -234,7 +234,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NestedItems.ItemsList validatedPayload =
     NestedItems.Items2.validate(
     Arrays.asList(
-        3.14
+        1
     ),
     configuration
 );

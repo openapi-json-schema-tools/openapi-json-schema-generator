@@ -38,7 +38,7 @@ Banana.BananaMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "lengthCm",
-            3.14
+            1
         )
     ),
     configuration
