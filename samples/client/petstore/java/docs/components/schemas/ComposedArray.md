@@ -3,14 +3,16 @@ org.openapijsonschematools.client.components.schemas.ComposedArray.java
 public class ComposedArray
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ComposedArray.ComposedArray1](#composedarray1)<br> schema class |
+| static class | [ComposedArray.ComposedArrayListInput](#composedarraylistinput)<br> input class for List payloads |
 | static class | [ComposedArray.ComposedArrayList](#composedarraylist)<br> output class for List payloads |
 | static class | [ComposedArray.Items](#items)<br> schema class |
 
@@ -54,6 +56,17 @@ ComposedArray.ComposedArrayList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ComposedArrayList](#composedarraylist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## ComposedArrayListInput
+public interface ComposedArrayListInput<br>
+extends `List<Object>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
+
 ## ComposedArrayList
 public class ComposedArrayList<br>
 extends `FrozenList<Object>`
@@ -64,14 +77,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ComposedArrayList](#composedarraylist) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
 
 ## Items
 public static class Items<br>

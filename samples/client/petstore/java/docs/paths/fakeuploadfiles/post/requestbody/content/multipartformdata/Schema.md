@@ -3,9 +3,10 @@ org.openapijsonschematools.client.paths.fakeuploadfiles.post.requestbody.content
 public class Schema
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -13,6 +14,7 @@ A class that contains necessary nested
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.Files](#files)<br> schema class |
+| static class | [Schema.FilesListInput](#fileslistinput)<br> input class for List payloads |
 | static class | [Schema.FilesList](#fileslist)<br> output class for List payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 
@@ -125,6 +127,17 @@ Schema.FilesList validatedPayload =
 | ----------------- | ---------------------- |
 | static [FilesList](#fileslist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## FilesListInput
+public interface FilesListInput<br>
+extends `List<String>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
+
 ## FilesList
 public class FilesList<br>
 extends `FrozenList<String>`
@@ -135,14 +148,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [FilesList](#fileslist) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
 
 ## Items
 public static class Items<br>

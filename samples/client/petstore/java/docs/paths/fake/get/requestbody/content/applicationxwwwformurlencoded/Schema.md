@@ -3,9 +3,10 @@ org.openapijsonschematools.client.paths.fake.get.requestbody.content.application
 public class Schema
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,6 +15,7 @@ A class that contains necessary nested
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.EnumFormString](#enumformstring)<br> schema class |
 | static class | [Schema.EnumFormStringArray](#enumformstringarray)<br> schema class |
+| static class | [Schema.EnumFormStringArrayListInput](#enumformstringarraylistinput)<br> input class for List payloads |
 | static class | [Schema.EnumFormStringArrayList](#enumformstringarraylist)<br> output class for List payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 
@@ -176,6 +178,17 @@ Schema.EnumFormStringArrayList validatedPayload =
 | ----------------- | ---------------------- |
 | static [EnumFormStringArrayList](#enumformstringarraylist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## EnumFormStringArrayListInput
+public interface EnumFormStringArrayListInput<br>
+extends `List<String>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  | must be one of [">", "$"] if omitted the server will use the default value of $
+
 ## EnumFormStringArrayList
 public class EnumFormStringArrayList<br>
 extends `FrozenList<String>`
@@ -186,14 +199,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [EnumFormStringArrayList](#enumformstringarraylist) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ## Items
 public static class Items<br>

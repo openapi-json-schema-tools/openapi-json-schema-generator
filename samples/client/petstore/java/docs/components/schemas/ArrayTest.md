@@ -3,9 +3,10 @@ org.openapijsonschematools.client.components.schemas.ArrayTest.java
 public class ArrayTest
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -13,15 +14,20 @@ A class that contains necessary nested
 | static class | [ArrayTest.ArrayTest1](#arraytest1)<br> schema class |
 | static class | [ArrayTest.ArrayTestMap](#arraytestmap)<br> output class for Map payloads |
 | static class | [ArrayTest.ArrayArrayOfModel](#arrayarrayofmodel)<br> schema class |
+| static class | [ArrayTest.ArrayArrayOfModelListInput](#arrayarrayofmodellistinput)<br> input class for List payloads |
 | static class | [ArrayTest.ArrayArrayOfModelList](#arrayarrayofmodellist)<br> output class for List payloads |
 | static class | [ArrayTest.Items3](#items3)<br> schema class |
+| static class | [ArrayTest.ItemsListInput1](#itemslistinput1)<br> input class for List payloads |
 | static class | [ArrayTest.ItemsList1](#itemslist1)<br> output class for List payloads |
 | static class | [ArrayTest.ArrayArrayOfInteger](#arrayarrayofinteger)<br> schema class |
+| static class | [ArrayTest.ArrayArrayOfIntegerListInput](#arrayarrayofintegerlistinput)<br> input class for List payloads |
 | static class | [ArrayTest.ArrayArrayOfIntegerList](#arrayarrayofintegerlist)<br> output class for List payloads |
 | static class | [ArrayTest.Items1](#items1)<br> schema class |
+| static class | [ArrayTest.ItemsListInput](#itemslistinput)<br> input class for List payloads |
 | static class | [ArrayTest.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [ArrayTest.Items2](#items2)<br> schema class |
 | static class | [ArrayTest.ArrayOfString](#arrayofstring)<br> schema class |
+| static class | [ArrayTest.ArrayOfStringListInput](#arrayofstringlistinput)<br> input class for List payloads |
 | static class | [ArrayTest.ArrayOfStringList](#arrayofstringlist)<br> output class for List payloads |
 | static class | [ArrayTest.Items](#items)<br> schema class |
 
@@ -174,6 +180,17 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
 
+## ArrayArrayOfModelListInput
+public interface ArrayArrayOfModelListInput<br>
+extends `List<List<Map<String, Object>>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Map<String, Object>> |  |
+
 ## ArrayArrayOfModelList
 public class ArrayArrayOfModelList<br>
 extends `FrozenList<ItemsList1>`
@@ -184,14 +201,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<Map<String, Object>>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Map<String, Object>> |  |
 
 ## Items3
 public static class Items3<br>
@@ -243,6 +252,17 @@ ArrayTest.ItemsList1 validatedPayload =
 | ----------------- | ---------------------- |
 | static [ItemsList1](#itemslist1) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ItemsListInput1
+public interface ItemsListInput1<br>
+extends `List<Map<String, Object>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
 ## ItemsList1
 public class ItemsList1<br>
 extends `FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>`
@@ -253,14 +273,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList1](#itemslist1) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Map<String, Object>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, Object> |  |
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>
@@ -305,6 +317,17 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate(List<List<Long>> arg, SchemaConfiguration configuration) |
 
+## ArrayArrayOfIntegerListInput
+public interface ArrayArrayOfIntegerListInput<br>
+extends `List<List<Long>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Long> |  |
+
 ## ArrayArrayOfIntegerList
 public class ArrayArrayOfIntegerList<br>
 extends `FrozenList<ItemsList>`
@@ -315,14 +338,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | of(List<List<Long>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<Long>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Long> |  |
 
 ## Items1
 public static class Items1<br>
@@ -365,6 +380,17 @@ ArrayTest.ItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
 
+## ItemsListInput
+public interface ItemsListInput<br>
+extends `List<Long>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Long |  | value must be a 64 bit integer
+
 ## ItemsList
 public class ItemsList<br>
 extends `FrozenList<Long>`
@@ -375,14 +401,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | of(List<Long> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Long>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Long |  | value must be a 64 bit integer
 
 ## Items2
 public static class Items2<br>
@@ -435,6 +453,17 @@ ArrayTest.ArrayOfStringList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayOfStringList](#arrayofstringlist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## ArrayOfStringListInput
+public interface ArrayOfStringListInput<br>
+extends `List<String>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
+
 ## ArrayOfStringList
 public class ArrayOfStringList<br>
 extends `FrozenList<String>`
@@ -445,14 +474,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayOfStringList](#arrayofstringlist) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
 
 ## Items
 public static class Items<br>

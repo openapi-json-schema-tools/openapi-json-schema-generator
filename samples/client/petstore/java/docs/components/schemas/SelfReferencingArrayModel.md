@@ -3,14 +3,16 @@ org.openapijsonschematools.client.components.schemas.SelfReferencingArrayModel.j
 public class SelfReferencingArrayModel
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1](#selfreferencingarraymodel1)<br> schema class |
+| static class | [SelfReferencingArrayModel.SelfReferencingArrayModelListInput](#selfreferencingarraymodellistinput)<br> input class for List payloads |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
 
 ## SelfReferencingArrayModel1
@@ -53,6 +55,17 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 | ----------------- | ---------------------- |
 | static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate(List<List> arg, SchemaConfiguration configuration) |
 
+## SelfReferencingArrayModelListInput
+public interface SelfReferencingArrayModelListInput<br>
+extends `List<List>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List |  |
+
 ## SelfReferencingArrayModelList
 public class SelfReferencingArrayModelList<br>
 extends `FrozenList<SelfReferencingArrayModelList>`
@@ -63,13 +76,5 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of(List<List> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

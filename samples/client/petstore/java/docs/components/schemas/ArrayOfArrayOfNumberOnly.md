@@ -3,9 +3,10 @@ org.openapijsonschematools.client.components.schemas.ArrayOfArrayOfNumberOnly.ja
 public class ArrayOfArrayOfNumberOnly
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -13,8 +14,10 @@ A class that contains necessary nested
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1](#arrayofarrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap)<br> output class for Map payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumber](#arrayarraynumber)<br> schema class |
+| static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberListInput](#arrayarraynumberlistinput)<br> input class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberList](#arrayarraynumberlist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items](#items)<br> schema class |
+| static class | [ArrayOfArrayOfNumberOnly.ItemsListInput](#itemslistinput)<br> input class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items1](#items1)<br> schema class |
 
@@ -131,6 +134,17 @@ ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayArrayNumberList](#arrayarraynumberlist) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
 
+## ArrayArrayNumberListInput
+public interface ArrayArrayNumberListInput<br>
+extends `List<List<Number>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Number> |  |
+
 ## ArrayArrayNumberList
 public class ArrayArrayNumberList<br>
 extends `FrozenList<ItemsList>`
@@ -141,14 +155,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayArrayNumberList](#arrayarraynumberlist) | of(List<List<Number>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<Number>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Number> |  |
 
 ## Items
 public static class Items<br>
@@ -191,6 +197,17 @@ ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
 
+## ItemsListInput
+public interface ItemsListInput<br>
+extends `List<Number>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Number |  |
+
 ## ItemsList
 public class ItemsList<br>
 extends `FrozenList<Number>`
@@ -201,14 +218,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Number>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
 
 ## Items1
 public static class Items1<br>

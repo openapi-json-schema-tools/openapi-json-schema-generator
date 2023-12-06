@@ -3,14 +3,16 @@ org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.pa
 public class Schema2
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema2.Schema21](#schema21)<br> schema class |
+| static class | [Schema2.SchemaListInput2](#schemalistinput2)<br> input class for List payloads |
 | static class | [Schema2.SchemaList2](#schemalist2)<br> output class for List payloads |
 | static class | [Schema2.Items2](#items2)<br> schema class |
 
@@ -55,6 +57,17 @@ Schema2.SchemaList2 validatedPayload =
 | ----------------- | ---------------------- |
 | static [SchemaList2](#schemalist2) | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## SchemaListInput2
+public interface SchemaListInput2<br>
+extends `List<String>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
+
 ## SchemaList2
 public class SchemaList2<br>
 extends `FrozenList<String>`
@@ -65,14 +78,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaList2](#schemalist2) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
 
 ## Items2
 public static class Items2<br>

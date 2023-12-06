@@ -3,14 +3,16 @@ org.openapijsonschematools.client.components.schemas.ArrayHoldingAnyType.java
 public class ArrayHoldingAnyType
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1](#arrayholdinganytype1)<br> schema class |
+| static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput)<br> input class for List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeList](#arrayholdinganytypelist)<br> output class for List payloads |
 | static class | [ArrayHoldingAnyType.Items](#items)<br> schema class |
 
@@ -54,6 +56,17 @@ ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## ArrayHoldingAnyTypeListInput
+public interface ArrayHoldingAnyTypeListInput<br>
+extends `List<Object>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object | any type can be stored here |
+
 ## ArrayHoldingAnyTypeList
 public class ArrayHoldingAnyTypeList<br>
 extends `FrozenList<Object>`
@@ -64,14 +77,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object | any type can be stored here |
 
 ## Items
 public static class Items<br>

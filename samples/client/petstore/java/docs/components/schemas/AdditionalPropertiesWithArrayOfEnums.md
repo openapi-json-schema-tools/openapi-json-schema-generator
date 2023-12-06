@@ -3,9 +3,10 @@ org.openapijsonschematools.client.components.schemas.AdditionalPropertiesWithArr
 public class AdditionalPropertiesWithArrayOfEnums
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -13,6 +14,7 @@ A class that contains necessary nested
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnums1](#additionalpropertieswitharrayofenums1)<br> schema class |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalProperties](#additionalproperties)<br> schema class |
+| static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesListInput](#additionalpropertieslistinput)<br> input class for List payloads |
 | static class | [AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList](#additionalpropertieslist)<br> output class for List payloads |
 
 ## AdditionalPropertiesWithArrayOfEnums1
@@ -116,6 +118,17 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
 | ----------------- | ---------------------- |
 | static [AdditionalPropertiesList](#additionalpropertieslist) | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## AdditionalPropertiesListInput
+public interface AdditionalPropertiesListInput<br>
+extends `List<String>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
+
 ## AdditionalPropertiesList
 public class AdditionalPropertiesList<br>
 extends `FrozenList<String>`
@@ -126,13 +139,5 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AdditionalPropertiesList](#additionalpropertieslist) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

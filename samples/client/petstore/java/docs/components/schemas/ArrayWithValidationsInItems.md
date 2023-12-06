@@ -3,14 +3,16 @@ org.openapijsonschematools.client.components.schemas.ArrayWithValidationsInItems
 public class ArrayWithValidationsInItems
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItems1](#arraywithvalidationsinitems1)<br> schema class |
+| static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsListInput](#arraywithvalidationsinitemslistinput)<br> input class for List payloads |
 | static class | [ArrayWithValidationsInItems.ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist)<br> output class for List payloads |
 | static class | [ArrayWithValidationsInItems.Items](#items)<br> schema class |
 
@@ -55,6 +57,17 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | validate(List<Long> arg, SchemaConfiguration configuration) |
 
+## ArrayWithValidationsInItemsListInput
+public interface ArrayWithValidationsInItemsListInput<br>
+extends `List<Long>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Long |  | value must be a 64 bit integer
+
 ## ArrayWithValidationsInItemsList
 public class ArrayWithValidationsInItemsList<br>
 extends `FrozenList<Long>`
@@ -65,14 +78,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of(List<Long> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Long>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Long |  | value must be a 64 bit integer
 
 ## Items
 public static class Items<br>

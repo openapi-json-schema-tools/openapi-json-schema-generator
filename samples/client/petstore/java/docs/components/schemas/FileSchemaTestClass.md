@@ -3,9 +3,10 @@ org.openapijsonschematools.client.components.schemas.FileSchemaTestClass.java
 public class FileSchemaTestClass
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -13,6 +14,7 @@ A class that contains necessary nested
 | static class | [FileSchemaTestClass.FileSchemaTestClass1](#fileschematestclass1)<br> schema class |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMap](#fileschematestclassmap)<br> output class for Map payloads |
 | static class | [FileSchemaTestClass.Files](#files)<br> schema class |
+| static class | [FileSchemaTestClass.FilesListInput](#fileslistinput)<br> input class for List payloads |
 | static class | [FileSchemaTestClass.FilesList](#fileslist)<br> output class for List payloads |
 
 ## FileSchemaTestClass1
@@ -124,6 +126,17 @@ FileSchemaTestClass.FilesList validatedPayload =
 | ----------------- | ---------------------- |
 | static [FilesList](#fileslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## FilesListInput
+public interface FilesListInput<br>
+extends `List<Map<String, Object>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
 ## FilesList
 public class FilesList<br>
 extends `FrozenList<File.FileMap>`
@@ -134,13 +147,5 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [FilesList](#fileslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Map<String, Object>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, Object> |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -3,9 +3,10 @@ org.openapijsonschematools.client.components.schemas.NullableClass.java
 public class NullableClass
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -22,12 +23,15 @@ A class that contains necessary nested
 | static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
 | static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
+| static class | [NullableClass.ArrayItemsNullableListInput](#arrayitemsnullablelistinput)<br> input class for List payloads |
 | static class | [NullableClass.ArrayItemsNullableList](#arrayitemsnullablelist)<br> output class for List payloads |
 | static class | [NullableClass.Items2](#items2)<br> schema class |
 | static class | [NullableClass.ArrayAndItemsNullableProp](#arrayanditemsnullableprop)<br> schema class |
+| static class | [NullableClass.ArrayAndItemsNullablePropListInput](#arrayanditemsnullableproplistinput)<br> input class for List payloads |
 | static class | [NullableClass.ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist)<br> output class for List payloads |
 | static class | [NullableClass.Items1](#items1)<br> schema class |
 | static class | [NullableClass.ArrayNullableProp](#arraynullableprop)<br> schema class |
+| static class | [NullableClass.ArrayNullablePropListInput](#arraynullableproplistinput)<br> input class for List payloads |
 | static class | [NullableClass.ArrayNullablePropList](#arraynullableproplist)<br> output class for List payloads |
 | static class | [NullableClass.Items](#items)<br> schema class |
 | static class | [NullableClass.DatetimeProp](#datetimeprop)<br> schema class |
@@ -496,6 +500,17 @@ NullableClass.ArrayItemsNullableList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayItemsNullableList](#arrayitemsnullablelist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ArrayItemsNullableListInput
+public interface ArrayItemsNullableListInput<br>
+extends `List<Map<String, Object>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
 ## ArrayItemsNullableList
 public class ArrayItemsNullableList<br>
 extends `FrozenList<FrozenMap<String, Object>>`
@@ -506,14 +521,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayItemsNullableList](#arrayitemsnullablelist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Map<String, Object>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, Object> |  |
 
 ## Items2
 public static class Items2<br>
@@ -602,6 +609,17 @@ NullableClass.ArrayAndItemsNullablePropList validatedPayload =
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ArrayAndItemsNullablePropListInput
+public interface ArrayAndItemsNullablePropListInput<br>
+extends `List<Map<String, Object>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
 ## ArrayAndItemsNullablePropList
 public class ArrayAndItemsNullablePropList<br>
 extends `FrozenList<FrozenMap<String, Object>>`
@@ -612,14 +630,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Map<String, Object>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, Object> |  |
 
 ## Items1
 public static class Items1<br>
@@ -707,6 +717,17 @@ NullableClass.ArrayNullablePropList validatedPayload =
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static [ArrayNullablePropList](#arraynullableproplist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## ArrayNullablePropListInput
+public interface ArrayNullablePropListInput<br>
+extends `List<Map<String, Object>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
 ## ArrayNullablePropList
 public class ArrayNullablePropList<br>
 extends `FrozenList<FrozenMap<String, Object>>`
@@ -717,14 +738,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayNullablePropList](#arraynullableproplist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Map<String, Object>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, Object> |  |
 
 ## Items
 public static class Items<br>

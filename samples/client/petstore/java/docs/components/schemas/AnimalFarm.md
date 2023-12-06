@@ -3,14 +3,16 @@ org.openapijsonschematools.client.components.schemas.AnimalFarm.java
 public class AnimalFarm
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AnimalFarm.AnimalFarm1](#animalfarm1)<br> schema class |
+| static class | [AnimalFarm.AnimalFarmListInput](#animalfarmlistinput)<br> input class for List payloads |
 | static class | [AnimalFarm.AnimalFarmList](#animalfarmlist)<br> output class for List payloads |
 
 ## AnimalFarm1
@@ -63,6 +65,17 @@ AnimalFarm.AnimalFarmList validatedPayload =
 | ----------------- | ---------------------- |
 | static [AnimalFarmList](#animalfarmlist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
 
+## AnimalFarmListInput
+public interface AnimalFarmListInput<br>
+extends `List<Map<String, Object>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
+
 ## AnimalFarmList
 public class AnimalFarmList<br>
 extends `FrozenList<Animal.AnimalMap>`
@@ -73,13 +86,5 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AnimalFarmList](#animalfarmlist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Map<String, Object>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, Object> |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

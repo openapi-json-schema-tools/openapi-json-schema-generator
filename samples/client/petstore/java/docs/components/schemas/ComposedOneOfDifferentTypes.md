@@ -3,9 +3,10 @@ org.openapijsonschematools.client.components.schemas.ComposedOneOfDifferentTypes
 public class ComposedOneOfDifferentTypes
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -13,6 +14,7 @@ A class that contains necessary nested
 | static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](#composedoneofdifferenttypes1)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema6](#schema6)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema5](#schema5)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema5ListInput](#schema5listinput)<br> input class for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema5List](#schema5list)<br> output class for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Items](#items)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema4](#schema4)<br> schema class |
@@ -124,6 +126,17 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 | ----------------- | ---------------------- |
 | static [Schema5List](#schema5list) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## Schema5ListInput
+public interface Schema5ListInput<br>
+extends `List<Object>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
+
 ## Schema5List
 public class Schema5List<br>
 extends `FrozenList<Object>`
@@ -134,14 +147,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema5List](#schema5list) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
 
 ## Items
 public static class Items<br>

@@ -3,14 +3,16 @@ org.openapijsonschematools.client.paths.fake.get.parameters.parameter0.Schema0.j
 public class Schema0
 
 A class that contains necessary nested
-- schema classes (which validate payloads)
-- classes to store validated list payloads
-- classes to store validated map payloads
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema0.Schema01](#schema01)<br> schema class |
+| static class | [Schema0.SchemaListInput0](#schemalistinput0)<br> input class for List payloads |
 | static class | [Schema0.SchemaList0](#schemalist0)<br> output class for List payloads |
 | static class | [Schema0.Items0](#items0)<br> schema class |
 
@@ -55,6 +57,17 @@ Schema0.SchemaList0 validatedPayload =
 | ----------------- | ---------------------- |
 | static [SchemaList0](#schemalist0) | validate(List<String> arg, SchemaConfiguration configuration) |
 
+## SchemaListInput0
+public interface SchemaListInput0<br>
+extends `List<String>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  | must be one of [">", "$"] if omitted the server will use the default value of $
+
 ## SchemaList0
 public class SchemaList0<br>
 extends `FrozenList<String>`
@@ -65,14 +78,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [SchemaList0](#schemalist0) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  | must be one of [">", "$"] if omitted the server will use the default value of $
 
 ## Items0
 public static class Items0<br>
