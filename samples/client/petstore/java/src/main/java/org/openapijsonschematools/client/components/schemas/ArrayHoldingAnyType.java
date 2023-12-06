@@ -29,7 +29,7 @@ public class ArrayHoldingAnyType {
         }
     }
     
-    public static interface ArrayHoldingAnyTypeListInput extends List<Object> {}
+    public interface ArrayHoldingAnyTypeListInput extends List<Object> {}
     
     
     public static class ArrayHoldingAnyType1 extends JsonSchema {
@@ -47,7 +47,7 @@ public class ArrayHoldingAnyType {
         protected static ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayHoldingAnyTypeList(arg);
         }
-        public static ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayHoldingAnyTypeList validate(ArrayHoldingAnyTypeListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayHoldingAnyType1.class, arg, configuration);
         }
     }}

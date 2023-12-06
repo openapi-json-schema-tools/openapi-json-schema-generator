@@ -44,7 +44,7 @@ public class Schema {
         }
     }
     
-    public static interface EnumFormStringArrayListInput extends List<String> {}
+    public interface EnumFormStringArrayListInput extends List<String> {}
     
     
     public static class EnumFormStringArray extends JsonSchema {
@@ -56,7 +56,7 @@ public class Schema {
         protected static EnumFormStringArrayList getListOutputInstance(FrozenList<String> arg) {
             return new EnumFormStringArrayList(arg);
         }
-        public static EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static EnumFormStringArrayList validate(EnumFormStringArrayListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(EnumFormStringArray.class, arg, configuration);
         }
     }    

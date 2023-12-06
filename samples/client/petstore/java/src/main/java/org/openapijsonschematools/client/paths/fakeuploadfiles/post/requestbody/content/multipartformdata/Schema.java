@@ -33,7 +33,7 @@ public class Schema {
         }
     }
     
-    public static interface FilesListInput extends List<String> {}
+    public interface FilesListInput extends List<String> {}
     
     
     public static class Files extends JsonSchema {
@@ -45,7 +45,7 @@ public class Schema {
         protected static FilesList getListOutputInstance(FrozenList<String> arg) {
             return new FilesList(arg);
         }
-        public static FilesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList validate(FilesListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Files.class, arg, configuration);
         }
     }    

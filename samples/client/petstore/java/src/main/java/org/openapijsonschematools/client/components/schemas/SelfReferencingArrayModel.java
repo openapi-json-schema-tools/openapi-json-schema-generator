@@ -25,7 +25,7 @@ public class SelfReferencingArrayModel {
         }
     }
     
-    public static interface SelfReferencingArrayModelListInput extends List<List> {}
+    public interface SelfReferencingArrayModelListInput extends List<List> {}
     
     
     public static class SelfReferencingArrayModel1 extends JsonSchema {
@@ -43,7 +43,7 @@ public class SelfReferencingArrayModel {
         protected static SelfReferencingArrayModelList getListOutputInstance(FrozenList<SelfReferencingArrayModelList> arg) {
             return new SelfReferencingArrayModelList(arg);
         }
-        public static SelfReferencingArrayModelList validate(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SelfReferencingArrayModelList validate(SelfReferencingArrayModelListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(SelfReferencingArrayModel1.class, arg, configuration);
         }
     }}

@@ -25,7 +25,7 @@ public class ArrayOfEnums {
         }
     }
     
-    public static interface ArrayOfEnumsListInput extends List<String> {}
+    public interface ArrayOfEnumsListInput extends List<String> {}
     
     
     public static class ArrayOfEnums1 extends JsonSchema {
@@ -43,7 +43,7 @@ public class ArrayOfEnums {
         protected static ArrayOfEnumsList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayOfEnumsList(arg);
         }
-        public static ArrayOfEnumsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfEnumsList validate(ArrayOfEnumsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayOfEnums1.class, arg, configuration);
         }
     }}

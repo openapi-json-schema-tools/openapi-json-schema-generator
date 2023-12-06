@@ -33,7 +33,7 @@ public class ArrayTest {
         }
     }
     
-    public static interface ArrayOfStringListInput extends List<String> {}
+    public interface ArrayOfStringListInput extends List<String> {}
     
     
     public static class ArrayOfString extends JsonSchema {
@@ -45,7 +45,7 @@ public class ArrayTest {
         protected static ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayOfStringList(arg);
         }
-        public static ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfStringList validate(ArrayOfStringListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayOfString.class, arg, configuration);
         }
     }    
@@ -62,7 +62,7 @@ public class ArrayTest {
         }
     }
     
-    public static interface ItemsListInput extends List<Long> {}
+    public interface ItemsListInput extends List<Long> {}
     
     
     public static class Items1 extends JsonSchema {
@@ -74,7 +74,7 @@ public class ArrayTest {
         protected static ItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList validate(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items1.class, arg, configuration);
         }
     }    
@@ -88,7 +88,7 @@ public class ArrayTest {
         }
     }
     
-    public static interface ArrayArrayOfIntegerListInput extends List<List<Long>> {}
+    public interface ArrayArrayOfIntegerListInput extends List<List<Long>> {}
     
     
     public static class ArrayArrayOfInteger extends JsonSchema {
@@ -100,7 +100,7 @@ public class ArrayTest {
         protected static ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ArrayArrayOfIntegerList(arg);
         }
-        public static ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayOfIntegerList validate(ArrayArrayOfIntegerListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayArrayOfInteger.class, arg, configuration);
         }
     }    
@@ -114,7 +114,7 @@ public class ArrayTest {
         }
     }
     
-    public static interface ItemsListInput1 extends List<Map<String, Object>> {}
+    public interface ItemsListInput1 extends List<Map<String, Object>> {}
     
     
     public static class Items3 extends JsonSchema {
@@ -126,7 +126,7 @@ public class ArrayTest {
         protected static ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList1 validate(ItemsListInput1 arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items3.class, arg, configuration);
         }
     }    
@@ -140,7 +140,7 @@ public class ArrayTest {
         }
     }
     
-    public static interface ArrayArrayOfModelListInput extends List<List<Map<String, Object>>> {}
+    public interface ArrayArrayOfModelListInput extends List<List<Map<String, Object>>> {}
     
     
     public static class ArrayArrayOfModel extends JsonSchema {
@@ -152,7 +152,7 @@ public class ArrayTest {
         protected static ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
             return new ArrayArrayOfModelList(arg);
         }
-        public static ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayOfModelList validate(ArrayArrayOfModelListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayArrayOfModel.class, arg, configuration);
         }
     }    

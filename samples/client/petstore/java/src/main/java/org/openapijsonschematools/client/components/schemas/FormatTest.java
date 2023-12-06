@@ -184,7 +184,7 @@ public class FormatTest {
         }
     }
     
-    public static interface ArrayWithUniqueItemsListInput extends List<Number> {}
+    public interface ArrayWithUniqueItemsListInput extends List<Number> {}
     
     
     public static class ArrayWithUniqueItems extends JsonSchema {
@@ -197,7 +197,7 @@ public class FormatTest {
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);
         }
-        public static ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithUniqueItemsList validate(ArrayWithUniqueItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayWithUniqueItems.class, arg, configuration);
         }
     }    

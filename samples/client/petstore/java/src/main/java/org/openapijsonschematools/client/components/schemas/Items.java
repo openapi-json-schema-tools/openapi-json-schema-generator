@@ -30,7 +30,7 @@ public class Items {
         }
     }
     
-    public static interface ItemsListInput extends List<Map<String, Object>> {}
+    public interface ItemsListInput extends List<Map<String, Object>> {}
     
     
     public static class Items1 extends JsonSchema {
@@ -50,7 +50,7 @@ public class Items {
         protected static ItemsList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList validate(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items1.class, arg, configuration);
         }
     }}

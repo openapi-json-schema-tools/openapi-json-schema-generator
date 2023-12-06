@@ -61,7 +61,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public static interface Schema5ListInput extends List<Object> {}
+    public interface Schema5ListInput extends List<Object> {}
     
     
     public static class Schema5 extends JsonSchema {
@@ -75,7 +75,7 @@ public class ComposedOneOfDifferentTypes {
         protected static Schema5List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema5List(arg);
         }
-        public static Schema5List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema5List validate(Schema5ListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Schema5.class, arg, configuration);
         }
     }    

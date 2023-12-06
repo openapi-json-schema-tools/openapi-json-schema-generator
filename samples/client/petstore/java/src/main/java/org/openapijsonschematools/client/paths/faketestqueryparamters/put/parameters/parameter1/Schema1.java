@@ -29,7 +29,7 @@ public class Schema1 {
         }
     }
     
-    public static interface SchemaListInput1 extends List<String> {}
+    public interface SchemaListInput1 extends List<String> {}
     
     
     public static class Schema11 extends JsonSchema {
@@ -41,7 +41,7 @@ public class Schema1 {
         protected static SchemaList1 getListOutputInstance(FrozenList<String> arg) {
             return new SchemaList1(arg);
         }
-        public static SchemaList1 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList1 validate(SchemaListInput1 arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Schema11.class, arg, configuration);
         }
     }}

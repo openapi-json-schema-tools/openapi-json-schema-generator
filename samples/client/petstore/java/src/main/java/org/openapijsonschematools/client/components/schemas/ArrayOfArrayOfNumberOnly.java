@@ -32,7 +32,7 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }
     
-    public static interface ItemsListInput extends List<Number> {}
+    public interface ItemsListInput extends List<Number> {}
     
     
     public static class Items extends JsonSchema {
@@ -44,7 +44,7 @@ public class ArrayOfArrayOfNumberOnly {
         protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList validate(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items.class, arg, configuration);
         }
     }    
@@ -58,7 +58,7 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }
     
-    public static interface ArrayArrayNumberListInput extends List<List<Number>> {}
+    public interface ArrayArrayNumberListInput extends List<List<Number>> {}
     
     
     public static class ArrayArrayNumber extends JsonSchema {
@@ -70,7 +70,7 @@ public class ArrayOfArrayOfNumberOnly {
         protected static ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ArrayArrayNumberList(arg);
         }
-        public static ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayNumberList validate(ArrayArrayNumberListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayArrayNumber.class, arg, configuration);
         }
     }    

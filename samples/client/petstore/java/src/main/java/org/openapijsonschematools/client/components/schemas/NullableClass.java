@@ -173,7 +173,7 @@ public class NullableClass {
         }
     }
     
-    public static interface ArrayNullablePropListInput extends List<Map<String, Object>> {}
+    public interface ArrayNullablePropListInput extends List<Map<String, Object>> {}
     
     
     public static class ArrayNullableProp extends JsonSchema {
@@ -191,7 +191,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateVoid(ArrayNullableProp.class, arg, configuration);
         }
-        public static ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayNullablePropList validate(ArrayNullablePropListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayNullableProp.class, arg, configuration);
         }
     }    
@@ -220,7 +220,7 @@ public class NullableClass {
         }
     }
     
-    public static interface ArrayAndItemsNullablePropListInput extends List<Map<String, Object>> {}
+    public interface ArrayAndItemsNullablePropListInput extends List<Map<String, Object>> {}
     
     
     public static class ArrayAndItemsNullableProp extends JsonSchema {
@@ -238,7 +238,7 @@ public class NullableClass {
         public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateVoid(ArrayAndItemsNullableProp.class, arg, configuration);
         }
-        public static ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayAndItemsNullablePropList validate(ArrayAndItemsNullablePropListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayAndItemsNullableProp.class, arg, configuration);
         }
     }    
@@ -267,7 +267,7 @@ public class NullableClass {
         }
     }
     
-    public static interface ArrayItemsNullableListInput extends List<Map<String, Object>> {}
+    public interface ArrayItemsNullableListInput extends List<Map<String, Object>> {}
     
     
     public static class ArrayItemsNullable extends JsonSchema {
@@ -279,7 +279,7 @@ public class NullableClass {
         protected static ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
             return new ArrayItemsNullableList(arg);
         }
-        public static ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayItemsNullableList validate(ArrayItemsNullableListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayItemsNullable.class, arg, configuration);
         }
     }    

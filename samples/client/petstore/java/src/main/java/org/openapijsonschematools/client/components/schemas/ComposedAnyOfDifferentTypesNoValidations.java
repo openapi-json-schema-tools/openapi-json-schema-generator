@@ -75,7 +75,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }
     
-    public static interface Schema9ListInput extends List<Object> {}
+    public interface Schema9ListInput extends List<Object> {}
     
     
     public static class Schema9 extends JsonSchema {
@@ -87,7 +87,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         protected static Schema9List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema9List(arg);
         }
-        public static Schema9List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema9List validate(Schema9ListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Schema9.class, arg, configuration);
         }
     }    

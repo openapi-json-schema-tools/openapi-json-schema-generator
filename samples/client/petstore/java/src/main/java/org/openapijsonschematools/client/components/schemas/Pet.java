@@ -41,7 +41,7 @@ public class Pet {
         }
     }
     
-    public static interface PhotoUrlsListInput extends List<String> {}
+    public interface PhotoUrlsListInput extends List<String> {}
     
     
     public static class PhotoUrls extends JsonSchema {
@@ -53,7 +53,7 @@ public class Pet {
         protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
             return new PhotoUrlsList(arg);
         }
-        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PhotoUrlsList validate(PhotoUrlsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(PhotoUrls.class, arg, configuration);
         }
     }    
@@ -83,7 +83,7 @@ public class Pet {
         }
     }
     
-    public static interface TagsListInput extends List<Map<String, Object>> {}
+    public interface TagsListInput extends List<Map<String, Object>> {}
     
     
     public static class Tags extends JsonSchema {
@@ -95,7 +95,7 @@ public class Pet {
         protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
             return new TagsList(arg);
         }
-        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static TagsList validate(TagsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Tags.class, arg, configuration);
         }
     }    

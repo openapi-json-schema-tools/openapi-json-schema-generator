@@ -29,7 +29,7 @@ public class ArrayTypeMatchesArrays {
         }
     }
     
-    public static interface ArrayTypeMatchesArraysListInput extends List<Object> {}
+    public interface ArrayTypeMatchesArraysListInput extends List<Object> {}
     
     
     public static class ArrayTypeMatchesArrays1 extends JsonSchema {
@@ -47,7 +47,7 @@ public class ArrayTypeMatchesArrays {
         protected static ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayTypeMatchesArraysList(arg);
         }
-        public static ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayTypeMatchesArraysList validate(ArrayTypeMatchesArraysListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayTypeMatchesArrays1.class, arg, configuration);
         }
     }}

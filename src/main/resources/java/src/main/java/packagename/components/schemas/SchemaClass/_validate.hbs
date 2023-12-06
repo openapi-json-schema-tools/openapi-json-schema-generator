@@ -24,7 +24,7 @@ public static FrozenMap<String, Object> validate(Map<String, Object> arg, Schema
         {{/eq}}
         {{#eq this "array"}}
             {{#if ../arrayOutputJsonPathPiece}}
-public static {{../arrayOutputJsonPathPiece.camelCase}} validate(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
+public static {{../arrayOutputJsonPathPiece.camelCase}} validate({{../arrayInputJsonPathPiece.camelCase}} arg, SchemaConfiguration configuration) throws ValidationException {
     return JsonSchema.validateList({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
             {{else}}
@@ -183,7 +183,7 @@ public static FrozenMap<String, Object> validate(Map<String, Object> arg, Schema
     {{/if}}
 
     {{#if arrayOutputJsonPathPiece}}
-public static {{../arrayOutputJsonPathPiece.camelCase}} validate({{../arrayInputJsonPathPiece.camelCase}} arg, SchemaConfiguration configuration) throws ValidationException {
+public static {{arrayOutputJsonPathPiece.camelCase}} validate({{arrayInputJsonPathPiece.camelCase}} arg, SchemaConfiguration configuration) throws ValidationException {
     return JsonSchema.validateList({{#if includeContainer}}{{containerJsonPathPiece.camelCase}}.{{/if}}{{jsonPathPiece.camelCase}}.class, arg, configuration);
 }
     {{else}}

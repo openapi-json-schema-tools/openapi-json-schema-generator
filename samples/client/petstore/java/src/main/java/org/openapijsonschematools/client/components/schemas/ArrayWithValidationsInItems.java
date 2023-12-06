@@ -56,7 +56,7 @@ public class ArrayWithValidationsInItems {
         }
     }
     
-    public static interface ArrayWithValidationsInItemsListInput extends List<Long> {}
+    public interface ArrayWithValidationsInItemsListInput extends List<Long> {}
     
     
     public static class ArrayWithValidationsInItems1 extends JsonSchema {
@@ -75,7 +75,7 @@ public class ArrayWithValidationsInItems {
         protected static ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ArrayWithValidationsInItemsList(arg);
         }
-        public static ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithValidationsInItemsList validate(ArrayWithValidationsInItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayWithValidationsInItems1.class, arg, configuration);
         }
     }}

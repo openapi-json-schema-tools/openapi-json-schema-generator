@@ -25,7 +25,7 @@ public class AnimalFarm {
         }
     }
     
-    public static interface AnimalFarmListInput extends List<Map<String, Object>> {}
+    public interface AnimalFarmListInput extends List<Map<String, Object>> {}
     
     
     public static class AnimalFarm1 extends JsonSchema {
@@ -43,7 +43,7 @@ public class AnimalFarm {
         protected static AnimalFarmList getListOutputInstance(FrozenList<Animal.AnimalMap> arg) {
             return new AnimalFarmList(arg);
         }
-        public static AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AnimalFarmList validate(AnimalFarmListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(AnimalFarm1.class, arg, configuration);
         }
     }}

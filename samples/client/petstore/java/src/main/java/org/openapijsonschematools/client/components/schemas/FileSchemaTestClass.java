@@ -28,7 +28,7 @@ public class FileSchemaTestClass {
         }
     }
     
-    public static interface FilesListInput extends List<Map<String, Object>> {}
+    public interface FilesListInput extends List<Map<String, Object>> {}
     
     
     public static class Files extends JsonSchema {
@@ -40,7 +40,7 @@ public class FileSchemaTestClass {
         protected static FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
             return new FilesList(arg);
         }
-        public static FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList validate(FilesListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Files.class, arg, configuration);
         }
     }    
