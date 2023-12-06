@@ -2,12 +2,17 @@
 org.openapijsonschematools.client.components.schemas.RefInItems.java
 public class RefInItems
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
+| static class | [RefInItems.RefInItemsListInput](#refinitemslistinput)<br> input class for List payloads |
 | static class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
 
 ## RefInItems1
@@ -50,6 +55,17 @@ RefInItems.RefInItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | static [RefInItemsList](#refinitemslist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## RefInItemsListInput
+public interface RefInItemsListInput<br>
+extends `List<Object>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
+
 ## RefInItemsList
 public class RefInItemsList<br>
 extends `FrozenList<Object>`
@@ -60,13 +76,5 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [RefInItemsList](#refinitemslist) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

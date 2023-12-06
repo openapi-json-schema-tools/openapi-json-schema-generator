@@ -24,10 +24,12 @@ public class ArrayTypeMatchesArrays {
         ArrayTypeMatchesArraysList(FrozenList<Object> m) {
             super(m);
         }
-        public static ArrayTypeMatchesArraysList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayTypeMatchesArraysList of(ArrayTypeMatchesArraysListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayTypeMatchesArrays1.validate(arg, configuration);
         }
     }
+    
+    public static interface ArrayTypeMatchesArraysListInput extends List<Object> {}
     
     
     public static class ArrayTypeMatchesArrays1 extends JsonSchema {

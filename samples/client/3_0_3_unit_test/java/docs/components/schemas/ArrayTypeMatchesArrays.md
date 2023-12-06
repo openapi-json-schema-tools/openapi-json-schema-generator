@@ -2,12 +2,17 @@
 org.openapijsonschematools.client.components.schemas.ArrayTypeMatchesArrays.java
 public class ArrayTypeMatchesArrays
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1](#arraytypematchesarrays1)<br> schema class |
+| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListInput](#arraytypematchesarrayslistinput)<br> input class for List payloads |
 | static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList](#arraytypematchesarrayslist)<br> output class for List payloads |
 | static class | [ArrayTypeMatchesArrays.Items](#items)<br> schema class |
 
@@ -51,6 +56,17 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## ArrayTypeMatchesArraysListInput
+public interface ArrayTypeMatchesArraysListInput<br>
+extends `List<Object>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
+
 ## ArrayTypeMatchesArraysList
 public class ArrayTypeMatchesArraysList<br>
 extends `FrozenList<Object>`
@@ -61,14 +77,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
 
 ## Items
 public static class Items<br>

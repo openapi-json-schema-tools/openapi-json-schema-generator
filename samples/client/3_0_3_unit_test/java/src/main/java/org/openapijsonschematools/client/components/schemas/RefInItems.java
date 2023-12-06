@@ -20,10 +20,12 @@ public class RefInItems {
         RefInItemsList(FrozenList<Object> m) {
             super(m);
         }
-        public static RefInItemsList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static RefInItemsList of(RefInItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
             return RefInItems1.validate(arg, configuration);
         }
     }
+    
+    public static interface RefInItemsListInput extends List<Object> {}
     
     
     public static class RefInItems1 extends JsonSchema {

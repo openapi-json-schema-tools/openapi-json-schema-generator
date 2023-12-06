@@ -2,18 +2,26 @@
 org.openapijsonschematools.client.components.schemas.NestedItems.java
 public class NestedItems
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to store list input interfaces, extends List
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NestedItems.NestedItems1](#nesteditems1)<br> schema class |
+| static class | [NestedItems.NestedItemsListInput](#nesteditemslistinput)<br> input class for List payloads |
 | static class | [NestedItems.NestedItemsList](#nesteditemslist)<br> output class for List payloads |
 | static class | [NestedItems.Items](#items)<br> schema class |
+| static class | [NestedItems.ItemsListInput2](#itemslistinput2)<br> input class for List payloads |
 | static class | [NestedItems.ItemsList2](#itemslist2)<br> output class for List payloads |
 | static class | [NestedItems.Items1](#items1)<br> schema class |
+| static class | [NestedItems.ItemsListInput1](#itemslistinput1)<br> input class for List payloads |
 | static class | [NestedItems.ItemsList1](#itemslist1)<br> output class for List payloads |
 | static class | [NestedItems.Items2](#items2)<br> schema class |
+| static class | [NestedItems.ItemsListInput](#itemslistinput)<br> input class for List payloads |
 | static class | [NestedItems.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [NestedItems.Items3](#items3)<br> schema class |
 
@@ -64,6 +72,17 @@ NestedItems.NestedItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | static [NestedItemsList](#nesteditemslist) | validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) |
 
+## NestedItemsListInput
+public interface NestedItemsListInput<br>
+extends `List<List<List<List<Number>>>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<List<List<Number>>> |  |
+
 ## NestedItemsList
 public class NestedItemsList<br>
 extends `FrozenList<ItemsList2>`
@@ -74,14 +93,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [NestedItemsList](#nesteditemslist) | of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<List<List<Number>>>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<List<List<Number>>> |  |
 
 ## Items
 public static class Items<br>
@@ -128,6 +139,17 @@ NestedItems.ItemsList2 validatedPayload =
 | ----------------- | ---------------------- |
 | static [ItemsList2](#itemslist2) | validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) |
 
+## ItemsListInput2
+public interface ItemsListInput2<br>
+extends `List<List<List<Number>>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<List<Number>> |  |
+
 ## ItemsList2
 public class ItemsList2<br>
 extends `FrozenList<ItemsList1>`
@@ -138,14 +160,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList2](#itemslist2) | of(List<List<List<Number>>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<List<Number>>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<List<Number>> |  |
 
 ## Items1
 public static class Items1<br>
@@ -190,6 +204,17 @@ NestedItems.ItemsList1 validatedPayload =
 | ----------------- | ---------------------- |
 | static [ItemsList1](#itemslist1) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
 
+## ItemsListInput1
+public interface ItemsListInput1<br>
+extends `List<List<Number>>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Number> |  |
+
 ## ItemsList1
 public class ItemsList1<br>
 extends `FrozenList<ItemsList>`
@@ -200,14 +225,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList1](#itemslist1) | of(List<List<Number>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<Number>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Number> |  |
 
 ## Items2
 public static class Items2<br>
@@ -250,6 +267,17 @@ NestedItems.ItemsList validatedPayload =
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
 
+## ItemsListInput
+public interface ItemsListInput<br>
+extends `List<Number>`
+
+A class that describes the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Number |  |
+
 ## ItemsList
 public class ItemsList<br>
 extends `FrozenList<Number>`
@@ -260,14 +288,6 @@ A class to store validated List payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ItemsList](#itemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Number>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
 
 ## Items3
 public static class Items3<br>
