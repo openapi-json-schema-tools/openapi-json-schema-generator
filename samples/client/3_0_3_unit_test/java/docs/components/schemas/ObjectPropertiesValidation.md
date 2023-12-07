@@ -39,7 +39,7 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<String, Object>](#objectpropertiesvalidationdictinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectPropertiesValidationDictInput

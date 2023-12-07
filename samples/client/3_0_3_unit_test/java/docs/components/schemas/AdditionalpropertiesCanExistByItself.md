@@ -55,7 +55,7 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate([Map<String, Boolean>](#additionalpropertiescanexistbyitselfdictinput) arg, SchemaConfiguration configuration) |
 
 ## AdditionalpropertiesCanExistByItselfDictInput
 public class AdditionalpropertiesCanExistByItselfDictInput<br>

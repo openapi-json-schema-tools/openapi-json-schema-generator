@@ -64,7 +64,7 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<String, Object>](#enumsinpropertiesdictinput) arg, SchemaConfiguration configuration) |
 
 ## EnumsInPropertiesDictInput
 public class EnumsInPropertiesDictInput<br>

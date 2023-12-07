@@ -59,7 +59,7 @@ TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate([Map<String, Object>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingdictinput) arg, SchemaConfiguration configuration) |
 
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput
 public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput<br>

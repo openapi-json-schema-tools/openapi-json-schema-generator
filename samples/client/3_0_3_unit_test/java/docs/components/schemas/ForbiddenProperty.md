@@ -38,7 +38,7 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ForbiddenPropertyMap](#forbiddenpropertymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<String, Object>](#forbiddenpropertydictinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ForbiddenPropertyDictInput

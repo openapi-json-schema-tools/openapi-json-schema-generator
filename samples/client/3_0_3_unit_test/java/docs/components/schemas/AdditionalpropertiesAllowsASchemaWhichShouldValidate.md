@@ -57,7 +57,7 @@ AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsA
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<String, Object>](#additionalpropertiesallowsaschemawhichshouldvalidatedictinput) arg, SchemaConfiguration configuration) |
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput
 public class AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput<br>

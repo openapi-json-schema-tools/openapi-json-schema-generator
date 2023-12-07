@@ -54,7 +54,7 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<String, Object>](#refinadditionalpropertiesdictinput) arg, SchemaConfiguration configuration) |
 
 ## RefInAdditionalpropertiesDictInput
 public class RefInAdditionalpropertiesDictInput<br>

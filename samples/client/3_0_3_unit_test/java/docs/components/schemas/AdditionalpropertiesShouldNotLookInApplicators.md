@@ -42,7 +42,7 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [AdditionalpropertiesShouldNotLookInApplicatorsMap](#additionalpropertiesshouldnotlookinapplicatorsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesShouldNotLookInApplicatorsMap](#additionalpropertiesshouldnotlookinapplicatorsmap) | validate([Map<String, Boolean>](#additionalpropertiesshouldnotlookinapplicatorsdictinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsDictInput
@@ -89,7 +89,7 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema0Map](#schema0map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | validate([Map<String, Object>](#schema0dictinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0DictInput

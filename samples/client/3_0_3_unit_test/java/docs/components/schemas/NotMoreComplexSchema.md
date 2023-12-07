@@ -84,7 +84,7 @@ NotMoreComplexSchema.NotMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NotMap](#notmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NotMap](#notmap) | validate([Map<String, Object>](#notdictinput) arg, SchemaConfiguration configuration) |
 
 ## NotDictInput
 public class NotDictInput<br>
