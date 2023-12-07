@@ -54,7 +54,7 @@ public class UniqueitemsValidationTest {
 
     @Test
     public void testATrueAndA1AreUniquePasses() {
-        // {&quot;a&quot;: true} and {&quot;a&quot;: 1} are unique
+        // {\\\&quot;a\\\&quot;: true} and {\\\&quot;a\\\&quot;: 1} are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -175,7 +175,7 @@ public class UniqueitemsValidationTest {
 
     @Test
     public void testAFalseAndA0AreUniquePasses() {
-        // {&quot;a&quot;: false} and {&quot;a&quot;: 0} are unique
+        // {\\\&quot;a\\\&quot;: false} and {\\\&quot;a\\\&quot;: 0} are unique
         UniqueitemsValidation.UniqueitemsValidation1.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -280,8 +280,8 @@ public class UniqueitemsValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             UniqueitemsValidation.UniqueitemsValidation1.class,
             Arrays.asList(
-                1.0,
-                1.0,
+                1.0d,
+                1.0d,
                 1
             ),
             configuration

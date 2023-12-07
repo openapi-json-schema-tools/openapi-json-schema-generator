@@ -19,7 +19,7 @@ public class NumberTypeMatchesNumbersTest {
     public void testAFloatIsANumberPasses() {
         // a float is a number
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
-            1.1,
+            1.1d,
             configuration
         );
     }
@@ -57,7 +57,7 @@ public class NumberTypeMatchesNumbersTest {
     public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() {
         // a float with zero fractional part is a number (and an integer)
         NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
-            1.0,
+            1.0d,
             configuration
         );
     }

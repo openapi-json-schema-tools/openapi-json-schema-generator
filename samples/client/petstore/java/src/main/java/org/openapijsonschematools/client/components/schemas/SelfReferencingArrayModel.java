@@ -25,6 +25,10 @@ public class SelfReferencingArrayModel {
         }
     }
     
+    public interface SelfReferencingArrayModelListInput {
+        // class to build List<List>
+    }
+    
     
     public static class SelfReferencingArrayModel1 extends JsonSchema {
         /*

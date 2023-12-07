@@ -20,7 +20,7 @@ public class BooleanTypeMatchesBooleansTest {
         // a float is not a boolean
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.class,
-            1.1,
+            1.1d,
             configuration
         ));
     }

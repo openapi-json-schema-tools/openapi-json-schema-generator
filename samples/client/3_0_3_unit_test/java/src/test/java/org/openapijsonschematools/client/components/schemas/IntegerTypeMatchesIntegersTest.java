@@ -51,7 +51,7 @@ public class IntegerTypeMatchesIntegersTest {
     public void testAFloatWithZeroFractionalPartIsAnIntegerPasses() {
         // a float with zero fractional part is an integer
         IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.validate(
-            1.0,
+            1.0d,
             configuration
         );
     }
@@ -100,7 +100,7 @@ public class IntegerTypeMatchesIntegersTest {
         // a float is not an integer
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class,
-            1.1,
+            1.1d,
             configuration
         ));
     }

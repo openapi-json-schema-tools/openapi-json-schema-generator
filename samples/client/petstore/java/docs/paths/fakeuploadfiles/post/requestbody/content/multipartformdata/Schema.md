@@ -2,7 +2,11 @@
 org.openapijsonschematools.client.paths.fakeuploadfiles.post.requestbody.content.multipartformdata.Schema.java
 public class Schema
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,6 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Schema.Schema1](#schema1)<br> schema class |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.Files](#files)<br> schema class |
+| static class | [Schema.FilesListInput](#fileslistinput)<br> builder for List payloads |
 | static class | [Schema.FilesList](#fileslist)<br> output class for List payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 
@@ -120,7 +125,18 @@ Schema.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | validate([List<String>](#fileslistinput) arg, SchemaConfiguration configuration) |
+
+## FilesListInput
+public class FilesListInput<br>
+builder for `List<String>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
 
 ## FilesList
 public class FilesList<br>
@@ -131,15 +147,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+| static [FilesList](#fileslist) | of([List<String>](#fileslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

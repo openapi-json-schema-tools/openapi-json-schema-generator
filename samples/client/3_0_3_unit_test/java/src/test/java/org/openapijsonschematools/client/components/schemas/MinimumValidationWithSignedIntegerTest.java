@@ -19,7 +19,7 @@ public class MinimumValidationWithSignedIntegerTest {
     public void testBoundaryPointWithFloatIsValidPasses() {
         // boundary point with float is valid
         MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
-            -2.0,
+            -2.0d,
             configuration
         );
     }
@@ -75,7 +75,7 @@ public class MinimumValidationWithSignedIntegerTest {
         // float below the minimum is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class,
-            -2.0001,
+            -2.0001d,
             configuration
         ));
     }

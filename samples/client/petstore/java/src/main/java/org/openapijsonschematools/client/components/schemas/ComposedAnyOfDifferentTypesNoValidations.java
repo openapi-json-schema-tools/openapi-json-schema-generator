@@ -75,6 +75,10 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }
     
+    public interface Schema9ListInput {
+        // class to build List<Object>
+    }
+    
     
     public static class Schema9 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

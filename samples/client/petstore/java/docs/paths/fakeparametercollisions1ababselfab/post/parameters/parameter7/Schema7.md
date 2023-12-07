@@ -2,7 +2,11 @@
 org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfab.post.parameters.parameter7.Schema7.java
 public class Schema7
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |

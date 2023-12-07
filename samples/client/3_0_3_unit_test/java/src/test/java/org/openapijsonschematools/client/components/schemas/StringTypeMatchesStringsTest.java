@@ -99,7 +99,7 @@ public class StringTypeMatchesStringsTest {
         // a float is not a string
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             StringTypeMatchesStrings.StringTypeMatchesStrings1.class,
-            1.1,
+            1.1d,
             configuration
         ));
     }

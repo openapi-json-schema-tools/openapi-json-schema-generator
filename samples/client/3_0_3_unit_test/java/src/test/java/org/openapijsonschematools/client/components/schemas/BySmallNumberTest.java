@@ -20,7 +20,7 @@ public class BySmallNumberTest {
         // 0.00751 is not multiple of 0.0001
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             BySmallNumber.BySmallNumber1.class,
-            0.00751,
+            0.00751d,
             configuration
         ));
     }
@@ -29,7 +29,7 @@ public class BySmallNumberTest {
     public void test00075IsMultipleOf00001Passes() {
         // 0.0075 is multiple of 0.0001
         BySmallNumber.BySmallNumber1.validate(
-            0.0075,
+            0.0075d,
             configuration
         );
     }

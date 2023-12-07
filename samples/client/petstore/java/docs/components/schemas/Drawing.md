@@ -2,7 +2,11 @@
 org.openapijsonschematools.client.components.schemas.Drawing.java
 public class Drawing
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,6 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
+| static class | [Drawing.ShapesListInput](#shapeslistinput)<br> builder for List payloads |
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
 
 ## Drawing1
@@ -123,7 +128,18 @@ Drawing.ShapesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | validate([List<Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
+
+## ShapesListInput
+public class ShapesListInput<br>
+builder for `List<Object>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
 
 ## ShapesList
 public class ShapesList<br>
@@ -134,14 +150,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
+| static [ShapesList](#shapeslist) | of([List<Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

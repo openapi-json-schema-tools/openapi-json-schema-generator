@@ -2,12 +2,17 @@
 org.openapijsonschematools.client.components.schemas.RefInItems.java
 public class RefInItems
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
+| static class | [RefInItems.RefInItemsListInput](#refinitemslistinput)<br> builder for List payloads |
 | static class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
 
 ## RefInItems1
@@ -48,7 +53,18 @@ RefInItems.RefInItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInItemsList](#refinitemslist) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [RefInItemsList](#refinitemslist) | validate([List<Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
+
+## RefInItemsListInput
+public class RefInItemsListInput<br>
+builder for `List<Object>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
 
 ## RefInItemsList
 public class RefInItemsList<br>
@@ -59,14 +75,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInItemsList](#refinitemslist) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
+| static [RefInItemsList](#refinitemslist) | of([List<Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -661,6 +661,7 @@ public class CodegenSchema {
             extraSchema.instanceType = "arrayInputType";
             extraSchema.items = items;
             extraSchema.arrayInputJsonPathPiece = arrayInputJsonPathPiece;
+            extraSchema.jsonPath = jsonPath; // needed to prevent recursion when rendering template data type
             if (items.hasAnyRefs()) {
                 schemasAfterImports.add(extraSchema);
             } else {

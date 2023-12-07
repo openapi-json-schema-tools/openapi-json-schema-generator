@@ -12,7 +12,7 @@
 | static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
-| static [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=jsonPath forceNull=true }}{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
     {{/if}}
@@ -66,7 +66,7 @@
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if ../arrayOutputJsonPathPiece}}
-| static [{{../arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate(List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) |
+| static [{{../arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate([List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
                                 {{else}}
 | static FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
                                 {{/if}}

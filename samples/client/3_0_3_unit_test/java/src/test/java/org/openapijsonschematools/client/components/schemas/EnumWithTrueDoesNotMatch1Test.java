@@ -20,7 +20,7 @@ public class EnumWithTrueDoesNotMatch1Test {
         // float one is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.class,
-            1.0,
+            1.0d,
             configuration
         ));
     }

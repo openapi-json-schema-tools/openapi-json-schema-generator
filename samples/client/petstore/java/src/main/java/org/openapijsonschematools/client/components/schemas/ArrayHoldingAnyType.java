@@ -29,6 +29,10 @@ public class ArrayHoldingAnyType {
         }
     }
     
+    public interface ArrayHoldingAnyTypeListInput {
+        // class to build List<Object>
+    }
+    
     
     public static class ArrayHoldingAnyType1 extends JsonSchema {
         /*

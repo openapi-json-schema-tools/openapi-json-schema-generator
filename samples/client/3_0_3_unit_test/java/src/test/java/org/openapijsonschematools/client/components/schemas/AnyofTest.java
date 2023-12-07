@@ -29,7 +29,7 @@ public class AnyofTest {
         // neither anyOf valid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Anyof.Anyof1.class,
-            1.5,
+            1.5d,
             configuration
         ));
     }
@@ -47,7 +47,7 @@ public class AnyofTest {
     public void testSecondAnyofValidPasses() {
         // second anyOf valid
         Anyof.Anyof1.validate(
-            2.5,
+            2.5d,
             configuration
         );
     }

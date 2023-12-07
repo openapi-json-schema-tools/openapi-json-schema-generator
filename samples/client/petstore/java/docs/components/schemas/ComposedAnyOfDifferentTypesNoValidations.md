@@ -2,7 +2,11 @@
 org.openapijsonschematools.client.components.schemas.ComposedAnyOfDifferentTypesNoValidations.java
 public class ComposedAnyOfDifferentTypesNoValidations
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -15,6 +19,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema11](#schema11)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema10](#schema10)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9](#schema9)<br> schema class |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9ListInput](#schema9listinput)<br> builder for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9List](#schema9list)<br> output class for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Items](#items)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema8](#schema8)<br> schema class |
@@ -149,7 +154,18 @@ ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | validate([List<Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
+
+## Schema9ListInput
+public class Schema9ListInput<br>
+builder for `List<Object>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
 
 ## Schema9List
 public class Schema9List<br>
@@ -160,15 +176,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
+| static [Schema9List](#schema9list) | of([List<Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

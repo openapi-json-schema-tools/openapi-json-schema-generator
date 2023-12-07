@@ -44,6 +44,10 @@ public class Schema {
         }
     }
     
+    public interface EnumFormStringArrayListInput {
+        // class to build List<String>
+    }
+    
     
     public static class EnumFormStringArray extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

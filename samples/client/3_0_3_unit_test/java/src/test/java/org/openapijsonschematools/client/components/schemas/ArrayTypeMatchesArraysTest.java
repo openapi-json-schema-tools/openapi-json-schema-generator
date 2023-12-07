@@ -30,7 +30,7 @@ public class ArrayTypeMatchesArraysTest {
         // a float is not an array
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
-            1.1,
+            1.1d,
             configuration
         ));
     }

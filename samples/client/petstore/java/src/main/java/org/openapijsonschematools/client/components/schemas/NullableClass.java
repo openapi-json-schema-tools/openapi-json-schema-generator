@@ -173,6 +173,10 @@ public class NullableClass {
         }
     }
     
+    public interface ArrayNullablePropListInput {
+        // class to build List<Map<String, Object>>
+    }
+    
     
     public static class ArrayNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -218,6 +222,10 @@ public class NullableClass {
         }
     }
     
+    public interface ArrayAndItemsNullablePropListInput {
+        // class to build List<Map<String, Object>>
+    }
+    
     
     public static class ArrayAndItemsNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -261,6 +269,10 @@ public class NullableClass {
         public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayItemsNullable.validate(arg, configuration);
         }
+    }
+    
+    public interface ArrayItemsNullableListInput {
+        // class to build List<Map<String, Object>>
     }
     
     

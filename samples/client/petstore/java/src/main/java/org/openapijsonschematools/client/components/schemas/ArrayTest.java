@@ -33,6 +33,10 @@ public class ArrayTest {
         }
     }
     
+    public interface ArrayOfStringListInput {
+        // class to build List<String>
+    }
+    
     
     public static class ArrayOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -60,6 +64,10 @@ public class ArrayTest {
         }
     }
     
+    public interface ItemsListInput {
+        // class to build List<Long>
+    }
+    
     
     public static class Items1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -82,6 +90,10 @@ public class ArrayTest {
         public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayArrayOfInteger.validate(arg, configuration);
         }
+    }
+    
+    public interface ArrayArrayOfIntegerListInput {
+        // class to build List<List<Long>>
     }
     
     
@@ -108,6 +120,10 @@ public class ArrayTest {
         }
     }
     
+    public interface ItemsListInput1 {
+        // class to build List<Map<String, Object>>
+    }
+    
     
     public static class Items3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -130,6 +146,10 @@ public class ArrayTest {
         public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayArrayOfModel.validate(arg, configuration);
         }
+    }
+    
+    public interface ArrayArrayOfModelListInput {
+        // class to build List<List<Map<String, Object>>>
     }
     
     

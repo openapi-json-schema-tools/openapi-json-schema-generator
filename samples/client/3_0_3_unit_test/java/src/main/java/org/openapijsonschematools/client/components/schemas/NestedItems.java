@@ -29,6 +29,10 @@ public class NestedItems {
         }
     }
     
+    public interface ItemsListInput {
+        // class to build List<Number>
+    }
+    
     
     public static class Items2 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -51,6 +55,10 @@ public class NestedItems {
         public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items1.validate(arg, configuration);
         }
+    }
+    
+    public interface ItemsListInput1 {
+        // class to build List<List<Number>>
     }
     
     
@@ -77,6 +85,10 @@ public class NestedItems {
         }
     }
     
+    public interface ItemsListInput2 {
+        // class to build List<List<List<Number>>>
+    }
+    
     
     public static class Items extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -99,6 +111,10 @@ public class NestedItems {
         public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return NestedItems1.validate(arg, configuration);
         }
+    }
+    
+    public interface NestedItemsListInput {
+        // class to build List<List<List<List<Number>>>>
     }
     
     

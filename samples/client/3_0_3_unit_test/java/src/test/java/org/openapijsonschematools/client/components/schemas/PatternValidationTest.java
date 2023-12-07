@@ -28,7 +28,7 @@ public class PatternValidationTest {
     public void testIgnoresFloatsPasses() {
         // ignores floats
         PatternValidation.PatternValidation1.validate(
-            1.0,
+            1.0d,
             configuration
         );
     }

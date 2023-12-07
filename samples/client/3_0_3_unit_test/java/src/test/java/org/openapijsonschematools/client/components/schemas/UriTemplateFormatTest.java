@@ -47,7 +47,7 @@ public class UriTemplateFormatTest {
     public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
         UriTemplateFormat.UriTemplateFormat1.validate(
-            13.7,
+            13.7d,
             configuration
         );
     }

@@ -27,6 +27,10 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
     }
     
+    public interface AdditionalPropertiesListInput {
+        // class to build List<String>
+    }
+    
     
     public static class AdditionalProperties extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

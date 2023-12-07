@@ -29,6 +29,10 @@ public class ArrayTypeMatchesArrays {
         }
     }
     
+    public interface ArrayTypeMatchesArraysListInput {
+        // class to build List<Object>
+    }
+    
     
     public static class ArrayTypeMatchesArrays1 extends JsonSchema {
         /*

@@ -25,6 +25,10 @@ public class RefInItems {
         }
     }
     
+    public interface RefInItemsListInput {
+        // class to build List<Object>
+    }
+    
     
     public static class RefInItems1 extends JsonSchema {
         /*

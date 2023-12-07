@@ -47,7 +47,7 @@ public class JsonPointerFormatTest {
     public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
         JsonPointerFormat.JsonPointerFormat1.validate(
-            13.7,
+            13.7d,
             configuration
         );
     }

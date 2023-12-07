@@ -87,6 +87,10 @@ public class JSONPatchRequest {
         }
     }
     
+    public interface JSONPatchRequestListInput {
+        // class to build List<Object>
+    }
+    
     
     public static class JSONPatchRequest1 extends JsonSchema {
         /*

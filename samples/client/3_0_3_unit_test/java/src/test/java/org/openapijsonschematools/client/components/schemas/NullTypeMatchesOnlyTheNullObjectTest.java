@@ -111,7 +111,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
         // a float is not null
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class,
-            1.1,
+            1.1d,
             configuration
         ));
     }

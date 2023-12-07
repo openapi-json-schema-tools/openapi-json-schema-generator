@@ -41,6 +41,10 @@ public class Pet {
         }
     }
     
+    public interface PhotoUrlsListInput {
+        // class to build List<String>
+    }
+    
     
     public static class PhotoUrls extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -79,6 +83,10 @@ public class Pet {
         public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Tags.validate(arg, configuration);
         }
+    }
+    
+    public interface TagsListInput {
+        // class to build List<Map<String, Object>>
     }
     
     

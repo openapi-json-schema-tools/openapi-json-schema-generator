@@ -2,18 +2,26 @@
 org.openapijsonschematools.client.components.schemas.NestedItems.java
 public class NestedItems
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NestedItems.NestedItems1](#nesteditems1)<br> schema class |
+| static class | [NestedItems.NestedItemsListInput](#nesteditemslistinput)<br> builder for List payloads |
 | static class | [NestedItems.NestedItemsList](#nesteditemslist)<br> output class for List payloads |
 | static class | [NestedItems.Items](#items)<br> schema class |
+| static class | [NestedItems.ItemsListInput2](#itemslistinput2)<br> builder for List payloads |
 | static class | [NestedItems.ItemsList2](#itemslist2)<br> output class for List payloads |
 | static class | [NestedItems.Items1](#items1)<br> schema class |
+| static class | [NestedItems.ItemsListInput1](#itemslistinput1)<br> builder for List payloads |
 | static class | [NestedItems.ItemsList1](#itemslist1)<br> output class for List payloads |
 | static class | [NestedItems.Items2](#items2)<br> schema class |
+| static class | [NestedItems.ItemsListInput](#itemslistinput)<br> builder for List payloads |
 | static class | [NestedItems.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [NestedItems.Items3](#items3)<br> schema class |
 
@@ -62,7 +70,18 @@ NestedItems.NestedItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NestedItemsList](#nesteditemslist) | validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) |
+| static [NestedItemsList](#nesteditemslist) | validate([List<List<List<List<Number>>>>](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
+
+## NestedItemsListInput
+public class NestedItemsListInput<br>
+builder for `List<List<List<List<Number>>>>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<List<List<Number>>> |  |
 
 ## NestedItemsList
 public class NestedItemsList<br>
@@ -73,15 +92,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NestedItemsList](#nesteditemslist) | of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<List<List<Number>>>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<List<List<Number>>> |  |
+| static [NestedItemsList](#nesteditemslist) | of([List<List<List<List<Number>>>>](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
@@ -126,7 +137,18 @@ NestedItems.ItemsList2 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList2](#itemslist2) | validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) |
+| static [ItemsList2](#itemslist2) | validate([List<List<List<Number>>>](#itemslistinput2) arg, SchemaConfiguration configuration) |
+
+## ItemsListInput2
+public class ItemsListInput2<br>
+builder for `List<List<List<Number>>>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<List<Number>> |  |
 
 ## ItemsList2
 public class ItemsList2<br>
@@ -137,15 +159,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList2](#itemslist2) | of(List<List<List<Number>>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<List<Number>>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<List<Number>> |  |
+| static [ItemsList2](#itemslist2) | of([List<List<List<Number>>>](#itemslistinput2) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>
@@ -188,7 +202,18 @@ NestedItems.ItemsList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | validate([List<List<Number>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
+
+## ItemsListInput1
+public class ItemsListInput1<br>
+builder for `List<List<Number>>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Number> |  |
 
 ## ItemsList1
 public class ItemsList1<br>
@@ -199,15 +224,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | of(List<List<Number>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<Number>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Number> |  |
+| static [ItemsList1](#itemslist1) | of([List<List<Number>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>
@@ -248,7 +265,18 @@ NestedItems.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
+
+## ItemsListInput
+public class ItemsListInput<br>
+builder for `List<Number>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Number |  |
 
 ## ItemsList
 public class ItemsList<br>
@@ -259,15 +287,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Number>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
+| static [ItemsList](#itemslist) | of([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items3
 public static class Items3<br>

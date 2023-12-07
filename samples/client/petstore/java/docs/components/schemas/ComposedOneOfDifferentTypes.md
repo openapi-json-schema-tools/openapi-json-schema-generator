@@ -2,7 +2,11 @@
 org.openapijsonschematools.client.components.schemas.ComposedOneOfDifferentTypes.java
 public class ComposedOneOfDifferentTypes
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,6 +14,7 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](#composedoneofdifferenttypes1)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema6](#schema6)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema5](#schema5)<br> schema class |
+| static class | [ComposedOneOfDifferentTypes.Schema5ListInput](#schema5listinput)<br> builder for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema5List](#schema5list)<br> output class for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Items](#items)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema4](#schema4)<br> schema class |
@@ -119,7 +124,18 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | validate([List<Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
+
+## Schema5ListInput
+public class Schema5ListInput<br>
+builder for `List<Object>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Object |  |
 
 ## Schema5List
 public class Schema5List<br>
@@ -130,15 +146,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | of(List<Object> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Object>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Object |  |
+| static [Schema5List](#schema5list) | of([List<Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -2,7 +2,11 @@
 org.openapijsonschematools.client.components.schemas.Pet.java
 public class Pet
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,9 +14,11 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [Pet.Pet1](#pet1)<br> schema class |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
 | static class | [Pet.Tags](#tags)<br> schema class |
+| static class | [Pet.TagsListInput](#tagslistinput)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
 | static class | [Pet.Status](#status)<br> schema class |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
+| static class | [Pet.PhotoUrlsListInput](#photourlslistinput)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
 | static class | [Pet.Items](#items)<br> schema class |
 | static class | [Pet.Name](#name)<br> schema class |
@@ -183,7 +189,18 @@ Pet.TagsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | validate([List<Map<String, Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
+
+## TagsListInput
+public class TagsListInput<br>
+builder for `List<Map<String, Object>>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Map<String, Object> |  |
 
 ## TagsList
 public class TagsList<br>
@@ -194,15 +211,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | of(List<Map<String, Object>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Map<String, Object>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Map<String, Object> |  |
+| static [TagsList](#tagslist) | of([List<Map<String, Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
 
 ## Status
 public static class Status<br>
@@ -284,7 +293,18 @@ Pet.PhotoUrlsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | validate([List<String>](#photourlslistinput) arg, SchemaConfiguration configuration) |
+
+## PhotoUrlsListInput
+public class PhotoUrlsListInput<br>
+builder for `List<String>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
 
 ## PhotoUrlsList
 public class PhotoUrlsList<br>
@@ -295,15 +315,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+| static [PhotoUrlsList](#photourlslist) | of([List<String>](#photourlslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

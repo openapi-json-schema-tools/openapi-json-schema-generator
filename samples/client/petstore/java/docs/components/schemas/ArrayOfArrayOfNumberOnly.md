@@ -2,7 +2,11 @@
 org.openapijsonschematools.client.components.schemas.ArrayOfArrayOfNumberOnly.java
 public class ArrayOfArrayOfNumberOnly
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -10,8 +14,10 @@ A class that contains necessary nested schema classes, and classes to store vali
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1](#arrayofarrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap)<br> output class for Map payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumber](#arrayarraynumber)<br> schema class |
+| static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberListInput](#arrayarraynumberlistinput)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberList](#arrayarraynumberlist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items](#items)<br> schema class |
+| static class | [ArrayOfArrayOfNumberOnly.ItemsListInput](#itemslistinput)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items1](#items1)<br> schema class |
 
@@ -126,7 +132,18 @@ ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayNumberList](#arrayarraynumberlist) | validate(List<List<Number>> arg, SchemaConfiguration configuration) |
+| static [ArrayArrayNumberList](#arrayarraynumberlist) | validate([List<List<Number>>](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
+
+## ArrayArrayNumberListInput
+public class ArrayArrayNumberListInput<br>
+builder for `List<List<Number>>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+List<Number> |  |
 
 ## ArrayArrayNumberList
 public class ArrayArrayNumberList<br>
@@ -137,15 +154,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayNumberList](#arrayarraynumberlist) | of(List<List<Number>> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<List<Number>>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Number> |  |
+| static [ArrayArrayNumberList](#arrayarraynumberlist) | of([List<List<Number>>](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
@@ -186,7 +195,18 @@ ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate(List<Number> arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
+
+## ItemsListInput
+public class ItemsListInput<br>
+builder for `List<Number>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+Number |  |
 
 ## ItemsList
 public class ItemsList<br>
@@ -197,15 +217,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of(List<Number> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<Number>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
+| static [ItemsList](#itemslist) | of([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>

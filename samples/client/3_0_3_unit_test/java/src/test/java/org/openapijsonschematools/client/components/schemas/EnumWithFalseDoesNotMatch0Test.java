@@ -20,7 +20,7 @@ public class EnumWithFalseDoesNotMatch0Test {
         // float zero is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch01.class,
-            0.0,
+            0.0d,
             configuration
         ));
     }

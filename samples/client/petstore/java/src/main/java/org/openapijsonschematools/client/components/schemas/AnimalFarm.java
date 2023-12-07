@@ -25,6 +25,10 @@ public class AnimalFarm {
         }
     }
     
+    public interface AnimalFarmListInput {
+        // class to build List<Map<String, Object>>
+    }
+    
     
     public static class AnimalFarm1 extends JsonSchema {
         /*

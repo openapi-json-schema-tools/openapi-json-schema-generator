@@ -2,12 +2,17 @@
 org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.parameter1.Schema1.java
 public class Schema1
 
-A class that contains necessary nested schema classes, and classes to store validated list and map payloads
+A class that contains necessary nested
+- schema classes (which validate payloads), extends JsonSchema
+- classes to store validated list payloads, extends FrozenList
+- classes to store validated map payloads, extends FrozenMap
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
+| static class | [Schema1.SchemaListInput1](#schemalistinput1)<br> builder for List payloads |
 | static class | [Schema1.SchemaList1](#schemalist1)<br> output class for List payloads |
 | static class | [Schema1.Items1](#items1)<br> schema class |
 
@@ -50,7 +55,18 @@ Schema1.SchemaList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList1](#schemalist1) | validate(List<String> arg, SchemaConfiguration configuration) |
+| static [SchemaList1](#schemalist1) | validate([List<String>](#schemalistinput1) arg, SchemaConfiguration configuration) |
+
+## SchemaListInput1
+public class SchemaListInput1<br>
+builder for `List<String>`
+
+A class that builds the List input type
+
+## Input List Items
+List Item Type | Description | Notes
+-------------------- | ------------- | -------------
+String |  |
 
 ## SchemaList1
 public class SchemaList1<br>
@@ -61,15 +77,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList1](#schemalist1) | of(List<String> arg, SchemaConfiguration configuration) |
-
-## Input List Items
-```
-type: List<String>
-```
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-String |  |
+| static [SchemaList1](#schemalist1) | of([List<String>](#schemalistinput1) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>

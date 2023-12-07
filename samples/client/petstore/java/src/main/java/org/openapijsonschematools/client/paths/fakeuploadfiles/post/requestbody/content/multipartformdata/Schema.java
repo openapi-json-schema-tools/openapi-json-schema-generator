@@ -33,6 +33,10 @@ public class Schema {
         }
     }
     
+    public interface FilesListInput {
+        // class to build List<String>
+    }
+    
     
     public static class Files extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
