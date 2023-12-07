@@ -72,7 +72,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | of([Map<String, Object>](#propertieswithescapedcharactersdictinput) arg, SchemaConfiguration configuration) |
 | Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["foo\nbar"], instance["foo\&quot;bar"], instance["foo\\bar"], instance["foo\rbar"], instance["foo\tbar"], instance["foo\fbar"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

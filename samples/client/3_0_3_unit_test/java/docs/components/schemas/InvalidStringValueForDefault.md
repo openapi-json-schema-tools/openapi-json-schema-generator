@@ -62,7 +62,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of([Map<String, Object>](#invalidstringvaluefordefaultdictinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] if omitted the server will use the default value of bad |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

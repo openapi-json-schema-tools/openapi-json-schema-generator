@@ -64,7 +64,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, Object>](#objectpropertiesvalidationdictinput) arg, SchemaConfiguration configuration) |
 | long | foo()<br>[optional] |
 | String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

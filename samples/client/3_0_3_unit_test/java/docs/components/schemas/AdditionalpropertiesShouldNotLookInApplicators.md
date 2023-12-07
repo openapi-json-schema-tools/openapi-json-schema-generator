@@ -65,7 +65,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesShouldNotLookInApplicatorsMap](#additionalpropertiesshouldnotlookinapplicatorsmap) | of(Map<String, Boolean> arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesShouldNotLookInApplicatorsMap](#additionalpropertiesshouldnotlookinapplicatorsmap) | of([Map<String, Boolean>](#additionalpropertiesshouldnotlookinapplicatorsdictinput) arg, SchemaConfiguration configuration) |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Schema0
@@ -113,7 +113,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0dictinput) arg, SchemaConfiguration configuration) |
 | Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

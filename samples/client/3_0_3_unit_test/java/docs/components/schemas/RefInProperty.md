@@ -61,7 +61,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInPropertyMap](#refinpropertymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [RefInPropertyMap](#refinpropertymap) | of([Map<String, Object>](#refinpropertydictinput) arg, SchemaConfiguration configuration) |
 | Object | a()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

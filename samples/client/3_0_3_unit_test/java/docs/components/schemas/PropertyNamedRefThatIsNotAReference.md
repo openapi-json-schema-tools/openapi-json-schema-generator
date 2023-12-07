@@ -62,7 +62,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | of([Map<String, Object>](#propertynamedrefthatisnotareferencedictinput) arg, SchemaConfiguration configuration) |
 | Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["$ref"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

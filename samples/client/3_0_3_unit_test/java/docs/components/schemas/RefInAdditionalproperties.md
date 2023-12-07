@@ -76,7 +76,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | of([Map<String, Object>](#refinadditionalpropertiesdictinput) arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

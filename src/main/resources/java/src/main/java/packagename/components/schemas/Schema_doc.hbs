@@ -87,7 +87,7 @@ A class to store validated Map payloads
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
+| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | of([Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
             {{#each requiredProperties}}
                 {{#if @key.isValid}}
 | {{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath useLink=true }} | {{@key.original}}()<br>{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
