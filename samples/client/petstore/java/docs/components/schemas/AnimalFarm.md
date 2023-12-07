@@ -85,6 +85,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalFarmList](#animalfarmlist) | of([AnimalFarmListInput](#animalfarmlistinput) arg, SchemaConfiguration configuration) |
+| static [AnimalFarmList](#animalfarmlist) | of([List<Map<String, Object>>](#animalfarmlistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

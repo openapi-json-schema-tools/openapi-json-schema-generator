@@ -154,7 +154,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayNumberList](#arrayarraynumberlist) | of([ArrayArrayNumberListInput](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayNumberList](#arrayarraynumberlist) | of([List<List<Number>>](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
@@ -217,7 +217,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>

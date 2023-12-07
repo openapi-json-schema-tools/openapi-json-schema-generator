@@ -75,6 +75,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of([SelfReferencingArrayModelListInput](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
+| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of([List<List>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

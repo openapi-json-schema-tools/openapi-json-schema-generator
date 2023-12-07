@@ -146,7 +146,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | of([Schema5ListInput](#schema5listinput) arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | of([List<Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

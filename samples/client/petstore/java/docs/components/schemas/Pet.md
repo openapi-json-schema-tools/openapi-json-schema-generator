@@ -211,7 +211,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | of([TagsListInput](#tagslistinput) arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | of([List<Map<String, Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
 
 ## Status
 public static class Status<br>
@@ -315,7 +315,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | of([PhotoUrlsListInput](#photourlslistinput) arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | of([List<String>](#photourlslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

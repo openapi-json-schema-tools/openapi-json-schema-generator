@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestList](#jsonpatchrequestlist) | of([JSONPatchRequestListInput](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | of([List<Object>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

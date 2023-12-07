@@ -154,7 +154,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayEnumList](#arrayenumlist) | of([ArrayEnumListInput](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayEnumList](#arrayenumlist) | of([List<String>](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -92,7 +92,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NestedItemsList](#nesteditemslist) | of([NestedItemsListInput](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
+| static [NestedItemsList](#nesteditemslist) | of([List<List<List<List<Number>>>>](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
@@ -159,7 +159,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList2](#itemslist2) | of([ItemsListInput2](#itemslistinput2) arg, SchemaConfiguration configuration) |
+| static [ItemsList2](#itemslist2) | of([List<List<List<Number>>>](#itemslistinput2) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>
@@ -224,7 +224,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | of([ItemsListInput1](#itemslistinput1) arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | of([List<List<Number>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>
@@ -287,7 +287,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items3
 public static class Items3<br>

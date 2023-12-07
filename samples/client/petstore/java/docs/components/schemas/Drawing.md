@@ -150,6 +150,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | of([ShapesListInput](#shapeslistinput) arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | of([List<Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -75,6 +75,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInItemsList](#refinitemslist) | of([RefInItemsListInput](#refinitemslistinput) arg, SchemaConfiguration configuration) |
+| static [RefInItemsList](#refinitemslist) | of([List<Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

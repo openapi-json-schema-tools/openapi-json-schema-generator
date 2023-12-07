@@ -119,4 +119,4 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList](#schemalist) | of([SchemaListInput](#schemalistinput) arg, SchemaConfiguration configuration) |
+| static [SchemaList](#schemalist) | of([List<Map<String, Object>>](#schemalistinput) arg, SchemaConfiguration configuration) |

@@ -176,7 +176,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | of([Schema9ListInput](#schema9listinput) arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | of([List<Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

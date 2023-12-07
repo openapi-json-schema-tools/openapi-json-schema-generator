@@ -501,7 +501,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([ArrayWithUniqueItemsListInput](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | of([List<Number>](#arraywithuniqueitemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([ArrayTypeMatchesArraysListInput](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([List<Object>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

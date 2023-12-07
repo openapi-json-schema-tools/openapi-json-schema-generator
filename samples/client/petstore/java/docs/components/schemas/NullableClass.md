@@ -520,7 +520,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayItemsNullableList](#arrayitemsnullablelist) | of([ArrayItemsNullableListInput](#arrayitemsnullablelistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayItemsNullableList](#arrayitemsnullablelist) | of([List<Map<String, Object>>](#arrayitemsnullablelistinput) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>
@@ -629,7 +629,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | of([ArrayAndItemsNullablePropListInput](#arrayanditemsnullableproplistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | of([List<Map<String, Object>>](#arrayanditemsnullableproplistinput) arg, SchemaConfiguration configuration) |
 
 ## Items1
 public static class Items1<br>
@@ -737,7 +737,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayNullablePropList](#arraynullableproplist) | of([ArrayNullablePropListInput](#arraynullableproplistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayNullablePropList](#arraynullableproplist) | of([List<Map<String, Object>>](#arraynullableproplistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

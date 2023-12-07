@@ -147,7 +147,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayNumberList](#arraynumberlist) | of([ArrayNumberListInput](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayNumberList](#arraynumberlist) | of([List<Number>](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

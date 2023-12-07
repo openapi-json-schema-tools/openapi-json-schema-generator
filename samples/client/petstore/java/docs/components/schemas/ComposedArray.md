@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | of([ComposedArrayListInput](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | of([List<Object>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

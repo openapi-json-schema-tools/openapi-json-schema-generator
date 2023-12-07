@@ -198,7 +198,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumFormStringArrayList](#enumformstringarraylist) | of([EnumFormStringArrayListInput](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
+| static [EnumFormStringArrayList](#enumformstringarraylist) | of([List<String>](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([List<Object>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>
