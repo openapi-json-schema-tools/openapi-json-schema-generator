@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumsInProperties.EnumsInProperties1](#enumsinproperties1)<br> schema class |
-| static class | [EnumsInProperties.EnumsInPropertiesDictInput](#enumsinpropertiesdictinput)<br> builder for Map payloads |
+| static class | [EnumsInProperties.EnumsInPropertiesMapInput](#enumsinpropertiesmapinput)<br> builder for Map payloads |
 | static class | [EnumsInProperties.EnumsInPropertiesMap](#enumsinpropertiesmap)<br> output class for Map payloads |
 | static class | [EnumsInProperties.Bar](#bar)<br> schema class |
 | static class | [EnumsInProperties.Foo](#foo)<br> schema class |
@@ -64,10 +64,10 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<String, Object>](#enumsinpropertiesdictinput) arg, SchemaConfiguration configuration) |
+| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<String, Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
 
-## EnumsInPropertiesDictInput
-public class EnumsInPropertiesDictInput<br>
+## EnumsInPropertiesMapInput
+public class EnumsInPropertiesMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -88,7 +88,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | of([Map<String, Object>](#enumsinpropertiesdictinput) arg, SchemaConfiguration configuration) |
+| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | of([Map<String, Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br> must be one of ["bar"] |
 | String | foo()<br>[optional] must be one of ["foo"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

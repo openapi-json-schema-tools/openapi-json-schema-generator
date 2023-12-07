@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RefInProperty.RefInProperty1](#refinproperty1)<br> schema class |
-| static class | [RefInProperty.RefInPropertyDictInput](#refinpropertydictinput)<br> builder for Map payloads |
+| static class | [RefInProperty.RefInPropertyMapInput](#refinpropertymapinput)<br> builder for Map payloads |
 | static class | [RefInProperty.RefInPropertyMap](#refinpropertymap)<br> output class for Map payloads |
 
 ## RefInProperty1
@@ -37,11 +37,11 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RefInPropertyMap](#refinpropertymap) | validate([Map<String, Object>](#refinpropertydictinput) arg, SchemaConfiguration configuration) |
+| static [RefInPropertyMap](#refinpropertymap) | validate([Map<String, Object>](#refinpropertymapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## RefInPropertyDictInput
-public class RefInPropertyDictInput<br>
+## RefInPropertyMapInput
+public class RefInPropertyMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -61,7 +61,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInPropertyMap](#refinpropertymap) | of([Map<String, Object>](#refinpropertydictinput) arg, SchemaConfiguration configuration) |
+| static [RefInPropertyMap](#refinpropertymap) | of([Map<String, Object>](#refinpropertymapinput) arg, SchemaConfiguration configuration) |
 | Object | a()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

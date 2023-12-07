@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ForbiddenProperty.ForbiddenProperty1](#forbiddenproperty1)<br> schema class |
-| static class | [ForbiddenProperty.ForbiddenPropertyDictInput](#forbiddenpropertydictinput)<br> builder for Map payloads |
+| static class | [ForbiddenProperty.ForbiddenPropertyMapInput](#forbiddenpropertymapinput)<br> builder for Map payloads |
 | static class | [ForbiddenProperty.ForbiddenPropertyMap](#forbiddenpropertymap)<br> output class for Map payloads |
 | static class | [ForbiddenProperty.Foo](#foo)<br> schema class |
 
@@ -38,11 +38,11 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<String, Object>](#forbiddenpropertydictinput) arg, SchemaConfiguration configuration) |
+| static [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<String, Object>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## ForbiddenPropertyDictInput
-public class ForbiddenPropertyDictInput<br>
+## ForbiddenPropertyMapInput
+public class ForbiddenPropertyMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -62,7 +62,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ForbiddenPropertyMap](#forbiddenpropertymap) | of([Map<String, Object>](#forbiddenpropertydictinput) arg, SchemaConfiguration configuration) |
+| static [ForbiddenPropertyMap](#forbiddenpropertymap) | of([Map<String, Object>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
 | Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

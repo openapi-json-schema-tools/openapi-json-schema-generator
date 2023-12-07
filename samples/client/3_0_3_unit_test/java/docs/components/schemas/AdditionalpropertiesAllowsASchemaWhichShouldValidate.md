@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1](#additionalpropertiesallowsaschemawhichshouldvalidate1)<br> schema class |
-| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput](#additionalpropertiesallowsaschemawhichshouldvalidatedictinput)<br> builder for Map payloads |
+| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput)<br> builder for Map payloads |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap)<br> output class for Map payloads |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Bar](#bar)<br> schema class |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Foo](#foo)<br> schema class |
@@ -57,10 +57,10 @@ AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsA
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<String, Object>](#additionalpropertiesallowsaschemawhichshouldvalidatedictinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<String, Object>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
 
-## AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput
-public class AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput<br>
+## AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput
+public class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -81,7 +81,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | of([Map<String, Object>](#additionalpropertiesallowsaschemawhichshouldvalidatedictinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | of([Map<String, Object>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
 | Object | foo()<br>[optional] |
 | Object | bar()<br>[optional] |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |

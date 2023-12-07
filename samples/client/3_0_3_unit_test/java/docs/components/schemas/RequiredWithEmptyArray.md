@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RequiredWithEmptyArray.RequiredWithEmptyArray1](#requiredwithemptyarray1)<br> schema class |
-| static class | [RequiredWithEmptyArray.RequiredWithEmptyArrayDictInput](#requiredwithemptyarraydictinput)<br> builder for Map payloads |
+| static class | [RequiredWithEmptyArray.RequiredWithEmptyArrayMapInput](#requiredwithemptyarraymapinput)<br> builder for Map payloads |
 | static class | [RequiredWithEmptyArray.RequiredWithEmptyArrayMap](#requiredwithemptyarraymap)<br> output class for Map payloads |
 | static class | [RequiredWithEmptyArray.Foo](#foo)<br> schema class |
 
@@ -38,11 +38,11 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate([Map<String, Object>](#requiredwithemptyarraydictinput) arg, SchemaConfiguration configuration) |
+| static [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | validate([Map<String, Object>](#requiredwithemptyarraymapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## RequiredWithEmptyArrayDictInput
-public class RequiredWithEmptyArrayDictInput<br>
+## RequiredWithEmptyArrayMapInput
+public class RequiredWithEmptyArrayMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -62,7 +62,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | of([Map<String, Object>](#requiredwithemptyarraydictinput) arg, SchemaConfiguration configuration) |
+| static [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | of([Map<String, Object>](#requiredwithemptyarraymapinput) arg, SchemaConfiguration configuration) |
 | Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

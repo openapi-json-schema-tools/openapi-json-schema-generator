@@ -48,7 +48,7 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public class Schema0DictInput {
+    public class Schema0MapInput {
         // Map<String, Object> because addProps is unset
     }
     
@@ -140,7 +140,7 @@ public class OneofWithRequired {
             return get(name);
         }
     }
-    public class Schema1DictInput {
+    public class Schema1MapInput {
         // Map<String, Object> because addProps is unset
     }
     

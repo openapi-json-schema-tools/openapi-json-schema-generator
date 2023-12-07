@@ -50,7 +50,7 @@ public class NotMoreComplexSchema {
             return get(name);
         }
     }
-    public class NotDictInput {
+    public class NotMapInput {
         // Map<String, Object> because addProps is unset
     }
     

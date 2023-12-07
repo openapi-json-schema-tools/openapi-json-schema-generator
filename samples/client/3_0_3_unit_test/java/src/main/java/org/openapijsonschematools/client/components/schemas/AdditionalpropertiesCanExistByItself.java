@@ -34,7 +34,7 @@ public class AdditionalpropertiesCanExistByItself {
             return get(name);
         }
     }
-    public class AdditionalpropertiesCanExistByItselfDictInput {
+    public class AdditionalpropertiesCanExistByItselfMapInput {
         // Map<String, additionalProperties>
     }
     

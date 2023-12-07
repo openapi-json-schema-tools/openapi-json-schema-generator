@@ -50,7 +50,7 @@ public class ForbiddenProperty {
             return get(name);
         }
     }
-    public class ForbiddenPropertyDictInput {
+    public class ForbiddenPropertyMapInput {
         // Map<String, Object> because addProps is unset
     }
     

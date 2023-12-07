@@ -59,7 +59,7 @@ public class ObjectPropertiesValidation {
             return get(name);
         }
     }
-    public class ObjectPropertiesValidationDictInput {
+    public class ObjectPropertiesValidationMapInput {
         // Map<String, Object> because addProps is unset
     }
     

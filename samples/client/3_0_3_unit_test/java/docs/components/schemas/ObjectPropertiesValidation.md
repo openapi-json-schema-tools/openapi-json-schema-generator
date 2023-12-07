@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectPropertiesValidation.ObjectPropertiesValidation1](#objectpropertiesvalidation1)<br> schema class |
-| static class | [ObjectPropertiesValidation.ObjectPropertiesValidationDictInput](#objectpropertiesvalidationdictinput)<br> builder for Map payloads |
+| static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMapInput](#objectpropertiesvalidationmapinput)<br> builder for Map payloads |
 | static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMap](#objectpropertiesvalidationmap)<br> output class for Map payloads |
 | static class | [ObjectPropertiesValidation.Bar](#bar)<br> schema class |
 | static class | [ObjectPropertiesValidation.Foo](#foo)<br> schema class |
@@ -39,11 +39,11 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<String, Object>](#objectpropertiesvalidationdictinput) arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<String, Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## ObjectPropertiesValidationDictInput
-public class ObjectPropertiesValidationDictInput<br>
+## ObjectPropertiesValidationMapInput
+public class ObjectPropertiesValidationMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -64,7 +64,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, Object>](#objectpropertiesvalidationdictinput) arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
 | long | foo()<br>[optional] |
 | String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

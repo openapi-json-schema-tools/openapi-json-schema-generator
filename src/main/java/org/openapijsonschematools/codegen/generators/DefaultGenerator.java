@@ -2700,7 +2700,7 @@ public class DefaultGenerator implements Generator {
                     case "00":
                         if (property.additionalProperties != null) {
                             // only addProps
-                            property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
+                            property.mapInputJsonPathPiece = getKey(currentName + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
                             // even though the definition is the same, mapOutputJsonPathPiece needs to be different
                             // so an implementing class can be written
                             property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
@@ -2708,7 +2708,7 @@ public class DefaultGenerator implements Generator {
                         break;
                     case "11":
                         // optional + required
-                        property.mapInputJsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
+                        property.mapInputJsonPathPiece = getKey(currentName + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
                         property.mapOutputJsonPathPiece = getKey(currentName + objectIOClassNamePiece, "schemaProperty", sourceJsonPath);
                         break;
                     case "10":
@@ -3958,7 +3958,7 @@ public class DefaultGenerator implements Generator {
             optionalProperties.putAll(properties);
             optionalProperties.setAllAreInline(properties.allAreInline());
             CodegenKey jsonPathPiece;
-            jsonPathPiece = getKey(currentName + "DictInput", "schemaProperty", sourceJsonPath);
+            jsonPathPiece = getKey(currentName + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
             optionalProperties.setJsonPathPiece(jsonPathPiece);
             return optionalProperties;
         }
@@ -3982,7 +3982,7 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         optionalProperties.setAllAreInline(allAreInline);
-        CodegenKey jsonPathPiece = getKey(currentName + "OptionalDictInput", "schemaProperty", sourceJsonPath);
+        CodegenKey jsonPathPiece = getKey(currentName + "Optional" + objectIOClassNamePiece + "Input", "schemaProperty", sourceJsonPath);
         optionalProperties.setJsonPathPiece(jsonPathPiece);
         return optionalProperties;
     }
@@ -5381,9 +5381,9 @@ public class DefaultGenerator implements Generator {
         boolean onlyReqPropsCase2 = (requiredPropsWithDefAllFromAddProp && properties == null);
         boolean onlyReqPropsCase3 = (propReqProps != 0 && addPropReqProps != 0 && propReqProps + addPropReqProps == reqPropsWithDef && schemaProperties != null && required.containsAll(schemaProperties.keySet()));
         if (onlyReqPropsCase1 || onlyReqPropsCase2 || onlyReqPropsCase3) {
-            keyName = currentName + "DictInput";
+            keyName = currentName + objectIOClassNamePiece + "Input";
         } else {
-            keyName = currentName + "RequiredDictInput";
+            keyName = currentName + "Required" + objectIOClassNamePiece + "Input";
         }
         requiredProperties.setAllAreInline(allAreInline);
         CodegenKey jsonPathPiece = getKey(keyName, "schemaProperty", sourceJsonPath);

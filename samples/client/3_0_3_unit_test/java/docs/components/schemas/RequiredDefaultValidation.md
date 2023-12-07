@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RequiredDefaultValidation.RequiredDefaultValidation1](#requireddefaultvalidation1)<br> schema class |
-| static class | [RequiredDefaultValidation.RequiredDefaultValidationDictInput](#requireddefaultvalidationdictinput)<br> builder for Map payloads |
+| static class | [RequiredDefaultValidation.RequiredDefaultValidationMapInput](#requireddefaultvalidationmapinput)<br> builder for Map payloads |
 | static class | [RequiredDefaultValidation.RequiredDefaultValidationMap](#requireddefaultvalidationmap)<br> output class for Map payloads |
 | static class | [RequiredDefaultValidation.Foo](#foo)<br> schema class |
 
@@ -38,11 +38,11 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate([Map<String, Object>](#requireddefaultvalidationdictinput) arg, SchemaConfiguration configuration) |
+| static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate([Map<String, Object>](#requireddefaultvalidationmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## RequiredDefaultValidationDictInput
-public class RequiredDefaultValidationDictInput<br>
+## RequiredDefaultValidationMapInput
+public class RequiredDefaultValidationMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -62,7 +62,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | of([Map<String, Object>](#requireddefaultvalidationdictinput) arg, SchemaConfiguration configuration) |
+| static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | of([Map<String, Object>](#requireddefaultvalidationmapinput) arg, SchemaConfiguration configuration) |
 | Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

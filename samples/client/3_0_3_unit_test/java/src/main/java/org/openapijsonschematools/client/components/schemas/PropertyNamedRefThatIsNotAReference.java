@@ -42,7 +42,7 @@ public class PropertyNamedRefThatIsNotAReference {
             return get(name);
         }
     }
-    public class PropertyNamedRefThatIsNotAReferenceDictInput {
+    public class PropertyNamedRefThatIsNotAReferenceMapInput {
         // Map<String, Object> because addProps is unset
     }
     

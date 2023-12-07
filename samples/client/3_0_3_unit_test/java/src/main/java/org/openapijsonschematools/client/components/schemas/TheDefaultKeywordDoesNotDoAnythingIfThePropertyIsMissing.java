@@ -68,7 +68,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return get(name);
         }
     }
-    public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput {
+    public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput {
         // Map<String, Object> because addProps is unset
     }
     

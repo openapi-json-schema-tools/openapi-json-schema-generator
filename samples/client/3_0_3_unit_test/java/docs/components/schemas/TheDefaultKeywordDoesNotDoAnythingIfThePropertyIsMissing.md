@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1](#thedefaultkeyworddoesnotdoanythingifthepropertyismissing1)<br> schema class |
-| static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingdictinput)<br> builder for Map payloads |
+| static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput)<br> builder for Map payloads |
 | static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap)<br> output class for Map payloads |
 | static class | [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.Alpha](#alpha)<br> schema class |
 
@@ -59,10 +59,10 @@ TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate([Map<String, Object>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingdictinput) arg, SchemaConfiguration configuration) |
+| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate([Map<String, Object>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput) arg, SchemaConfiguration configuration) |
 
-## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput
-public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingDictInput<br>
+## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput
+public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -82,7 +82,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | of([Map<String, Object>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingdictinput) arg, SchemaConfiguration configuration) |
+| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | of([Map<String, Object>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput) arg, SchemaConfiguration configuration) |
 | Number | alpha()<br>[optional] if omitted the server will use the default value of 5.0 |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

@@ -48,7 +48,7 @@ public class RequiredWithEmptyArray {
             return get(name);
         }
     }
-    public class RequiredWithEmptyArrayDictInput {
+    public class RequiredWithEmptyArrayMapInput {
         // Map<String, Object> because addProps is unset
     }
     

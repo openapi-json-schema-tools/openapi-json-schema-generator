@@ -58,7 +58,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return get(name);
         }
     }
-    public class AdditionalpropertiesAreAllowedByDefaultDictInput {
+    public class AdditionalpropertiesAreAllowedByDefaultMapInput {
         // Map<String, Object> because addProps is unset
     }
     

@@ -44,7 +44,7 @@ public class RefInProperty {
             return get(name);
         }
     }
-    public class RefInPropertyDictInput {
+    public class RefInPropertyMapInput {
         // Map<String, Object> because addProps is unset
     }
     

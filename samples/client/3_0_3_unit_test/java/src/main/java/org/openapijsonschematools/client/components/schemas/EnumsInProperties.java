@@ -76,7 +76,7 @@ public class EnumsInProperties {
             return get(name);
         }
     }
-    public class EnumsInPropertiesDictInput {
+    public class EnumsInPropertiesMapInput {
         // Map<String, Object> because addProps is unset
     }
     

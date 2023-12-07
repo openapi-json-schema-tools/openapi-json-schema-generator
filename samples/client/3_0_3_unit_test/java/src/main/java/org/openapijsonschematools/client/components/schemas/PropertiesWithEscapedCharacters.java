@@ -62,7 +62,7 @@ public class PropertiesWithEscapedCharacters {
             return get(name);
         }
     }
-    public class PropertiesWithEscapedCharactersDictInput {
+    public class PropertiesWithEscapedCharactersMapInput {
         // Map<String, Object> because addProps is unset
     }
     

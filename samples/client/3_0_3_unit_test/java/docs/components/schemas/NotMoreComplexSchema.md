@@ -14,7 +14,7 @@ A class that contains necessary nested
 | ----------------- | ---------------------- |
 | static class | [NotMoreComplexSchema.NotMoreComplexSchema1](#notmorecomplexschema1)<br> schema class |
 | static class | [NotMoreComplexSchema.Not](#not)<br> schema class |
-| static class | [NotMoreComplexSchema.NotDictInput](#notdictinput)<br> builder for Map payloads |
+| static class | [NotMoreComplexSchema.NotMapInput](#notmapinput)<br> builder for Map payloads |
 | static class | [NotMoreComplexSchema.NotMap](#notmap)<br> output class for Map payloads |
 | static class | [NotMoreComplexSchema.Foo](#foo)<br> schema class |
 
@@ -84,10 +84,10 @@ NotMoreComplexSchema.NotMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NotMap](#notmap) | validate([Map<String, Object>](#notdictinput) arg, SchemaConfiguration configuration) |
+| static [NotMap](#notmap) | validate([Map<String, Object>](#notmapinput) arg, SchemaConfiguration configuration) |
 
-## NotDictInput
-public class NotDictInput<br>
+## NotMapInput
+public class NotMapInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -107,7 +107,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NotMap](#notmap) | of([Map<String, Object>](#notdictinput) arg, SchemaConfiguration configuration) |
+| static [NotMap](#notmap) | of([Map<String, Object>](#notmapinput) arg, SchemaConfiguration configuration) |
 | String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

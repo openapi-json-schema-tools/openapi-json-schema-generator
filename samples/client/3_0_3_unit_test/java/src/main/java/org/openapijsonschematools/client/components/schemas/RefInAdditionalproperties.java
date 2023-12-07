@@ -30,7 +30,7 @@ public class RefInAdditionalproperties {
             return get(name);
         }
     }
-    public class RefInAdditionalpropertiesDictInput {
+    public class RefInAdditionalpropertiesMapInput {
         // Map<String, additionalProperties>
     }
     

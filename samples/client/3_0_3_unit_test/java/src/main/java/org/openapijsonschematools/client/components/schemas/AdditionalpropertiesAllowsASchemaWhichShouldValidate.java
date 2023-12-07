@@ -58,7 +58,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return (boolean) get(name);
         }
     }
-    public class AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput {
+    public class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput {
         // optionalProperties + additionalProperties
     }
     

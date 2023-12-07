@@ -58,7 +58,7 @@ public class RequiredValidation {
             return get(name);
         }
     }
-    public class RequiredValidationDictInput {
+    public class RequiredValidationMapInput {
         // Map<String, Object> because addProps is unset
     }
     
