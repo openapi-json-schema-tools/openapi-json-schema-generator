@@ -20,7 +20,7 @@ public class RefInItemsTest {
         // property named $ref valid
         RefInItems.RefInItems1.validate(
             Arrays.asList(
-                MapMaker.makeMap(
+                    MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "$ref",
                         "a"

@@ -29,7 +29,7 @@ public class ArrayTypeMatchesArrays {
         }
     }
     
-    public interface ArrayTypeMatchesArraysListInput extends List<Object> {}
+    public interface ArrayTypeMatchesArraysListInput <T extends Object> extends List<T> {}
     
     
     public static class ArrayTypeMatchesArrays1 extends JsonSchema {

@@ -25,7 +25,7 @@ public class RefInItems {
         }
     }
     
-    public interface RefInItemsListInput extends List<Object> {}
+    public interface RefInItemsListInput <T extends Object> extends List<T> {}
     
     
     public static class RefInItems1 extends JsonSchema {

@@ -29,7 +29,7 @@ public class NestedItems {
         }
     }
     
-    public interface ItemsListInput extends List<Number> {}
+    public interface ItemsListInput <T extends Number> extends List<T> {}
     
     
     public static class Items2 extends JsonSchema {
@@ -55,7 +55,7 @@ public class NestedItems {
         }
     }
     
-    public interface ItemsListInput1 extends List<List<Number>> {}
+    public interface ItemsListInput1 <T extends List<Number>> extends List<T> {}
     
     
     public static class Items1 extends JsonSchema {
@@ -81,7 +81,7 @@ public class NestedItems {
         }
     }
     
-    public interface ItemsListInput2 extends List<List<List<Number>>> {}
+    public interface ItemsListInput2 <T extends List<List<Number>>> extends List<T> {}
     
     
     public static class Items extends JsonSchema {
@@ -107,7 +107,7 @@ public class NestedItems {
         }
     }
     
-    public interface NestedItemsListInput extends List<List<List<List<Number>>>> {}
+    public interface NestedItemsListInput <T extends List<List<List<Number>>>> extends List<T> {}
     
     
     public static class NestedItems1 extends JsonSchema {
