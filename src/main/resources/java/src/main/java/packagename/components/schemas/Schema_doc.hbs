@@ -18,6 +18,7 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -34,6 +35,10 @@ A class that contains necessary nested
             {{else}}
                 {{#eq instanceType "arrayInputType"}}
 | static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }})<br> builder for List payloads |
+                {{else}}
+                    {{#eq instanceType "ObjectInputType"}}
+| static class | [{{../containerJsonPathPiece.camelCase}}.{{objectInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces objectInputJsonPathPiece) }})<br> builder for Map payloads |
+                    {{/eq}}
                 {{/eq}}
             {{/eq}}
         {{/eq}}
@@ -107,40 +112,6 @@ A class to store validated Map payloads
             {{else}}
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
             {{/with}}
-            {{#or properties additionalProperties requiredProperties}}
-
-{{headerSize}}# Input Map Keys
-```
-                {{#eq types null}}
-type: Map<String, Object>
-                {{else}}
-                    {{#with ../mapValueSchema}}
-type: Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}>
-                    {{else}}
-type: Map<String, Object>
-                    {{/with}}
-                {{/eq}}
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-                {{#each requiredProperties}}
-| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
-                {{/each}}
-                {{#each optionalProperties}}
-| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.originalWithBr}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
-                {{/each}}
-                {{#with additionalProperties}}
-                    {{#unless isBooleanSchemaFalse}}
-                        {{#if isBooleanSchemaTrue}}
-| **anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional] |
-                        {{else}}
-| **anyStringName** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
-                        {{/if}}
-                    {{/unless}}
-                {{else}}
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
-                {{/with}}
-            {{/or}}
         {{else}}
             {{#eq instanceType "arrayOutputType"}}
 
@@ -169,6 +140,46 @@ List Item Type | Description | Notes
                     {{#with items}}
 {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }}
                     {{/with}}
+                {{else}}
+                    {{#eq instanceType "objectInputType"}}
+                        {{#or properties additionalProperties requiredProperties}}
+
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces objectInputJsonPathPiece) }}
+public class {{objectInputJsonPathPiece.camelCase}}<br>
+                            {{#eq types null}}
+builder for `Map<String, Object>`
+                            {{else}}
+                                {{#with ../mapValueSchema}}
+builder for `Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}>`
+                                {{else}}
+builder for `Map<String, Object>`
+                                {{/with}}
+                            {{/eq}}
+
+A class that builds the Map input type
+
+{{headerSize}}# Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+                            {{#each requiredProperties}}
+| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.originalWithBr}}{{/if}} |{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                            {{/each}}
+                            {{#each optionalProperties}}
+| **{{@key.original}}** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | {{#if description}}{{description.originalWithBr}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                            {{/each}}
+                            {{#with additionalProperties}}
+                                {{#unless isBooleanSchemaFalse}}
+                                    {{#if isBooleanSchemaTrue}}
+| **anyStringName** | Object | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional] |
+                                    {{else}}
+| **anyStringName** | {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath }} | any string name can be used but the value must be the correct type{{#if description}} {{description.originalWithBr}}{{/if}} | [optional]{{> src/main/java/packagename/components/schemas/helpers/notes_msg defaultUser="server" }} |
+                                    {{/if}}
+                                {{/unless}}
+                            {{else}}
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+                            {{/with}}
+                        {{/or}}
+                    {{/eq}}
                 {{/eq}}
             {{/eq}}
         {{/eq}}
