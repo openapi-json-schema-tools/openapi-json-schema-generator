@@ -58,7 +58,8 @@ public class ObjectPropertiesValidation {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class ObjectPropertiesValidation1 extends JsonSchema {
         /*

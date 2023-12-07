@@ -57,7 +57,8 @@ public class InvalidStringValueForDefault {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class InvalidStringValueForDefault1 extends JsonSchema {
         /*

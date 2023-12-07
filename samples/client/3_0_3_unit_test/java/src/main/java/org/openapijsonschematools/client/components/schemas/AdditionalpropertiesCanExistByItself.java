@@ -33,7 +33,11 @@ public class AdditionalpropertiesCanExistByItself {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AdditionalpropertiesCanExistByItselfDictInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class AdditionalpropertiesCanExistByItself1 extends JsonSchema {
         /*

@@ -57,7 +57,8 @@ public class AdditionalpropertiesAreAllowedByDefault {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class AdditionalpropertiesAreAllowedByDefault1 extends JsonSchema {
         /*

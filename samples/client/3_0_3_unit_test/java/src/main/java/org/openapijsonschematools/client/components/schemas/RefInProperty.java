@@ -43,7 +43,8 @@ public class RefInProperty {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class RefInProperty1 extends JsonSchema {
         /*

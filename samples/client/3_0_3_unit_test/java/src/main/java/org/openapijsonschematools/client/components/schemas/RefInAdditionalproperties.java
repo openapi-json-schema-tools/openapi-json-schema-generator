@@ -29,7 +29,11 @@ public class RefInAdditionalproperties {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class RefInAdditionalpropertiesDictInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class RefInAdditionalproperties1 extends JsonSchema {
         /*

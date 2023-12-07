@@ -25,7 +25,7 @@ public class RefInItems {
         }
     }
     
-    public interface RefInItemsListInput {
+    public class RefInItemsListInput {
         // class to build List<Object>
     }
     

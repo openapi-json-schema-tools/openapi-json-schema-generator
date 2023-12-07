@@ -67,7 +67,8 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1 extends JsonSchema {
         /*

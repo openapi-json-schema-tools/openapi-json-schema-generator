@@ -47,7 +47,8 @@ public class RequiredDefaultValidation {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class RequiredDefaultValidation1 extends JsonSchema {
         /*

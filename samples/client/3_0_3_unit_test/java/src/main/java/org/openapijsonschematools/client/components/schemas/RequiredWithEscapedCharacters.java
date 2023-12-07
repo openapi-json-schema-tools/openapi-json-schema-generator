@@ -41,7 +41,8 @@ public class RequiredWithEscapedCharacters {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class RequiredWithEscapedCharacters1 extends JsonSchema {
         /*

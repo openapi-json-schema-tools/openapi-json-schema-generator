@@ -49,7 +49,8 @@ public class ForbiddenProperty {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class ForbiddenProperty1 extends JsonSchema {
         /*

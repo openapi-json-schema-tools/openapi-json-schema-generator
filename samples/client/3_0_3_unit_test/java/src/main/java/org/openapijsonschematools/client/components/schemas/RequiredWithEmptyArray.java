@@ -47,7 +47,8 @@ public class RequiredWithEmptyArray {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class RequiredWithEmptyArray1 extends JsonSchema {
         /*

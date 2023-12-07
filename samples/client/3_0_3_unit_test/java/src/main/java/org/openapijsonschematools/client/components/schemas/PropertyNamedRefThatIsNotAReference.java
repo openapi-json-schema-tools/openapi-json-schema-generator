@@ -41,7 +41,8 @@ public class PropertyNamedRefThatIsNotAReference {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class PropertyNamedRefThatIsNotAReference1 extends JsonSchema {
         /*

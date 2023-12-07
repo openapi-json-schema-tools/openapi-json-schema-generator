@@ -61,7 +61,8 @@ public class PropertiesWithEscapedCharacters {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    
     
     public static class PropertiesWithEscapedCharacters1 extends JsonSchema {
         /*
