@@ -19,7 +19,6 @@ public class RefInItemsTest {
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
         RefInItems.RefInItems1.validate(
-            (RefInItems.RefInItemsListInput)
             Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(

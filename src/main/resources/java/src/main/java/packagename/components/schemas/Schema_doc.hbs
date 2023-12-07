@@ -17,7 +17,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -33,7 +33,7 @@ A class that contains necessary nested
 | static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }})<br> output class for List payloads |
             {{else}}
                 {{#eq instanceType "arrayInputType"}}
-| static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }})<br> input class for List payloads |
+| static class | [{{../containerJsonPathPiece.camelCase}}.{{arrayInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }})<br> builder for List payloads |
                 {{/eq}}
             {{/eq}}
         {{/eq}}
@@ -158,10 +158,10 @@ A class to store validated List payloads
                 {{#eq instanceType "arrayInputType"}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}
-public interface {{arrayInputJsonPathPiece.camelCase}}<br>
-extends `List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>`
+public class {{arrayInputJsonPathPiece.camelCase}}<br>
+builder for `List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 {{headerSize}}# Input List Items
 List Item Type | Description | Notes

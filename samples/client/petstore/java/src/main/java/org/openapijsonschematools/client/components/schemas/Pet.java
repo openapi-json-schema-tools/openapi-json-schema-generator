@@ -36,12 +36,14 @@ public class Pet {
         PhotoUrlsList(FrozenList<String> m) {
             super(m);
         }
-        public static PhotoUrlsList of(PhotoUrlsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return PhotoUrls.validate(arg, configuration);
         }
     }
     
-    public interface PhotoUrlsListInput extends List<String> {}
+    public interface PhotoUrlsListInput {
+        // class to build List<String>
+    }
     
     
     public static class PhotoUrls extends JsonSchema {
@@ -53,7 +55,7 @@ public class Pet {
         protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
             return new PhotoUrlsList(arg);
         }
-        public static PhotoUrlsList validate(PhotoUrlsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(PhotoUrls.class, arg, configuration);
         }
     }    
@@ -78,12 +80,14 @@ public class Pet {
         TagsList(FrozenList<Tag.TagMap> m) {
             super(m);
         }
-        public static TagsList of(TagsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Tags.validate(arg, configuration);
         }
     }
     
-    public interface TagsListInput extends List<Map<String, Object>> {}
+    public interface TagsListInput {
+        // class to build List<Map<String, Object>>
+    }
     
     
     public static class Tags extends JsonSchema {
@@ -95,7 +99,7 @@ public class Pet {
         protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
             return new TagsList(arg);
         }
-        public static TagsList validate(TagsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Tags.class, arg, configuration);
         }
     }    

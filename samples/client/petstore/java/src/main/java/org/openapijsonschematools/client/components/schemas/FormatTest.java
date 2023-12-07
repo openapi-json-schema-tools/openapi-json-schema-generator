@@ -179,12 +179,14 @@ public class FormatTest {
         ArrayWithUniqueItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayWithUniqueItemsList of(ArrayWithUniqueItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayWithUniqueItems.validate(arg, configuration);
         }
     }
     
-    public interface ArrayWithUniqueItemsListInput extends List<Number> {}
+    public interface ArrayWithUniqueItemsListInput {
+        // class to build List<Number>
+    }
     
     
     public static class ArrayWithUniqueItems extends JsonSchema {
@@ -197,7 +199,7 @@ public class FormatTest {
         protected static ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayWithUniqueItemsList(arg);
         }
-        public static ArrayWithUniqueItemsList validate(ArrayWithUniqueItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayWithUniqueItems.class, arg, configuration);
         }
     }    

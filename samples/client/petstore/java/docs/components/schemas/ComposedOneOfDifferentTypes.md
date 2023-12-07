@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,7 +14,7 @@ A class that contains necessary nested
 | static class | [ComposedOneOfDifferentTypes.ComposedOneOfDifferentTypes1](#composedoneofdifferenttypes1)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema6](#schema6)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema5](#schema5)<br> schema class |
-| static class | [ComposedOneOfDifferentTypes.Schema5ListInput](#schema5listinput)<br> input class for List payloads |
+| static class | [ComposedOneOfDifferentTypes.Schema5ListInput](#schema5listinput)<br> builder for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Schema5List](#schema5list)<br> output class for List payloads |
 | static class | [ComposedOneOfDifferentTypes.Items](#items)<br> schema class |
 | static class | [ComposedOneOfDifferentTypes.Schema4](#schema4)<br> schema class |
@@ -124,13 +124,13 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | validate([Schema5ListInput](#schema5listinput) arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | validate([List<Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
 
 ## Schema5ListInput
-public interface Schema5ListInput<br>
-extends `List<Object>`
+public class Schema5ListInput<br>
+builder for `List<Object>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

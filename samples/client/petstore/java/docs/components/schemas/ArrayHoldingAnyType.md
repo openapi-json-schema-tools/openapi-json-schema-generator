@@ -6,13 +6,13 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyType1](#arrayholdinganytype1)<br> schema class |
-| static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput)<br> input class for List payloads |
+| static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput)<br> builder for List payloads |
 | static class | [ArrayHoldingAnyType.ArrayHoldingAnyTypeList](#arrayholdinganytypelist)<br> output class for List payloads |
 | static class | [ArrayHoldingAnyType.Items](#items)<br> schema class |
 
@@ -54,13 +54,13 @@ ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([ArrayHoldingAnyTypeListInput](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([List<Object>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayHoldingAnyTypeListInput
-public interface ArrayHoldingAnyTypeListInput<br>
-extends `List<Object>`
+public class ArrayHoldingAnyTypeListInput<br>
+builder for `List<Object>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

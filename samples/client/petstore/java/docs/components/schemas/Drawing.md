@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,7 +14,7 @@ A class that contains necessary nested
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
-| static class | [Drawing.ShapesListInput](#shapeslistinput)<br> input class for List payloads |
+| static class | [Drawing.ShapesListInput](#shapeslistinput)<br> builder for List payloads |
 | static class | [Drawing.ShapesList](#shapeslist)<br> output class for List payloads |
 
 ## Drawing1
@@ -128,13 +128,13 @@ Drawing.ShapesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | validate([ShapesListInput](#shapeslistinput) arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | validate([List<Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
 
 ## ShapesListInput
-public interface ShapesListInput<br>
-extends `List<Object>`
+public class ShapesListInput<br>
+builder for `List<Object>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

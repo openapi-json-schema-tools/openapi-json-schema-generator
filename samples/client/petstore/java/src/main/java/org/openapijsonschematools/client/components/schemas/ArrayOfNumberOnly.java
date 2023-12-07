@@ -27,12 +27,14 @@ public class ArrayOfNumberOnly {
         ArrayNumberList(FrozenList<Number> m) {
             super(m);
         }
-        public static ArrayNumberList of(ArrayNumberListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayNumber.validate(arg, configuration);
         }
     }
     
-    public interface ArrayNumberListInput extends List<Number> {}
+    public interface ArrayNumberListInput {
+        // class to build List<Number>
+    }
     
     
     public static class ArrayNumber extends JsonSchema {
@@ -44,7 +46,7 @@ public class ArrayOfNumberOnly {
         protected static ArrayNumberList getListOutputInstance(FrozenList<Number> arg) {
             return new ArrayNumberList(arg);
         }
-        public static ArrayNumberList validate(ArrayNumberListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayNumberList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayNumber.class, arg, configuration);
         }
     }    

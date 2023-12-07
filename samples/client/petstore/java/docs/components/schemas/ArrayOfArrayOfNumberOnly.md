@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,10 +14,10 @@ A class that contains necessary nested
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnly1](#arrayofarrayofnumberonly1)<br> schema class |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap)<br> output class for Map payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumber](#arrayarraynumber)<br> schema class |
-| static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberListInput](#arrayarraynumberlistinput)<br> input class for List payloads |
+| static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberListInput](#arrayarraynumberlistinput)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ArrayArrayNumberList](#arrayarraynumberlist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items](#items)<br> schema class |
-| static class | [ArrayOfArrayOfNumberOnly.ItemsListInput](#itemslistinput)<br> input class for List payloads |
+| static class | [ArrayOfArrayOfNumberOnly.ItemsListInput](#itemslistinput)<br> builder for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [ArrayOfArrayOfNumberOnly.Items1](#items1)<br> schema class |
 
@@ -132,13 +132,13 @@ ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayNumberList](#arrayarraynumberlist) | validate([ArrayArrayNumberListInput](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayNumberList](#arrayarraynumberlist) | validate([List<List<Number>>](#arrayarraynumberlistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayNumberListInput
-public interface ArrayArrayNumberListInput<br>
-extends `List<List<Number>>`
+public class ArrayArrayNumberListInput<br>
+builder for `List<List<Number>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
@@ -195,13 +195,13 @@ ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
-public interface ItemsListInput<br>
-extends `List<Number>`
+public class ItemsListInput<br>
+builder for `List<Number>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

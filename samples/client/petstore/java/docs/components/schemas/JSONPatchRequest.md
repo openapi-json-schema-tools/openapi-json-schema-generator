@@ -6,13 +6,13 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequest.JSONPatchRequest1](#jsonpatchrequest1)<br> schema class |
-| static class | [JSONPatchRequest.JSONPatchRequestListInput](#jsonpatchrequestlistinput)<br> input class for List payloads |
+| static class | [JSONPatchRequest.JSONPatchRequestListInput](#jsonpatchrequestlistinput)<br> builder for List payloads |
 | static class | [JSONPatchRequest.JSONPatchRequestList](#jsonpatchrequestlist)<br> output class for List payloads |
 | static class | [JSONPatchRequest.Items](#items)<br> schema class |
 
@@ -54,13 +54,13 @@ JSONPatchRequest.JSONPatchRequestList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestList](#jsonpatchrequestlist) | validate([JSONPatchRequestListInput](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | validate([List<Object>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestListInput
-public interface JSONPatchRequestListInput<br>
-extends `List<Object>`
+public class JSONPatchRequestListInput<br>
+builder for `List<Object>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

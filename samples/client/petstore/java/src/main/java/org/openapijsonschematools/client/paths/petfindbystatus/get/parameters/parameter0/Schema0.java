@@ -37,12 +37,14 @@ public class Schema0 {
         SchemaList0(FrozenList<String> m) {
             super(m);
         }
-        public static SchemaList0 of(SchemaListInput0 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema01.validate(arg, configuration);
         }
     }
     
-    public interface SchemaListInput0 extends List<String> {}
+    public interface SchemaListInput0 {
+        // class to build List<String>
+    }
     
     
     public static class Schema01 extends JsonSchema {
@@ -54,7 +56,7 @@ public class Schema0 {
         protected static SchemaList0 getListOutputInstance(FrozenList<String> arg) {
             return new SchemaList0(arg);
         }
-        public static SchemaList0 validate(SchemaListInput0 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList0 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Schema01.class, arg, configuration);
         }
     }}

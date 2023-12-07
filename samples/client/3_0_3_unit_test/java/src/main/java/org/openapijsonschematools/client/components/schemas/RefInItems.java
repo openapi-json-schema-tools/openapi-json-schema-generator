@@ -20,12 +20,14 @@ public class RefInItems {
         RefInItemsList(FrozenList<Object> m) {
             super(m);
         }
-        public static RefInItemsList of(RefInItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static RefInItemsList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return RefInItems1.validate(arg, configuration);
         }
     }
     
-    public interface RefInItemsListInput <T extends Object> extends List<T> {}
+    public interface RefInItemsListInput {
+        // class to build List<Object>
+    }
     
     
     public static class RefInItems1 extends JsonSchema {
@@ -43,7 +45,7 @@ public class RefInItems {
         protected static RefInItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new RefInItemsList(arg);
         }
-        public static RefInItemsList validate(RefInItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static RefInItemsList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(RefInItems1.class, arg, configuration);
         }
     }}

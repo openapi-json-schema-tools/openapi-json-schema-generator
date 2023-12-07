@@ -1,8 +1,4 @@
 package org.openapijsonschematools.client.components.schemas;
-import java.util.AbstractList;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,12 +24,14 @@ public class NestedItems {
         ItemsList(FrozenList<Number> m) {
             super(m);
         }
-        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items2.validate(arg, configuration);
         }
     }
     
-    public interface ItemsListInput <T extends Number> extends List<T> {}
+    public interface ItemsListInput {
+        // class to build List<Number>
+    }
     
     
     public static class Items2 extends JsonSchema {
@@ -45,7 +43,7 @@ public class NestedItems {
         protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ItemsList(arg);
         }
-        public static ItemsList validate(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items2.class, arg, configuration);
         }
     }    
@@ -54,12 +52,14 @@ public class NestedItems {
         ItemsList1(FrozenList<ItemsList> m) {
             super(m);
         }
-        public static ItemsList1 of(ItemsListInput1 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items1.validate(arg, configuration);
         }
     }
     
-    public interface ItemsListInput1 <T extends List<Number>> extends List<T> {}
+    public interface ItemsListInput1 {
+        // class to build List<List<Number>>
+    }
     
     
     public static class Items1 extends JsonSchema {
@@ -71,7 +71,7 @@ public class NestedItems {
         protected static ItemsList1 getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(ItemsListInput1 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items1.class, arg, configuration);
         }
     }    
@@ -80,12 +80,14 @@ public class NestedItems {
         ItemsList2(FrozenList<ItemsList1> m) {
             super(m);
         }
-        public static ItemsList2 of(ItemsListInput2 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items.validate(arg, configuration);
         }
     }
     
-    public interface ItemsListInput2 <T extends List<List<Number>>> extends List<T> {}
+    public interface ItemsListInput2 {
+        // class to build List<List<List<Number>>>
+    }
     
     
     public static class Items extends JsonSchema {
@@ -97,7 +99,7 @@ public class NestedItems {
         protected static ItemsList2 getListOutputInstance(FrozenList<ItemsList1> arg) {
             return new ItemsList2(arg);
         }
-        public static ItemsList2 validate(ItemsListInput2 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items.class, arg, configuration);
         }
     }    
@@ -106,17 +108,15 @@ public class NestedItems {
         NestedItemsList(FrozenList<ItemsList2> m) {
             super(m);
         }
-        public static NestedItemsList of(NestedItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return NestedItems1.validate(arg, configuration);
         }
     }
     
-    public static class NestedItemsListInput <T extends Object> extends ArrayList<T> {
-        public NestedItemsListInput(List<T> inst) {
-            super(inst);
-        }
+    public interface NestedItemsListInput {
+        // class to build List<List<List<List<Number>>>>
     }
-
+    
     
     public static class NestedItems1 extends JsonSchema {
         /*
@@ -133,7 +133,7 @@ public class NestedItems {
         protected static NestedItemsList getListOutputInstance(FrozenList<ItemsList2> arg) {
             return new NestedItemsList(arg);
         }
-        public static NestedItemsList validate(NestedItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(NestedItems1.class, arg, configuration);
         }
     }}

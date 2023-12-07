@@ -24,12 +24,14 @@ public class Drawing {
         ShapesList(FrozenList<Object> m) {
             super(m);
         }
-        public static ShapesList of(ShapesListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Shapes.validate(arg, configuration);
         }
     }
     
-    public interface ShapesListInput extends List<Object> {}
+    public interface ShapesListInput {
+        // class to build List<Object>
+    }
     
     
     public static class Shapes extends JsonSchema {
@@ -41,7 +43,7 @@ public class Drawing {
         protected static ShapesList getListOutputInstance(FrozenList<Object> arg) {
             return new ShapesList(arg);
         }
-        public static ShapesList validate(ShapesListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ShapesList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Shapes.class, arg, configuration);
         }
     }    

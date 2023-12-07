@@ -6,13 +6,13 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
-| static class | [Schema1.SchemaListInput1](#schemalistinput1)<br> input class for List payloads |
+| static class | [Schema1.SchemaListInput1](#schemalistinput1)<br> builder for List payloads |
 | static class | [Schema1.SchemaList1](#schemalist1)<br> output class for List payloads |
 | static class | [Schema1.Items1](#items1)<br> schema class |
 
@@ -55,13 +55,13 @@ Schema1.SchemaList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList1](#schemalist1) | validate([SchemaListInput1](#schemalistinput1) arg, SchemaConfiguration configuration) |
+| static [SchemaList1](#schemalist1) | validate([List<String>](#schemalistinput1) arg, SchemaConfiguration configuration) |
 
 ## SchemaListInput1
-public interface SchemaListInput1<br>
-extends `List<String>`
+public class SchemaListInput1<br>
+builder for `List<String>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

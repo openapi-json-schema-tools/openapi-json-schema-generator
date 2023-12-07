@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,20 +14,20 @@ A class that contains necessary nested
 | static class | [ArrayTest.ArrayTest1](#arraytest1)<br> schema class |
 | static class | [ArrayTest.ArrayTestMap](#arraytestmap)<br> output class for Map payloads |
 | static class | [ArrayTest.ArrayArrayOfModel](#arrayarrayofmodel)<br> schema class |
-| static class | [ArrayTest.ArrayArrayOfModelListInput](#arrayarrayofmodellistinput)<br> input class for List payloads |
+| static class | [ArrayTest.ArrayArrayOfModelListInput](#arrayarrayofmodellistinput)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfModelList](#arrayarrayofmodellist)<br> output class for List payloads |
 | static class | [ArrayTest.Items3](#items3)<br> schema class |
-| static class | [ArrayTest.ItemsListInput1](#itemslistinput1)<br> input class for List payloads |
+| static class | [ArrayTest.ItemsListInput1](#itemslistinput1)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList1](#itemslist1)<br> output class for List payloads |
 | static class | [ArrayTest.ArrayArrayOfInteger](#arrayarrayofinteger)<br> schema class |
-| static class | [ArrayTest.ArrayArrayOfIntegerListInput](#arrayarrayofintegerlistinput)<br> input class for List payloads |
+| static class | [ArrayTest.ArrayArrayOfIntegerListInput](#arrayarrayofintegerlistinput)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayArrayOfIntegerList](#arrayarrayofintegerlist)<br> output class for List payloads |
 | static class | [ArrayTest.Items1](#items1)<br> schema class |
-| static class | [ArrayTest.ItemsListInput](#itemslistinput)<br> input class for List payloads |
+| static class | [ArrayTest.ItemsListInput](#itemslistinput)<br> builder for List payloads |
 | static class | [ArrayTest.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [ArrayTest.Items2](#items2)<br> schema class |
 | static class | [ArrayTest.ArrayOfString](#arrayofstring)<br> schema class |
-| static class | [ArrayTest.ArrayOfStringListInput](#arrayofstringlistinput)<br> input class for List payloads |
+| static class | [ArrayTest.ArrayOfStringListInput](#arrayofstringlistinput)<br> builder for List payloads |
 | static class | [ArrayTest.ArrayOfStringList](#arrayofstringlist)<br> output class for List payloads |
 | static class | [ArrayTest.Items](#items)<br> schema class |
 
@@ -178,13 +178,13 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([ArrayArrayOfModelListInput](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<List<Map<String, Object>>>](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfModelListInput
-public interface ArrayArrayOfModelListInput<br>
-extends `List<List<Map<String, Object>>>`
+public class ArrayArrayOfModelListInput<br>
+builder for `List<List<Map<String, Object>>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
@@ -250,13 +250,13 @@ ArrayTest.ItemsList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | validate([ItemsListInput1](#itemslistinput1) arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | validate([List<Map<String, Object>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput1
-public interface ItemsListInput1<br>
-extends `List<Map<String, Object>>`
+public class ItemsListInput1<br>
+builder for `List<Map<String, Object>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
@@ -315,13 +315,13 @@ ArrayTest.ArrayArrayOfIntegerList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([ArrayArrayOfIntegerListInput](#arrayarrayofintegerlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | validate([List<List<Long>>](#arrayarrayofintegerlistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfIntegerListInput
-public interface ArrayArrayOfIntegerListInput<br>
-extends `List<List<Long>>`
+public class ArrayArrayOfIntegerListInput<br>
+builder for `List<List<Long>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
@@ -378,13 +378,13 @@ ArrayTest.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([List<Long>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
-public interface ItemsListInput<br>
-extends `List<Long>`
+public class ItemsListInput<br>
+builder for `List<Long>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
@@ -451,13 +451,13 @@ ArrayTest.ArrayOfStringList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfStringList](#arrayofstringlist) | validate([ArrayOfStringListInput](#arrayofstringlistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfStringList](#arrayofstringlist) | validate([List<String>](#arrayofstringlistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayOfStringListInput
-public interface ArrayOfStringListInput<br>
-extends `List<String>`
+public class ArrayOfStringListInput<br>
+builder for `List<String>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

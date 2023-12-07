@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,7 +14,7 @@ A class that contains necessary nested
 | static class | [FileSchemaTestClass.FileSchemaTestClass1](#fileschematestclass1)<br> schema class |
 | static class | [FileSchemaTestClass.FileSchemaTestClassMap](#fileschematestclassmap)<br> output class for Map payloads |
 | static class | [FileSchemaTestClass.Files](#files)<br> schema class |
-| static class | [FileSchemaTestClass.FilesListInput](#fileslistinput)<br> input class for List payloads |
+| static class | [FileSchemaTestClass.FilesListInput](#fileslistinput)<br> builder for List payloads |
 | static class | [FileSchemaTestClass.FilesList](#fileslist)<br> output class for List payloads |
 
 ## FileSchemaTestClass1
@@ -124,13 +124,13 @@ FileSchemaTestClass.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | validate([FilesListInput](#fileslistinput) arg, SchemaConfiguration configuration) |
+| static [FilesList](#fileslist) | validate([List<Map<String, Object>>](#fileslistinput) arg, SchemaConfiguration configuration) |
 
 ## FilesListInput
-public interface FilesListInput<br>
-extends `List<Map<String, Object>>`
+public class FilesListInput<br>
+builder for `List<Map<String, Object>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

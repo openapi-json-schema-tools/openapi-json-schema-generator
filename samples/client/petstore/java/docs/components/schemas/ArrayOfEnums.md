@@ -6,13 +6,13 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayOfEnums.ArrayOfEnums1](#arrayofenums1)<br> schema class |
-| static class | [ArrayOfEnums.ArrayOfEnumsListInput](#arrayofenumslistinput)<br> input class for List payloads |
+| static class | [ArrayOfEnums.ArrayOfEnumsListInput](#arrayofenumslistinput)<br> builder for List payloads |
 | static class | [ArrayOfEnums.ArrayOfEnumsList](#arrayofenumslist)<br> output class for List payloads |
 
 ## ArrayOfEnums1
@@ -54,13 +54,13 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfEnumsList](#arrayofenumslist) | validate([ArrayOfEnumsListInput](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | validate([List<String>](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayOfEnumsListInput
-public interface ArrayOfEnumsListInput<br>
-extends `List<String>`
+public class ArrayOfEnumsListInput<br>
+builder for `List<String>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

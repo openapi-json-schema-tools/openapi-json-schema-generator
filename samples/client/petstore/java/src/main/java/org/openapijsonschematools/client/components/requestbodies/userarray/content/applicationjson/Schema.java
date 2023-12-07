@@ -21,12 +21,14 @@ public class Schema {
         SchemaList(FrozenList<User.UserMap> m) {
             super(m);
         }
-        public static SchemaList of(SchemaListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema1.validate(arg, configuration);
         }
     }
     
-    public interface SchemaListInput extends List<Map<String, Object>> {}
+    public interface SchemaListInput {
+        // class to build List<Map<String, Object>>
+    }
     
     
     public static class Schema1 extends JsonSchema {
@@ -38,7 +40,7 @@ public class Schema {
         protected static SchemaList getListOutputInstance(FrozenList<User.UserMap> arg) {
             return new SchemaList(arg);
         }
-        public static SchemaList validate(SchemaListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Schema1.class, arg, configuration);
         }
     }}

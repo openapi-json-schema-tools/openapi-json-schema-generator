@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,11 +14,11 @@ A class that contains necessary nested
 | static class | [Pet.Pet1](#pet1)<br> schema class |
 | static class | [Pet.PetMap](#petmap)<br> output class for Map payloads |
 | static class | [Pet.Tags](#tags)<br> schema class |
-| static class | [Pet.TagsListInput](#tagslistinput)<br> input class for List payloads |
+| static class | [Pet.TagsListInput](#tagslistinput)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
 | static class | [Pet.Status](#status)<br> schema class |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
-| static class | [Pet.PhotoUrlsListInput](#photourlslistinput)<br> input class for List payloads |
+| static class | [Pet.PhotoUrlsListInput](#photourlslistinput)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |
 | static class | [Pet.Items](#items)<br> schema class |
 | static class | [Pet.Name](#name)<br> schema class |
@@ -189,13 +189,13 @@ Pet.TagsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | validate([TagsListInput](#tagslistinput) arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | validate([List<Map<String, Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
 
 ## TagsListInput
-public interface TagsListInput<br>
-extends `List<Map<String, Object>>`
+public class TagsListInput<br>
+builder for `List<Map<String, Object>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
@@ -293,13 +293,13 @@ Pet.PhotoUrlsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | validate([PhotoUrlsListInput](#photourlslistinput) arg, SchemaConfiguration configuration) |
+| static [PhotoUrlsList](#photourlslist) | validate([List<String>](#photourlslistinput) arg, SchemaConfiguration configuration) |
 
 ## PhotoUrlsListInput
-public interface PhotoUrlsListInput<br>
-extends `List<String>`
+public class PhotoUrlsListInput<br>
+builder for `List<String>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

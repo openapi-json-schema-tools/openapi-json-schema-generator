@@ -24,12 +24,14 @@ public class ComposedArray {
         ComposedArrayList(FrozenList<Object> m) {
             super(m);
         }
-        public static ComposedArrayList of(ComposedArrayListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ComposedArray1.validate(arg, configuration);
         }
     }
     
-    public interface ComposedArrayListInput extends List<Object> {}
+    public interface ComposedArrayListInput {
+        // class to build List<Object>
+    }
     
     
     public static class ComposedArray1 extends JsonSchema {
@@ -47,7 +49,7 @@ public class ComposedArray {
         protected static ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
             return new ComposedArrayList(arg);
         }
-        public static ComposedArrayList validate(ComposedArrayListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ComposedArray1.class, arg, configuration);
         }
     }}

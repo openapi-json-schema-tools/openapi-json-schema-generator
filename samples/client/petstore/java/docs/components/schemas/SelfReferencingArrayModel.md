@@ -6,13 +6,13 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModel1](#selfreferencingarraymodel1)<br> schema class |
-| static class | [SelfReferencingArrayModel.SelfReferencingArrayModelListInput](#selfreferencingarraymodellistinput)<br> input class for List payloads |
+| static class | [SelfReferencingArrayModel.SelfReferencingArrayModelListInput](#selfreferencingarraymodellistinput)<br> builder for List payloads |
 | static class | [SelfReferencingArrayModel.SelfReferencingArrayModelList](#selfreferencingarraymodellist)<br> output class for List payloads |
 
 ## SelfReferencingArrayModel1
@@ -53,13 +53,13 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([SelfReferencingArrayModelListInput](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
+| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<List>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
 
 ## SelfReferencingArrayModelListInput
-public interface SelfReferencingArrayModelListInput<br>
-extends `List<List>`
+public class SelfReferencingArrayModelListInput<br>
+builder for `List<List>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

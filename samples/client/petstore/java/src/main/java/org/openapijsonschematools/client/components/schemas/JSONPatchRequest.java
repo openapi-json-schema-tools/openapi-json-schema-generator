@@ -82,12 +82,14 @@ public class JSONPatchRequest {
         JSONPatchRequestList(FrozenList<Object> m) {
             super(m);
         }
-        public static JSONPatchRequestList of(JSONPatchRequestListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JSONPatchRequest1.validate(arg, configuration);
         }
     }
     
-    public interface JSONPatchRequestListInput extends List<Object> {}
+    public interface JSONPatchRequestListInput {
+        // class to build List<Object>
+    }
     
     
     public static class JSONPatchRequest1 extends JsonSchema {
@@ -105,7 +107,7 @@ public class JSONPatchRequest {
         protected static JSONPatchRequestList getListOutputInstance(FrozenList<Object> arg) {
             return new JSONPatchRequestList(arg);
         }
-        public static JSONPatchRequestList validate(JSONPatchRequestListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static JSONPatchRequestList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(JSONPatchRequest1.class, arg, configuration);
         }
     }}

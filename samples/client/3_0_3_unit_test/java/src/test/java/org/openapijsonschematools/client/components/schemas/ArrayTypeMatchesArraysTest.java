@@ -39,7 +39,6 @@ public class ArrayTypeMatchesArraysTest {
     public void testAnArrayIsAnArrayPasses() {
         // an array is an array
         ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
-            (ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListInput)
             Arrays.asList(
             ),
             configuration

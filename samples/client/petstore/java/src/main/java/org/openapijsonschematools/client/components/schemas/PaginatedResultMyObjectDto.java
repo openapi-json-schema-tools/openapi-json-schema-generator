@@ -35,12 +35,14 @@ public class PaginatedResultMyObjectDto {
         ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
             super(m);
         }
-        public static ResultsList of(ResultsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Results.validate(arg, configuration);
         }
     }
     
-    public interface ResultsListInput extends List<Map<String, String>> {}
+    public interface ResultsListInput {
+        // class to build List<Map<String, String>>
+    }
     
     
     public static class Results extends JsonSchema {
@@ -52,7 +54,7 @@ public class PaginatedResultMyObjectDto {
         protected static ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap> arg) {
             return new ResultsList(arg);
         }
-        public static ResultsList validate(ResultsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Results.class, arg, configuration);
         }
     }    

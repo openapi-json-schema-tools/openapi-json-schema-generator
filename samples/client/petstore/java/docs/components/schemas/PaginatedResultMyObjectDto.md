@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -14,7 +14,7 @@ A class that contains necessary nested
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1](#paginatedresultmyobjectdto1)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap)<br> output class for Map payloads |
 | static class | [PaginatedResultMyObjectDto.Results](#results)<br> schema class |
-| static class | [PaginatedResultMyObjectDto.ResultsListInput](#resultslistinput)<br> input class for List payloads |
+| static class | [PaginatedResultMyObjectDto.ResultsListInput](#resultslistinput)<br> builder for List payloads |
 | static class | [PaginatedResultMyObjectDto.ResultsList](#resultslist)<br> output class for List payloads |
 | static class | [PaginatedResultMyObjectDto.Count](#count)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -128,13 +128,13 @@ PaginatedResultMyObjectDto.ResultsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ResultsList](#resultslist) | validate([ResultsListInput](#resultslistinput) arg, SchemaConfiguration configuration) |
+| static [ResultsList](#resultslist) | validate([List<Map<String, String>>](#resultslistinput) arg, SchemaConfiguration configuration) |
 
 ## ResultsListInput
-public interface ResultsListInput<br>
-extends `List<Map<String, String>>`
+public class ResultsListInput<br>
+builder for `List<Map<String, String>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

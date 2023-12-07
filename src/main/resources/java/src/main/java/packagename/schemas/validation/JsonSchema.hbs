@@ -255,7 +255,7 @@ public abstract class JsonSchema {
       return (T) validate(cls, arg, configuration);
    }
 
-   protected static <U extends FrozenList, V extends List> U validateList(Class<? extends JsonSchema> cls, V arg, SchemaConfiguration configuration) throws ValidationException {
+   protected static <U extends FrozenList> U validateList(Class<? extends JsonSchema> cls, List<?> arg, SchemaConfiguration configuration) throws ValidationException {
       return (U) validate(cls, arg, configuration);
    }
 

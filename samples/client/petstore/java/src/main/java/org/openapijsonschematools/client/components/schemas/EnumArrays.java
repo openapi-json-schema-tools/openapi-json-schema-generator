@@ -54,12 +54,14 @@ public class EnumArrays {
         ArrayEnumList(FrozenList<String> m) {
             super(m);
         }
-        public static ArrayEnumList of(ArrayEnumListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayEnum.validate(arg, configuration);
         }
     }
     
-    public interface ArrayEnumListInput extends List<String> {}
+    public interface ArrayEnumListInput {
+        // class to build List<String>
+    }
     
     
     public static class ArrayEnum extends JsonSchema {
@@ -71,7 +73,7 @@ public class EnumArrays {
         protected static ArrayEnumList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayEnumList(arg);
         }
-        public static ArrayEnumList validate(ArrayEnumListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(ArrayEnum.class, arg, configuration);
         }
     }    

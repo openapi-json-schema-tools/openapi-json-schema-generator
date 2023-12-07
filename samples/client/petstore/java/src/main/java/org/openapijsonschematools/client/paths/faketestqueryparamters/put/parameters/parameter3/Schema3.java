@@ -24,12 +24,14 @@ public class Schema3 {
         SchemaList3(FrozenList<String> m) {
             super(m);
         }
-        public static SchemaList3 of(SchemaListInput3 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList3 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema31.validate(arg, configuration);
         }
     }
     
-    public interface SchemaListInput3 extends List<String> {}
+    public interface SchemaListInput3 {
+        // class to build List<String>
+    }
     
     
     public static class Schema31 extends JsonSchema {
@@ -41,7 +43,7 @@ public class Schema3 {
         protected static SchemaList3 getListOutputInstance(FrozenList<String> arg) {
             return new SchemaList3(arg);
         }
-        public static SchemaList3 validate(SchemaListInput3 arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaList3 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Schema31.class, arg, configuration);
         }
     }}

@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -15,7 +15,7 @@ A class that contains necessary nested
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.EnumFormString](#enumformstring)<br> schema class |
 | static class | [Schema.EnumFormStringArray](#enumformstringarray)<br> schema class |
-| static class | [Schema.EnumFormStringArrayListInput](#enumformstringarraylistinput)<br> input class for List payloads |
+| static class | [Schema.EnumFormStringArrayListInput](#enumformstringarraylistinput)<br> builder for List payloads |
 | static class | [Schema.EnumFormStringArrayList](#enumformstringarraylist)<br> output class for List payloads |
 | static class | [Schema.Items](#items)<br> schema class |
 
@@ -176,13 +176,13 @@ Schema.EnumFormStringArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumFormStringArrayList](#enumformstringarraylist) | validate([EnumFormStringArrayListInput](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
+| static [EnumFormStringArrayList](#enumformstringarraylist) | validate([List<String>](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## EnumFormStringArrayListInput
-public interface EnumFormStringArrayListInput<br>
-extends `List<String>`
+public class EnumFormStringArrayListInput<br>
+builder for `List<String>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

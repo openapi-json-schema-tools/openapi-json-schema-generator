@@ -6,13 +6,13 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Items.Items1](#items1)<br> schema class |
-| static class | [Items.ItemsListInput](#itemslistinput)<br> input class for List payloads |
+| static class | [Items.ItemsListInput](#itemslistinput)<br> builder for List payloads |
 | static class | [Items.ItemsList](#itemslist)<br> output class for List payloads |
 | static class | [Items.Items2](#items2)<br> schema class |
 
@@ -57,13 +57,13 @@ Items.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate([ItemsListInput](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([List<Map<String, Object>>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
-public interface ItemsListInput<br>
-extends `List<Map<String, Object>>`
+public class ItemsListInput<br>
+builder for `List<Map<String, Object>>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

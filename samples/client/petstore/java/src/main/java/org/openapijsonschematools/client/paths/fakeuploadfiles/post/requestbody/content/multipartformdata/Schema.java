@@ -28,12 +28,14 @@ public class Schema {
         FilesList(FrozenList<String> m) {
             super(m);
         }
-        public static FilesList of(FilesListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return Files.validate(arg, configuration);
         }
     }
     
-    public interface FilesListInput extends List<String> {}
+    public interface FilesListInput {
+        // class to build List<String>
+    }
     
     
     public static class Files extends JsonSchema {
@@ -45,7 +47,7 @@ public class Schema {
         protected static FilesList getListOutputInstance(FrozenList<String> arg) {
             return new FilesList(arg);
         }
-        public static FilesList validate(FilesListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Files.class, arg, configuration);
         }
     }    

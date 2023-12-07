@@ -6,7 +6,7 @@ A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to store list input interfaces, extends List
+- classes to build inputs for list payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -19,7 +19,7 @@ A class that contains necessary nested
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema11](#schema11)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema10](#schema10)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9](#schema9)<br> schema class |
-| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9ListInput](#schema9listinput)<br> input class for List payloads |
+| static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9ListInput](#schema9listinput)<br> builder for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema9List](#schema9list)<br> output class for List payloads |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Items](#items)<br> schema class |
 | static class | [ComposedAnyOfDifferentTypesNoValidations.Schema8](#schema8)<br> schema class |
@@ -154,13 +154,13 @@ ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | validate([Schema9ListInput](#schema9listinput) arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | validate([List<Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
 
 ## Schema9ListInput
-public interface Schema9ListInput<br>
-extends `List<Object>`
+public class Schema9ListInput<br>
+builder for `List<Object>`
 
-A class that describes the List input type
+A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes

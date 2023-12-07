@@ -25,12 +25,14 @@ public class Items {
         ItemsList(FrozenList<FrozenMap<String, Object>> m) {
             super(m);
         }
-        public static ItemsList of(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items1.validate(arg, configuration);
         }
     }
     
-    public interface ItemsListInput extends List<Map<String, Object>> {}
+    public interface ItemsListInput {
+        // class to build List<Map<String, Object>>
+    }
     
     
     public static class Items1 extends JsonSchema {
@@ -50,7 +52,7 @@ public class Items {
         protected static ItemsList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
             return new ItemsList(arg);
         }
-        public static ItemsList validate(ItemsListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(Items1.class, arg, configuration);
         }
     }}

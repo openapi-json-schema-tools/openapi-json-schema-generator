@@ -23,9 +23,6 @@ public class {{containerJsonPathPiece.camelCase}}Test {
         // {{description.codeEscaped}}
         {{#if valid}}
         {{containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}.validate(
-            {{#and (eq data.type "array") (neq ../arrayInputJsonPathPiece null) }}
-            ({{containerJsonPathPiece.camelCase}}.{{../arrayInputJsonPathPiece.camelCase}})
-            {{/and}}
             {{#with data}}
             {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
             {{/with}}

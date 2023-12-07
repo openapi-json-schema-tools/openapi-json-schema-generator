@@ -22,12 +22,14 @@ public class AdditionalPropertiesWithArrayOfEnums {
         AdditionalPropertiesList(FrozenList<String> m) {
             super(m);
         }
-        public static AdditionalPropertiesList of(AdditionalPropertiesListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return AdditionalProperties.validate(arg, configuration);
         }
     }
     
-    public interface AdditionalPropertiesListInput extends List<String> {}
+    public interface AdditionalPropertiesListInput {
+        // class to build List<String>
+    }
     
     
     public static class AdditionalProperties extends JsonSchema {
@@ -39,7 +41,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         protected static AdditionalPropertiesList getListOutputInstance(FrozenList<String> arg) {
             return new AdditionalPropertiesList(arg);
         }
-        public static AdditionalPropertiesList validate(AdditionalPropertiesListInput arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return JsonSchema.validateList(AdditionalProperties.class, arg, configuration);
         }
     }    
