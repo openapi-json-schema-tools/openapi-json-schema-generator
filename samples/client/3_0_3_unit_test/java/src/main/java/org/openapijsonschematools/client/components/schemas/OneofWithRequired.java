@@ -48,6 +48,9 @@ public class OneofWithRequired {
             return get(name);
         }
     }
+    public class Schema0DictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class Schema0 extends JsonSchema {
@@ -136,6 +139,9 @@ public class OneofWithRequired {
             throwIfKeyNotPresent(name);
             return get(name);
         }
+    }
+    public class Schema1DictInput {
+        // Map<String, Object> because addProps is unset
     }
     
     

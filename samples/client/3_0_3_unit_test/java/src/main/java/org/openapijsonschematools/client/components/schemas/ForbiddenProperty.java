@@ -50,6 +50,9 @@ public class ForbiddenProperty {
             return get(name);
         }
     }
+    public class ForbiddenPropertyDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class ForbiddenProperty1 extends JsonSchema {

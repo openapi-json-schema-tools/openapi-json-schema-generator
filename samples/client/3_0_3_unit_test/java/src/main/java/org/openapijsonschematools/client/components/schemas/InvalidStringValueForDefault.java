@@ -58,6 +58,9 @@ public class InvalidStringValueForDefault {
             return get(name);
         }
     }
+    public class InvalidStringValueForDefaultDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class InvalidStringValueForDefault1 extends JsonSchema {

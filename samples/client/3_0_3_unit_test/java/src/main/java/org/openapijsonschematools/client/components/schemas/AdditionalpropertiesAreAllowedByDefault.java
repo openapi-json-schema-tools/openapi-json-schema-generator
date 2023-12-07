@@ -58,6 +58,9 @@ public class AdditionalpropertiesAreAllowedByDefault {
             return get(name);
         }
     }
+    public class AdditionalpropertiesAreAllowedByDefaultDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class AdditionalpropertiesAreAllowedByDefault1 extends JsonSchema {

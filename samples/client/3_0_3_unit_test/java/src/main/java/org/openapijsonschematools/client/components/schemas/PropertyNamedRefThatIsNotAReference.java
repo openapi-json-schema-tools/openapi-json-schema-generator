@@ -42,6 +42,9 @@ public class PropertyNamedRefThatIsNotAReference {
             return get(name);
         }
     }
+    public class PropertyNamedRefThatIsNotAReferenceDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class PropertyNamedRefThatIsNotAReference1 extends JsonSchema {

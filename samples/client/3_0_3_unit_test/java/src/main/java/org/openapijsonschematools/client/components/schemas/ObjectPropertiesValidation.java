@@ -59,6 +59,9 @@ public class ObjectPropertiesValidation {
             return get(name);
         }
     }
+    public class ObjectPropertiesValidationDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class ObjectPropertiesValidation1 extends JsonSchema {

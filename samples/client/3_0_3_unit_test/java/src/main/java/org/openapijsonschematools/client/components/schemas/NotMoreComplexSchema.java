@@ -50,6 +50,9 @@ public class NotMoreComplexSchema {
             return get(name);
         }
     }
+    public class NotDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class Not extends JsonSchema {

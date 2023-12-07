@@ -44,6 +44,9 @@ public class RefInProperty {
             return get(name);
         }
     }
+    public class RefInPropertyDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class RefInProperty1 extends JsonSchema {

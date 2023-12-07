@@ -58,6 +58,9 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return (boolean) get(name);
         }
     }
+    public class AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput {
+        // optionalProperties + additionalProperties
+    }
     
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidate1 extends JsonSchema {

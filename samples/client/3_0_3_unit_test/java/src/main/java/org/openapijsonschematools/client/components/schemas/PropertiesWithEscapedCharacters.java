@@ -62,6 +62,9 @@ public class PropertiesWithEscapedCharacters {
             return get(name);
         }
     }
+    public class PropertiesWithEscapedCharactersDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class PropertiesWithEscapedCharacters1 extends JsonSchema {

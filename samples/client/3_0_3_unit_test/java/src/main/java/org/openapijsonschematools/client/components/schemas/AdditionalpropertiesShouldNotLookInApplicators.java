@@ -54,6 +54,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return get(name);
         }
     }
+    public class Schema0DictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class Schema0 extends JsonSchema {

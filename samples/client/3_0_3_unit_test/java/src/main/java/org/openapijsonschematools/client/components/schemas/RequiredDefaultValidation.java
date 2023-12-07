@@ -48,6 +48,9 @@ public class RequiredDefaultValidation {
             return get(name);
         }
     }
+    public class RequiredDefaultValidationDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class RequiredDefaultValidation1 extends JsonSchema {

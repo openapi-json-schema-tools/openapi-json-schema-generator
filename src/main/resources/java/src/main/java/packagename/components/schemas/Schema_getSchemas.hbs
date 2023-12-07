@@ -19,10 +19,10 @@
 {{!> components/schemas/_properties_type }}
                         {{else}}
                             {{#eq instanceType "requiredPropertiesInputType" }}
-{{!> components/schemas/_required_properties_input_type }}
+{{> src/main/java/packagename/components/schemas/_objectInputType }}
                             {{else}}
                                 {{#eq instanceType "optionalPropertiesInputType" }}
-{{!> components/schemas/_optional_properties_input_type }}
+{{> src/main/java/packagename/components/schemas/_objectInputType }}
                                 {{else}}
                                     {{#eq instanceType "propertiesInputType" }}
 {{> src/main/java/packagename/components/schemas/_objectInputType }}

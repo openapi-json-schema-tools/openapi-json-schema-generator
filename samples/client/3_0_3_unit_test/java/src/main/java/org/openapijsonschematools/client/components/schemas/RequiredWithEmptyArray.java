@@ -48,6 +48,9 @@ public class RequiredWithEmptyArray {
             return get(name);
         }
     }
+    public class RequiredWithEmptyArrayDictInput {
+        // Map<String, Object> because addProps is unset
+    }
     
     
     public static class RequiredWithEmptyArray1 extends JsonSchema {
