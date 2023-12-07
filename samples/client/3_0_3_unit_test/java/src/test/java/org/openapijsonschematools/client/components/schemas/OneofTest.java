@@ -30,7 +30,7 @@ public class OneofTest {
         // neither oneOf valid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             Oneof.Oneof1.class,
-            1.5,
+            1.5d,
             configuration
         ));
     }
@@ -39,7 +39,7 @@ public class OneofTest {
     public void testSecondOneofValidPasses() {
         // second oneOf valid
         Oneof.Oneof1.validate(
-            2.5,
+            2.5d,
             configuration
         );
     }

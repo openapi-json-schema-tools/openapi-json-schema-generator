@@ -47,7 +47,7 @@ public class Ipv6FormatTest {
     public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
         Ipv6Format.Ipv6Format1.validate(
-            13.7,
+            13.7d,
             configuration
         );
     }

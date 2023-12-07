@@ -1,4 +1,8 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.util.AbstractList;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -107,8 +111,12 @@ public class NestedItems {
         }
     }
     
-    public interface NestedItemsListInput <T extends List<List<List<Number>>>> extends List<T> {}
-    
+    public static class NestedItemsListInput <T extends Object> extends ArrayList<T> {
+        public NestedItemsListInput(List<T> inst) {
+            super(inst);
+        }
+    }
+
     
     public static class NestedItems1 extends JsonSchema {
         /*

@@ -47,7 +47,7 @@ public class EmailFormatTest {
     public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
         EmailFormat.EmailFormat1.validate(
-            13.7,
+            13.7d,
             configuration
         );
     }

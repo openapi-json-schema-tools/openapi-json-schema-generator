@@ -20,7 +20,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
         // above the maximum is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.class,
-            300.5,
+            300.5d,
             configuration
         ));
     }
@@ -29,7 +29,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     public void testBelowTheMaximumIsInvalidPasses() {
         // below the maximum is invalid
         MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.validate(
-            299.97,
+            299.97d,
             configuration
         );
     }
@@ -47,7 +47,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     public void testBoundaryPointFloatIsValidPasses() {
         // boundary point float is valid
         MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.validate(
-            300.0,
+            300.0d,
             configuration
         );
     }

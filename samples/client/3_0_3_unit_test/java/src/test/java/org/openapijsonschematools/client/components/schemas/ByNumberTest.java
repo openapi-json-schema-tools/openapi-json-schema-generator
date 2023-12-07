@@ -29,7 +29,7 @@ public class ByNumberTest {
     public void test45IsMultipleOf15Passes() {
         // 4.5 is multiple of 1.5
         ByNumber.ByNumber1.validate(
-            4.5,
+            4.5d,
             configuration
         );
     }

@@ -20,8 +20,8 @@ public class UniqueitemsFalseValidationTest {
         // numbers are unique if mathematically unequal
         UniqueitemsFalseValidation.UniqueitemsFalseValidation1.validate(
             Arrays.asList(
-                1.0,
-                1.0,
+                1.0d,
+                1.0d,
                 1
             ),
             configuration

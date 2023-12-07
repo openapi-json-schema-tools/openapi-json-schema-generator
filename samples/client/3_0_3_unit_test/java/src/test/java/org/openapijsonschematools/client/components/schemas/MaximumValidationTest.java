@@ -20,7 +20,7 @@ public class MaximumValidationTest {
         // above the maximum is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MaximumValidation.MaximumValidation1.class,
-            3.5,
+            3.5d,
             configuration
         ));
     }
@@ -29,7 +29,7 @@ public class MaximumValidationTest {
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
         MaximumValidation.MaximumValidation1.validate(
-            3.0,
+            3.0d,
             configuration
         );
     }
@@ -38,7 +38,7 @@ public class MaximumValidationTest {
     public void testBelowTheMaximumIsValidPasses() {
         // below the maximum is valid
         MaximumValidation.MaximumValidation1.validate(
-            2.6,
+            2.6d,
             configuration
         );
     }

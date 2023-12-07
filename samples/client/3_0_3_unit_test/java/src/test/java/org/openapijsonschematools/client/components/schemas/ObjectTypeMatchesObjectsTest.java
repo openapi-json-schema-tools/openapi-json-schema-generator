@@ -71,7 +71,7 @@ public class ObjectTypeMatchesObjectsTest {
         // a float is not an object
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.class,
-            1.1,
+            1.1d,
             configuration
         ));
     }

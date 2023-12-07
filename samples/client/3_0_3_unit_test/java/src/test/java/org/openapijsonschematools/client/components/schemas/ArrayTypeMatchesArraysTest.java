@@ -30,7 +30,7 @@ public class ArrayTypeMatchesArraysTest {
         // a float is not an array
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.class,
-            1.1,
+            1.1d,
             configuration
         ));
     }
@@ -39,6 +39,7 @@ public class ArrayTypeMatchesArraysTest {
     public void testAnArrayIsAnArrayPasses() {
         // an array is an array
         ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.validate(
+            (ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListInput)
             Arrays.asList(
             ),
             configuration

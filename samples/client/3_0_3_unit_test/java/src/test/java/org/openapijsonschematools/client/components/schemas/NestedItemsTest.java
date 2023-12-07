@@ -91,6 +91,7 @@ public class NestedItemsTest {
     public void testValidNestedArrayPasses() {
         // valid nested array
         NestedItems.NestedItems1.validate(
+                new NestedItems.NestedItemsListInput(
             Arrays.asList(
                 Arrays.asList(
                     Arrays.asList(
@@ -120,7 +121,7 @@ public class NestedItemsTest {
                         )
                     )
                 )
-            ),
+            )),
             configuration
         );
     }

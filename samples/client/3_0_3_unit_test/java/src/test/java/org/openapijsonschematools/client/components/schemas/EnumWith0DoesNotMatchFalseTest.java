@@ -19,7 +19,7 @@ public class EnumWith0DoesNotMatchFalseTest {
     public void testFloatZeroIsValidPasses() {
         // float zero is valid
         EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
-            0.0,
+            0.0d,
             configuration
         );
     }

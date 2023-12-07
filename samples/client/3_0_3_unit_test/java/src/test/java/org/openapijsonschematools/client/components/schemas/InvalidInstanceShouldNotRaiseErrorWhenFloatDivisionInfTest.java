@@ -20,7 +20,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
         // always invalid, but naive implementations may raise an overflow error
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.class,
-            1.0E308,
+            1.0E308d,
             configuration
         ));
     }

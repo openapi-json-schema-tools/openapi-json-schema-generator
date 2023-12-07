@@ -29,7 +29,7 @@ public class EnumWith1DoesNotMatchTrueTest {
     public void testFloatOneIsValidPasses() {
         // float one is valid
         EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.validate(
-            1.0,
+            1.0d,
             configuration
         );
     }

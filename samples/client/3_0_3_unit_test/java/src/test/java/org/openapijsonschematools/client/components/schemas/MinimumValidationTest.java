@@ -19,7 +19,7 @@ public class MinimumValidationTest {
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
         MinimumValidation.MinimumValidation1.validate(
-            1.1,
+            1.1d,
             configuration
         );
     }
@@ -29,7 +29,7 @@ public class MinimumValidationTest {
         // below the minimum is invalid
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             MinimumValidation.MinimumValidation1.class,
-            0.6,
+            0.6d,
             configuration
         ));
     }
@@ -47,7 +47,7 @@ public class MinimumValidationTest {
     public void testAboveTheMinimumIsValidPasses() {
         // above the minimum is valid
         MinimumValidation.MinimumValidation1.validate(
-            2.6,
+            2.6d,
             configuration
         );
     }
