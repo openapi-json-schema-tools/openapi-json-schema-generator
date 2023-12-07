@@ -145,15 +145,11 @@ List Item Type | Description | Notes
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}
 public class {{mapInputJsonPathPiece.camelCase}}<br>
-                        {{#eq types null}}
-builder for `Map<String, Object>`
+                        {{#if mapValueSchema}}
+builder for `Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>`
                         {{else}}
-                            {{#with ../mapValueSchema}}
-builder for `Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../../jsonPath forceNull=true }}>`
-                            {{else}}
 builder for `Map<String, Object>`
-                            {{/with}}
-                        {{/eq}}
+                        {{/if}}
 
 A class that builds the Map input type
 

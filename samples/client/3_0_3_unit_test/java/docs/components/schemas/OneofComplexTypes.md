@@ -14,11 +14,11 @@ A class that contains necessary nested
 | ----------------- | ---------------------- |
 | static class | [OneofComplexTypes.OneofComplexTypes1](#oneofcomplextypes1)<br> schema class |
 | static class | [OneofComplexTypes.Schema1](#schema1)<br> schema class |
-| static class | [OneofComplexTypes.](#)<br> builder for Map payloads |
+| static class | [OneofComplexTypes.Schema1DictInput](#schema1dictinput)<br> builder for Map payloads |
 | static class | [OneofComplexTypes.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [OneofComplexTypes.Foo](#foo)<br> schema class |
 | static class | [OneofComplexTypes.Schema0](#schema0)<br> schema class |
-| static class | [OneofComplexTypes.](#)<br> builder for Map payloads |
+| static class | [OneofComplexTypes.Schema0DictInput](#schema0dictinput)<br> builder for Map payloads |
 | static class | [OneofComplexTypes.Schema0Map](#schema0map)<br> output class for Map payloads |
 | static class | [OneofComplexTypes.Bar](#bar)<br> schema class |
 
@@ -70,8 +70,8 @@ A schema class that validates payloads
 | static [Schema1Map](#schema1map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## 
-public class <br>
+## Schema1DictInput
+public class Schema1DictInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -129,8 +129,8 @@ A schema class that validates payloads
 | static [Schema0Map](#schema0map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## 
-public class <br>
+## Schema0DictInput
+public class Schema0DictInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type

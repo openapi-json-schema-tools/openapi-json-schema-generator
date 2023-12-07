@@ -13,7 +13,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1](#requiredwithescapedcharacters1)<br> schema class |
-| static class | [RequiredWithEscapedCharacters.](#)<br> builder for Map payloads |
+| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersDictInput](#requiredwithescapedcharactersdictinput)<br> builder for Map payloads |
 | static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap)<br> output class for Map payloads |
 
 ## RequiredWithEscapedCharacters1
@@ -40,8 +40,8 @@ A schema class that validates payloads
 | static [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## 
-public class <br>
+## RequiredWithEscapedCharactersDictInput
+public class RequiredWithEscapedCharactersDictInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type

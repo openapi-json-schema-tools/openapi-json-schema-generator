@@ -59,7 +59,7 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
 
 ## AdditionalpropertiesCanExistByItselfDictInput
 public class AdditionalpropertiesCanExistByItselfDictInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, Boolean>`
 
 A class that builds the Map input type
 

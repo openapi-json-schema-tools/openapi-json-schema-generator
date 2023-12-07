@@ -717,6 +717,8 @@ public class CodegenSchema {
             mapIn.instanceType = "requiredPropertiesInputType";
             mapIn.requiredProperties = requiredProperties;
             mapIn.additionalProperties = additionalProperties;
+            mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapValueSchema = mapValueSchema;
 
             CodegenSchema mapOut = new CodegenSchema();
             mapOut.instanceType = "propertiesOutputType";
@@ -749,6 +751,7 @@ public class CodegenSchema {
             mapIn.optionalProperties = optionalProperties;
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapValueSchema = mapValueSchema;
 
             CodegenSchema mapOut = new CodegenSchema();
             mapOut.instanceType = "propertiesOutputType";
@@ -782,6 +785,7 @@ public class CodegenSchema {
             mapIn.requiredProperties = requiredProperties;
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapValueSchema = mapValueSchema;
             boolean allAreInline;
             boolean addPropsHasAnyRefs = false;
             if (additionalProperties != null) {

@@ -47,7 +47,7 @@ A schema class that validates payloads
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsDictInput
 public class AdditionalpropertiesShouldNotLookInApplicatorsDictInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, Boolean>`
 
 A class that builds the Map input type
 

@@ -13,15 +13,15 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AllofWithBaseSchema.AllofWithBaseSchema1](#allofwithbaseschema1)<br> schema class |
-| static class | [AllofWithBaseSchema.](#)<br> builder for Map payloads |
+| static class | [AllofWithBaseSchema.AllofWithBaseSchemaDictInput](#allofwithbaseschemadictinput)<br> builder for Map payloads |
 | static class | [AllofWithBaseSchema.AllofWithBaseSchemaMap](#allofwithbaseschemamap)<br> output class for Map payloads |
 | static class | [AllofWithBaseSchema.Bar](#bar)<br> schema class |
 | static class | [AllofWithBaseSchema.Schema1](#schema1)<br> schema class |
-| static class | [AllofWithBaseSchema.](#)<br> builder for Map payloads |
+| static class | [AllofWithBaseSchema.Schema1DictInput](#schema1dictinput)<br> builder for Map payloads |
 | static class | [AllofWithBaseSchema.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [AllofWithBaseSchema.Baz](#baz)<br> schema class |
 | static class | [AllofWithBaseSchema.Schema0](#schema0)<br> schema class |
-| static class | [AllofWithBaseSchema.](#)<br> builder for Map payloads |
+| static class | [AllofWithBaseSchema.Schema0DictInput](#schema0dictinput)<br> builder for Map payloads |
 | static class | [AllofWithBaseSchema.Schema0Map](#schema0map)<br> output class for Map payloads |
 | static class | [AllofWithBaseSchema.Foo](#foo)<br> schema class |
 
@@ -49,8 +49,8 @@ A schema class that validates payloads
 | static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## 
-public class <br>
+## AllofWithBaseSchemaDictInput
+public class AllofWithBaseSchemaDictInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -108,8 +108,8 @@ A schema class that validates payloads
 | static [Schema1Map](#schema1map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## 
-public class <br>
+## Schema1DictInput
+public class Schema1DictInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
@@ -167,8 +167,8 @@ A schema class that validates payloads
 | static [Schema0Map](#schema0map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
-## 
-public class <br>
+## Schema0DictInput
+public class Schema0DictInput<br>
 builder for `Map<String, Object>`
 
 A class that builds the Map input type
