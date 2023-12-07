@@ -748,6 +748,7 @@ public class CodegenSchema {
             mapIn.instanceType = "optionalPropertiesInputType";
             mapIn.optionalProperties = optionalProperties;
             mapIn.additionalProperties = additionalProperties;
+            mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
 
             CodegenSchema mapOut = new CodegenSchema();
             mapOut.instanceType = "propertiesOutputType";

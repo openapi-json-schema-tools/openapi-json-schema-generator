@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [InvalidStringValueForDefault.InvalidStringValueForDefault1](#invalidstringvaluefordefault1)<br> schema class |
+| static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultDictInput](#invalidstringvaluefordefaultdictinput)<br> builder for Map payloads |
 | static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap)<br> output class for Map payloads |
 | static class | [InvalidStringValueForDefault.Bar](#bar)<br> schema class |
 
@@ -39,6 +41,18 @@ A schema class that validates payloads
 | static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
+## InvalidStringValueForDefaultDictInput
+public class InvalidStringValueForDefaultDictInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **bar** | String |  | [optional] if omitted the server will use the default value of bad |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+
 ## InvalidStringValueForDefaultMap
 public static class InvalidStringValueForDefaultMap<br>
 extends FrozenMap<String, Object>
@@ -51,15 +65,6 @@ A class to store validated Map payloads
 | static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] if omitted the server will use the default value of bad |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **bar** | String |  | [optional] if omitted the server will use the default value of bad |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Bar
 public static class Bar<br>

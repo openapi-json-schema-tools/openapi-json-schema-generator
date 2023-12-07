@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1](#additionalpropertiescanexistbyitself1)<br> schema class |
+| static class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfDictInput](#additionalpropertiescanexistbyitselfdictinput)<br> builder for Map payloads |
 | static class | [AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap)<br> output class for Map payloads |
 | static class | [AdditionalpropertiesCanExistByItself.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -55,6 +57,17 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
 | ----------------- | ---------------------- |
 | static [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 
+## AdditionalpropertiesCanExistByItselfDictInput
+public class AdditionalpropertiesCanExistByItselfDictInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
+
 ## AdditionalpropertiesCanExistByItselfMap
 public static class AdditionalpropertiesCanExistByItselfMap<br>
 extends FrozenMap<String, Boolean>
@@ -66,14 +79,6 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | of(Map<String, Boolean> arg, SchemaConfiguration configuration) |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

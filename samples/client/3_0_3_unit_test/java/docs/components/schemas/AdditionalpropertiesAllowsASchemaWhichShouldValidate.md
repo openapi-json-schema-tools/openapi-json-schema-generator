@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1](#additionalpropertiesallowsaschemawhichshouldvalidate1)<br> schema class |
+| static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput](#additionalpropertiesallowsaschemawhichshouldvalidatedictinput)<br> builder for Map payloads |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap)<br> output class for Map payloads |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Bar](#bar)<br> schema class |
 | static class | [AdditionalpropertiesAllowsASchemaWhichShouldValidate.Foo](#foo)<br> schema class |
@@ -57,6 +59,19 @@ AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsA
 | ----------------- | ---------------------- |
 | static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
 
+## AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput
+public class AdditionalpropertiesAllowsASchemaWhichShouldValidateDictInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **foo** | Object |  | [optional] |
+| **bar** | Object |  | [optional] |
+| **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
+
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMap
 public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap<br>
 extends FrozenMap<String, Object>
@@ -70,16 +85,6 @@ A class to store validated Map payloads
 | Object | foo()<br>[optional] |
 | Object | bar()<br>[optional] |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | Object |  | [optional] |
-| **bar** | Object |  | [optional] |
-| **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
 
 ## Bar
 public static class Bar<br>
