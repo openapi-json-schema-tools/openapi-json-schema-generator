@@ -65,7 +65,6 @@ public class AppleReq {
     public class AppleReqMapInput {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
-        pass
     
     
     public static class AppleReq1 extends JsonSchema {

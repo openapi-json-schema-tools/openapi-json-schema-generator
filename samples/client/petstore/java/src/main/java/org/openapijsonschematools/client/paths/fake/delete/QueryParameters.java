@@ -73,7 +73,6 @@ public class QueryParameters {
     public class QueryParametersMapInput {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
-        pass
     
     
     public static class QueryParameters1 extends JsonSchema {

@@ -68,7 +68,6 @@ public class Headers {
     public class HeadersMapInput {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
-        pass
     
     
     public static class Headers1 extends JsonSchema {

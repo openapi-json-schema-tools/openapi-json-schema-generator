@@ -65,7 +65,6 @@ public class BananaReq {
     public class BananaReqMapInput {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
-        pass
     
     
     public static class BananaReq1 extends JsonSchema {

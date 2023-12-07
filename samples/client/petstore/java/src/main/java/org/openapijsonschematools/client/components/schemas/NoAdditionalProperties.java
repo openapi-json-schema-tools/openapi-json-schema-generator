@@ -64,7 +64,6 @@ public class NoAdditionalProperties {
     public class NoAdditionalPropertiesMapInput {
         // requiredProperties, optionalProperties, NO additionalProperties
     }
-        pass
     
     
     public static class NoAdditionalProperties1 extends JsonSchema {
