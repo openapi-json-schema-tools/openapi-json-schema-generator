@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [GrandparentAnimal.GrandparentAnimal1](#grandparentanimal1)<br> schema class |
+| static class | [GrandparentAnimal.GrandparentAnimalMapInput](#grandparentanimalmapinput)<br> builder for Map payloads |
 | static class | [GrandparentAnimal.GrandparentAnimalMap](#grandparentanimalmap)<br> output class for Map payloads |
 | static class | [GrandparentAnimal.PetType](#pettype)<br> schema class |
 
@@ -57,7 +59,19 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GrandparentAnimalMap](#grandparentanimalmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<String, Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
+
+## GrandparentAnimalMapInput
+public class GrandparentAnimalMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **pet_type** | String |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## GrandparentAnimalMap
 public static class GrandparentAnimalMap<br>
@@ -68,18 +82,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GrandparentAnimalMap](#grandparentanimalmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **pet_type** | String |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## PetType
 public static class PetType<br>

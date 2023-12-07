@@ -33,7 +33,11 @@ public class Address {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AddressMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class Address1 extends JsonSchema {
         /*

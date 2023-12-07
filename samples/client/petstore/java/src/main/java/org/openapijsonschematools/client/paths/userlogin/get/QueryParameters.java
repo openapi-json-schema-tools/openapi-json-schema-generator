@@ -46,7 +46,11 @@ public class QueryParameters {
         public String username() {
             return (String) get("username");
         }
-    }    
+    }
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

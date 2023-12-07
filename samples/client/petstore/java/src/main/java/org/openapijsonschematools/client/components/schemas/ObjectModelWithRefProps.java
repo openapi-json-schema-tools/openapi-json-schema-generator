@@ -53,7 +53,11 @@ public class ObjectModelWithRefProps {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectModelWithRefPropsMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectModelWithRefProps1 extends JsonSchema {
         /*

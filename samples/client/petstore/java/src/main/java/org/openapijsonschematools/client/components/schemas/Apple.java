@@ -77,7 +77,11 @@ public class Apple {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AppleMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Apple1 extends JsonSchema {
         /*

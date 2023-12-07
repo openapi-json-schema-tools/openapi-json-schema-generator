@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Category.Category1](#category1)<br> schema class |
+| static class | [Category.CategoryMapInput](#categorymapinput)<br> builder for Map payloads |
 | static class | [Category.CategoryMap](#categorymap)<br> output class for Map payloads |
 | static class | [Category.Name](#name)<br> schema class |
 | static class | [Category.Id](#id)<br> schema class |
@@ -62,7 +64,20 @@ Category.CategoryMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CategoryMap](#categorymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [CategoryMap](#categorymap) | validate([Map<String, Object>](#categorymapinput) arg, SchemaConfiguration configuration) |
+
+## CategoryMapInput
+public class CategoryMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **name** | String |  | if omitted the server will use the default value of default-name |
+| **id** | long |  | [optional] value must be a 64 bit integer |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## CategoryMap
 public static class CategoryMap<br>
@@ -73,20 +88,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CategoryMap](#categorymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [CategoryMap](#categorymap) | of([Map<String, Object>](#categorymapinput) arg, SchemaConfiguration configuration) |
 | String | name()<br> if omitted the server will use the default value of default-name |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | String |  | if omitted the server will use the default value of default-name |
-| **id** | long |  | [optional] value must be a 64 bit integer |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Name
 public static class Name<br>

@@ -63,7 +63,11 @@ public class JSONPatchRequestRemove {
         public String path() {
             return get("path");
         }
-    }    
+    }
+    public class JSONPatchRequestRemoveMapInput {
+        // empty mapping
+    }
+    
     
     public static class JSONPatchRequestRemove1 extends JsonSchema {
         /*

@@ -39,7 +39,11 @@ public class Foo {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class FooMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Foo1 extends JsonSchema {
         /*

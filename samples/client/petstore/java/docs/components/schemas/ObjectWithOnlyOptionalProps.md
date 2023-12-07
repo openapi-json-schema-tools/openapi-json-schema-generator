@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1](#objectwithonlyoptionalprops1)<br> schema class |
+| static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMapInput](#objectwithonlyoptionalpropsmapinput)<br> builder for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap)<br> output class for Map payloads |
 | static class | [ObjectWithOnlyOptionalProps.B](#b)<br> schema class |
 | static class | [ObjectWithOnlyOptionalProps.A](#a)<br> schema class |
@@ -63,7 +65,19 @@ ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | validate([Map<String, Object>](#objectwithonlyoptionalpropsmapinput) arg, SchemaConfiguration configuration) |
+
+## ObjectWithOnlyOptionalPropsMapInput
+public class ObjectWithOnlyOptionalPropsMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **a** | String |  | [optional] |
+| **b** | Number |  | [optional] |
 
 ## ObjectWithOnlyOptionalPropsMap
 public static class ObjectWithOnlyOptionalPropsMap<br>
@@ -74,18 +88,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithOnlyOptionalPropsMap](#objectwithonlyoptionalpropsmap) | of([Map<String, Object>](#objectwithonlyoptionalpropsmapinput) arg, SchemaConfiguration configuration) |
 | String | a()<br>[optional] |
 | Number | b()<br>[optional] |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **a** | String |  | [optional] |
-| **b** | Number |  | [optional] |
 
 ## B
 public static class B<br>

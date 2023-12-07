@@ -53,7 +53,11 @@ public class BasquePig {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class BasquePigMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class BasquePig1 extends JsonSchema {
         /*

@@ -37,7 +37,11 @@ public class ReqPropsFromUnsetAddProps {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ReqPropsFromUnsetAddPropsMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ReqPropsFromUnsetAddProps1 extends JsonSchema {
         /*

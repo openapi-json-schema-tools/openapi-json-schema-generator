@@ -25,7 +25,7 @@ public class SelfReferencingArrayModel {
         }
     }
     
-    public interface SelfReferencingArrayModelListInput {
+    public class SelfReferencingArrayModelListInput {
         // class to build List<List>
     }
     

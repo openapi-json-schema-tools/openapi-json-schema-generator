@@ -40,7 +40,11 @@ public class QueryParameters {
         public String query() {
             return get("query");
         }
-    }    
+    }
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

@@ -53,7 +53,11 @@ public class ObjectWithCollidingProperties {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectWithCollidingPropertiesMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectWithCollidingProperties1 extends JsonSchema {
         /*

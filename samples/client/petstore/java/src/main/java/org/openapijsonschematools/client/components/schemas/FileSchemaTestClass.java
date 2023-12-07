@@ -28,7 +28,7 @@ public class FileSchemaTestClass {
         }
     }
     
-    public interface FilesListInput {
+    public class FilesListInput {
         // class to build List<Map<String, Object>>
     }
     
@@ -77,7 +77,11 @@ public class FileSchemaTestClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class FileSchemaTestClassMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class FileSchemaTestClass1 extends JsonSchema {
         /*

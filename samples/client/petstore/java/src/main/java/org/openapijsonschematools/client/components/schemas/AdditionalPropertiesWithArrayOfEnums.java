@@ -27,7 +27,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
     }
     
-    public interface AdditionalPropertiesListInput {
+    public class AdditionalPropertiesListInput {
         // class to build List<String>
     }
     
@@ -60,7 +60,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
             throwIfKeyNotPresent(name);
             return (AdditionalPropertiesList) get(name);
         }
-    }    
+    }
+    public class AdditionalPropertiesWithArrayOfEnumsMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class AdditionalPropertiesWithArrayOfEnums1 extends JsonSchema {
         /*

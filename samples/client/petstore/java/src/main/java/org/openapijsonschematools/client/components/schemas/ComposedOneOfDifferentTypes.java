@@ -61,7 +61,7 @@ public class ComposedOneOfDifferentTypes {
         }
     }
     
-    public interface Schema5ListInput {
+    public class Schema5ListInput {
         // class to build List<Object>
     }
     

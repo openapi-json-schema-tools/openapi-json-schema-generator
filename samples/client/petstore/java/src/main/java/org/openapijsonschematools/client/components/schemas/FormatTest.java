@@ -184,7 +184,7 @@ public class FormatTest {
         }
     }
     
-    public interface ArrayWithUniqueItemsListInput {
+    public class ArrayWithUniqueItemsListInput {
         // class to build List<Number>
     }
     
@@ -403,7 +403,11 @@ public class FormatTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class FormatTestMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class FormatTest1 extends JsonSchema {
         /*

@@ -33,7 +33,11 @@ public class Schema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class SchemaMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

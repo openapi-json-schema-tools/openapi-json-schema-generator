@@ -43,7 +43,11 @@ public class Client {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ClientMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Client1 extends JsonSchema {
         /*

@@ -27,7 +27,7 @@ public class Schema {
         }
     }
     
-    public interface SchemaListInput {
+    public class SchemaListInput {
         // class to build List<Map<String, Object>>
     }
     

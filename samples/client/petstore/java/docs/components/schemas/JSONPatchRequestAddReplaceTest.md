@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1](#jsonpatchrequestaddreplacetest1)<br> schema class |
+| static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapInput](#jsonpatchrequestaddreplacetestmapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Op](#op)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.Value](#value)<br> schema class |
@@ -64,7 +66,20 @@ JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<String, Object>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
+
+## JSONPatchRequestAddReplaceTestMapInput
+public class JSONPatchRequestAddReplaceTestMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **op** | String | The operation to perform. | must be one of ["add", "replace", "test"] |
+| **path** | String | A JSON Pointer path. | |
+| **value** | Object | The value to add, replace or test. | |
 
 ## JSONPatchRequestAddReplaceTestMap
 public static class JSONPatchRequestAddReplaceTestMap<br>
@@ -75,20 +90,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | of([Map<String, Object>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
 | String | op()<br> must be one of ["add", "replace", "test"] |
 | String | path()<br> |
 | Object | value()<br> |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **op** | String | The operation to perform. | must be one of ["add", "replace", "test"] |
-| **path** | String | A JSON Pointer path. | |
-| **value** | Object | The value to add, replace or test. | |
 
 ## Op
 public static class Op<br>

@@ -42,7 +42,11 @@ public class ObjWithRequiredPropsBase {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjWithRequiredPropsBaseMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjWithRequiredPropsBase1 extends JsonSchema {
         /*

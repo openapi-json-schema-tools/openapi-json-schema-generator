@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddProps1](#reqpropsfromexplicitaddprops1)<br> schema class |
+| static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMapInput](#reqpropsfromexplicitaddpropsmapinput)<br> builder for Map payloads |
 | static class | [ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap)<br> output class for Map payloads |
 | static class | [ReqPropsFromExplicitAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -57,7 +59,20 @@ ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map<String, String>](#reqpropsfromexplicitaddpropsmapinput) arg, SchemaConfiguration configuration) |
+
+## ReqPropsFromExplicitAddPropsMapInput
+public class ReqPropsFromExplicitAddPropsMapInput<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **invalid-name** | String |  | |
+| **validName** | String |  | |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## ReqPropsFromExplicitAddPropsMap
 public static class ReqPropsFromExplicitAddPropsMap<br>
@@ -68,20 +83,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | of([Map<String, String>](#reqpropsfromexplicitaddpropsmapinput) arg, SchemaConfiguration configuration) |
 | String | validName()<br> |
 | String | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **invalid-name** | String |  | |
-| **validName** | String |  | |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

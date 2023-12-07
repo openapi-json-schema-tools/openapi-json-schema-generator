@@ -7,19 +7,24 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NullableClass.NullableClass1](#nullableclass1)<br> schema class |
+| static class | [NullableClass.NullableClassMapInput](#nullableclassmapinput)<br> builder for Map payloads |
 | static class | [NullableClass.NullableClassMap](#nullableclassmap)<br> output class for Map payloads |
 | static class | [NullableClass.ObjectItemsNullable](#objectitemsnullable)<br> schema class |
+| static class | [NullableClass.ObjectItemsNullableMapInput](#objectitemsnullablemapinput)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectItemsNullableMap](#objectitemsnullablemap)<br> output class for Map payloads |
 | static class | [NullableClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | static class | [NullableClass.ObjectAndItemsNullableProp](#objectanditemsnullableprop)<br> schema class |
+| static class | [NullableClass.ObjectAndItemsNullablePropMapInput](#objectanditemsnullablepropmapinput)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap)<br> output class for Map payloads |
 | static class | [NullableClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
 | static class | [NullableClass.ObjectNullableProp](#objectnullableprop)<br> schema class |
+| static class | [NullableClass.ObjectNullablePropMapInput](#objectnullablepropmapinput)<br> builder for Map payloads |
 | static class | [NullableClass.ObjectNullablePropMap](#objectnullablepropmap)<br> output class for Map payloads |
 | static class | [NullableClass.AdditionalProperties](#additionalproperties)<br> schema class |
 | static class | [NullableClass.ArrayItemsNullable](#arrayitemsnullable)<br> schema class |
@@ -131,36 +136,15 @@ NullableClass.NullableClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NullableClassMap](#nullableclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NullableClassMap](#nullableclassmap) | validate([Map<String, Object>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
 
-## NullableClassMap
-public static class NullableClassMap<br>
-extends FrozenMap<String, Object>
+## NullableClassMapInput
+public class NullableClassMapInput<br>
+builder for `Map<String, Object>`
 
-A class to store validated Map payloads
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static [NullableClassMap](#nullableclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| Long | integer_prop()<br>[optional] |
-| Number | number_prop()<br>[optional] |
-| Boolean | boolean_prop()<br>[optional] |
-| String | string_prop()<br>[optional] |
-| String | date_prop()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
-| String | datetime_prop()<br>[optional] value must conform to RFC-3339 date-time |
-| [ArrayNullablePropList](#arraynullableproplist) | array_nullable_prop()<br>[optional] |
-| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | array_and_items_nullable_prop()<br>[optional] |
-| [ArrayItemsNullableList](#arrayitemsnullablelist) | array_items_nullable()<br>[optional] |
-| [ObjectNullablePropMap](#objectnullablepropmap) | object_nullable_prop()<br>[optional] |
-| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | object_and_items_nullable_prop()<br>[optional] |
-| [ObjectItemsNullableMap](#objectitemsnullablemap) | object_items_nullable()<br>[optional] |
-| FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+A class that builds the Map input type
 
 ## Input Map Keys
-```
-type: Map<String, Object>
-```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **integer_prop** | Long |  | [optional] |
@@ -176,6 +160,30 @@ type: Map<String, Object>
 | **object_and_items_nullable_prop** | Map<String, Map<String, Object>> |  | [optional] |
 | **object_items_nullable** | Map<String, Map<String, Object>> |  | [optional] |
 | **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
+
+## NullableClassMap
+public static class NullableClassMap<br>
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [NullableClassMap](#nullableclassmap) | of([Map<String, Object>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
+| Long | integer_prop()<br>[optional] |
+| Number | number_prop()<br>[optional] |
+| Boolean | boolean_prop()<br>[optional] |
+| String | string_prop()<br>[optional] |
+| String | date_prop()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| String | datetime_prop()<br>[optional] value must conform to RFC-3339 date-time |
+| [ArrayNullablePropList](#arraynullableproplist) | array_nullable_prop()<br>[optional] |
+| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | array_and_items_nullable_prop()<br>[optional] |
+| [ArrayItemsNullableList](#arrayitemsnullablelist) | array_items_nullable()<br>[optional] |
+| [ObjectNullablePropMap](#objectnullablepropmap) | object_nullable_prop()<br>[optional] |
+| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | object_and_items_nullable_prop()<br>[optional] |
+| [ObjectItemsNullableMap](#objectitemsnullablemap) | object_items_nullable()<br>[optional] |
+| FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ObjectItemsNullable
 public static class ObjectItemsNullable<br>
@@ -215,7 +223,18 @@ NullableClass.ObjectItemsNullableMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectItemsNullableMap](#objectitemsnullablemap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map<String, Map<String, Object>>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
+
+## ObjectItemsNullableMapInput
+public class ObjectItemsNullableMapInput<br>
+builder for `Map<String, Map<String, Object>>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectItemsNullableMap
 public static class ObjectItemsNullableMap<br>
@@ -226,16 +245,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectItemsNullableMap](#objectitemsnullablemap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectItemsNullableMap](#objectitemsnullablemap) | of([Map<String, Map<String, Object>>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -321,7 +332,18 @@ NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map<String, Map<String, Object>>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
+
+## ObjectAndItemsNullablePropMapInput
+public class ObjectAndItemsNullablePropMapInput<br>
+builder for `Map<String, Map<String, Object>>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectAndItemsNullablePropMap
 public static class ObjectAndItemsNullablePropMap<br>
@@ -332,16 +354,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | of([Map<String, Map<String, Object>>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -427,7 +441,18 @@ NullableClass.ObjectNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ObjectNullablePropMap](#objectnullablepropmap) | validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map<String, Map<String, Object>>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
+
+## ObjectNullablePropMapInput
+public class ObjectNullablePropMapInput<br>
+builder for `Map<String, Map<String, Object>>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectNullablePropMap
 public static class ObjectNullablePropMap<br>
@@ -438,16 +463,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectNullablePropMap](#objectnullablepropmap) | of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) |
+| static [ObjectNullablePropMap](#objectnullablepropmap) | of([Map<String, Map<String, Object>>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
 | FrozenMap<String, Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

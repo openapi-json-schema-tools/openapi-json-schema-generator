@@ -33,7 +33,11 @@ public class StringBooleanMap {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class StringBooleanMapMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class StringBooleanMap1 extends JsonSchema {
         /*

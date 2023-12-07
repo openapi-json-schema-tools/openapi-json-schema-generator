@@ -30,6 +30,12 @@ public class BananaReq {
     
     
     public static class Sweet extends BooleanJsonSchema {}
+    public class BananaReqMapInput {
+        // empty mapping
+    }
+    public class BananaReqMapInput {
+        // empty mapping
+    }
     
     
     public static class BananaReqMap extends FrozenMap<String, Object> {
@@ -55,7 +61,12 @@ public class BananaReq {
             throwIfKeyNotPresent(key);
             return (boolean) get(key);
         }
-    }    
+    }
+    public class BananaReqMapInput {
+        // requiredProperties, optionalProperties, NO additionalProperties
+    }
+        pass
+    
     
     public static class BananaReq1 extends JsonSchema {
         /*

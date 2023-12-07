@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ApiResponseSchema.ApiResponseSchema1](#apiresponseschema1)<br> schema class |
+| static class | [ApiResponseSchema.ApiResponseMapInput](#apiresponsemapinput)<br> builder for Map payloads |
 | static class | [ApiResponseSchema.ApiResponseMap](#apiresponsemap)<br> output class for Map payloads |
 | static class | [ApiResponseSchema.Message](#message)<br> schema class |
 | static class | [ApiResponseSchema.Type](#type)<br> schema class |
@@ -67,7 +69,21 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ApiResponseMap](#apiresponsemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ApiResponseMap](#apiresponsemap) | validate([Map<String, Object>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
+
+## ApiResponseMapInput
+public class ApiResponseMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **code** | int |  | [optional] value must be a 32 bit integer |
+| **type** | String |  | [optional] |
+| **message** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ApiResponseMap
 public static class ApiResponseMap<br>
@@ -78,22 +94,11 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ApiResponseMap](#apiresponsemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ApiResponseMap](#apiresponsemap) | of([Map<String, Object>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
 | int | code()<br>[optional] value must be a 32 bit integer |
 | String | type()<br>[optional] |
 | String | message()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **code** | int |  | [optional] value must be a 32 bit integer |
-| **type** | String |  | [optional] |
-| **message** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Message
 public static class Message<br>

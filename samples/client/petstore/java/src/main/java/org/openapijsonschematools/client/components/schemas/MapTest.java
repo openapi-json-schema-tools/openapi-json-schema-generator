@@ -37,7 +37,11 @@ public class MapTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AdditionalPropertiesMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class AdditionalProperties extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -68,7 +72,11 @@ public class MapTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapMapOfStringMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class MapMapOfString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -114,7 +122,11 @@ public class MapTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapOfEnumStringMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class MapOfEnumString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -148,7 +160,11 @@ public class MapTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class DirectMapMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class DirectMap extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -209,7 +225,11 @@ public class MapTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapTestMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class MapTest1 extends JsonSchema {
         /*

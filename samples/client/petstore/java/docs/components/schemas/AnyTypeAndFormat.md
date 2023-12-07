@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormat1](#anytypeandformat1)<br> schema class |
+| static class | [AnyTypeAndFormat.AnyTypeAndFormatMapInput](#anytypeandformatmapinput)<br> builder for Map payloads |
 | static class | [AnyTypeAndFormat.AnyTypeAndFormatMap](#anytypeandformatmap)<br> output class for Map payloads |
 | static class | [AnyTypeAndFormat.FloatSchema](#floatschema)<br> schema class |
 | static class | [AnyTypeAndFormat.DoubleSchema](#doubleschema)<br> schema class |
@@ -61,29 +63,15 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnyTypeAndFormatMap](#anytypeandformatmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map<String, Object>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
 
-## AnyTypeAndFormatMap
-public static class AnyTypeAndFormatMap<br>
-extends FrozenMap<String, Object>
+## AnyTypeAndFormatMapInput
+public class AnyTypeAndFormatMapInput<br>
+builder for `Map<String, Object>`
 
-A class to store validated Map payloads
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static [AnyTypeAndFormatMap](#anytypeandformatmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| Object | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
-| Object | binary()<br>[optional] |
-| Object | int32()<br>[optional] value must be a 32 bit integer |
-| Object | int64()<br>[optional] value must be a 64 bit integer |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+A class that builds the Map input type
 
 ## Input Map Keys
-```
-type: Map<String, Object>
-```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **uuid** | Object |  | [optional] value must be a uuid |
@@ -96,6 +84,23 @@ type: Map<String, Object>
 | **double** | Object |  | [optional] value must be a 64 bit float |
 | **float** | Object |  | [optional] value must be a 32 bit float |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+
+## AnyTypeAndFormatMap
+public static class AnyTypeAndFormatMap<br>
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [AnyTypeAndFormatMap](#anytypeandformatmap) | of([Map<String, Object>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
+| Object | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| Object | binary()<br>[optional] |
+| Object | int32()<br>[optional] value must be a 32 bit integer |
+| Object | int64()<br>[optional] value must be a 64 bit integer |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## FloatSchema
 public static class FloatSchema<br>

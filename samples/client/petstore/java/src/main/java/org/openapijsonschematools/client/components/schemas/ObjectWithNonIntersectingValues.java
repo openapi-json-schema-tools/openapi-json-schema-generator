@@ -47,7 +47,11 @@ public class ObjectWithNonIntersectingValues {
             throwIfKeyNotPresent(name);
             return (String) get(name);
         }
-    }    
+    }
+    public class ObjectWithNonIntersectingValuesMapInput {
+        // optionalProperties + additionalProperties
+    }
+    
     
     public static class ObjectWithNonIntersectingValues1 extends JsonSchema {
         /*

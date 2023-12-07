@@ -57,7 +57,11 @@ public class ObjectWithDecimalProperties {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectWithDecimalPropertiesMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectWithDecimalProperties1 extends JsonSchema {
         /*

@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Capitalization.Capitalization1](#capitalization1)<br> schema class |
+| static class | [Capitalization.CapitalizationMapInput](#capitalizationmapinput)<br> builder for Map payloads |
 | static class | [Capitalization.CapitalizationMap](#capitalizationmap)<br> output class for Map payloads |
 | static class | [Capitalization.ATTNAME](#attname)<br> schema class |
 | static class | [Capitalization.SCAETHFlowPoints](#scaethflowpoints)<br> schema class |
@@ -82,7 +84,24 @@ Capitalization.CapitalizationMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CapitalizationMap](#capitalizationmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [CapitalizationMap](#capitalizationmap) | validate([Map<String, Object>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
+
+## CapitalizationMapInput
+public class CapitalizationMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **smallCamel** | String |  | [optional] |
+| **CapitalCamel** | String |  | [optional] |
+| **small_Snake** | String |  | [optional] |
+| **Capital_Snake** | String |  | [optional] |
+| **SCA_ETH_Flow_Points** | String |  | [optional] |
+| **ATT_NAME** | String | Name of the pet<br> | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## CapitalizationMap
 public static class CapitalizationMap<br>
@@ -93,7 +112,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CapitalizationMap](#capitalizationmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [CapitalizationMap](#capitalizationmap) | of([Map<String, Object>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
 | String | smallCamel()<br>[optional] |
 | String | CapitalCamel()<br>[optional] |
 | String | small_Snake()<br>[optional] |
@@ -101,20 +120,6 @@ A class to store validated Map payloads
 | String | SCA_ETH_Flow_Points()<br>[optional] |
 | String | ATT_NAME()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **smallCamel** | String |  | [optional] |
-| **CapitalCamel** | String |  | [optional] |
-| **small_Snake** | String |  | [optional] |
-| **Capital_Snake** | String |  | [optional] |
-| **SCA_ETH_Flow_Points** | String |  | [optional] |
-| **ATT_NAME** | String | Name of the pet<br> | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ATTNAME
 public static class ATTNAME<br>

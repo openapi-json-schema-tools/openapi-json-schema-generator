@@ -53,7 +53,11 @@ public class DanishPig {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class DanishPigMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class DanishPig1 extends JsonSchema {
         /*

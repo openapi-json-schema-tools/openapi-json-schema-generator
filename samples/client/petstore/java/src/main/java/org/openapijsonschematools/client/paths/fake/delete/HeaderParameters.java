@@ -24,6 +24,12 @@ public class HeaderParameters {
     
     public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
+    public class HeaderParametersMapInput {
+        // empty mapping
+    }
+    public class HeaderParametersMapInput {
+        // empty mapping
+    }
     
     
     public static class HeaderParametersMap extends FrozenMap<String, Object> {
@@ -49,7 +55,12 @@ public class HeaderParameters {
             throwIfKeyNotPresent(key);
             return (String) get(key);
         }
-    }    
+    }
+    public class HeaderParametersMapInput {
+        // requiredProperties, optionalProperties, NO additionalProperties
+    }
+        pass
+    
     
     public static class HeaderParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

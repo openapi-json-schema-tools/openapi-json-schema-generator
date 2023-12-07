@@ -48,7 +48,11 @@ public class GmFruit {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class GmFruitMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class GmFruit1 extends JsonSchema {
         /*

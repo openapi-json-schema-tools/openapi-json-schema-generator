@@ -26,6 +26,12 @@ public class QueryParameters {
     
     public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
     
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {
@@ -63,7 +69,12 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             return (String) get(key);
         }
-    }    
+    }
+    public class QueryParametersMapInput {
+        // requiredProperties, optionalProperties, NO additionalProperties
+    }
+        pass
+    
     
     public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

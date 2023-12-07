@@ -59,7 +59,7 @@ public class EnumArrays {
         }
     }
     
-    public interface ArrayEnumListInput {
+    public class ArrayEnumListInput {
         // class to build List<String>
     }
     
@@ -108,7 +108,11 @@ public class EnumArrays {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class EnumArraysMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class EnumArrays1 extends JsonSchema {
         /*

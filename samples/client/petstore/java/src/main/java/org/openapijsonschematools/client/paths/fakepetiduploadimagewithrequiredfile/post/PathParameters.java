@@ -40,7 +40,11 @@ public class PathParameters {
         public long petId() {
             return get("petId");
         }
-    }    
+    }
+    public class PathParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class PathParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

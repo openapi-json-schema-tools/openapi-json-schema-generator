@@ -54,7 +54,11 @@ public class AbstractStepMessage {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AbstractStepMessageMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class AbstractStepMessage1 extends JsonSchema {
         /*

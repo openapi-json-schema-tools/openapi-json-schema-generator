@@ -52,7 +52,11 @@ public class Schema200Response {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class Schema200ResponseMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Schema200Response1 extends JsonSchema {
         /*

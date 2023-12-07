@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Name.Name1](#name1)<br> schema class |
+| static class | [Name.NameMapInput](#namemapinput)<br> builder for Map payloads |
 | static class | [Name.NameMap](#namemap)<br> output class for Map payloads |
 | static class | [Name.Property](#property)<br> schema class |
 | static class | [Name.SnakeCase](#snakecase)<br> schema class |
@@ -41,8 +43,22 @@ Model for testing model name same as property name
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [NameMap](#namemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NameMap](#namemap) | validate([Map<String, Object>](#namemapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## NameMapInput
+public class NameMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **name** | int |  | value must be a 32 bit integer |
+| **snake_case** | int |  | [optional] value must be a 32 bit integer |
+| **property** | String | this is a reserved python keyword | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## NameMap
 public static class NameMap<br>
@@ -53,22 +69,11 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NameMap](#namemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NameMap](#namemap) | of([Map<String, Object>](#namemapinput) arg, SchemaConfiguration configuration) |
 | int | name()<br> value must be a 32 bit integer |
 | int | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **name** | int |  | value must be a 32 bit integer |
-| **snake_case** | int |  | [optional] value must be a 32 bit integer |
-| **property** | String | this is a reserved python keyword | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Property
 public static class Property<br>

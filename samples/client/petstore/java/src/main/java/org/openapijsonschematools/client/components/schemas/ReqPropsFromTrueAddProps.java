@@ -41,7 +41,11 @@ public class ReqPropsFromTrueAddProps {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ReqPropsFromTrueAddPropsMapInput {
+        // Map<String, Object> because additionalProperties == true
+    }
+    
     
     public static class ReqPropsFromTrueAddProps1 extends JsonSchema {
         /*

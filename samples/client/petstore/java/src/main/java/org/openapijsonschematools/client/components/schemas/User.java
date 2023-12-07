@@ -239,7 +239,11 @@ public class User {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class UserMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class User1 extends JsonSchema {
         /*

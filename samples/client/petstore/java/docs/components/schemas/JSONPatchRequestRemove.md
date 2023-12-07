@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemove1](#jsonpatchrequestremove1)<br> schema class |
+| static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapInput](#jsonpatchrequestremovemapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestRemove.Op](#op)<br> schema class |
 | static class | [JSONPatchRequestRemove.Path](#path)<br> schema class |
@@ -63,7 +65,19 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<String, String>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
+
+## JSONPatchRequestRemoveMapInput
+public class JSONPatchRequestRemoveMapInput<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **op** | String | The operation to perform. | must be one of ["remove"] |
+| **path** | String | A JSON Pointer path. | |
 
 ## JSONPatchRequestRemoveMap
 public static class JSONPatchRequestRemoveMap<br>
@@ -74,18 +88,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | of([Map<String, String>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
 | String | op()<br> must be one of ["remove"] |
 | String | path()<br> |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **op** | String | The operation to perform. | must be one of ["remove"] |
-| **path** | String | A JSON Pointer path. | |
 
 ## Op
 public static class Op<br>

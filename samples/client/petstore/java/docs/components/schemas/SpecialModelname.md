@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SpecialModelname.SpecialModelname1](#specialmodelname1)<br> schema class |
+| static class | [SpecialModelname.SpecialModelnameMapInput](#specialmodelnamemapinput)<br> builder for Map payloads |
 | static class | [SpecialModelname.SpecialModelnameMap](#specialmodelnamemap)<br> output class for Map payloads |
 | static class | [SpecialModelname.A](#a)<br> schema class |
 
@@ -60,7 +62,19 @@ SpecialModelname.SpecialModelnameMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SpecialModelnameMap](#specialmodelnamemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SpecialModelnameMap](#specialmodelnamemap) | validate([Map<String, Object>](#specialmodelnamemapinput) arg, SchemaConfiguration configuration) |
+
+## SpecialModelnameMapInput
+public class SpecialModelnameMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **a** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## SpecialModelnameMap
 public static class SpecialModelnameMap<br>
@@ -71,18 +85,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SpecialModelnameMap](#specialmodelnamemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SpecialModelnameMap](#specialmodelnamemap) | of([Map<String, Object>](#specialmodelnamemapinput) arg, SchemaConfiguration configuration) |
 | String | a()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **a** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## A
 public static class A<br>

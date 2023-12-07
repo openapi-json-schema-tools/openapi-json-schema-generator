@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Apple.Apple1](#apple1)<br> schema class |
+| static class | [Apple.AppleMapInput](#applemapinput)<br> builder for Map payloads |
 | static class | [Apple.AppleMap](#applemap)<br> output class for Map payloads |
 | static class | [Apple.Origin](#origin)<br> schema class |
 | static class | [Apple.Cultivar](#cultivar)<br> schema class |
@@ -69,7 +71,20 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [AppleMap](#applemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AppleMap](#applemap) | validate([Map<String, Object>](#applemapinput) arg, SchemaConfiguration configuration) |
+
+## AppleMapInput
+public class AppleMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **cultivar** | String |  | |
+| **origin** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AppleMap
 public static class AppleMap<br>
@@ -80,20 +95,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AppleMap](#applemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AppleMap](#applemap) | of([Map<String, Object>](#applemapinput) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | String | origin()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **cultivar** | String |  | |
-| **origin** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Origin
 public static class Origin<br>

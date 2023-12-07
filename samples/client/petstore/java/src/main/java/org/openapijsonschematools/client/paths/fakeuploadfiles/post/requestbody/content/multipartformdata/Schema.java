@@ -33,7 +33,7 @@ public class Schema {
         }
     }
     
-    public interface FilesListInput {
+    public class FilesListInput {
         // class to build List<String>
     }
     
@@ -75,7 +75,11 @@ public class Schema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class SchemaMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

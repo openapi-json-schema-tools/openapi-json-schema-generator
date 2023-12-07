@@ -25,7 +25,7 @@ public class ArrayOfEnums {
         }
     }
     
-    public interface ArrayOfEnumsListInput {
+    public class ArrayOfEnumsListInput {
         // class to build List<String>
     }
     

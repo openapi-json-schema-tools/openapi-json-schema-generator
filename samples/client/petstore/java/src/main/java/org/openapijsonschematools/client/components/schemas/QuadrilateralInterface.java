@@ -67,7 +67,11 @@ public class QuadrilateralInterface {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class QuadrilateralInterfaceMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class QuadrilateralInterface1 extends JsonSchema {
         /*

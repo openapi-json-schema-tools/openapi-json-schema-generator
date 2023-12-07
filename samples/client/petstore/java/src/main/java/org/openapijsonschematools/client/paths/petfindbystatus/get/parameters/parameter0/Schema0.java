@@ -42,7 +42,7 @@ public class Schema0 {
         }
     }
     
-    public interface SchemaListInput0 {
+    public class SchemaListInput0 {
         // class to build List<String>
     }
     

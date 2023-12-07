@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalProperties1](#objectwithdecimalproperties1)<br> schema class |
+| static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMapInput](#objectwithdecimalpropertiesmapinput)<br> builder for Map payloads |
 | static class | [ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap)<br> output class for Map payloads |
 | static class | [ObjectWithDecimalProperties.Width](#width)<br> schema class |
 
@@ -74,7 +76,21 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map<String, Object>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+
+## ObjectWithDecimalPropertiesMapInput
+public class ObjectWithDecimalPropertiesMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **length** | String |  | [optional] |
+| **width** | String |  | [optional] value must be int or float numeric |
+| **cost** | Map<String, Object> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectWithDecimalPropertiesMap
 public static class ObjectWithDecimalPropertiesMap<br>
@@ -85,22 +101,11 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | of([Map<String, Object>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | String | length()<br>[optional] |
 | String | width()<br>[optional] value must be int or float numeric |
 | [Money.MoneyMap](../../components/schemas/Money.md#moneymap) | cost()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **length** | String |  | [optional] |
-| **width** | String |  | [optional] value must be int or float numeric |
-| **cost** | Map<String, Object> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Width
 public static class Width<br>

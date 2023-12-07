@@ -41,7 +41,11 @@ public class ReturnSchema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ReturnMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ReturnSchema1 extends JsonSchema {
         /*

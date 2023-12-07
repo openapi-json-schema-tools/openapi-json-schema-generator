@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Whale.Whale1](#whale1)<br> schema class |
+| static class | [Whale.WhaleMapInput](#whalemapinput)<br> builder for Map payloads |
 | static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
 | static class | [Whale.ClassName](#classname)<br> schema class |
 | static class | [Whale.HasTeeth](#hasteeth)<br> schema class |
@@ -67,7 +69,21 @@ Whale.WhaleMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [WhaleMap](#whalemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [WhaleMap](#whalemap) | validate([Map<String, Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
+
+## WhaleMapInput
+public class WhaleMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **className** | String |  | must be one of ["whale"] |
+| **hasBaleen** | boolean |  | [optional] |
+| **hasTeeth** | boolean |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## WhaleMap
 public static class WhaleMap<br>
@@ -78,22 +94,11 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [WhaleMap](#whalemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [WhaleMap](#whalemap) | of([Map<String, Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["whale"] |
 | boolean | hasBaleen()<br>[optional] |
 | boolean | hasTeeth()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **className** | String |  | must be one of ["whale"] |
-| **hasBaleen** | boolean |  | [optional] |
-| **hasTeeth** | boolean |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ClassName
 public static class ClassName<br>

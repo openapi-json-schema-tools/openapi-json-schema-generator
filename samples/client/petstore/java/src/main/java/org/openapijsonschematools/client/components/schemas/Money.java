@@ -48,7 +48,11 @@ public class Money {
         public String currency() {
             return (String) get("currency");
         }
-    }    
+    }
+    public class MoneyMapInput {
+        // empty mapping
+    }
+    
     
     public static class Money1 extends JsonSchema {
         /*

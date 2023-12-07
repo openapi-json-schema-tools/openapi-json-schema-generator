@@ -43,7 +43,11 @@ public class File {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class FileMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class File1 extends JsonSchema {
         /*

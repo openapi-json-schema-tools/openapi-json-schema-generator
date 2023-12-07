@@ -43,7 +43,11 @@ public class Schema0 {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class SchemaMapInput0 {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Schema01 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

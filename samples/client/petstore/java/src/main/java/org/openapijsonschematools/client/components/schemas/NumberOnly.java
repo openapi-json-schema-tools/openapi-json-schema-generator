@@ -43,7 +43,11 @@ public class NumberOnly {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class NumberOnlyMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class NumberOnly1 extends JsonSchema {
         /*

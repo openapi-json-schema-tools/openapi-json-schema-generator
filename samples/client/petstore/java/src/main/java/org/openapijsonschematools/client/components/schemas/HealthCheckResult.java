@@ -54,7 +54,11 @@ public class HealthCheckResult {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class HealthCheckResultMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class HealthCheckResult1 extends JsonSchema {
         /*

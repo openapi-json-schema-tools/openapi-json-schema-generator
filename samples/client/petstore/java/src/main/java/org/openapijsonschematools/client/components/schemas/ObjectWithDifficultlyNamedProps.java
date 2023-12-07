@@ -49,7 +49,11 @@ public class ObjectWithDifficultlyNamedProps {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectWithDifficultlyNamedPropsMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectWithDifficultlyNamedProps1 extends JsonSchema {
         /*

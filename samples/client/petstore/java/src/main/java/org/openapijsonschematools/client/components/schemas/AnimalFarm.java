@@ -25,7 +25,7 @@ public class AnimalFarm {
         }
     }
     
-    public interface AnimalFarmListInput {
+    public class AnimalFarmListInput {
         // class to build List<Map<String, Object>>
     }
     

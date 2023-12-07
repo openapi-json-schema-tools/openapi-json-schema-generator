@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestProp1](#objectwithoptionaltestprop1)<br> schema class |
+| static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMapInput](#objectwithoptionaltestpropmapinput)<br> builder for Map payloads |
 | static class | [ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap)<br> output class for Map payloads |
 | static class | [ObjectWithOptionalTestProp.Test](#test)<br> schema class |
 
@@ -57,7 +59,19 @@ ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<String, Object>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
+
+## ObjectWithOptionalTestPropMapInput
+public class ObjectWithOptionalTestPropMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **test** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectWithOptionalTestPropMap
 public static class ObjectWithOptionalTestPropMap<br>
@@ -68,18 +82,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of([Map<String, Object>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
 | String | test()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **test** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Test
 public static class Test<br>

@@ -110,7 +110,11 @@ public class Order {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class OrderMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Order1 extends JsonSchema {
         /*

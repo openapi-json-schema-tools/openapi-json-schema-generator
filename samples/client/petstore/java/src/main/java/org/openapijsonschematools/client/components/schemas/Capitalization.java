@@ -93,7 +93,11 @@ public class Capitalization {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class CapitalizationMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Capitalization1 extends JsonSchema {
         /*

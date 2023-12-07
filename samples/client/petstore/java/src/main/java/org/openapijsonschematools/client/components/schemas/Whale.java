@@ -75,7 +75,11 @@ public class Whale {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class WhaleMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Whale1 extends JsonSchema {
         /*

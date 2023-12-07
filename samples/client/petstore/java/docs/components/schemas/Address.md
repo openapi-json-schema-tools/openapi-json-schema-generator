@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Address.Address1](#address1)<br> schema class |
+| static class | [Address.AddressMapInput](#addressmapinput)<br> builder for Map payloads |
 | static class | [Address.AddressMap](#addressmap)<br> output class for Map payloads |
 | static class | [Address.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -53,7 +55,18 @@ Address.AddressMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AddressMap](#addressmap) | validate(Map<String, Long> arg, SchemaConfiguration configuration) |
+| static [AddressMap](#addressmap) | validate([Map<String, Long>](#addressmapinput) arg, SchemaConfiguration configuration) |
+
+## AddressMapInput
+public class AddressMapInput<br>
+builder for `Map<String, Long>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | long | any string name can be used but the value must be the correct type | [optional] |
 
 ## AddressMap
 public static class AddressMap<br>
@@ -64,16 +77,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AddressMap](#addressmap) | of(Map<String, Long> arg, SchemaConfiguration configuration) |
+| static [AddressMap](#addressmap) | of([Map<String, Long>](#addressmapinput) arg, SchemaConfiguration configuration) |
 | long | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | long | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

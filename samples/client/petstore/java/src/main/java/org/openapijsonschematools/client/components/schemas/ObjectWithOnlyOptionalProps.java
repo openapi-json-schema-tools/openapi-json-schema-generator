@@ -55,7 +55,11 @@ public class ObjectWithOnlyOptionalProps {
             throwIfKeyNotPresent(key);
             return (Number) get(key);
         }
-    }    
+    }
+    public class ObjectWithOnlyOptionalPropsMapInput {
+        // empty mapping
+    }
+    
     
     public static class ObjectWithOnlyOptionalProps1 extends JsonSchema {
         /*

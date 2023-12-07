@@ -73,7 +73,11 @@ public class JSONPatchRequestAddReplaceTest {
         public Object value() {
             return get("value");
         }
-    }    
+    }
+    public class JSONPatchRequestAddReplaceTestMapInput {
+        // empty mapping
+    }
+    
     
     public static class JSONPatchRequestAddReplaceTest1 extends JsonSchema {
         /*

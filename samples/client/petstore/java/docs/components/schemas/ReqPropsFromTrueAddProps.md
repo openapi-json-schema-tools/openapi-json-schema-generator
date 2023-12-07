@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddProps1](#reqpropsfromtrueaddprops1)<br> schema class |
+| static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMapInput](#reqpropsfromtrueaddpropsmapinput)<br> builder for Map payloads |
 | static class | [ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap)<br> output class for Map payloads |
 | static class | [ReqPropsFromTrueAddProps.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -53,7 +55,20 @@ ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate([Map<String, Object>](#reqpropsfromtrueaddpropsmapinput) arg, SchemaConfiguration configuration) |
+
+## ReqPropsFromTrueAddPropsMapInput
+public class ReqPropsFromTrueAddPropsMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **invalid-name** | Object |  | |
+| **validName** | Object |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ReqPropsFromTrueAddPropsMap
 public static class ReqPropsFromTrueAddPropsMap<br>
@@ -64,20 +79,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | of([Map<String, Object>](#reqpropsfromtrueaddpropsmapinput) arg, SchemaConfiguration configuration) |
 | Object | validName()<br> |
 | Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **invalid-name** | Object |  | |
-| **validName** | Object |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

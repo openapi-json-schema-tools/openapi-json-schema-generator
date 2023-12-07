@@ -54,7 +54,11 @@ public class Tag {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class TagMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Tag1 extends JsonSchema {
         /*

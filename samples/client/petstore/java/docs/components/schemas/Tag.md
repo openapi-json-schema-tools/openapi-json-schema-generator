@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Tag.Tag1](#tag1)<br> schema class |
+| static class | [Tag.TagMapInput](#tagmapinput)<br> builder for Map payloads |
 | static class | [Tag.TagMap](#tagmap)<br> output class for Map payloads |
 | static class | [Tag.Name](#name)<br> schema class |
 | static class | [Tag.Id](#id)<br> schema class |
@@ -62,7 +64,20 @@ Tag.TagMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagMap](#tagmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [TagMap](#tagmap) | validate([Map<String, Object>](#tagmapinput) arg, SchemaConfiguration configuration) |
+
+## TagMapInput
+public class TagMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **id** | long |  | [optional] value must be a 64 bit integer |
+| **name** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## TagMap
 public static class TagMap<br>
@@ -73,20 +88,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagMap](#tagmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [TagMap](#tagmap) | of([Map<String, Object>](#tagmapinput) arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | String | name()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | long |  | [optional] value must be a 64 bit integer |
-| **name** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Name
 public static class Name<br>

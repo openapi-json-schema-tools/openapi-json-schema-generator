@@ -70,7 +70,11 @@ public class QueryParameters {
         public Schema3.SchemaList3 url() {
             return (Schema3.SchemaList3) get("url");
         }
-    }    
+    }
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

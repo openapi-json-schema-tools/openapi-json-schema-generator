@@ -173,7 +173,7 @@ public class NullableClass {
         }
     }
     
-    public interface ArrayNullablePropListInput {
+    public class ArrayNullablePropListInput {
         // class to build List<Map<String, Object>>
     }
     
@@ -222,7 +222,7 @@ public class NullableClass {
         }
     }
     
-    public interface ArrayAndItemsNullablePropListInput {
+    public class ArrayAndItemsNullablePropListInput {
         // class to build List<Map<String, Object>>
     }
     
@@ -271,7 +271,7 @@ public class NullableClass {
         }
     }
     
-    public interface ArrayItemsNullableListInput {
+    public class ArrayItemsNullableListInput {
         // class to build List<Map<String, Object>>
     }
     
@@ -307,7 +307,11 @@ public class NullableClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectNullablePropMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class ObjectNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -358,7 +362,11 @@ public class NullableClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectAndItemsNullablePropMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class ObjectAndItemsNullableProp extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -409,7 +417,11 @@ public class NullableClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectItemsNullableMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class ObjectItemsNullable extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -525,7 +537,11 @@ public class NullableClass {
             throwIfKeyNotPresent(name);
             return (FrozenMap<String, Object>) get(name);
         }
-    }    
+    }
+    public class NullableClassMapInput {
+        // optionalProperties + additionalProperties
+    }
+    
     
     public static class NullableClass1 extends JsonSchema {
         /*

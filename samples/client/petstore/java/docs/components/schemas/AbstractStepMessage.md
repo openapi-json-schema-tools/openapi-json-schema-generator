@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AbstractStepMessage.AbstractStepMessage1](#abstractstepmessage1)<br> schema class |
+| static class | [AbstractStepMessage.AbstractStepMessageMapInput](#abstractstepmessagemapinput)<br> builder for Map payloads |
 | static class | [AbstractStepMessage.AbstractStepMessageMap](#abstractstepmessagemap)<br> output class for Map payloads |
 | static class | [AbstractStepMessage.Discriminator](#discriminator)<br> schema class |
 
@@ -60,7 +62,21 @@ AbstractStepMessage.AbstractStepMessageMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AbstractStepMessageMap](#abstractstepmessagemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AbstractStepMessageMap](#abstractstepmessagemap) | validate([Map<String, Object>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
+
+## AbstractStepMessageMapInput
+public class AbstractStepMessageMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **description** | Object |  | |
+| **discriminator** | String |  | |
+| **sequenceNumber** | Object |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AbstractStepMessageMap
 public static class AbstractStepMessageMap<br>
@@ -71,22 +87,11 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AbstractStepMessageMap](#abstractstepmessagemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AbstractStepMessageMap](#abstractstepmessagemap) | of([Map<String, Object>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
 | Object | description()<br> |
 | String | discriminator()<br> |
 | Object | sequenceNumber()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **description** | Object |  | |
-| **discriminator** | String |  | |
-| **sequenceNumber** | Object |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Discriminator
 public static class Discriminator<br>

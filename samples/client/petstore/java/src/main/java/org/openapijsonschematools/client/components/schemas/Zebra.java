@@ -81,7 +81,11 @@ public class Zebra {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ZebraMapInput {
+        // Map<String, Object> because additionalProperties == true
+    }
+    
     
     public static class Zebra1 extends JsonSchema {
         /*
