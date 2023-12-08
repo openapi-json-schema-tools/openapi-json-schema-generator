@@ -13,18 +13,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-
 public class DateTimeJsonSchema extends JsonSchema {
-    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
-        new KeywordEntry("format", new FormatValidator("date-time"))
-    ));
-
-    public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateString(DateTimeJsonSchema.class, arg, configuration);
+    public DateTimeJsonSchema() {
+        super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
+                new KeywordEntry("format", new FormatValidator("date-time"))
+        )));
     }
 
-    public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateZonedDateTime(DateTimeJsonSchema.class, arg, configuration);
+    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        return validateString(arg, configuration);
+    }
+
+    public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+        return validateZonedDateTime(arg, configuration);
     }
 }

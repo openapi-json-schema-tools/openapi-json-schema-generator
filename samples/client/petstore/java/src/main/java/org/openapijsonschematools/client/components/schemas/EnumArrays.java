@@ -10,6 +10,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -21,32 +22,36 @@ public class EnumArrays {
     
     
     public static class JustSymbol extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                ">=",
-                "$"
-            )))
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(JustSymbol.class, arg, configuration);
+        public JustSymbol() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    ">=",
+                    "$"
+                )))
+            )));
+        }
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
     public static class Items extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                "fish",
-                "crab"
-            )))
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(Items.class, arg, configuration);
+        public Items() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    "fish",
+                    "crab"
+                )))
+            )));
+        }
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
@@ -55,7 +60,7 @@ public class EnumArrays {
             super(m);
         }
         public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return ArrayEnum.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(ArrayEnum.class).validate(arg, configuration);
         }
     }
     
@@ -64,17 +69,20 @@ public class EnumArrays {
     }
     
     
-    public static class ArrayEnum extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items.class))
-        ));
-        
-        protected static ArrayEnumList getListOutputInstance(FrozenList<String> arg) {
-            return new ArrayEnumList(arg);
+    public static class ArrayEnum extends JsonSchema<FrozenMap, ArrayEnumList> {
+        public ArrayEnum() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Items.class))
+            )));
         }
-        public static ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(ArrayEnum.class, arg, configuration);
+        
+        @Override
+        protected ArrayEnumList getListOutputInstance(FrozenList<?> arg) {
+            return new ArrayEnumList((FrozenList<String>) arg);
+        }
+        public ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -88,7 +96,7 @@ public class EnumArrays {
             "array_enum"
         );
         public static EnumArraysMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return EnumArrays1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(EnumArrays1.class).validate(arg, configuration);
         }
         
         public String just_symbol() {
@@ -114,26 +122,29 @@ public class EnumArrays {
     }
     
     
-    public static class EnumArrays1 extends JsonSchema {
+    public static class EnumArrays1 extends JsonSchema<EnumArraysMap, FrozenList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("just_symbol", JustSymbol.class),
-                new PropertyEntry("array_enum", ArrayEnum.class)
-            )))
-        ));
-        
-        protected static EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new EnumArraysMap(arg);
+        public EnumArrays1() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("just_symbol", JustSymbol.class),
+                    new PropertyEntry("array_enum", ArrayEnum.class)
+                )))
+            )));
         }
-        public static EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(EnumArrays1.class, arg, configuration);
+        
+        @Override
+        protected EnumArraysMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new EnumArraysMap((FrozenMap<String, Object>) arg);
+        }
+        public EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

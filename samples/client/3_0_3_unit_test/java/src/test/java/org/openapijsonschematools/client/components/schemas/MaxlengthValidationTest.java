@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class MaxlengthValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final MaxlengthValidation.MaxlengthValidation1 schema = JsonSchemaFactory.getInstance(
+        MaxlengthValidation.MaxlengthValidation1.class
+    );
 
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
-        MaxlengthValidation.MaxlengthValidation1.validate(
+        schema.validate(
             "f",
             configuration
         );
@@ -27,7 +30,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        MaxlengthValidation.MaxlengthValidation1.validate(
+        schema.validate(
             "fo",
             configuration
         );
@@ -36,8 +39,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testTooLongIsInvalidFails() {
         // too long is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MaxlengthValidation.MaxlengthValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             "foo",
             configuration
         ));
@@ -46,7 +48,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testIgnoresNonStringsPasses() {
         // ignores non-strings
-        MaxlengthValidation.MaxlengthValidation1.validate(
+        schema.validate(
             100,
             configuration
         );
@@ -55,7 +57,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testTwoSupplementaryUnicodeCodePointsIsLongEnoughPasses() {
         // two supplementary Unicode code points is long enough
-        MaxlengthValidation.MaxlengthValidation1.validate(
+        schema.validate(
             "💩💩",
             configuration
         );

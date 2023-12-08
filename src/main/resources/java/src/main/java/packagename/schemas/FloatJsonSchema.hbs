@@ -3,7 +3,6 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
-import {{{packageName}}}.schemas.validation.KeywordValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
@@ -12,14 +11,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-
 public class FloatJsonSchema extends JsonSchema {
-    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        new KeywordEntry("type", new TypeValidator(Set.of(Float.class))),
-        new KeywordEntry("format", new FormatValidator("float"))
-    ));
+    public FloatJsonSchema() {
+        super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(Float.class))),
+                new KeywordEntry("format", new FormatValidator("float"))
+        )));
+    }
 
-    public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateFloat(FloatJsonSchema.class, arg, configuration);
+    public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+        return validateFloat(arg, configuration);
     }
 }

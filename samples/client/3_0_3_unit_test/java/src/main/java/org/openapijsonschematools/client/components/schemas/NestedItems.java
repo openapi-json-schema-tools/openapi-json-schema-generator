@@ -7,8 +7,10 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -25,7 +27,7 @@ public class NestedItems {
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Items2.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Items2.class).validate(arg, configuration);
         }
     }
     
@@ -34,17 +36,20 @@ public class NestedItems {
     }
     
     
-    public static class Items2 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items3.class))
-        ));
-        
-        protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
-            return new ItemsList(arg);
+    public static class Items2 extends JsonSchema<FrozenMap, ItemsList> {
+        public Items2() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Items3.class))
+            )));
         }
-        public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Items2.class, arg, configuration);
+        
+        @Override
+        protected ItemsList getListOutputInstance(FrozenList<?> arg) {
+            return new ItemsList((FrozenList<Number>) arg);
+        }
+        public ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -53,7 +58,7 @@ public class NestedItems {
             super(m);
         }
         public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Items1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Items1.class).validate(arg, configuration);
         }
     }
     
@@ -62,17 +67,20 @@ public class NestedItems {
     }
     
     
-    public static class Items1 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items2.class))
-        ));
-        
-        protected static ItemsList1 getListOutputInstance(FrozenList<ItemsList> arg) {
-            return new ItemsList1(arg);
+    public static class Items1 extends JsonSchema<FrozenMap, ItemsList1> {
+        public Items1() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Items2.class))
+            )));
         }
-        public static ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Items1.class, arg, configuration);
+        
+        @Override
+        protected ItemsList1 getListOutputInstance(FrozenList<?> arg) {
+            return new ItemsList1((FrozenList<ItemsList>) arg);
+        }
+        public ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -81,7 +89,7 @@ public class NestedItems {
             super(m);
         }
         public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Items.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Items.class).validate(arg, configuration);
         }
     }
     
@@ -90,17 +98,20 @@ public class NestedItems {
     }
     
     
-    public static class Items extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items1.class))
-        ));
-        
-        protected static ItemsList2 getListOutputInstance(FrozenList<ItemsList1> arg) {
-            return new ItemsList2(arg);
+    public static class Items extends JsonSchema<FrozenMap, ItemsList2> {
+        public Items() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Items1.class))
+            )));
         }
-        public static ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Items.class, arg, configuration);
+        
+        @Override
+        protected ItemsList2 getListOutputInstance(FrozenList<?> arg) {
+            return new ItemsList2((FrozenList<ItemsList1>) arg);
+        }
+        public ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -109,7 +120,7 @@ public class NestedItems {
             super(m);
         }
         public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return NestedItems1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(NestedItems1.class).validate(arg, configuration);
         }
     }
     
@@ -118,22 +129,25 @@ public class NestedItems {
     }
     
     
-    public static class NestedItems1 extends JsonSchema {
+    public static class NestedItems1 extends JsonSchema<FrozenMap, NestedItemsList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items.class))
-        ));
-        
-        protected static NestedItemsList getListOutputInstance(FrozenList<ItemsList2> arg) {
-            return new NestedItemsList(arg);
+        public NestedItems1() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Items.class))
+            )));
         }
-        public static NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(NestedItems1.class, arg, configuration);
+        
+        @Override
+        protected NestedItemsList getListOutputInstance(FrozenList<?> arg) {
+            return new NestedItemsList((FrozenList<ItemsList2>) arg);
+        }
+        public NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }}

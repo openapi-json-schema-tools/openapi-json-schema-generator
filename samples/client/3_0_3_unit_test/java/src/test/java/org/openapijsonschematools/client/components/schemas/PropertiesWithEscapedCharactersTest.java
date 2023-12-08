@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class PropertiesWithEscapedCharactersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1 schema = JsonSchemaFactory.getInstance(
+        PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.class
+    );
 
     @Test
     public void testObjectWithAllNumbersIsValidPasses() {
         // object with all numbers is valid
-        PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",
@@ -52,8 +55,7 @@ public class PropertiesWithEscapedCharactersTest {
     @Test
     public void testObjectWithStringsIsInvalidFails() {
         // object with strings is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",

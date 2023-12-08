@@ -11,8 +11,10 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -42,7 +44,7 @@ public class Headers {
             "numberHeader"
         );
         public static HeadersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Headers1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Headers1.class).validate(arg, configuration);
         }
         
         public int int32() {
@@ -64,30 +66,33 @@ public class Headers {
     }
     
     
-    public static class Headers1 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("ref-schema-header", StringWithValidation.StringWithValidation1.class),
-                new PropertyEntry("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class),
-                new PropertyEntry("ref-content-schema-header", StringWithValidation.StringWithValidation1.class),
-                new PropertyEntry("stringHeader", StringHeaderSchema.StringHeaderSchema1.class),
-                new PropertyEntry("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
-            ))),
-            new KeywordEntry("required", new RequiredValidator(Set.of(
-                "int32",
-                "ref-content-schema-header",
-                "ref-schema-header",
-                "stringHeader"
-            ))),
-            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-        ));
-        
-        protected static HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new HeadersMap(arg);
+    public static class Headers1 extends JsonSchema<HeadersMap, FrozenList> {
+        public Headers1() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("ref-schema-header", StringWithValidation.StringWithValidation1.class),
+                    new PropertyEntry("int32", Int32JsonContentTypeHeaderSchema.Int32JsonContentTypeHeaderSchema1.class),
+                    new PropertyEntry("ref-content-schema-header", StringWithValidation.StringWithValidation1.class),
+                    new PropertyEntry("stringHeader", StringHeaderSchema.StringHeaderSchema1.class),
+                    new PropertyEntry("numberHeader", NumberHeaderSchema.NumberHeaderSchema1.class)
+                ))),
+                new KeywordEntry("required", new RequiredValidator(Set.of(
+                    "int32",
+                    "ref-content-schema-header",
+                    "ref-schema-header",
+                    "stringHeader"
+                ))),
+                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            )));
         }
-        public static HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(Headers1.class, arg, configuration);
+        
+        @Override
+        protected HeadersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new HeadersMap((FrozenMap<String, Object>) arg);
+        }
+        public HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

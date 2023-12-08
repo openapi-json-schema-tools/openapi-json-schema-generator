@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,12 +14,14 @@ import java.util.AbstractMap;
 
 public class AllofTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final Allof.Allof1 schema = JsonSchemaFactory.getInstance(
+        Allof.Allof1.class
+    );
 
     @Test
     public void testMismatchSecondFails() {
         // mismatch second
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            Allof.Allof1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -33,8 +35,7 @@ public class AllofTest {
     @Test
     public void testWrongTypeFails() {
         // wrong type
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            Allof.Allof1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -52,8 +53,7 @@ public class AllofTest {
     @Test
     public void testMismatchFirstFails() {
         // mismatch first
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            Allof.Allof1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
@@ -67,7 +67,7 @@ public class AllofTest {
     @Test
     public void testAllofPasses() {
         // allOf
-        Allof.Allof1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

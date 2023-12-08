@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class MinimumValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final MinimumValidation.MinimumValidation1 schema = JsonSchemaFactory.getInstance(
+        MinimumValidation.MinimumValidation1.class
+    );
 
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
-        MinimumValidation.MinimumValidation1.validate(
+        schema.validate(
             1.1d,
             configuration
         );
@@ -27,8 +30,7 @@ public class MinimumValidationTest {
     @Test
     public void testBelowTheMinimumIsInvalidFails() {
         // below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MinimumValidation.MinimumValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             0.6d,
             configuration
         ));
@@ -37,7 +39,7 @@ public class MinimumValidationTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
-        MinimumValidation.MinimumValidation1.validate(
+        schema.validate(
             "x",
             configuration
         );
@@ -46,7 +48,7 @@ public class MinimumValidationTest {
     @Test
     public void testAboveTheMinimumIsValidPasses() {
         // above the minimum is valid
-        MinimumValidation.MinimumValidation1.validate(
+        schema.validate(
             2.6d,
             configuration
         );

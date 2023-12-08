@@ -3,7 +3,6 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
-import {{{packageName}}}.schemas.validation.KeywordValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
@@ -13,18 +12,19 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-
 public class DateJsonSchema extends JsonSchema {
-    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
-        new KeywordEntry("format", new FormatValidator("date"))
-    ));
-
-    public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateString(DateJsonSchema.class, arg, configuration);
+    public DateJsonSchema() {
+        super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
+                new KeywordEntry("format", new FormatValidator("date"))
+        )));
     }
 
-    public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateLocalDate(DateJsonSchema.class, arg, configuration);
+    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+        return validateString(arg, configuration);
+    }
+
+    public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+        return validateLocalDate(arg, configuration);
     }
 }

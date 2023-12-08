@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class PatternValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final PatternValidation.PatternValidation1 schema = JsonSchemaFactory.getInstance(
+        PatternValidation.PatternValidation1.class
+    );
 
     @Test
     public void testIgnoresBooleansPasses() {
         // ignores booleans
-        PatternValidation.PatternValidation1.validate(
+        schema.validate(
             true,
             configuration
         );
@@ -27,7 +30,7 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresFloatsPasses() {
         // ignores floats
-        PatternValidation.PatternValidation1.validate(
+        schema.validate(
             1.0d,
             configuration
         );
@@ -36,8 +39,7 @@ public class PatternValidationTest {
     @Test
     public void testANonMatchingPatternIsInvalidFails() {
         // a non-matching pattern is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            PatternValidation.PatternValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             "abc",
             configuration
         ));
@@ -46,7 +48,7 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresIntegersPasses() {
         // ignores integers
-        PatternValidation.PatternValidation1.validate(
+        schema.validate(
             123,
             configuration
         );
@@ -55,7 +57,7 @@ public class PatternValidationTest {
     @Test
     public void testAMatchingPatternIsValidPasses() {
         // a matching pattern is valid
-        PatternValidation.PatternValidation1.validate(
+        schema.validate(
             "aaa",
             configuration
         );
@@ -64,7 +66,7 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        PatternValidation.PatternValidation1.validate(
+        schema.validate(
             Arrays.asList(
             ),
             configuration
@@ -74,7 +76,7 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresObjectsPasses() {
         // ignores objects
-        PatternValidation.PatternValidation1.validate(
+        schema.validate(
             MapMaker.makeMap(
             ),
             configuration
@@ -84,7 +86,7 @@ public class PatternValidationTest {
     @Test
     public void testIgnoresNullPasses() {
         // ignores null
-        PatternValidation.PatternValidation1.validate(
+        schema.validate(
             (Void) null,
             configuration
         );

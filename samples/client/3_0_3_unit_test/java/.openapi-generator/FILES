@@ -212,6 +212,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenList.ja
 src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenMap.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/JsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/JsonSchemaFactory.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/KeywordEntry.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/KeywordValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/LengthValidator.java

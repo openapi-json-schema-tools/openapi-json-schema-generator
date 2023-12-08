@@ -8,8 +8,10 @@ import org.openapijsonschematools.client.paths.petpetiduploadimage.post.paramete
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -34,7 +36,7 @@ public class PathParameters {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static PathParametersMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
-            return PathParameters1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(PathParameters1.class).validate(arg, configuration);
         }
         
         public long petId() {
@@ -46,23 +48,26 @@ public class PathParameters {
     }
     
     
-    public static class PathParameters1 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("petId", Schema0.Schema01.class)
-            ))),
-            new KeywordEntry("required", new RequiredValidator(Set.of(
-                "petId"
-            ))),
-            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-        ));
-        
-        protected static PathParametersMap getMapOutputInstance(FrozenMap<String, Long> arg) {
-            return new PathParametersMap(arg);
+    public static class PathParameters1 extends JsonSchema<PathParametersMap, FrozenList> {
+        public PathParameters1() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("petId", Schema0.Schema01.class)
+                ))),
+                new KeywordEntry("required", new RequiredValidator(Set.of(
+                    "petId"
+                ))),
+                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            )));
         }
-        public static PathParametersMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(PathParameters1.class, arg, configuration);
+        
+        @Override
+        protected PathParametersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new PathParametersMap((FrozenMap<String, Long>) arg);
+        }
+        public PathParametersMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

@@ -5,8 +5,10 @@ import java.util.Set;
 import org.openapijsonschematools.client.components.schemas.Foo;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -26,7 +28,7 @@ public class Schema {
             "string"
         );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Schema1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Schema1.class).validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -40,19 +42,22 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("string", Foo.Foo1.class)
-            )))
-        ));
-        
-        protected static SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new SchemaMap(arg);
+    public static class Schema1 extends JsonSchema<SchemaMap, FrozenList> {
+        public Schema1() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("string", Foo.Foo1.class)
+                )))
+            )));
         }
-        public static SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(Schema1.class, arg, configuration);
+        
+        @Override
+        protected SchemaMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new SchemaMap((FrozenMap<String, Object>) arg);
+        }
+        public SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

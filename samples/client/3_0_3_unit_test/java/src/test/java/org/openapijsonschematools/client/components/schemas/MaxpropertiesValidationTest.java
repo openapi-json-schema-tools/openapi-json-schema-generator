@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class MaxpropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final MaxpropertiesValidation.MaxpropertiesValidation1 schema = JsonSchemaFactory.getInstance(
+        MaxpropertiesValidation.MaxpropertiesValidation1.class
+    );
 
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
-        MaxpropertiesValidation.MaxpropertiesValidation1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -32,7 +35,7 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        MaxpropertiesValidation.MaxpropertiesValidation1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -50,8 +53,7 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testTooLongIsInvalidFails() {
         // too long is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MaxpropertiesValidation.MaxpropertiesValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -73,7 +75,7 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
-        MaxpropertiesValidation.MaxpropertiesValidation1.validate(
+        schema.validate(
             12,
             configuration
         );
@@ -82,7 +84,7 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        MaxpropertiesValidation.MaxpropertiesValidation1.validate(
+        schema.validate(
             Arrays.asList(
                 1,
                 2,
@@ -95,7 +97,7 @@ public class MaxpropertiesValidationTest {
     @Test
     public void testIgnoresStringsPasses() {
         // ignores strings
-        MaxpropertiesValidation.MaxpropertiesValidation1.validate(
+        schema.validate(
             "foobar",
             configuration
         );

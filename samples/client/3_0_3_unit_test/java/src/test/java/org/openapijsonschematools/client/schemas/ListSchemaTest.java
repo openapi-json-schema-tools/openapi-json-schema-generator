@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
@@ -13,11 +14,12 @@ import java.util.List;
 
 public class ListSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final ListJsonSchema listJsonSchema = JsonSchemaFactory.getInstance(ListJsonSchema.class);
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                ListJsonSchema.class, (Void) null, configuration
+        Assert.assertThrows(ValidationException.class, () -> listJsonSchema.validate(
+                (Void) null, configuration
         ));
     }
 
@@ -25,7 +27,7 @@ public class ListSchemaTest {
     public void testValidateList() {
         List<Object> inList = new ArrayList<>();
         inList.add("today");
-        FrozenList<Object> validatedValue = ListJsonSchema.validate(inList, configuration);
+        FrozenList<Object> validatedValue = listJsonSchema.validate(inList, configuration);
         ArrayList<String> outList = new ArrayList<>();
         outList.add("today");
         Assert.assertEquals(validatedValue, outList);

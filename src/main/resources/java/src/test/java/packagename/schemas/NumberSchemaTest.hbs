@@ -5,41 +5,43 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.exceptions.ValidationException;
 
 import java.math.BigDecimal;
 
 public class NumberSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final NumberJsonSchema numberJsonSchema = JsonSchemaFactory.getInstance(NumberJsonSchema.class);
 
     @Test
     public void testValidateInteger() {
-        Number validatedValue = NumberJsonSchema.validate(1, configuration);
+        Number validatedValue = numberJsonSchema.validate(1, configuration);
         Assert.assertEquals(validatedValue, 1);
     }
 
     @Test
     public void testValidateLong() {
-        Number validatedValue = NumberJsonSchema.validate(1L, configuration);
+        Number validatedValue = numberJsonSchema.validate(1L, configuration);
         Assert.assertEquals(validatedValue, 1L);
     }
 
     @Test
     public void testValidateFloat() {
-        Number validatedValue = NumberJsonSchema.validate(3.14f, configuration);
+        Number validatedValue = numberJsonSchema.validate(3.14f, configuration);
         Assert.assertEquals(validatedValue, 3.14f);
     }
 
     @Test
     public void testValidateDouble() {
-        Number validatedValue = NumberJsonSchema.validate(3.14d, configuration);
+        Number validatedValue = numberJsonSchema.validate(3.14d, configuration);
         Assert.assertEquals(validatedValue, 3.14d);
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                NumberJsonSchema.class, (Void) null, configuration
+        Assert.assertThrows(ValidationException.class, () -> numberJsonSchema.validate(
+                (Void) null, configuration
         ));
     }
 }

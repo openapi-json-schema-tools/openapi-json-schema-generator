@@ -6,8 +6,10 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FormatValidator;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -20,84 +22,92 @@ public class EnumTest {
     
     
     public static class EnumString extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                "UPPER",
-                "lower",
-                ""
-            )))
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(EnumString.class, arg, configuration);
+        public EnumString() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    "UPPER",
+                    "lower",
+                    ""
+                )))
+            )));
+        }
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
     public static class EnumStringRequired extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                "UPPER",
-                "lower",
-                ""
-            )))
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(EnumStringRequired.class, arg, configuration);
+        public EnumStringRequired() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    "UPPER",
+                    "lower",
+                    ""
+                )))
+            )));
+        }
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
     public static class EnumInteger extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                Integer.class,
-                Long.class,
-                Float.class,
-                Double.class
-            ))),
-            new KeywordEntry("format", new FormatValidator("int32")),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                1,
-                -1
-            )))
-        ));
-        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(EnumInteger.class, arg, configuration);
+        public EnumInteger() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+                ))),
+                new KeywordEntry("format", new FormatValidator("int32")),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    1,
+                    -1
+                )))
+            )));
+        }
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateInt(arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(EnumInteger.class, arg, configuration);
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateFloat(arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLong(EnumInteger.class, arg, configuration);
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLong(arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(EnumInteger.class, arg, configuration);
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
     }    
     
     public static class EnumNumber extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                Integer.class,
-                Long.class,
-                Float.class,
-                Double.class
-            ))),
-            new KeywordEntry("format", new FormatValidator("double")),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                1.1,
-                -1.2
-            )))
-        ));
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(EnumNumber.class, arg, configuration);
+        public EnumNumber() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+                ))),
+                new KeywordEntry("format", new FormatValidator("double")),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    1.1,
+                    -1.2
+                )))
+            )));
+        }
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
     }    
     
@@ -119,7 +129,7 @@ public class EnumTest {
             "IntegerEnumOneValue"
         );
         public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return EnumTest1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(EnumTest1.class).validate(arg, configuration);
         }
         
         public String enum_string_required() {
@@ -185,36 +195,39 @@ public class EnumTest {
     }
     
     
-    public static class EnumTest1 extends JsonSchema {
+    public static class EnumTest1 extends JsonSchema<EnumTestMap, FrozenList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("enum_string", EnumString.class),
-                new PropertyEntry("enum_string_required", EnumStringRequired.class),
-                new PropertyEntry("enum_integer", EnumInteger.class),
-                new PropertyEntry("enum_number", EnumNumber.class),
-                new PropertyEntry("stringEnum", StringEnum.StringEnum1.class),
-                new PropertyEntry("IntegerEnum", IntegerEnum.IntegerEnum1.class),
-                new PropertyEntry("StringEnumWithDefaultValue", StringEnumWithDefaultValue.StringEnumWithDefaultValue1.class),
-                new PropertyEntry("IntegerEnumWithDefaultValue", IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.class),
-                new PropertyEntry("IntegerEnumOneValue", IntegerEnumOneValue.IntegerEnumOneValue1.class)
-            ))),
-            new KeywordEntry("required", new RequiredValidator(Set.of(
-                "enum_string_required"
-            )))
-        ));
-        
-        protected static EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new EnumTestMap(arg);
+        public EnumTest1() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("enum_string", EnumString.class),
+                    new PropertyEntry("enum_string_required", EnumStringRequired.class),
+                    new PropertyEntry("enum_integer", EnumInteger.class),
+                    new PropertyEntry("enum_number", EnumNumber.class),
+                    new PropertyEntry("stringEnum", StringEnum.StringEnum1.class),
+                    new PropertyEntry("IntegerEnum", IntegerEnum.IntegerEnum1.class),
+                    new PropertyEntry("StringEnumWithDefaultValue", StringEnumWithDefaultValue.StringEnumWithDefaultValue1.class),
+                    new PropertyEntry("IntegerEnumWithDefaultValue", IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.class),
+                    new PropertyEntry("IntegerEnumOneValue", IntegerEnumOneValue.IntegerEnumOneValue1.class)
+                ))),
+                new KeywordEntry("required", new RequiredValidator(Set.of(
+                    "enum_string_required"
+                )))
+            )));
         }
-        public static EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(EnumTest1.class, arg, configuration);
+        
+        @Override
+        protected EnumTestMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new EnumTestMap((FrozenMap<String, Object>) arg);
+        }
+        public EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

@@ -33,12 +33,13 @@ public class ItemsValidator implements KeywordValidator {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            if (itemValidationMetadata.validationRanEarlier(items)) {
+            JsonSchema itemsSchema = JsonSchemaFactory.getInstance(items);
+            if (itemValidationMetadata.validationRanEarlier(itemsSchema)) {
                 // todo add_deeper_validated_schemas
                 i +=1;
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(items, itemValue, itemValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = itemsSchema.validate(itemValue, itemValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
             i += 1;
         }

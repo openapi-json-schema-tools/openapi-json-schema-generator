@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class AnyofComplexTypesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final AnyofComplexTypes.AnyofComplexTypes1 schema = JsonSchemaFactory.getInstance(
+        AnyofComplexTypes.AnyofComplexTypes1.class
+    );
 
     @Test
     public void testSecondAnyofValidComplexPasses() {
         // second anyOf valid (complex)
-        AnyofComplexTypes.AnyofComplexTypes1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -32,7 +35,7 @@ public class AnyofComplexTypesTest {
     @Test
     public void testBothAnyofValidComplexPasses() {
         // both anyOf valid (complex)
-        AnyofComplexTypes.AnyofComplexTypes1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -50,7 +53,7 @@ public class AnyofComplexTypesTest {
     @Test
     public void testFirstAnyofValidComplexPasses() {
         // first anyOf valid (complex)
-        AnyofComplexTypes.AnyofComplexTypes1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
@@ -64,8 +67,7 @@ public class AnyofComplexTypesTest {
     @Test
     public void testNeitherAnyofValidComplexFails() {
         // neither anyOf valid (complex)
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            AnyofComplexTypes.AnyofComplexTypes1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

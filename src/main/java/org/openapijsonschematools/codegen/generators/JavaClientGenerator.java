@@ -405,6 +405,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("FrozenMap");
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
+        keywordValidatorFiles.add("JsonSchemaFactory");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
@@ -1433,7 +1434,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                             imports.add("import "+packageName + ".schemas.StringJsonSchema;");
                         } else if (schema.format.equals("binary")) {
                             // todo implement this
-                            imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
+                            imports.add("import "+packageName + ".schemas.StringJsonSchema;");
                         }
                     } else {
                         addCustomSchemaImports(imports);
@@ -1490,6 +1491,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.util.Map;");
                 imports.add("import java.util.Set;");
+                imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for JsonSchema generic
+                imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for JsonSchema generic
                 if (schema.types.contains("string")) {
                     addStringSchemaImports(imports, schema);
                 }
@@ -1701,12 +1704,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addCustomSchemaImports(Set<String> imports) {
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
+        imports.add("import "+packageName + ".schemas.validation.JsonSchemaFactory;");
         imports.add("import "+packageName + ".exceptions.ValidationException;");
     }
 
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
+        imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for the JsonSchema generic
         imports.add("import java.util.Map;");
         addRequiredValidator(schema, imports);
         addAdditionalPropertiesValidator(schema, imports);
@@ -1721,6 +1726,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
+        imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for JsonSchema generic
         imports.add("import java.util.List;");
         addItemsValidator(schema, imports);
         addMaxItemsValidator(schema, imports);

@@ -15,46 +15,48 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{/if}}
     {{#each keywords}}
         {{#if @first}}
-    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+    public {{../jsonPathPiece.camelCase}}() {
+        super(new LinkedHashMap<>(Map.ofEntries(
         {{/if}}
         {{#eq this "type"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
         {{/eq}}
         {{#eq this "format"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_format }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_format }}
         {{/eq}}
         {{#eq this "exclusiveMaximum"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMaximum }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMaximum }}
         {{/eq}}
         {{#eq this "exclusiveMinimum"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMinimum }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMinimum }}
         {{/eq}}
         {{#eq this "maximum"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_maximum }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_maximum }}
         {{/eq}}
         {{#eq this "minimum"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_minimum }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_minimum }}
         {{/eq}}
         {{#eq this "multipleOf"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_multipleOf }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_multipleOf }}
         {{/eq}}
         {{#eq this "allOf"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
         {{/eq}}
         {{#eq this "anyOf"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
         {{/eq}}
         {{#eq this "oneOf"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
         {{/eq}}
         {{#eq this "not"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
         {{/eq}}
         {{#eq this "enum"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
         {{/eq}}
         {{#if @last}}
-    ));
+        )));
+    }
         {{/if}}
     {{/each}}
 {{#if constInfo}}
