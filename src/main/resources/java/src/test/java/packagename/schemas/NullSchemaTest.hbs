@@ -5,21 +5,23 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.exceptions.ValidationException;
 
 public class NullSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final NullJsonSchema nullJsonSchema = JsonSchemaFactory.getInstance(NullJsonSchema.class);
 
     @Test
     public void testValidateNull() {
-        Void validatedValue = NullJsonSchema.validate(null, configuration);
+        Void validatedValue = nullJsonSchema.validate(null, configuration);
         Assert.assertNull(validatedValue);
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                NullJsonSchema.class, Boolean.TRUE, configuration
+        Assert.assertThrows(ValidationException.class, () -> nullJsonSchema.validate(
+                Boolean.TRUE, configuration
         ));
     }
 }

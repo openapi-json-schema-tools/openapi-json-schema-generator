@@ -5,6 +5,7 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.exceptions.ValidationException;
 
@@ -13,11 +14,12 @@ import java.util.List;
 
 public class ListSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final ListJsonSchema listJsonSchema = JsonSchemaFactory.getInstance(ListJsonSchema.class);
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                ListJsonSchema.class, (Void) null, configuration
+        Assert.assertThrows(ValidationException.class, () -> listJsonSchema.validate(
+                (Void) null, configuration
         ));
     }
 
@@ -25,7 +27,7 @@ public class ListSchemaTest {
     public void testValidateList() {
         List<Object> inList = new ArrayList<>();
         inList.add("today");
-        FrozenList<Object> validatedValue = ListJsonSchema.validate(inList, configuration);
+        FrozenList<Object> validatedValue = listJsonSchema.validate(inList, configuration);
         ArrayList<String> outList = new ArrayList<>();
         outList.add("today");
         Assert.assertEquals(validatedValue, outList);
