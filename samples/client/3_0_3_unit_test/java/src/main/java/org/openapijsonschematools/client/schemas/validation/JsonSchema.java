@@ -20,7 +20,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public abstract class JsonSchema {
+public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
     public LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected PathToSchemasMap validate(
@@ -150,9 +150,9 @@ public abstract class JsonSchema {
          String propertyName = (String) entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
-         Class<? extends JsonSchema> propertyClass = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          Object value = entry.getValue();
-         Object castValue = getNewInstance(propertyClass, value, propertyPathToItem, pathToSchemas);
+         Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
       return new FrozenMap<>(properties);
@@ -164,39 +164,29 @@ public abstract class JsonSchema {
       for (Object item: arg) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
-         Class<? extends JsonSchema> itemClass = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-         Object castItem = getNewInstance(itemClass, item, itemPathToItem, pathToSchemas);
+         JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+         Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
          items.add(castItem);
          i += 1;
       }
       return new FrozenList<>(items);
    }
 
-   private static Object getNewInstance(Class<? extends JsonSchema> cls, Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   protected T getMapOutputInstance(FrozenMap<?, ?> arg) {
+      return null;
+   }
+
+   protected U getListOutputInstance(FrozenList<?> arg) {
+      return null;
+   }
+
+   private Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       if (arg instanceof Map) {
          FrozenMap<String, Object> usedArg = getProperties((Map<?,?>) arg, pathToItem, pathToSchemas);
-         try {
-            Method method = cls.getDeclaredMethod("getMapOutputInstance", FrozenMap.class);
-            // needed because this is a protected method, but it is across packages
-            method.setAccessible(true);
-            return method.invoke(null, usedArg);
-         } catch (NoSuchMethodException e) {
-            return usedArg;
-         } catch (InvocationTargetException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-         }
+         return getMapOutputInstance(usedArg);
       } else if (arg instanceof List) {
          FrozenList<Object> usedArg = getItems((List<?>) arg, pathToItem, pathToSchemas);
-         try {
-            Method method = cls.getDeclaredMethod("getListOutputInstance", FrozenList.class);
-            // needed because this is a protected method, but it is across packages
-            method.setAccessible(true);
-            return method.invoke(null, usedArg);
-         } catch (NoSuchMethodException e) {
-            return usedArg;
-         } catch (InvocationTargetException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-         }
+         return getListOutputInstance(usedArg);
       }
       // str, int, float, boolean, null, FileIO, bytes
       return arg;
@@ -269,7 +259,7 @@ public abstract class JsonSchema {
               new LinkedHashSet<>()
       );
       PathToSchemasMap pathToSchemasMap = getPathToSchemas(castArg, validationMetadata, pathSet);
-      return getNewInstance(cls, castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+      return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
 
 }
