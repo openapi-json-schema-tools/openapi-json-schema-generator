@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -21,7 +22,7 @@ public class RefInItems {
             super(m);
         }
         public static RefInItemsList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return RefInItems1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(RefInItems1.class).validate(arg, configuration);
         }
     }
     
@@ -42,8 +43,9 @@ public class RefInItems {
             new KeywordEntry("items", new ItemsValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
         ));
         
-        protected static RefInItemsList getListOutputInstance(FrozenList<Object> arg) {
-            return new RefInItemsList(arg);
+        @Override
+        protected RefInItemsList getListOutputInstance(FrozenList<?> arg) {
+            return new RefInItemsList((FrozenList<Object>) arg);
         }
         public RefInItemsList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);

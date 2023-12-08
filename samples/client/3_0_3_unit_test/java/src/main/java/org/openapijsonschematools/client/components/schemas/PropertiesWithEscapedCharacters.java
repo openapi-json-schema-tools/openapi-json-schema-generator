@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -53,7 +54,7 @@ public class PropertiesWithEscapedCharacters {
             "foo\fbar"
         );
         public static PropertiesWithEscapedCharactersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return PropertiesWithEscapedCharacters1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(PropertiesWithEscapedCharacters1.class).validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -85,8 +86,9 @@ public class PropertiesWithEscapedCharacters {
             )))
         ));
         
-        protected static PropertiesWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new PropertiesWithEscapedCharactersMap(arg);
+        @Override
+        protected PropertiesWithEscapedCharactersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new PropertiesWithEscapedCharactersMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

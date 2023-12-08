@@ -13,6 +13,7 @@ import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -35,7 +36,7 @@ public class ForbiddenProperty {
             "foo"
         );
         public static ForbiddenPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return ForbiddenProperty1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(ForbiddenProperty1.class).validate(arg, configuration);
         }
         
         public Object foo() {
@@ -68,8 +69,9 @@ public class ForbiddenProperty {
             )))
         ));
         
-        protected static ForbiddenPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new ForbiddenPropertyMap(arg);
+        @Override
+        protected ForbiddenPropertyMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new ForbiddenPropertyMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

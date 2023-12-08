@@ -9,6 +9,7 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -25,7 +26,7 @@ public class ArrayTypeMatchesArrays {
             super(m);
         }
         public static ArrayTypeMatchesArraysList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return ArrayTypeMatchesArrays1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(ArrayTypeMatchesArrays1.class).validate(arg, configuration);
         }
     }
     
@@ -46,8 +47,9 @@ public class ArrayTypeMatchesArrays {
             new KeywordEntry("items", new ItemsValidator(Items.class))
         ));
         
-        protected static ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<Object> arg) {
-            return new ArrayTypeMatchesArraysList(arg);
+        @Override
+        protected ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<?> arg) {
+            return new ArrayTypeMatchesArraysList((FrozenList<Object>) arg);
         }
         public ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);

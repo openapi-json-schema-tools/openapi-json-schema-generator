@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -39,7 +40,7 @@ public class RequiredValidation {
             "bar"
         );
         public static RequiredValidationMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return RequiredValidation1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(RequiredValidation1.class).validate(arg, configuration);
         }
         
         public Object foo() {
@@ -80,8 +81,9 @@ public class RequiredValidation {
             )))
         ));
         
-        protected static RequiredValidationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new RequiredValidationMap(arg);
+        @Override
+        protected RequiredValidationMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new RequiredValidationMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

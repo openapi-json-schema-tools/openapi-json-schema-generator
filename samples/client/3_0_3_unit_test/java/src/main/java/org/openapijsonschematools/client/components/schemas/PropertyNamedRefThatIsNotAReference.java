@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -33,7 +34,7 @@ public class PropertyNamedRefThatIsNotAReference {
             "$ref"
         );
         public static PropertyNamedRefThatIsNotAReferenceMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return PropertyNamedRefThatIsNotAReference1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(PropertyNamedRefThatIsNotAReference1.class).validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -60,8 +61,9 @@ public class PropertyNamedRefThatIsNotAReference {
             )))
         ));
         
-        protected static PropertyNamedRefThatIsNotAReferenceMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new PropertyNamedRefThatIsNotAReferenceMap(arg);
+        @Override
+        protected PropertyNamedRefThatIsNotAReferenceMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new PropertyNamedRefThatIsNotAReferenceMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

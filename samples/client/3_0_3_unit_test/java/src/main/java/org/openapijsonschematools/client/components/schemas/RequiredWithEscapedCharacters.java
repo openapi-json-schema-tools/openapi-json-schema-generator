@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
@@ -33,7 +34,7 @@ public class RequiredWithEscapedCharacters {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static RequiredWithEscapedCharactersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return RequiredWithEscapedCharacters1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(RequiredWithEscapedCharacters1.class).validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {
@@ -65,8 +66,9 @@ public class RequiredWithEscapedCharacters {
             )))
         ));
         
-        protected static RequiredWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new RequiredWithEscapedCharactersMap(arg);
+        @Override
+        protected RequiredWithEscapedCharactersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new RequiredWithEscapedCharactersMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

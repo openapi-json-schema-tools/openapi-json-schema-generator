@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
@@ -43,7 +44,7 @@ public class InvalidStringValueForDefault {
             "bar"
         );
         public static InvalidStringValueForDefaultMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return InvalidStringValueForDefault1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(InvalidStringValueForDefault1.class).validate(arg, configuration);
         }
         
         public String bar() {
@@ -76,8 +77,9 @@ public class InvalidStringValueForDefault {
             )))
         ));
         
-        protected static InvalidStringValueForDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new InvalidStringValueForDefaultMap(arg);
+        @Override
+        protected InvalidStringValueForDefaultMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new InvalidStringValueForDefaultMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

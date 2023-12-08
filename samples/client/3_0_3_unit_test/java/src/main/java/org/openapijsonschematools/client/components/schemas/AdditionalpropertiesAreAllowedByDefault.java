@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -37,7 +38,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
             "bar"
         );
         public static AdditionalpropertiesAreAllowedByDefaultMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return AdditionalpropertiesAreAllowedByDefault1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(AdditionalpropertiesAreAllowedByDefault1.class).validate(arg, configuration);
         }
         
         public Object foo() {
@@ -77,8 +78,9 @@ public class AdditionalpropertiesAreAllowedByDefault {
             )))
         ));
         
-        protected static AdditionalpropertiesAreAllowedByDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new AdditionalpropertiesAreAllowedByDefaultMap(arg);
+        @Override
+        protected AdditionalpropertiesAreAllowedByDefaultMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new AdditionalpropertiesAreAllowedByDefaultMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

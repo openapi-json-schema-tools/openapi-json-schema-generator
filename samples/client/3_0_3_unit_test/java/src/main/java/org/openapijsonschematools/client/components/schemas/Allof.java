@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -36,7 +37,7 @@ public class Allof {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Schema0.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Schema0.class).validate(arg, configuration);
         }
         
         public long bar() {
@@ -64,8 +65,9 @@ public class Allof {
             )))
         ));
         
-        protected static Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new Schema0Map(arg);
+        @Override
+        protected Schema0Map getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new Schema0Map((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -128,7 +130,7 @@ public class Allof {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Schema1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Schema1.class).validate(arg, configuration);
         }
         
         public String foo() {
@@ -156,8 +158,9 @@ public class Allof {
             )))
         ));
         
-        protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new Schema1Map(arg);
+        @Override
+        protected Schema1Map getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new Schema1Map((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

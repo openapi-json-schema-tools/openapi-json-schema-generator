@@ -15,6 +15,7 @@ import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -39,7 +40,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             "foo"
         );
         public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Schema0.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Schema0.class).validate(arg, configuration);
         }
         
         public Object foo() {
@@ -66,8 +67,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             )))
         ));
         
-        protected static Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new Schema0Map(arg);
+        @Override
+        protected Schema0Map getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new Schema0Map((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -125,7 +127,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static AdditionalpropertiesShouldNotLookInApplicatorsMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return AdditionalpropertiesShouldNotLookInApplicators1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(AdditionalpropertiesShouldNotLookInApplicators1.class).validate(arg, configuration);
         }
         
         public boolean getAdditionalProperty(String name) {
@@ -152,8 +154,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             )))
         ));
         
-        protected static AdditionalpropertiesShouldNotLookInApplicatorsMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
-            return new AdditionalpropertiesShouldNotLookInApplicatorsMap(arg);
+        @Override
+        protected AdditionalpropertiesShouldNotLookInApplicatorsMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new AdditionalpropertiesShouldNotLookInApplicatorsMap((FrozenMap<String, Boolean>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

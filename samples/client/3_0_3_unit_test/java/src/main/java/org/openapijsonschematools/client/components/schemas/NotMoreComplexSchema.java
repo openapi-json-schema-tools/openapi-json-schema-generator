@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.NotValidator;
@@ -35,7 +36,7 @@ public class NotMoreComplexSchema {
             "foo"
         );
         public static NotMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Not.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Not.class).validate(arg, configuration);
         }
         
         public String foo() {
@@ -55,7 +56,7 @@ public class NotMoreComplexSchema {
     }
     
     
-    public static class Not extends JsonSchema {
+    public static class Not extends JsonSchema<NotMap, FrozenList> {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -63,8 +64,9 @@ public class NotMoreComplexSchema {
             )))
         ));
         
-        protected static NotMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new NotMap(arg);
+        @Override
+        protected NotMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new NotMap((FrozenMap<String, Object>) arg);
         }
         public NotMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

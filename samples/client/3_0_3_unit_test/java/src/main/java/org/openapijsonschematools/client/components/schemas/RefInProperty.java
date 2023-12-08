@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -29,7 +30,7 @@ public class RefInProperty {
             "a"
         );
         public static RefInPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return RefInProperty1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(RefInProperty1.class).validate(arg, configuration);
         }
         
         public Object a() {
@@ -62,8 +63,9 @@ public class RefInProperty {
             )))
         ));
         
-        protected static RefInPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new RefInPropertyMap(arg);
+        @Override
+        protected RefInPropertyMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new RefInPropertyMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

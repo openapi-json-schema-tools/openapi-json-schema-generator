@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -33,7 +34,7 @@ public class RequiredWithEmptyArray {
             "foo"
         );
         public static RequiredWithEmptyArrayMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return RequiredWithEmptyArray1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(RequiredWithEmptyArray1.class).validate(arg, configuration);
         }
         
         public Object foo() {
@@ -66,8 +67,9 @@ public class RequiredWithEmptyArray {
             )))
         ));
         
-        protected static RequiredWithEmptyArrayMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new RequiredWithEmptyArrayMap(arg);
+        @Override
+        protected RequiredWithEmptyArrayMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new RequiredWithEmptyArrayMap((FrozenMap<String, Object>) arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
