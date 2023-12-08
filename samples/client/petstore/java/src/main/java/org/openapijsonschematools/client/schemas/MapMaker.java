@@ -5,8 +5,7 @@ import java.util.Map;
 
 /**
  * A builder for maps that allows in null values
- * Schema tests need this
- * Future schema doc code samples will need it
+ * Schema tests + doc code samples need it
  */
 public class MapMaker {
     @SafeVarargs

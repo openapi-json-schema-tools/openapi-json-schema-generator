@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
@@ -27,7 +28,7 @@ public class Currency {
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
-                new KeywordEntry("enum", new EnumValidator(Set.of(
+                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     "eur",
                     "usd"
                 )))

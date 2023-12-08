@@ -5,6 +5,7 @@ import java.util.Set;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
+import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -31,7 +32,7 @@ public class Zebra {
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
-                new KeywordEntry("enum", new EnumValidator(Set.of(
+                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     "plains",
                     "mountain",
                     "grevys"
@@ -49,7 +50,7 @@ public class Zebra {
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
-                new KeywordEntry("enum", new EnumValidator(Set.of(
+                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     "zebra"
                 )))
             )));

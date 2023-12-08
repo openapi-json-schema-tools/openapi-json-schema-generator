@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
+import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -41,7 +42,7 @@ public class Order {
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
-                new KeywordEntry("enum", new EnumValidator(Set.of(
+                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     "placed",
                     "approved",
                     "delivered"
