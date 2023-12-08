@@ -197,6 +197,7 @@ src/main/java/org/openapijsonschematools/client/schemas/MapMaker.java
 src/main/java/org/openapijsonschematools/client/schemas/NotAnyTypeJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NullJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/NumberJsonSchema.java
+src/main/java/org/openapijsonschematools/client/schemas/SetMaker.java
 src/main/java/org/openapijsonschematools/client/schemas/StringJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/UuidJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/AdditionalPropertiesValidator.java

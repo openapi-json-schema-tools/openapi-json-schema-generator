@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("enum", new EnumValidator(Set.of(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(<br>
     {{~#each enumInfo.valueToName}}
     {{#with @key}}
         {{#eq type "string"}}
@@ -15,7 +15,7 @@
     {{/each}}
 ))){{#unless @last}},{{/unless}}<br>
 {{~else}}
-new KeywordEntry("enum", new EnumValidator(Set.of(
+new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
     {{#each enumInfo.valueToName}}
     {{#with @key}}
         {{#eq type "string"}}

@@ -364,6 +364,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         schemaSupportingFiles.add("NotAnyTypeJsonSchema");
         schemaSupportingFiles.add("NullJsonSchema");
         schemaSupportingFiles.add("NumberJsonSchema");
+        schemaSupportingFiles.add("SetMaker");
         schemaSupportingFiles.add("StringJsonSchema");
         schemaSupportingFiles.add("UuidJsonSchema");
         for (String schemaSupportingFile: schemaSupportingFiles) {
@@ -1564,7 +1565,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
             imports.add("import "+packageName + ".schemas.validation.EnumValidator;");
-            imports.add("import java.util.Set;");
+            imports.add("import "+packageName + ".schemas.SetMaker;");
         }
     }
 
