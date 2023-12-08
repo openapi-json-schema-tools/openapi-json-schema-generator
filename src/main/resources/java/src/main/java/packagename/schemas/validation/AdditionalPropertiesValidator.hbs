@@ -43,11 +43,12 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            if (propValidationMetadata.validationRanEarlier(additionalProperties)) {
+            JsonSchema addPropsSchema = JsonSchemaFactory.getInstance(additionalProperties);
+            if (propValidationMetadata.validationRanEarlier(addPropsSchema)) {
                 // todo add_deeper_validated_schemas
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(additionalProperties, propValue, propValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = addPropsSchema.validate(propValue, propValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }
         return pathToSchemas;
