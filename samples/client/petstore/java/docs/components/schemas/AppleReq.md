@@ -15,8 +15,6 @@ A class that contains necessary nested
 | static class | [AppleReq.AppleReq1](#applereq1)<br> schema class |
 | static class | [AppleReq.AppleReqMapInput](#applereqmapinput)<br> builder for Map payloads |
 | static class | [AppleReq.AppleReqMap](#applereqmap)<br> output class for Map payloads |
-| static class | [AppleReq.AppleReqMapInput](#applereqmapinput)<br> builder for Map payloads |
-| static class | [AppleReq.AppleReqMapInput](#applereqmapinput)<br> builder for Map payloads |
 | static class | [AppleReq.Mealy](#mealy)<br> schema class |
 | static class | [AppleReq.Cultivar](#cultivar)<br> schema class |
 | static class | [AppleReq.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -93,28 +91,6 @@ A class to store validated Map payloads
 | static [AppleReqMap](#applereqmap) | of([Map<String, Object>](#applereqmapinput) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | boolean | mealy()<br>[optional] |
-
-## AppleReqMapInput
-public class AppleReqMapInput<br>
-builder for `Map<String, Object>`
-
-A class that builds the Map input type
-
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **mealy** | boolean |  | [optional] |
-
-## AppleReqMapInput
-public class AppleReqMapInput<br>
-builder for `Map<String, Object>`
-
-A class that builds the Map input type
-
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **cultivar** | String |  | |
 
 ## Mealy
 public static class Mealy<br>

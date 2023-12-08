@@ -26,12 +26,6 @@ public class Headers {
     
     public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    public class HeadersMapInput {
-        // empty mapping
-    }
-    public class HeadersMapInput {
-        // empty mapping
-    }
     
     
     public static class HeadersMap extends FrozenMap<String, Object> {

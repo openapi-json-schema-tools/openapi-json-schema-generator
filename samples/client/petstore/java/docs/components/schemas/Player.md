@@ -74,7 +74,7 @@ A class that builds the Map input type
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **name** | String |  | [optional] |
-| **enemyPlayer** | Map<String, Object> |  | [optional] |
+| **enemyPlayer** | Map |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## PlayerMap

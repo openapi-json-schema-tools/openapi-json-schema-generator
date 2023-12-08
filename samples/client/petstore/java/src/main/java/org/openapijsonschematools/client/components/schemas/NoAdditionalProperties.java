@@ -29,12 +29,6 @@ public class NoAdditionalProperties {
     
     
     public static class PetId extends Int64JsonSchema {}
-    public class NoAdditionalPropertiesMapInput {
-        // empty mapping
-    }
-    public class NoAdditionalPropertiesMapInput {
-        // empty mapping
-    }
     
     
     public static class NoAdditionalPropertiesMap extends FrozenMap<String, Long> {

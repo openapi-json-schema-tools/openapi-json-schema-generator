@@ -15,8 +15,6 @@ A class that contains necessary nested
 | static class | [NoAdditionalProperties.NoAdditionalProperties1](#noadditionalproperties1)<br> schema class |
 | static class | [NoAdditionalProperties.NoAdditionalPropertiesMapInput](#noadditionalpropertiesmapinput)<br> builder for Map payloads |
 | static class | [NoAdditionalProperties.NoAdditionalPropertiesMap](#noadditionalpropertiesmap)<br> output class for Map payloads |
-| static class | [NoAdditionalProperties.NoAdditionalPropertiesMapInput](#noadditionalpropertiesmapinput)<br> builder for Map payloads |
-| static class | [NoAdditionalProperties.NoAdditionalPropertiesMapInput](#noadditionalpropertiesmapinput)<br> builder for Map payloads |
 | static class | [NoAdditionalProperties.PetId](#petid)<br> schema class |
 | static class | [NoAdditionalProperties.Id](#id)<br> schema class |
 | static class | [NoAdditionalProperties.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -93,28 +91,6 @@ A class to store validated Map payloads
 | static [NoAdditionalPropertiesMap](#noadditionalpropertiesmap) | of([Map<String, Long>](#noadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | long | id()<br> value must be a 64 bit integer |
 | long | petId()<br>[optional] value must be a 64 bit integer |
-
-## NoAdditionalPropertiesMapInput
-public class NoAdditionalPropertiesMapInput<br>
-builder for `Map<String, Long>`
-
-A class that builds the Map input type
-
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **petId** | long |  | [optional] value must be a 64 bit integer |
-
-## NoAdditionalPropertiesMapInput
-public class NoAdditionalPropertiesMapInput<br>
-builder for `Map<String, Long>`
-
-A class that builds the Map input type
-
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | long |  | value must be a 64 bit integer |
 
 ## PetId
 public static class PetId<br>

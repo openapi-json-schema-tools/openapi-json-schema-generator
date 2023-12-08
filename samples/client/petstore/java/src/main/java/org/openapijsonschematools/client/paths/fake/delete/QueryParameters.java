@@ -26,12 +26,6 @@ public class QueryParameters {
     
     public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
         // NotAnyTypeSchema
-    public class QueryParametersMapInput {
-        // empty mapping
-    }
-    public class QueryParametersMapInput {
-        // empty mapping
-    }
     
     
     public static class QueryParametersMap extends FrozenMap<String, Object> {

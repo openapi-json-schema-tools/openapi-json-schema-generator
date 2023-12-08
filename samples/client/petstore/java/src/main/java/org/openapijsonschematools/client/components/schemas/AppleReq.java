@@ -30,12 +30,6 @@ public class AppleReq {
     
     
     public static class Mealy extends BooleanJsonSchema {}
-    public class AppleReqMapInput {
-        // empty mapping
-    }
-    public class AppleReqMapInput {
-        // empty mapping
-    }
     
     
     public static class AppleReqMap extends FrozenMap<String, Object> {

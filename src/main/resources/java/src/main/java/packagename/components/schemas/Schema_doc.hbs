@@ -23,7 +23,7 @@ A class that contains necessary nested
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-{{#each (reverse getSchemas)}}
+{{#each (reverse getJavaSchemas)}}
     {{#eq instanceType "schema"}}
 | static class | [{{../containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |
         {{else}}
@@ -44,7 +44,7 @@ A class that contains necessary nested
         {{/eq}}
     {{/eq}}
 {{/each}}
-{{#each (reverse getSchemas)}}
+{{#each (reverse getJavaSchemas)}}
     {{#eq instanceType "schema"}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}

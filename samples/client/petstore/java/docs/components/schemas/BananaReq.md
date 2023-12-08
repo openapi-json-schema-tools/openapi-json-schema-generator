@@ -15,8 +15,6 @@ A class that contains necessary nested
 | static class | [BananaReq.BananaReq1](#bananareq1)<br> schema class |
 | static class | [BananaReq.BananaReqMapInput](#bananareqmapinput)<br> builder for Map payloads |
 | static class | [BananaReq.BananaReqMap](#bananareqmap)<br> output class for Map payloads |
-| static class | [BananaReq.BananaReqMapInput](#bananareqmapinput)<br> builder for Map payloads |
-| static class | [BananaReq.BananaReqMapInput](#bananareqmapinput)<br> builder for Map payloads |
 | static class | [BananaReq.Sweet](#sweet)<br> schema class |
 | static class | [BananaReq.LengthCm](#lengthcm)<br> schema class |
 | static class | [BananaReq.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -93,28 +91,6 @@ A class to store validated Map payloads
 | static [BananaReqMap](#bananareqmap) | of([Map<String, Object>](#bananareqmapinput) arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
 | boolean | sweet()<br>[optional] |
-
-## BananaReqMapInput
-public class BananaReqMapInput<br>
-builder for `Map<String, Object>`
-
-A class that builds the Map input type
-
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **sweet** | boolean |  | [optional] |
-
-## BananaReqMapInput
-public class BananaReqMapInput<br>
-builder for `Map<String, Object>`
-
-A class that builds the Map input type
-
-## Input Map Keys
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **lengthCm** | Number |  | |
 
 ## Sweet
 public static class Sweet<br>

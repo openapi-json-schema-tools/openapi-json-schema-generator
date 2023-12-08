@@ -65,8 +65,8 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **selfRef** | Map<String, Object> |  | [optional] |
-| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
+| **selfRef** | Map |  | [optional] |
+| **anyStringName** | Map | any string name can be used but the value must be the correct type | [optional] |
 
 ## SelfReferencingObjectModelMap
 public static class SelfReferencingObjectModelMap<br>
