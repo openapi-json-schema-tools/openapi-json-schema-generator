@@ -1724,6 +1724,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
+        imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for JsonSchema generic
         imports.add("import java.util.List;");
         addItemsValidator(schema, imports);
         addMaxItemsValidator(schema, imports);
