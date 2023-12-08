@@ -24,11 +24,13 @@ import java.util.Set;
 public class ArrayTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-    public class ArrayWithItemsSchema extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
-        ));
+    public static class ArrayWithItemsSchema extends JsonSchema {
+        public ArrayWithItemsSchema() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                    new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
+            ));
+        }
 
         public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
             return validateList(arg, configuration);
@@ -45,11 +47,14 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public class ArrayWithOutputClsSchema extends JsonSchema<FrozenMap, ArrayWithOutputClsSchemaList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
-        ));
+    public static class ArrayWithOutputClsSchema extends JsonSchema<FrozenMap, ArrayWithOutputClsSchemaList> {
+        public ArrayWithOutputClsSchema() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                    new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
+            ));
+
+        }
 
         protected ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<?> arg) {
             return new ArrayWithOutputClsSchemaList((FrozenList<? extends String>) arg);
