@@ -37,8 +37,9 @@ public class ItemsValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add(0);
-        LinkedHashMap<Class<? extends JsonSchema>, Void> expectedClasses = new LinkedHashMap<>();
-        expectedClasses.put(StringJsonSchema.class, null);
+        LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
+        StringJsonSchema schema = JsonSchemaFactory.getInstance(StringJsonSchema.class);
+        expectedClasses.put(schema, null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);

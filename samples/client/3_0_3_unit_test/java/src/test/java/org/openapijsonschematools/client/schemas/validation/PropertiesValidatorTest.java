@@ -42,8 +42,8 @@ public class PropertiesValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someString");
-        LinkedHashMap<Class<? extends JsonSchema>, Void> expectedClasses = new LinkedHashMap<>();
-        expectedClasses.put(StringJsonSchema.class, null);
+        LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
+        expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.class), null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);

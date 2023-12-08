@@ -96,3 +96,4 @@ public class AnyTypeSchemaTest {
         Assert.assertEquals(validatedValue, outList);
     }
 }
+
