@@ -129,9 +129,9 @@ public abstract class JsonSchema {
       }
    }
 
-   private static PathToSchemasMap getPathToSchemas(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+   private PathToSchemasMap getPathToSchemas(Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
       PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
-      if (validationMetadata.validationRanEarlier(cls)) {
+      if (validationMetadata.validationRanEarlier(this)) {
          // todo add deeper validated schemas
       } else {
          PathToSchemasMap otherPathToSchemas = validate(cls, arg, validationMetadata);
@@ -277,7 +277,7 @@ public abstract class JsonSchema {
               validatedPathToSchemas,
               new LinkedHashSet<>()
       );
-      PathToSchemasMap pathToSchemasMap = getPathToSchemas(cls, castArg, validationMetadata, pathSet);
+      PathToSchemasMap pathToSchemasMap = getPathToSchemas(castArg, validationMetadata, pathSet);
       return getNewInstance(cls, castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
 

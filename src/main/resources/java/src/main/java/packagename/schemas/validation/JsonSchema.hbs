@@ -21,35 +21,26 @@ import java.util.Set;
 import java.util.UUID;
 
 public abstract class JsonSchema {
-    protected static PathToSchemasMap validate(
-            Class<? extends JsonSchema> schemaCls,
+    public LinkedHashMap<String, KeywordValidator> keywordToValidator;
+
+    protected PathToSchemasMap validate(
             Object arg,
             ValidationMetadata validationMetadata
     ) throws ValidationException {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        Class<? extends JsonSchema> usedSchemaCls = schemaCls;
-        Class<?> superclass = schemaCls.getSuperclass();
-        if (superclass != JsonSchema.class) {
-            // only ref with no adjacent properties supported at this time
-            usedSchemaCls = (Class<? extends JsonSchema>) superclass;
-        }
-        LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
-        try {
-            Field keywordToValidatorField = usedSchemaCls.getField("keywordToValidator");
-            LinkedHashMap<String, KeywordValidator> entries = (LinkedHashMap<String, KeywordValidator>) keywordToValidatorField.get(null);
-            keywordToValidator.putAll(entries);
-            keywordToValidator.keySet().removeAll(disabledKeywords);
-        } catch (NoSuchFieldException | IllegalAccessException ignore) {}
         Object extra = null;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for (Map.Entry<String, KeywordValidator> entry: keywordToValidator.entrySet()) {
             String jsonKeyword = entry.getKey();
+            if (disabledKeywords.contains(jsonKeyword)) {
+               continue;
+            }
             if (jsonKeyword.equals("additionalProperties") && keywordToValidator.containsKey("properties")) {
                 extra = keywordToValidator.get("properties").getConstraint();
             }
             KeywordValidator validator = entry.getValue();
             PathToSchemasMap otherPathToSchemas = validator.validate(
-                    schemaCls,
+                    this.getClass(),
                     arg,
                     validationMetadata,
                     extra
@@ -63,7 +54,7 @@ public abstract class JsonSchema {
         if (!pathToSchemas.containsKey(pathToItem)) {
             pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
         }
-        pathToSchemas.get(pathToItem).put(schemaCls, null);
+        pathToSchemas.get(pathToItem).put(this, null);
 
         return pathToSchemas;
     }
@@ -129,22 +120,22 @@ public abstract class JsonSchema {
       }
    }
 
-   private static PathToSchemasMap getPathToSchemas(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+   private PathToSchemasMap getPathToSchemas(Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
       PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
-      if (validationMetadata.validationRanEarlier(cls)) {
+      if (validationMetadata.validationRanEarlier(this)) {
          // todo add deeper validated schemas
       } else {
-         PathToSchemasMap otherPathToSchemas = validate(cls, arg, validationMetadata);
+         PathToSchemasMap otherPathToSchemas = validate(arg, validationMetadata);
          pathToSchemasMap.update(otherPathToSchemas);
-         for (LinkedHashMap<Class<? extends JsonSchema>, Void> schemas: pathToSchemasMap.values()) {
-            Class<? extends JsonSchema> firstSchema = schemas.entrySet().iterator().next().getKey();
+         for (LinkedHashMap<JsonSchema, Void> schemas: pathToSchemasMap.values()) {
+            JsonSchema firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
          }
          pathSet.removeAll(pathToSchemasMap.keySet());
          if (!pathSet.isEmpty()) {
-            LinkedHashMap<Class<? extends JsonSchema>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
-            unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.class, null);
+            LinkedHashMap<JsonSchema, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
             for (List<Object> pathToItem: pathSet) {
                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
             }
@@ -261,7 +252,7 @@ public abstract class JsonSchema {
 
    // todo add bytes and FileIO
 
-   public static Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
+   public Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types
       }
@@ -277,7 +268,7 @@ public abstract class JsonSchema {
               validatedPathToSchemas,
               new LinkedHashSet<>()
       );
-      PathToSchemasMap pathToSchemasMap = getPathToSchemas(cls, castArg, validationMetadata, pathSet);
+      PathToSchemasMap pathToSchemasMap = getPathToSchemas(castArg, validationMetadata, pathSet);
       return getNewInstance(cls, castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
 
