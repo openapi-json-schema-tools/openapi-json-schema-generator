@@ -44,7 +44,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     public static class Schema2 extends DateTimeJsonSchema {}
     
     
-    public static class Schema3 extends JsonSchema {
+    public static class Schema3 extends StringJsonSchema {
         // BinarySchema
     }
     

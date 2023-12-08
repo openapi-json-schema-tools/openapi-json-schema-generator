@@ -23,7 +23,7 @@ public class Schema {
     public static class AdditionalMetadata extends StringJsonSchema {}
     
     
-    public static class RequiredFile extends JsonSchema {
+    public static class RequiredFile extends StringJsonSchema {
         // BinarySchema
     }
     

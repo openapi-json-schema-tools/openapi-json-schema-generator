@@ -63,7 +63,7 @@ public static class {{../jsonPathPiece.camelCase}} extends UuidJsonSchema {}
 public static class {{../jsonPathPiece.camelCase}} extends DecimalJsonSchema {}
                     {{/eq}}
                     {{#eq ../format "binary"}}
-public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
+public static class {{jsonPathPiece.camelCase}} extends StringJsonSchema {
     // BinarySchema
 }
                     {{/eq}}

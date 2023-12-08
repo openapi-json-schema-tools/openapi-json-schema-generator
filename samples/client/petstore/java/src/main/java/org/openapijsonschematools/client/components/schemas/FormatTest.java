@@ -238,7 +238,7 @@ public class FormatTest {
     public static class ByteSchema extends StringJsonSchema {}
     
     
-    public static class Binary extends JsonSchema {
+    public static class Binary extends StringJsonSchema {
         // BinarySchema
     }
     

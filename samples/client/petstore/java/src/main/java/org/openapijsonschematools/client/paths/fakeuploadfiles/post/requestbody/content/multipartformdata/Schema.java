@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
@@ -20,7 +21,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items extends JsonSchema {
+    public static class Items extends StringJsonSchema {
         // BinarySchema
     }
     

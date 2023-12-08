@@ -26,10 +26,10 @@ public class ArrayTypeSchemaTest {
 
     public static class ArrayWithItemsSchema extends JsonSchema {
         public ArrayWithItemsSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                     new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
-            ));
+            )));
         }
 
         public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
@@ -49,10 +49,10 @@ public class ArrayTypeSchemaTest {
 
     public static class ArrayWithOutputClsSchema extends JsonSchema<FrozenMap, ArrayWithOutputClsSchemaList> {
         public ArrayWithOutputClsSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                     new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
-            ));
+            )));
 
         }
 
