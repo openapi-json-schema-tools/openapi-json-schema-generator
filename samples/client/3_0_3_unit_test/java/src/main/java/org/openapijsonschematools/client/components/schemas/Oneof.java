@@ -25,9 +25,11 @@ public class Oneof {
     
     
     public static class Schema1 extends JsonSchema<FrozenMap, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("minimum", new MinimumValidator(2))
-        ));
+        public Schema1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("minimum", new MinimumValidator(2))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }
@@ -84,12 +86,14 @@ public class Oneof {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("oneOf", new OneOfValidator(List.of(
-                Schema0.class,
-                Schema1.class
-            )))
-        ));
+        public Oneof1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                    Schema0.class,
+                    Schema1.class
+                )))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

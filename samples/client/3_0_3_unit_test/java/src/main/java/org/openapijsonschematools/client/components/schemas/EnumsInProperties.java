@@ -21,28 +21,32 @@ public class EnumsInProperties {
     
     
     public static class Foo extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                "foo"
-            )))
-        ));
+        public Foo() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    "foo"
+                )))
+            ));
+        }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
         }
     }    
     
     public static class Bar extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                "bar"
-            )))
-        ));
+        public Bar() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    "bar"
+                )))
+            ));
+        }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
         }
@@ -90,16 +94,18 @@ public class EnumsInProperties {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo", Foo.class),
-                new PropertyEntry("bar", Bar.class)
-            ))),
-            new KeywordEntry("required", new RequiredValidator(Set.of(
-                "bar"
-            )))
-        ));
+        public EnumsInProperties1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo", Foo.class),
+                    new PropertyEntry("bar", Bar.class)
+                ))),
+                new KeywordEntry("required", new RequiredValidator(Set.of(
+                    "bar"
+                )))
+            ));
+        }
         
         @Override
         protected EnumsInPropertiesMap getMapOutputInstance(FrozenMap<?, ?> arg) {

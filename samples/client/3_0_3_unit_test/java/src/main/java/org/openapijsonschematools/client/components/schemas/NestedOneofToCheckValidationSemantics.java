@@ -24,11 +24,13 @@ public class NestedOneofToCheckValidationSemantics {
     
     
     public static class Schema0 extends JsonSchema<FrozenMap, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("oneOf", new OneOfValidator(List.of(
-                Schema01.class
-            )))
-        ));
+        public Schema0() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                    Schema01.class
+                )))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }
@@ -85,11 +87,13 @@ public class NestedOneofToCheckValidationSemantics {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("oneOf", new OneOfValidator(List.of(
-                Schema0.class
-            )))
-        ));
+        public NestedOneofToCheckValidationSemantics1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                    Schema0.class
+                )))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

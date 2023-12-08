@@ -26,9 +26,11 @@ public class MaxlengthValidation {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("maxLength", new MaxLengthValidator(2))
-        ));
+        public MaxlengthValidation1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("maxLength", new MaxLengthValidator(2))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

@@ -55,11 +55,13 @@ public class PropertyNamedRefThatIsNotAReference {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("$ref", Ref.class)
-            )))
-        ));
+        public PropertyNamedRefThatIsNotAReference1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("$ref", Ref.class)
+                )))
+            ));
+        }
         
         @Override
         protected PropertyNamedRefThatIsNotAReferenceMap getMapOutputInstance(FrozenMap<?, ?> arg) {

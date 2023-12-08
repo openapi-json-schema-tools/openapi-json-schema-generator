@@ -22,12 +22,14 @@ public class EnumWithTrueDoesNotMatch1 {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                true
-            )))
-        ));
+        public EnumWithTrueDoesNotMatch11() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    true
+                )))
+            ));
+        }
         public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             return validateBoolean(arg, configuration);
         }

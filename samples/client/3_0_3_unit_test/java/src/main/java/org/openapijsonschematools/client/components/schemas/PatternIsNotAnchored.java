@@ -27,11 +27,13 @@ public class PatternIsNotAnchored {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "a+"
-            )))
-        ));
+        public PatternIsNotAnchored1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                    "a+"
+                )))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

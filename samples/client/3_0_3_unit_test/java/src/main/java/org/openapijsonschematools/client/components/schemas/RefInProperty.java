@@ -57,11 +57,13 @@ public class RefInProperty {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("a", PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
-            )))
-        ));
+        public RefInProperty1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("a", PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
+                )))
+            ));
+        }
         
         @Override
         protected RefInPropertyMap getMapOutputInstance(FrozenMap<?, ?> arg) {

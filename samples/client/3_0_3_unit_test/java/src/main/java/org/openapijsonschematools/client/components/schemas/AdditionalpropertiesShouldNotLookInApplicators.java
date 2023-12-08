@@ -61,11 +61,13 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     
     public static class Schema0 extends JsonSchema<Schema0Map, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo", Foo.class)
-            )))
-        ));
+        public Schema0() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo", Foo.class)
+                )))
+            ));
+        }
         
         @Override
         protected Schema0Map getMapOutputInstance(FrozenMap<?, ?> arg) {
@@ -147,12 +149,14 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class)),
-            new KeywordEntry("allOf", new AllOfValidator(List.of(
-                Schema0.class
-            )))
-        ));
+        public AdditionalpropertiesShouldNotLookInApplicators1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class)),
+                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                    Schema0.class
+                )))
+            ));
+        }
         
         @Override
         protected AdditionalpropertiesShouldNotLookInApplicatorsMap getMapOutputInstance(FrozenMap<?, ?> arg) {

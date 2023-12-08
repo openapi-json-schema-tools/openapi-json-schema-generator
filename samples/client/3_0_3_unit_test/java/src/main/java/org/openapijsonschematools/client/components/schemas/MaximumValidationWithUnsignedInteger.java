@@ -26,9 +26,11 @@ public class MaximumValidationWithUnsignedInteger {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("maximum", new MaximumValidator(300))
-        ));
+        public MaximumValidationWithUnsignedInteger1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("maximum", new MaximumValidator(300))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

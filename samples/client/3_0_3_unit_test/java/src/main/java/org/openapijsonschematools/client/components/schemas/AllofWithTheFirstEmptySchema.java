@@ -34,12 +34,14 @@ public class AllofWithTheFirstEmptySchema {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("allOf", new AllOfValidator(List.of(
-                Schema0.class,
-                Schema1.class
-            )))
-        ));
+        public AllofWithTheFirstEmptySchema1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                    Schema0.class,
+                    Schema1.class
+                )))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

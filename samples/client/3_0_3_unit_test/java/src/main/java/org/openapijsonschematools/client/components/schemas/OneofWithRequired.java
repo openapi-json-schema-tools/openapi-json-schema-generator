@@ -55,12 +55,14 @@ public class OneofWithRequired {
     
     
     public static class Schema0 extends JsonSchema<Schema0Map, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("required", new RequiredValidator(Set.of(
-                "bar",
-                "foo"
-            )))
-        ));
+        public Schema0() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("required", new RequiredValidator(Set.of(
+                    "bar",
+                    "foo"
+                )))
+            ));
+        }
         
         @Override
         protected Schema0Map getMapOutputInstance(FrozenMap<?, ?> arg) {
@@ -148,12 +150,14 @@ public class OneofWithRequired {
     
     
     public static class Schema1 extends JsonSchema<Schema1Map, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("required", new RequiredValidator(Set.of(
-                "baz",
-                "foo"
-            )))
-        ));
+        public Schema1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("required", new RequiredValidator(Set.of(
+                    "baz",
+                    "foo"
+                )))
+            ));
+        }
         
         @Override
         protected Schema1Map getMapOutputInstance(FrozenMap<?, ?> arg) {
@@ -215,13 +219,15 @@ public class OneofWithRequired {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("oneOf", new OneOfValidator(List.of(
-                Schema0.class,
-                Schema1.class
-            )))
-        ));
+        public OneofWithRequired1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                    Schema0.class,
+                    Schema1.class
+                )))
+            ));
+        }
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

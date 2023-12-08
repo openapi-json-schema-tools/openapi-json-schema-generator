@@ -61,11 +61,13 @@ public class RequiredDefaultValidation {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo", Foo.class)
-            )))
-        ));
+        public RequiredDefaultValidation1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo", Foo.class)
+                )))
+            ));
+        }
         
         @Override
         protected RequiredDefaultValidationMap getMapOutputInstance(FrozenMap<?, ?> arg) {

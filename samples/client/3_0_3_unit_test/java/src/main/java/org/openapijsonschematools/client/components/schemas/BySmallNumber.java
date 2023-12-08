@@ -26,9 +26,11 @@ public class BySmallNumber {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("multipleOf", new MultipleOfValidator(0.00010))
-        ));
+        public BySmallNumber1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("multipleOf", new MultipleOfValidator(0.00010))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

@@ -75,16 +75,18 @@ public class PropertiesWithEscapedCharacters {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo\nbar", Foonbar.class),
-                new PropertyEntry("foo\"bar", Foobar.class),
-                new PropertyEntry("foo\\bar", Foobar1.class),
-                new PropertyEntry("foo\rbar", Foorbar.class),
-                new PropertyEntry("foo\tbar", Footbar.class),
-                new PropertyEntry("foo\fbar", Foofbar.class)
-            )))
-        ));
+        public PropertiesWithEscapedCharacters1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo\nbar", Foonbar.class),
+                    new PropertyEntry("foo\"bar", Foobar.class),
+                    new PropertyEntry("foo\\bar", Foobar1.class),
+                    new PropertyEntry("foo\rbar", Foorbar.class),
+                    new PropertyEntry("foo\tbar", Footbar.class),
+                    new PropertyEntry("foo\fbar", Foofbar.class)
+                )))
+            ));
+        }
         
         @Override
         protected PropertiesWithEscapedCharactersMap getMapOutputInstance(FrozenMap<?, ?> arg) {

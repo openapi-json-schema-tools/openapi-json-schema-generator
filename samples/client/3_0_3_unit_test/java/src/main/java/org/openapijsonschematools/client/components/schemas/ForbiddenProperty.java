@@ -63,11 +63,13 @@ public class ForbiddenProperty {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo", Foo.class)
-            )))
-        ));
+        public ForbiddenProperty1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo", Foo.class)
+                )))
+            ));
+        }
         
         @Override
         protected ForbiddenPropertyMap getMapOutputInstance(FrozenMap<?, ?> arg) {

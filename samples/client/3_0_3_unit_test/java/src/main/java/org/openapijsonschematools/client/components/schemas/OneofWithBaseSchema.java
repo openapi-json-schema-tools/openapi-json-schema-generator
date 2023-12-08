@@ -24,9 +24,11 @@ public class OneofWithBaseSchema {
     
     
     public static class Schema0 extends JsonSchema<FrozenMap, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("minLength", new MinLengthValidator(2))
-        ));
+        public Schema0() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("minLength", new MinLengthValidator(2))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }
@@ -77,9 +79,11 @@ public class OneofWithBaseSchema {
     }    
     
     public static class Schema1 extends JsonSchema<FrozenMap, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("maxLength", new MaxLengthValidator(4))
-        ));
+        public Schema1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("maxLength", new MaxLengthValidator(4))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }
@@ -136,15 +140,17 @@ public class OneofWithBaseSchema {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("oneOf", new OneOfValidator(List.of(
-                Schema0.class,
-                Schema1.class
-            )))
-        ));
+        public OneofWithBaseSchema1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                    Schema0.class,
+                    Schema1.class
+                )))
+            ));
+        }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
         }

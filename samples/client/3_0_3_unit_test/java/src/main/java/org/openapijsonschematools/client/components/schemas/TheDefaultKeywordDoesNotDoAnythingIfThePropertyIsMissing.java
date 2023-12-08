@@ -20,15 +20,17 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     
     
     public static class Alpha extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                Integer.class,
-                Long.class,
-                Float.class,
-                Double.class
-            ))),
-            new KeywordEntry("maximum", new MaximumValidator(3))
-        ));
+        public Alpha() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+                ))),
+                new KeywordEntry("maximum", new MaximumValidator(3))
+            ));
+        }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);
         }
@@ -82,12 +84,14 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("alpha", Alpha.class)
-            )))
-        ));
+        public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("alpha", Alpha.class)
+                )))
+            ));
+        }
         
         @Override
         protected TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap getMapOutputInstance(FrozenMap<?, ?> arg) {

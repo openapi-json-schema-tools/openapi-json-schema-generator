@@ -22,14 +22,16 @@ public class NulCharactersInStrings {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                "hello\0there"
-            )))
-        ));
+        public NulCharactersInStrings1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    "hello\0there"
+                )))
+            ));
+        }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
         }

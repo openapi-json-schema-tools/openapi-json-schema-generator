@@ -15,28 +15,30 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{/if}}
     {{#each keywords}}
         {{#if @first}}
-    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+    public {{../jsonPathPiece.camelCase}}() {
+        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
         {{/if}}
         {{#eq this "type"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
         {{/eq}}
         {{#eq this "allOf"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
         {{/eq}}
         {{#eq this "anyOf"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
         {{/eq}}
         {{#eq this "oneOf"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
         {{/eq}}
         {{#eq this "not"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
         {{/eq}}
         {{#eq this "enum"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
         {{/eq}}
         {{#if @last}}
-    ));
+        ));
+    }
         {{/if}}
     {{/each}}
 {{#if constInfo}}

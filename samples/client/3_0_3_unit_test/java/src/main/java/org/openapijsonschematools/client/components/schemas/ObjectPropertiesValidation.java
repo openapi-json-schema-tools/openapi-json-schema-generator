@@ -72,12 +72,14 @@ public class ObjectPropertiesValidation {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo", Foo.class),
-                new PropertyEntry("bar", Bar.class)
-            )))
-        ));
+        public ObjectPropertiesValidation1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo", Foo.class),
+                    new PropertyEntry("bar", Bar.class)
+                )))
+            ));
+        }
         
         @Override
         protected ObjectPropertiesValidationMap getMapOutputInstance(FrozenMap<?, ?> arg) {

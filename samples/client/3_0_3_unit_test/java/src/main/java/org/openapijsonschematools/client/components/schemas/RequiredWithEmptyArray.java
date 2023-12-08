@@ -61,11 +61,13 @@ public class RequiredWithEmptyArray {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo", Foo.class)
-            )))
-        ));
+        public RequiredWithEmptyArray1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo", Foo.class)
+                )))
+            ));
+        }
         
         @Override
         protected RequiredWithEmptyArrayMap getMapOutputInstance(FrozenMap<?, ?> arg) {

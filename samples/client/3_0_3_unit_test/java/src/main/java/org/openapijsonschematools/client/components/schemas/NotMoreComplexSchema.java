@@ -57,12 +57,14 @@ public class NotMoreComplexSchema {
     
     
     public static class Not extends JsonSchema<NotMap, FrozenList> {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("foo", Foo.class)
-            )))
-        ));
+        public Not() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("foo", Foo.class)
+                )))
+            ));
+        }
         
         @Override
         protected NotMap getMapOutputInstance(FrozenMap<?, ?> arg) {
@@ -81,9 +83,11 @@ public class NotMoreComplexSchema {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("not", new NotValidator(Not.class))
-        ));
+        public NotMoreComplexSchema1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("not", new NotValidator(Not.class))
+            ));
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }
