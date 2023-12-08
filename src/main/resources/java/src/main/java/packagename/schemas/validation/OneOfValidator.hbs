@@ -31,7 +31,8 @@ public class OneOfValidator implements KeywordValidator {
                 continue;
             }
             try {
-                PathToSchemasMap otherPathToSchemas = JsonSchema.validate(oneOfClass, arg, validationMetadata);
+                JsonSchema oneOfSchema = JsonSchemaFactory.getInstance(oneOfClass);
+                PathToSchemasMap otherPathToSchemas = oneOfSchema.validate(arg, validationMetadata);
                 validatedOneOfClasses.add(oneOfClass);
                 pathToSchemas.update(otherPathToSchemas);
             } catch (ValidationException e) {
