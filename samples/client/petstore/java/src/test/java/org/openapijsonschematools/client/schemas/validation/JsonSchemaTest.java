@@ -9,12 +9,15 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 class SomeSchema extends JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        String.class
-    ));
+    public SomeSchema() {
+        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
+        ));
+    }
 }
 
 public class JsonSchemaTest {
@@ -29,14 +32,14 @@ public class JsonSchemaTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        PathToSchemasMap pathToSchemas = JsonSchema.validate(
-                SomeSchema.class,
+        SomeSchema schema = JsonSchemaFactory.getInstance(SomeSchema.class);
+        PathToSchemasMap pathToSchemas = schema.validate(
                 "hi",
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<Class<? extends JsonSchema>, Void> validatedClasses = new LinkedHashMap<>();
-        validatedClasses.put(SomeSchema.class, null);
+        LinkedHashMap<JsonSchema, Void> validatedClasses = new LinkedHashMap<>();
+        validatedClasses.put(schema, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
     }

@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -26,30 +27,32 @@ public class ComposedNumber {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                Integer.class,
-                Long.class,
-                Float.class,
-                Double.class
-            ))),
-            new KeywordEntry("allOf", new AllOfValidator(List.of(
-                Schema0.class
-            )))
-        ));
-        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(ComposedNumber1.class, arg, configuration);
+        public ComposedNumber1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+                ))),
+                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                    Schema0.class
+                )))
+            ));
+        }
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateInt(arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLong(ComposedNumber1.class, arg, configuration);
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLong(arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(ComposedNumber1.class, arg, configuration);
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateFloat(arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(ComposedNumber1.class, arg, configuration);
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
     }}

@@ -6,7 +6,9 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -28,8 +30,8 @@ public class ArrayTypeSchemaTest {
             new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
         ));
 
-        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validateList(ArrayWithItemsSchema.class, arg, configuration);
+        public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
+            return validateList(arg, configuration);
         }
     }
 
@@ -39,29 +41,29 @@ public class ArrayTypeSchemaTest {
         }
 
         public static ArrayWithOutputClsSchemaList of(List<Object> arg, SchemaConfiguration configuration) {
-            return ArrayWithOutputClsSchema.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class).validate(arg, configuration);
         }
     }
 
-    public class ArrayWithOutputClsSchema extends JsonSchema {
+    public class ArrayWithOutputClsSchema extends JsonSchema<FrozenMap, ArrayWithOutputClsSchemaList> {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
             new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
         ));
 
-        protected static ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<? extends String> arg) {
-            return new ArrayWithOutputClsSchemaList(arg);
+        protected ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<?> arg) {
+            return new ArrayWithOutputClsSchemaList((FrozenList<? extends String>) arg);
         }
 
-        public static ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validateList(ArrayWithOutputClsSchema.class, arg, configuration);
+        public ArrayWithOutputClsSchemaList validate(List<Object> arg, SchemaConfiguration configuration) {
+            return validateList(arg, configuration);
         }
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                ArrayWithItemsSchema.class, (Void) null, configuration
+        Assert.assertThrows(ValidationException.class, () -> JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class).validate(
+                (Void) null, configuration
         ));
     }
 
@@ -70,14 +72,14 @@ public class ArrayTypeSchemaTest {
         // map with only item works
         List<Object> inList = new ArrayList<>();
         inList.add("abc");
-        FrozenList<Object> validatedValue = ArrayWithItemsSchema.validate(inList, configuration);
+        FrozenList<Object> validatedValue = JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class).validate(inList, configuration);
         List<Object> outList = new ArrayList<>();
         outList.add("abc");
         Assert.assertEquals(validatedValue, outList);
 
         // map with no items works
         inList = new ArrayList<>();
-        validatedValue = ArrayWithItemsSchema.validate(inList, configuration);
+        validatedValue = JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class).validate(inList, configuration);
         outList = new ArrayList<>();
         Assert.assertEquals(validatedValue, outList);
 
@@ -85,7 +87,7 @@ public class ArrayTypeSchemaTest {
         inList = new ArrayList<>();
         inList.add(1);
         List<Object> finalInList = inList;
-        Assert.assertThrows(ValidationException.class, () -> ArrayWithItemsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class).validate(
                 finalInList, configuration
         ));
     }
@@ -95,14 +97,14 @@ public class ArrayTypeSchemaTest {
         // map with only item works
         List<Object> inList = new ArrayList<>();
         inList.add("abc");
-        ArrayWithOutputClsSchemaList validatedValue = ArrayWithOutputClsSchema.validate(inList, configuration);
+        ArrayWithOutputClsSchemaList validatedValue = JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class).validate(inList, configuration);
         List<Object> outList = new ArrayList<>();
         outList.add("abc");
         Assert.assertEquals(validatedValue, outList);
 
         // map with no items works
         inList = new ArrayList<>();
-        validatedValue = ArrayWithOutputClsSchema.validate(inList, configuration);
+        validatedValue = JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class).validate(inList, configuration);
         outList = new ArrayList<>();
         Assert.assertEquals(validatedValue, outList);
 
@@ -110,7 +112,7 @@ public class ArrayTypeSchemaTest {
         inList = new ArrayList<>();
         inList.add(1);
         List<Object> finalInList = inList;
-        Assert.assertThrows(ValidationException.class, () -> ArrayWithOutputClsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class).validate(
                 finalInList, configuration
         ));
     }

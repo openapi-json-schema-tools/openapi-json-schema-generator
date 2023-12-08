@@ -12,9 +12,11 @@ import java.util.List;
 import java.util.Set;
 
 class SomeSchema extends JsonSchema {
-    static final LinkedHashSet<Class<?>> type = new LinkedHashSet<>(Set.of(
-        String.class
-    ));
+    public SomeSchema() {
+        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
+        ));
+    }
 }
 
 public class JsonSchemaTest {

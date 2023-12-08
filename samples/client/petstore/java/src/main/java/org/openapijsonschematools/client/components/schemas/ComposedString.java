@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -26,15 +27,17 @@ public class ComposedString {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("allOf", new AllOfValidator(List.of(
-                Schema0.class
-            )))
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(ComposedString1.class, arg, configuration);
+        public ComposedString1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                    Schema0.class
+                )))
+            ));
+        }
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }}

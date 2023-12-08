@@ -8,8 +8,10 @@ import org.openapijsonschematools.client.paths.commonparamsubdir.post.parameters
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -33,7 +35,7 @@ public class HeaderParameters {
             "someHeader"
         );
         public static HeaderParametersMap of(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return HeaderParameters1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(HeaderParameters1.class).validate(arg, configuration);
         }
         
         public String someHeader() {
@@ -47,20 +49,23 @@ public class HeaderParameters {
     }
     
     
-    public static class HeaderParameters1 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("someHeader", Schema0.Schema01.class)
-            ))),
-            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-        ));
-        
-        protected static HeaderParametersMap getMapOutputInstance(FrozenMap<String, String> arg) {
-            return new HeaderParametersMap(arg);
+    public static class HeaderParameters1 extends JsonSchema<HeaderParametersMap, FrozenList> {
+        public HeaderParameters1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("someHeader", Schema0.Schema01.class)
+                ))),
+                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            ));
         }
-        public static HeaderParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(HeaderParameters1.class, arg, configuration);
+        
+        @Override
+        protected HeaderParametersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new HeaderParametersMap((FrozenMap<String, String>) arg);
+        }
+        public HeaderParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

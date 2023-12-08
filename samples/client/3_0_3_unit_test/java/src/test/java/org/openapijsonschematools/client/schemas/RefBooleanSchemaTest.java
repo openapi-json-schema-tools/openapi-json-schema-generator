@@ -4,15 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
-class RefBooleanSchema {
-    public class RefBooleanSchema1 extends BooleanJsonSchema{}
-}
-
 public class RefBooleanSchemaTest {
+    public static class RefBooleanSchema {
+        public static class RefBooleanSchema1 extends BooleanJsonSchema{}
+    }
+
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
     static final RefBooleanSchema.RefBooleanSchema1 refBooleanJsonSchema = JsonSchemaFactory.getInstance(RefBooleanSchema.RefBooleanSchema1.class);
 

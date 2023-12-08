@@ -6,7 +6,9 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -30,8 +32,8 @@ public class ObjectTypeSchemaTest {
             )))
         ));
 
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validateMap(ObjectWithPropsSchema.class, arg, configuration);
+        public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return validateMap(arg, configuration);
         }
     }
 
@@ -41,8 +43,8 @@ public class ObjectTypeSchemaTest {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(StringJsonSchema.class))
         ));
 
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validateMap(ObjectWithAddpropsSchema.class, arg, configuration);
+        public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return validateMap(arg, configuration);
         }
     }
 
@@ -55,8 +57,8 @@ public class ObjectTypeSchemaTest {
             new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(BooleanJsonSchema.class))
         ));
 
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validateMap(ObjectWithPropsAndAddpropsSchema.class, arg, configuration);
+        public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return validateMap(arg, configuration);
         }
     }
 
@@ -66,12 +68,12 @@ public class ObjectTypeSchemaTest {
         }
 
         public static ObjectWithOutputTypeSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return ObjectWithOutputTypeSchema.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(ObjectWithOutputTypeSchema.class).validate(arg, configuration);
         }
     }
 
 
-    public class ObjectWithOutputTypeSchema extends JsonSchema {
+    public class ObjectWithOutputTypeSchema extends JsonSchema<ObjectWithOutputTypeSchemaMap, FrozenList> {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
             new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
             new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -79,28 +81,32 @@ public class ObjectTypeSchemaTest {
             )))
         ));
 
-        protected static ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<? extends String, ?> arg) {
-            return new ObjectWithOutputTypeSchemaMap(arg);
+        @Override
+        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new ObjectWithOutputTypeSchemaMap((FrozenMap<? extends String, ?>) arg);
         }
 
-        public static ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchema.validateMap(ObjectWithOutputTypeSchema.class, arg, configuration);
+        public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
+            return validateMap(arg, configuration);
         }
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                ObjectWithPropsSchema.class, (Void) null, configuration
+        ObjectWithPropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithPropsSchema.class);
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+                (Void) null, configuration
         ));
     }
 
     @Test
     public void testValidateObjectWithPropsSchema() {
+        ObjectWithPropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithPropsSchema.class);
+
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
-        FrozenMap<String, Object> validatedValue = ObjectWithPropsSchema.validate(inMap, configuration);
+        FrozenMap<String, Object> validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         Assert.assertEquals(validatedValue, outMap);
@@ -109,7 +115,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
         inMap.put("someOtherString", "def");
-        validatedValue = ObjectWithPropsSchema.validate(inMap, configuration);
+        validatedValue = schema.validate(inMap, configuration);
         outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         outMap.put("someOtherString", "def");
@@ -119,17 +125,19 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> ObjectWithPropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
                 finalInMap, configuration
         ));
     }
 
     @Test
     public void testValidateObjectWithAddpropsSchema() {
+        ObjectWithAddpropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithAddpropsSchema.class);
+
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
-        FrozenMap<String, Object> validatedValue = ObjectWithAddpropsSchema.validate(inMap, configuration);
+        FrozenMap<String, Object> validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         Assert.assertEquals(validatedValue, outMap);
@@ -138,7 +146,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
         inMap.put("someOtherString", "def");
-        validatedValue = ObjectWithAddpropsSchema.validate(inMap, configuration);
+        validatedValue = schema.validate(inMap, configuration);
         outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         outMap.put("someOtherString", "def");
@@ -148,17 +156,19 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> ObjectWithAddpropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
                 finalInMap, configuration
         ));
     }
 
     @Test
     public void testValidateObjectWithPropsAndAddpropsSchema() {
+        ObjectWithPropsAndAddpropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithPropsAndAddpropsSchema.class);
+
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
-        FrozenMap<String, Object> validatedValue = ObjectWithPropsAndAddpropsSchema.validate(inMap, configuration);
+        FrozenMap<String, Object> validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, Object> outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         Assert.assertEquals(validatedValue, outMap);
@@ -167,7 +177,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
         inMap.put("someAddProp", true);
-        validatedValue = ObjectWithPropsAndAddpropsSchema.validate(inMap, configuration);
+        validatedValue = schema.validate(inMap, configuration);
         outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         outMap.put("someAddProp", true);
@@ -177,7 +187,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> invalidPropMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> ObjectWithPropsAndAddpropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
                 invalidPropMap, configuration
         ));
 
@@ -185,17 +195,19 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someAddProp", 1);
         Map<String, Object> invalidAddpropMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> ObjectWithPropsAndAddpropsSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
                 invalidAddpropMap, configuration
         ));
     }
 
     @Test
     public void testValidateObjectWithOutputTypeSchema() {
+        ObjectWithOutputTypeSchema schema = JsonSchemaFactory.getInstance(ObjectWithOutputTypeSchema.class);
+
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
-        ObjectWithOutputTypeSchemaMap validatedValue = ObjectWithOutputTypeSchema.validate(inMap, configuration);
+        ObjectWithOutputTypeSchemaMap validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         Assert.assertEquals(validatedValue, outMap);
@@ -204,7 +216,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
         inMap.put("someOtherString", "def");
-        validatedValue = ObjectWithOutputTypeSchema.validate(inMap, configuration);
+        validatedValue = schema.validate(inMap, configuration);
         outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         outMap.put("someOtherString", "def");
@@ -214,7 +226,7 @@ public class ObjectTypeSchemaTest {
         inMap = new LinkedHashMap<>();
         inMap.put("someString", 1);
         Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> ObjectWithOutputTypeSchema.validate(
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
                 finalInMap, configuration
         ));
 

@@ -12,6 +12,7 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -37,7 +38,7 @@ public class Pet {
             super(m);
         }
         public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return PhotoUrls.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(PhotoUrls.class).validate(arg, configuration);
         }
     }
     
@@ -46,33 +47,38 @@ public class Pet {
     }
     
     
-    public static class PhotoUrls extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items.class))
-        ));
-        
-        protected static PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
-            return new PhotoUrlsList(arg);
+    public static class PhotoUrls extends JsonSchema<FrozenMap, PhotoUrlsList> {
+        public PhotoUrls() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Items.class))
+            ));
         }
-        public static PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(PhotoUrls.class, arg, configuration);
+        
+        @Override
+        protected PhotoUrlsList getListOutputInstance(FrozenList<?> arg) {
+            return new PhotoUrlsList((FrozenList<String>) arg);
+        }
+        public PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
     public static class Status extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("enum", new EnumValidator(Set.of(
-                "available",
-                "pending",
-                "sold"
-            )))
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(Status.class, arg, configuration);
+        public Status() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("enum", new EnumValidator(Set.of(
+                    "available",
+                    "pending",
+                    "sold"
+                )))
+            ));
+        }
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
@@ -81,7 +87,7 @@ public class Pet {
             super(m);
         }
         public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Tags.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Tags.class).validate(arg, configuration);
         }
     }
     
@@ -90,17 +96,20 @@ public class Pet {
     }
     
     
-    public static class Tags extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
-        ));
-        
-        protected static TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
-            return new TagsList(arg);
+    public static class Tags extends JsonSchema<FrozenMap, TagsList> {
+        public Tags() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
+            ));
         }
-        public static TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Tags.class, arg, configuration);
+        
+        @Override
+        protected TagsList getListOutputInstance(FrozenList<?> arg) {
+            return new TagsList((FrozenList<Tag.TagMap>) arg);
+        }
+        public TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -119,7 +128,7 @@ public class Pet {
             "status"
         );
         public static PetMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Pet1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Pet1.class).validate(arg, configuration);
         }
         
         public String name() {
@@ -165,7 +174,7 @@ public class Pet {
     }
     
     
-    public static class Pet1 extends JsonSchema {
+    public static class Pet1 extends JsonSchema<PetMap, FrozenList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -174,27 +183,30 @@ public class Pet {
     
         Pet object that needs to be added to the store
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("id", Id.class),
-                new PropertyEntry("category", Category.Category1.class),
-                new PropertyEntry("name", Name.class),
-                new PropertyEntry("photoUrls", PhotoUrls.class),
-                new PropertyEntry("tags", Tags.class),
-                new PropertyEntry("status", Status.class)
-            ))),
-            new KeywordEntry("required", new RequiredValidator(Set.of(
-                "name",
-                "photoUrls"
-            )))
-        ));
-        
-        protected static PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new PetMap(arg);
+        public Pet1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("id", Id.class),
+                    new PropertyEntry("category", Category.Category1.class),
+                    new PropertyEntry("name", Name.class),
+                    new PropertyEntry("photoUrls", PhotoUrls.class),
+                    new PropertyEntry("tags", Tags.class),
+                    new PropertyEntry("status", Status.class)
+                ))),
+                new KeywordEntry("required", new RequiredValidator(Set.of(
+                    "name",
+                    "photoUrls"
+                )))
+            ));
         }
-        public static PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(Pet1.class, arg, configuration);
+        
+        @Override
+        protected PetMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new PetMap((FrozenMap<String, Object>) arg);
+        }
+        public PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

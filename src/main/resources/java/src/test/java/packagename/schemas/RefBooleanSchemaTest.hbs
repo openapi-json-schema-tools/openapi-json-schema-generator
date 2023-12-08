@@ -4,15 +4,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.exceptions.ValidationException;
 
-class RefBooleanSchema {
-    public class RefBooleanSchema1 extends BooleanJsonSchema{}
-}
-
 public class RefBooleanSchemaTest {
+    public static class RefBooleanSchema {
+        public static class RefBooleanSchema1 extends BooleanJsonSchema{}
+    }
+
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
     static final RefBooleanSchema.RefBooleanSchema1 refBooleanJsonSchema = JsonSchemaFactory.getInstance(RefBooleanSchema.RefBooleanSchema1.class);
 

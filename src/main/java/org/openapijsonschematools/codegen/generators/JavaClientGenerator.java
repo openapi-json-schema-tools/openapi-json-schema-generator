@@ -1491,6 +1491,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.util.Map;");
                 imports.add("import java.util.Set;");
+                imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for JsonSchema generic
+                imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for JsonSchema generic
                 if (schema.types.contains("string")) {
                     addStringSchemaImports(imports, schema);
                 }

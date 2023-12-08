@@ -8,6 +8,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PatternValidator;
@@ -24,16 +25,18 @@ public class DateWithValidations {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                String.class
-            ))),
-            new KeywordEntry("format", new FormatValidator("date")),
-            new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
-                "^2020.*"
-            )))
-        ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(DateWithValidations1.class, arg, configuration);
+        public DateWithValidations1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    String.class
+                ))),
+                new KeywordEntry("format", new FormatValidator("date")),
+                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                    "^2020.*"
+                )))
+            ));
+        }
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }}

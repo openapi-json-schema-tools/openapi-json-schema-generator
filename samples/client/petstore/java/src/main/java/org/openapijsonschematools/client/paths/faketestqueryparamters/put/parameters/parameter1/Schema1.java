@@ -7,8 +7,10 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -25,7 +27,7 @@ public class Schema1 {
             super(m);
         }
         public static SchemaList1 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return Schema11.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(Schema11.class).validate(arg, configuration);
         }
     }
     
@@ -34,16 +36,19 @@ public class Schema1 {
     }
     
     
-    public static class Schema11 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-            new KeywordEntry("items", new ItemsValidator(Items1.class))
-        ));
-        
-        protected static SchemaList1 getListOutputInstance(FrozenList<String> arg) {
-            return new SchemaList1(arg);
+    public static class Schema11 extends JsonSchema<FrozenMap, SchemaList1> {
+        public Schema11() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+                new KeywordEntry("items", new ItemsValidator(Items1.class))
+            ));
         }
-        public static SchemaList1 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Schema11.class, arg, configuration);
+        
+        @Override
+        protected SchemaList1 getListOutputInstance(FrozenList<?> arg) {
+            return new SchemaList1((FrozenList<String>) arg);
+        }
+        public SchemaList1 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }}

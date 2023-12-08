@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ExclusiveMaximumValidator;
 import org.openapijsonschematools.client.schemas.validation.ExclusiveMinimumValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -22,29 +23,31 @@ public class NumberWithExclusiveMinMax {
     
         Do not edit the class manually.
         */
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(
-                Integer.class,
-                Long.class,
-                Float.class,
-                Double.class
-            ))),
-            new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator(12)),
-            new KeywordEntry("exclusiveMinimum", new ExclusiveMinimumValidator(10))
-        ));
-        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(NumberWithExclusiveMinMax1.class, arg, configuration);
+        public NumberWithExclusiveMinMax1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+                ))),
+                new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator(12)),
+                new KeywordEntry("exclusiveMinimum", new ExclusiveMinimumValidator(10))
+            ));
+        }
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateInt(arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLong(NumberWithExclusiveMinMax1.class, arg, configuration);
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLong(arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(NumberWithExclusiveMinMax1.class, arg, configuration);
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateFloat(arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(NumberWithExclusiveMinMax1.class, arg, configuration);
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
     }}

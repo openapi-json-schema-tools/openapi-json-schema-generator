@@ -8,8 +8,10 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -33,7 +35,7 @@ public class QueryParameters {
             "mapBean"
         );
         public static QueryParametersMap of(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return QueryParameters1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(QueryParameters1.class).validate(arg, configuration);
         }
         
         public Foo.FooMap mapBean() {
@@ -47,20 +49,23 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("mapBean", Foo.Foo1.class)
-            ))),
-            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-        ));
-        
-        protected static QueryParametersMap getMapOutputInstance(FrozenMap<String, Foo.FooMap> arg) {
-            return new QueryParametersMap(arg);
+    public static class QueryParameters1 extends JsonSchema<QueryParametersMap, FrozenList> {
+        public QueryParameters1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("mapBean", Foo.Foo1.class)
+                ))),
+                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            ));
         }
-        public static QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(QueryParameters1.class, arg, configuration);
+        
+        @Override
+        protected QueryParametersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new QueryParametersMap((FrozenMap<String, Foo.FooMap>) arg);
+        }
+        public QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

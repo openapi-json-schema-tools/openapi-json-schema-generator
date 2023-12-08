@@ -12,8 +12,10 @@ import org.openapijsonschematools.client.paths.fakeparametercollisions1ababselfa
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
@@ -41,7 +43,7 @@ public class CookieParameters {
             "self"
         );
         public static CookieParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return CookieParameters1.validate(arg, configuration);
+            return JsonSchemaFactory.getInstance(CookieParameters1.class).validate(arg, configuration);
         }
         
         public String aB() {
@@ -67,24 +69,27 @@ public class CookieParameters {
     }
     
     
-    public static class CookieParameters1 extends JsonSchema {
-        public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-            new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-            new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                new PropertyEntry("1", Schema14.Schema141.class),
-                new PropertyEntry("aB", Schema15.Schema151.class),
-                new PropertyEntry("Ab", Schema16.Schema161.class),
-                new PropertyEntry("A-B", Schema18.Schema181.class),
-                new PropertyEntry("self", Schema17.Schema171.class)
-            ))),
-            new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-        ));
-        
-        protected static CookieParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new CookieParametersMap(arg);
+    public static class CookieParameters1 extends JsonSchema<CookieParametersMap, FrozenList> {
+        public CookieParameters1() {
+            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                    new PropertyEntry("1", Schema14.Schema141.class),
+                    new PropertyEntry("aB", Schema15.Schema151.class),
+                    new PropertyEntry("Ab", Schema16.Schema161.class),
+                    new PropertyEntry("A-B", Schema18.Schema181.class),
+                    new PropertyEntry("self", Schema17.Schema171.class)
+                ))),
+                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
+            ));
         }
-        public static CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(CookieParameters1.class, arg, configuration);
+        
+        @Override
+        protected CookieParametersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+            return new CookieParametersMap((FrozenMap<String, Object>) arg);
+        }
+        public CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }
