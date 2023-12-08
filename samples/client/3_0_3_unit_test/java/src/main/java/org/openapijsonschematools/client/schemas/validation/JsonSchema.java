@@ -5,9 +5,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Field;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;

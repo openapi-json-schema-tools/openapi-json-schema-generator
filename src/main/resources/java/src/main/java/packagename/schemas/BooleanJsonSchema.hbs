@@ -10,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class BooleanJsonSchema extends JsonSchema<FrozenMap<?, ?>, FrozenList<?>> {
+public class BooleanJsonSchema extends JsonSchema {
     public BooleanJsonSchema() {
         keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
