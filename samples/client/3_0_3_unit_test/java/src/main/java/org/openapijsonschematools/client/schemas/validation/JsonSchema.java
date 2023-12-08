@@ -170,11 +170,11 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
    }
 
    protected T getMapOutputInstance(FrozenMap<?, ?> arg) {
-      return null;
+      return (T) arg;
    }
 
    protected U getListOutputInstance(FrozenList<?> arg) {
-      return null;
+      return (U) arg;
    }
 
    private Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {

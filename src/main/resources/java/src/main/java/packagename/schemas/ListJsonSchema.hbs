@@ -3,7 +3,6 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.KeywordValidator;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.exceptions.ValidationException;
@@ -13,13 +12,14 @@ import java.util.Map;
 import java.util.List;
 import java.util.Set;
 
+public class ListJsonSchema extends JsonSchema<FrozenMap, FrozenList<Object>> {
+    public ListJsonSchema() {
+        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))
+        ));
+    }
 
-public class ListJsonSchema extends JsonSchema {
-    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))
-    ));
-
-    public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validateList(ListJsonSchema.class, arg, configuration);
+    public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        return validateList(arg, configuration);
     }
 }
