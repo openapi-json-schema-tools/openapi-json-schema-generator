@@ -67,52 +67,52 @@ public class OneofComplexTypes {
         protected static Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema0Map(arg);
         }
-        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateVoid(Schema0.class, arg, configuration);
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateVoid(arg, configuration);
         }
         
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateBoolean(Schema0.class, arg, configuration);
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateBoolean(arg, configuration);
         }
         
-        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(Schema0.class, arg, configuration);
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateInt(arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLong(Schema0.class, arg, configuration);
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLong(arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(Schema0.class, arg, configuration);
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateFloat(arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(Schema0.class, arg, configuration);
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
         
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(Schema0.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
         
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateZonedDateTime(Schema0.class, arg, configuration);
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateZonedDateTime(arg, configuration);
         }
         
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLocalDate(Schema0.class, arg, configuration);
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLocalDate(arg, configuration);
         }
         
-        public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateUUID(Schema0.class, arg, configuration);
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateUUID(arg, configuration);
         }
         
-        public static Schema0Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(Schema0.class, arg, configuration);
+        public Schema0Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
         
-        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Schema0.class, arg, configuration);
+        public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -159,52 +159,52 @@ public class OneofComplexTypes {
         protected static Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema1Map(arg);
         }
-        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateVoid(Schema1.class, arg, configuration);
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateVoid(arg, configuration);
         }
         
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateBoolean(Schema1.class, arg, configuration);
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateBoolean(arg, configuration);
         }
         
-        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(Schema1.class, arg, configuration);
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateInt(arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLong(Schema1.class, arg, configuration);
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLong(arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(Schema1.class, arg, configuration);
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateFloat(arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(Schema1.class, arg, configuration);
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
         
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(Schema1.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
         
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateZonedDateTime(Schema1.class, arg, configuration);
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateZonedDateTime(arg, configuration);
         }
         
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLocalDate(Schema1.class, arg, configuration);
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLocalDate(arg, configuration);
         }
         
-        public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateUUID(Schema1.class, arg, configuration);
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateUUID(arg, configuration);
         }
         
-        public static Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(Schema1.class, arg, configuration);
+        public Schema1Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
         
-        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Schema1.class, arg, configuration);
+        public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -221,51 +221,51 @@ public class OneofComplexTypes {
                 Schema1.class
             )))
         ));
-        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateVoid(OneofComplexTypes1.class, arg, configuration);
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateVoid(arg, configuration);
         }
         
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateBoolean(OneofComplexTypes1.class, arg, configuration);
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateBoolean(arg, configuration);
         }
         
-        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(OneofComplexTypes1.class, arg, configuration);
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateInt(arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLong(OneofComplexTypes1.class, arg, configuration);
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLong(arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(OneofComplexTypes1.class, arg, configuration);
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateFloat(arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(OneofComplexTypes1.class, arg, configuration);
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
         
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(OneofComplexTypes1.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
         
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateZonedDateTime(OneofComplexTypes1.class, arg, configuration);
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateZonedDateTime(arg, configuration);
         }
         
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLocalDate(OneofComplexTypes1.class, arg, configuration);
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLocalDate(arg, configuration);
         }
         
-        public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateUUID(OneofComplexTypes1.class, arg, configuration);
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateUUID(arg, configuration);
         }
         
-        public static FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(OneofComplexTypes1.class, arg, configuration);
+        public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
         
-        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(OneofComplexTypes1.class, arg, configuration);
+        public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }}

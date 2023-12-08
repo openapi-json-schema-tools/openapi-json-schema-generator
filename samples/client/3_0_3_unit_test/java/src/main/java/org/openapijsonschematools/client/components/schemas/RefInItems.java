@@ -45,7 +45,7 @@ public class RefInItems {
         protected static RefInItemsList getListOutputInstance(FrozenList<Object> arg) {
             return new RefInItemsList(arg);
         }
-        public static RefInItemsList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(RefInItems1.class, arg, configuration);
+        public RefInItemsList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }}

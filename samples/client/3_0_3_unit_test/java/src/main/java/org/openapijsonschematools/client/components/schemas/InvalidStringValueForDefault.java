@@ -29,8 +29,8 @@ public class InvalidStringValueForDefault {
             ))),
             new KeywordEntry("minLength", new MinLengthValidator(4))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(Bar.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
@@ -79,51 +79,51 @@ public class InvalidStringValueForDefault {
         protected static InvalidStringValueForDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new InvalidStringValueForDefaultMap(arg);
         }
-        public static Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateVoid(InvalidStringValueForDefault1.class, arg, configuration);
+        public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateVoid(arg, configuration);
         }
         
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateBoolean(InvalidStringValueForDefault1.class, arg, configuration);
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateBoolean(arg, configuration);
         }
         
-        public static int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateInt(InvalidStringValueForDefault1.class, arg, configuration);
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateInt(arg, configuration);
         }
         
-        public static long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLong(InvalidStringValueForDefault1.class, arg, configuration);
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLong(arg, configuration);
         }
         
-        public static float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateFloat(InvalidStringValueForDefault1.class, arg, configuration);
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateFloat(arg, configuration);
         }
         
-        public static double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateDouble(InvalidStringValueForDefault1.class, arg, configuration);
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateDouble(arg, configuration);
         }
         
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(InvalidStringValueForDefault1.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
         
-        public static String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateZonedDateTime(InvalidStringValueForDefault1.class, arg, configuration);
+        public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateZonedDateTime(arg, configuration);
         }
         
-        public static String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateLocalDate(InvalidStringValueForDefault1.class, arg, configuration);
+        public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateLocalDate(arg, configuration);
         }
         
-        public static String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateUUID(InvalidStringValueForDefault1.class, arg, configuration);
+        public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateUUID(arg, configuration);
         }
         
-        public static InvalidStringValueForDefaultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(InvalidStringValueForDefault1.class, arg, configuration);
+        public InvalidStringValueForDefaultMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
         
-        public static FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(InvalidStringValueForDefault1.class, arg, configuration);
+        public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }}

@@ -30,7 +30,7 @@ public class EnumWithEscapedCharacters {
                 "foo\rbar"
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(EnumWithEscapedCharacters1.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }}

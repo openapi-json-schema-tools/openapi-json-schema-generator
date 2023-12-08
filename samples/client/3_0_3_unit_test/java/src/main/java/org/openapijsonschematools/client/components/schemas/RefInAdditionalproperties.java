@@ -50,8 +50,8 @@ public class RefInAdditionalproperties {
         protected static RefInAdditionalpropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new RefInAdditionalpropertiesMap(arg);
         }
-        public static RefInAdditionalpropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(RefInAdditionalproperties1.class, arg, configuration);
+        public RefInAdditionalpropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

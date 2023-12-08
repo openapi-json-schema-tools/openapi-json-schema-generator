@@ -54,8 +54,8 @@ public class AdditionalpropertiesCanExistByItself {
         protected static AdditionalpropertiesCanExistByItselfMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
             return new AdditionalpropertiesCanExistByItselfMap(arg);
         }
-        public static AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(AdditionalpropertiesCanExistByItself1.class, arg, configuration);
+        public AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

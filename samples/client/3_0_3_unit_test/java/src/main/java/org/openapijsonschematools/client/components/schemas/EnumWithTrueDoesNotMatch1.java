@@ -27,7 +27,7 @@ public class EnumWithTrueDoesNotMatch1 {
                 true
             )))
         ));
-        public static boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateBoolean(EnumWithTrueDoesNotMatch11.class, arg, configuration);
+        public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateBoolean(arg, configuration);
         }
     }}

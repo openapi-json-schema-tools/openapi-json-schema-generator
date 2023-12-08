@@ -27,8 +27,8 @@ public class EnumsInProperties {
                 "foo"
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(Foo.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
@@ -41,8 +41,8 @@ public class EnumsInProperties {
                 "bar"
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(Bar.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }    
     
@@ -102,8 +102,8 @@ public class EnumsInProperties {
         protected static EnumsInPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumsInPropertiesMap(arg);
         }
-        public static EnumsInPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(EnumsInProperties1.class, arg, configuration);
+        public EnumsInPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

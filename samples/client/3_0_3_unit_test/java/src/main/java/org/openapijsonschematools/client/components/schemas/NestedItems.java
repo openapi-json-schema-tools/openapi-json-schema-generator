@@ -43,8 +43,8 @@ public class NestedItems {
         protected static ItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ItemsList(arg);
         }
-        public static ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Items2.class, arg, configuration);
+        public ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -71,8 +71,8 @@ public class NestedItems {
         protected static ItemsList1 getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ItemsList1(arg);
         }
-        public static ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Items1.class, arg, configuration);
+        public ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -99,8 +99,8 @@ public class NestedItems {
         protected static ItemsList2 getListOutputInstance(FrozenList<ItemsList1> arg) {
             return new ItemsList2(arg);
         }
-        public static ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(Items.class, arg, configuration);
+        public ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }    
     
@@ -133,7 +133,7 @@ public class NestedItems {
         protected static NestedItemsList getListOutputInstance(FrozenList<ItemsList2> arg) {
             return new NestedItemsList(arg);
         }
-        public static NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateList(NestedItems1.class, arg, configuration);
+        public NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateList(arg, configuration);
         }
     }}

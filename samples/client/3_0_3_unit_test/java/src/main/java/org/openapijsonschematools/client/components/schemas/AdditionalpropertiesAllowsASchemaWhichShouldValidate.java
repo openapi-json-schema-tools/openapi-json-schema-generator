@@ -82,8 +82,8 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         protected static AdditionalpropertiesAllowsASchemaWhichShouldValidateMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(arg);
         }
-        public static AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateMap(AdditionalpropertiesAllowsASchemaWhichShouldValidate1.class, arg, configuration);
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateMap(arg, configuration);
         }
     }
 }

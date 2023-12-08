@@ -29,7 +29,7 @@ public class NulCharactersInStrings {
                 "hello\0there"
             )))
         ));
-        public static String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchema.validateString(NulCharactersInStrings1.class, arg, configuration);
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            return validateString(arg, configuration);
         }
     }}
