@@ -4,18 +4,19 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
-import {{{packageName}}}.schemas.validation.KeywordValidator;
 import {{{packageName}}}.schemas.validation.NotValidator;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class NotAnyTypeJsonSchema extends JsonSchema {
-    public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
-        new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
-    ));
+    public NotAnyTypeJsonSchema() {
+        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+                new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
+        ));
+    }
 
-    public static Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchema.validate(NotAnyTypeJsonSchema.class, arg, configuration);
+    public Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
+        return validate(arg, configuration);
     }
 }
