@@ -31,18 +31,19 @@ public class PropertiesValidator implements KeywordValidator {
             Object propValue = castArg.get(propName);
             List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             propPathToItem.add(propName);
-            Class<? extends JsonSchema> propSchema = properties.get(propName);
             ValidationMetadata propValidationMetadata = new ValidationMetadata(
                     propPathToItem,
                     validationMetadata.configuration(),
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
+            Class<? extends JsonSchema> propClass = properties.get(propName);
+            JsonSchema propSchema = JsonSchemaFactory.getInstance(propClass);
             if (propValidationMetadata.validationRanEarlier(propSchema)) {
                 // todo add_deeper_validated_schemas
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(propSchema, propValue, propValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = propSchema.validate(propValue, propValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }
         return pathToSchemas;
