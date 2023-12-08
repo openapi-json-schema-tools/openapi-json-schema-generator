@@ -53,13 +53,13 @@ public class ReqPropsFromUnsetAddProps {
         Do not edit the class manually.
         */
         public ReqPropsFromUnsetAddProps1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "invalid-name",
                     "validName"
                 )))
-            ));
+            )));
         }
         
         @Override

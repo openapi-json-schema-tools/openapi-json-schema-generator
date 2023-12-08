@@ -57,14 +57,14 @@ public class ReqPropsFromExplicitAddProps {
         Do not edit the class manually.
         */
         public ReqPropsFromExplicitAddProps1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "invalid-name",
                     "validName"
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

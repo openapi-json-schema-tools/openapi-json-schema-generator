@@ -14,10 +14,10 @@ import java.util.UUID;
 
 public class UuidJsonSchema extends JsonSchema {
     public UuidJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("uuid"))
-        ));
+        )));
     }
 
     public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

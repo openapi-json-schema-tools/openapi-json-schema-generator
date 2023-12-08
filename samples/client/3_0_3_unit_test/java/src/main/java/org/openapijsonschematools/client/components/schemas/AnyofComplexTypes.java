@@ -57,14 +57,14 @@ public class AnyofComplexTypes {
     
     public static class Schema0 extends JsonSchema<Schema0Map, FrozenList> {
         public Schema0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
                 ))),
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "bar"
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -152,14 +152,14 @@ public class AnyofComplexTypes {
     
     public static class Schema1 extends JsonSchema<Schema1Map, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 ))),
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "foo"
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -223,12 +223,12 @@ public class AnyofComplexTypes {
         Do not edit the class manually.
         */
         public AnyofComplexTypes1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

@@ -27,12 +27,12 @@ public class NullableClass {
     
     public static class AdditionalProperties3 extends JsonSchema<FrozenMap, FrozenList> {
         public AdditionalProperties3() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -44,7 +44,7 @@ public class NullableClass {
     
     public static class IntegerProp extends JsonSchema<FrozenMap, FrozenList> {
         public IntegerProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     Integer.class,
@@ -52,7 +52,7 @@ public class NullableClass {
                     Float.class,
                     Double.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -76,7 +76,7 @@ public class NullableClass {
     
     public static class NumberProp extends JsonSchema<FrozenMap, FrozenList> {
         public NumberProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     Integer.class,
@@ -84,7 +84,7 @@ public class NullableClass {
                     Float.class,
                     Double.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -108,12 +108,12 @@ public class NullableClass {
     
     public static class BooleanProp extends JsonSchema<FrozenMap, FrozenList> {
         public BooleanProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     Boolean.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -125,12 +125,12 @@ public class NullableClass {
     
     public static class StringProp extends JsonSchema<FrozenMap, FrozenList> {
         public StringProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     String.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -142,13 +142,13 @@ public class NullableClass {
     
     public static class DateProp extends JsonSchema<FrozenMap, FrozenList> {
         public DateProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     String.class
                 ))),
                 new KeywordEntry("format", new FormatValidator("date"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -160,13 +160,13 @@ public class NullableClass {
     
     public static class DatetimeProp extends JsonSchema<FrozenMap, FrozenList> {
         public DatetimeProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     String.class
                 ))),
                 new KeywordEntry("format", new FormatValidator("date-time"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -195,13 +195,13 @@ public class NullableClass {
     
     public static class ArrayNullableProp extends JsonSchema<FrozenMap, ArrayNullablePropList> {
         public ArrayNullableProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenList.class
                 ))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override
@@ -218,12 +218,12 @@ public class NullableClass {
     
     public static class Items1 extends JsonSchema<FrozenMap, FrozenList> {
         public Items1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -249,13 +249,13 @@ public class NullableClass {
     
     public static class ArrayAndItemsNullableProp extends JsonSchema<FrozenMap, ArrayAndItemsNullablePropList> {
         public ArrayAndItemsNullableProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenList.class
                 ))),
                 new KeywordEntry("items", new ItemsValidator(Items1.class))
-            ));
+            )));
         }
         
         @Override
@@ -272,12 +272,12 @@ public class NullableClass {
     
     public static class Items2 extends JsonSchema<FrozenMap, FrozenList> {
         public Items2() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -303,10 +303,10 @@ public class NullableClass {
     
     public static class ArrayItemsNullable extends JsonSchema<FrozenMap, ArrayItemsNullableList> {
         public ArrayItemsNullable() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items2.class))
-            ));
+            )));
         }
         
         @Override
@@ -343,13 +343,13 @@ public class NullableClass {
     
     public static class ObjectNullableProp extends JsonSchema<ObjectNullablePropMap, FrozenList> {
         public ObjectNullableProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override
@@ -366,12 +366,12 @@ public class NullableClass {
     
     public static class AdditionalProperties1 extends JsonSchema<FrozenMap, FrozenList> {
         public AdditionalProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -403,13 +403,13 @@ public class NullableClass {
     
     public static class ObjectAndItemsNullableProp extends JsonSchema<ObjectAndItemsNullablePropMap, FrozenList> {
         public ObjectAndItemsNullableProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            ));
+            )));
         }
         
         @Override
@@ -426,12 +426,12 @@ public class NullableClass {
     
     public static class AdditionalProperties2 extends JsonSchema<FrozenMap, FrozenList> {
         public AdditionalProperties2() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -463,10 +463,10 @@ public class NullableClass {
     
     public static class ObjectItemsNullable extends JsonSchema<ObjectItemsNullableMap, FrozenList> {
         public ObjectItemsNullable() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            ));
+            )));
         }
         
         @Override
@@ -592,7 +592,7 @@ public class NullableClass {
         Do not edit the class manually.
         */
         public NullableClass1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("integer_prop", IntegerProp.class),
@@ -609,7 +609,7 @@ public class NullableClass {
                     new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
-            ));
+            )));
         }
         
         @Override

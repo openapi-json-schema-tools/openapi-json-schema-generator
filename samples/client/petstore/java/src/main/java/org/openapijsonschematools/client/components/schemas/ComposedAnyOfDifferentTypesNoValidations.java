@@ -83,10 +83,10 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     public static class Schema9 extends JsonSchema<FrozenMap, Schema9List> {
         public Schema9() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override
@@ -124,7 +124,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         Do not edit the class manually.
         */
         public ComposedAnyOfDifferentTypesNoValidations1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     Schema0.class,
                     Schema1.class,
@@ -143,7 +143,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
                     Schema14.class,
                     Schema15.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

@@ -27,9 +27,9 @@ public class EmailFormat {
         Do not edit the class manually.
         */
         public EmailFormat1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("email"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

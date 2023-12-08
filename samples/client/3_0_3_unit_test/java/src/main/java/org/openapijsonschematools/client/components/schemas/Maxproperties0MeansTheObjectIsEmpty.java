@@ -27,9 +27,9 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         Do not edit the class manually.
         */
         public Maxproperties0MeansTheObjectIsEmpty1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxProperties", new MaxPropertiesValidator(0))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

@@ -58,12 +58,12 @@ public class User {
     
     public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema<FrozenMap, FrozenList> {
         public ObjectWithNoDeclaredPropsNullable() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -81,9 +81,9 @@ public class User {
     
     public static class AnyTypeExceptNullProp extends JsonSchema<FrozenMap, FrozenList> {
         public AnyTypeExceptNullProp() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(Not.class))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -258,7 +258,7 @@ public class User {
         Do not edit the class manually.
         */
         public User1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("id", Id.class),
@@ -275,7 +275,7 @@ public class User {
                     new PropertyEntry("anyTypeExceptNullProp", AnyTypeExceptNullProp.class),
                     new PropertyEntry("anyTypePropNullable", AnyTypePropNullable.class)
                 )))
-            ));
+            )));
         }
         
         @Override

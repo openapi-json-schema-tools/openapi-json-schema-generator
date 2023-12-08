@@ -23,7 +23,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
         Do not edit the class manually.
         */
         public InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -31,7 +31,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
                     Double.class
                 ))),
                 new KeywordEntry("multipleOf", new MultipleOfValidator(0.123456789))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

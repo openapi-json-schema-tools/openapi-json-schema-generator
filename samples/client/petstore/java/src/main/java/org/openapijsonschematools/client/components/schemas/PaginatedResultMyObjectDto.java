@@ -48,10 +48,10 @@ public class PaginatedResultMyObjectDto {
     
     public static class Results extends JsonSchema<FrozenMap, ResultsList> {
         public Results() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class))
-            ));
+            )));
         }
         
         @Override
@@ -97,7 +97,7 @@ public class PaginatedResultMyObjectDto {
         Do not edit the class manually.
         */
         public PaginatedResultMyObjectDto1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("count", Count.class),
@@ -108,7 +108,7 @@ public class PaginatedResultMyObjectDto {
                     "results"
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

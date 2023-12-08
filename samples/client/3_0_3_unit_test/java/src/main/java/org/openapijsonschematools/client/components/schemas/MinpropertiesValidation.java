@@ -27,9 +27,9 @@ public class MinpropertiesValidation {
         Do not edit the class manually.
         */
         public MinpropertiesValidation1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minProperties", new MinPropertiesValidator(1))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

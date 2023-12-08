@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Map;
 
 public class UnsetAnyTypeJsonSchema extends JsonSchema<FrozenMap, FrozenList> {
+    public UnsetAnyTypeJsonSchema() {
+        super(null);
+    }
+
     Void validate(Void arg, SchemaConfiguration configuration) {
         return validateVoid(arg, configuration);
     }

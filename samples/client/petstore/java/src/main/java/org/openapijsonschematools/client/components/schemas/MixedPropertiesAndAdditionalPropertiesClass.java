@@ -49,10 +49,10 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     public static class MapSchema extends JsonSchema<MapMap, FrozenList> {
         public MapSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
-            ));
+            )));
         }
         
         @Override
@@ -104,14 +104,14 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         Do not edit the class manually.
         */
         public MixedPropertiesAndAdditionalPropertiesClass1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("uuid", UuidSchema.class),
                     new PropertyEntry("dateTime", DateTime.class),
                     new PropertyEntry("map", MapSchema.class)
                 )))
-            ));
+            )));
         }
         
         @Override

@@ -26,14 +26,14 @@ public class IsoscelesTriangle {
     
     public static class TriangleType extends JsonSchema {
         public TriangleType() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     "IsoscelesTriangle"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -71,12 +71,12 @@ public class IsoscelesTriangle {
     
     public static class Schema1 extends JsonSchema<Schema1Map, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("triangleType", TriangleType.class)
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -97,12 +97,12 @@ public class IsoscelesTriangle {
         Do not edit the class manually.
         */
         public IsoscelesTriangle1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     TriangleInterface.TriangleInterface1.class,
                     Schema1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

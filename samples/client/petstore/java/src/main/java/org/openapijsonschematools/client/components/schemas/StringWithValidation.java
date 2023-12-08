@@ -23,12 +23,12 @@ public class StringWithValidation {
         Do not edit the class manually.
         */
         public StringWithValidation1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("minLength", new MinLengthValidator(7))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);

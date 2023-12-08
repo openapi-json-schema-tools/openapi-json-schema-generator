@@ -72,7 +72,7 @@ public class AbstractStepMessage {
         Abstract Step
         */
         public AbstractStepMessage1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("discriminator", Discriminator.class)
@@ -85,7 +85,7 @@ public class AbstractStepMessage {
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     AbstractStepMessage1.class
                 )))
-            ));
+            )));
         }
         
         @Override

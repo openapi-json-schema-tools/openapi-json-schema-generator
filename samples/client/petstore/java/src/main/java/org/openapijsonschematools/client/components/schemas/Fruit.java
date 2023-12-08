@@ -63,7 +63,7 @@ public class Fruit {
         Do not edit the class manually.
         */
         public Fruit1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("color", Color.class)
                 ))),
@@ -71,7 +71,7 @@ public class Fruit {
                     Apple.Apple1.class,
                     Banana.Banana1.class
                 )))
-            ));
+            )));
         }
         
         @Override

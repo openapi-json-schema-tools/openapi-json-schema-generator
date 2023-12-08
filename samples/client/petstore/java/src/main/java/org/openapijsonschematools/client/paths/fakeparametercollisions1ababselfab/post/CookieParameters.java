@@ -71,7 +71,7 @@ public class CookieParameters {
     
     public static class CookieParameters1 extends JsonSchema<CookieParametersMap, FrozenList> {
         public CookieParameters1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("1", Schema14.Schema141.class),
@@ -81,7 +81,7 @@ public class CookieParameters {
                     new PropertyEntry("self", Schema17.Schema171.class)
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

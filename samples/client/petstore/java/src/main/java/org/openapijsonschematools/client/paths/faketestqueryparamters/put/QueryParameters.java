@@ -80,7 +80,7 @@ public class QueryParameters {
     
     public static class QueryParameters1 extends JsonSchema<QueryParametersMap, FrozenList> {
         public QueryParameters1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("refParam", StringWithValidation.StringWithValidation1.class),
@@ -99,7 +99,7 @@ public class QueryParameters {
                     "url"
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

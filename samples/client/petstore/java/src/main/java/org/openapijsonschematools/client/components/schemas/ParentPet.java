@@ -26,12 +26,12 @@ public class ParentPet {
         Do not edit the class manually.
         */
         public ParentPet1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     GrandparentAnimal.GrandparentAnimal1.class
                 )))
-            ));
+            )));
         }
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

@@ -66,7 +66,7 @@ public class ObjectModelWithArgAndArgsProperties {
         Do not edit the class manually.
         */
         public ObjectModelWithArgAndArgsProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("arg", Arg.class),
@@ -76,7 +76,7 @@ public class ObjectModelWithArgAndArgsProperties {
                     "arg",
                     "args"
                 )))
-            ));
+            )));
         }
         
         @Override

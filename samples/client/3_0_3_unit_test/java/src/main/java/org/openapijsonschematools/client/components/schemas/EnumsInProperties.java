@@ -22,14 +22,14 @@ public class EnumsInProperties {
     
     public static class Foo extends JsonSchema {
         public Foo() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     "foo"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -38,14 +38,14 @@ public class EnumsInProperties {
     
     public static class Bar extends JsonSchema {
         public Bar() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     "bar"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -95,7 +95,7 @@ public class EnumsInProperties {
         Do not edit the class manually.
         */
         public EnumsInProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
@@ -104,7 +104,7 @@ public class EnumsInProperties {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "bar"
                 )))
-            ));
+            )));
         }
         
         @Override

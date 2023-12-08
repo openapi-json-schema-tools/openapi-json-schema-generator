@@ -26,12 +26,12 @@ public class Schema1 {
     
     public static class Schema01 extends JsonSchema {
         public Schema01() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("minLength", new MinLengthValidator(1))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -40,11 +40,11 @@ public class Schema1 {
     
     public static class SomeProp1 extends JsonSchema<FrozenMap, FrozenList> {
         public SomeProp1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema01.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -126,12 +126,12 @@ public class Schema1 {
     
     public static class Schema11 extends JsonSchema<SchemaMap1, FrozenList> {
         public Schema11() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("someProp", SomeProp1.class)
                 )))
-            ));
+            )));
         }
         
         @Override

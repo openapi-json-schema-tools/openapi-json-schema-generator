@@ -23,7 +23,7 @@ public class SimpleEnumValidation {
         Do not edit the class manually.
         */
         public SimpleEnumValidation1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -35,7 +35,7 @@ public class SimpleEnumValidation {
                     2,
                     3
                 )))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

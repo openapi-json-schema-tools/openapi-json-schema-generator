@@ -56,12 +56,12 @@ public class OneofWithRequired {
     
     public static class Schema0 extends JsonSchema<Schema0Map, FrozenList> {
         public Schema0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "bar",
                     "foo"
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -151,12 +151,12 @@ public class OneofWithRequired {
     
     public static class Schema1 extends JsonSchema<Schema1Map, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "baz",
                     "foo"
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -220,13 +220,13 @@ public class OneofWithRequired {
         Do not edit the class manually.
         */
         public OneofWithRequired1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
-            ));
+            )));
         }
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

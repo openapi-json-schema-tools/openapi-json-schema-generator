@@ -58,11 +58,11 @@ public class RefInProperty {
         Do not edit the class manually.
         */
         public RefInProperty1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("a", PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
                 )))
-            ));
+            )));
         }
         
         @Override

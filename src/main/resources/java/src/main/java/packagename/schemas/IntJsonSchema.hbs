@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class IntJsonSchema extends JsonSchema {
     public IntJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                         Integer.class,
                         Long.class,
@@ -21,7 +21,7 @@ public class IntJsonSchema extends JsonSchema {
                         Double.class
                 ))),
                 new KeywordEntry("format", new FormatValidator("int"))
-        ));
+        )));
     }
 
     public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {

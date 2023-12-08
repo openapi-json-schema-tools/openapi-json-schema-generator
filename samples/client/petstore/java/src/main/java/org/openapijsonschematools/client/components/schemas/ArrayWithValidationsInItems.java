@@ -23,7 +23,7 @@ public class ArrayWithValidationsInItems {
     
     public static class Items extends JsonSchema {
         public Items() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -32,7 +32,7 @@ public class ArrayWithValidationsInItems {
                 ))),
                 new KeywordEntry("format", new FormatValidator("int64")),
                 new KeywordEntry("maximum", new MaximumValidator(7))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);
@@ -73,11 +73,11 @@ public class ArrayWithValidationsInItems {
         Do not edit the class manually.
         */
         public ArrayWithValidationsInItems1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class)),
                 new KeywordEntry("maxItems", new MaxItemsValidator(2))
-            ));
+            )));
         }
         
         @Override

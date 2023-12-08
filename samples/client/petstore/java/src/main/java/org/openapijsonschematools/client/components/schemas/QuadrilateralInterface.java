@@ -27,14 +27,14 @@ public class QuadrilateralInterface {
     
     public static class ShapeType extends JsonSchema {
         public ShapeType() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     "Quadrilateral"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -84,7 +84,7 @@ public class QuadrilateralInterface {
         Do not edit the class manually.
         */
         public QuadrilateralInterface1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("shapeType", ShapeType.class),
                     new PropertyEntry("quadrilateralType", QuadrilateralType.class)
@@ -93,7 +93,7 @@ public class QuadrilateralInterface {
                     "quadrilateralType",
                     "shapeType"
                 )))
-            ));
+            )));
         }
         
         @Override

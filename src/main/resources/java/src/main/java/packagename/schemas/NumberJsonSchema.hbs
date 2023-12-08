@@ -12,14 +12,14 @@ import java.util.Map;
 
 public class NumberJsonSchema extends JsonSchema {
     public NumberJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                         Integer.class,
                         Long.class,
                         Float.class,
                         Double.class
                 )))
-        ));
+        )));
     }
 
     public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {

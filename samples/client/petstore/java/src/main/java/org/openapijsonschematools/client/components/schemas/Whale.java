@@ -29,14 +29,14 @@ public class Whale {
     
     public static class ClassName extends JsonSchema {
         public ClassName() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     "whale"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -93,7 +93,7 @@ public class Whale {
         Do not edit the class manually.
         */
         public Whale1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("hasBaleen", HasBaleen.class),
@@ -103,7 +103,7 @@ public class Whale {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "className"
                 )))
-            ));
+            )));
         }
         
         @Override

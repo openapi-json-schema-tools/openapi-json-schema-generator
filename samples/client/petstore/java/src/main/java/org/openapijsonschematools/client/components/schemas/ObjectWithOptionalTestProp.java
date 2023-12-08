@@ -59,12 +59,12 @@ public class ObjectWithOptionalTestProp {
         Do not edit the class manually.
         */
         public ObjectWithOptionalTestProp1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("test", Test.class)
                 )))
-            ));
+            )));
         }
         
         @Override

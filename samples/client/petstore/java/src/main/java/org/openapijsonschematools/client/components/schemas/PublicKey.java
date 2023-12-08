@@ -61,12 +61,12 @@ public class PublicKey {
         schema that contains a property named key
         */
         public PublicKey1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("key", Key.class)
                 )))
-            ));
+            )));
         }
         
         @Override

@@ -65,7 +65,7 @@ public class Schema {
     
     public static class Schema1 extends JsonSchema<SchemaMap, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("additionalMetadata", AdditionalMetadata.class),
@@ -74,7 +74,7 @@ public class Schema {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "file"
                 )))
-            ));
+            )));
         }
         
         @Override

@@ -69,13 +69,13 @@ public class HasOnlyReadOnly {
         Do not edit the class manually.
         */
         public HasOnlyReadOnly1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class),
                     new PropertyEntry("foo", Foo.class)
                 )))
-            ));
+            )));
         }
         
         @Override

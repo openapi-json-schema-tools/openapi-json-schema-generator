@@ -55,7 +55,7 @@ public class ObjectWithInvalidNamedRefedProperties {
         Do not edit the class manually.
         */
         public ObjectWithInvalidNamedRefedProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("from", FromSchema.FromSchema1.class),
@@ -65,7 +65,7 @@ public class ObjectWithInvalidNamedRefedProperties {
                     "!reference",
                     "from"
                 )))
-            ));
+            )));
         }
         
         @Override

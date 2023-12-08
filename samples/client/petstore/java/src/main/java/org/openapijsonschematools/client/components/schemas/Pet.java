@@ -49,10 +49,10 @@ public class Pet {
     
     public static class PhotoUrls extends JsonSchema<FrozenMap, PhotoUrlsList> {
         public PhotoUrls() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override
@@ -66,7 +66,7 @@ public class Pet {
     
     public static class Status extends JsonSchema {
         public Status() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -75,7 +75,7 @@ public class Pet {
                     "pending",
                     "sold"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -98,10 +98,10 @@ public class Pet {
     
     public static class Tags extends JsonSchema<FrozenMap, TagsList> {
         public Tags() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
-            ));
+            )));
         }
         
         @Override
@@ -184,7 +184,7 @@ public class Pet {
         Pet object that needs to be added to the store
         */
         public Pet1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("id", Id.class),
@@ -198,7 +198,7 @@ public class Pet {
                     "name",
                     "photoUrls"
                 )))
-            ));
+            )));
         }
         
         @Override

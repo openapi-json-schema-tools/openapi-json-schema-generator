@@ -56,11 +56,11 @@ public class PropertyNamedRefThatIsNotAReference {
         Do not edit the class manually.
         */
         public PropertyNamedRefThatIsNotAReference1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("$ref", Ref.class)
                 )))
-            ));
+            )));
         }
         
         @Override

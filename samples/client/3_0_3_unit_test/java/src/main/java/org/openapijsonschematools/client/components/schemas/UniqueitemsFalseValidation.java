@@ -27,9 +27,9 @@ public class UniqueitemsFalseValidation {
         Do not edit the class manually.
         */
         public UniqueitemsFalseValidation1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("uniqueItems", new UniqueItemsValidator(false))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

@@ -40,10 +40,10 @@ public class AnimalFarm {
         Do not edit the class manually.
         */
         public AnimalFarm1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Animal.Animal1.class))
-            ));
+            )));
         }
         
         @Override

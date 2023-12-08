@@ -37,7 +37,7 @@ public class Order {
     
     public static class Status extends JsonSchema {
         public Status() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -46,7 +46,7 @@ public class Order {
                     "approved",
                     "delivered"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -128,7 +128,7 @@ public class Order {
         Do not edit the class manually.
         */
         public Order1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("id", Id.class),
@@ -138,7 +138,7 @@ public class Order {
                     new PropertyEntry("status", Status.class),
                     new PropertyEntry("complete", Complete.class)
                 )))
-            ));
+            )));
         }
         
         @Override

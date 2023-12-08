@@ -72,7 +72,7 @@ public class RequiredValidation {
         Do not edit the class manually.
         */
         public RequiredValidation1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
                     new PropertyEntry("bar", Bar.class)
@@ -80,7 +80,7 @@ public class RequiredValidation {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "foo"
                 )))
-            ));
+            )));
         }
         
         @Override

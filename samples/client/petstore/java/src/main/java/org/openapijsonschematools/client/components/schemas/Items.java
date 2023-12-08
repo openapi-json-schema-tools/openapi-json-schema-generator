@@ -46,10 +46,10 @@ public class Items {
         component's name collides with the inner schema name
         */
         public Items1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items2.class))
-            ));
+            )));
         }
         
         @Override

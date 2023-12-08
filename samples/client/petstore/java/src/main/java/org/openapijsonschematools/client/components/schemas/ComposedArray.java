@@ -44,10 +44,10 @@ public class ComposedArray {
         Do not edit the class manually.
         */
         public ComposedArray1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override

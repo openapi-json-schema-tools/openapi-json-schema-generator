@@ -37,10 +37,10 @@ public class Drawing {
     
     public static class Shapes extends JsonSchema<FrozenMap, ShapesList> {
         public Shapes() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
-            ));
+            )));
         }
         
         @Override
@@ -109,7 +109,7 @@ public class Drawing {
         Do not edit the class manually.
         */
         public Drawing1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("mainShape", Shape.Shape1.class),
@@ -118,7 +118,7 @@ public class Drawing {
                     new PropertyEntry("shapes", Shapes.class)
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
-            ));
+            )));
         }
         
         @Override

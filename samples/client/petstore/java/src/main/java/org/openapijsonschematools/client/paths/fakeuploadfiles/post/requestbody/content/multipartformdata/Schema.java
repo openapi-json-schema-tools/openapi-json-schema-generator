@@ -41,10 +41,10 @@ public class Schema {
     
     public static class Files extends JsonSchema<FrozenMap, FilesList> {
         public Files() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override
@@ -87,12 +87,12 @@ public class Schema {
     
     public static class Schema1 extends JsonSchema<SchemaMap, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("files", Files.class)
                 )))
-            ));
+            )));
         }
         
         @Override

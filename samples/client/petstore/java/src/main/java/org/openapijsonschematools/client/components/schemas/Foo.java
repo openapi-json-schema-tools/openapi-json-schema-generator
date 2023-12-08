@@ -55,12 +55,12 @@ public class Foo {
         Do not edit the class manually.
         */
         public Foo1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.Bar1.class)
                 )))
-            ));
+            )));
         }
         
         @Override

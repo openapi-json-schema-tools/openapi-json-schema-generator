@@ -27,12 +27,12 @@ public class Shape {
         Do not edit the class manually.
         */
         public Shape1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Triangle.Triangle1.class,
                     Quadrilateral.Quadrilateral1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

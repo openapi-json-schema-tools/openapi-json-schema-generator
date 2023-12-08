@@ -25,9 +25,9 @@ public class AnyTypeAndFormat {
     
     public static class UuidSchema extends JsonSchema<FrozenMap, FrozenList> {
         public UuidSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("uuid"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -80,9 +80,9 @@ public class AnyTypeAndFormat {
     
     public static class Date extends JsonSchema<FrozenMap, FrozenList> {
         public Date() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("date"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -135,9 +135,9 @@ public class AnyTypeAndFormat {
     
     public static class Datetime extends JsonSchema<FrozenMap, FrozenList> {
         public Datetime() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("date-time"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -190,9 +190,9 @@ public class AnyTypeAndFormat {
     
     public static class NumberSchema extends JsonSchema<FrozenMap, FrozenList> {
         public NumberSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("number"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -245,9 +245,9 @@ public class AnyTypeAndFormat {
     
     public static class Binary extends JsonSchema<FrozenMap, FrozenList> {
         public Binary() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("binary"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -300,9 +300,9 @@ public class AnyTypeAndFormat {
     
     public static class Int32 extends JsonSchema<FrozenMap, FrozenList> {
         public Int32() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("int32"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -355,9 +355,9 @@ public class AnyTypeAndFormat {
     
     public static class Int64 extends JsonSchema<FrozenMap, FrozenList> {
         public Int64() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("int64"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -410,9 +410,9 @@ public class AnyTypeAndFormat {
     
     public static class DoubleSchema extends JsonSchema<FrozenMap, FrozenList> {
         public DoubleSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("double"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -465,9 +465,9 @@ public class AnyTypeAndFormat {
     
     public static class FloatSchema extends JsonSchema<FrozenMap, FrozenList> {
         public FloatSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("float"))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -581,7 +581,7 @@ public class AnyTypeAndFormat {
         Do not edit the class manually.
         */
         public AnyTypeAndFormat1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("uuid", UuidSchema.class),
@@ -594,7 +594,7 @@ public class AnyTypeAndFormat {
                     new PropertyEntry("double", DoubleSchema.class),
                     new PropertyEntry("float", FloatSchema.class)
                 )))
-            ));
+            )));
         }
         
         @Override

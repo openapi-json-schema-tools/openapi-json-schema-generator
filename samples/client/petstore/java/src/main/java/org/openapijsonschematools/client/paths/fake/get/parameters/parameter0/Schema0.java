@@ -21,7 +21,7 @@ public class Schema0 {
     
     public static class Items0 extends JsonSchema {
         public Items0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -29,7 +29,7 @@ public class Schema0 {
                     ">",
                     "$"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -52,10 +52,10 @@ public class Schema0 {
     
     public static class Schema01 extends JsonSchema<FrozenMap, SchemaList0> {
         public Schema01() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items0.class))
-            ));
+            )));
         }
         
         @Override

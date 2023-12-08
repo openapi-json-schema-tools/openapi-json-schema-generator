@@ -59,12 +59,12 @@ public class Client {
         Do not edit the class manually.
         */
         public Client1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("client", Client2.class)
                 )))
-            ));
+            )));
         }
         
         @Override

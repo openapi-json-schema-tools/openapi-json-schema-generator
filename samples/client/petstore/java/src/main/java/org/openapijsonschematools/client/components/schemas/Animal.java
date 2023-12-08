@@ -25,11 +25,11 @@ public class Animal {
     
     public static class Color extends JsonSchema {
         public Color() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -79,7 +79,7 @@ public class Animal {
         Do not edit the class manually.
         */
         public Animal1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("className", ClassName.class),
@@ -88,7 +88,7 @@ public class Animal {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "className"
                 )))
-            ));
+            )));
         }
         
         @Override

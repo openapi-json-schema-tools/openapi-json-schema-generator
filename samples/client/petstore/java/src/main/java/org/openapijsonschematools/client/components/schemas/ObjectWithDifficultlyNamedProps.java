@@ -67,7 +67,7 @@ public class ObjectWithDifficultlyNamedProps {
         model with properties that have invalid names for python
         */
         public ObjectWithDifficultlyNamedProps1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("$special[property.name]", Specialpropertyname.class),
@@ -77,7 +77,7 @@ public class ObjectWithDifficultlyNamedProps {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "123-list"
                 )))
-            ));
+            )));
         }
         
         @Override

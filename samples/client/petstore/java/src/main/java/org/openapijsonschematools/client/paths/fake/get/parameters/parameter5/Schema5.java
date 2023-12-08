@@ -18,7 +18,7 @@ public class Schema5 {
     
     public static class Schema51 extends JsonSchema {
         public Schema51() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -30,7 +30,7 @@ public class Schema5 {
                     1.1,
                     -1.2
                 )))
-            ));
+            )));
         }
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return validateDouble(arg, configuration);

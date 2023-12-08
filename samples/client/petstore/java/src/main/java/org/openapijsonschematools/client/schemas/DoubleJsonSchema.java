@@ -13,10 +13,10 @@ import java.util.Set;
 
 public class DoubleJsonSchema extends JsonSchema {
     public DoubleJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Double.class))),
                 new KeywordEntry("format", new FormatValidator("double"))
-        ));
+        )));
     }
 
     public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {

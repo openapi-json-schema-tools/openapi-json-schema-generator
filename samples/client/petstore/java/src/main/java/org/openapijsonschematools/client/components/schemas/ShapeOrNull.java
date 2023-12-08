@@ -33,13 +33,13 @@ public class ShapeOrNull {
         The value may be a shape or the 'null' value. This is introduced in OAS schema >= 3.1.
         */
         public ShapeOrNull1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Schema0.class,
                     Triangle.Triangle1.class,
                     Quadrilateral.Quadrilateral1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

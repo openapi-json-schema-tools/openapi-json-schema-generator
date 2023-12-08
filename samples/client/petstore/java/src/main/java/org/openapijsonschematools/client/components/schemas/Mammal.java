@@ -27,13 +27,13 @@ public class Mammal {
         Do not edit the class manually.
         */
         public Mammal1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Whale.Whale1.class,
                     Zebra.Zebra1.class,
                     Pig.Pig1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

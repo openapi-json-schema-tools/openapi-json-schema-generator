@@ -40,10 +40,10 @@ public class SelfReferencingArrayModel {
         Do not edit the class manually.
         */
         public SelfReferencingArrayModel1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(SelfReferencingArrayModel1.class))
-            ));
+            )));
         }
         
         @Override

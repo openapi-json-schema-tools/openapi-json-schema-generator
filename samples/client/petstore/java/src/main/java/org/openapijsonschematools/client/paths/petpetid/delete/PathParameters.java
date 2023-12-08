@@ -50,7 +50,7 @@ public class PathParameters {
     
     public static class PathParameters1 extends JsonSchema<PathParametersMap, FrozenList> {
         public PathParameters1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("petId", Schema1.Schema11.class)
@@ -59,7 +59,7 @@ public class PathParameters {
                     "petId"
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

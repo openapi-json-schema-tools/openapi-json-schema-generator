@@ -25,12 +25,12 @@ public class InvalidStringValueForDefault {
     
     public static class Bar extends JsonSchema {
         public Bar() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("minLength", new MinLengthValidator(4))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -74,11 +74,11 @@ public class InvalidStringValueForDefault {
         Do not edit the class manually.
         */
         public InvalidStringValueForDefault1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
                 )))
-            ));
+            )));
         }
         
         @Override

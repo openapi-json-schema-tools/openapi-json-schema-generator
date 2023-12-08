@@ -25,11 +25,11 @@ public class NestedAnyofToCheckValidationSemantics {
     
     public static class Schema0 extends JsonSchema<FrozenMap, FrozenList> {
         public Schema0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     Schema01.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -88,11 +88,11 @@ public class NestedAnyofToCheckValidationSemantics {
         Do not edit the class manually.
         */
         public NestedAnyofToCheckValidationSemantics1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     Schema0.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

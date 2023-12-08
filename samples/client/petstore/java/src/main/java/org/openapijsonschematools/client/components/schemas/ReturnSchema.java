@@ -58,11 +58,11 @@ public class ReturnSchema {
         Model for testing reserved words
         */
         public ReturnSchema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("return", ReturnSchema2.class)
                 )))
-            ));
+            )));
         }
         
         @Override

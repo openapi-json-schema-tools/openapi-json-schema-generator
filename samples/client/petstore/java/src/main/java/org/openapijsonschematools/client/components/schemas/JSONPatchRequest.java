@@ -24,13 +24,13 @@ public class JSONPatchRequest {
     
     public static class Items extends JsonSchema<FrozenMap, FrozenList> {
         public Items() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTest1.class,
                     JSONPatchRequestRemove.JSONPatchRequestRemove1.class,
                     JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -103,10 +103,10 @@ public class JSONPatchRequest {
         Do not edit the class manually.
         */
         public JSONPatchRequest1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override

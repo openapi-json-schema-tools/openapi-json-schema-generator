@@ -24,9 +24,9 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema02 extends JsonSchema<FrozenMap, FrozenList> {
         public Schema02() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(2))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -79,9 +79,9 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema01 extends JsonSchema<FrozenMap, FrozenList> {
         public Schema01() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(3))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -134,9 +134,9 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema0 extends JsonSchema<FrozenMap, FrozenList> {
         public Schema0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(5))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -195,7 +195,7 @@ public class AllofCombinedWithAnyofOneof {
         Do not edit the class manually.
         */
         public AllofCombinedWithAnyofOneof1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema02.class
                 ))),
@@ -205,7 +205,7 @@ public class AllofCombinedWithAnyofOneof {
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Schema0.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

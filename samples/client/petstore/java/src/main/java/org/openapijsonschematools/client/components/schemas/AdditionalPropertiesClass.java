@@ -48,10 +48,10 @@ public class AdditionalPropertiesClass {
     
     public static class MapProperty extends JsonSchema<MapPropertyMap, FrozenList> {
         public MapProperty() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override
@@ -89,10 +89,10 @@ public class AdditionalPropertiesClass {
     
     public static class AdditionalProperties1 extends JsonSchema<AdditionalPropertiesMap, FrozenList> {
         public AdditionalProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            ));
+            )));
         }
         
         @Override
@@ -127,10 +127,10 @@ public class AdditionalPropertiesClass {
     
     public static class MapOfMapProperty extends JsonSchema<MapOfMapPropertyMap, FrozenList> {
         public MapOfMapProperty() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            ));
+            )));
         }
         
         @Override
@@ -177,10 +177,10 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema<MapWithUndeclaredPropertiesAnytype3Map, FrozenList> {
         public MapWithUndeclaredPropertiesAnytype3() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
-            ));
+            )));
         }
         
         @Override
@@ -215,10 +215,10 @@ public class AdditionalPropertiesClass {
     
     public static class EmptyMap extends JsonSchema<EmptyMapMap, FrozenList> {
         public EmptyMap() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties4.class))
-            ));
+            )));
         }
         
         @Override
@@ -256,10 +256,10 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesString extends JsonSchema<MapWithUndeclaredPropertiesStringMap, FrozenList> {
         public MapWithUndeclaredPropertiesString() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
-            ));
+            )));
         }
         
         @Override
@@ -358,7 +358,7 @@ public class AdditionalPropertiesClass {
         Do not edit the class manually.
         */
         public AdditionalPropertiesClass1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("map_property", MapProperty.class),
@@ -370,7 +370,7 @@ public class AdditionalPropertiesClass {
                     new PropertyEntry("empty_map", EmptyMap.class),
                     new PropertyEntry("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
                 )))
-            ));
+            )));
         }
         
         @Override

@@ -62,11 +62,11 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class Schema0 extends JsonSchema<Schema0Map, FrozenList> {
         public Schema0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -150,12 +150,12 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         Do not edit the class manually.
         */
         public AdditionalpropertiesShouldNotLookInApplicators1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class)),
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class
                 )))
-            ));
+            )));
         }
         
         @Override

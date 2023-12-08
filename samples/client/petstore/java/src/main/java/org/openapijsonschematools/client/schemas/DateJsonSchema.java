@@ -14,10 +14,10 @@ import java.util.Set;
 
 public class DateJsonSchema extends JsonSchema {
     public DateJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("date"))
-        ));
+        )));
     }
 
     public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

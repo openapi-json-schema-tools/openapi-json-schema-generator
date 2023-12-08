@@ -17,7 +17,7 @@ public class PathParamSchema0 {
     
     public static class PathParamSchema01 extends JsonSchema {
         public PathParamSchema01() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -25,7 +25,7 @@ public class PathParamSchema0 {
                     "a",
                     "b"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);

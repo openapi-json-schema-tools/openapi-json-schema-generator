@@ -13,10 +13,10 @@ import java.util.Set;
 
 public class DecimalJsonSchema extends JsonSchema {
     public DecimalJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("number"))
-        ));
+        )));
     }
 
     public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

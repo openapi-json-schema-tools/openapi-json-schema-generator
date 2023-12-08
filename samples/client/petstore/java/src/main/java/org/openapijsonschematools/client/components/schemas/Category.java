@@ -25,11 +25,11 @@ public class Category {
     
     public static class Name extends JsonSchema {
         public Name() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -79,7 +79,7 @@ public class Category {
         Do not edit the class manually.
         */
         public Category1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("id", Id.class),
@@ -88,7 +88,7 @@ public class Category {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "name"
                 )))
-            ));
+            )));
         }
         
         @Override

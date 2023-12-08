@@ -80,14 +80,14 @@ public class ApiResponseSchema {
         Do not edit the class manually.
         */
         public ApiResponseSchema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("code", Code.class),
                     new PropertyEntry("type", Type.class),
                     new PropertyEntry("message", Message.class)
                 )))
-            ));
+            )));
         }
         
         @Override

@@ -73,12 +73,12 @@ public class ObjectPropertiesValidation {
         Do not edit the class manually.
         */
         public ObjectPropertiesValidation1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
                     new PropertyEntry("bar", Bar.class)
                 )))
-            ));
+            )));
         }
         
         @Override

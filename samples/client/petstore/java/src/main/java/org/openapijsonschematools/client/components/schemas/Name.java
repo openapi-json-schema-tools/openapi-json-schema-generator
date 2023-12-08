@@ -85,7 +85,7 @@ public class Name {
         Model for testing model name same as property name
         */
         public Name1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("name", Name2.class),
                     new PropertyEntry("snake_case", SnakeCase.class),
@@ -94,7 +94,7 @@ public class Name {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "name"
                 )))
-            ));
+            )));
         }
         
         @Override

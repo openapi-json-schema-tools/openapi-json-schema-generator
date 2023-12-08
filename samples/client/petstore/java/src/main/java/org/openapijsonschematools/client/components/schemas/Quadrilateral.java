@@ -27,12 +27,12 @@ public class Quadrilateral {
         Do not edit the class manually.
         */
         public Quadrilateral1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     SimpleQuadrilateral.SimpleQuadrilateral1.class,
                     ComplexQuadrilateral.ComplexQuadrilateral1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

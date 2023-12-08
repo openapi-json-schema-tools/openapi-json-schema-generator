@@ -16,7 +16,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
     {{#each keywords}}
         {{#if @first}}
     public {{../jsonPathPiece.camelCase}}() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
         {{/if}}
         {{#eq this "type"}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
@@ -49,7 +49,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
             {{> src/main/java/packagename/components/schemas/SchemaClass/_pattern }}
         {{/eq}}
         {{#if @last}}
-        ));
+        )));
     }
         {{/if}}
     {{/each}}

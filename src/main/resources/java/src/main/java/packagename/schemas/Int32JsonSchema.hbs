@@ -13,13 +13,13 @@ import java.util.Set;
 
 public class Int32JsonSchema extends JsonSchema {
     public Int32JsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                         Integer.class,
                         Float.class
                 ))),
                 new KeywordEntry("format", new FormatValidator("int32"))
-        ));
+        )));
     }
 
     public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {

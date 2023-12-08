@@ -12,9 +12,9 @@ import java.util.Set;
 
 public class NullJsonSchema extends JsonSchema {
     public NullJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))
-        ));
+        )));
     }
 
     public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {

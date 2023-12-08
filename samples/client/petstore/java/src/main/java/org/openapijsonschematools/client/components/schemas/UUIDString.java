@@ -25,13 +25,13 @@ public class UUIDString {
         Do not edit the class manually.
         */
         public UUIDString1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("format", new FormatValidator("uuid")),
                 new KeywordEntry("minLength", new MinLengthValidator(1))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);

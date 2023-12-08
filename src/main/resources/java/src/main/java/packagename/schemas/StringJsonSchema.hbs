@@ -15,9 +15,9 @@ import java.util.UUID;
 
 public class StringJsonSchema extends JsonSchema {
     public StringJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
-        ));
+        )));
     }
 
     public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

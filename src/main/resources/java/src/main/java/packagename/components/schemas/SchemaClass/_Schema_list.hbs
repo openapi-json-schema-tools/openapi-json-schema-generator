@@ -16,7 +16,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema<FrozenMap, {{
     {{#each keywords}}
         {{#if @first}}
     public {{../jsonPathPiece.camelCase}}() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
         {{/if}}
         {{#eq this "type"}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
@@ -46,7 +46,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema<FrozenMap, {{
             {{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }}
         {{/eq}}
         {{#if @last}}
-        ));
+        )));
     }
         {{/if}}
     {{/each}}

@@ -58,7 +58,7 @@ public class GrandparentAnimal {
         Do not edit the class manually.
         */
         public GrandparentAnimal1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("pet_type", PetType.class)
@@ -66,7 +66,7 @@ public class GrandparentAnimal {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "pet_type"
                 )))
-            ));
+            )));
         }
         
         @Override

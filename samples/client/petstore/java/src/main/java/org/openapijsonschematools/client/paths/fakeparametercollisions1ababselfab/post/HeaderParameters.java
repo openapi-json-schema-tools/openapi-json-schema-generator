@@ -63,7 +63,7 @@ public class HeaderParameters {
     
     public static class HeaderParameters1 extends JsonSchema<HeaderParametersMap, FrozenList> {
         public HeaderParameters1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("1", Schema5.Schema51.class),
@@ -72,7 +72,7 @@ public class HeaderParameters {
                     new PropertyEntry("self", Schema7.Schema71.class)
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

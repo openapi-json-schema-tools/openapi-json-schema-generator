@@ -23,7 +23,7 @@ public class IntegerEnumWithDefaultValue {
         Do not edit the class manually.
         */
         public IntegerEnumWithDefaultValue1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -35,7 +35,7 @@ public class IntegerEnumWithDefaultValue {
                     1,
                     2
                 )))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

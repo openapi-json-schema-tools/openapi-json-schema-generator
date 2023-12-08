@@ -40,11 +40,11 @@ public class ComposedOneOfDifferentTypes {
     
     public static class Schema4 extends JsonSchema<FrozenMap, FrozenList> {
         public Schema4() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("maxProperties", new MaxPropertiesValidator(4)),
                 new KeywordEntry("minProperties", new MinPropertiesValidator(4))
-            ));
+            )));
         }
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -71,12 +71,12 @@ public class ComposedOneOfDifferentTypes {
     
     public static class Schema5 extends JsonSchema<FrozenMap, Schema5List> {
         public Schema5() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class)),
                 new KeywordEntry("maxItems", new MaxItemsValidator(4)),
                 new KeywordEntry("minItems", new MinItemsValidator(4))
-            ));
+            )));
         }
         
         @Override
@@ -90,7 +90,7 @@ public class ComposedOneOfDifferentTypes {
     
     public static class Schema6 extends JsonSchema {
         public Schema6() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -98,7 +98,7 @@ public class ComposedOneOfDifferentTypes {
                 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
                     "^2020.*"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -115,7 +115,7 @@ public class ComposedOneOfDifferentTypes {
         this is a model that allows payloads of type object or number
         */
         public ComposedOneOfDifferentTypes1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     NumberWithValidations.NumberWithValidations1.class,
                     Animal.Animal1.class,
@@ -125,7 +125,7 @@ public class ComposedOneOfDifferentTypes {
                     Schema5.class,
                     Schema6.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

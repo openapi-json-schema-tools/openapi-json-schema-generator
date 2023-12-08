@@ -35,10 +35,10 @@ public class AdditionalPropertiesWithArrayOfEnums {
     
     public static class AdditionalProperties extends JsonSchema<FrozenMap, AdditionalPropertiesList> {
         public AdditionalProperties() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(EnumClass.EnumClass1.class))
-            ));
+            )));
         }
         
         @Override
@@ -78,10 +78,10 @@ public class AdditionalPropertiesWithArrayOfEnums {
         Do not edit the class manually.
         */
         public AdditionalPropertiesWithArrayOfEnums1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

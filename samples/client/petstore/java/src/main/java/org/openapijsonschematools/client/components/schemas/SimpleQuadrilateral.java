@@ -26,14 +26,14 @@ public class SimpleQuadrilateral {
     
     public static class QuadrilateralType extends JsonSchema {
         public QuadrilateralType() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     "SimpleQuadrilateral"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -71,12 +71,12 @@ public class SimpleQuadrilateral {
     
     public static class Schema1 extends JsonSchema<Schema1Map, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("quadrilateralType", QuadrilateralType.class)
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -97,12 +97,12 @@ public class SimpleQuadrilateral {
         Do not edit the class manually.
         */
         public SimpleQuadrilateral1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     QuadrilateralInterface.QuadrilateralInterface1.class,
                     Schema1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

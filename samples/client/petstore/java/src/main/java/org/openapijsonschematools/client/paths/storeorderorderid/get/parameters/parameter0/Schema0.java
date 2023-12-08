@@ -19,7 +19,7 @@ public class Schema0 {
     
     public static class Schema01 extends JsonSchema {
         public Schema01() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -29,7 +29,7 @@ public class Schema0 {
                 new KeywordEntry("format", new FormatValidator("int64")),
                 new KeywordEntry("maximum", new MaximumValidator(5)),
                 new KeywordEntry("minimum", new MinimumValidator(1))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

@@ -56,7 +56,7 @@ public class RequiredWithEscapedCharacters {
         Do not edit the class manually.
         */
         public RequiredWithEscapedCharacters1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "foo\tbar",
                     "foo\nbar",
@@ -65,7 +65,7 @@ public class RequiredWithEscapedCharacters {
                     "foo\"bar",
                     "foo\\bar"
                 )))
-            ));
+            )));
         }
         
         @Override

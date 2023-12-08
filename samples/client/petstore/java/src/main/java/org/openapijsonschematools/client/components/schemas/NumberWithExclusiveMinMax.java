@@ -24,7 +24,7 @@ public class NumberWithExclusiveMinMax {
         Do not edit the class manually.
         */
         public NumberWithExclusiveMinMax1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -33,7 +33,7 @@ public class NumberWithExclusiveMinMax {
                 ))),
                 new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator(12)),
                 new KeywordEntry("exclusiveMinimum", new ExclusiveMinimumValidator(10))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

@@ -71,14 +71,14 @@ public class ObjectModelWithRefProps {
         a model that includes properties which should stay primitive (String + Boolean) and one which is defined as a class, NumberWithValidations
         */
         public ObjectModelWithRefProps1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("myNumber", NumberWithValidations.NumberWithValidations1.class),
                     new PropertyEntry("myString", StringSchema.StringSchema1.class),
                     new PropertyEntry("myBoolean", BooleanSchema.BooleanSchema1.class)
                 )))
-            ));
+            )));
         }
         
         @Override

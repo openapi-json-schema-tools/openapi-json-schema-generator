@@ -58,7 +58,7 @@ public class ObjWithRequiredPropsBase {
         Do not edit the class manually.
         */
         public ObjWithRequiredPropsBase1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("b", B.class)
@@ -66,7 +66,7 @@ public class ObjWithRequiredPropsBase {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "b"
                 )))
-            ));
+            )));
         }
         
         @Override

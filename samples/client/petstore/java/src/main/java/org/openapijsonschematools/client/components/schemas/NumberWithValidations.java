@@ -24,7 +24,7 @@ public class NumberWithValidations {
         Do not edit the class manually.
         */
         public NumberWithValidations1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -33,7 +33,7 @@ public class NumberWithValidations {
                 ))),
                 new KeywordEntry("maximum", new MaximumValidator(20)),
                 new KeywordEntry("minimum", new MinimumValidator(10))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

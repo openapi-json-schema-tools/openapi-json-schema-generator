@@ -50,10 +50,10 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema0 extends JsonSchema<Schema0Map, FrozenList> {
         public Schema0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override
@@ -68,9 +68,9 @@ public class AdditionalPropertiesSchema {
     
     public static class AdditionalProperties1 extends JsonSchema<FrozenMap, FrozenList> {
         public AdditionalProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(3))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -143,10 +143,10 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema1 extends JsonSchema<Schema1Map, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            ));
+            )));
         }
         
         @Override
@@ -161,9 +161,9 @@ public class AdditionalPropertiesSchema {
     
     public static class AdditionalProperties2 extends JsonSchema<FrozenMap, FrozenList> {
         public AdditionalProperties2() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(5))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -236,10 +236,10 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema2 extends JsonSchema<Schema2Map, FrozenList> {
         public Schema2() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            ));
+            )));
         }
         
         @Override
@@ -260,14 +260,14 @@ public class AdditionalPropertiesSchema {
         Do not edit the class manually.
         */
         public AdditionalPropertiesSchema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class,
                     Schema1.class,
                     Schema2.class
                 )))
-            ));
+            )));
         }
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

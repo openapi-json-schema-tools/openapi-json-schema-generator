@@ -45,10 +45,10 @@ public class RefInAdditionalproperties {
         Do not edit the class manually.
         */
         public RefInAdditionalproperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
-            ));
+            )));
         }
         
         @Override

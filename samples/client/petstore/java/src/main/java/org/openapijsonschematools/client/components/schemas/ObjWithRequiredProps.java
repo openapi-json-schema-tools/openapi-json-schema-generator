@@ -60,7 +60,7 @@ public class ObjWithRequiredProps {
         Do not edit the class manually.
         */
         public ObjWithRequiredProps1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("a", A.class)
@@ -71,7 +71,7 @@ public class ObjWithRequiredProps {
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1.class
                 )))
-            ));
+            )));
         }
         
         @Override

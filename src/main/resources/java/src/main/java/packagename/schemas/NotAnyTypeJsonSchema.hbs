@@ -11,9 +11,9 @@ import java.util.Map;
 
 public class NotAnyTypeJsonSchema extends JsonSchema {
     public NotAnyTypeJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
-        ));
+        )));
     }
 
     public Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {

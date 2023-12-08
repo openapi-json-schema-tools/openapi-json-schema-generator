@@ -24,7 +24,7 @@ public class IntegerMax10 {
         Do not edit the class manually.
         */
         public IntegerMax101() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -33,7 +33,7 @@ public class IntegerMax10 {
                 ))),
                 new KeywordEntry("format", new FormatValidator("int64")),
                 new KeywordEntry("maximum", new MaximumValidator(10))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

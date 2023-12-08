@@ -14,11 +14,10 @@ public class JsonSchemaFactory {
             return (V) classToInstance.get(schemaCls);
         }
         try {
-            Constructor<? extends JsonSchema> constructor = schemaCls.getConstructor();
-            JsonSchema inst = constructor.newInstance();
-            V castInst = (V) inst;
-            classToInstance.put(schemaCls, castInst);
-            return castInst;
+            Constructor<V> constructor = schemaCls.getConstructor();
+            V inst = constructor.newInstance();
+            classToInstance.put(schemaCls, inst);
+            return inst;
         } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }

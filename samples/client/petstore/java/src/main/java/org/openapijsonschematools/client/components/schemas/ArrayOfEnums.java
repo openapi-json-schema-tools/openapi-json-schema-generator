@@ -40,10 +40,10 @@ public class ArrayOfEnums {
         Do not edit the class manually.
         */
         public ArrayOfEnums1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(StringEnum.StringEnum1.class))
-            ));
+            )));
         }
         
         @Override

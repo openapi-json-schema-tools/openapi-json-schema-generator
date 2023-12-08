@@ -23,7 +23,7 @@ public class EnumArrays {
     
     public static class JustSymbol extends JsonSchema {
         public JustSymbol() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -31,7 +31,7 @@ public class EnumArrays {
                     ">=",
                     "$"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -40,7 +40,7 @@ public class EnumArrays {
     
     public static class Items extends JsonSchema {
         public Items() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -48,7 +48,7 @@ public class EnumArrays {
                     "fish",
                     "crab"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -71,10 +71,10 @@ public class EnumArrays {
     
     public static class ArrayEnum extends JsonSchema<FrozenMap, ArrayEnumList> {
         public ArrayEnum() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override
@@ -130,13 +130,13 @@ public class EnumArrays {
         Do not edit the class manually.
         */
         public EnumArrays1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("just_symbol", JustSymbol.class),
                     new PropertyEntry("array_enum", ArrayEnum.class)
                 )))
-            ));
+            )));
         }
         
         @Override

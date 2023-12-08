@@ -61,12 +61,12 @@ public class File {
         Must be named `File` for test.
         */
         public File1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("sourceURI", SourceURI.class)
                 )))
-            ));
+            )));
         }
         
         @Override

@@ -47,10 +47,10 @@ public class MapTest {
     
     public static class AdditionalProperties extends JsonSchema<AdditionalPropertiesMap, FrozenList> {
         public AdditionalProperties() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            ));
+            )));
         }
         
         @Override
@@ -85,10 +85,10 @@ public class MapTest {
     
     public static class MapMapOfString extends JsonSchema<MapMapOfStringMap, FrozenList> {
         public MapMapOfString() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override
@@ -103,7 +103,7 @@ public class MapTest {
     
     public static class AdditionalProperties2 extends JsonSchema {
         public AdditionalProperties2() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -111,7 +111,7 @@ public class MapTest {
                     "UPPER",
                     "lower"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -140,10 +140,10 @@ public class MapTest {
     
     public static class MapOfEnumString extends JsonSchema<MapOfEnumStringMap, FrozenList> {
         public MapOfEnumString() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            ));
+            )));
         }
         
         @Override
@@ -181,10 +181,10 @@ public class MapTest {
     
     public static class DirectMap extends JsonSchema<DirectMapMap, FrozenList> {
         public DirectMap() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
-            ));
+            )));
         }
         
         @Override
@@ -255,7 +255,7 @@ public class MapTest {
         Do not edit the class manually.
         */
         public MapTest1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("map_map_of_string", MapMapOfString.class),
@@ -263,7 +263,7 @@ public class MapTest {
                     new PropertyEntry("direct_map", DirectMap.class),
                     new PropertyEntry("indirect_map", StringBooleanMap.StringBooleanMap1.class)
                 )))
-            ));
+            )));
         }
         
         @Override

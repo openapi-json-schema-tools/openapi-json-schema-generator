@@ -23,7 +23,7 @@ public class EnumWith1DoesNotMatchTrue {
         Do not edit the class manually.
         */
         public EnumWith1DoesNotMatchTrue1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -33,7 +33,7 @@ public class EnumWith1DoesNotMatchTrue {
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     1
                 )))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);

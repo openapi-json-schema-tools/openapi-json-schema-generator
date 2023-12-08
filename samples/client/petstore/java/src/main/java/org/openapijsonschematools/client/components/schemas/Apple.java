@@ -23,14 +23,14 @@ public class Apple {
     
     public static class Cultivar extends JsonSchema {
         public Cultivar() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
                     "^[a-zA-Z\\s]*$"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -39,7 +39,7 @@ public class Apple {
     
     public static class Origin extends JsonSchema {
         public Origin() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -47,7 +47,7 @@ public class Apple {
                     "^[A-Z\\s]*$",
                     Pattern.CASE_INSENSITIVE
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -97,7 +97,7 @@ public class Apple {
         Do not edit the class manually.
         */
         public Apple1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     FrozenMap.class
@@ -109,7 +109,7 @@ public class Apple {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "cultivar"
                 )))
-            ));
+            )));
         }
         
         @Override

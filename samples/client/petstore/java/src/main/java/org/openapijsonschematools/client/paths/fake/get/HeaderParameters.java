@@ -59,14 +59,14 @@ public class HeaderParameters {
     
     public static class HeaderParameters1 extends JsonSchema<HeaderParametersMap, FrozenList> {
         public HeaderParameters1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("enum_header_string", Schema1.Schema11.class),
                     new PropertyEntry("enum_header_string_array", Schema0.Schema01.class)
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

@@ -58,14 +58,14 @@ public class AllofWithBaseSchema {
     
     public static class Schema0 extends JsonSchema<Schema0Map, FrozenList> {
         public Schema0() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 ))),
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "foo"
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -153,14 +153,14 @@ public class AllofWithBaseSchema {
     
     public static class Schema1 extends JsonSchema<Schema1Map, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("baz", Baz.class)
                 ))),
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "baz"
                 )))
-            ));
+            )));
         }
         
         @Override
@@ -254,7 +254,7 @@ public class AllofWithBaseSchema {
         Do not edit the class manually.
         */
         public AllofWithBaseSchema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
                 ))),
@@ -265,7 +265,7 @@ public class AllofWithBaseSchema {
                     Schema0.class,
                     Schema1.class
                 )))
-            ));
+            )));
         }
         
         @Override

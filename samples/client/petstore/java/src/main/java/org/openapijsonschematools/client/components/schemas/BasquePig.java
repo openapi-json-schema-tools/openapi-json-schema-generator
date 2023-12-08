@@ -22,14 +22,14 @@ public class BasquePig {
     
     public static class ClassName extends JsonSchema {
         public ClassName() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("enum", new EnumValidator(Set.of(
                     "BasquePig"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -71,7 +71,7 @@ public class BasquePig {
         Do not edit the class manually.
         */
         public BasquePig1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("className", ClassName.class)
@@ -79,7 +79,7 @@ public class BasquePig {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "className"
                 )))
-            ));
+            )));
         }
         
         @Override

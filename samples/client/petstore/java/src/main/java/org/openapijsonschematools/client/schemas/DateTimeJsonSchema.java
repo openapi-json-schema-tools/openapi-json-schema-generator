@@ -15,10 +15,10 @@ import java.util.Set;
 
 public class DateTimeJsonSchema extends JsonSchema {
     public DateTimeJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("date-time"))
-        ));
+        )));
     }
 
     public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {

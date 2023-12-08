@@ -58,7 +58,7 @@ public class Banana {
         Do not edit the class manually.
         */
         public Banana1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("lengthCm", LengthCm.class)
@@ -66,7 +66,7 @@ public class Banana {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "lengthCm"
                 )))
-            ));
+            )));
         }
         
         @Override

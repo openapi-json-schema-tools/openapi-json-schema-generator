@@ -12,9 +12,9 @@ import java.util.Set;
 
 public class BooleanJsonSchema extends JsonSchema {
     public BooleanJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
-        ));
+        )));
     }
 
     public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {

@@ -71,13 +71,13 @@ public class ObjectWithCollidingProperties {
         component with properties that have name collisions
         */
         public ObjectWithCollidingProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("someProp", SomeProp.class),
                     new PropertyEntry("someprop", Someprop.class)
                 )))
-            ));
+            )));
         }
         
         @Override

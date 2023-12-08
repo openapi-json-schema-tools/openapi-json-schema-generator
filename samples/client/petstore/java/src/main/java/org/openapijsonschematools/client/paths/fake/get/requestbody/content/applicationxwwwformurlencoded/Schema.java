@@ -23,7 +23,7 @@ public class Schema {
     
     public static class Items extends JsonSchema {
         public Items() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -31,7 +31,7 @@ public class Schema {
                     ">",
                     "$"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -54,10 +54,10 @@ public class Schema {
     
     public static class EnumFormStringArray extends JsonSchema<FrozenMap, EnumFormStringArrayList> {
         public EnumFormStringArray() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override
@@ -71,7 +71,7 @@ public class Schema {
     
     public static class EnumFormString extends JsonSchema {
         public EnumFormString() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -80,7 +80,7 @@ public class Schema {
                     "-efg",
                     "(xyz)"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -125,13 +125,13 @@ public class Schema {
     
     public static class Schema1 extends JsonSchema<SchemaMap, FrozenList> {
         public Schema1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("enum_form_string_array", EnumFormStringArray.class),
                     new PropertyEntry("enum_form_string", EnumFormString.class)
                 )))
-            ));
+            )));
         }
         
         @Override

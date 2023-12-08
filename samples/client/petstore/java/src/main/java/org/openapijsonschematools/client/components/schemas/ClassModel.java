@@ -58,11 +58,11 @@ public class ClassModel {
         Model for testing model with "_class" property
         */
         public ClassModel1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("_class", ClassSchema.class)
                 )))
-            ));
+            )));
         }
         
         @Override

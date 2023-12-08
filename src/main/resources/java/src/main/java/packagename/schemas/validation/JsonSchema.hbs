@@ -18,7 +18,11 @@ import java.util.Set;
 import java.util.UUID;
 
 public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
-    public LinkedHashMap<String, KeywordValidator> keywordToValidator;
+    public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
+
+    protected JsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
+        this.keywordToValidator = keywordToValidator;
+    }
 
     protected PathToSchemasMap validate(
             Object arg,

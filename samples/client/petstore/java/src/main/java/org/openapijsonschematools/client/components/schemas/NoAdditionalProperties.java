@@ -70,7 +70,7 @@ public class NoAdditionalProperties {
         Do not edit the class manually.
         */
         public NoAdditionalProperties1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("id", Id.class),
@@ -80,7 +80,7 @@ public class NoAdditionalProperties {
                     "id"
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

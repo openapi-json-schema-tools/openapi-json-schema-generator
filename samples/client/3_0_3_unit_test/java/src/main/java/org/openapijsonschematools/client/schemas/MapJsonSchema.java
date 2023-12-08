@@ -14,9 +14,9 @@ import java.util.Set;
 
 public class MapJsonSchema extends JsonSchema<FrozenMap, FrozenList> {
     public MapJsonSchema() {
-        keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+        super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)))
-        ));
+        )));
     }
 
     public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

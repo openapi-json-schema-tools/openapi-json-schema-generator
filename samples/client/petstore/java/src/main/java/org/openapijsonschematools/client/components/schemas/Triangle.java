@@ -27,13 +27,13 @@ public class Triangle {
         Do not edit the class manually.
         */
         public Triangle1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     EquilateralTriangle.EquilateralTriangle1.class,
                     IsoscelesTriangle.IsoscelesTriangle1.class,
                     ScaleneTriangle.ScaleneTriangle1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

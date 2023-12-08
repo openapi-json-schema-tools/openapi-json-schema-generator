@@ -36,7 +36,7 @@ public class JSONPatchRequestMoveCopy {
     
     public static class Op extends JsonSchema {
         public Op() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -44,7 +44,7 @@ public class JSONPatchRequestMoveCopy {
                     "move",
                     "copy"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -90,7 +90,7 @@ public class JSONPatchRequestMoveCopy {
         Do not edit the class manually.
         */
         public JSONPatchRequestMoveCopy1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("from", From.class),
@@ -103,7 +103,7 @@ public class JSONPatchRequestMoveCopy {
                     "path"
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            ));
+            )));
         }
         
         @Override

@@ -27,12 +27,12 @@ public class Pig {
         Do not edit the class manually.
         */
         public Pig1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     BasquePig.BasquePig1.class,
                     DanishPig.DanishPig1.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

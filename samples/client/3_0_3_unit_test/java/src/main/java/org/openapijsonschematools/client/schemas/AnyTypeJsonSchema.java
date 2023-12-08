@@ -14,6 +14,10 @@ import java.util.List;
 import java.util.Map;
 
 public class AnyTypeJsonSchema extends JsonSchema<FrozenMap, FrozenList> {
+    public AnyTypeJsonSchema() {
+        super(null);
+    }
+
     Void validate(Void arg, SchemaConfiguration configuration) {
         return validateVoid(arg, configuration);
     }

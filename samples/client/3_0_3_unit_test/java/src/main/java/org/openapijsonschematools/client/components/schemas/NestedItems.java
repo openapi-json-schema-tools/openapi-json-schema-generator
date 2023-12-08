@@ -38,10 +38,10 @@ public class NestedItems {
     
     public static class Items2 extends JsonSchema<FrozenMap, ItemsList> {
         public Items2() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items3.class))
-            ));
+            )));
         }
         
         @Override
@@ -69,10 +69,10 @@ public class NestedItems {
     
     public static class Items1 extends JsonSchema<FrozenMap, ItemsList1> {
         public Items1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items2.class))
-            ));
+            )));
         }
         
         @Override
@@ -100,10 +100,10 @@ public class NestedItems {
     
     public static class Items extends JsonSchema<FrozenMap, ItemsList2> {
         public Items() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items1.class))
-            ));
+            )));
         }
         
         @Override
@@ -137,10 +137,10 @@ public class NestedItems {
         Do not edit the class manually.
         */
         public NestedItems1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override

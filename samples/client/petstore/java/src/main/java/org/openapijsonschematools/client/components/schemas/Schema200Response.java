@@ -69,12 +69,12 @@ public class Schema200Response {
         model with an invalid class name for python, starts with a number
         */
         public Schema200Response1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("name", Name.class),
                     new PropertyEntry("class", ClassSchema.class)
                 )))
-            ));
+            )));
         }
         
         @Override

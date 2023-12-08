@@ -38,10 +38,10 @@ public class Schema3 {
     
     public static class Schema31 extends JsonSchema<FrozenMap, SchemaList3> {
         public Schema31() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items3.class))
-            ));
+            )));
         }
         
         @Override

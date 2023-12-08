@@ -69,13 +69,13 @@ public class ReadOnlyFirst {
         Do not edit the class manually.
         */
         public ReadOnlyFirst1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class),
                     new PropertyEntry("baz", Baz.class)
                 )))
-            ));
+            )));
         }
         
         @Override

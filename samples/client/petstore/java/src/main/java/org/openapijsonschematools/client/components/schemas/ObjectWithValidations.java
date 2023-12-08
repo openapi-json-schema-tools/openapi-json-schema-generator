@@ -25,10 +25,10 @@ public class ObjectWithValidations {
         Do not edit the class manually.
         */
         public ObjectWithValidations1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("minProperties", new MinPropertiesValidator(2))
-            ));
+            )));
         }
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

@@ -68,13 +68,13 @@ public class Player {
         a model that includes a self reference this forces properties and additionalProperties to be lazy loaded in python models because the Player class has not fully loaded when defining properties
         */
         public Player1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("name", Name.class),
                     new PropertyEntry("enemyPlayer", Player1.class)
                 )))
-            ));
+            )));
         }
         
         @Override

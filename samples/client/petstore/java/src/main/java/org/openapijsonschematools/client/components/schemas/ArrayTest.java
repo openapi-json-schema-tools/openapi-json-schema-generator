@@ -41,10 +41,10 @@ public class ArrayTest {
     
     public static class ArrayOfString extends JsonSchema<FrozenMap, ArrayOfStringList> {
         public ArrayOfString() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            ));
+            )));
         }
         
         @Override
@@ -75,10 +75,10 @@ public class ArrayTest {
     
     public static class Items1 extends JsonSchema<FrozenMap, ItemsList> {
         public Items1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items2.class))
-            ));
+            )));
         }
         
         @Override
@@ -106,10 +106,10 @@ public class ArrayTest {
     
     public static class ArrayArrayOfInteger extends JsonSchema<FrozenMap, ArrayArrayOfIntegerList> {
         public ArrayArrayOfInteger() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items1.class))
-            ));
+            )));
         }
         
         @Override
@@ -137,10 +137,10 @@ public class ArrayTest {
     
     public static class Items3 extends JsonSchema<FrozenMap, ItemsList1> {
         public Items3() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class))
-            ));
+            )));
         }
         
         @Override
@@ -168,10 +168,10 @@ public class ArrayTest {
     
     public static class ArrayArrayOfModel extends JsonSchema<FrozenMap, ArrayArrayOfModelList> {
         public ArrayArrayOfModel() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items3.class))
-            ));
+            )));
         }
         
         @Override
@@ -234,14 +234,14 @@ public class ArrayTest {
         Do not edit the class manually.
         */
         public ArrayTest1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("array_of_string", ArrayOfString.class),
                     new PropertyEntry("array_array_of_integer", ArrayArrayOfInteger.class),
                     new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
                 )))
-            ));
+            )));
         }
         
         @Override

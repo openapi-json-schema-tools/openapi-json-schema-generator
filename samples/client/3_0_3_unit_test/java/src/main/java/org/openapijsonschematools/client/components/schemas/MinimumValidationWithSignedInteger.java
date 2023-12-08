@@ -27,9 +27,9 @@ public class MinimumValidationWithSignedInteger {
         Do not edit the class manually.
         */
         public MinimumValidationWithSignedInteger1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minimum", new MinimumValidator(-2))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

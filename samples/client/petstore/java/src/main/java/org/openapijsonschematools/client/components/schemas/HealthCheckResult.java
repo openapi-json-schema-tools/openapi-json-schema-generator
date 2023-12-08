@@ -20,12 +20,12 @@ public class HealthCheckResult {
     
     public static class NullableMessage extends JsonSchema<FrozenMap, FrozenList> {
         public NullableMessage() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Void.class,
                     String.class
                 )))
-            ));
+            )));
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -74,12 +74,12 @@ public class HealthCheckResult {
         Just a string to inform instance is up and running. Make it nullable in hope to get it as pointer in generated model.
         */
         public HealthCheckResult1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("NullableMessage", NullableMessage.class)
                 )))
-            ));
+            )));
         }
         
         @Override

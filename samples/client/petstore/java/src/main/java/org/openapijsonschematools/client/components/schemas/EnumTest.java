@@ -23,7 +23,7 @@ public class EnumTest {
     
     public static class EnumString extends JsonSchema {
         public EnumString() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -32,7 +32,7 @@ public class EnumTest {
                     "lower",
                     ""
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -41,7 +41,7 @@ public class EnumTest {
     
     public static class EnumStringRequired extends JsonSchema {
         public EnumStringRequired() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -50,7 +50,7 @@ public class EnumTest {
                     "lower",
                     ""
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -59,7 +59,7 @@ public class EnumTest {
     
     public static class EnumInteger extends JsonSchema {
         public EnumInteger() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -71,7 +71,7 @@ public class EnumTest {
                     1,
                     -1
                 )))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);
@@ -92,7 +92,7 @@ public class EnumTest {
     
     public static class EnumNumber extends JsonSchema {
         public EnumNumber() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -104,7 +104,7 @@ public class EnumTest {
                     1.1,
                     -1.2
                 )))
-            ));
+            )));
         }
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return validateDouble(arg, configuration);
@@ -203,7 +203,7 @@ public class EnumTest {
         Do not edit the class manually.
         */
         public EnumTest1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("enum_string", EnumString.class),
@@ -219,7 +219,7 @@ public class EnumTest {
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "enum_string_required"
                 )))
-            ));
+            )));
         }
         
         @Override

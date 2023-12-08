@@ -42,7 +42,7 @@ public class FormatTest {
     
     public static class IntegerSchema extends JsonSchema {
         public IntegerSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -52,7 +52,7 @@ public class FormatTest {
                 new KeywordEntry("maximum", new MaximumValidator(100)),
                 new KeywordEntry("minimum", new MinimumValidator(10)),
                 new KeywordEntry("multipleOf", new MultipleOfValidator(2))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);
@@ -76,7 +76,7 @@ public class FormatTest {
     
     public static class Int32withValidations extends JsonSchema {
         public Int32withValidations() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -86,7 +86,7 @@ public class FormatTest {
                 new KeywordEntry("format", new FormatValidator("int32")),
                 new KeywordEntry("maximum", new MaximumValidator(200)),
                 new KeywordEntry("minimum", new MinimumValidator(20))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);
@@ -110,7 +110,7 @@ public class FormatTest {
     
     public static class NumberSchema extends JsonSchema {
         public NumberSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -120,7 +120,7 @@ public class FormatTest {
                 new KeywordEntry("maximum", new MaximumValidator(543.2)),
                 new KeywordEntry("minimum", new MinimumValidator(32.1)),
                 new KeywordEntry("multipleOf", new MultipleOfValidator(32.5))
-            ));
+            )));
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);
@@ -141,7 +141,7 @@ public class FormatTest {
     
     public static class FloatSchema extends JsonSchema {
         public FloatSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -151,7 +151,7 @@ public class FormatTest {
                 new KeywordEntry("format", new FormatValidator("float")),
                 new KeywordEntry("maximum", new MaximumValidator(987.6)),
                 new KeywordEntry("minimum", new MinimumValidator(54.3))
-            ));
+            )));
         }
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return validateFloat(arg, configuration);
@@ -163,7 +163,7 @@ public class FormatTest {
     
     public static class DoubleSchema extends JsonSchema {
         public DoubleSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
                     Long.class,
@@ -173,7 +173,7 @@ public class FormatTest {
                 new KeywordEntry("format", new FormatValidator("double")),
                 new KeywordEntry("maximum", new MaximumValidator(123.4)),
                 new KeywordEntry("minimum", new MinimumValidator(67.8))
-            ));
+            )));
         }
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return validateDouble(arg, configuration);
@@ -202,11 +202,11 @@ public class FormatTest {
     
     public static class ArrayWithUniqueItems extends JsonSchema<FrozenMap, ArrayWithUniqueItemsList> {
         public ArrayWithUniqueItems() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class)),
                 new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))
-            ));
+            )));
         }
         
         @Override
@@ -220,7 +220,7 @@ public class FormatTest {
     
     public static class StringSchema extends JsonSchema {
         public StringSchema() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -228,7 +228,7 @@ public class FormatTest {
                     "[a-z]",
                     Pattern.CASE_INSENSITIVE
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -257,14 +257,14 @@ public class FormatTest {
     
     public static class Password extends JsonSchema {
         public Password() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("format", new FormatValidator("password")),
                 new KeywordEntry("maxLength", new MaxLengthValidator(64)),
                 new KeywordEntry("minLength", new MinLengthValidator(10))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -273,14 +273,14 @@ public class FormatTest {
     
     public static class PatternWithDigits extends JsonSchema {
         public PatternWithDigits() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
                     "^\\d{10}$"
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -289,7 +289,7 @@ public class FormatTest {
     
     public static class PatternWithDigitsAndDelimiter extends JsonSchema {
         public PatternWithDigitsAndDelimiter() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
@@ -297,7 +297,7 @@ public class FormatTest {
                     "^image_\\d{1,3}$",
                     Pattern.CASE_INSENSITIVE
                 )))
-            ));
+            )));
         }
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             return validateString(arg, configuration);
@@ -439,7 +439,7 @@ public class FormatTest {
         Do not edit the class manually.
         */
         public FormatTest1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("integer", IntegerSchema.class),
@@ -470,7 +470,7 @@ public class FormatTest {
                     "number",
                     "password"
                 )))
-            ));
+            )));
         }
         
         @Override

@@ -109,7 +109,7 @@ public class Capitalization {
         Do not edit the class manually.
         */
         public Capitalization1() {
-            keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
+            super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("smallCamel", SmallCamel.class),
@@ -119,7 +119,7 @@ public class Capitalization {
                     new PropertyEntry("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
                     new PropertyEntry("ATT_NAME", ATTNAME.class)
                 )))
-            ));
+            )));
         }
         
         @Override
