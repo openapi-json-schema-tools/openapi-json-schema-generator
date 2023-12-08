@@ -211,57 +211,57 @@ public abstract class JsonSchema {
       return arg;
    }
 
-   protected static Void validateVoid(Class<? extends JsonSchema> cls, Void arg, SchemaConfiguration configuration) throws ValidationException {
-      return (Void) validate(cls, arg, configuration);
+   protected Void validateVoid(Void arg, SchemaConfiguration configuration) throws ValidationException {
+      return (Void) validate(arg, configuration);
    }
 
-   protected static boolean validateBoolean(Class<? extends JsonSchema> cls, boolean arg, SchemaConfiguration configuration) throws ValidationException {
-      return (boolean) validate(cls, arg, configuration);
+   protected boolean validateBoolean(boolean arg, SchemaConfiguration configuration) throws ValidationException {
+      return (boolean) validate(arg, configuration);
    }
 
-   protected static int validateInt(Class<? extends JsonSchema> cls, int arg, SchemaConfiguration configuration) throws ValidationException {
-      return (int) validate(cls, arg, configuration);
+   protected int validateInt(int arg, SchemaConfiguration configuration) throws ValidationException {
+      return (int) validate(arg, configuration);
    }
 
-   protected static long validateLong(Class<? extends JsonSchema> cls, long arg, SchemaConfiguration configuration) throws ValidationException {
-      return (long) validate(cls, arg, configuration);
+   protected long validateLong(long arg, SchemaConfiguration configuration) throws ValidationException {
+      return (long) validate(arg, configuration);
    }
 
-   protected static float validateFloat(Class<? extends JsonSchema> cls, float arg, SchemaConfiguration configuration) throws ValidationException {
-      return (float) validate(cls, arg, configuration);
+   protected float validateFloat(float arg, SchemaConfiguration configuration) throws ValidationException {
+      return (float) validate(arg, configuration);
    }
 
-   protected static double validateDouble(Class<? extends JsonSchema> cls, double arg, SchemaConfiguration configuration) throws ValidationException {
-      return (double) validate(cls, arg, configuration);
+   protected double validateDouble(double arg, SchemaConfiguration configuration) throws ValidationException {
+      return (double) validate(arg, configuration);
    }
 
-   protected static String validateString(Class<? extends JsonSchema> cls, String arg, SchemaConfiguration configuration) throws ValidationException {
-      return (String) validate(cls, arg, configuration);
+   protected String validateString(String arg, SchemaConfiguration configuration) throws ValidationException {
+      return (String) validate(arg, configuration);
    }
 
-   protected static String validateZonedDateTime(Class<? extends JsonSchema> cls, ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-      return (String) validate(cls, arg, configuration);
+   protected String validateZonedDateTime(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+      return (String) validate(arg, configuration);
    }
 
-   protected static String validateLocalDate(Class<? extends JsonSchema> cls, LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
-      return (String) validate(cls, arg, configuration);
+   protected String validateLocalDate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+      return (String) validate(arg, configuration);
    }
 
-   protected static String validateUUID(Class<? extends JsonSchema> cls, UUID arg, SchemaConfiguration configuration) throws ValidationException {
-      return (String) validate(cls, arg, configuration);
+   protected String validateUUID(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+      return (String) validate(arg, configuration);
    }
 
-   protected static <T extends FrozenMap> T validateMap(Class<? extends JsonSchema> cls, Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-      return (T) validate(cls, arg, configuration);
+   protected <T extends FrozenMap> T validateMap(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException {
+      return (T) validate(arg, configuration);
    }
 
-   protected static <U extends FrozenList> U validateList(Class<? extends JsonSchema> cls, List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-      return (U) validate(cls, arg, configuration);
+   protected <U extends FrozenList> U validateList(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
+      return (U) validate(arg, configuration);
    }
 
    // todo add bytes and FileIO
 
-   public static Object validate(Class<? extends JsonSchema> cls, Object arg, SchemaConfiguration configuration) throws ValidationException {
+   public static Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
       if (arg instanceof Map || arg instanceof List) {
          // todo don't run validation if the instance is one of the class generic types
       }
