@@ -67,7 +67,11 @@ public class TriangleInterface {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class TriangleInterfaceMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class TriangleInterface1 extends JsonSchema {
         /*

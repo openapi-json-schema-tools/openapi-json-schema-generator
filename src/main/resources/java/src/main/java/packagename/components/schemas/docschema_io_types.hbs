@@ -7,7 +7,7 @@
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
     {{#if mapOutputJsonPathPiece }}
-| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=jsonPath forceNull=true }}{{else}}Object{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
 | static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
     {{/if}}
@@ -73,7 +73,7 @@
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#if ../mapOutputJsonPathPiece}}
-| static [{{../mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) |
+| static [{{../mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate([Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
                                     {{else}}
 | static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
                                     {{/if}}

@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Foo.Foo1](#foo1)<br> schema class |
+| static class | [Foo.FooMapInput](#foomapinput)<br> builder for Map payloads |
 | static class | [Foo.FooMap](#foomap)<br> output class for Map payloads |
 
 ## Foo1
@@ -52,7 +54,19 @@ Foo.FooMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FooMap](#foomap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FooMap](#foomap) | validate([Map<String, Object>](#foomapinput) arg, SchemaConfiguration configuration) |
+
+## FooMapInput
+public class FooMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **bar** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## FooMap
 public static class FooMap<br>
@@ -63,17 +77,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FooMap](#foomap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FooMap](#foomap) | of([Map<String, Object>](#foomapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **bar** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

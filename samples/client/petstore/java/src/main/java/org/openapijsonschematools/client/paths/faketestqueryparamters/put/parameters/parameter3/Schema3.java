@@ -29,7 +29,7 @@ public class Schema3 {
         }
     }
     
-    public interface SchemaListInput3 {
+    public class SchemaListInput3 {
         // class to build List<String>
     }
     

@@ -75,7 +75,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     }
     
-    public interface Schema9ListInput {
+    public class Schema9ListInput {
         // class to build List<Object>
     }
     

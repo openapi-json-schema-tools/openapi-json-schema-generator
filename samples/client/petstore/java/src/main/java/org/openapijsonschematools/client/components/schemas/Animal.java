@@ -61,7 +61,11 @@ public class Animal {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AnimalMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Animal1 extends JsonSchema {
         /*

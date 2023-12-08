@@ -41,7 +41,7 @@ public class Pet {
         }
     }
     
-    public interface PhotoUrlsListInput {
+    public class PhotoUrlsListInput {
         // class to build List<String>
     }
     
@@ -85,7 +85,7 @@ public class Pet {
         }
     }
     
-    public interface TagsListInput {
+    public class TagsListInput {
         // class to build List<Map<String, Object>>
     }
     
@@ -159,7 +159,11 @@ public class Pet {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class PetMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Pet1 extends JsonSchema {
         /*

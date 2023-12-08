@@ -67,7 +67,11 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1 extends JsonSchema {
         /*

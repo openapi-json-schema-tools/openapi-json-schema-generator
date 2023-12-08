@@ -44,7 +44,7 @@ public class Schema {
         }
     }
     
-    public interface EnumFormStringArrayListInput {
+    public class EnumFormStringArrayListInput {
         // class to build List<String>
     }
     
@@ -109,7 +109,11 @@ public class Schema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class SchemaMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

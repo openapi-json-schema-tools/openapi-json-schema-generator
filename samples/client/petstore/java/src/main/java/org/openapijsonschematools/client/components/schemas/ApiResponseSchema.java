@@ -64,7 +64,11 @@ public class ApiResponseSchema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ApiResponseMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ApiResponseSchema1 extends JsonSchema {
         /*

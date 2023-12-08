@@ -42,7 +42,11 @@ public class GrandparentAnimal {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class GrandparentAnimalMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class GrandparentAnimal1 extends JsonSchema {
         /*

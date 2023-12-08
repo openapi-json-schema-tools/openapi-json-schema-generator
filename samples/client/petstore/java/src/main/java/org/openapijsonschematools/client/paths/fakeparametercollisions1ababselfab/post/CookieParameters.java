@@ -61,7 +61,11 @@ public class CookieParameters {
             throwIfKeyNotPresent(key);
             return (String) get(key);
         }
-    }    
+    }
+    public class CookieParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class CookieParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

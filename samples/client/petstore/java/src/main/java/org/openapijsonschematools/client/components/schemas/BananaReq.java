@@ -55,7 +55,11 @@ public class BananaReq {
             throwIfKeyNotPresent(key);
             return (boolean) get(key);
         }
-    }    
+    }
+    public class BananaReqMapInput {
+        // requiredProperties, optionalProperties, NO additionalProperties
+    }
+    
     
     public static class BananaReq1 extends JsonSchema {
         /*

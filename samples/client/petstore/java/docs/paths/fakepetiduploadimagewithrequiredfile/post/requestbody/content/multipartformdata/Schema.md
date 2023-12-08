@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
+| static class | [Schema.SchemaMapInput](#schemamapinput)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.RequiredFile](#requiredfile)<br> schema class |
 | static class | [Schema.AdditionalMetadata](#additionalmetadata)<br> schema class |
@@ -62,7 +64,20 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | validate([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+
+## SchemaMapInput
+public class SchemaMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **requiredFile** | String | file to upload | |
+| **additionalMetadata** | String | Additional data to pass to server | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## SchemaMap
 public static class SchemaMap<br>
@@ -73,20 +88,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | of([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
 | String | requiredFile()<br> |
 | String | additionalMetadata()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **requiredFile** | String | file to upload | |
-| **additionalMetadata** | String | Additional data to pass to server | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## RequiredFile
 public static class RequiredFile<br>

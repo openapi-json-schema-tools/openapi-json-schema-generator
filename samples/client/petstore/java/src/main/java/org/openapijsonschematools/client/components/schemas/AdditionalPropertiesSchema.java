@@ -41,7 +41,11 @@ public class AdditionalPropertiesSchema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class Schema0MapInput {
+        // Map<String, Object> because additionalProperties == true
+    }
+    
     
     public static class Schema0 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -125,7 +129,11 @@ public class AdditionalPropertiesSchema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class Schema1MapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -209,7 +217,11 @@ public class AdditionalPropertiesSchema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class Schema2MapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class Schema2 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

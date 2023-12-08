@@ -41,7 +41,7 @@ public class Schema2 {
         }
     }
     
-    public interface SchemaListInput2 {
+    public class SchemaListInput2 {
         // class to build List<String>
     }
     

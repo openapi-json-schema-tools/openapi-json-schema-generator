@@ -61,7 +61,11 @@ public class QueryParameters {
             throwIfKeyNotPresent(key);
             return (String) get(key);
         }
-    }    
+    }
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

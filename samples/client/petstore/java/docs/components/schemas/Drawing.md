@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Drawing.Drawing1](#drawing1)<br> schema class |
+| static class | [Drawing.DrawingMapInput](#drawingmapinput)<br> builder for Map payloads |
 | static class | [Drawing.DrawingMap](#drawingmap)<br> output class for Map payloads |
 | static class | [Drawing.Shapes](#shapes)<br> schema class |
 | static class | [Drawing.ShapesListInput](#shapeslistinput)<br> builder for List payloads |
@@ -60,7 +62,22 @@ Drawing.DrawingMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DrawingMap](#drawingmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [DrawingMap](#drawingmap) | validate([Map<String, Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
+
+## DrawingMapInput
+public class DrawingMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **mainShape** | Object |  | [optional] |
+| **shapeOrNull** | Object |  | [optional] |
+| **nullableShape** | Object |  | [optional] |
+| **shapes** | List<Object> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## DrawingMap
 public static class DrawingMap<br>
@@ -71,24 +88,12 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DrawingMap](#drawingmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [DrawingMap](#drawingmap) | of([Map<String, Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
 | Object | mainShape()<br>[optional] |
 | Object | shapeOrNull()<br>[optional] |
 | Object | nullableShape()<br>[optional] |
 | [ShapesList](#shapeslist) | shapes()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **mainShape** | Object |  | [optional] |
-| **shapeOrNull** | Object |  | [optional] |
-| **nullableShape** | Object |  | [optional] |
-| **shapes** | List<Object> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Shapes
 public static class Shapes<br>

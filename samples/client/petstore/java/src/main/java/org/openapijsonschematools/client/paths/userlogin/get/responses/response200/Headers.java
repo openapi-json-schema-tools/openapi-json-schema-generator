@@ -55,7 +55,11 @@ public class Headers {
             throwIfKeyNotPresent(key);
             return (String) get(key);
         }
-    }    
+    }
+    public class HeadersMapInput {
+        // requiredProperties, optionalProperties, NO additionalProperties
+    }
+    
     
     public static class Headers1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

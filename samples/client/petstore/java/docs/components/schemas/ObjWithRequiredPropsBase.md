@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBase1](#objwithrequiredpropsbase1)<br> schema class |
+| static class | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMapInput](#objwithrequiredpropsbasemapinput)<br> builder for Map payloads |
 | static class | [ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap)<br> output class for Map payloads |
 | static class | [ObjWithRequiredPropsBase.B](#b)<br> schema class |
 
@@ -57,7 +59,19 @@ ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<String, Object>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
+
+## ObjWithRequiredPropsBaseMapInput
+public class ObjWithRequiredPropsBaseMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **b** | String |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjWithRequiredPropsBaseMap
 public static class ObjWithRequiredPropsBaseMap<br>
@@ -68,18 +82,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of([Map<String, Object>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
 | String | b()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **b** | String |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## B
 public static class B<br>

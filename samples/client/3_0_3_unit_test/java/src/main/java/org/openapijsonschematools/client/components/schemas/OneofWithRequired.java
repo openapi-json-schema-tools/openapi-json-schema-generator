@@ -47,7 +47,11 @@ public class OneofWithRequired {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class Schema0MapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Schema0 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -135,7 +139,11 @@ public class OneofWithRequired {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class Schema1MapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Schema1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

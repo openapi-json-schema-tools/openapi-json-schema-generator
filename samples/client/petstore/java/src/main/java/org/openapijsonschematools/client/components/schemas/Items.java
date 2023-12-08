@@ -30,7 +30,7 @@ public class Items {
         }
     }
     
-    public interface ItemsListInput {
+    public class ItemsListInput {
         // class to build List<Map<String, Object>>
     }
     

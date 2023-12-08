@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ReadOnlyFirst.ReadOnlyFirst1](#readonlyfirst1)<br> schema class |
+| static class | [ReadOnlyFirst.ReadOnlyFirstMapInput](#readonlyfirstmapinput)<br> builder for Map payloads |
 | static class | [ReadOnlyFirst.ReadOnlyFirstMap](#readonlyfirstmap)<br> output class for Map payloads |
 | static class | [ReadOnlyFirst.Baz](#baz)<br> schema class |
 | static class | [ReadOnlyFirst.Bar](#bar)<br> schema class |
@@ -62,7 +64,20 @@ ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReadOnlyFirstMap](#readonlyfirstmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map<String, Object>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
+
+## ReadOnlyFirstMapInput
+public class ReadOnlyFirstMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **bar** | String |  | [optional] |
+| **baz** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ReadOnlyFirstMap
 public static class ReadOnlyFirstMap<br>
@@ -73,20 +88,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReadOnlyFirstMap](#readonlyfirstmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ReadOnlyFirstMap](#readonlyfirstmap) | of([Map<String, Object>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | baz()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **bar** | String |  | [optional] |
-| **baz** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Baz
 public static class Baz<br>

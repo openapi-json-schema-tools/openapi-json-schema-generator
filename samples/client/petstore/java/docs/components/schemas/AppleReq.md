@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AppleReq.AppleReq1](#applereq1)<br> schema class |
+| static class | [AppleReq.AppleReqMapInput](#applereqmapinput)<br> builder for Map payloads |
 | static class | [AppleReq.AppleReqMap](#applereqmap)<br> output class for Map payloads |
 | static class | [AppleReq.Mealy](#mealy)<br> schema class |
 | static class | [AppleReq.Cultivar](#cultivar)<br> schema class |
@@ -63,7 +65,19 @@ AppleReq.AppleReqMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AppleReqMap](#applereqmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AppleReqMap](#applereqmap) | validate([Map<String, Object>](#applereqmapinput) arg, SchemaConfiguration configuration) |
+
+## AppleReqMapInput
+public class AppleReqMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **cultivar** | String |  | |
+| **mealy** | boolean |  | [optional] |
 
 ## AppleReqMap
 public static class AppleReqMap<br>
@@ -74,18 +88,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AppleReqMap](#applereqmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AppleReqMap](#applereqmap) | of([Map<String, Object>](#applereqmapinput) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | boolean | mealy()<br>[optional] |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **cultivar** | String |  | |
-| **mealy** | boolean |  | [optional] |
 
 ## Mealy
 public static class Mealy<br>

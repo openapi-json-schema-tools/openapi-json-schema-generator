@@ -33,7 +33,7 @@ public class ArrayTest {
         }
     }
     
-    public interface ArrayOfStringListInput {
+    public class ArrayOfStringListInput {
         // class to build List<String>
     }
     
@@ -64,7 +64,7 @@ public class ArrayTest {
         }
     }
     
-    public interface ItemsListInput {
+    public class ItemsListInput {
         // class to build List<Long>
     }
     
@@ -92,7 +92,7 @@ public class ArrayTest {
         }
     }
     
-    public interface ArrayArrayOfIntegerListInput {
+    public class ArrayArrayOfIntegerListInput {
         // class to build List<List<Long>>
     }
     
@@ -120,7 +120,7 @@ public class ArrayTest {
         }
     }
     
-    public interface ItemsListInput1 {
+    public class ItemsListInput1 {
         // class to build List<Map<String, Object>>
     }
     
@@ -148,7 +148,7 @@ public class ArrayTest {
         }
     }
     
-    public interface ArrayArrayOfModelListInput {
+    public class ArrayArrayOfModelListInput {
         // class to build List<List<Map<String, Object>>>
     }
     
@@ -204,7 +204,11 @@ public class ArrayTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ArrayTestMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ArrayTest1 extends JsonSchema {
         /*

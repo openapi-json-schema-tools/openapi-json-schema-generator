@@ -1,4 +1,4 @@
-{{#each getSchemas}}
+{{#each getJavaSchemas}}
     {{! generate all schemas in post order traversal }}
     {{#eq instanceType "schema" }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/SchemaClass identifierPieces=(append identifierPieces jsonPathPiece) }}
@@ -19,13 +19,13 @@
 {{!> components/schemas/_properties_type }}
                         {{else}}
                             {{#eq instanceType "requiredPropertiesInputType" }}
-{{!> components/schemas/_required_properties_input_type }}
+{{> src/main/java/packagename/components/schemas/_objectInputType }}
                             {{else}}
                                 {{#eq instanceType "optionalPropertiesInputType" }}
-{{!> components/schemas/_optional_properties_input_type }}
+{{> src/main/java/packagename/components/schemas/_objectInputType }}
                                 {{else}}
                                     {{#eq instanceType "propertiesInputType" }}
-{{!> components/schemas/_object_input_type }}
+{{> src/main/java/packagename/components/schemas/_objectInputType }}
                                     {{else}}
                                         {{#eq instanceType "propertiesOutputType" }}
 {{> src/main/java/packagename/components/schemas/_objectOutputType }}

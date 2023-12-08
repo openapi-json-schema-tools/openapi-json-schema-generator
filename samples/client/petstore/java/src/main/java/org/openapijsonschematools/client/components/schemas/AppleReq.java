@@ -55,7 +55,11 @@ public class AppleReq {
             throwIfKeyNotPresent(key);
             return (boolean) get(key);
         }
-    }    
+    }
+    public class AppleReqMapInput {
+        // requiredProperties, optionalProperties, NO additionalProperties
+    }
+    
     
     public static class AppleReq1 extends JsonSchema {
         /*

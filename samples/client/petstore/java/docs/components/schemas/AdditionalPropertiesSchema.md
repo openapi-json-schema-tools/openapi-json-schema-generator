@@ -7,18 +7,22 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AdditionalPropertiesSchema.AdditionalPropertiesSchema1](#additionalpropertiesschema1)<br> schema class |
 | static class | [AdditionalPropertiesSchema.Schema2](#schema2)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema2MapInput](#schema2mapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesSchema.Schema2Map](#schema2map)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesSchema.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | static class | [AdditionalPropertiesSchema.Schema1](#schema1)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesSchema.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesSchema.AdditionalProperties1](#additionalproperties1)<br> schema class |
 | static class | [AdditionalPropertiesSchema.Schema0](#schema0)<br> schema class |
+| static class | [AdditionalPropertiesSchema.Schema0MapInput](#schema0mapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesSchema.Schema0Map](#schema0map)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesSchema.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -76,7 +80,18 @@ AdditionalPropertiesSchema.Schema2Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema2Map](#schema2map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema2Map](#schema2map) | validate([Map<String, Object>](#schema2mapinput) arg, SchemaConfiguration configuration) |
+
+## Schema2MapInput
+public class Schema2MapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema2Map
 public static class Schema2Map<br>
@@ -87,16 +102,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema2Map](#schema2map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema2Map](#schema2map) | of([Map<String, Object>](#schema2mapinput) arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -160,7 +167,18 @@ AdditionalPropertiesSchema.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | validate([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+
+## Schema1MapInput
+public class Schema1MapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -171,16 +189,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | of([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -244,7 +254,18 @@ AdditionalPropertiesSchema.Schema0Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | validate([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+
+## Schema0MapInput
+public class Schema0MapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema0Map
 public static class Schema0Map<br>
@@ -255,16 +276,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

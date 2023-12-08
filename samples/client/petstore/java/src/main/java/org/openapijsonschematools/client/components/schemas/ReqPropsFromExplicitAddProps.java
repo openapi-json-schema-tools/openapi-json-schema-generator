@@ -41,7 +41,11 @@ public class ReqPropsFromExplicitAddProps {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ReqPropsFromExplicitAddPropsMapInput {
+        // requiredProperties + additionalProperties
+    }
+    
     
     public static class ReqPropsFromExplicitAddProps1 extends JsonSchema {
         /*

@@ -50,7 +50,11 @@ public class ObjectModelWithArgAndArgsProperties {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectModelWithArgAndArgsPropertiesMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectModelWithArgAndArgsProperties1 extends JsonSchema {
         /*

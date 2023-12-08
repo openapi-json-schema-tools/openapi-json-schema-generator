@@ -49,7 +49,11 @@ public class ForbiddenProperty {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ForbiddenPropertyMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ForbiddenProperty1 extends JsonSchema {
         /*

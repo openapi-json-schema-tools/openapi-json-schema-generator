@@ -29,7 +29,7 @@ public class ArrayHoldingAnyType {
         }
     }
     
-    public interface ArrayHoldingAnyTypeListInput {
+    public class ArrayHoldingAnyTypeListInput {
         // class to build List<Object>
     }
     

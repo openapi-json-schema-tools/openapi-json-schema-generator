@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema.Schema1](#schema1)<br> schema class |
+| static class | [Schema.SchemaMapInput](#schemamapinput)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.Callback](#callback)<br> schema class |
 | static class | [Schema.Password](#password)<br> schema class |
@@ -122,33 +124,15 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | validate([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
 
-## SchemaMap
-public static class SchemaMap<br>
-extends FrozenMap<String, Object>
+## SchemaMapInput
+public class SchemaMapInput<br>
+builder for `Map<String, Object>`
 
-A class to store validated Map payloads
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| String | pattern_without_delimiter()<br> |
-| int | int32()<br>[optional] value must be a 32 bit integer |
-| long | int64()<br>[optional] value must be a 64 bit integer |
-| String | binary()<br>[optional] |
-| String | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
-| String | dateTime()<br>[optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time |
-| String | password()<br>[optional] |
-| String | callback()<br>[optional] |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+A class that builds the Map input type
 
 ## Input Map Keys
-```
-type: Map<String, Object>
-```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **byte** | String | None | |
@@ -166,6 +150,27 @@ type: Map<String, Object>
 | **password** | String | None | [optional] |
 | **callback** | String | None | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+
+## SchemaMap
+public static class SchemaMap<br>
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [SchemaMap](#schemamap) | of([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| String | pattern_without_delimiter()<br> |
+| int | int32()<br>[optional] value must be a 32 bit integer |
+| long | int64()<br>[optional] value must be a 64 bit integer |
+| String | binary()<br>[optional] |
+| String | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| String | dateTime()<br>[optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time |
+| String | password()<br>[optional] |
+| String | callback()<br>[optional] |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Callback
 public static class Callback<br>

@@ -54,7 +54,11 @@ public class NoAdditionalProperties {
             throwIfKeyNotPresent(key);
             return get(key);
         }
-    }    
+    }
+    public class NoAdditionalPropertiesMapInput {
+        // requiredProperties, optionalProperties, NO additionalProperties
+    }
+    
     
     public static class NoAdditionalProperties1 extends JsonSchema {
         /*

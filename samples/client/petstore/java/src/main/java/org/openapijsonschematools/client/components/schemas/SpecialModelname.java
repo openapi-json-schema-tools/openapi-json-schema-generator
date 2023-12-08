@@ -43,7 +43,11 @@ public class SpecialModelname {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class SpecialModelnameMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class SpecialModelname1 extends JsonSchema {
         /*

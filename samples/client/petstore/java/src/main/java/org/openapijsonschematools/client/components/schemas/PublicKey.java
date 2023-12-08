@@ -43,7 +43,11 @@ public class PublicKey {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class PublicKeyMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class PublicKey1 extends JsonSchema {
         /*

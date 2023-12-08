@@ -29,7 +29,7 @@ public class ArrayTypeMatchesArrays {
         }
     }
     
-    public interface ArrayTypeMatchesArraysListInput {
+    public class ArrayTypeMatchesArraysListInput {
         // class to build List<Object>
     }
     

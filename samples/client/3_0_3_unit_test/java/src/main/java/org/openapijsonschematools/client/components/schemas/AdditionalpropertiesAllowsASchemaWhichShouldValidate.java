@@ -57,7 +57,11 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             throwIfKeyNotPresent(name);
             return (boolean) get(name);
         }
-    }    
+    }
+    public class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput {
+        // optionalProperties + additionalProperties
+    }
+    
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidate1 extends JsonSchema {
         /*

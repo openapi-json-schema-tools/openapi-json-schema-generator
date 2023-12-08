@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RequiredValidation.RequiredValidation1](#requiredvalidation1)<br> schema class |
+| static class | [RequiredValidation.RequiredValidationMapInput](#requiredvalidationmapinput)<br> builder for Map payloads |
 | static class | [RequiredValidation.RequiredValidationMap](#requiredvalidationmap)<br> output class for Map payloads |
 | static class | [RequiredValidation.Bar](#bar)<br> schema class |
 | static class | [RequiredValidation.Foo](#foo)<br> schema class |
@@ -37,8 +39,21 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RequiredValidationMap](#requiredvalidationmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [RequiredValidationMap](#requiredvalidationmap) | validate([Map<String, Object>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## RequiredValidationMapInput
+public class RequiredValidationMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **foo** | Object |  | |
+| **bar** | Object |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## RequiredValidationMap
 public static class RequiredValidationMap<br>
@@ -49,20 +64,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RequiredValidationMap](#requiredvalidationmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [RequiredValidationMap](#requiredvalidationmap) | of([Map<String, Object>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
 | Object | foo()<br> |
 | Object | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | Object |  | |
-| **bar** | Object |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Bar
 public static class Bar<br>

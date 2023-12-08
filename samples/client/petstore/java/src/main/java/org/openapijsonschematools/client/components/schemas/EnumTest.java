@@ -179,7 +179,11 @@ public class EnumTest {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class EnumTestMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class EnumTest1 extends JsonSchema {
         /*

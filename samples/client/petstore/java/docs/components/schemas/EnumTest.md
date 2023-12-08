@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumTest.EnumTest1](#enumtest1)<br> schema class |
+| static class | [EnumTest.EnumTestMapInput](#enumtestmapinput)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
@@ -72,33 +74,15 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | validate([Map<String, Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
 
-## EnumTestMap
-public static class EnumTestMap<br>
-extends FrozenMap<String, Object>
+## EnumTestMapInput
+public class EnumTestMapInput<br>
+builder for `Map<String, Object>`
 
-A class to store validated Map payloads
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| String | enum_string_required()<br> must be one of ["UPPER", "lower", ""] |
-| String | enum_string()<br>[optional] must be one of ["UPPER", "lower", ""] |
-| int | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |
-| double | enum_number()<br>[optional] must be one of [1.1, -1.2] value must be a 64 bit float |
-| String | stringEnum()<br>[optional] |
-| long | IntegerEnum()<br>[optional] |
-| String | StringEnumWithDefaultValue()<br>[optional] |
-| long | IntegerEnumWithDefaultValue()<br>[optional] |
-| long | IntegerEnumOneValue()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+A class that builds the Map input type
 
 ## Input Map Keys
-```
-type: Map<String, Object>
-```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **enum_string_required** | String |  | must be one of ["UPPER", "lower", ""] |
@@ -111,6 +95,27 @@ type: Map<String, Object>
 | **IntegerEnumWithDefaultValue** | long |  | [optional] |
 | **IntegerEnumOneValue** | long |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+
+## EnumTestMap
+public static class EnumTestMap<br>
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [EnumTestMap](#enumtestmap) | of([Map<String, Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| String | enum_string_required()<br> must be one of ["UPPER", "lower", ""] |
+| String | enum_string()<br>[optional] must be one of ["UPPER", "lower", ""] |
+| int | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |
+| double | enum_number()<br>[optional] must be one of [1.1, -1.2] value must be a 64 bit float |
+| String | stringEnum()<br>[optional] |
+| long | IntegerEnum()<br>[optional] |
+| String | StringEnumWithDefaultValue()<br>[optional] |
+| long | IntegerEnumWithDefaultValue()<br>[optional] |
+| long | IntegerEnumOneValue()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## EnumNumber
 public static class EnumNumber<br>

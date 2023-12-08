@@ -41,7 +41,11 @@ public class RequiredWithEscapedCharacters {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class RequiredWithEscapedCharactersMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class RequiredWithEscapedCharacters1 extends JsonSchema {
         /*

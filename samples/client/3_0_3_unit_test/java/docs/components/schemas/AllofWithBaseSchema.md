@@ -7,17 +7,21 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AllofWithBaseSchema.AllofWithBaseSchema1](#allofwithbaseschema1)<br> schema class |
+| static class | [AllofWithBaseSchema.AllofWithBaseSchemaMapInput](#allofwithbaseschemamapinput)<br> builder for Map payloads |
 | static class | [AllofWithBaseSchema.AllofWithBaseSchemaMap](#allofwithbaseschemamap)<br> output class for Map payloads |
 | static class | [AllofWithBaseSchema.Bar](#bar)<br> schema class |
 | static class | [AllofWithBaseSchema.Schema1](#schema1)<br> schema class |
+| static class | [AllofWithBaseSchema.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
 | static class | [AllofWithBaseSchema.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [AllofWithBaseSchema.Baz](#baz)<br> schema class |
 | static class | [AllofWithBaseSchema.Schema0](#schema0)<br> schema class |
+| static class | [AllofWithBaseSchema.Schema0MapInput](#schema0mapinput)<br> builder for Map payloads |
 | static class | [AllofWithBaseSchema.Schema0Map](#schema0map)<br> output class for Map payloads |
 | static class | [AllofWithBaseSchema.Foo](#foo)<br> schema class |
 
@@ -42,8 +46,20 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | validate([Map<String, Object>](#allofwithbaseschemamapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## AllofWithBaseSchemaMapInput
+public class AllofWithBaseSchemaMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **bar** | long |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AllofWithBaseSchemaMap
 public static class AllofWithBaseSchemaMap<br>
@@ -54,18 +70,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | of([Map<String, Object>](#allofwithbaseschemamapinput) arg, SchemaConfiguration configuration) |
 | long | bar()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **bar** | long |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Bar
 public static class Bar<br>
@@ -98,8 +105,20 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema1Map](#schema1map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | validate([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## Schema1MapInput
+public class Schema1MapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **baz** | Void |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema1Map
 public static class Schema1Map<br>
@@ -110,18 +129,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | of([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 | Void | baz()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **baz** | Void |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Baz
 public static class Baz<br>
@@ -154,8 +164,20 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema0Map](#schema0map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | validate([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## Schema0MapInput
+public class Schema0MapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **foo** | String |  | |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema0Map
 public static class Schema0Map<br>
@@ -166,18 +188,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | String | foo()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | String |  | |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Foo
 public static class Foo<br>

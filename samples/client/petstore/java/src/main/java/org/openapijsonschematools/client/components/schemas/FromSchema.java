@@ -54,7 +54,11 @@ public class FromSchema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class FromSchemaMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class FromSchema1 extends JsonSchema {
         /*

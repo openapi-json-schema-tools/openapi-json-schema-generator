@@ -50,7 +50,11 @@ public class Player {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class PlayerMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Player1 extends JsonSchema {
         /*

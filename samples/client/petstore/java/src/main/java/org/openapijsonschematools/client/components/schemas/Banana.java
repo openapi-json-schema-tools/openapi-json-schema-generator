@@ -42,7 +42,11 @@ public class Banana {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class BananaMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Banana1 extends JsonSchema {
         /*

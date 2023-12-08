@@ -44,7 +44,11 @@ public class ObjWithRequiredProps {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjWithRequiredPropsMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjWithRequiredProps1 extends JsonSchema {
         /*

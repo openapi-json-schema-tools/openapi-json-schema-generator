@@ -52,7 +52,11 @@ public class QueryParameters {
         public String some_var() {
             return (String) get("some_var");
         }
-    }    
+    }
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

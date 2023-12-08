@@ -53,7 +53,11 @@ public class HasOnlyReadOnly {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class HasOnlyReadOnlyMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class HasOnlyReadOnly1 extends JsonSchema {
         /*

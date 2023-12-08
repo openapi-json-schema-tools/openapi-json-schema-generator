@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefProps1](#objectmodelwithrefprops1)<br> schema class |
+| static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMapInput](#objectmodelwithrefpropsmapinput)<br> builder for Map payloads |
 | static class | [ObjectModelWithRefProps.ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap)<br> output class for Map payloads |
 
 ## ObjectModelWithRefProps1
@@ -55,7 +57,21 @@ ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<String, Object>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
+
+## ObjectModelWithRefPropsMapInput
+public class ObjectModelWithRefPropsMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **myNumber** | Number |  | [optional] |
+| **myString** | String |  | [optional] |
+| **myBoolean** | boolean |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectModelWithRefPropsMap
 public static class ObjectModelWithRefPropsMap<br>
@@ -66,21 +82,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | of([Map<String, Object>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
 | Number | myNumber()<br>[optional] |
 | String | myString()<br>[optional] |
 | boolean | myBoolean()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **myNumber** | Number |  | [optional] |
-| **myString** | String |  | [optional] |
-| **myBoolean** | boolean |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

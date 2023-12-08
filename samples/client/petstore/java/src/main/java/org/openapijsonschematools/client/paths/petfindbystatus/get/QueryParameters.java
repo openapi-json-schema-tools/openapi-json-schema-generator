@@ -41,7 +41,11 @@ public class QueryParameters {
         public Schema0.SchemaList0 status() {
             return get("status");
         }
-    }    
+    }
+    public class QueryParametersMapInput {
+        // empty mapping
+    }
+    
     
     public static class QueryParameters1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Order.Order1](#order1)<br> schema class |
+| static class | [Order.OrderMapInput](#ordermapinput)<br> builder for Map payloads |
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
 | static class | [Order.Status](#status)<br> schema class |
@@ -82,7 +84,24 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [OrderMap](#ordermap) | validate([Map<String, Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
+
+## OrderMapInput
+public class OrderMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **id** | long |  | [optional] value must be a 64 bit integer |
+| **petId** | long |  | [optional] value must be a 64 bit integer |
+| **quantity** | int |  | [optional] value must be a 32 bit integer |
+| **shipDate** | String |  | [optional] value must conform to RFC-3339 date-time |
+| **status** | String | Order Status | [optional] must be one of ["placed", "approved", "delivered"] |
+| **complete** | boolean |  | [optional] if omitted the server will use the default value of false |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## OrderMap
 public static class OrderMap<br>
@@ -93,7 +112,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [OrderMap](#ordermap) | of([Map<String, Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | long | petId()<br>[optional] value must be a 64 bit integer |
 | int | quantity()<br>[optional] value must be a 32 bit integer |
@@ -101,20 +120,6 @@ A class to store validated Map payloads
 | String | status()<br>[optional] must be one of ["placed", "approved", "delivered"] |
 | boolean | complete()<br>[optional] if omitted the server will use the default value of false |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **id** | long |  | [optional] value must be a 64 bit integer |
-| **petId** | long |  | [optional] value must be a 64 bit integer |
-| **quantity** | int |  | [optional] value must be a 32 bit integer |
-| **shipDate** | String |  | [optional] value must conform to RFC-3339 date-time |
-| **status** | String | Order Status | [optional] must be one of ["placed", "approved", "delivered"] |
-| **complete** | boolean |  | [optional] if omitted the server will use the default value of false |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Complete
 public static class Complete<br>

@@ -47,7 +47,11 @@ public class RequiredDefaultValidation {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class RequiredDefaultValidationMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class RequiredDefaultValidation1 extends JsonSchema {
         /*

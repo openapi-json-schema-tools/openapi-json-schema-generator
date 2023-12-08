@@ -57,7 +57,11 @@ public class AdditionalpropertiesAreAllowedByDefault {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AdditionalpropertiesAreAllowedByDefaultMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class AdditionalpropertiesAreAllowedByDefault1 extends JsonSchema {
         /*

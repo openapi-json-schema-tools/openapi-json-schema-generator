@@ -75,7 +75,11 @@ public class EnumsInProperties {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class EnumsInPropertiesMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class EnumsInProperties1 extends JsonSchema {
         /*

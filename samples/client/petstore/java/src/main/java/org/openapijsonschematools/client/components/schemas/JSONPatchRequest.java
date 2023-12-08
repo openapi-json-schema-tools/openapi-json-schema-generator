@@ -87,7 +87,7 @@ public class JSONPatchRequest {
         }
     }
     
-    public interface JSONPatchRequestListInput {
+    public class JSONPatchRequestListInput {
         // class to build List<Object>
     }
     

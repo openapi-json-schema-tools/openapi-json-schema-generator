@@ -48,7 +48,11 @@ public class Fruit {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class FruitMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Fruit1 extends JsonSchema {
         /*

@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [HealthCheckResult.HealthCheckResult1](#healthcheckresult1)<br> schema class |
+| static class | [HealthCheckResult.HealthCheckResultMapInput](#healthcheckresultmapinput)<br> builder for Map payloads |
 | static class | [HealthCheckResult.HealthCheckResultMap](#healthcheckresultmap)<br> output class for Map payloads |
 | static class | [HealthCheckResult.NullableMessage](#nullablemessage)<br> schema class |
 
@@ -60,7 +62,19 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HealthCheckResultMap](#healthcheckresultmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<String, Object>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
+
+## HealthCheckResultMapInput
+public class HealthCheckResultMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **NullableMessage** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## HealthCheckResultMap
 public static class HealthCheckResultMap<br>
@@ -71,18 +85,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HealthCheckResultMap](#healthcheckresultmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [HealthCheckResultMap](#healthcheckresultmap) | of([Map<String, Object>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
 | String | NullableMessage()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **NullableMessage** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## NullableMessage
 public static class NullableMessage<br>

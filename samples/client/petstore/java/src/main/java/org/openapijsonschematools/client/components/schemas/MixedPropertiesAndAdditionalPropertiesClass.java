@@ -39,7 +39,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class MapSchema extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -81,7 +85,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MixedPropertiesAndAdditionalPropertiesClassMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class MixedPropertiesAndAdditionalPropertiesClass1 extends JsonSchema {
         /*

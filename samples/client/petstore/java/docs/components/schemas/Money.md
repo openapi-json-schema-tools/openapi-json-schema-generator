@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Money.Money1](#money1)<br> schema class |
+| static class | [Money.MoneyMapInput](#moneymapinput)<br> builder for Map payloads |
 | static class | [Money.MoneyMap](#moneymap)<br> output class for Map payloads |
 | static class | [Money.Amount](#amount)<br> schema class |
 | static class | [Money.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -62,7 +64,19 @@ Money.MoneyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MoneyMap](#moneymap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MoneyMap](#moneymap) | validate([Map<String, Object>](#moneymapinput) arg, SchemaConfiguration configuration) |
+
+## MoneyMapInput
+public class MoneyMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **amount** | String |  | value must be int or float numeric |
+| **currency** | String |  | |
 
 ## MoneyMap
 public static class MoneyMap<br>
@@ -73,18 +87,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MoneyMap](#moneymap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MoneyMap](#moneymap) | of([Map<String, Object>](#moneymapinput) arg, SchemaConfiguration configuration) |
 | String | amount()<br> value must be int or float numeric |
 | String | currency()<br> |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **amount** | String |  | value must be int or float numeric |
-| **currency** | String |  | |
 
 ## Amount
 public static class Amount<br>

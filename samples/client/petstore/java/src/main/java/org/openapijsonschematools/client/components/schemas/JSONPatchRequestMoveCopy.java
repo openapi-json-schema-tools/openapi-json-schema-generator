@@ -72,7 +72,11 @@ public class JSONPatchRequestMoveCopy {
         public String path() {
             return get("path");
         }
-    }    
+    }
+    public class JSONPatchRequestMoveCopyMapInput {
+        // empty mapping
+    }
+    
     
     public static class JSONPatchRequestMoveCopy1 extends JsonSchema {
         /*

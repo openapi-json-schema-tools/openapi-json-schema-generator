@@ -39,7 +39,11 @@ public class SelfReferencingObjectModel {
             throwIfKeyNotPresent(name);
             return (SelfReferencingObjectModelMap) get(name);
         }
-    }    
+    }
+    public class SelfReferencingObjectModelMapInput {
+        // optionalProperties + additionalProperties
+    }
+    
     
     public static class SelfReferencingObjectModel1 extends JsonSchema {
         /*

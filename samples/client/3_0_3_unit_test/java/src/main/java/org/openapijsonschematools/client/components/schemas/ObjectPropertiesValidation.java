@@ -58,7 +58,11 @@ public class ObjectPropertiesValidation {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectPropertiesValidationMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectPropertiesValidation1 extends JsonSchema {
         /*

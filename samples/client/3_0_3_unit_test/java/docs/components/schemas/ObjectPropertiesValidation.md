@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectPropertiesValidation.ObjectPropertiesValidation1](#objectpropertiesvalidation1)<br> schema class |
+| static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMapInput](#objectpropertiesvalidationmapinput)<br> builder for Map payloads |
 | static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMap](#objectpropertiesvalidationmap)<br> output class for Map payloads |
 | static class | [ObjectPropertiesValidation.Bar](#bar)<br> schema class |
 | static class | [ObjectPropertiesValidation.Foo](#foo)<br> schema class |
@@ -37,8 +39,21 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<String, Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+
+## ObjectPropertiesValidationMapInput
+public class ObjectPropertiesValidationMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **foo** | long |  | [optional] |
+| **bar** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectPropertiesValidationMap
 public static class ObjectPropertiesValidationMap<br>
@@ -49,20 +64,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
 | long | foo()<br>[optional] |
 | String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | long |  | [optional] |
-| **bar** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Bar
 public static class Bar<br>

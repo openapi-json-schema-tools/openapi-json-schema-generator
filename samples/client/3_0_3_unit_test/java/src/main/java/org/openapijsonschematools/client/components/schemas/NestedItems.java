@@ -29,7 +29,7 @@ public class NestedItems {
         }
     }
     
-    public interface ItemsListInput {
+    public class ItemsListInput {
         // class to build List<Number>
     }
     
@@ -57,7 +57,7 @@ public class NestedItems {
         }
     }
     
-    public interface ItemsListInput1 {
+    public class ItemsListInput1 {
         // class to build List<List<Number>>
     }
     
@@ -85,7 +85,7 @@ public class NestedItems {
         }
     }
     
-    public interface ItemsListInput2 {
+    public class ItemsListInput2 {
         // class to build List<List<List<Number>>>
     }
     
@@ -113,7 +113,7 @@ public class NestedItems {
         }
     }
     
-    public interface NestedItemsListInput {
+    public class NestedItemsListInput {
         // class to build List<List<List<List<Number>>>>
     }
     

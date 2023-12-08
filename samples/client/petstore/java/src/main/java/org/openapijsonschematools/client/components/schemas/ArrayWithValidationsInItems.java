@@ -56,7 +56,7 @@ public class ArrayWithValidationsInItems {
         }
     }
     
-    public interface ArrayWithValidationsInItemsListInput {
+    public class ArrayWithValidationsInItemsListInput {
         // class to build List<Long>
     }
     

@@ -39,7 +39,11 @@ public class ObjectWithInvalidNamedRefedProperties {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectWithInvalidNamedRefedPropertiesMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectWithInvalidNamedRefedProperties1 extends JsonSchema {
         /*

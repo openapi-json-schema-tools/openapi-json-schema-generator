@@ -49,7 +49,11 @@ public class NotMoreComplexSchema {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class NotMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Not extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(

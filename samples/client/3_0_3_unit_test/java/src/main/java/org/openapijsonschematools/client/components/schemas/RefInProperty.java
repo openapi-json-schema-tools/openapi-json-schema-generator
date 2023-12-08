@@ -43,7 +43,11 @@ public class RefInProperty {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class RefInPropertyMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class RefInProperty1 extends JsonSchema {
         /*

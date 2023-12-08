@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Animal.Animal1](#animal1)<br> schema class |
+| static class | [Animal.AnimalMapInput](#animalmapinput)<br> builder for Map payloads |
 | static class | [Animal.AnimalMap](#animalmap)<br> output class for Map payloads |
 | static class | [Animal.Color](#color)<br> schema class |
 | static class | [Animal.ClassName](#classname)<br> schema class |
@@ -62,7 +64,20 @@ Animal.AnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalMap](#animalmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AnimalMap](#animalmap) | validate([Map<String, Object>](#animalmapinput) arg, SchemaConfiguration configuration) |
+
+## AnimalMapInput
+public class AnimalMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **className** | String |  | |
+| **color** | String |  | [optional] if omitted the server will use the default value of red |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AnimalMap
 public static class AnimalMap<br>
@@ -73,20 +88,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalMap](#animalmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AnimalMap](#animalmap) | of([Map<String, Object>](#animalmapinput) arg, SchemaConfiguration configuration) |
 | String | className()<br> |
 | String | color()<br>[optional] if omitted the server will use the default value of red |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **className** | String |  | |
-| **color** | String |  | [optional] if omitted the server will use the default value of red |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Color
 public static class Color<br>

@@ -7,12 +7,14 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [NotMoreComplexSchema.NotMoreComplexSchema1](#notmorecomplexschema1)<br> schema class |
 | static class | [NotMoreComplexSchema.Not](#not)<br> schema class |
+| static class | [NotMoreComplexSchema.NotMapInput](#notmapinput)<br> builder for Map payloads |
 | static class | [NotMoreComplexSchema.NotMap](#notmap)<br> output class for Map payloads |
 | static class | [NotMoreComplexSchema.Foo](#foo)<br> schema class |
 
@@ -82,7 +84,19 @@ NotMoreComplexSchema.NotMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NotMap](#notmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NotMap](#notmap) | validate([Map<String, Object>](#notmapinput) arg, SchemaConfiguration configuration) |
+
+## NotMapInput
+public class NotMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **foo** | String |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## NotMap
 public static class NotMap<br>
@@ -93,18 +107,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NotMap](#notmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [NotMap](#notmap) | of([Map<String, Object>](#notmapinput) arg, SchemaConfiguration configuration) |
 | String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **foo** | String |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Foo
 public static class Foo<br>

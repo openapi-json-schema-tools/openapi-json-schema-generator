@@ -29,7 +29,7 @@ public class Drawing {
         }
     }
     
-    public interface ShapesListInput {
+    public class ShapesListInput {
         // class to build List<Object>
     }
     
@@ -91,7 +91,11 @@ public class Drawing {
             throwIfKeyNotPresent(name);
             return (Object) get(name);
         }
-    }    
+    }
+    public class DrawingMapInput {
+        // optionalProperties + additionalProperties
+    }
+    
     
     public static class Drawing1 extends JsonSchema {
         /*

@@ -548,7 +548,11 @@ public class AnyTypeAndFormat {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AnyTypeAndFormatMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class AnyTypeAndFormat1 extends JsonSchema {
         /*

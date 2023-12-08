@@ -53,7 +53,11 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class Schema0MapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class Schema0 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -128,7 +132,11 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AdditionalpropertiesShouldNotLookInApplicatorsMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class AdditionalpropertiesShouldNotLookInApplicators1 extends JsonSchema {
         /*

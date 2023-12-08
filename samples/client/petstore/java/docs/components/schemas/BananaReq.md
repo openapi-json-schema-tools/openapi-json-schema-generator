@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BananaReq.BananaReq1](#bananareq1)<br> schema class |
+| static class | [BananaReq.BananaReqMapInput](#bananareqmapinput)<br> builder for Map payloads |
 | static class | [BananaReq.BananaReqMap](#bananareqmap)<br> output class for Map payloads |
 | static class | [BananaReq.Sweet](#sweet)<br> schema class |
 | static class | [BananaReq.LengthCm](#lengthcm)<br> schema class |
@@ -63,7 +65,19 @@ BananaReq.BananaReqMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BananaReqMap](#bananareqmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [BananaReqMap](#bananareqmap) | validate([Map<String, Object>](#bananareqmapinput) arg, SchemaConfiguration configuration) |
+
+## BananaReqMapInput
+public class BananaReqMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **lengthCm** | Number |  | |
+| **sweet** | boolean |  | [optional] |
 
 ## BananaReqMap
 public static class BananaReqMap<br>
@@ -74,18 +88,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BananaReqMap](#bananareqmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [BananaReqMap](#bananareqmap) | of([Map<String, Object>](#bananareqmapinput) arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
 | boolean | sweet()<br>[optional] |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **lengthCm** | Number |  | |
-| **sweet** | boolean |  | [optional] |
 
 ## Sweet
 public static class Sweet<br>

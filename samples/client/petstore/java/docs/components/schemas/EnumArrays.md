@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumArrays.EnumArrays1](#enumarrays1)<br> schema class |
+| static class | [EnumArrays.EnumArraysMapInput](#enumarraysmapinput)<br> builder for Map payloads |
 | static class | [EnumArrays.EnumArraysMap](#enumarraysmap)<br> output class for Map payloads |
 | static class | [EnumArrays.ArrayEnum](#arrayenum)<br> schema class |
 | static class | [EnumArrays.ArrayEnumListInput](#arrayenumlistinput)<br> builder for List payloads |
@@ -67,7 +69,20 @@ EnumArrays.EnumArraysMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EnumArraysMap](#enumarraysmap) | validate([Map<String, Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+
+## EnumArraysMapInput
+public class EnumArraysMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **just_symbol** | String |  | [optional] must be one of [">=", "$"] |
+| **array_enum** | List<String> |  | [optional] |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## EnumArraysMap
 public static class EnumArraysMap<br>
@@ -78,20 +93,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EnumArraysMap](#enumarraysmap) | of([Map<String, Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
 | String | just_symbol()<br>[optional] must be one of [">=", "$"] |
 | [ArrayEnumList](#arrayenumlist) | array_enum()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **just_symbol** | String |  | [optional] must be one of [">=", "$"] |
-| **array_enum** | List<String> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ArrayEnum
 public static class ArrayEnum<br>

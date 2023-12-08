@@ -43,7 +43,11 @@ public class ObjectWithOptionalTestProp {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectWithOptionalTestPropMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectWithOptionalTestProp1 extends JsonSchema {
         /*

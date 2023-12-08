@@ -32,7 +32,7 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }
     
-    public interface ItemsListInput {
+    public class ItemsListInput {
         // class to build List<Number>
     }
     
@@ -60,7 +60,7 @@ public class ArrayOfArrayOfNumberOnly {
         }
     }
     
-    public interface ArrayArrayNumberListInput {
+    public class ArrayArrayNumberListInput {
         // class to build List<List<Number>>
     }
     
@@ -102,7 +102,11 @@ public class ArrayOfArrayOfNumberOnly {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ArrayOfArrayOfNumberOnlyMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ArrayOfArrayOfNumberOnly1 extends JsonSchema {
         /*

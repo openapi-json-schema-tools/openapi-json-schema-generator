@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [User.User1](#user1)<br> schema class |
+| static class | [User.UserMapInput](#usermapinput)<br> builder for Map payloads |
 | static class | [User.UserMap](#usermap)<br> output class for Map payloads |
 | static class | [User.AnyTypePropNullable](#anytypepropnullable)<br> schema class |
 | static class | [User.AnyTypeExceptNullProp](#anytypeexceptnullprop)<br> schema class |
@@ -102,37 +104,15 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserMap](#usermap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [UserMap](#usermap) | validate([Map<String, Object>](#usermapinput) arg, SchemaConfiguration configuration) |
 
-## UserMap
-public static class UserMap<br>
-extends FrozenMap<String, Object>
+## UserMapInput
+public class UserMapInput<br>
+builder for `Map<String, Object>`
 
-A class to store validated Map payloads
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static [UserMap](#usermap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| long | id()<br>[optional] value must be a 64 bit integer |
-| String | username()<br>[optional] |
-| String | firstName()<br>[optional] |
-| String | lastName()<br>[optional] |
-| String | email()<br>[optional] |
-| String | password()<br>[optional] |
-| String | phone()<br>[optional] |
-| int | userStatus()<br>[optional] value must be a 32 bit integer |
-| FrozenMap<String, Object> | objectWithNoDeclaredProps()<br>[optional] |
-| FrozenMap<String, Object> | objectWithNoDeclaredPropsNullable()<br>[optional] |
-| Object | anyTypeProp()<br>[optional] |
-| Object | anyTypeExceptNullProp()<br>[optional] |
-| Object | anyTypePropNullable()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+A class that builds the Map input type
 
 ## Input Map Keys
-```
-type: Map<String, Object>
-```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **id** | long |  | [optional] value must be a 64 bit integer |
@@ -149,6 +129,31 @@ type: Map<String, Object>
 | **anyTypeExceptNullProp** | Object | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional] |
 | **anyTypePropNullable** | Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+
+## UserMap
+public static class UserMap<br>
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [UserMap](#usermap) | of([Map<String, Object>](#usermapinput) arg, SchemaConfiguration configuration) |
+| long | id()<br>[optional] value must be a 64 bit integer |
+| String | username()<br>[optional] |
+| String | firstName()<br>[optional] |
+| String | lastName()<br>[optional] |
+| String | email()<br>[optional] |
+| String | password()<br>[optional] |
+| String | phone()<br>[optional] |
+| int | userStatus()<br>[optional] value must be a 32 bit integer |
+| FrozenMap<String, Object> | objectWithNoDeclaredProps()<br>[optional] |
+| FrozenMap<String, Object> | objectWithNoDeclaredPropsNullable()<br>[optional] |
+| Object | anyTypeProp()<br>[optional] |
+| Object | anyTypeExceptNullProp()<br>[optional] |
+| Object | anyTypePropNullable()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AnyTypePropNullable
 public static class AnyTypePropNullable<br>

@@ -7,30 +7,38 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClass1](#additionalpropertiesclass1)<br> schema class |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesClassMapInput](#additionalpropertiesclassmapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesClassMap](#additionalpropertiesclassmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesString](#mapwithundeclaredpropertiesstring)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMapInput](#mapwithundeclaredpropertiesstringmapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties5](#additionalproperties5)<br> schema class |
 | static class | [AdditionalPropertiesClass.EmptyMap](#emptymap)<br> schema class |
+| static class | [AdditionalPropertiesClass.EmptyMapMapInput](#emptymapmapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.EmptyMapMap](#emptymapmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties4](#additionalproperties4)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3](#mapwithundeclaredpropertiesanytype3)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3MapInput](#mapwithundeclaredpropertiesanytype3mapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties3](#additionalproperties3)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype2](#mapwithundeclaredpropertiesanytype2)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype1](#mapwithundeclaredpropertiesanytype1)<br> schema class |
 | static class | [AdditionalPropertiesClass.Anytype1](#anytype1)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapOfMapProperty](#mapofmapproperty)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapOfMapPropertyMapInput](#mapofmappropertymapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapOfMapPropertyMap](#mapofmappropertymap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties1](#additionalproperties1)<br> schema class |
+| static class | [AdditionalPropertiesClass.AdditionalPropertiesMapInput](#additionalpropertiesmapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalPropertiesMap](#additionalpropertiesmap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties2](#additionalproperties2)<br> schema class |
 | static class | [AdditionalPropertiesClass.MapProperty](#mapproperty)<br> schema class |
+| static class | [AdditionalPropertiesClass.MapPropertyMapInput](#mappropertymapinput)<br> builder for Map payloads |
 | static class | [AdditionalPropertiesClass.MapPropertyMap](#mappropertymap)<br> output class for Map payloads |
 | static class | [AdditionalPropertiesClass.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -97,32 +105,15 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map<String, Object>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
 
-## AdditionalPropertiesClassMap
-public static class AdditionalPropertiesClassMap<br>
-extends FrozenMap<String, Object>
+## AdditionalPropertiesClassMapInput
+public class AdditionalPropertiesClassMapInput<br>
+builder for `Map<String, Object>`
 
-A class to store validated Map payloads
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| [MapPropertyMap](#mappropertymap) | map_property()<br>[optional] |
-| [MapOfMapPropertyMap](#mapofmappropertymap) | map_of_map_property()<br>[optional] |
-| Object | anytype_1()<br>[optional] |
-| FrozenMap<String, Object> | map_with_undeclared_properties_anytype_1()<br>[optional] |
-| FrozenMap<String, Object> | map_with_undeclared_properties_anytype_2()<br>[optional] |
-| [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | map_with_undeclared_properties_anytype_3()<br>[optional] |
-| [EmptyMapMap](#emptymapmap) | empty_map()<br>[optional] |
-| [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | map_with_undeclared_properties_string()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+A class that builds the Map input type
 
 ## Input Map Keys
-```
-type: Map<String, Object>
-```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **map_property** | Map<String, String> |  | [optional] |
@@ -134,6 +125,26 @@ type: Map<String, Object>
 | **empty_map** | Map<String, Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional] |
 | **map_with_undeclared_properties_string** | Map<String, String> |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+
+## AdditionalPropertiesClassMap
+public static class AdditionalPropertiesClassMap<br>
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | of([Map<String, Object>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
+| [MapPropertyMap](#mappropertymap) | map_property()<br>[optional] |
+| [MapOfMapPropertyMap](#mapofmappropertymap) | map_of_map_property()<br>[optional] |
+| Object | anytype_1()<br>[optional] |
+| FrozenMap<String, Object> | map_with_undeclared_properties_anytype_1()<br>[optional] |
+| FrozenMap<String, Object> | map_with_undeclared_properties_anytype_2()<br>[optional] |
+| [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | map_with_undeclared_properties_anytype_3()<br>[optional] |
+| [EmptyMapMap](#emptymapmap) | empty_map()<br>[optional] |
+| [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | map_with_undeclared_properties_string()<br>[optional] |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MapWithUndeclaredPropertiesString
 public static class MapWithUndeclaredPropertiesString<br>
@@ -173,7 +184,18 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap validatedPayload 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate([Map<String, String>](#mapwithundeclaredpropertiesstringmapinput) arg, SchemaConfiguration configuration) |
+
+## MapWithUndeclaredPropertiesStringMapInput
+public class MapWithUndeclaredPropertiesStringMapInput<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapWithUndeclaredPropertiesStringMap
 public static class MapWithUndeclaredPropertiesStringMap<br>
@@ -184,16 +206,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | of([Map<String, String>](#mapwithundeclaredpropertiesstringmapinput) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties5
 public static class AdditionalProperties5<br>
@@ -246,7 +260,17 @@ AdditionalPropertiesClass.EmptyMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EmptyMapMap](#emptymapmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [EmptyMapMap](#emptymapmap) | validate([Map<String, Object>](#emptymapmapinput) arg, SchemaConfiguration configuration) |
+
+## EmptyMapMapInput
+public class EmptyMapMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
 
 ## EmptyMapMap
 public static class EmptyMapMap<br>
@@ -257,14 +281,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EmptyMapMap](#emptymapmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
+| static [EmptyMapMap](#emptymapmap) | of([Map<String, Object>](#emptymapmapinput) arg, SchemaConfiguration configuration) |
 
 ## AdditionalProperties4
 public static class AdditionalProperties4<br>
@@ -314,7 +331,18 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map<String, Object>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
+
+## MapWithUndeclaredPropertiesAnytype3MapInput
+public class MapWithUndeclaredPropertiesAnytype3MapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapWithUndeclaredPropertiesAnytype3Map
 public static class MapWithUndeclaredPropertiesAnytype3Map<br>
@@ -325,16 +353,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | of([Map<String, Object>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
@@ -414,7 +434,18 @@ AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapOfMapPropertyMap](#mapofmappropertymap) | validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [MapOfMapPropertyMap](#mapofmappropertymap) | validate([Map<String, Map<String, String>>](#mapofmappropertymapinput) arg, SchemaConfiguration configuration) |
+
+## MapOfMapPropertyMapInput
+public class MapOfMapPropertyMapInput<br>
+builder for `Map<String, Map<String, String>>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapOfMapPropertyMap
 public static class MapOfMapPropertyMap<br>
@@ -425,16 +456,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapOfMapPropertyMap](#mapofmappropertymap) | of(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) |
+| static [MapOfMapPropertyMap](#mapofmappropertymap) | of([Map<String, Map<String, String>>](#mapofmappropertymapinput) arg, SchemaConfiguration configuration) |
 | [AdditionalPropertiesMap](#additionalpropertiesmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | Map<String, String> | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -474,7 +497,18 @@ AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<String, String>](#additionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+
+## AdditionalPropertiesMapInput
+public class AdditionalPropertiesMapInput<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalPropertiesMap
 public static class AdditionalPropertiesMap<br>
@@ -485,16 +519,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesMap](#additionalpropertiesmap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesMap](#additionalpropertiesmap) | of([Map<String, String>](#additionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -544,7 +570,18 @@ AdditionalPropertiesClass.MapPropertyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapPropertyMap](#mappropertymap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapPropertyMap](#mappropertymap) | validate([Map<String, String>](#mappropertymapinput) arg, SchemaConfiguration configuration) |
+
+## MapPropertyMapInput
+public class MapPropertyMapInput<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapPropertyMap
 public static class MapPropertyMap<br>
@@ -555,16 +592,8 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapPropertyMap](#mappropertymap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [MapPropertyMap](#mappropertymap) | of([Map<String, String>](#mappropertymapinput) arg, SchemaConfiguration configuration) |
 | String | getAdditionalProperty(String name)<br>provides type safety for additional properties |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **anyStringName** | String | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

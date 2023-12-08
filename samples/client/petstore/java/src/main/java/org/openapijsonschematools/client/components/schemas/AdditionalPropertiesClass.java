@@ -38,7 +38,11 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapPropertyMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class MapProperty extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -72,7 +76,11 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AdditionalPropertiesMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class AdditionalProperties1 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -103,7 +111,11 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapOfMapPropertyMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class MapOfMapProperty extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -146,7 +158,11 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapWithUndeclaredPropertiesAnytype3MapInput {
+        // Map<String, Object> because additionalProperties == true
+    }
+    
     
     public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -177,7 +193,11 @@ public class AdditionalPropertiesClass {
         public static EmptyMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return EmptyMap.validate(arg, configuration);
         }
-    }    
+    }
+    public class EmptyMapMapInput {
+        // empty mapping
+    }
+    
     
     public static class EmptyMap extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -211,7 +231,11 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class MapWithUndeclaredPropertiesStringMapInput {
+        // Map<String, additionalProperties>
+    }
+    
     
     public static class MapWithUndeclaredPropertiesString extends JsonSchema {
         public static final LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>(Map.ofEntries(
@@ -300,7 +324,11 @@ public class AdditionalPropertiesClass {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class AdditionalPropertiesClassMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class AdditionalPropertiesClass1 extends JsonSchema {
         /*

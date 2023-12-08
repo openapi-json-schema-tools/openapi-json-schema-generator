@@ -29,7 +29,7 @@ public class ComposedArray {
         }
     }
     
-    public interface ComposedArrayListInput {
+    public class ComposedArrayListInput {
         // class to build List<Object>
     }
     

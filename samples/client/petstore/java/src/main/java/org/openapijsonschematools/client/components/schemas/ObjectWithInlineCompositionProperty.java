@@ -113,7 +113,11 @@ public class ObjectWithInlineCompositionProperty {
             throwIfKeyNotPresent(name);
             return get(name);
         }
-    }    
+    }
+    public class ObjectWithInlineCompositionPropertyMapInput {
+        // Map<String, Object> because addProps is unset
+    }
+    
     
     public static class ObjectWithInlineCompositionProperty1 extends JsonSchema {
         /*

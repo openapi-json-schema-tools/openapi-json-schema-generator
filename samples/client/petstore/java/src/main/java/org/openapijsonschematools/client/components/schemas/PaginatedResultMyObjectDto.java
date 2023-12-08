@@ -40,7 +40,7 @@ public class PaginatedResultMyObjectDto {
         }
     }
     
-    public interface ResultsListInput {
+    public class ResultsListInput {
         // class to build List<Map<String, String>>
     }
     
@@ -79,7 +79,11 @@ public class PaginatedResultMyObjectDto {
         public ResultsList results() {
             return (ResultsList) get("results");
         }
-    }    
+    }
+    public class PaginatedResultMyObjectDtoMapInput {
+        // empty mapping
+    }
+    
     
     public static class PaginatedResultMyObjectDto1 extends JsonSchema {
         /*

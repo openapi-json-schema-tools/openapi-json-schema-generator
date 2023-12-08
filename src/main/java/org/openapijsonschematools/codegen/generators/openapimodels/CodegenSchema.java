@@ -531,7 +531,7 @@ public class CodegenSchema {
      * Returns all schemas in post order traversal, used by templates to write schema classes
      * @param schemasBeforeImports the input list that stores this and all required schemas
      */
-    private void getAllSchemas(ArrayList<CodegenSchema> schemasBeforeImports, ArrayList<CodegenSchema> schemasAfterImports, int level) {
+    private void getAllSchemas(ArrayList<CodegenSchema> schemasBeforeImports, ArrayList<CodegenSchema> schemasAfterImports, int level, boolean propertyInputTypesUnique) {
         /*
         post order traversal using alphabetic json schema keywords as the order
         keywords with schemas:
@@ -567,11 +567,11 @@ public class CodegenSchema {
             return;
         }
         if (additionalProperties != null) {
-            additionalProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            additionalProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (allOf != null) {
             for (CodegenSchema someSchema: allOf) {
-                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
             }
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "allOfType";
@@ -585,7 +585,7 @@ public class CodegenSchema {
         }
         if (anyOf != null) {
             for (CodegenSchema someSchema: anyOf) {
-                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports,level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports,level + 1, propertyInputTypesUnique);
             }
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "anyOfType";
@@ -607,11 +607,11 @@ public class CodegenSchema {
             schemasBeforeImports.add(extraSchema);
         }
         if (contains != null) {
-            contains.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            contains.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (dependentSchemas != null) {
             for (CodegenSchema someSchema: dependentSchemas.values()) {
-                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
             }
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "propertiesType";
@@ -624,7 +624,7 @@ public class CodegenSchema {
             }
         }
         if (else_ != null) {
-            else_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            else_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (enumInfo != null) {
             // write the class as a separate entity so enum values do not collide with
@@ -636,10 +636,10 @@ public class CodegenSchema {
             schemasBeforeImports.add(extraSchema);
         }
         if (if_ != null) {
-            if_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            if_.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (items != null) {
-            items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            items.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "arrayOutputType";
             extraSchema.items = items;
@@ -669,11 +669,11 @@ public class CodegenSchema {
             }
         }
         if (not != null) {
-            not.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            not.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (oneOf != null) {
             for (CodegenSchema someSchema: oneOf) {
-                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
             }
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "oneOfType";
@@ -687,17 +687,17 @@ public class CodegenSchema {
         }
         if (patternProperties != null) {
             for (CodegenSchema someSchema: patternProperties.values()) {
-                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
             }
         }
         if (prefixItems != null) {
             for (CodegenSchema someSchema: prefixItems) {
-                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
             }
         }
         if (properties != null) {
             for (CodegenSchema someSchema: properties.values()) {
-                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+                someSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
             }
             CodegenSchema extraSchema = new CodegenSchema();
             extraSchema.instanceType = "propertiesType";
@@ -712,11 +712,20 @@ public class CodegenSchema {
         boolean additionalPropertiesIsBooleanSchemaFalse = (additionalProperties != null && additionalProperties.isBooleanSchemaFalse);
         boolean typedDictUseCase = (requiredProperties != null && additionalPropertiesIsBooleanSchemaFalse);
         boolean mappingUseCase = (requiredProperties != null && !additionalPropertiesIsBooleanSchemaFalse && optionalProperties == null);
-        if (typedDictUseCase || mappingUseCase) {
+        boolean generateRequiredInOutTypes;
+        if (propertyInputTypesUnique) {
+            generateRequiredInOutTypes = requiredProperties != null && optionalProperties == null;
+        } else {
+            generateRequiredInOutTypes = typedDictUseCase || mappingUseCase;
+        }
+        if (generateRequiredInOutTypes) {
             CodegenSchema mapIn = new CodegenSchema();
             mapIn.instanceType = "requiredPropertiesInputType";
             mapIn.requiredProperties = requiredProperties;
             mapIn.additionalProperties = additionalProperties;
+            mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapValueSchema = mapValueSchema;
+            mapIn.jsonPath = jsonPath;
 
             CodegenSchema mapOut = new CodegenSchema();
             mapOut.instanceType = "propertiesOutputType";
@@ -743,11 +752,20 @@ public class CodegenSchema {
         }
         typedDictUseCase = (optionalProperties != null && additionalPropertiesIsBooleanSchemaFalse);
         mappingUseCase = (optionalProperties != null && !additionalPropertiesIsBooleanSchemaFalse && requiredProperties == null);
-        if (typedDictUseCase || mappingUseCase) {
+        boolean generateOptionalInOutTypes;
+        if (propertyInputTypesUnique) {
+            generateOptionalInOutTypes = optionalProperties != null && requiredProperties == null;
+        } else {
+            generateOptionalInOutTypes = typedDictUseCase || mappingUseCase;
+        }
+        if (generateOptionalInOutTypes) {
             CodegenSchema mapIn = new CodegenSchema();
             mapIn.instanceType = "optionalPropertiesInputType";
             mapIn.optionalProperties = optionalProperties;
             mapIn.additionalProperties = additionalProperties;
+            mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapValueSchema = mapValueSchema;
+            mapIn.jsonPath = jsonPath;
 
             CodegenSchema mapOut = new CodegenSchema();
             mapOut.instanceType = "propertiesOutputType";
@@ -781,6 +799,7 @@ public class CodegenSchema {
             mapIn.requiredProperties = requiredProperties;
             mapIn.additionalProperties = additionalProperties;
             mapIn.mapInputJsonPathPiece = mapInputJsonPathPiece;
+            mapIn.mapValueSchema = mapValueSchema;
             boolean allAreInline;
             boolean addPropsHasAnyRefs = false;
             if (additionalProperties != null) {
@@ -824,16 +843,16 @@ public class CodegenSchema {
             }
         }
         if (propertyNames != null) {
-            propertyNames.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            propertyNames.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (then != null) {
-            then.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            then.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (unevaluatedItems != null) {
-            unevaluatedItems.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            unevaluatedItems.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         if (unevaluatedProperties != null) {
-            unevaluatedProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1);
+            unevaluatedProperties.getAllSchemas(schemasBeforeImports, schemasAfterImports, level + 1, propertyInputTypesUnique);
         }
         // end of keyword section
 
@@ -858,7 +877,21 @@ public class CodegenSchema {
         if (allSchemas == null) {
             ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
             ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
-            getAllSchemas(schemasBeforeImports, schemasAfterImports, 0);
+            getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, false);
+            schemasBeforeImports.addAll(schemasAfterImports);
+            allSchemas = schemasBeforeImports;
+        }
+        return allSchemas;
+    }
+
+    public ArrayList<CodegenSchema> getJavaSchemas() {
+        // for Java, requiredProperties, optionalProperties, and propertiesInput must
+        // each be returned only once for a schema
+        // for python, they can be returned multiple times
+        if (allSchemas == null) {
+            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
+            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
+            getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, true);
             schemasBeforeImports.addAll(schemasAfterImports);
             allSchemas = schemasBeforeImports;
         }

@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [FormatTest.FormatTest1](#formattest1)<br> schema class |
+| static class | [FormatTest.FormatTestMapInput](#formattestmapinput)<br> builder for Map payloads |
 | static class | [FormatTest.FormatTestMap](#formattestmap)<br> output class for Map payloads |
 | static class | [FormatTest.NoneProp](#noneprop)<br> schema class |
 | static class | [FormatTest.PatternWithDigitsAndDelimiter](#patternwithdigitsanddelimiter)<br> schema class |
@@ -162,39 +164,15 @@ FormatTest.FormatTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FormatTestMap](#formattestmap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [FormatTestMap](#formattestmap) | validate([Map<String, Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
 
-## FormatTestMap
-public static class FormatTestMap<br>
-extends FrozenMap<String, Object>
+## FormatTestMapInput
+public class FormatTestMapInput<br>
+builder for `Map<String, Object>`
 
-A class to store validated Map payloads
-
-### Method Summary
-| Modifier and Type | Method and Description |
-| ----------------- | ---------------------- |
-| static [FormatTestMap](#formattestmap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
-| String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
-| String | password()<br> |
-| int | int32()<br>[optional] value must be a 32 bit integer |
-| int | int32withValidations()<br>[optional] value must be a 32 bit integer |
-| long | int64()<br>[optional] value must be a 64 bit integer |
-| float | float32()<br>[optional] value must be a 32 bit float |
-| double | float64()<br>[optional] value must be a 64 bit float |
-| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | arrayWithUniqueItems()<br>[optional] |
-| String | binary()<br>[optional] |
-| String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
-| String | uuidNoExample()<br>[optional] value must be a uuid |
-| String | pattern_with_digits()<br>[optional] |
-| String | pattern_with_digits_and_delimiter()<br>[optional] |
-| Void | noneProp()<br>[optional] |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+A class that builds the Map input type
 
 ## Input Map Keys
-```
-type: Map<String, Object>
-```
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **byte** | String |  | |
@@ -219,6 +197,33 @@ type: Map<String, Object>
 | **pattern_with_digits_and_delimiter** | String | A string starting with &#x27;image_&#x27; (case insensitive) and one to three digits following i.e. Image_01. | [optional] |
 | **noneProp** | Void |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+
+## FormatTestMap
+public static class FormatTestMap<br>
+extends FrozenMap<String, Object>
+
+A class to store validated Map payloads
+
+### Method Summary
+| Modifier and Type | Method and Description |
+| ----------------- | ---------------------- |
+| static [FormatTestMap](#formattestmap) | of([Map<String, Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
+| String | password()<br> |
+| int | int32()<br>[optional] value must be a 32 bit integer |
+| int | int32withValidations()<br>[optional] value must be a 32 bit integer |
+| long | int64()<br>[optional] value must be a 64 bit integer |
+| float | float32()<br>[optional] value must be a 32 bit float |
+| double | float64()<br>[optional] value must be a 64 bit float |
+| [ArrayWithUniqueItemsList](#arraywithuniqueitemslist) | arrayWithUniqueItems()<br>[optional] |
+| String | binary()<br>[optional] |
+| String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
+| String | uuidNoExample()<br>[optional] value must be a uuid |
+| String | pattern_with_digits()<br>[optional] |
+| String | pattern_with_digits_and_delimiter()<br>[optional] |
+| Void | noneProp()<br>[optional] |
+| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
+| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NoneProp
 public static class NoneProp<br>

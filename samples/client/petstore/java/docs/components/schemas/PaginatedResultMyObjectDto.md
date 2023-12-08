@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1](#paginatedresultmyobjectdto1)<br> schema class |
+| static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMapInput](#paginatedresultmyobjectdtomapinput)<br> builder for Map payloads |
 | static class | [PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap)<br> output class for Map payloads |
 | static class | [PaginatedResultMyObjectDto.Results](#results)<br> schema class |
 | static class | [PaginatedResultMyObjectDto.ResultsListInput](#resultslistinput)<br> builder for List payloads |
@@ -66,7 +68,19 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map<String, Object>](#paginatedresultmyobjectdtomapinput) arg, SchemaConfiguration configuration) |
+
+## PaginatedResultMyObjectDtoMapInput
+public class PaginatedResultMyObjectDtoMapInput<br>
+builder for `Map<String, Object>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **count** | long |  | |
+| **results** | List<Map<String, String>> |  | |
 
 ## PaginatedResultMyObjectDtoMap
 public static class PaginatedResultMyObjectDtoMap<br>
@@ -77,18 +91,9 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | of(Map<String, Object> arg, SchemaConfiguration configuration) |
+| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | of([Map<String, Object>](#paginatedresultmyobjectdtomapinput) arg, SchemaConfiguration configuration) |
 | long | count()<br> |
 | [ResultsList](#resultslist) | results()<br> |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **count** | long |  | |
-| **results** | List<Map<String, String>> |  | |
 
 ## Results
 public static class Results<br>

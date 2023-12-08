@@ -7,11 +7,13 @@ A class that contains necessary nested
 - classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1](#jsonpatchrequestmovecopy1)<br> schema class |
+| static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapInput](#jsonpatchrequestmovecopymapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.Op](#op)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.Path](#path)<br> schema class |
@@ -68,7 +70,20 @@ JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<String, String>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
+
+## JSONPatchRequestMoveCopyMapInput
+public class JSONPatchRequestMoveCopyMapInput<br>
+builder for `Map<String, String>`
+
+A class that builds the Map input type
+
+## Input Map Keys
+| Key | Type |  Description | Notes |
+| --- | ---- | ------------ | ----- |
+| **from** | String | A JSON Pointer path. | |
+| **op** | String | The operation to perform. | must be one of ["move", "copy"] |
+| **path** | String | A JSON Pointer path. | |
 
 ## JSONPatchRequestMoveCopyMap
 public static class JSONPatchRequestMoveCopyMap<br>
@@ -79,20 +94,10 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | of(Map<String, String> arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | of([Map<String, String>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
 | String | from()<br> |
 | String | op()<br> must be one of ["move", "copy"] |
 | String | path()<br> |
-
-## Input Map Keys
-```
-type: Map<String, Object>
-```
-| Key | Type |  Description | Notes |
-| --- | ---- | ------------ | ----- |
-| **from** | String | A JSON Pointer path. | |
-| **op** | String | The operation to perform. | must be one of ["move", "copy"] |
-| **path** | String | A JSON Pointer path. | |
 
 ## Op
 public static class Op<br>

@@ -44,7 +44,11 @@ public class MyObjectDto {
             throwIfKeyNotPresent(key);
             return get(key);
         }
-    }    
+    }
+    public class MyObjectDtoMapInput {
+        // empty mapping
+    }
+    
     
     public static class MyObjectDto1 extends JsonSchema {
         /*
