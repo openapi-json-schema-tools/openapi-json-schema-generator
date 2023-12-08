@@ -4,6 +4,7 @@ import java.util.Map;
 import java.util.Set;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -26,7 +27,7 @@ public class Schema5 {
                     Double.class
                 ))),
                 new KeywordEntry("format", new FormatValidator("double")),
-                new KeywordEntry("enum", new EnumValidator(Set.of(
+                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     1.1,
                     -1.2
                 )))
