@@ -12,15 +12,14 @@ public record ValidationMetadata(
         Set<Class<?>> seenClasses
 ) {
 
-    public boolean validationRanEarlier(Class<? extends JsonSchema> cls) {
-        Map<Class<? extends JsonSchema>, Void> validatedSchemas = validatedPathToSchemas.getOrDefault(pathToItem, null);
-        if (validatedSchemas != null && validatedSchemas.containsKey(cls)) {
+    public boolean validationRanEarlier(JsonSchema schema) {
+        Map<JsonSchema, Void> validatedSchemas = validatedPathToSchemas.getOrDefault(pathToItem, null);
+        if (validatedSchemas != null && validatedSchemas.containsKey(schema)) {
             return true;
         }
-        if (seenClasses.contains(cls)) {
+        if (seenClasses.contains(schema)) {
             return true;
         }
         return false;
     }
-
 }
