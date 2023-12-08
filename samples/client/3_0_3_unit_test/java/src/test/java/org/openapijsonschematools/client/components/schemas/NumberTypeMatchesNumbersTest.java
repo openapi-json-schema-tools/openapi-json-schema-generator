@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class NumberTypeMatchesNumbersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1 schema = JsonSchemaFactory.getInstance(
+        NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class
+    );
 
     @Test
     public void testAFloatIsANumberPasses() {
         // a float is a number
-        NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        schema.validate(
             1.1d,
             configuration
         );
@@ -27,7 +30,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnIntegerIsANumberPasses() {
         // an integer is a number
-        NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        schema.validate(
             1,
             configuration
         );
@@ -36,8 +39,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAStringIsStillNotANumberEvenIfItLooksLikeOneFails() {
         // a string is still not a number, even if it looks like one
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             "1",
             configuration
         ));
@@ -46,8 +48,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testABooleanIsNotANumberFails() {
         // a boolean is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             true,
             configuration
         ));
@@ -56,7 +57,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAFloatWithZeroFractionalPartIsANumberAndAnIntegerPasses() {
         // a float with zero fractional part is a number (and an integer)
-        NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.validate(
+        schema.validate(
             1.0d,
             configuration
         );
@@ -65,8 +66,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testNullIsNotANumberFails() {
         // null is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             (Void) null,
             configuration
         ));
@@ -75,8 +75,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAStringIsNotANumberFails() {
         // a string is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             "foo",
             configuration
         ));
@@ -85,8 +84,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnArrayIsNotANumberFails() {
         // an array is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             Arrays.asList(
             ),
             configuration
@@ -96,8 +94,7 @@ public class NumberTypeMatchesNumbersTest {
     @Test
     public void testAnObjectIsNotANumberFails() {
         // an object is not a number
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            NumberTypeMatchesNumbers.NumberTypeMatchesNumbers1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
             ),
             configuration

@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class UriFormatTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final UriFormat.UriFormat1 schema = JsonSchemaFactory.getInstance(
+        UriFormat.UriFormat1.class
+    );
 
     @Test
     public void testAllStringFormatsIgnoreIntegersPasses() {
         // all string formats ignore integers
-        UriFormat.UriFormat1.validate(
+        schema.validate(
             12,
             configuration
         );
@@ -27,7 +30,7 @@ public class UriFormatTest {
     @Test
     public void testAllStringFormatsIgnoreNullsPasses() {
         // all string formats ignore nulls
-        UriFormat.UriFormat1.validate(
+        schema.validate(
             (Void) null,
             configuration
         );
@@ -36,7 +39,7 @@ public class UriFormatTest {
     @Test
     public void testAllStringFormatsIgnoreObjectsPasses() {
         // all string formats ignore objects
-        UriFormat.UriFormat1.validate(
+        schema.validate(
             MapMaker.makeMap(
             ),
             configuration
@@ -46,7 +49,7 @@ public class UriFormatTest {
     @Test
     public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
-        UriFormat.UriFormat1.validate(
+        schema.validate(
             13.7d,
             configuration
         );
@@ -55,7 +58,7 @@ public class UriFormatTest {
     @Test
     public void testAllStringFormatsIgnoreArraysPasses() {
         // all string formats ignore arrays
-        UriFormat.UriFormat1.validate(
+        schema.validate(
             Arrays.asList(
             ),
             configuration
@@ -65,7 +68,7 @@ public class UriFormatTest {
     @Test
     public void testAllStringFormatsIgnoreBooleansPasses() {
         // all string formats ignore booleans
-        UriFormat.UriFormat1.validate(
+        schema.validate(
             false,
             configuration
         );

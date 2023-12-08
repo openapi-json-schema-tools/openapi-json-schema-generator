@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class MinlengthValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final MinlengthValidation.MinlengthValidation1 schema = JsonSchemaFactory.getInstance(
+        MinlengthValidation.MinlengthValidation1.class
+    );
 
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        MinlengthValidation.MinlengthValidation1.validate(
+        schema.validate(
             "fo",
             configuration
         );
@@ -27,7 +30,7 @@ public class MinlengthValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
-        MinlengthValidation.MinlengthValidation1.validate(
+        schema.validate(
             "foo",
             configuration
         );
@@ -36,7 +39,7 @@ public class MinlengthValidationTest {
     @Test
     public void testIgnoresNonStringsPasses() {
         // ignores non-strings
-        MinlengthValidation.MinlengthValidation1.validate(
+        schema.validate(
             1,
             configuration
         );
@@ -45,8 +48,7 @@ public class MinlengthValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MinlengthValidation.MinlengthValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             "f",
             configuration
         ));
@@ -55,8 +57,7 @@ public class MinlengthValidationTest {
     @Test
     public void testOneSupplementaryUnicodeCodePointIsNotLongEnoughFails() {
         // one supplementary Unicode code point is not long enough
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MinlengthValidation.MinlengthValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             "💩",
             configuration
         ));

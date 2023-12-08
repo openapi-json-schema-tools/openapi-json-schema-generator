@@ -27,25 +27,27 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         Object extra = null;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        for (Map.Entry<String, KeywordValidator> entry: keywordToValidator.entrySet()) {
-            String jsonKeyword = entry.getKey();
-            if (disabledKeywords.contains(jsonKeyword)) {
-               continue;
+        if (keywordToValidator != null) {
+            for (Map.Entry<String, KeywordValidator> entry: keywordToValidator.entrySet()) {
+                String jsonKeyword = entry.getKey();
+                if (disabledKeywords.contains(jsonKeyword)) {
+                   continue;
+                }
+                if (jsonKeyword.equals("additionalProperties") && keywordToValidator.containsKey("properties")) {
+                    extra = keywordToValidator.get("properties").getConstraint();
+                }
+                KeywordValidator validator = entry.getValue();
+                PathToSchemasMap otherPathToSchemas = validator.validate(
+                        this.getClass(),
+                        arg,
+                        validationMetadata,
+                        extra
+                );
+                if (otherPathToSchemas == null) {
+                    continue;
+                }
+                pathToSchemas.update(otherPathToSchemas);
             }
-            if (jsonKeyword.equals("additionalProperties") && keywordToValidator.containsKey("properties")) {
-                extra = keywordToValidator.get("properties").getConstraint();
-            }
-            KeywordValidator validator = entry.getValue();
-            PathToSchemasMap otherPathToSchemas = validator.validate(
-                    this.getClass(),
-                    arg,
-                    validationMetadata,
-                    extra
-            );
-            if (otherPathToSchemas == null) {
-                continue;
-            }
-            pathToSchemas.update(otherPathToSchemas);
         }
         List<Object> pathToItem = validationMetadata.pathToItem();
         if (!pathToSchemas.containsKey(pathToItem)) {

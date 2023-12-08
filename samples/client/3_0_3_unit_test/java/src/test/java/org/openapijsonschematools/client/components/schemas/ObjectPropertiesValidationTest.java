@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class ObjectPropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final ObjectPropertiesValidation.ObjectPropertiesValidation1 schema = JsonSchemaFactory.getInstance(
+        ObjectPropertiesValidation.ObjectPropertiesValidation1.class
+    );
 
     @Test
     public void testBothPropertiesPresentAndValidIsValidPasses() {
         // both properties present and valid is valid
-        ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -36,7 +39,7 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testDoesnTInvalidateOtherPropertiesPasses() {
         // doesn&#x27;t invalidate other properties
-        ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "quux",
@@ -51,7 +54,7 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
-        ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
+        schema.validate(
             12,
             configuration
         );
@@ -60,8 +63,7 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testBothPropertiesInvalidIsInvalidFails() {
         // both properties invalid is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -81,7 +83,7 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        ObjectPropertiesValidation.ObjectPropertiesValidation1.validate(
+        schema.validate(
             Arrays.asList(
             ),
             configuration
@@ -91,8 +93,7 @@ public class ObjectPropertiesValidationTest {
     @Test
     public void testOnePropertyInvalidIsInvalidFails() {
         // one property invalid is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            ObjectPropertiesValidation.ObjectPropertiesValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",

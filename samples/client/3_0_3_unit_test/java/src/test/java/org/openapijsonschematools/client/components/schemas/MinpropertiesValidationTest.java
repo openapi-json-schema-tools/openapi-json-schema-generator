@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class MinpropertiesValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final MinpropertiesValidation.MinpropertiesValidation1 schema = JsonSchemaFactory.getInstance(
+        MinpropertiesValidation.MinpropertiesValidation1.class
+    );
 
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
-        MinpropertiesValidation.MinpropertiesValidation1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -32,7 +35,7 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresOtherNonObjectsPasses() {
         // ignores other non-objects
-        MinpropertiesValidation.MinpropertiesValidation1.validate(
+        schema.validate(
             12,
             configuration
         );
@@ -41,7 +44,7 @@ public class MinpropertiesValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
-        MinpropertiesValidation.MinpropertiesValidation1.validate(
+        schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -59,7 +62,7 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresArraysPasses() {
         // ignores arrays
-        MinpropertiesValidation.MinpropertiesValidation1.validate(
+        schema.validate(
             Arrays.asList(
             ),
             configuration
@@ -69,8 +72,7 @@ public class MinpropertiesValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MinpropertiesValidation.MinpropertiesValidation1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             MapMaker.makeMap(
             ),
             configuration
@@ -80,7 +82,7 @@ public class MinpropertiesValidationTest {
     @Test
     public void testIgnoresStringsPasses() {
         // ignores strings
-        MinpropertiesValidation.MinpropertiesValidation1.validate(
+        schema.validate(
             "",
             configuration
         );

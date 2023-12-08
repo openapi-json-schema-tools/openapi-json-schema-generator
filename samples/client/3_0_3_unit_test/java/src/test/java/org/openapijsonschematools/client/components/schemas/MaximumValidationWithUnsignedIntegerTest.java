@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,12 +14,14 @@ import java.util.AbstractMap;
 
 public class MaximumValidationWithUnsignedIntegerTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1 schema = JsonSchemaFactory.getInstance(
+        MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.class
+    );
 
     @Test
     public void testAboveTheMaximumIsInvalidFails() {
         // above the maximum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             300.5d,
             configuration
         ));
@@ -28,7 +30,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     @Test
     public void testBelowTheMaximumIsInvalidPasses() {
         // below the maximum is invalid
-        MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.validate(
+        schema.validate(
             299.97d,
             configuration
         );
@@ -37,7 +39,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     @Test
     public void testBoundaryPointIntegerIsValidPasses() {
         // boundary point integer is valid
-        MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.validate(
+        schema.validate(
             300,
             configuration
         );
@@ -46,7 +48,7 @@ public class MaximumValidationWithUnsignedIntegerTest {
     @Test
     public void testBoundaryPointFloatIsValidPasses() {
         // boundary point float is valid
-        MaximumValidationWithUnsignedInteger.MaximumValidationWithUnsignedInteger1.validate(
+        schema.validate(
             300.0d,
             configuration
         );

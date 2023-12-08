@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
 
 import java.util.Arrays;
@@ -14,11 +14,14 @@ import java.util.AbstractMap;
 
 public class MinimumValidationWithSignedIntegerTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1 schema = JsonSchemaFactory.getInstance(
+        MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class
+    );
 
     @Test
     public void testBoundaryPointWithFloatIsValidPasses() {
         // boundary point with float is valid
-        MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
+        schema.validate(
             -2.0d,
             configuration
         );
@@ -27,7 +30,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
-        MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
+        schema.validate(
             -2,
             configuration
         );
@@ -36,8 +39,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testIntBelowTheMinimumIsInvalidFails() {
         // int below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             -3,
             configuration
         ));
@@ -46,7 +48,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testPositiveAboveTheMinimumIsValidPasses() {
         // positive above the minimum is valid
-        MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
+        schema.validate(
             0,
             configuration
         );
@@ -55,7 +57,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testNegativeAboveTheMinimumIsValidPasses() {
         // negative above the minimum is valid
-        MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
+        schema.validate(
             -1,
             configuration
         );
@@ -64,7 +66,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
-        MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.validate(
+        schema.validate(
             "x",
             configuration
         );
@@ -73,8 +75,7 @@ public class MinimumValidationWithSignedIntegerTest {
     @Test
     public void testFloatBelowTheMinimumIsInvalidFails() {
         // float below the minimum is invalid
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.class,
+        Assert.assertThrows(ValidationException.class, () -> schema.validate(
             -2.0001d,
             configuration
         ));
