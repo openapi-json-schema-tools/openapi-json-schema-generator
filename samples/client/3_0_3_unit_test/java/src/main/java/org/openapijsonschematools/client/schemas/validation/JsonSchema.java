@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, ListInItemType, ListOutType> {
+public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, ListInItemType, ListOutItemType, ListOutType> {
     public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
@@ -131,13 +131,13 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
          PathToSchemasMap otherPathToSchemas = validate(arg, validationMetadata);
          pathToSchemasMap.update(otherPathToSchemas);
          for (var schemas: pathToSchemasMap.values()) {
-            JsonSchema<?, ?, ?, ?, ?> firstSchema = schemas.entrySet().iterator().next().getKey();
+            JsonSchema<?, ?, ?, ?, ?, ?> firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
          }
          pathSet.removeAll(pathToSchemasMap.keySet());
          if (!pathSet.isEmpty()) {
-            LinkedHashMap<JsonSchema<?, ?, ?, ?, ?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
             unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
             for (List<Object> pathToItem: pathSet) {
                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
@@ -154,7 +154,7 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
          MapInValueType value = entry.getValue();
-         JsonSchema<?, ?, MapOutValueType, ?, ?> propertySchema = (JsonSchema<?, ?, MapOutValueType, ?, ?>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         JsonSchema<?, ?, MapOutValueType, ?, ?, ?> propertySchema = (JsonSchema<?, ?, MapOutValueType, ?, ?, ?>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          MapOutValueType castValue = (MapOutValueType) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
@@ -167,7 +167,7 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
       for (Object item: arg) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
-         JsonSchema<?, ?, ?, ?, ?> itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+         JsonSchema<?, ?, ?, ?, ?, ?> itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
          Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
          items.add(castItem);
          i += 1;
