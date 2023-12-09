@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public abstract class JsonSchema <MapInValueType, MapOutType extends FrozenMap, ListInItemType, ListOutType extends FrozenList> {
+public abstract class JsonSchema <MapInValueType, MapOutType, ListInItemType, ListOutType> {
     public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
@@ -130,14 +130,14 @@ public abstract class JsonSchema <MapInValueType, MapOutType extends FrozenMap, 
       } else {
          PathToSchemasMap otherPathToSchemas = validate(arg, validationMetadata);
          pathToSchemasMap.update(otherPathToSchemas);
-         for (LinkedHashMap<JsonSchema, Void> schemas: pathToSchemasMap.values()) {
-            JsonSchema firstSchema = schemas.entrySet().iterator().next().getKey();
+         for (var schemas: pathToSchemasMap.values()) {
+            JsonSchema<?, ?, ?, ?> firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
          }
          pathSet.removeAll(pathToSchemasMap.keySet());
          if (!pathSet.isEmpty()) {
-            LinkedHashMap<JsonSchema, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            LinkedHashMap<JsonSchema<?, ?, ?, ?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
             unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
             for (List<Object> pathToItem: pathSet) {
                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
@@ -153,7 +153,7 @@ public abstract class JsonSchema <MapInValueType, MapOutType extends FrozenMap, 
          String propertyName = (String) entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
-         JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         JsonSchema<?, ?, ?, ?> propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          Object value = entry.getValue();
          Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
@@ -167,7 +167,7 @@ public abstract class JsonSchema <MapInValueType, MapOutType extends FrozenMap, 
       for (Object item: arg) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
-         JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+         JsonSchema<?, ?, ?, ?> itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
          Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
          items.add(castItem);
          i += 1;
