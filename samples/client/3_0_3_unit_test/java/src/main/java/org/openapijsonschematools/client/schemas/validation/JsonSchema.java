@@ -161,14 +161,14 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
       return new FrozenMap<>(properties);
    }
 
-   private static FrozenList<Object> getItems(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      ArrayList<Object> items = new ArrayList<>();
+   private FrozenList<ListOutItemType> getItems(List<ListInItemType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      ArrayList<ListOutItemType> items = new ArrayList<>();
       int i = 0;
       for (Object item: arg) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
          JsonSchema<?, ?, ?, ?, ?, ?> itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-         Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+         ListOutItemType castItem = (ListOutItemType) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
          items.add(castItem);
          i += 1;
       }
@@ -188,10 +188,16 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
       return getMapOutputInstance(usedArg);
    }
 
+   private ListOutType getNewInstance(List<ListInItemType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      FrozenList<ListOutItemType> usedArg = getItems(arg, pathToItem, pathToSchemas);
+      return getListOutputInstance(usedArg);
+   }
+
    private Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       if (arg instanceof List) {
-         FrozenList<Object> usedArg = getItems((List<?>) arg, pathToItem, pathToSchemas);
-         return getListOutputInstance(usedArg);
+         return getNewInstance((List<ListInItemType>) arg, pathToItem, pathToSchemas);
+      } else if (arg instanceof Map) {
+         return getNewInstance((Map<String, MapInValueType>) arg, pathToItem, pathToSchemas);
       }
       // str, int, float, boolean, null, FileIO, bytes
       return arg;
@@ -266,5 +272,4 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
       PathToSchemasMap pathToSchemasMap = getPathToSchemas(castArg, validationMetadata, pathSet);
       return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
-
 }
