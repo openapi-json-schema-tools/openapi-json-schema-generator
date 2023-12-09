@@ -34,7 +34,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema<FrozenMap, SchemaList> {
+    public static class Schema1 extends JsonSchema<Object, FrozenMap<String, Object>, Map<String, Object>, SchemaList> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

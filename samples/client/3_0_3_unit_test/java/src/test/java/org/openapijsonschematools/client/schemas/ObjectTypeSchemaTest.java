@@ -10,7 +10,6 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -70,7 +69,7 @@ public class ObjectTypeSchemaTest {
     }
 
     public static class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
-        ObjectWithOutputTypeSchemaMap(FrozenMap<? extends String, ?> m) {
+        ObjectWithOutputTypeSchemaMap(FrozenMap<String, Object> m) {
             super(m);
         }
 
@@ -80,7 +79,7 @@ public class ObjectTypeSchemaTest {
     }
 
 
-    public static class ObjectWithOutputTypeSchema extends JsonSchema<ObjectWithOutputTypeSchemaMap, FrozenList> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema<Object, ObjectWithOutputTypeSchemaMap, Object, FrozenList<Object>> {
         public ObjectWithOutputTypeSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -91,8 +90,8 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
-        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new ObjectWithOutputTypeSchemaMap((FrozenMap<? extends String, ?>) arg);
+        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<String, ?> arg) {
+            return new ObjectWithOutputTypeSchemaMap((FrozenMap<String, Object>) arg);
         }
 
         public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

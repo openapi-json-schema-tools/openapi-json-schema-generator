@@ -49,7 +49,7 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema<QueryParametersMap, FrozenList> {
+    public static class QueryParameters1 extends JsonSchema<String, QueryParametersMap, Object, FrozenList<Object>> {
         public QueryParameters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -61,7 +61,7 @@ public class QueryParameters {
         }
         
         @Override
-        protected QueryParametersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+        protected QueryParametersMap getMapOutputInstance(FrozenMap<String, ?> arg) {
             return new QueryParametersMap((FrozenMap<String, String>) arg);
         }
         public QueryParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {

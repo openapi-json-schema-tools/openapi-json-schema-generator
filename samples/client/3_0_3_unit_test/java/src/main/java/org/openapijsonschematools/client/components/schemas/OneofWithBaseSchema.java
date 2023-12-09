@@ -23,7 +23,7 @@ public class OneofWithBaseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class Schema0 extends JsonSchema<Object, FrozenMap, Object, FrozenList> {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(2))
@@ -78,7 +78,7 @@ public class OneofWithBaseSchema {
         }
     }    
     
-    public static class Schema1 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class Schema1 extends JsonSchema<Object, FrozenMap, Object, FrozenList> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(4))

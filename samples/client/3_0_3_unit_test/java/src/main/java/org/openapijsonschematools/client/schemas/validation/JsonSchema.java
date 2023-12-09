@@ -175,7 +175,7 @@ public abstract class JsonSchema <MapInValueType, MapOutType extends FrozenMap, 
       return new FrozenList<>(items);
    }
 
-   protected MapOutType getMapOutputInstance(FrozenMap<?, ?> arg) {
+   protected MapOutType getMapOutputInstance(FrozenMap<String, ?> arg) {
       return (MapOutType) arg;
    }
 

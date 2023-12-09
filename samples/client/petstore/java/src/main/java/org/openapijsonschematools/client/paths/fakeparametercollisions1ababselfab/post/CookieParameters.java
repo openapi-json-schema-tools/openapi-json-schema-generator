@@ -69,7 +69,7 @@ public class CookieParameters {
     }
     
     
-    public static class CookieParameters1 extends JsonSchema<CookieParametersMap, FrozenList> {
+    public static class CookieParameters1 extends JsonSchema<Object, CookieParametersMap, Object, FrozenList<Object>> {
         public CookieParameters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -85,7 +85,7 @@ public class CookieParameters {
         }
         
         @Override
-        protected CookieParametersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+        protected CookieParametersMap getMapOutputInstance(FrozenMap<String, ?> arg) {
             return new CookieParametersMap((FrozenMap<String, Object>) arg);
         }
         public CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {

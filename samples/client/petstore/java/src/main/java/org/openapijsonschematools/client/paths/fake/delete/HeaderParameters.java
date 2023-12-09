@@ -57,7 +57,7 @@ public class HeaderParameters {
     }
     
     
-    public static class HeaderParameters1 extends JsonSchema<HeaderParametersMap, FrozenList> {
+    public static class HeaderParameters1 extends JsonSchema<Object, HeaderParametersMap, Object, FrozenList<Object>> {
         public HeaderParameters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -73,7 +73,7 @@ public class HeaderParameters {
         }
         
         @Override
-        protected HeaderParametersMap getMapOutputInstance(FrozenMap<?, ?> arg) {
+        protected HeaderParametersMap getMapOutputInstance(FrozenMap<String, ?> arg) {
             return new HeaderParametersMap((FrozenMap<String, Object>) arg);
         }
         public HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
