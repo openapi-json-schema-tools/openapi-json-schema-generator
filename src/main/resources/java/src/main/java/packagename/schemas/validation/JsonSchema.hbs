@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
+public abstract class JsonSchema <MapInValueType, MapOutType extends FrozenMap, ListInItemType, ListOutType extends FrozenList> {
     public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
@@ -175,12 +175,12 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
       return new FrozenList<>(items);
    }
 
-   protected T getMapOutputInstance(FrozenMap<?, ?> arg) {
-      return (T) arg;
+   protected MapOutType getMapOutputInstance(FrozenMap<?, ?> arg) {
+      return (MapOutType) arg;
    }
 
-   protected U getListOutputInstance(FrozenList<?> arg) {
-      return (U) arg;
+   protected ListOutType getListOutputInstance(FrozenList<?> arg) {
+      return (ListOutType) arg;
    }
 
    private Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -235,12 +235,12 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
       return (String) validate(arg, configuration);
    }
 
-   protected <T extends FrozenMap> T validateMap(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-      return (T) validate(arg, configuration);
+   protected MapOutType validateMap(Map<String, MapInValueType> arg, SchemaConfiguration configuration) throws ValidationException {
+      return (MapOutType) validate(arg, configuration);
    }
 
-   protected <U extends FrozenList> U validateList(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-      return (U) validate(arg, configuration);
+   protected ListOutType validateList(List<ListInItemType> arg, SchemaConfiguration configuration) throws ValidationException {
+      return (ListOutType) validate(arg, configuration);
    }
 
    // todo add bytes and FileIO

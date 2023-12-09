@@ -1707,6 +1707,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
         imports.add("import "+packageName + ".schemas.validation.JsonSchemaFactory;");
         imports.add("import "+packageName + ".exceptions.ValidationException;");
+        imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for generic
+        imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for generic
     }
 
 

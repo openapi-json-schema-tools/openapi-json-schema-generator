@@ -3,13 +3,15 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.FrozenMap;
+import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.NotValidator;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class NotAnyTypeJsonSchema extends JsonSchema {
+public class NotAnyTypeJsonSchema extends JsonSchema<Object, FrozenMap<String, Object>, Object, FrozenList<Object>> {
     public NotAnyTypeJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))

@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.List;
 import java.util.Set;
 
-public class ListJsonSchema extends JsonSchema<FrozenMap, FrozenList<Object>> {
+public class ListJsonSchema extends JsonSchema<Object, FrozenMap<String, Object>, Object, FrozenList<Object>> {
     public ListJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))

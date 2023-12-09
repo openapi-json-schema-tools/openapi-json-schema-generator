@@ -7,7 +7,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
-public class UnsetAnyTypeJsonSchema extends JsonSchema<FrozenMap, FrozenList> {
+public class UnsetAnyTypeJsonSchema extends JsonSchema<Object, FrozenMap<String, Object>, Object, FrozenList<Object>> {
     public UnsetAnyTypeJsonSchema() {
         super(null);
     }
