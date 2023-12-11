@@ -15,6 +15,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -102,7 +103,7 @@ public class MapTest {
     }
     
     
-    public static class AdditionalProperties2 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class AdditionalProperties2 extends NonCollectionJsonSchema {
         public AdditionalProperties2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

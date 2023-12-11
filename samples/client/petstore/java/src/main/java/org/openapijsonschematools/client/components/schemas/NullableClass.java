@@ -17,6 +17,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -25,7 +26,7 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties3 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class AdditionalProperties3 extends NonCollectionJsonSchema {
         public AdditionalProperties3() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -42,7 +43,7 @@ public class NullableClass {
         }
     }    
     
-    public static class IntegerProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class IntegerProp extends NonCollectionJsonSchema {
         public IntegerProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -74,7 +75,7 @@ public class NullableClass {
         }
     }    
     
-    public static class NumberProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class NumberProp extends NonCollectionJsonSchema {
         public NumberProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -106,7 +107,7 @@ public class NullableClass {
         }
     }    
     
-    public static class BooleanProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class BooleanProp extends NonCollectionJsonSchema {
         public BooleanProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -123,7 +124,7 @@ public class NullableClass {
         }
     }    
     
-    public static class StringProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class StringProp extends NonCollectionJsonSchema {
         public StringProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -140,7 +141,7 @@ public class NullableClass {
         }
     }    
     
-    public static class DateProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class DateProp extends NonCollectionJsonSchema {
         public DateProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -158,7 +159,7 @@ public class NullableClass {
         }
     }    
     
-    public static class DatetimeProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class DatetimeProp extends NonCollectionJsonSchema {
         public DatetimeProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -216,7 +217,7 @@ public class NullableClass {
         }
     }    
     
-    public static class Items1 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Items1 extends NonCollectionJsonSchema {
         public Items1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -270,7 +271,7 @@ public class NullableClass {
         }
     }    
     
-    public static class Items2 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Items2 extends NonCollectionJsonSchema {
         public Items2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -364,7 +365,7 @@ public class NullableClass {
         }
     }    
     
-    public static class AdditionalProperties1 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class AdditionalProperties1 extends NonCollectionJsonSchema {
         public AdditionalProperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -424,7 +425,7 @@ public class NullableClass {
         }
     }    
     
-    public static class AdditionalProperties2 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class AdditionalProperties2 extends NonCollectionJsonSchema {
         public AdditionalProperties2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

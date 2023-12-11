@@ -15,6 +15,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -23,7 +24,7 @@ public class AnyTypeAndFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class UuidSchema extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class UuidSchema extends NonCollectionJsonSchema {
         public UuidSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("uuid"))
@@ -78,7 +79,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Date extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Date extends NonCollectionJsonSchema {
         public Date() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("date"))
@@ -133,7 +134,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Datetime extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Datetime extends NonCollectionJsonSchema {
         public Datetime() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("date-time"))
@@ -188,7 +189,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class NumberSchema extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class NumberSchema extends NonCollectionJsonSchema {
         public NumberSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("number"))
@@ -243,7 +244,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Binary extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Binary extends NonCollectionJsonSchema {
         public Binary() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("binary"))
@@ -298,7 +299,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Int32 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Int32 extends NonCollectionJsonSchema {
         public Int32() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("int32"))
@@ -353,7 +354,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Int64 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Int64 extends NonCollectionJsonSchema {
         public Int64() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("int64"))
@@ -408,7 +409,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class DoubleSchema extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class DoubleSchema extends NonCollectionJsonSchema {
         public DoubleSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("double"))
@@ -463,7 +464,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class FloatSchema extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class FloatSchema extends NonCollectionJsonSchema {
         public FloatSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("float"))

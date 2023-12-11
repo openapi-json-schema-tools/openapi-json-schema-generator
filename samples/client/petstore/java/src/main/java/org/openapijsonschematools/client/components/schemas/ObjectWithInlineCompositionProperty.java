@@ -16,6 +16,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -24,7 +25,7 @@ public class ObjectWithInlineCompositionProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class Schema0 extends NonCollectionJsonSchema {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -38,7 +39,7 @@ public class ObjectWithInlineCompositionProperty {
         }
     }    
     
-    public static class SomeProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class SomeProp extends NonCollectionJsonSchema {
         public SomeProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(

@@ -19,6 +19,7 @@ import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 
 public class AdditionalPropertiesSchema {
@@ -66,7 +67,7 @@ public class AdditionalPropertiesSchema {
     }
     
     
-    public static class AdditionalProperties1 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class AdditionalProperties1 extends NonCollectionJsonSchema {
         public AdditionalProperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(3))
@@ -159,7 +160,7 @@ public class AdditionalPropertiesSchema {
     }
     
     
-    public static class AdditionalProperties2 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class AdditionalProperties2 extends NonCollectionJsonSchema {
         public AdditionalProperties2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(5))

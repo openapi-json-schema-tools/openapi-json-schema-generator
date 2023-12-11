@@ -15,6 +15,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 
@@ -22,7 +23,7 @@ public class JSONPatchRequest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class Items extends NonCollectionJsonSchema {
         public Items() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(

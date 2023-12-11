@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PatternValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
@@ -21,7 +22,7 @@ public class Apple {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Cultivar extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class Cultivar extends NonCollectionJsonSchema {
         public Cultivar() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -37,7 +38,7 @@ public class Apple {
         }
     }    
     
-    public static class Origin extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class Origin extends NonCollectionJsonSchema {
         public Origin() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

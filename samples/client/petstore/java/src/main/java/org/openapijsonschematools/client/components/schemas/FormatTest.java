@@ -29,6 +29,7 @@ import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
 import org.openapijsonschematools.client.schemas.validation.MultipleOfValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PatternValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
@@ -40,7 +41,7 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class IntegerSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class IntegerSchema extends NonCollectionJsonSchema {
         public IntegerSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -74,7 +75,7 @@ public class FormatTest {
     public static class Int32 extends Int32JsonSchema {}
     
     
-    public static class Int32withValidations extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class Int32withValidations extends NonCollectionJsonSchema {
         public Int32withValidations() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -108,7 +109,7 @@ public class FormatTest {
     public static class Int64 extends Int64JsonSchema {}
     
     
-    public static class NumberSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class NumberSchema extends NonCollectionJsonSchema {
         public NumberSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -139,7 +140,7 @@ public class FormatTest {
         }
     }    
     
-    public static class FloatSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class FloatSchema extends NonCollectionJsonSchema {
         public FloatSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -161,7 +162,7 @@ public class FormatTest {
     public static class Float32 extends FloatJsonSchema {}
     
     
-    public static class DoubleSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class DoubleSchema extends NonCollectionJsonSchema {
         public DoubleSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -218,7 +219,7 @@ public class FormatTest {
         }
     }    
     
-    public static class StringSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class StringSchema extends NonCollectionJsonSchema {
         public StringSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -255,7 +256,7 @@ public class FormatTest {
     public static class UuidNoExample extends UuidJsonSchema {}
     
     
-    public static class Password extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class Password extends NonCollectionJsonSchema {
         public Password() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -271,7 +272,7 @@ public class FormatTest {
         }
     }    
     
-    public static class PatternWithDigits extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class PatternWithDigits extends NonCollectionJsonSchema {
         public PatternWithDigits() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -287,7 +288,7 @@ public class FormatTest {
         }
     }    
     
-    public static class PatternWithDigitsAndDelimiter extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class PatternWithDigitsAndDelimiter extends NonCollectionJsonSchema {
         public PatternWithDigitsAndDelimiter() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

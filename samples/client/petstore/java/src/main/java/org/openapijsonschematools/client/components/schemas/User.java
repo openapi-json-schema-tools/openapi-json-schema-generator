@@ -20,6 +20,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.NotValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
@@ -56,7 +57,7 @@ public class User {
     public static class ObjectWithNoDeclaredProps extends MapJsonSchema {}
     
     
-    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class ObjectWithNoDeclaredPropsNullable extends NonCollectionJsonSchema {
         public ObjectWithNoDeclaredPropsNullable() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -79,7 +80,7 @@ public class User {
     public static class Not extends NullJsonSchema {}
     
     
-    public static class AnyTypeExceptNullProp extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
+    public static class AnyTypeExceptNullProp extends NonCollectionJsonSchema {
         public AnyTypeExceptNullProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(Not.class))
