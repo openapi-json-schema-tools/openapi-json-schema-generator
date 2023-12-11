@@ -89,8 +89,8 @@ public class PropertiesWithEscapedCharacters {
         }
         
         @Override
-        protected PropertiesWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new PropertiesWithEscapedCharactersMap((FrozenMap<String, Object>) arg);
+        protected PropertiesWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new PropertiesWithEscapedCharactersMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

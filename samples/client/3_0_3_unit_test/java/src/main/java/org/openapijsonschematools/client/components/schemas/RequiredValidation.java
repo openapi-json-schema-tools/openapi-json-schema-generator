@@ -84,8 +84,8 @@ public class RequiredValidation {
         }
         
         @Override
-        protected RequiredValidationMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new RequiredValidationMap((FrozenMap<String, Object>) arg);
+        protected RequiredValidationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RequiredValidationMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

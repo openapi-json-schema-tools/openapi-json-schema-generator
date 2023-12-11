@@ -84,8 +84,8 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         }
         
         @Override
-        protected AdditionalpropertiesAllowsASchemaWhichShouldValidateMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMap((FrozenMap<String, Object>) arg);
+        protected AdditionalpropertiesAllowsASchemaWhichShouldValidateMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(arg);
         }
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

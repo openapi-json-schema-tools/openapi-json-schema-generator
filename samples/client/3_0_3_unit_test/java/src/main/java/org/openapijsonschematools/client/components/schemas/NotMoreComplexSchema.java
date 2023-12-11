@@ -67,8 +67,8 @@ public class NotMoreComplexSchema {
         }
         
         @Override
-        protected NotMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new NotMap((FrozenMap<String, Object>) arg);
+        protected NotMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new NotMap(arg);
         }
         public NotMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

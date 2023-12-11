@@ -69,8 +69,8 @@ public class RequiredWithEscapedCharacters {
         }
         
         @Override
-        protected RequiredWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new RequiredWithEscapedCharactersMap((FrozenMap<String, Object>) arg);
+        protected RequiredWithEscapedCharactersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RequiredWithEscapedCharactersMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

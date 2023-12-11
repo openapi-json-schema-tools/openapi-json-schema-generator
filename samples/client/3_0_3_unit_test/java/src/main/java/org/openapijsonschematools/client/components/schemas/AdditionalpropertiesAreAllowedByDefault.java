@@ -81,8 +81,8 @@ public class AdditionalpropertiesAreAllowedByDefault {
         }
         
         @Override
-        protected AdditionalpropertiesAreAllowedByDefaultMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AdditionalpropertiesAreAllowedByDefaultMap((FrozenMap<String, Object>) arg);
+        protected AdditionalpropertiesAreAllowedByDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new AdditionalpropertiesAreAllowedByDefaultMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

@@ -66,8 +66,8 @@ public class RefInProperty {
         }
         
         @Override
-        protected RefInPropertyMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new RefInPropertyMap((FrozenMap<String, Object>) arg);
+        protected RefInPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RefInPropertyMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

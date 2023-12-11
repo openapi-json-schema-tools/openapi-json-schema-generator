@@ -56,8 +56,8 @@ public class AdditionalpropertiesCanExistByItself {
         }
         
         @Override
-        protected AdditionalpropertiesCanExistByItselfMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AdditionalpropertiesCanExistByItselfMap((FrozenMap<String, Boolean>) arg);
+        protected AdditionalpropertiesCanExistByItselfMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
+            return new AdditionalpropertiesCanExistByItselfMap(arg);
         }
         public AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

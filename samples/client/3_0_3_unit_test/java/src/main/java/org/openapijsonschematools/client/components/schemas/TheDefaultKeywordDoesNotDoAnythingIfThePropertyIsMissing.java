@@ -94,8 +94,8 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         }
         
         @Override
-        protected TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap((FrozenMap<String, Object>) arg);
+        protected TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap(arg);
         }
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

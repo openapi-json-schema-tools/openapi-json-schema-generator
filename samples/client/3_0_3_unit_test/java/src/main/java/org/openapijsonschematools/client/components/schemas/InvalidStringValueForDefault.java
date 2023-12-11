@@ -82,8 +82,8 @@ public class InvalidStringValueForDefault {
         }
         
         @Override
-        protected InvalidStringValueForDefaultMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new InvalidStringValueForDefaultMap((FrozenMap<String, Object>) arg);
+        protected InvalidStringValueForDefaultMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new InvalidStringValueForDefaultMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

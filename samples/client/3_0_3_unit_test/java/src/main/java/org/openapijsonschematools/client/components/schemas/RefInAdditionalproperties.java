@@ -52,8 +52,8 @@ public class RefInAdditionalproperties {
         }
         
         @Override
-        protected RefInAdditionalpropertiesMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new RefInAdditionalpropertiesMap((FrozenMap<String, Object>) arg);
+        protected RefInAdditionalpropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RefInAdditionalpropertiesMap(arg);
         }
         public RefInAdditionalpropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

@@ -72,8 +72,8 @@ public class ForbiddenProperty {
         }
         
         @Override
-        protected ForbiddenPropertyMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new ForbiddenPropertyMap((FrozenMap<String, Object>) arg);
+        protected ForbiddenPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ForbiddenPropertyMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

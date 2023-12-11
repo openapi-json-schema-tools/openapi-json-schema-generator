@@ -70,8 +70,8 @@ public class RequiredWithEmptyArray {
         }
         
         @Override
-        protected RequiredWithEmptyArrayMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new RequiredWithEmptyArrayMap((FrozenMap<String, Object>) arg);
+        protected RequiredWithEmptyArrayMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new RequiredWithEmptyArrayMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

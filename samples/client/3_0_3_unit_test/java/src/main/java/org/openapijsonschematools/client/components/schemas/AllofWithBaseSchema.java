@@ -69,8 +69,8 @@ public class AllofWithBaseSchema {
         }
         
         @Override
-        protected Schema0Map getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new Schema0Map((FrozenMap<String, Object>) arg);
+        protected Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new Schema0Map(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -164,8 +164,8 @@ public class AllofWithBaseSchema {
         }
         
         @Override
-        protected Schema1Map getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new Schema1Map((FrozenMap<String, Object>) arg);
+        protected Schema1Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new Schema1Map(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -269,8 +269,8 @@ public class AllofWithBaseSchema {
         }
         
         @Override
-        protected AllofWithBaseSchemaMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AllofWithBaseSchemaMap((FrozenMap<String, Object>) arg);
+        protected AllofWithBaseSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new AllofWithBaseSchemaMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

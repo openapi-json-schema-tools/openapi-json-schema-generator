@@ -64,8 +64,8 @@ public class PropertyNamedRefThatIsNotAReference {
         }
         
         @Override
-        protected PropertyNamedRefThatIsNotAReferenceMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new PropertyNamedRefThatIsNotAReferenceMap((FrozenMap<String, Object>) arg);
+        protected PropertyNamedRefThatIsNotAReferenceMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new PropertyNamedRefThatIsNotAReferenceMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

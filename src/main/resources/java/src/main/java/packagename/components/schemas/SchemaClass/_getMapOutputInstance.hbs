@@ -2,14 +2,14 @@
     {{#if mapValueSchema}}
 
 @Override
-protected {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, ?> arg) {
-    return new {{mapOutputJsonPathPiece.camelCase}}((FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}>) arg);
+protected {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg) {
+    return new {{mapOutputJsonPathPiece.camelCase}}(arg);
 }
     {{else}}
 
 @Override
-protected {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, ?> arg) {
-    return new {{mapOutputJsonPathPiece.camelCase}}((FrozenMap<String, Object>) arg);
+protected {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<String, Object> arg) {
+    return new {{mapOutputJsonPathPiece.camelCase}}(arg);
 }
     {{/if}}
 {{/if}}

@@ -109,8 +109,8 @@ public class EnumsInProperties {
         }
         
         @Override
-        protected EnumsInPropertiesMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new EnumsInPropertiesMap((FrozenMap<String, Object>) arg);
+        protected EnumsInPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new EnumsInPropertiesMap(arg);
         }
         public EnumsInPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

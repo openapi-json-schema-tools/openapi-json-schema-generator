@@ -70,8 +70,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
         
         @Override
-        protected Schema0Map getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new Schema0Map((FrozenMap<String, Object>) arg);
+        protected Schema0Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new Schema0Map(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -159,8 +159,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
         
         @Override
-        protected AdditionalpropertiesShouldNotLookInApplicatorsMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AdditionalpropertiesShouldNotLookInApplicatorsMap((FrozenMap<String, Boolean>) arg);
+        protected AdditionalpropertiesShouldNotLookInApplicatorsMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
+            return new AdditionalpropertiesShouldNotLookInApplicatorsMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

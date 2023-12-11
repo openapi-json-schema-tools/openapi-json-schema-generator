@@ -82,8 +82,8 @@ public class ObjectPropertiesValidation {
         }
         
         @Override
-        protected ObjectPropertiesValidationMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new ObjectPropertiesValidationMap((FrozenMap<String, Object>) arg);
+        protected ObjectPropertiesValidationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ObjectPropertiesValidationMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
