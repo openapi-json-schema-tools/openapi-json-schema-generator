@@ -45,8 +45,8 @@ public class NestedItems {
         }
         
         @Override
-        protected ItemsList getListOutputInstance(FrozenList<?> arg) {
-            return new ItemsList((FrozenList<Number>) arg);
+        protected ItemsList getListOutputInstance(FrozenList<Number> arg) {
+            return new ItemsList(arg);
         }
         public ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -76,8 +76,8 @@ public class NestedItems {
         }
         
         @Override
-        protected ItemsList1 getListOutputInstance(FrozenList<?> arg) {
-            return new ItemsList1((FrozenList<ItemsList>) arg);
+        protected ItemsList1 getListOutputInstance(FrozenList<ItemsList> arg) {
+            return new ItemsList1(arg);
         }
         public ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -107,8 +107,8 @@ public class NestedItems {
         }
         
         @Override
-        protected ItemsList2 getListOutputInstance(FrozenList<?> arg) {
-            return new ItemsList2((FrozenList<ItemsList1>) arg);
+        protected ItemsList2 getListOutputInstance(FrozenList<ItemsList1> arg) {
+            return new ItemsList2(arg);
         }
         public ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -144,8 +144,8 @@ public class NestedItems {
         }
         
         @Override
-        protected NestedItemsList getListOutputInstance(FrozenList<?> arg) {
-            return new NestedItemsList((FrozenList<ItemsList2>) arg);
+        protected NestedItemsList getListOutputInstance(FrozenList<ItemsList2> arg) {
+            return new NestedItemsList(arg);
         }
         public NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);

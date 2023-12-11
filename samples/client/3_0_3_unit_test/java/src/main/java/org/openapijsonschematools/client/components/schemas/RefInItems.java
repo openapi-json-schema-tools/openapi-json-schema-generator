@@ -47,8 +47,8 @@ public class RefInItems {
         }
         
         @Override
-        protected RefInItemsList getListOutputInstance(FrozenList<?> arg) {
-            return new RefInItemsList((FrozenList<Object>) arg);
+        protected RefInItemsList getListOutputInstance(FrozenList<Object> arg) {
+            return new RefInItemsList(arg);
         }
         public RefInItemsList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);

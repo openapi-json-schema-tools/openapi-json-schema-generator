@@ -51,8 +51,8 @@ public class ArrayTypeMatchesArrays {
         }
         
         @Override
-        protected ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayTypeMatchesArraysList((FrozenList<Object>) arg);
+        protected ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<Object> arg) {
+            return new ArrayTypeMatchesArraysList(arg);
         }
         public ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
