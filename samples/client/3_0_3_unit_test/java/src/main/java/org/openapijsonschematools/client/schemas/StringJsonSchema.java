@@ -1,6 +1,6 @@
 package org.openapijsonschematools.client.schemas;
 
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -15,7 +15,7 @@ import java.util.Set;
 import java.util.Map;
 import java.util.UUID;
 
-public class StringJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+public class StringJsonSchema extends NonCollectionJsonSchema {
     public StringJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))

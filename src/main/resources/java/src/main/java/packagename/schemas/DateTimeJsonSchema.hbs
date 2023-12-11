@@ -1,6 +1,6 @@
 package {{{packageName}}}.schemas;
 
-import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.NonCollectionJsonSchema;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.configurations.SchemaConfiguration;
@@ -15,7 +15,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
 
-public class DateTimeJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+public class DateTimeJsonSchema extends NonCollectionJsonSchema {
     public DateTimeJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
