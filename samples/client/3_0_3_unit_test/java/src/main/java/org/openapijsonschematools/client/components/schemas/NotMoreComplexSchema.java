@@ -56,7 +56,7 @@ public class NotMoreComplexSchema {
     }
     
     
-    public static class Not extends JsonSchema<Object, NotMap, Object, FrozenList<Object>> {
+    public static class Not extends JsonSchema<Object, Object, NotMap, Object, Object, FrozenList<Object>> {
         public Not() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
