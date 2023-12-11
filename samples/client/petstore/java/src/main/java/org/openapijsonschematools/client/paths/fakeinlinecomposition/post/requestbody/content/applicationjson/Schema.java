@@ -22,7 +22,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends JsonSchema {
+    public static class Schema0 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -36,7 +36,7 @@ public class Schema {
         }
     }    
     
-    public static class Schema1 extends JsonSchema<Object, FrozenMap, Object, FrozenList> {
+    public static class Schema1 extends JsonSchema<Object, Object, FrozenMap, Object, Object, FrozenList> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(

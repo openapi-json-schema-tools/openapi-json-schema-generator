@@ -24,7 +24,7 @@ import java.util.Set;
 public class ArrayTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-    public static class ArrayWithItemsSchema extends JsonSchema<Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class ArrayWithItemsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public ArrayWithItemsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -47,7 +47,7 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public static class ArrayWithOutputClsSchema extends JsonSchema<Object, FrozenMap<String, Object>, String, String, ArrayWithOutputClsSchemaList> {
+    public static class ArrayWithOutputClsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, String, String, ArrayWithOutputClsSchemaList> {
         public ArrayWithOutputClsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

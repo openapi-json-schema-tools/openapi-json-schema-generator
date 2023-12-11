@@ -38,7 +38,7 @@ public class JsonSchemaTest {
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<JsonSchema<?, ?, ?, ?>, Void> validatedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> validatedClasses = new LinkedHashMap<>();
         validatedClasses.put(schema, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);

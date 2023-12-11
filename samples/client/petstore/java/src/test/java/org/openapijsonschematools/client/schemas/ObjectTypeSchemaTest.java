@@ -23,7 +23,7 @@ import java.util.Set;
 public class ObjectTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-    public static class ObjectWithPropsSchema extends JsonSchema {
+    public static class ObjectWithPropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public ObjectWithPropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -39,7 +39,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema {
+    public static class ObjectWithAddpropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public ObjectWithAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -52,7 +52,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema {
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public ObjectWithPropsAndAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -79,7 +79,7 @@ public class ObjectTypeSchemaTest {
     }
 
 
-    public static class ObjectWithOutputTypeSchema extends JsonSchema<Object, ObjectWithOutputTypeSchemaMap, Object, FrozenList<Object>> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema<Object, Object, ObjectWithOutputTypeSchemaMap, Object, Object, FrozenList<Object>> {
         public ObjectWithOutputTypeSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -90,8 +90,8 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
-        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new ObjectWithOutputTypeSchemaMap((FrozenMap<String, Object>) arg);
+        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ObjectWithOutputTypeSchemaMap(arg);
         }
 
         public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

@@ -46,7 +46,7 @@ public class MapTest {
     }
     
     
-    public static class AdditionalProperties extends JsonSchema<String, AdditionalPropertiesMap, Object, FrozenList<Object>> {
+    public static class AdditionalProperties extends JsonSchema<String, String, AdditionalPropertiesMap, Object, Object, FrozenList<Object>> {
         public AdditionalProperties() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -55,8 +55,8 @@ public class MapTest {
         }
         
         @Override
-        protected AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AdditionalPropertiesMap((FrozenMap<String, String>) arg);
+        protected AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
+            return new AdditionalPropertiesMap(arg);
         }
         public AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -84,7 +84,7 @@ public class MapTest {
     }
     
     
-    public static class MapMapOfString extends JsonSchema<Map<String, String>, MapMapOfStringMap, Object, FrozenList<Object>> {
+    public static class MapMapOfString extends JsonSchema<Map<String, String>, AdditionalPropertiesMap, MapMapOfStringMap, Object, Object, FrozenList<Object>> {
         public MapMapOfString() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -93,8 +93,8 @@ public class MapTest {
         }
         
         @Override
-        protected MapMapOfStringMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new MapMapOfStringMap((FrozenMap<String, AdditionalPropertiesMap>) arg);
+        protected MapMapOfStringMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
+            return new MapMapOfStringMap(arg);
         }
         public MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -102,7 +102,7 @@ public class MapTest {
     }
     
     
-    public static class AdditionalProperties2 extends JsonSchema {
+    public static class AdditionalProperties2 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public AdditionalProperties2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -139,7 +139,7 @@ public class MapTest {
     }
     
     
-    public static class MapOfEnumString extends JsonSchema<String, MapOfEnumStringMap, Object, FrozenList<Object>> {
+    public static class MapOfEnumString extends JsonSchema<String, String, MapOfEnumStringMap, Object, Object, FrozenList<Object>> {
         public MapOfEnumString() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -148,8 +148,8 @@ public class MapTest {
         }
         
         @Override
-        protected MapOfEnumStringMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new MapOfEnumStringMap((FrozenMap<String, String>) arg);
+        protected MapOfEnumStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
+            return new MapOfEnumStringMap(arg);
         }
         public MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -180,7 +180,7 @@ public class MapTest {
     }
     
     
-    public static class DirectMap extends JsonSchema<Boolean, DirectMapMap, Object, FrozenList<Object>> {
+    public static class DirectMap extends JsonSchema<Boolean, Boolean, DirectMapMap, Object, Object, FrozenList<Object>> {
         public DirectMap() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -189,8 +189,8 @@ public class MapTest {
         }
         
         @Override
-        protected DirectMapMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new DirectMapMap((FrozenMap<String, Boolean>) arg);
+        protected DirectMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
+            return new DirectMapMap(arg);
         }
         public DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -248,7 +248,7 @@ public class MapTest {
     }
     
     
-    public static class MapTest1 extends JsonSchema<Object, MapTestMap, Object, FrozenList<Object>> {
+    public static class MapTest1 extends JsonSchema<Object, Object, MapTestMap, Object, Object, FrozenList<Object>> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -268,8 +268,8 @@ public class MapTest {
         }
         
         @Override
-        protected MapTestMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new MapTestMap((FrozenMap<String, Object>) arg);
+        protected MapTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new MapTestMap(arg);
         }
         public MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

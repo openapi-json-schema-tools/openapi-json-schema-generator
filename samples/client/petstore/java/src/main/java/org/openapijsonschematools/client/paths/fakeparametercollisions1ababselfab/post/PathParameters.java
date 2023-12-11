@@ -64,7 +64,7 @@ public class PathParameters {
     }
     
     
-    public static class PathParameters1 extends JsonSchema<Object, PathParametersMap, Object, FrozenList<Object>> {
+    public static class PathParameters1 extends JsonSchema<Object, Object, PathParametersMap, Object, Object, FrozenList<Object>> {
         public PathParameters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -87,8 +87,8 @@ public class PathParameters {
         }
         
         @Override
-        protected PathParametersMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new PathParametersMap((FrozenMap<String, Object>) arg);
+        protected PathParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new PathParametersMap(arg);
         }
         public PathParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

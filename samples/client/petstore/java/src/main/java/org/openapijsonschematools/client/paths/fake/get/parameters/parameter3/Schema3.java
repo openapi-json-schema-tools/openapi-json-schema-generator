@@ -18,7 +18,7 @@ public class Schema3 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema31 extends JsonSchema {
+    public static class Schema31 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Schema31() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

@@ -179,7 +179,7 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
       return (MapOutType) arg;
    }
 
-   protected ListOutType getListOutputInstance(FrozenList<?> arg) {
+   protected ListOutType getListOutputInstance(FrozenList<ListOutItemType> arg) {
       return (ListOutType) arg;
    }
 

@@ -20,7 +20,7 @@ public class Schema2 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items2 extends JsonSchema {
+    public static class Items2 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Items2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -51,7 +51,7 @@ public class Schema2 {
     }
     
     
-    public static class Schema21 extends JsonSchema<Object, FrozenMap<String, Object>, String, SchemaList2> {
+    public static class Schema21 extends JsonSchema<Object, Object, FrozenMap<String, Object>, String, String, SchemaList2> {
         public Schema21() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -60,8 +60,8 @@ public class Schema2 {
         }
         
         @Override
-        protected SchemaList2 getListOutputInstance(FrozenList<?> arg) {
-            return new SchemaList2((FrozenList<String>) arg);
+        protected SchemaList2 getListOutputInstance(FrozenList<String> arg) {
+            return new SchemaList2(arg);
         }
         public SchemaList2 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);

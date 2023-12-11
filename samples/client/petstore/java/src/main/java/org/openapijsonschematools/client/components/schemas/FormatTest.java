@@ -40,7 +40,7 @@ public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class IntegerSchema extends JsonSchema {
+    public static class IntegerSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public IntegerSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -74,7 +74,7 @@ public class FormatTest {
     public static class Int32 extends Int32JsonSchema {}
     
     
-    public static class Int32withValidations extends JsonSchema {
+    public static class Int32withValidations extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Int32withValidations() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -108,7 +108,7 @@ public class FormatTest {
     public static class Int64 extends Int64JsonSchema {}
     
     
-    public static class NumberSchema extends JsonSchema {
+    public static class NumberSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public NumberSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -139,7 +139,7 @@ public class FormatTest {
         }
     }    
     
-    public static class FloatSchema extends JsonSchema {
+    public static class FloatSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public FloatSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -161,7 +161,7 @@ public class FormatTest {
     public static class Float32 extends FloatJsonSchema {}
     
     
-    public static class DoubleSchema extends JsonSchema {
+    public static class DoubleSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public DoubleSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -200,7 +200,7 @@ public class FormatTest {
     }
     
     
-    public static class ArrayWithUniqueItems extends JsonSchema<Object, FrozenMap<String, Object>, Number, ArrayWithUniqueItemsList> {
+    public static class ArrayWithUniqueItems extends JsonSchema<Object, Object, FrozenMap<String, Object>, Number, Number, ArrayWithUniqueItemsList> {
         public ArrayWithUniqueItems() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -210,15 +210,15 @@ public class FormatTest {
         }
         
         @Override
-        protected ArrayWithUniqueItemsList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayWithUniqueItemsList((FrozenList<Number>) arg);
+        protected ArrayWithUniqueItemsList getListOutputInstance(FrozenList<Number> arg) {
+            return new ArrayWithUniqueItemsList(arg);
         }
         public ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
     }    
     
-    public static class StringSchema extends JsonSchema {
+    public static class StringSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public StringSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -255,7 +255,7 @@ public class FormatTest {
     public static class UuidNoExample extends UuidJsonSchema {}
     
     
-    public static class Password extends JsonSchema {
+    public static class Password extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Password() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -271,7 +271,7 @@ public class FormatTest {
         }
     }    
     
-    public static class PatternWithDigits extends JsonSchema {
+    public static class PatternWithDigits extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public PatternWithDigits() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -287,7 +287,7 @@ public class FormatTest {
         }
     }    
     
-    public static class PatternWithDigitsAndDelimiter extends JsonSchema {
+    public static class PatternWithDigitsAndDelimiter extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public PatternWithDigitsAndDelimiter() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -431,7 +431,7 @@ public class FormatTest {
     }
     
     
-    public static class FormatTest1 extends JsonSchema<Object, FormatTestMap, Object, FrozenList<Object>> {
+    public static class FormatTest1 extends JsonSchema<Object, Object, FormatTestMap, Object, Object, FrozenList<Object>> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -474,8 +474,8 @@ public class FormatTest {
         }
         
         @Override
-        protected FormatTestMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new FormatTestMap((FrozenMap<String, Object>) arg);
+        protected FormatTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new FormatTestMap(arg);
         }
         public FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

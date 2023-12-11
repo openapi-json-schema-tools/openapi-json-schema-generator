@@ -46,7 +46,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapProperty extends JsonSchema<String, MapPropertyMap, Object, FrozenList<Object>> {
+    public static class MapProperty extends JsonSchema<String, String, MapPropertyMap, Object, Object, FrozenList<Object>> {
         public MapProperty() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -55,8 +55,8 @@ public class AdditionalPropertiesClass {
         }
         
         @Override
-        protected MapPropertyMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new MapPropertyMap((FrozenMap<String, String>) arg);
+        protected MapPropertyMap getMapOutputInstance(FrozenMap<String, String> arg) {
+            return new MapPropertyMap(arg);
         }
         public MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -87,7 +87,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalProperties1 extends JsonSchema<String, AdditionalPropertiesMap, Object, FrozenList<Object>> {
+    public static class AdditionalProperties1 extends JsonSchema<String, String, AdditionalPropertiesMap, Object, Object, FrozenList<Object>> {
         public AdditionalProperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -96,8 +96,8 @@ public class AdditionalPropertiesClass {
         }
         
         @Override
-        protected AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AdditionalPropertiesMap((FrozenMap<String, String>) arg);
+        protected AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
+            return new AdditionalPropertiesMap(arg);
         }
         public AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -125,7 +125,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapOfMapProperty extends JsonSchema<Map<String, String>, MapOfMapPropertyMap, Object, FrozenList<Object>> {
+    public static class MapOfMapProperty extends JsonSchema<Map<String, String>, AdditionalPropertiesMap, MapOfMapPropertyMap, Object, Object, FrozenList<Object>> {
         public MapOfMapProperty() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -134,8 +134,8 @@ public class AdditionalPropertiesClass {
         }
         
         @Override
-        protected MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new MapOfMapPropertyMap((FrozenMap<String, AdditionalPropertiesMap>) arg);
+        protected MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
+            return new MapOfMapPropertyMap(arg);
         }
         public MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -175,7 +175,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema<Object, MapWithUndeclaredPropertiesAnytype3Map, Object, FrozenList<Object>> {
+    public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema<Object, Object, MapWithUndeclaredPropertiesAnytype3Map, Object, Object, FrozenList<Object>> {
         public MapWithUndeclaredPropertiesAnytype3() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -184,8 +184,8 @@ public class AdditionalPropertiesClass {
         }
         
         @Override
-        protected MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new MapWithUndeclaredPropertiesAnytype3Map((FrozenMap<String, Object>) arg);
+        protected MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
         public MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -213,7 +213,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class EmptyMap extends JsonSchema<Object, EmptyMapMap, Object, FrozenList<Object>> {
+    public static class EmptyMap extends JsonSchema<Object, Object, EmptyMapMap, Object, Object, FrozenList<Object>> {
         public EmptyMap() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -222,8 +222,8 @@ public class AdditionalPropertiesClass {
         }
         
         @Override
-        protected EmptyMapMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new EmptyMapMap((FrozenMap<String, Object>) arg);
+        protected EmptyMapMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new EmptyMapMap(arg);
         }
         public EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -254,7 +254,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapWithUndeclaredPropertiesString extends JsonSchema<String, MapWithUndeclaredPropertiesStringMap, Object, FrozenList<Object>> {
+    public static class MapWithUndeclaredPropertiesString extends JsonSchema<String, String, MapWithUndeclaredPropertiesStringMap, Object, Object, FrozenList<Object>> {
         public MapWithUndeclaredPropertiesString() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -263,8 +263,8 @@ public class AdditionalPropertiesClass {
         }
         
         @Override
-        protected MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new MapWithUndeclaredPropertiesStringMap((FrozenMap<String, String>) arg);
+        protected MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
+            return new MapWithUndeclaredPropertiesStringMap(arg);
         }
         public MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -350,7 +350,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalPropertiesClass1 extends JsonSchema<Object, AdditionalPropertiesClassMap, Object, FrozenList<Object>> {
+    public static class AdditionalPropertiesClass1 extends JsonSchema<Object, Object, AdditionalPropertiesClassMap, Object, Object, FrozenList<Object>> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -374,8 +374,8 @@ public class AdditionalPropertiesClass {
         }
         
         @Override
-        protected AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new AdditionalPropertiesClassMap((FrozenMap<String, Object>) arg);
+        protected AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new AdditionalPropertiesClassMap(arg);
         }
         public AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

@@ -36,7 +36,7 @@ public class Schema3 {
     }
     
     
-    public static class Schema31 extends JsonSchema<Object, FrozenMap<String, Object>, String, SchemaList3> {
+    public static class Schema31 extends JsonSchema<Object, Object, FrozenMap<String, Object>, String, String, SchemaList3> {
         public Schema31() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -45,8 +45,8 @@ public class Schema3 {
         }
         
         @Override
-        protected SchemaList3 getListOutputInstance(FrozenList<?> arg) {
-            return new SchemaList3((FrozenList<String>) arg);
+        protected SchemaList3 getListOutputInstance(FrozenList<String> arg) {
+            return new SchemaList3(arg);
         }
         public SchemaList3 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);

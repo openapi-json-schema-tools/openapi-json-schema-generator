@@ -39,7 +39,7 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayOfString extends JsonSchema<Object, FrozenMap<String, Object>, String, ArrayOfStringList> {
+    public static class ArrayOfString extends JsonSchema<Object, Object, FrozenMap<String, Object>, String, String, ArrayOfStringList> {
         public ArrayOfString() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -48,8 +48,8 @@ public class ArrayTest {
         }
         
         @Override
-        protected ArrayOfStringList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayOfStringList((FrozenList<String>) arg);
+        protected ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
+            return new ArrayOfStringList(arg);
         }
         public ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -73,7 +73,7 @@ public class ArrayTest {
     }
     
     
-    public static class Items1 extends JsonSchema<Object, FrozenMap<String, Object>, Long, ItemsList> {
+    public static class Items1 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Long, Long, ItemsList> {
         public Items1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -82,8 +82,8 @@ public class ArrayTest {
         }
         
         @Override
-        protected ItemsList getListOutputInstance(FrozenList<?> arg) {
-            return new ItemsList((FrozenList<Long>) arg);
+        protected ItemsList getListOutputInstance(FrozenList<Long> arg) {
+            return new ItemsList(arg);
         }
         public ItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -104,7 +104,7 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayArrayOfInteger extends JsonSchema<Object, FrozenMap<String, Object>, List<Long>, ArrayArrayOfIntegerList> {
+    public static class ArrayArrayOfInteger extends JsonSchema<Object, Object, FrozenMap<String, Object>, List<Long>, ItemsList, ArrayArrayOfIntegerList> {
         public ArrayArrayOfInteger() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -113,8 +113,8 @@ public class ArrayTest {
         }
         
         @Override
-        protected ArrayArrayOfIntegerList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayArrayOfIntegerList((FrozenList<ItemsList>) arg);
+        protected ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
+            return new ArrayArrayOfIntegerList(arg);
         }
         public ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -135,7 +135,7 @@ public class ArrayTest {
     }
     
     
-    public static class Items3 extends JsonSchema<Object, FrozenMap<String, Object>, Map<String, Object>, ItemsList1> {
+    public static class Items3 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Map<String, Object>, ReadOnlyFirst.ReadOnlyFirstMap, ItemsList1> {
         public Items3() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -144,8 +144,8 @@ public class ArrayTest {
         }
         
         @Override
-        protected ItemsList1 getListOutputInstance(FrozenList<?> arg) {
-            return new ItemsList1((FrozenList<ReadOnlyFirst.ReadOnlyFirstMap>) arg);
+        protected ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
+            return new ItemsList1(arg);
         }
         public ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -166,7 +166,7 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayArrayOfModel extends JsonSchema<Object, FrozenMap<String, Object>, List<Map<String, Object>>, ArrayArrayOfModelList> {
+    public static class ArrayArrayOfModel extends JsonSchema<Object, Object, FrozenMap<String, Object>, List<Map<String, Object>>, ItemsList1, ArrayArrayOfModelList> {
         public ArrayArrayOfModel() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -175,8 +175,8 @@ public class ArrayTest {
         }
         
         @Override
-        protected ArrayArrayOfModelList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayArrayOfModelList((FrozenList<ItemsList1>) arg);
+        protected ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
+            return new ArrayArrayOfModelList(arg);
         }
         public ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -226,7 +226,7 @@ public class ArrayTest {
     }
     
     
-    public static class ArrayTest1 extends JsonSchema<Object, ArrayTestMap, Object, FrozenList<Object>> {
+    public static class ArrayTest1 extends JsonSchema<Object, Object, ArrayTestMap, Object, Object, FrozenList<Object>> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -245,8 +245,8 @@ public class ArrayTest {
         }
         
         @Override
-        protected ArrayTestMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new ArrayTestMap((FrozenMap<String, Object>) arg);
+        protected ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ArrayTestMap(arg);
         }
         public ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

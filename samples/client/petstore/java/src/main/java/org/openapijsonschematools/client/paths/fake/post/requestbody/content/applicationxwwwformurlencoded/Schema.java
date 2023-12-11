@@ -30,7 +30,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class IntegerSchema extends JsonSchema {
+    public static class IntegerSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public IntegerSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -60,7 +60,7 @@ public class Schema {
         }
     }    
     
-    public static class Int32 extends JsonSchema {
+    public static class Int32 extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Int32() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -94,7 +94,7 @@ public class Schema {
     public static class Int64 extends Int64JsonSchema {}
     
     
-    public static class NumberSchema extends JsonSchema {
+    public static class NumberSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public NumberSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -124,7 +124,7 @@ public class Schema {
         }
     }    
     
-    public static class FloatSchema extends JsonSchema {
+    public static class FloatSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public FloatSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -142,7 +142,7 @@ public class Schema {
         }
     }    
     
-    public static class DoubleSchema extends JsonSchema {
+    public static class DoubleSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public DoubleSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -161,7 +161,7 @@ public class Schema {
         }
     }    
     
-    public static class StringSchema extends JsonSchema {
+    public static class StringSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public StringSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -178,7 +178,7 @@ public class Schema {
         }
     }    
     
-    public static class PatternWithoutDelimiter extends JsonSchema {
+    public static class PatternWithoutDelimiter extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public PatternWithoutDelimiter() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -205,7 +205,7 @@ public class Schema {
     public static class Date extends DateJsonSchema {}
     
     
-    public static class DateTime extends JsonSchema {
+    public static class DateTime extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public DateTime() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -219,7 +219,7 @@ public class Schema {
         }
     }    
     
-    public static class Password extends JsonSchema {
+    public static class Password extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Password() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -321,7 +321,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema<Object, SchemaMap, Object, FrozenList<Object>> {
+    public static class Schema1 extends JsonSchema<Object, Object, SchemaMap, Object, Object, FrozenList<Object>> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -351,8 +351,8 @@ public class Schema {
         }
         
         @Override
-        protected SchemaMap getMapOutputInstance(FrozenMap<String, ?> arg) {
-            return new SchemaMap((FrozenMap<String, Object>) arg);
+        protected SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new SchemaMap(arg);
         }
         public SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

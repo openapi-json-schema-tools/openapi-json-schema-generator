@@ -14,7 +14,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
-public class UuidJsonSchema extends JsonSchema<Object, FrozenMap<String, Object>, Object, FrozenList<Object>> {
+public class UuidJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
     public UuidJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
