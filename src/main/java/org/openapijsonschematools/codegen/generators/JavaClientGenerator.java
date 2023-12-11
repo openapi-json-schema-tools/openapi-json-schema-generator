@@ -1705,7 +1705,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         if (schema.mapOutputJsonPathPiece != null || schema.arrayOutputJsonPathPiece != null) {
-            imports.add("import "+packageName + ".schemas.validation.JsonSchema;");
+            imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
+        } else if (schema.types != null && (schema.types.contains("list") || schema.types.contains("object"))) {
+            imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
         } else {
             imports.add("import "+packageName + ".schemas.validation.NonCollectionJsonSchema;");
         }
