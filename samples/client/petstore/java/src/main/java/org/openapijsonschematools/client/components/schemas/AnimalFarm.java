@@ -50,6 +50,11 @@ public class AnimalFarm {
         protected AnimalFarmList getListOutputInstance(FrozenList<Animal.AnimalMap> arg) {
             return new AnimalFarmList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public AnimalFarmList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }

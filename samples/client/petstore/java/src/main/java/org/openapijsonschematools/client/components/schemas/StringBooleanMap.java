@@ -59,6 +59,11 @@ public class StringBooleanMap {
         protected StringBooleanMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
             return new StringBooleanMapMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

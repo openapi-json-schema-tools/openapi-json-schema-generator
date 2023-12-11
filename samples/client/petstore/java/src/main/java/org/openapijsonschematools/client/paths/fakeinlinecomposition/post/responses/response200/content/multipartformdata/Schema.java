@@ -47,6 +47,16 @@ public class Schema {
                 )))
             )));
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }
@@ -138,6 +148,11 @@ public class Schema {
         @Override
         protected SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SchemaMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

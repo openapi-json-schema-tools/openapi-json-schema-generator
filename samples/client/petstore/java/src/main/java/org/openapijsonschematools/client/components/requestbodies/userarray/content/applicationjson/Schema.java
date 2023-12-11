@@ -45,6 +45,11 @@ public class Schema {
         protected SchemaList getListOutputInstance(FrozenList<User.UserMap> arg) {
             return new SchemaList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public SchemaList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }

@@ -92,6 +92,11 @@ public class AbstractStepMessage {
         protected AbstractStepMessageMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AbstractStepMessageMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public AbstractStepMessageMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

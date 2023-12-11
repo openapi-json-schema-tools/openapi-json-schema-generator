@@ -88,6 +88,11 @@ public class CookieParameters {
         protected CookieParametersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CookieParametersMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public CookieParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

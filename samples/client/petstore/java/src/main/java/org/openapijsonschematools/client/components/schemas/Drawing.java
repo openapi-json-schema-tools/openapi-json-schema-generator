@@ -47,6 +47,11 @@ public class Drawing {
         protected ShapesList getListOutputInstance(FrozenList<Object> arg) {
             return new ShapesList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ShapesList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -124,6 +129,11 @@ public class Drawing {
         @Override
         protected DrawingMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new DrawingMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public DrawingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

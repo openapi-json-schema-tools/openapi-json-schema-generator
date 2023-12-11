@@ -64,6 +64,11 @@ public class QueryParameters {
         protected QueryParametersMap getMapOutputInstance(FrozenMap<String, Foo.FooMap> arg) {
             return new QueryParametersMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

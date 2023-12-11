@@ -73,6 +73,11 @@ public class MyObjectDto {
         protected MyObjectDtoMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MyObjectDtoMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public MyObjectDtoMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

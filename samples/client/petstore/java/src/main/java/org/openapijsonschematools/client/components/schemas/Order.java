@@ -147,6 +147,11 @@ public class Order {
         protected OrderMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new OrderMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

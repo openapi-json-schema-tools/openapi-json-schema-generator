@@ -88,6 +88,11 @@ public class DanishPig {
         protected DanishPigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new DanishPigMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public DanishPigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

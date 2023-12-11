@@ -54,6 +54,11 @@ public class ArrayHoldingAnyType {
         protected ArrayHoldingAnyTypeList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayHoldingAnyTypeList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ArrayHoldingAnyTypeList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }

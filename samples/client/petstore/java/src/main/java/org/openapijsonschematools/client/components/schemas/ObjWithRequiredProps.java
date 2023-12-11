@@ -78,6 +78,11 @@ public class ObjWithRequiredProps {
         protected ObjWithRequiredPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjWithRequiredPropsMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ObjWithRequiredPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

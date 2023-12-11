@@ -47,6 +47,16 @@ public class ComposedOneOfDifferentTypes {
                 new KeywordEntry("minProperties", new MinPropertiesValidator(4))
             )));
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
@@ -83,6 +93,11 @@ public class ComposedOneOfDifferentTypes {
         @Override
         protected Schema5List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema5List(arg);
+        }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
         }
         public Schema5List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -127,6 +142,16 @@ public class ComposedOneOfDifferentTypes {
                     Schema6.class
                 )))
             )));
+        }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

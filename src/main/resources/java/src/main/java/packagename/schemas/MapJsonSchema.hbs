@@ -22,4 +22,12 @@ public class MapJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, 
     public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
         return validateMap(arg, configuration);
     }
+
+    protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+        return arg;
+    }
+
+    protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+        return arg;
+    }
 }

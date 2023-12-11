@@ -96,6 +96,11 @@ public class Animal {
         protected AnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AnimalMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public AnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

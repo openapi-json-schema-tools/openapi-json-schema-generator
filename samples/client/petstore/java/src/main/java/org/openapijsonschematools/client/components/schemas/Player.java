@@ -81,6 +81,11 @@ public class Player {
         protected PlayerMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PlayerMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public PlayerMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

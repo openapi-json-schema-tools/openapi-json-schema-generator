@@ -82,6 +82,11 @@ public class HasOnlyReadOnly {
         protected HasOnlyReadOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HasOnlyReadOnlyMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public HasOnlyReadOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

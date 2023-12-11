@@ -85,6 +85,11 @@ public class ArrayWithValidationsInItems {
         protected ArrayWithValidationsInItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ArrayWithValidationsInItemsList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ArrayWithValidationsInItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }

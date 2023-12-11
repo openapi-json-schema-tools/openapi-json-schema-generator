@@ -59,6 +59,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         protected MapMap getMapOutputInstance(FrozenMap<String, Animal.AnimalMap> arg) {
             return new MapMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
@@ -117,6 +122,11 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         @Override
         protected MixedPropertiesAndAdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MixedPropertiesAndAdditionalPropertiesClassMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public MixedPropertiesAndAdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

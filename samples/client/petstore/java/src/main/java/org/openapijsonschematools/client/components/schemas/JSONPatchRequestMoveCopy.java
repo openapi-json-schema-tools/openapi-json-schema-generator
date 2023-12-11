@@ -112,6 +112,11 @@ public class JSONPatchRequestMoveCopy {
         protected JSONPatchRequestMoveCopyMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new JSONPatchRequestMoveCopyMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public JSONPatchRequestMoveCopyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

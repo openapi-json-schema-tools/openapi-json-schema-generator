@@ -87,6 +87,11 @@ public class Headers {
         protected HeadersMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new HeadersMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public HeadersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

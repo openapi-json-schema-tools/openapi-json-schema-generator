@@ -83,6 +83,11 @@ public class ObjectModelWithArgAndArgsProperties {
         protected ObjectModelWithArgAndArgsPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectModelWithArgAndArgsPropertiesMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ObjectModelWithArgAndArgsPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

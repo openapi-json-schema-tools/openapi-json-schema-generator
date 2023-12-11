@@ -50,6 +50,11 @@ public class ArrayOfArrayOfNumberOnly {
         protected ItemsList getListOutputInstance(FrozenList<Number> arg) {
             return new ItemsList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -80,6 +85,11 @@ public class ArrayOfArrayOfNumberOnly {
         @Override
         protected ArrayArrayNumberList getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ArrayArrayNumberList(arg);
+        }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
         }
         public ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -134,6 +144,11 @@ public class ArrayOfArrayOfNumberOnly {
         @Override
         protected ArrayOfArrayOfNumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayOfArrayOfNumberOnlyMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public ArrayOfArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

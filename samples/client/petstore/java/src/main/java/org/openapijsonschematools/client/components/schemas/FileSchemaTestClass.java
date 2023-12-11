@@ -46,6 +46,11 @@ public class FileSchemaTestClass {
         protected FilesList getListOutputInstance(FrozenList<File.FileMap> arg) {
             return new FilesList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -107,6 +112,11 @@ public class FileSchemaTestClass {
         @Override
         protected FileSchemaTestClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new FileSchemaTestClassMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

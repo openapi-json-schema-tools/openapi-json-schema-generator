@@ -112,6 +112,11 @@ public class Whale {
         protected WhaleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new WhaleMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public WhaleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

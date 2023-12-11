@@ -82,6 +82,11 @@ public class Money {
         protected MoneyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MoneyMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public MoneyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

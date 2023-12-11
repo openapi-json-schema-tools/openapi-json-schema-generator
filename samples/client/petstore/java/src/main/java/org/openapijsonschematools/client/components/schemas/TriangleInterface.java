@@ -102,6 +102,11 @@ public class TriangleInterface {
         protected TriangleInterfaceMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new TriangleInterfaceMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

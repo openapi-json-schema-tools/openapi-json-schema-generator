@@ -71,6 +71,11 @@ public class ReqPropsFromExplicitAddProps {
         protected ReqPropsFromExplicitAddPropsMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new ReqPropsFromExplicitAddPropsMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ReqPropsFromExplicitAddPropsMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

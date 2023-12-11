@@ -85,6 +85,11 @@ public class ObjectModelWithRefProps {
         protected ObjectModelWithRefPropsMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectModelWithRefPropsMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ObjectModelWithRefPropsMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

@@ -84,6 +84,11 @@ public class ObjectWithCollidingProperties {
         protected ObjectWithCollidingPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithCollidingPropertiesMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ObjectWithCollidingPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

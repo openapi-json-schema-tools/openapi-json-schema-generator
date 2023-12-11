@@ -82,6 +82,11 @@ public class ReadOnlyFirst {
         protected ReadOnlyFirstMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ReadOnlyFirstMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ReadOnlyFirstMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

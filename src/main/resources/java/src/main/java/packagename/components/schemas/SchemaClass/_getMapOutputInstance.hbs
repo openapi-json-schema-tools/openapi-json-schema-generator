@@ -12,4 +12,10 @@ protected {{mapOutputJsonPathPiece.camelCase}} getMapOutputInstance(FrozenMap<St
     return new {{mapOutputJsonPathPiece.camelCase}}(arg);
 }
     {{/if}}
+{{else}}
+
+@Override
+protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+    return arg;
+}
 {{/if}}

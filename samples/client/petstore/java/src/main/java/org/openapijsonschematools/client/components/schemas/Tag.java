@@ -83,6 +83,11 @@ public class Tag {
         protected TagMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new TagMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public TagMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

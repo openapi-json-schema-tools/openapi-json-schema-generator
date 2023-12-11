@@ -73,6 +73,11 @@ public class SpecialModelname {
         protected SpecialModelnameMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SpecialModelnameMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public SpecialModelnameMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

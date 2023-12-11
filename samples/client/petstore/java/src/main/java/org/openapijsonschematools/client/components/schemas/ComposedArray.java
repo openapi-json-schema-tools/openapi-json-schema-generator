@@ -54,6 +54,11 @@ public class ComposedArray {
         protected ComposedArrayList getListOutputInstance(FrozenList<Object> arg) {
             return new ComposedArrayList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ComposedArrayList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }

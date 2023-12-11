@@ -59,6 +59,11 @@ public class Address {
         protected AddressMap getMapOutputInstance(FrozenMap<String, Long> arg) {
             return new AddressMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public AddressMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

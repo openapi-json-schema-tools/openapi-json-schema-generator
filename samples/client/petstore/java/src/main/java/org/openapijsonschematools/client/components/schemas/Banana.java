@@ -73,6 +73,11 @@ public class Banana {
         protected BananaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BananaMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public BananaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

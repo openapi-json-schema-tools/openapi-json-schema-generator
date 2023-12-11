@@ -83,6 +83,11 @@ public class EnumArrays {
         protected ArrayEnumList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayEnumList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ArrayEnumList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -144,6 +149,11 @@ public class EnumArrays {
         @Override
         protected EnumArraysMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumArraysMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public EnumArraysMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

@@ -61,6 +61,11 @@ public class Pet {
         protected PhotoUrlsList getListOutputInstance(FrozenList<String> arg) {
             return new PhotoUrlsList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public PhotoUrlsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -109,6 +114,11 @@ public class Pet {
         @Override
         protected TagsList getListOutputInstance(FrozenList<Tag.TagMap> arg) {
             return new TagsList(arg);
+        }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
         }
         public TagsList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -206,6 +216,11 @@ public class Pet {
         @Override
         protected PetMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PetMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public PetMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

@@ -69,5 +69,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema<Object, Objec
     {{!> components/schemas/schema_cls/_unevaluated_items }}
     {{/if}}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_getListOutputInstance }}
+    {{> src/main/java/packagename/components/schemas/SchemaClass/_getMapOutputInstance }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate }}
 }

@@ -73,6 +73,11 @@ public class GrandparentAnimal {
         protected GrandparentAnimalMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new GrandparentAnimalMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public GrandparentAnimalMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

@@ -71,6 +71,11 @@ public class ObjectWithOptionalTestProp {
         protected ObjectWithOptionalTestPropMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithOptionalTestPropMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ObjectWithOptionalTestPropMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

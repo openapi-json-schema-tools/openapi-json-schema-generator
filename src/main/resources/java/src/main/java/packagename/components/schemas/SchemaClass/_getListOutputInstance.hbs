@@ -4,4 +4,10 @@
 protected {{arrayOutputJsonPathPiece.camelCase}} getListOutputInstance(FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> arg) {
     return new {{arrayOutputJsonPathPiece.camelCase}}(arg);
 }
+{{else}}
+
+@Override
+protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+    return arg;
+}
 {{/if}}

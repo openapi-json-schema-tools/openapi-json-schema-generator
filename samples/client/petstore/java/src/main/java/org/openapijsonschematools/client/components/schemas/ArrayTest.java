@@ -51,6 +51,11 @@ public class ArrayTest {
         protected ArrayOfStringList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayOfStringList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ArrayOfStringList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -85,6 +90,11 @@ public class ArrayTest {
         protected ItemsList getListOutputInstance(FrozenList<Long> arg) {
             return new ItemsList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ItemsList validate(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -115,6 +125,11 @@ public class ArrayTest {
         @Override
         protected ArrayArrayOfIntegerList getListOutputInstance(FrozenList<ItemsList> arg) {
             return new ArrayArrayOfIntegerList(arg);
+        }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
         }
         public ArrayArrayOfIntegerList validate(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -147,6 +162,11 @@ public class ArrayTest {
         protected ItemsList1 getListOutputInstance(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> arg) {
             return new ItemsList1(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ItemsList1 validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -177,6 +197,11 @@ public class ArrayTest {
         @Override
         protected ArrayArrayOfModelList getListOutputInstance(FrozenList<ItemsList1> arg) {
             return new ArrayArrayOfModelList(arg);
+        }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
         }
         public ArrayArrayOfModelList validate(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -247,6 +272,11 @@ public class ArrayTest {
         @Override
         protected ArrayTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ArrayTestMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public ArrayTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

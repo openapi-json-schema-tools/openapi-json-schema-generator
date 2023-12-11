@@ -58,6 +58,11 @@ public class PaginatedResultMyObjectDto {
         protected ResultsList getListOutputInstance(FrozenList<MyObjectDto.MyObjectDtoMap> arg) {
             return new ResultsList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -114,6 +119,11 @@ public class PaginatedResultMyObjectDto {
         @Override
         protected PaginatedResultMyObjectDtoMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PaginatedResultMyObjectDtoMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

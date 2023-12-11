@@ -88,6 +88,11 @@ public class BasquePig {
         protected BasquePigMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new BasquePigMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public BasquePigMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

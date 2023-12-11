@@ -47,6 +47,16 @@ public class ObjectWithInlineCompositionProperty {
                 )))
             )));
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }
@@ -144,6 +154,11 @@ public class ObjectWithInlineCompositionProperty {
         @Override
         protected ObjectWithInlineCompositionPropertyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithInlineCompositionPropertyMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public ObjectWithInlineCompositionPropertyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

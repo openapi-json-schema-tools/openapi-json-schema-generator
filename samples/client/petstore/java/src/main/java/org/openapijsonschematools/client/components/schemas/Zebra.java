@@ -120,6 +120,11 @@ public class Zebra {
         protected ZebraMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ZebraMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ZebraMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

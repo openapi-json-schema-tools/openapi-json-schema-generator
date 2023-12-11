@@ -6,4 +6,12 @@ public abstract class NonCollectionJsonSchema extends JsonSchema<Object, Object,
    protected NonCollectionJsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
       super(keywordToValidator);
    }
+
+   protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+      return arg;
+   }
+
+   protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+      return arg;
+   }
 }

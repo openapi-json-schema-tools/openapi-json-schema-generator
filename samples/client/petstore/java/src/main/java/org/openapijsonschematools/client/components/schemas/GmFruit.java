@@ -78,6 +78,11 @@ public class GmFruit {
         protected GmFruitMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new GmFruitMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

@@ -88,6 +88,11 @@ public class AppleReq {
         protected AppleReqMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AppleReqMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public AppleReqMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

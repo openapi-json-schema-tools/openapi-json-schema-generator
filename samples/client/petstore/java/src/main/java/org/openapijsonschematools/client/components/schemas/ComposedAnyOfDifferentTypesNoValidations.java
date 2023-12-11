@@ -94,6 +94,11 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         protected Schema9List getListOutputInstance(FrozenList<Object> arg) {
             return new Schema9List(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public Schema9List validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -145,6 +150,16 @@ public class ComposedAnyOfDifferentTypesNoValidations {
                     Schema15.class
                 )))
             )));
+        }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);

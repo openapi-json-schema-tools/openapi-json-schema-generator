@@ -23,4 +23,12 @@ public class ListJsonSchema extends JsonSchema<Object, Object, FrozenMap<String,
     public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
         return validateList(arg, configuration);
     }
+
+    protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+        return arg;
+    }
+
+    protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+        return arg;
+    }
 }

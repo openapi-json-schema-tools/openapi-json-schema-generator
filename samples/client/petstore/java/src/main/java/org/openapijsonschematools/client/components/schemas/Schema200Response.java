@@ -81,6 +81,11 @@ public class Schema200Response {
         protected Schema200ResponseMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new Schema200ResponseMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

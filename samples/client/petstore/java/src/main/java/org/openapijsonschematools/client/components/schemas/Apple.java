@@ -117,6 +117,11 @@ public class Apple {
         protected AppleMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AppleMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
         }

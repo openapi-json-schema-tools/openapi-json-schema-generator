@@ -71,6 +71,11 @@ public class NumberOnly {
         protected NumberOnlyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new NumberOnlyMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public NumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

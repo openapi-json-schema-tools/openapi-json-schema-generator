@@ -55,4 +55,12 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema<Object, Object, FrozenMap
     FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
         return validateList(arg, configuration);
     }
+
+   protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+      return arg;
+   }
+
+   protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+      return arg;
+   }
 }

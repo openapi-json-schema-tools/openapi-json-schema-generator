@@ -154,7 +154,7 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
          MapInValueType value = entry.getValue();
-         JsonSchema<?, ?, MapOutValueType, ?, ?, ?> propertySchema = (JsonSchema<?, ?, MapOutValueType, ?, ?, ?>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         JsonSchema<?, ?, ?, ?, ?, ?> propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          MapOutValueType castValue = (MapOutValueType) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
@@ -175,13 +175,9 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
       return new FrozenList<>(items);
    }
 
-   protected MapOutType getMapOutputInstance(FrozenMap<String, MapOutValueType> arg) {
-      return (MapOutType) arg;
-   }
+   abstract protected MapOutType getMapOutputInstance(FrozenMap<String, MapOutValueType> arg);
 
-   protected ListOutType getListOutputInstance(FrozenList<ListOutItemType> arg) {
-      return (ListOutType) arg;
-   }
+   abstract protected ListOutType getListOutputInstance(FrozenList<ListOutItemType> arg);
 
    private MapOutType getNewInstance(Map<String, MapInValueType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       FrozenMap<String, MapOutValueType> usedArg = getProperties(arg, pathToItem, pathToSchemas);

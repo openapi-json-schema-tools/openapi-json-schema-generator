@@ -45,6 +45,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
         protected AdditionalPropertiesList getListOutputInstance(FrozenList<String> arg) {
             return new AdditionalPropertiesList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
@@ -87,6 +92,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
         @Override
         protected AdditionalPropertiesWithArrayOfEnumsMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesList> arg) {
             return new AdditionalPropertiesWithArrayOfEnumsMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

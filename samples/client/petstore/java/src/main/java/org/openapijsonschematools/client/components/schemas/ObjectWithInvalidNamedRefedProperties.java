@@ -72,6 +72,11 @@ public class ObjectWithInvalidNamedRefedProperties {
         protected ObjectWithInvalidNamedRefedPropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithInvalidNamedRefedPropertiesMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public ObjectWithInvalidNamedRefedPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

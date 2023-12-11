@@ -228,6 +228,11 @@ public class EnumTest {
         protected EnumTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EnumTestMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

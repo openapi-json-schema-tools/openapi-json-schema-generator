@@ -66,6 +66,11 @@ public class PathParameters {
         protected PathParametersMap getMapOutputInstance(FrozenMap<String, Long> arg) {
             return new PathParametersMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public PathParametersMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

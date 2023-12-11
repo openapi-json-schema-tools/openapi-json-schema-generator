@@ -96,6 +96,11 @@ public class Category {
         protected CategoryMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CategoryMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public CategoryMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

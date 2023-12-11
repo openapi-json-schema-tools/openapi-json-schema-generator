@@ -68,6 +68,11 @@ public class SelfReferencingObjectModel {
         protected SelfReferencingObjectModelMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new SelfReferencingObjectModelMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

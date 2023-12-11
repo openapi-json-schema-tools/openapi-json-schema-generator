@@ -58,6 +58,11 @@ public class AdditionalPropertiesClass {
         protected MapPropertyMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapPropertyMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
@@ -99,6 +104,11 @@ public class AdditionalPropertiesClass {
         protected AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new AdditionalPropertiesMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
@@ -136,6 +146,11 @@ public class AdditionalPropertiesClass {
         @Override
         protected MapOfMapPropertyMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
             return new MapOfMapPropertyMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -187,6 +202,11 @@ public class AdditionalPropertiesClass {
         protected MapWithUndeclaredPropertiesAnytype3Map getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MapWithUndeclaredPropertiesAnytype3Map(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
@@ -224,6 +244,11 @@ public class AdditionalPropertiesClass {
         @Override
         protected EmptyMapMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new EmptyMapMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -265,6 +290,11 @@ public class AdditionalPropertiesClass {
         @Override
         protected MapWithUndeclaredPropertiesStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapWithUndeclaredPropertiesStringMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -376,6 +406,11 @@ public class AdditionalPropertiesClass {
         @Override
         protected AdditionalPropertiesClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new AdditionalPropertiesClassMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

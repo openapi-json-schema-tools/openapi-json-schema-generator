@@ -48,6 +48,11 @@ public class Schema1 {
         protected SchemaList1 getListOutputInstance(FrozenList<String> arg) {
             return new SchemaList1(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public SchemaList1 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }

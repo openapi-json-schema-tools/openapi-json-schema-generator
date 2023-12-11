@@ -101,6 +101,11 @@ public class JSONPatchRequestRemove {
         protected JSONPatchRequestRemoveMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new JSONPatchRequestRemoveMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public JSONPatchRequestRemoveMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

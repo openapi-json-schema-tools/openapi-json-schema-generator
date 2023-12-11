@@ -73,6 +73,11 @@ public class PublicKey {
         protected PublicKeyMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new PublicKeyMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public PublicKeyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

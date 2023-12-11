@@ -126,6 +126,11 @@ public class Capitalization {
         protected CapitalizationMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new CapitalizationMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

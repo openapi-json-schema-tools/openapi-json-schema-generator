@@ -59,6 +59,11 @@ public class MapTest {
         protected AdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new AdditionalPropertiesMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
@@ -96,6 +101,11 @@ public class MapTest {
         @Override
         protected MapMapOfStringMap getMapOutputInstance(FrozenMap<String, AdditionalPropertiesMap> arg) {
             return new MapMapOfStringMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public MapMapOfStringMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -152,6 +162,11 @@ public class MapTest {
         protected MapOfEnumStringMap getMapOutputInstance(FrozenMap<String, String> arg) {
             return new MapOfEnumStringMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public MapOfEnumStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
@@ -192,6 +207,11 @@ public class MapTest {
         @Override
         protected DirectMapMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
             return new DirectMapMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public DirectMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -271,6 +291,11 @@ public class MapTest {
         @Override
         protected MapTestMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new MapTestMap(arg);
+        }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
         public MapTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

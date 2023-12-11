@@ -50,6 +50,11 @@ public class ArrayOfEnums {
         protected ArrayOfEnumsList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayOfEnumsList(arg);
         }
+        
+        @Override
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
         public ArrayOfEnumsList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }

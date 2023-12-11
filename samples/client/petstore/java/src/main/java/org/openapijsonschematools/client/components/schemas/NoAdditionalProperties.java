@@ -87,6 +87,11 @@ public class NoAdditionalProperties {
         protected NoAdditionalPropertiesMap getMapOutputInstance(FrozenMap<String, Long> arg) {
             return new NoAdditionalPropertiesMap(arg);
         }
+        
+        @Override
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
         public NoAdditionalPropertiesMap validate(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
