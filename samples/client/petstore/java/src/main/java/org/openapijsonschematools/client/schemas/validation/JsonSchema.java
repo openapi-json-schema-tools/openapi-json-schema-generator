@@ -62,6 +62,21 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
         return pathToSchemas;
     }
 
+   private FrozenMap<String, MapInValueType> castToAllowedTypes(Map<String, MapInValueType> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+      pathSet.add(pathToItem);
+      LinkedHashMap<String, MapInValueType> argFixed = new LinkedHashMap<>();
+      for (Map.Entry<?, ?> entry: ((Map<?, ?>) arg).entrySet()) {
+         String key = (String) entry.getKey();
+         Object val = entry.getValue();
+         List<Object> newPathToItem = new ArrayList<>(pathToItem);
+         newPathToItem.add(key);
+         MapInValueType fixedVal = (MapInValueType) castToAllowedTypes(val, newPathToItem, pathSet);
+         argFixed.put(key, fixedVal);
+      }
+      return new FrozenMap<>(argFixed);
+   }
+
+
    private static Object castToAllowedTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
       if (arg == null) {
          pathSet.add(pathToItem);
@@ -245,6 +260,24 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
 
    protected ListOutType validateList(List<ListInItemType> arg, SchemaConfiguration configuration) throws ValidationException {
       return (ListOutType) validate(arg, configuration);
+   }
+
+   public MapOutType validate(Map<String, MapInValueType> arg, SchemaConfiguration configuration) throws ValidationException {
+      // todo don't run validation if the instance is one of the class generic types
+      Set<List<Object>> pathSet = new HashSet<>();
+      List<Object> pathToItem = new ArrayList<>();
+      pathToItem.add("args[0]");
+      FrozenMap<String, MapInValueType> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+      SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+      PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
+      ValidationMetadata validationMetadata = new ValidationMetadata(
+              pathToItem,
+              usedConfiguration,
+              validatedPathToSchemas,
+              new LinkedHashSet<>()
+      );
+      PathToSchemasMap pathToSchemasMap = getPathToSchemas(castArg, validationMetadata, pathSet);
+      return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
 
    // todo add bytes and FileIO

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.Map;
 
-class SomeSchema extends JsonSchema {
+class SomeSchema extends NonCollectionJsonSchema {
     public SomeSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))

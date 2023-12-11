@@ -34,6 +34,14 @@ public class ObjectTypeSchemaTest {
 
         }
 
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
+
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
             return validateMap(arg, configuration);
         }
@@ -45,6 +53,14 @@ public class ObjectTypeSchemaTest {
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                     new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(StringJsonSchema.class))
             )));
+        }
+
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
 
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -61,6 +77,14 @@ public class ObjectTypeSchemaTest {
                     ))),
                     new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(BooleanJsonSchema.class))
             )));
+        }
+
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
 
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
@@ -92,6 +116,10 @@ public class ObjectTypeSchemaTest {
         @Override
         protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
             return new ObjectWithOutputTypeSchemaMap(arg);
+        }
+
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
         }
 
         public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

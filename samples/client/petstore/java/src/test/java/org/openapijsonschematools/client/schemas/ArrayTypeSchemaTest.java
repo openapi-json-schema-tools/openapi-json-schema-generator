@@ -32,6 +32,14 @@ public class ArrayTypeSchemaTest {
             )));
         }
 
+        protected FrozenList<Object> getListOutputInstance(FrozenList<Object> arg) {
+            return arg;
+        }
+
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
+        }
+
         public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
             return validateList(arg, configuration);
         }
@@ -58,6 +66,10 @@ public class ArrayTypeSchemaTest {
 
         protected ArrayWithOutputClsSchemaList getListOutputInstance(FrozenList<String> arg) {
             return new ArrayWithOutputClsSchemaList(arg);
+        }
+
+        protected FrozenMap<String, Object> getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return arg;
         }
 
         public ArrayWithOutputClsSchemaList validate(List<String> arg, SchemaConfiguration configuration) {
