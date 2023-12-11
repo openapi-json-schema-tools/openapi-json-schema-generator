@@ -54,7 +54,7 @@ public class OneofWithRequired {
     }
     
     
-    public static class Schema0 extends JsonSchema<Object, Schema0Map, Object, FrozenList> {
+    public static class Schema0 extends JsonSchema<Object, Object, Schema0Map, Object, Object, FrozenList> {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
@@ -149,7 +149,7 @@ public class OneofWithRequired {
     }
     
     
-    public static class Schema1 extends JsonSchema<Object, Schema1Map, Object, FrozenList> {
+    public static class Schema1 extends JsonSchema<Object, Object, Schema1Map, Object, Object, FrozenList> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
