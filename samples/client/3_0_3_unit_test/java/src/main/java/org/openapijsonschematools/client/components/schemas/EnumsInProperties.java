@@ -21,7 +21,7 @@ public class EnumsInProperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foo extends JsonSchema {
+    public static class Foo extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Foo() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -37,7 +37,7 @@ public class EnumsInProperties {
         }
     }    
     
-    public static class Bar extends JsonSchema {
+    public static class Bar extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Bar() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

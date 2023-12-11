@@ -19,7 +19,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Alpha extends JsonSchema {
+    public static class Alpha extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public Alpha() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
