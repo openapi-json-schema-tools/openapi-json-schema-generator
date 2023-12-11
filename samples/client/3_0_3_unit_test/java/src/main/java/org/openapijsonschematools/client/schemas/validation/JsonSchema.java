@@ -150,7 +150,7 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
    private FrozenMap<String, MapOutValueType> getProperties(Map<String, MapInValueType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       LinkedHashMap<String, MapOutValueType> properties = new LinkedHashMap<>();
       for(Map.Entry<String, MapInValueType> entry: arg.entrySet()) {
-         String propertyName = (String) entry.getKey();
+         String propertyName = entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
          MapInValueType value = entry.getValue();

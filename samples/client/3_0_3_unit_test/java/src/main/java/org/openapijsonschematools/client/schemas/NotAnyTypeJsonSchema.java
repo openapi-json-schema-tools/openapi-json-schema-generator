@@ -11,7 +11,7 @@ import org.openapijsonschematools.client.schemas.validation.NotValidator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class NotAnyTypeJsonSchema extends JsonSchema<Object, FrozenMap<String, Object>, Object, FrozenList<Object>> {
+public class NotAnyTypeJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
     public NotAnyTypeJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
