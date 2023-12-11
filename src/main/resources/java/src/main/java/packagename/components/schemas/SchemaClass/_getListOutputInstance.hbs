@@ -1,7 +1,7 @@
 {{#if arrayOutputJsonPathPiece}}
 
 @Override
-protected {{arrayOutputJsonPathPiece.camelCase}} getListOutputInstance(FrozenList<?> arg) {
-    return new {{arrayOutputJsonPathPiece.camelCase}}((FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}>) arg);
+protected {{arrayOutputJsonPathPiece.camelCase}} getListOutputInstance(FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true }}{{/with}}> arg) {
+    return new {{arrayOutputJsonPathPiece.camelCase}}(arg);
 }
 {{/if}}

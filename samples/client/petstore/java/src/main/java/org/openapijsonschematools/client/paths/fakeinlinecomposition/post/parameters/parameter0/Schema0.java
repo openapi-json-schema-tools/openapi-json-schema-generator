@@ -11,18 +11,18 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 
 public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema00 extends JsonSchema {
+    public static class Schema00 extends NonCollectionJsonSchema {
         public Schema00() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -36,7 +36,7 @@ public class Schema0 {
         }
     }    
     
-    public static class Schema01 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class Schema01 extends NonCollectionJsonSchema {
         public Schema01() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(

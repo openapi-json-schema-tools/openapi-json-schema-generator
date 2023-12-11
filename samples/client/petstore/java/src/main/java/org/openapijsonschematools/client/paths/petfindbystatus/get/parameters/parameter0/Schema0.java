@@ -14,13 +14,14 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 
 public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items0 extends JsonSchema {
+    public static class Items0 extends NonCollectionJsonSchema {
         public Items0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -52,7 +53,7 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema<FrozenMap, SchemaList0> {
+    public static class Schema01 extends JsonSchema<Object, Object, FrozenMap<String, Object>, String, String, SchemaList0> {
         public Schema01() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -61,8 +62,8 @@ public class Schema0 {
         }
         
         @Override
-        protected SchemaList0 getListOutputInstance(FrozenList<?> arg) {
-            return new SchemaList0((FrozenList<String>) arg);
+        protected SchemaList0 getListOutputInstance(FrozenList<String> arg) {
+            return new SchemaList0(arg);
         }
         public SchemaList0 validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);

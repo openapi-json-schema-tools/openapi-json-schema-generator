@@ -10,7 +10,6 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -24,7 +23,7 @@ import java.util.Set;
 public class ObjectTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
-    public static class ObjectWithPropsSchema extends JsonSchema {
+    public static class ObjectWithPropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public ObjectWithPropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -40,7 +39,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema {
+    public static class ObjectWithAddpropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public ObjectWithAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -53,7 +52,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema {
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
         public ObjectWithPropsAndAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -70,7 +69,7 @@ public class ObjectTypeSchemaTest {
     }
 
     public static class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
-        ObjectWithOutputTypeSchemaMap(FrozenMap<? extends String, ?> m) {
+        ObjectWithOutputTypeSchemaMap(FrozenMap<String, Object> m) {
             super(m);
         }
 
@@ -80,7 +79,7 @@ public class ObjectTypeSchemaTest {
     }
 
 
-    public static class ObjectWithOutputTypeSchema extends JsonSchema<ObjectWithOutputTypeSchemaMap, FrozenList> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema<Object, Object, ObjectWithOutputTypeSchemaMap, Object, Object, FrozenList<Object>> {
         public ObjectWithOutputTypeSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -91,8 +90,8 @@ public class ObjectTypeSchemaTest {
         }
 
         @Override
-        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new ObjectWithOutputTypeSchemaMap((FrozenMap<? extends String, ?>) arg);
+        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new ObjectWithOutputTypeSchemaMap(arg);
         }
 
         public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {

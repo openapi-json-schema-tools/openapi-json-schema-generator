@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -22,7 +23,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items extends JsonSchema {
+    public static class Items extends NonCollectionJsonSchema {
         public Items() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -53,7 +54,7 @@ public class Schema {
     }
     
     
-    public static class EnumFormStringArray extends JsonSchema<FrozenMap, EnumFormStringArrayList> {
+    public static class EnumFormStringArray extends JsonSchema<Object, Object, FrozenMap<String, Object>, String, String, EnumFormStringArrayList> {
         public EnumFormStringArray() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -62,15 +63,15 @@ public class Schema {
         }
         
         @Override
-        protected EnumFormStringArrayList getListOutputInstance(FrozenList<?> arg) {
-            return new EnumFormStringArrayList((FrozenList<String>) arg);
+        protected EnumFormStringArrayList getListOutputInstance(FrozenList<String> arg) {
+            return new EnumFormStringArrayList(arg);
         }
         public EnumFormStringArrayList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
     }    
     
-    public static class EnumFormString extends JsonSchema {
+    public static class EnumFormString extends NonCollectionJsonSchema {
         public EnumFormString() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -124,7 +125,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema<SchemaMap, FrozenList> {
+    public static class Schema1 extends JsonSchema<Object, Object, SchemaMap, Object, Object, FrozenList<Object>> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -136,8 +137,8 @@ public class Schema {
         }
         
         @Override
-        protected SchemaMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new SchemaMap((FrozenMap<String, Object>) arg);
+        protected SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new SchemaMap(arg);
         }
         public SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

@@ -17,7 +17,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
+public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, ListInItemType, ListOutItemType, ListOutType> {
     public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
@@ -130,14 +130,14 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
       } else {
          PathToSchemasMap otherPathToSchemas = validate(arg, validationMetadata);
          pathToSchemasMap.update(otherPathToSchemas);
-         for (LinkedHashMap<JsonSchema, Void> schemas: pathToSchemasMap.values()) {
-            JsonSchema firstSchema = schemas.entrySet().iterator().next().getKey();
+         for (var schemas: pathToSchemasMap.values()) {
+            JsonSchema<?, ?, ?, ?, ?, ?> firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
          }
          pathSet.removeAll(pathToSchemasMap.keySet());
          if (!pathSet.isEmpty()) {
-            LinkedHashMap<JsonSchema, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
             unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
             for (List<Object> pathToItem: pathSet) {
                pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
@@ -147,49 +147,57 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
       return pathToSchemasMap;
    }
 
-   private static FrozenMap<String, Object> getProperties(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-      for(Map.Entry<?, ?> entry: arg.entrySet()) {
-         String propertyName = (String) entry.getKey();
+   private FrozenMap<String, MapOutValueType> getProperties(Map<String, MapInValueType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      LinkedHashMap<String, MapOutValueType> properties = new LinkedHashMap<>();
+      for(Map.Entry<String, MapInValueType> entry: arg.entrySet()) {
+         String propertyName = entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
-         JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-         Object value = entry.getValue();
-         Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+         MapInValueType value = entry.getValue();
+         JsonSchema<?, ?, MapOutValueType, ?, ?, ?> propertySchema = (JsonSchema<?, ?, MapOutValueType, ?, ?, ?>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         MapOutValueType castValue = (MapOutValueType) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
       return new FrozenMap<>(properties);
    }
 
-   private static FrozenList<Object> getItems(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      ArrayList<Object> items = new ArrayList<>();
+   private FrozenList<ListOutItemType> getItems(List<ListInItemType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      ArrayList<ListOutItemType> items = new ArrayList<>();
       int i = 0;
       for (Object item: arg) {
          List<Object> itemPathToItem = new ArrayList<>(pathToItem);
          itemPathToItem.add(i);
-         JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-         Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+         JsonSchema<?, ?, ?, ?, ?, ?> itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+         ListOutItemType castItem = (ListOutItemType) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
          items.add(castItem);
          i += 1;
       }
       return new FrozenList<>(items);
    }
 
-   protected T getMapOutputInstance(FrozenMap<?, ?> arg) {
-      return (T) arg;
+   protected MapOutType getMapOutputInstance(FrozenMap<String, MapOutValueType> arg) {
+      return (MapOutType) arg;
    }
 
-   protected U getListOutputInstance(FrozenList<?> arg) {
-      return (U) arg;
+   protected ListOutType getListOutputInstance(FrozenList<ListOutItemType> arg) {
+      return (ListOutType) arg;
+   }
+
+   private MapOutType getNewInstance(Map<String, MapInValueType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      FrozenMap<String, MapOutValueType> usedArg = getProperties(arg, pathToItem, pathToSchemas);
+      return getMapOutputInstance(usedArg);
+   }
+
+   private ListOutType getNewInstance(List<ListInItemType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+      FrozenList<ListOutItemType> usedArg = getItems(arg, pathToItem, pathToSchemas);
+      return getListOutputInstance(usedArg);
    }
 
    private Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      if (arg instanceof Map) {
-         FrozenMap<String, Object> usedArg = getProperties((Map<?,?>) arg, pathToItem, pathToSchemas);
-         return getMapOutputInstance(usedArg);
-      } else if (arg instanceof List) {
-         FrozenList<Object> usedArg = getItems((List<?>) arg, pathToItem, pathToSchemas);
-         return getListOutputInstance(usedArg);
+      if (arg instanceof List) {
+         return getNewInstance((List<ListInItemType>) arg, pathToItem, pathToSchemas);
+      } else if (arg instanceof Map) {
+         return getNewInstance((Map<String, MapInValueType>) arg, pathToItem, pathToSchemas);
       }
       // str, int, float, boolean, null, FileIO, bytes
       return arg;
@@ -235,12 +243,12 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
       return (String) validate(arg, configuration);
    }
 
-   protected <T extends FrozenMap> T validateMap(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException {
-      return (T) validate(arg, configuration);
+   protected MapOutType validateMap(Map<String, MapInValueType> arg, SchemaConfiguration configuration) throws ValidationException {
+      return (MapOutType) validate(arg, configuration);
    }
 
-   protected <U extends FrozenList> U validateList(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
-      return (U) validate(arg, configuration);
+   protected ListOutType validateList(List<ListInItemType> arg, SchemaConfiguration configuration) throws ValidationException {
+      return (ListOutType) validate(arg, configuration);
    }
 
    // todo add bytes and FileIO
@@ -264,5 +272,4 @@ public abstract class JsonSchema <T extends FrozenMap, U extends FrozenList> {
       PathToSchemasMap pathToSchemasMap = getPathToSchemas(castArg, validationMetadata, pathSet);
       return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
    }
-
 }

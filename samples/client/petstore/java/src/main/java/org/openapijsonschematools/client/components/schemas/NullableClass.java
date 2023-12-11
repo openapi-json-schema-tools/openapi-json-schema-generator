@@ -17,6 +17,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -25,7 +26,7 @@ public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties3 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class AdditionalProperties3 extends NonCollectionJsonSchema {
         public AdditionalProperties3() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -42,7 +43,7 @@ public class NullableClass {
         }
     }    
     
-    public static class IntegerProp extends JsonSchema<FrozenMap, FrozenList> {
+    public static class IntegerProp extends NonCollectionJsonSchema {
         public IntegerProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -74,7 +75,7 @@ public class NullableClass {
         }
     }    
     
-    public static class NumberProp extends JsonSchema<FrozenMap, FrozenList> {
+    public static class NumberProp extends NonCollectionJsonSchema {
         public NumberProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -106,7 +107,7 @@ public class NullableClass {
         }
     }    
     
-    public static class BooleanProp extends JsonSchema<FrozenMap, FrozenList> {
+    public static class BooleanProp extends NonCollectionJsonSchema {
         public BooleanProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -123,7 +124,7 @@ public class NullableClass {
         }
     }    
     
-    public static class StringProp extends JsonSchema<FrozenMap, FrozenList> {
+    public static class StringProp extends NonCollectionJsonSchema {
         public StringProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -140,7 +141,7 @@ public class NullableClass {
         }
     }    
     
-    public static class DateProp extends JsonSchema<FrozenMap, FrozenList> {
+    public static class DateProp extends NonCollectionJsonSchema {
         public DateProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -158,7 +159,7 @@ public class NullableClass {
         }
     }    
     
-    public static class DatetimeProp extends JsonSchema<FrozenMap, FrozenList> {
+    public static class DatetimeProp extends NonCollectionJsonSchema {
         public DatetimeProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -193,7 +194,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayNullableProp extends JsonSchema<FrozenMap, ArrayNullablePropList> {
+    public static class ArrayNullableProp extends JsonSchema<Object, Object, FrozenMap, Map<String, Object>, FrozenMap<String, Object>, ArrayNullablePropList> {
         public ArrayNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -205,8 +206,8 @@ public class NullableClass {
         }
         
         @Override
-        protected ArrayNullablePropList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayNullablePropList((FrozenList<FrozenMap<String, Object>>) arg);
+        protected ArrayNullablePropList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
+            return new ArrayNullablePropList(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -216,7 +217,7 @@ public class NullableClass {
         }
     }    
     
-    public static class Items1 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class Items1 extends NonCollectionJsonSchema {
         public Items1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -247,7 +248,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayAndItemsNullableProp extends JsonSchema<FrozenMap, ArrayAndItemsNullablePropList> {
+    public static class ArrayAndItemsNullableProp extends JsonSchema<Object, Object, FrozenMap, Map<String, Object>, FrozenMap<String, Object>, ArrayAndItemsNullablePropList> {
         public ArrayAndItemsNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -259,8 +260,8 @@ public class NullableClass {
         }
         
         @Override
-        protected ArrayAndItemsNullablePropList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayAndItemsNullablePropList((FrozenList<FrozenMap<String, Object>>) arg);
+        protected ArrayAndItemsNullablePropList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
+            return new ArrayAndItemsNullablePropList(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -270,7 +271,7 @@ public class NullableClass {
         }
     }    
     
-    public static class Items2 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class Items2 extends NonCollectionJsonSchema {
         public Items2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -301,7 +302,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayItemsNullable extends JsonSchema<FrozenMap, ArrayItemsNullableList> {
+    public static class ArrayItemsNullable extends JsonSchema<Object, Object, FrozenMap<String, Object>, Map<String, Object>, FrozenMap<String, Object>, ArrayItemsNullableList> {
         public ArrayItemsNullable() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
@@ -310,8 +311,8 @@ public class NullableClass {
         }
         
         @Override
-        protected ArrayItemsNullableList getListOutputInstance(FrozenList<?> arg) {
-            return new ArrayItemsNullableList((FrozenList<FrozenMap<String, Object>>) arg);
+        protected ArrayItemsNullableList getListOutputInstance(FrozenList<FrozenMap<String, Object>> arg) {
+            return new ArrayItemsNullableList(arg);
         }
         public ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
@@ -341,7 +342,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectNullableProp extends JsonSchema<ObjectNullablePropMap, FrozenList> {
+    public static class ObjectNullableProp extends JsonSchema<Map<String, Object>, FrozenMap<String, Object>, ObjectNullablePropMap, Object, Object, FrozenList> {
         public ObjectNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -353,8 +354,8 @@ public class NullableClass {
         }
         
         @Override
-        protected ObjectNullablePropMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new ObjectNullablePropMap((FrozenMap<String, FrozenMap<String, Object>>) arg);
+        protected ObjectNullablePropMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
+            return new ObjectNullablePropMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -364,7 +365,7 @@ public class NullableClass {
         }
     }    
     
-    public static class AdditionalProperties1 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class AdditionalProperties1 extends NonCollectionJsonSchema {
         public AdditionalProperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -401,7 +402,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectAndItemsNullableProp extends JsonSchema<ObjectAndItemsNullablePropMap, FrozenList> {
+    public static class ObjectAndItemsNullableProp extends JsonSchema<Map<String, Object>, FrozenMap<String, Object>, ObjectAndItemsNullablePropMap, Object, Object, FrozenList> {
         public ObjectAndItemsNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -413,8 +414,8 @@ public class NullableClass {
         }
         
         @Override
-        protected ObjectAndItemsNullablePropMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new ObjectAndItemsNullablePropMap((FrozenMap<String, FrozenMap<String, Object>>) arg);
+        protected ObjectAndItemsNullablePropMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
+            return new ObjectAndItemsNullablePropMap(arg);
         }
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             return validateVoid(arg, configuration);
@@ -424,7 +425,7 @@ public class NullableClass {
         }
     }    
     
-    public static class AdditionalProperties2 extends JsonSchema<FrozenMap, FrozenList> {
+    public static class AdditionalProperties2 extends NonCollectionJsonSchema {
         public AdditionalProperties2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -461,7 +462,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectItemsNullable extends JsonSchema<ObjectItemsNullableMap, FrozenList> {
+    public static class ObjectItemsNullable extends JsonSchema<Map<String, Object>, FrozenMap<String, Object>, ObjectItemsNullableMap, Object, Object, FrozenList<Object>> {
         public ObjectItemsNullable() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -470,8 +471,8 @@ public class NullableClass {
         }
         
         @Override
-        protected ObjectItemsNullableMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new ObjectItemsNullableMap((FrozenMap<String, FrozenMap<String, Object>>) arg);
+        protected ObjectItemsNullableMap getMapOutputInstance(FrozenMap<String, FrozenMap<String, Object>> arg) {
+            return new ObjectItemsNullableMap(arg);
         }
         public ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
@@ -584,7 +585,7 @@ public class NullableClass {
     }
     
     
-    public static class NullableClass1 extends JsonSchema<NullableClassMap, FrozenList> {
+    public static class NullableClass1 extends JsonSchema<Object, Object, NullableClassMap, Object, Object, FrozenList<Object>> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -613,8 +614,8 @@ public class NullableClass {
         }
         
         @Override
-        protected NullableClassMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new NullableClassMap((FrozenMap<String, Object>) arg);
+        protected NullableClassMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new NullableClassMap(arg);
         }
         public NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);

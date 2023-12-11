@@ -42,7 +42,7 @@ public class PropertiesValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someString");
-        LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.class), null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);

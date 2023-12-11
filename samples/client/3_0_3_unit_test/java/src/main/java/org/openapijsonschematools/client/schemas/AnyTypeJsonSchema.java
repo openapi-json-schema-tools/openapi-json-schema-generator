@@ -13,7 +13,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
-public class AnyTypeJsonSchema extends JsonSchema<FrozenMap, FrozenList> {
+public class AnyTypeJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
     public AnyTypeJsonSchema() {
         super(null);
     }

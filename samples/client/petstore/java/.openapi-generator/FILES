@@ -692,6 +692,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/MinLengthVali
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinimumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MultipleOfValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/NonCollectionJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/NotValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/OneOfValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PathToSchemasMap.java

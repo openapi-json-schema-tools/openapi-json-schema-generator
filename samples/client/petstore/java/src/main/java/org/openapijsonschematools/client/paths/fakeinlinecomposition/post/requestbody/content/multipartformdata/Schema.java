@@ -16,6 +16,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
@@ -24,7 +25,7 @@ public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends JsonSchema {
+    public static class Schema0 extends NonCollectionJsonSchema {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -38,7 +39,7 @@ public class Schema {
         }
     }    
     
-    public static class SomeProp extends JsonSchema<FrozenMap, FrozenList> {
+    public static class SomeProp extends NonCollectionJsonSchema {
         public SomeProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
@@ -124,7 +125,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema<SchemaMap, FrozenList> {
+    public static class Schema1 extends JsonSchema<Object, Object, SchemaMap, Object, Object, FrozenList<Object>> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -135,8 +136,8 @@ public class Schema {
         }
         
         @Override
-        protected SchemaMap getMapOutputInstance(FrozenMap<?, ?> arg) {
-            return new SchemaMap((FrozenMap<String, Object>) arg);
+        protected SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+            return new SchemaMap(arg);
         }
         public SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
