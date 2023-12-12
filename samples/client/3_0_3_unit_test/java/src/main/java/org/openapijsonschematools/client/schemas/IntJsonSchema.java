@@ -1,19 +1,18 @@
 package org.openapijsonschematools.client.schemas;
 
-import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.FormatValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
-import org.openapijsonschematools.client.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
+import java.util.Map;
 
-public class IntJsonSchema extends NonCollectionJsonSchema {
+public class IntJsonSchema extends JsonSchema<Number, Number, Number> {
     public IntJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -26,19 +25,29 @@ public class IntJsonSchema extends NonCollectionJsonSchema {
         )));
     }
 
-    public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateInt(arg, configuration);
+    @Override
+    protected Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedNumberTypes(arg, pathToItem, pathSet);
     }
 
-    public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateFloat(arg, configuration);
+    @Override
+    protected Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
     }
 
-    public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateLong(arg, configuration);
+    public int validate(int arg, SchemaConfiguration configuration) {
+        return (int) validate((Number) arg, configuration);
     }
 
-    public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateDouble(arg, configuration);
+    public long validate(long arg, SchemaConfiguration configuration) {
+        return (long) validate((Number) arg, configuration);
+    }
+
+    public float validate(float arg, SchemaConfiguration configuration) {
+        return (float) validate((Number) arg, configuration);
+    }
+
+    public double validate(double arg, SchemaConfiguration configuration) {
+        return (double) validate((Number) arg, configuration);
     }
 }

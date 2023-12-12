@@ -1,19 +1,18 @@
 package {{{packageName}}}.schemas;
 
-import {{{packageName}}}.schemas.validation.NonCollectionJsonSchema;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.FrozenList;
+import {{{packageName}}}.schemas.validation.FormatValidator;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.TypeValidator;
-import {{{packageName}}}.schemas.validation.FormatValidator;
-import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
 import java.util.Set;
+import java.util.Map;
 
-public class IntJsonSchema extends NonCollectionJsonSchema {
+public class IntJsonSchema extends JsonSchema<Number, Number, Number> {
     public IntJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -26,19 +25,29 @@ public class IntJsonSchema extends NonCollectionJsonSchema {
         )));
     }
 
-    public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateInt(arg, configuration);
+    @Override
+    protected Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedNumberTypes(arg, pathToItem, pathSet);
     }
 
-    public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateFloat(arg, configuration);
+    @Override
+    protected Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
     }
 
-    public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateLong(arg, configuration);
+    public int validate(int arg, SchemaConfiguration configuration) {
+        return (int) validate((Number) arg, configuration);
     }
 
-    public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateDouble(arg, configuration);
+    public long validate(long arg, SchemaConfiguration configuration) {
+        return (long) validate((Number) arg, configuration);
+    }
+
+    public float validate(float arg, SchemaConfiguration configuration) {
+        return (float) validate((Number) arg, configuration);
+    }
+
+    public double validate(double arg, SchemaConfiguration configuration) {
+        return (double) validate((Number) arg, configuration);
     }
 }
