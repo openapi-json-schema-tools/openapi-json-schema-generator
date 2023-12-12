@@ -1,15 +1,14 @@
 package {{{packageName}}}.schemas;
 
-import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.NotValidator;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class NotAnyTypeJsonSchema extends JsonSchema<Object, Object, Object> {
     public NotAnyTypeJsonSchema() {

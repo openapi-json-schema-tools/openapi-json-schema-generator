@@ -1,11 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
-import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-
-import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.List;
-import java.util.Map;
+import java.util.Set;
 
 public class UnsetAnyTypeJsonSchema extends JsonSchema<Object, Object, Object> {
     public UnsetAnyTypeJsonSchema() {
