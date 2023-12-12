@@ -1,21 +1,20 @@
 package {{{packageName}}}.schemas;
 
-import {{{packageName}}}.schemas.validation.NonCollectionJsonSchema;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
-import {{{packageName}}}.schemas.validation.KeywordValidator;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 
 import java.time.ZonedDateTime;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class DateTimeJsonSchema extends NonCollectionJsonSchema {
+public class DateTimeJsonSchema extends JsonSchema<String, String, String> {
     public DateTimeJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
@@ -23,11 +22,17 @@ public class DateTimeJsonSchema extends NonCollectionJsonSchema {
         )));
     }
 
-    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateString(arg, configuration);
+    @Override
+    protected String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedStringTypes(arg, pathToItem, pathSet);
+    }
+
+    @Override
+    protected String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
     }
 
     public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateZonedDateTime(arg, configuration);
+        return validate(arg.toString(), configuration);
     }
 }
