@@ -154,7 +154,7 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
          MapInValueType value = entry.getValue();
-         JsonSchema<?, ?, MapOutValueType, ?, ?, ?> propertySchema = (JsonSchema<?, ?, MapOutValueType, ?, ?, ?>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         JsonSchema<?, ?, ?, ?, ?, ?> propertySchema = (JsonSchema<?, ?, ?, ?, ?, ?>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          MapOutValueType castValue = (MapOutValueType) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
