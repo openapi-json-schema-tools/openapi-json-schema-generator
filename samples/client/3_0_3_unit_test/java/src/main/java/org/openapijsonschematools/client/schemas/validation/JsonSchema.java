@@ -5,6 +5,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.UUID;
 
 public abstract class JsonSchema <InType, CastType, OutType> {
     public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
@@ -61,7 +64,7 @@ public abstract class JsonSchema <InType, CastType, OutType> {
 
     protected abstract CastType castToAllowedTypes(InType arg, List<Object> pathToItem, Set<List<Object>> pathSet);
 
-    protected Object castToAllowedObjectTypes(InType arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
            pathSet.add(pathToItem);
            return null;
