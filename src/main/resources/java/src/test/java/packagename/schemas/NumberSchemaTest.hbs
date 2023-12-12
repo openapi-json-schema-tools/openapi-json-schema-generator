@@ -16,32 +16,32 @@ public class NumberSchemaTest {
 
     @Test
     public void testValidateInteger() {
-        Number validatedValue = numberJsonSchema.validate(1, configuration);
+        int validatedValue = numberJsonSchema.validate(1, configuration);
         Assert.assertEquals(validatedValue, 1);
     }
 
     @Test
     public void testValidateLong() {
-        Number validatedValue = numberJsonSchema.validate(1L, configuration);
+        long validatedValue = numberJsonSchema.validate(1L, configuration);
         Assert.assertEquals(validatedValue, 1L);
     }
 
     @Test
     public void testValidateFloat() {
-        Number validatedValue = numberJsonSchema.validate(3.14f, configuration);
+        float validatedValue = numberJsonSchema.validate(3.14f, configuration);
         Assert.assertEquals(validatedValue, 3.14f);
     }
 
     @Test
     public void testValidateDouble() {
-        Number validatedValue = numberJsonSchema.validate(3.14d, configuration);
+        double validatedValue = numberJsonSchema.validate(3.14d, configuration);
         Assert.assertEquals(validatedValue, 3.14d);
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(ValidationException.class, () -> numberJsonSchema.validate(
-                (Void) null, configuration
+                null, configuration
         ));
     }
 }
