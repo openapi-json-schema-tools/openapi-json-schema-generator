@@ -125,43 +125,40 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
 
    private PathToSchemasMap getPathToSchemas(Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
       PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
-      if (validationMetadata.validationRanEarlier(this)) {
-         // todo add deeper validated schemas
-      } else {
-         PathToSchemasMap otherPathToSchemas = validate(arg, validationMetadata);
-         pathToSchemasMap.update(otherPathToSchemas);
-         for (var schemas: pathToSchemasMap.values()) {
-            JsonSchema<?, ?, ?, ?, ?, ?> firstSchema = schemas.entrySet().iterator().next().getKey();
-            schemas.clear();
-            schemas.put(firstSchema, null);
-         }
-         pathSet.removeAll(pathToSchemasMap.keySet());
-         if (!pathSet.isEmpty()) {
-            LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
-            unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
-            for (List<Object> pathToItem: pathSet) {
-               pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
-            }
+      // todo add check of validationMetadata.validationRanEarlier(this)
+      PathToSchemasMap otherPathToSchemas = validate(arg, validationMetadata);
+      pathToSchemasMap.update(otherPathToSchemas);
+      for (var schemas: pathToSchemasMap.values()) {
+         JsonSchema<?, ?, ?, ?, ?, ?> firstSchema = schemas.entrySet().iterator().next().getKey();
+         schemas.clear();
+         schemas.put(firstSchema, null);
+      }
+      pathSet.removeAll(pathToSchemasMap.keySet());
+      if (!pathSet.isEmpty()) {
+         LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+         unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
+         for (List<Object> pathToItem: pathSet) {
+            pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
          }
       }
       return pathToSchemasMap;
    }
 
-   private FrozenMap<String, MapOutValueType> getProperties(Map<String, MapInValueType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private FrozenMap<String, MapOutValueType> getProperties(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       LinkedHashMap<String, MapOutValueType> properties = new LinkedHashMap<>();
-      for(Map.Entry<String, MapInValueType> entry: arg.entrySet()) {
-         String propertyName = entry.getKey();
+      for(Map.Entry<?, ?> entry: arg.entrySet()) {
+         String propertyName = (String) entry.getKey();
          List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
          propertyPathToItem.add(propertyName);
-         MapInValueType value = entry.getValue();
-         JsonSchema<?, ?, MapOutValueType, ?, ?, ?> propertySchema = (JsonSchema<?, ?, MapOutValueType, ?, ?, ?>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+         MapInValueType value = (MapInValueType) entry.getValue();
+         JsonSchema<?, ?, ?, ?, ?, ?> propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
          MapOutValueType castValue = (MapOutValueType) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
          properties.put(propertyName, castValue);
       }
       return new FrozenMap<>(properties);
    }
 
-   private FrozenList<ListOutItemType> getItems(List<ListInItemType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private FrozenList<ListOutItemType> getItems(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       ArrayList<ListOutItemType> items = new ArrayList<>();
       int i = 0;
       for (Object item: arg) {
@@ -183,21 +180,21 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
       return (ListOutType) arg;
    }
 
-   private MapOutType getNewInstance(Map<String, MapInValueType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private MapOutType getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       FrozenMap<String, MapOutValueType> usedArg = getProperties(arg, pathToItem, pathToSchemas);
       return getMapOutputInstance(usedArg);
    }
 
-   private ListOutType getNewInstance(List<ListInItemType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+   private ListOutType getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       FrozenList<ListOutItemType> usedArg = getItems(arg, pathToItem, pathToSchemas);
       return getListOutputInstance(usedArg);
    }
 
    private Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
       if (arg instanceof List) {
-         return getNewInstance((List<ListInItemType>) arg, pathToItem, pathToSchemas);
+         return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
       } else if (arg instanceof Map) {
-         return getNewInstance((Map<String, MapInValueType>) arg, pathToItem, pathToSchemas);
+         return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
       }
       // str, int, float, boolean, null, FileIO, bytes
       return arg;
@@ -254,9 +251,7 @@ public abstract class JsonSchema <MapInValueType, MapOutValueType, MapOutType, L
    // todo add bytes and FileIO
 
    public Object validate(Object arg, SchemaConfiguration configuration) throws ValidationException {
-      if (arg instanceof Map || arg instanceof List) {
-         // todo don't run validation if the instance is one of the class generic types
-      }
+      // todo don't run validation if the instance is one of the class generic types
       Set<List<Object>> pathSet = new HashSet<>();
       List<Object> pathToItem = new ArrayList<>();
       pathToItem.add("args[0]");
