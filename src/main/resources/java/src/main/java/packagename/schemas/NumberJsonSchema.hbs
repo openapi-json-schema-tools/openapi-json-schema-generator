@@ -24,22 +24,6 @@ public class NumberJsonSchema extends JsonSchema<Number, Number, Number> {
         )));
     }
 
-    public Number validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-        return validate((Number) arg, configuration);
-    }
-
-    public Number validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-        return validate((Number) arg, configuration);
-    }
-
-    public Number validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-        return validate((Number) arg, configuration);
-    }
-
-    public Number validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-        return validate((Number) arg, configuration);
-    }
-
     @Override
     protected Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         return castToAllowedNumberTypes(arg, pathToItem, pathSet);
@@ -48,6 +32,22 @@ public class NumberJsonSchema extends JsonSchema<Number, Number, Number> {
     @Override
     protected Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
+    }
+
+    public int validate(int arg, SchemaConfiguration configuration) {
+        return (int) validate((Number) arg, configuration);
+    }
+
+    public long validate(long arg, SchemaConfiguration configuration) {
+        return (long) validate((Number) arg, configuration);
+    }
+
+    public float validate(float arg, SchemaConfiguration configuration) {
+        return (float) validate((Number) arg, configuration);
+    }
+
+    public double validate(double arg, SchemaConfiguration configuration) {
+        return (double) validate((Number) arg, configuration);
     }
 }
 
