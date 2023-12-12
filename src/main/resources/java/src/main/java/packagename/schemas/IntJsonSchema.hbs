@@ -6,6 +6,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.TypeValidator;
+import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -43,11 +44,11 @@ public class IntJsonSchema extends JsonSchema<Number, Number, Number> {
         return (long) validate((Number) arg, configuration);
     }
 
-    public float validate(float arg, SchemaConfiguration configuration) {
+    public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
         return (float) validate((Number) arg, configuration);
     }
 
-    public double validate(double arg, SchemaConfiguration configuration) {
+    public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
         return (double) validate((Number) arg, configuration);
     }
 }
