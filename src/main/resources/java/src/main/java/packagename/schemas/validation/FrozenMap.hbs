@@ -9,13 +9,13 @@ import java.util.Set;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public class FrozenMap<K, V> extends LinkedHashMap<K, V> {
+public class FrozenMap<V> extends LinkedHashMap<String, V> {
     /*
     A frozen Map
     Once schema validation has been run, written accessor methods return values of the correct type
     If values were mutable, the types in those methods would not agree with returned values
      */
-    public FrozenMap(Map<? extends K, ? extends V> m) {
+    public FrozenMap(Map<String, ? extends V> m) {
         super(m);
     }
 
@@ -31,13 +31,13 @@ public class FrozenMap<K, V> extends LinkedHashMap<K, V> {
         }
     }
 
-    public V put(K key, V value) {
+    public V put(String key, V value) {
         throw new UnsupportedOperationException();
     }
     public V remove(Object key) {
         throw new UnsupportedOperationException();
     }
-    public void putAll(Map<? extends K, ? extends V> m) {
+    public void putAll(Map<? extends String, ? extends V> m) {
         throw new UnsupportedOperationException();
     }
     public void clear() {
@@ -45,12 +45,12 @@ public class FrozenMap<K, V> extends LinkedHashMap<K, V> {
     }
 
     @Override
-    public void replaceAll(BiFunction<? super K, ? super V, ? extends V> function) {
+    public void replaceAll(BiFunction<? super String, ? super V, ? extends V> function) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public V putIfAbsent(K key, V value) {
+    public V putIfAbsent(String key, V value) {
         throw new UnsupportedOperationException();
     }
 
@@ -60,34 +60,34 @@ public class FrozenMap<K, V> extends LinkedHashMap<K, V> {
     }
 
     @Override
-    public boolean replace(K key, V oldValue, V newValue) {
+    public boolean replace(String key, V oldValue, V newValue) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public V replace(K key, V value) {
+    public V replace(String key, V value) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public V computeIfAbsent(K key, Function<? super K, ? extends V> mappingFunction) {
+    public V computeIfAbsent(String key, Function<? super String, ? extends V> mappingFunction) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public V computeIfPresent(K key,
-                              BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+    public V computeIfPresent(String key,
+                              BiFunction<? super String, ? super V, ? extends V> remappingFunction) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public V compute(K key,
-                     BiFunction<? super K, ? super V, ? extends V> remappingFunction) {
+    public V compute(String key,
+                     BiFunction<? super String, ? super V, ? extends V> remappingFunction) {
         throw new UnsupportedOperationException();
     }
 
     @Override
-    public V merge(K key, V value,
+    public V merge(String key, V value,
                    BiFunction<? super V, ? super V, ? extends V> remappingFunction) {
         throw new UnsupportedOperationException();
     }
