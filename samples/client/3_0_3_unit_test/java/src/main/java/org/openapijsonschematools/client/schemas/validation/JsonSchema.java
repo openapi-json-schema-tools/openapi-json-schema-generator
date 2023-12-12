@@ -74,6 +74,11 @@ public abstract class JsonSchema <InType, CastType, OutType> {
         return arg;
     }
 
+    protected Number castToAllowedNumberTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        pathSet.add(pathToItem);
+        return arg;
+    }
+
     protected Void castToAllowedVoidTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         return arg;
@@ -99,17 +104,13 @@ public abstract class JsonSchema <InType, CastType, OutType> {
         } else if (arg instanceof Boolean) {
             return castToAllowedBooleanTypes((Boolean) arg, pathToItem, pathSet);
         } else if (arg instanceof Integer) {
-            pathSet.add(pathToItem);
-            return arg;
+            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof Long) {
-            pathSet.add(pathToItem);
-            return arg;
+            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof Float) {
-            pathSet.add(pathToItem);
-            return arg;
+            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof Double) {
-            pathSet.add(pathToItem);
-            return arg;
+            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof List) {
             pathSet.add(pathToItem);
             List<Object> argFixed = new ArrayList<>();
