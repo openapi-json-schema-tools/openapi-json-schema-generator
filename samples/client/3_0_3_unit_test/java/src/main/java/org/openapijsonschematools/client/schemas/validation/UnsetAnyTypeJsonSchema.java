@@ -7,52 +7,18 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.Map;
 
-public class UnsetAnyTypeJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+public class UnsetAnyTypeJsonSchema extends JsonSchema<Object, Object, Object> {
     public UnsetAnyTypeJsonSchema() {
         super(null);
     }
 
-    Void validate(Void arg, SchemaConfiguration configuration) {
-        return validateVoid(arg, configuration);
+    @Override
+    protected Object castToAllowedTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedObjectTypes(arg, pathToItem, pathSet);
     }
 
-    boolean validate(boolean arg, SchemaConfiguration configuration) {
-        return validateBoolean(arg, configuration);
-    }
-
-    int validate(int arg, SchemaConfiguration configuration) {
-        return validateInt(arg, configuration);
-    }
-
-    long validate(long arg, SchemaConfiguration configuration) {
-        return validateLong(arg, configuration);
-    }
-
-    float validate(float arg, SchemaConfiguration configuration) {
-        return validateFloat(arg, configuration);
-    }
-
-    double validate(double arg, SchemaConfiguration configuration) {
-        return validateDouble(arg, configuration);
-    }
-
-    String validate(String arg, SchemaConfiguration configuration) {
-        return validateString(arg, configuration);
-    }
-
-    String validate(ZonedDateTime arg, SchemaConfiguration configuration) {
-        return validateZonedDateTime(arg, configuration);
-    }
-
-    String validate(LocalDate arg, SchemaConfiguration configuration) {
-        return validateLocalDate(arg, configuration);
-    }
-
-    FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-        return validateMap(arg, configuration);
-    }
-
-    FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) {
-        return validateList(arg, configuration);
+    @Override
+    protected Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
     }
 }
