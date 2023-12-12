@@ -74,10 +74,14 @@ public abstract class JsonSchema <InType, CastType, OutType> {
         return arg;
     }
 
+    protected Void castToAllowedVoidTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        pathSet.add(pathToItem);
+        return arg;
+    }
+
     protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
-            pathSet.add(pathToItem);
-            return null;
+            return castToAllowedVoidTypes((Void) arg, pathToItem, pathSet);
         } else if (arg instanceof String) {
             return castToAllowedStringTypes((String) arg, pathToItem, pathSet);
         } else if (arg instanceof Map) {

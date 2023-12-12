@@ -1,25 +1,30 @@
 package {{{packageName}}}.schemas;
 
-import {{{packageName}}}.schemas.validation.NonCollectionJsonSchema;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.TypeValidator;
-import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class NullJsonSchema extends NonCollectionJsonSchema {
+public class NullJsonSchema extends JsonSchema<Void, Void, Void> {
     public NullJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))
         )));
     }
 
-    public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateVoid(arg, configuration);
+    @Override
+    protected Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+    }
+
+    @Override
+    protected Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return null;
     }
 }
+
