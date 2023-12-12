@@ -1,25 +1,29 @@
 package {{{packageName}}}.schemas;
 
-import {{{packageName}}}.schemas.validation.NonCollectionJsonSchema;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.TypeValidator;
-import {{{packageName}}}.exceptions.ValidationException;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public class BooleanJsonSchema extends NonCollectionJsonSchema {
+public class BooleanJsonSchema extends JsonSchema<Boolean, Boolean, Boolean> {
     public BooleanJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
         )));
     }
 
-    public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateBoolean(arg, configuration);
+    @Override
+    protected Boolean castToAllowedTypes(Boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedBooleanTypes(arg, pathToItem, pathSet);
+    }
+
+    @Override
+    protected Boolean getNewInstance(Boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
     }
 }

@@ -64,64 +64,68 @@ public abstract class JsonSchema <InType, CastType, OutType> {
 
     protected abstract CastType castToAllowedTypes(InType arg, List<Object> pathToItem, Set<List<Object>> pathSet);
 
+    protected Boolean castToAllowedBooleanTypes(Boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        pathSet.add(pathToItem);
+        return arg;
+    }
+
     protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
-           pathSet.add(pathToItem);
-           return null;
+            pathSet.add(pathToItem);
+            return null;
         } else if (arg instanceof String) {
-           pathSet.add(pathToItem);
-           return arg;
+            pathSet.add(pathToItem);
+            return arg;
         } else if (arg instanceof Map) {
-           pathSet.add(pathToItem);
-           LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-           for (Map.Entry<?, ?> entry: ((Map<?, ?>) arg).entrySet()) {
-              String key = (String) entry.getKey();
-              Object val = entry.getValue();
-              List<Object> newPathToItem = new ArrayList<>(pathToItem);
-              newPathToItem.add(key);
-              Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
-              argFixed.put(key, fixedVal);
-           }
-           return new FrozenMap<>(argFixed);
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<?, ?> entry: ((Map<?, ?>) arg).entrySet()) {
+                String key = (String) entry.getKey();
+                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
         } else if (arg instanceof Boolean) {
-           pathSet.add(pathToItem);
-           return arg;
+            return castToAllowedBooleanTypes((Boolean) arg, pathToItem, pathSet);
         } else if (arg instanceof Integer) {
-           pathSet.add(pathToItem);
-           return arg;
+            pathSet.add(pathToItem);
+            return arg;
         } else if (arg instanceof Long) {
-           pathSet.add(pathToItem);
-           return arg;
+            pathSet.add(pathToItem);
+            return arg;
         } else if (arg instanceof Float) {
-           pathSet.add(pathToItem);
-           return arg;
+            pathSet.add(pathToItem);
+            return arg;
         } else if (arg instanceof Double) {
-           pathSet.add(pathToItem);
-           return arg;
+            pathSet.add(pathToItem);
+            return arg;
         } else if (arg instanceof List) {
-           pathSet.add(pathToItem);
-           List<Object> argFixed = new ArrayList<>();
-           int i =0;
-           for (Object item: ((List<?>) arg).toArray()) {
-              List<Object> newPathToItem = new ArrayList<>(pathToItem);
-              newPathToItem.add(i);
-              Object fixedVal = castToAllowedObjectTypes(item, newPathToItem, pathSet);
-              argFixed.add(fixedVal);
-              i += 1;
-           }
-           return new FrozenList<>(argFixed);
+            pathSet.add(pathToItem);
+            List<Object> argFixed = new ArrayList<>();
+            int i =0;
+            for (Object item: ((List<?>) arg).toArray()) {
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(i);
+                Object fixedVal = castToAllowedObjectTypes(item, newPathToItem, pathSet);
+                argFixed.add(fixedVal);
+                i += 1;
+            }
+            return new FrozenList<>(argFixed);
         } else if (arg instanceof ZonedDateTime) {
-           pathSet.add(pathToItem);
-           return arg.toString();
+            pathSet.add(pathToItem);
+            return arg.toString();
         } else if (arg instanceof LocalDate) {
-           pathSet.add(pathToItem);
-           return arg.toString();
+            pathSet.add(pathToItem);
+            return arg.toString();
         } else if (arg instanceof UUID) {
-           pathSet.add(pathToItem);
-           return arg.toString();
+            pathSet.add(pathToItem);
+            return arg.toString();
         } else {
-           Class<?> argClass = arg.getClass();
-           throw new InvalidTypeException("Invalid type passed in for input="+arg+" type="+argClass);
+            Class<?> argClass = arg.getClass();
+            throw new InvalidTypeException("Invalid type passed in for input="+arg+" type="+argClass);
         }
     }
 
