@@ -64,6 +64,11 @@ public abstract class JsonSchema <InType, CastType, OutType> {
 
     protected abstract CastType castToAllowedTypes(InType arg, List<Object> pathToItem, Set<List<Object>> pathSet);
 
+    protected String castToAllowedStringTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        pathSet.add(pathToItem);
+        return arg;
+    }
+
     protected Boolean castToAllowedBooleanTypes(Boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         return arg;
@@ -74,8 +79,7 @@ public abstract class JsonSchema <InType, CastType, OutType> {
             pathSet.add(pathToItem);
             return null;
         } else if (arg instanceof String) {
-            pathSet.add(pathToItem);
-            return arg;
+            return castToAllowedStringTypes((String) arg, pathToItem, pathSet);
         } else if (arg instanceof Map) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
@@ -115,14 +119,11 @@ public abstract class JsonSchema <InType, CastType, OutType> {
             }
             return new FrozenList<>(argFixed);
         } else if (arg instanceof ZonedDateTime) {
-            pathSet.add(pathToItem);
-            return arg.toString();
+            return castToAllowedStringTypes(arg.toString(), pathToItem, pathSet);
         } else if (arg instanceof LocalDate) {
-            pathSet.add(pathToItem);
-            return arg.toString();
+            return castToAllowedStringTypes(arg.toString(), pathToItem, pathSet);
         } else if (arg instanceof UUID) {
-            pathSet.add(pathToItem);
-            return arg.toString();
+            return castToAllowedStringTypes(arg.toString(), pathToItem, pathSet);
         } else {
             Class<?> argClass = arg.getClass();
             throw new InvalidTypeException("Invalid type passed in for input="+arg+" type="+argClass);
