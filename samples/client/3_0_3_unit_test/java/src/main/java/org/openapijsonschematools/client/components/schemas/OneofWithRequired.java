@@ -251,6 +251,11 @@ public class OneofWithRequired {
             return new FrozenMap<>(argFixed);
         }
     
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

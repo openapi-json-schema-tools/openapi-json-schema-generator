@@ -96,5 +96,27 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
         return new FrozenMap<>(argFixed);
     }
 
+    {{#if mapOutputJsonPathPiece}}
+    public {{mapOutputJsonPathPiece.camelCase}} getNewInstance(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        LinkedHashMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> properties = new LinkedHashMap<>();
+        for(Map.Entry<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> entry: arg.entrySet()) {
+            String propertyName = entry.getKey();
+            List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+            propertyPathToItem.add(propertyName);
+            {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} value = entry.getValue();
+            JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+            {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} castValue = ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+            properties.put(propertyName, castValue);
+        }
+        FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castProperties = new FrozenMap<>(properties);
+        return new {{mapOutputJsonPathPiece.camelCase}}(castProperties);
+    }
+    {{else}}
+    @Override
+    public FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> getNewInstance(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
+    }
+    {{/if}}
+
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate }}
 }

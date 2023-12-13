@@ -77,6 +77,21 @@ public class AdditionalpropertiesCanExistByItself {
             return new FrozenMap<>(argFixed);
         }
     
+        public AdditionalpropertiesCanExistByItselfMap getNewInstance(FrozenMap<Boolean> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            LinkedHashMap<String, Boolean> properties = new LinkedHashMap<>();
+            for(Map.Entry<String, Boolean> entry: arg.entrySet()) {
+                String propertyName = entry.getKey();
+                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+                propertyPathToItem.add(propertyName);
+                Boolean value = entry.getValue();
+                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+                Boolean castValue = (Boolean) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, castValue);
+            }
+            FrozenMap<Boolean> castProperties = new FrozenMap<>(properties);
+            return new AdditionalpropertiesCanExistByItselfMap(castProperties);
+        }
+    
         public AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

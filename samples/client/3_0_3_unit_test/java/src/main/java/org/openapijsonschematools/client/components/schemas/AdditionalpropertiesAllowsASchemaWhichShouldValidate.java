@@ -105,6 +105,21 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return new FrozenMap<>(argFixed);
         }
     
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            for(Map.Entry<String, Object> entry: arg.entrySet()) {
+                String propertyName = entry.getKey();
+                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+                propertyPathToItem.add(propertyName);
+                Object value = entry.getValue();
+                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, castValue);
+            }
+            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            return new AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(castProperties);
+        }
+    
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }
