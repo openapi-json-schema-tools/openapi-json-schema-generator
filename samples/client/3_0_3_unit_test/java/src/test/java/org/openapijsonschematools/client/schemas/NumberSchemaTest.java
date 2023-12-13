@@ -29,13 +29,13 @@ public class NumberSchemaTest {
     @Test
     public void testValidateFloat() {
         float validatedValue = numberJsonSchema.validate(3.14f, configuration);
-        Assert.assertEquals(validatedValue, 3.14f);
+        Assert.assertEquals(Float.compare(validatedValue, 3.14f), 0);
     }
 
     @Test
     public void testValidateDouble() {
         double validatedValue = numberJsonSchema.validate(3.14d, configuration);
-        Assert.assertEquals(validatedValue, 3.14d);
+        Assert.assertEquals(Double.compare(validatedValue, 3.14d), 0);
     }
 
     @Test
