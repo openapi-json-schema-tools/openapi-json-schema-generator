@@ -26,7 +26,7 @@ public class NotValidator implements KeywordValidator {
         PathToSchemasMap pathToSchemas;
         try {
             JsonSchema notSchema = JsonSchemaFactory.getInstance(not);
-            pathToSchemas = notSchema.validate(notSchema, arg, validationMetadata);
+            pathToSchemas = JsonSchema.validate(notSchema, arg, validationMetadata);
         } catch (ValidationException e) {
             return null;
         }

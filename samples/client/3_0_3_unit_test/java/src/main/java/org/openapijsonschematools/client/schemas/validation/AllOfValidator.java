@@ -19,7 +19,7 @@ public class AllOfValidator implements KeywordValidator {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for(Class<? extends JsonSchema> allOfClass: allOf) {
             JsonSchema allOfSchema = JsonSchemaFactory.getInstance(allOfClass);
-            PathToSchemasMap otherPathToSchemas = allOfSchema.validate(allOfSchema, arg, validationMetadata);
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(allOfSchema, arg, validationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }
         return pathToSchemas;
