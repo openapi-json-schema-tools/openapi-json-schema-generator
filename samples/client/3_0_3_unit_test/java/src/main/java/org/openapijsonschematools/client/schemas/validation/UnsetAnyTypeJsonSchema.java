@@ -156,7 +156,7 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements SchemaNullVali
     @Override
     public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg == null) {
-            return getNewInstance((Void) arg, pathToItem, pathToSchemas);
+            return getNewInstance((Void) null, pathToItem, pathToSchemas);
         } else if (arg instanceof Boolean) {
             boolean boolArg = (Boolean) arg;
             return getNewInstance(boolArg, pathToItem, pathToSchemas);
@@ -165,10 +165,10 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements SchemaNullVali
         } else if (arg instanceof String) {
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         } else if (arg instanceof FrozenList) {
-            FrozenList<Object> castArg = (FrozenList<Object>) arg;
+            @SuppressWarnings("unchecked") FrozenList<Object> castArg = (FrozenList<Object>) arg;
             return getNewInstance(castArg, pathToItem, pathToSchemas);
         } else if (arg instanceof FrozenMap) {
-            FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+            @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
             return getNewInstance(castArg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
