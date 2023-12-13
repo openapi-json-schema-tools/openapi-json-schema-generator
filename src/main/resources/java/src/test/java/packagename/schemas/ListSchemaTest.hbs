@@ -8,18 +8,29 @@ import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
+import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
 
 public class ListSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
     static final ListJsonSchema listJsonSchema = JsonSchemaFactory.getInstance(ListJsonSchema.class);
-
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
+    );
+    
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> listJsonSchema.validate(
-                (Void) null, configuration
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+                listJsonSchema,
+                null,
+                validationMetadata
         ));
     }
 
