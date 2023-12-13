@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -56,11 +57,22 @@ public class RefInAdditionalproperties {
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
             )));
         }
-        
+    
         @Override
-        protected RefInAdditionalpropertiesMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new RefInAdditionalpropertiesMap(arg);
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
         }
+    
         public RefInAdditionalpropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

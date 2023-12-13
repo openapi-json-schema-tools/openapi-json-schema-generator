@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -234,6 +235,22 @@ public class OneofWithRequired {
                 )))
             )));
         }
+    
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+    
         public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

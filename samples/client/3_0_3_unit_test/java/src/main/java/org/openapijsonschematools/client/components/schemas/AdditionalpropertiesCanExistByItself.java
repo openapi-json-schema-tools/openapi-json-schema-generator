@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -60,11 +61,22 @@ public class AdditionalpropertiesCanExistByItself {
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             )));
         }
-        
+    
         @Override
-        protected AdditionalpropertiesCanExistByItselfMap getMapOutputInstance(FrozenMap<String, Boolean> arg) {
-            return new AdditionalpropertiesCanExistByItselfMap(arg);
+        public FrozenMap<Boolean> castToAllowedTypes(Map<String, Boolean> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Boolean> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Boolean> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Boolean val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Boolean fixedVal = (Boolean) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
         }
+    
         public AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateMap(arg, configuration);
         }

@@ -1722,6 +1722,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import " + packageName + ".schemas.validation.SchemaMapValidator;");
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
         imports.add("import java.util.Map;");
+        imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         addRequiredValidator(schema, imports);
         addAdditionalPropertiesValidator(schema, imports);
         addPropertiesValidator(schema, imports);
