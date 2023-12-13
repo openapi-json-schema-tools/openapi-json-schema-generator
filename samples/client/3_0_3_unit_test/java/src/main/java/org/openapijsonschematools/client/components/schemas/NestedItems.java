@@ -59,7 +59,7 @@ public class NestedItems {
             for (Number item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                Number fixedVal = JsonSchemaFactory.getInstance(Items3.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                                Number fixedVal = (Number) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -74,7 +74,7 @@ public class NestedItems {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                Number castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                Number castItem = (Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
@@ -133,7 +133,7 @@ public class NestedItems {
             for (List<Number> item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                FrozenList<Number> fixedVal = JsonSchemaFactory.getInstance(Items2.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                                FrozenList<Number> fixedVal = (FrozenList<Number>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -148,7 +148,7 @@ public class NestedItems {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                ItemsList castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                ItemsList castItem = (ItemsList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
@@ -207,7 +207,7 @@ public class NestedItems {
             for (List<List<Number>> item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                FrozenList<FrozenList<Number>> fixedVal = JsonSchemaFactory.getInstance(Items1.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                                FrozenList<FrozenList<Number>> fixedVal = (FrozenList<FrozenList<Number>>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -222,7 +222,7 @@ public class NestedItems {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                ItemsList1 castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                ItemsList1 castItem = (ItemsList1) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
@@ -287,7 +287,7 @@ public class NestedItems {
             for (List<List<List<Number>>> item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                FrozenList<FrozenList<FrozenList<Number>>> fixedVal = JsonSchemaFactory.getInstance(Items.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                                FrozenList<FrozenList<FrozenList<Number>>> fixedVal = (FrozenList<FrozenList<FrozenList<Number>>>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -302,7 +302,7 @@ public class NestedItems {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                ItemsList2 castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                ItemsList2 castItem = (ItemsList2) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }

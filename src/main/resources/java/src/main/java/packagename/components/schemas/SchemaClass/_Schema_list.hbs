@@ -77,7 +77,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
         for ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} item: arg) {
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(i);
-            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} fixedVal = JsonSchemaFactory.getInstance({{items.jsonPathPiece.camelCase}}.class).castToAllowedTypes(item, newPathToItem, pathSet);
+            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} fixedVal = ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}) castToAllowedObjectTypes(item, newPathToItem, pathSet);
             argFixed.add(fixedVal);
             i += 1;
         }
@@ -92,7 +92,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
             List<Object> itemPathToItem = new ArrayList<>(pathToItem);
             itemPathToItem.add(i);
             JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} castItem = ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
             items.add(castItem);
             i += 1;
         }

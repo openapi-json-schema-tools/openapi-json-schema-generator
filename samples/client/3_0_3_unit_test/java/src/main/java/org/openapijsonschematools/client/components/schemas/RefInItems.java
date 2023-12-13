@@ -61,7 +61,7 @@ public class RefInItems {
             for (Object item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                Object fixedVal = JsonSchemaFactory.getInstance(Items.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -76,7 +76,7 @@ public class RefInItems {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                Object castItem = (Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
