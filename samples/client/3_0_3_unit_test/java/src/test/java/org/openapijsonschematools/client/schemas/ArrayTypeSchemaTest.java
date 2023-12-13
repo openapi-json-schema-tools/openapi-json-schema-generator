@@ -72,6 +72,15 @@ public class ArrayTypeSchemaTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<String> castArg = (FrozenList<String>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }
 
     public static class ArrayWithOutputClsSchemaList extends FrozenList<String> {
@@ -110,18 +119,18 @@ public class ArrayTypeSchemaTest {
 
         @Override
         public ArrayWithOutputClsSchemaList getNewInstance(FrozenList<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-//            ArrayList<String> items = new ArrayList<>();
-//            int i = 0;
-//            for (String item: arg) {
-//                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-//                itemPathToItem.add(i);
-//                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-//                ListItemOutType castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-//                items.add(castItem);
-//                i += 1;
-//            }
-//            FrozenList<String> newInstanceItems = new FrozenList<>(items);
-            return new ArrayWithOutputClsSchemaList(arg);
+            ArrayList<String> items = new ArrayList<>();
+            int i = 0;
+            for (String item: arg) {
+                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+                itemPathToItem.add(i);
+                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+                String castItem = (String) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(castItem);
+                i += 1;
+            }
+            FrozenList<String> newInstanceItems = new FrozenList<>(items);
+            return new ArrayWithOutputClsSchemaList(newInstanceItems);
         }
 
         @Override
@@ -134,13 +143,22 @@ public class ArrayTypeSchemaTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<String> castArg = (FrozenList<String>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class),
-                (Void) null,
+                null,
                 validationMetadata
         ));
     }

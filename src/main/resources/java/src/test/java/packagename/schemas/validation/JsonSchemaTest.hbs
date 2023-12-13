@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -17,6 +18,14 @@ class SomeSchema extends JsonSchema {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
         )));
+    }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof String) {
+            return arg;
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
 }
 

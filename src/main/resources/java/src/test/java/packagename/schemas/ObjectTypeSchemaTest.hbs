@@ -68,6 +68,15 @@ public class ObjectTypeSchemaTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }
 
     public static class ObjectWithAddpropsSchema extends JsonSchema implements SchemaMapValidator<String, String, FrozenMap<String>> {
@@ -108,6 +117,15 @@ public class ObjectTypeSchemaTest {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }
 
     public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -140,6 +158,15 @@ public class ObjectTypeSchemaTest {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }
 
@@ -184,6 +211,15 @@ public class ObjectTypeSchemaTest {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }
 

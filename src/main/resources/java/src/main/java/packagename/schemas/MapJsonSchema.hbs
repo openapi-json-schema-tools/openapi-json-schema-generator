@@ -47,4 +47,13 @@ public class MapJsonSchema extends JsonSchema implements SchemaMapValidator<Obje
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
     }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof FrozenMap) {
+            @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+            return getNewInstance(castArg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+    }
 }
