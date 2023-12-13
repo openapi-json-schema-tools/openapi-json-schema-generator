@@ -11,11 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
-import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 
 public class AllofSimpleTypes {
     // nest classes so all schemas and input/output classes can be public

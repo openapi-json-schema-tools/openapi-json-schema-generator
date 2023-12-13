@@ -1,9 +1,15 @@
 package {{{packageName}}}.schemas.validation;
 
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.ValidationException;
+
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 public class PropertiesValidator implements KeywordValidator {
@@ -43,7 +49,7 @@ public class PropertiesValidator implements KeywordValidator {
                 // todo add_deeper_validated_schemas
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = propSchema.validate(propValue, propValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = propSchema.validate(propSchema, propValue, propValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
         }
         return pathToSchemas;

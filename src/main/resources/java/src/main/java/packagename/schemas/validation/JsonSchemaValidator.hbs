@@ -1,0 +1,14 @@
+package {{{packageName}}}.schemas.validation;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.ValidationException;
+
+import java.util.List;
+import java.util.Set;
+
+public interface JsonSchemaValidator <InType, CastType, OutType> {
+    CastType castToAllowedTypes(InType arg, List<Object> pathToItem, Set<List<Object>> pathSet);
+    OutType getNewInstance(CastType arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+    OutType validate(InType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+}

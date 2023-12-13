@@ -12,11 +12,11 @@ import org.openapijsonschematools.client.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
-import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 
 public class AnyofWithBaseSchema {

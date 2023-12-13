@@ -1,31 +1,27 @@
 package {{{packageName}}}.schemas.validation;
 
-import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
-import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public abstract class JsonSchema <InType, CastType, OutType> {
+public abstract class JsonSchema {
     public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
         this.keywordToValidator = keywordToValidator;
     }
 
-    protected static PathToSchemasMap validate(
-            JsonSchema<?, ?, ?> jsonSchema,
+    public static PathToSchemasMap validate(
+            JsonSchema jsonSchema,
             Object arg,
             ValidationMetadata validationMetadata
     ) throws ValidationException {
@@ -63,8 +59,6 @@ public abstract class JsonSchema <InType, CastType, OutType> {
 
         return pathToSchemas;
     }
-
-    protected abstract CastType castToAllowedTypes(InType arg, List<Object> pathToItem, Set<List<Object>> pathSet);
 
     protected String castToAllowedStringTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
@@ -137,19 +131,19 @@ public abstract class JsonSchema <InType, CastType, OutType> {
         }
     }
 
-    private static PathToSchemasMap getPathToSchemas(JsonSchema<?, ? , ?> jsonSchema,  Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+    protected static PathToSchemasMap getPathToSchemas(JsonSchema jsonSchema,  Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
         PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
         // todo add check of validationMetadata.validationRanEarlier(this)
         PathToSchemasMap otherPathToSchemas = validate(jsonSchema, arg, validationMetadata);
         pathToSchemasMap.update(otherPathToSchemas);
         for (var schemas: pathToSchemasMap.values()) {
-            JsonSchema<?, ?, ?> firstSchema = schemas.entrySet().iterator().next().getKey();
+            JsonSchema firstSchema = schemas.entrySet().iterator().next().getKey();
             schemas.clear();
             schemas.put(firstSchema, null);
         }
         pathSet.removeAll(pathToSchemasMap.keySet());
         if (!pathSet.isEmpty()) {
-            LinkedHashMap<JsonSchema<?, ?, ?>, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
+            LinkedHashMap<JsonSchema, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
             unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
             for (List<Object> pathToItem: pathSet) {
                 pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
@@ -188,25 +182,5 @@ public abstract class JsonSchema <InType, CastType, OutType> {
    }
    */
 
-   protected abstract OutType getNewInstance(CastType arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
-
    // todo add bytes and FileIO
-
-   public OutType validate(InType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
-      // todo don't run validation if the instance is one of the class generic types
-      Set<List<Object>> pathSet = new HashSet<>();
-      List<Object> pathToItem = new ArrayList<>();
-      pathToItem.add("args[0]");
-      CastType castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-      SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
-      PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
-      ValidationMetadata validationMetadata = new ValidationMetadata(
-              pathToItem,
-              usedConfiguration,
-              validatedPathToSchemas,
-              new LinkedHashSet<>()
-      );
-      PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-      return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-   }
 }

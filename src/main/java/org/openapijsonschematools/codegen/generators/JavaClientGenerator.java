@@ -407,6 +407,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");
+        keywordValidatorFiles.add("JsonSchemaValidator");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
@@ -419,7 +420,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("MinLengthValidator");
         keywordValidatorFiles.add("MinPropertiesValidator");
         keywordValidatorFiles.add("MultipleOfValidator");
-        keywordValidatorFiles.add("NonCollectionJsonSchema");
         keywordValidatorFiles.add("NotValidator");
         keywordValidatorFiles.add("OneOfValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
@@ -1709,7 +1709,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         } else if (schema.types != null && (schema.types.contains("list") || schema.types.contains("object"))) {
             imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
         } else {
-            imports.add("import "+packageName + ".schemas.validation.NonCollectionJsonSchema;");
+            imports.add("import "+packageName + ".schemas.validation.JsonSchemaValidator;");
         }
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".schemas.validation.JsonSchemaFactory;");
