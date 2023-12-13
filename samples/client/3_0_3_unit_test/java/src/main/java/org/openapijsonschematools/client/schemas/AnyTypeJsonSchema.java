@@ -1,10 +1,20 @@
 package org.openapijsonschematools.client.schemas;
 
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.List;
 import java.util.HashSet;
@@ -16,7 +26,7 @@ import java.util.LinkedHashMap;
 import java.util.Objects;
 
 public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
-    public UnsetAnyTypeJsonSchema() {
+    public AnyTypeJsonSchema() {
         super(null);
     }
 
