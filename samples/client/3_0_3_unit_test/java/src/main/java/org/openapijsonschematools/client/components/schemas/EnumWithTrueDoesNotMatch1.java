@@ -49,6 +49,15 @@ public class EnumWithTrueDoesNotMatch1 {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return getNewInstance(boolArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
         public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
