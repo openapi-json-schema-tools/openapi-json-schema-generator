@@ -56,7 +56,7 @@ public class AnyofComplexTypes {
             return get(name);
         }
     }
-    public class Schema0MapInput {
+    public static class Schema0MapInput {
         // Map<String, Object> because addProps is unset
     }
     
@@ -151,7 +151,7 @@ public class AnyofComplexTypes {
             return get(name);
         }
     }
-    public class Schema1MapInput {
+    public static class Schema1MapInput {
         // Map<String, Object> because addProps is unset
     }
     

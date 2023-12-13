@@ -38,7 +38,7 @@ public class NestedItems {
         }
     }
     
-    public class ItemsListInput {
+    public static class ItemsListInput {
         // class to build List<Number>
     }
     
@@ -112,7 +112,7 @@ public class NestedItems {
         }
     }
     
-    public class ItemsListInput1 {
+    public static class ItemsListInput1 {
         // class to build List<List<Number>>
     }
     
@@ -186,7 +186,7 @@ public class NestedItems {
         }
     }
     
-    public class ItemsListInput2 {
+    public static class ItemsListInput2 {
         // class to build List<List<List<Number>>>
     }
     
@@ -260,7 +260,7 @@ public class NestedItems {
         }
     }
     
-    public class NestedItemsListInput {
+    public static class NestedItemsListInput {
         // class to build List<List<List<List<Number>>>>
     }
     

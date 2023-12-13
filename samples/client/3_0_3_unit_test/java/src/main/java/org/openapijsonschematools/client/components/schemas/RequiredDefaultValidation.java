@@ -55,7 +55,7 @@ public class RequiredDefaultValidation {
             return get(name);
         }
     }
-    public class RequiredDefaultValidationMapInput {
+    public static class RequiredDefaultValidationMapInput {
         // Map<String, Object> because addProps is unset
     }
     

@@ -57,7 +57,7 @@ public class ForbiddenProperty {
             return get(name);
         }
     }
-    public class ForbiddenPropertyMapInput {
+    public static class ForbiddenPropertyMapInput {
         // Map<String, Object> because addProps is unset
     }
     

@@ -49,7 +49,7 @@ public class RequiredWithEscapedCharacters {
             return get(name);
         }
     }
-    public class RequiredWithEscapedCharactersMapInput {
+    public static class RequiredWithEscapedCharactersMapInput {
         // Map<String, Object> because addProps is unset
     }
     

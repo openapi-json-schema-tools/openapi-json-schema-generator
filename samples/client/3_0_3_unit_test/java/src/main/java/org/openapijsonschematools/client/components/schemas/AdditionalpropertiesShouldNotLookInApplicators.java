@@ -61,7 +61,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return get(name);
         }
     }
-    public class Schema0MapInput {
+    public static class Schema0MapInput {
         // Map<String, Object> because addProps is unset
     }
     
@@ -143,7 +143,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return get(name);
         }
     }
-    public class AdditionalpropertiesShouldNotLookInApplicatorsMapInput {
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsMapInput {
         // Map<String, additionalProperties>
     }
     

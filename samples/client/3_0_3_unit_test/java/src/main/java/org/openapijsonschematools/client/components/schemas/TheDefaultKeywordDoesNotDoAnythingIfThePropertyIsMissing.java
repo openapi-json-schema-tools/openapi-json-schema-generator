@@ -110,7 +110,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return get(name);
         }
     }
-    public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput {
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput {
         // Map<String, Object> because addProps is unset
     }
     

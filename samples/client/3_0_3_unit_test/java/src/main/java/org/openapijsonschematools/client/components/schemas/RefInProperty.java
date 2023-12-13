@@ -51,7 +51,7 @@ public class RefInProperty {
             return get(name);
         }
     }
-    public class RefInPropertyMapInput {
+    public static class RefInPropertyMapInput {
         // Map<String, Object> because addProps is unset
     }
     

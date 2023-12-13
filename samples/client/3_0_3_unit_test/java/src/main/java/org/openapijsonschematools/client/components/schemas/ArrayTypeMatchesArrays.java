@@ -38,7 +38,7 @@ public class ArrayTypeMatchesArrays {
         }
     }
     
-    public class ArrayTypeMatchesArraysListInput {
+    public static class ArrayTypeMatchesArraysListInput {
         // class to build List<Object>
     }
     

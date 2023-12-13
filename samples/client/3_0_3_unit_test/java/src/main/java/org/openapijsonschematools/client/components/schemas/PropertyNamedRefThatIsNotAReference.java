@@ -49,7 +49,7 @@ public class PropertyNamedRefThatIsNotAReference {
             return get(name);
         }
     }
-    public class PropertyNamedRefThatIsNotAReferenceMapInput {
+    public static class PropertyNamedRefThatIsNotAReferenceMapInput {
         // Map<String, Object> because addProps is unset
     }
     

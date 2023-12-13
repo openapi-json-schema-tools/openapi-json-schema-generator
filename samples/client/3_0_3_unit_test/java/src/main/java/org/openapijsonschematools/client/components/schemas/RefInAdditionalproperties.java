@@ -40,7 +40,7 @@ public class RefInAdditionalproperties {
             return get(name);
         }
     }
-    public class RefInAdditionalpropertiesMapInput {
+    public static class RefInAdditionalpropertiesMapInput {
         // Map<String, additionalProperties>
     }
     

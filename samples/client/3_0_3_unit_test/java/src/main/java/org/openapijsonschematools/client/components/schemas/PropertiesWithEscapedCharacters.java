@@ -69,7 +69,7 @@ public class PropertiesWithEscapedCharacters {
             return get(name);
         }
     }
-    public class PropertiesWithEscapedCharactersMapInput {
+    public static class PropertiesWithEscapedCharactersMapInput {
         // Map<String, Object> because addProps is unset
     }
     

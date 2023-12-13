@@ -34,7 +34,7 @@ public class RefInItems {
         }
     }
     
-    public class RefInItemsListInput {
+    public static class RefInItemsListInput {
         // class to build List<Object>
     }
     
