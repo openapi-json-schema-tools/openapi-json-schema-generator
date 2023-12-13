@@ -16,6 +16,8 @@ import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
+import java.time.LocalDate;
+import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.HashSet;
 import java.util.ArrayList;
@@ -24,6 +26,7 @@ import java.util.Set;
 import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.Objects;
+import java.util.UUID;
 
 public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
     public AnyTypeJsonSchema() {
@@ -96,6 +99,22 @@ public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
     }
 
+    public int validate(int arg, SchemaConfiguration configuration) {
+        return (int) validate((Number) arg, configuration);
+    }
+
+    public long validate(long arg, SchemaConfiguration configuration) {
+        return (long) validate((Number) arg, configuration);
+    }
+
+    public float validate(float arg, SchemaConfiguration configuration) {
+        return (float) validate((Number) arg, configuration);
+    }
+
+    public double validate(double arg, SchemaConfiguration configuration) {
+        return (double) validate((Number) arg, configuration);
+    }
+
     @Override
     public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         return castToAllowedStringTypes(arg, pathToItem, pathSet);
@@ -117,6 +136,18 @@ public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    }
+
+    public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+        return validate(arg.toString(), configuration);
+    }
+
+    public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+        return validate(arg.toString(), configuration);
+    }
+
+    public String validate(UUID arg, SchemaConfiguration configuration) throws ValidationException {
+        return validate(arg.toString(), configuration);
     }
 
     @Override
