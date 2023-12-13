@@ -4,26 +4,40 @@ import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.AdditionalPropertiesValidator;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.PropertiesValidator;
 import {{{packageName}}}.schemas.validation.PropertyEntry;
+import {{{packageName}}}.schemas.validation.SchemaMapValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 
 public class ObjectTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
+    );
 
-    public static class ObjectWithPropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class ObjectWithPropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public ObjectWithPropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -34,12 +48,29 @@ public class ObjectTypeSchemaTest {
 
         }
 
-        public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return validateMap(arg, configuration);
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedMapTypes(arg, pathToItem, pathSet);
+        }
+
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+
+        @Override
+        public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class ObjectWithAddpropsSchema extends JsonSchema implements SchemaMapValidator<String, String, FrozenMap<String>> {
         public ObjectWithAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -47,12 +78,39 @@ public class ObjectTypeSchemaTest {
             )));
         }
 
-        public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return validateMap(arg, configuration);
+        @Override
+        public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, String> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                String val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                String fixedVal = JsonSchemaFactory.getInstance(StringJsonSchema.class).castToAllowedTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+
+        @Override
+        public FrozenMap<String> getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+
+        @Override
+        public FrozenMap<String> validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            FrozenMap<String> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     }
 
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object, FrozenList<Object>> {
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public ObjectWithPropsAndAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -63,13 +121,30 @@ public class ObjectTypeSchemaTest {
             )));
         }
 
-        public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return validateMap(arg, configuration);
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedMapTypes(arg, pathToItem, pathSet);
+        }
+
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+
+        @Override
+        public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     }
 
-    public static class ObjectWithOutputTypeSchemaMap extends FrozenMap<String, Object> {
-        ObjectWithOutputTypeSchemaMap(FrozenMap<String, Object> m) {
+    public static class ObjectWithOutputTypeSchemaMap extends FrozenMap<Object> {
+        ObjectWithOutputTypeSchemaMap(FrozenMap<Object> m) {
             super(m);
         }
 
@@ -79,7 +154,7 @@ public class ObjectTypeSchemaTest {
     }
 
 
-    public static class ObjectWithOutputTypeSchema extends JsonSchema<Object, Object, ObjectWithOutputTypeSchemaMap, Object, Object, FrozenList<Object>> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema implements SchemaMapValidator<Object, Object, ObjectWithOutputTypeSchemaMap> {
         public ObjectWithOutputTypeSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -89,21 +164,36 @@ public class ObjectTypeSchemaTest {
             )));
         }
 
+
         @Override
-        protected ObjectWithOutputTypeSchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedMapTypes(arg, pathToItem, pathSet);
+        }
+
+        @Override
+        public ObjectWithOutputTypeSchemaMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return new ObjectWithOutputTypeSchemaMap(arg);
         }
 
-        public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return validateMap(arg, configuration);
+        @Override
+        public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
         ObjectWithPropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithPropsSchema.class);
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-                (Void) null, configuration
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+                schema,
+                null,
+                validationMetadata
         ));
     }
 
@@ -114,7 +204,7 @@ public class ObjectTypeSchemaTest {
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
-        FrozenMap<String, Object> validatedValue = schema.validate(inMap, configuration);
+        FrozenMap<Object> validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         Assert.assertEquals(validatedValue, outMap);
@@ -143,9 +233,9 @@ public class ObjectTypeSchemaTest {
         ObjectWithAddpropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithAddpropsSchema.class);
 
         // map with only property works
-        Map<String, Object> inMap = new LinkedHashMap<>();
+        Map<String, String> inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
-        FrozenMap<String, Object> validatedValue = schema.validate(inMap, configuration);
+        FrozenMap<String> validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         Assert.assertEquals(validatedValue, outMap);
@@ -161,11 +251,11 @@ public class ObjectTypeSchemaTest {
         Assert.assertEquals(validatedValue, outMap);
 
         // invalid addProp type fails
-        inMap = new LinkedHashMap<>();
-        inMap.put("someString", 1);
-        Map<String, Object> finalInMap = inMap;
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-                finalInMap, configuration
+        Map<String, Integer> invalidInput = Map.of("someString", 1);
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+                schema,
+                invalidInput,
+                validationMetadata
         ));
     }
 
@@ -176,7 +266,7 @@ public class ObjectTypeSchemaTest {
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("someString", "abc");
-        FrozenMap<String, Object> validatedValue = schema.validate(inMap, configuration);
+        FrozenMap<Object> validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, Object> outMap = new LinkedHashMap<>();
         outMap.put("someString", "abc");
         Assert.assertEquals(validatedValue, outMap);
