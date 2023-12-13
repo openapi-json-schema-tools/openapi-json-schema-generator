@@ -20,6 +20,8 @@ public abstract class JsonSchema {
         this.keywordToValidator = keywordToValidator;
     }
 
+    public abstract Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
             Object arg,

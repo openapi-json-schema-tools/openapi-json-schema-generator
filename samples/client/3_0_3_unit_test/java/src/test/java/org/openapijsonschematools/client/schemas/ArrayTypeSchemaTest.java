@@ -110,6 +110,17 @@ public class ArrayTypeSchemaTest {
 
         @Override
         public ArrayWithOutputClsSchemaList getNewInstance(FrozenList<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+//            ArrayList<String> items = new ArrayList<>();
+//            int i = 0;
+//            for (String item: arg) {
+//                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+//                itemPathToItem.add(i);
+//                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+//                ListItemOutType castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+//                items.add(castItem);
+//                i += 1;
+//            }
+//            FrozenList<String> newInstanceItems = new FrozenList<>(items);
             return new ArrayWithOutputClsSchemaList(arg);
         }
 

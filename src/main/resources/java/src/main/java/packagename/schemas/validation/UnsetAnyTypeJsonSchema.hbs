@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.Map;
-import java.util.LinkedHashMap;
 import java.util.Objects;
 
 public class UnsetAnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -152,5 +151,26 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements SchemaNullVali
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg == null) {
+            return getNewInstance((Void) arg, pathToItem, pathToSchemas);
+        } else if (arg instanceof Boolean) {
+            boolean boolArg = (Boolean) arg;
+            return getNewInstance(boolArg, pathToItem, pathToSchemas);
+        } else if (arg instanceof Number) {
+            return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+        } else if (arg instanceof String) {
+            return getNewInstance((String) arg, pathToItem, pathToSchemas);
+        } else if (arg instanceof FrozenList) {
+            FrozenList<Object> castArg = (FrozenList<Object>) arg;
+            return getNewInstance(castArg, pathToItem, pathToSchemas);
+        } else if (arg instanceof FrozenMap) {
+            FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+            return getNewInstance(castArg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
 }
