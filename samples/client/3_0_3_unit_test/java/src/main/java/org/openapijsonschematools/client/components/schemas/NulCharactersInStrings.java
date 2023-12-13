@@ -31,6 +31,7 @@ public class NulCharactersInStrings {
     
         Do not edit the class manually.
         */
+        private static NulCharactersInStrings1 instance;
         public NulCharactersInStrings1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

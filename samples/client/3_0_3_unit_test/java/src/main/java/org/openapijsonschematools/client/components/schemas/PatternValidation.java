@@ -40,6 +40,7 @@ public class PatternValidation {
     
         Do not edit the class manually.
         */
+        private static PatternValidation1 instance;
         public PatternValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(

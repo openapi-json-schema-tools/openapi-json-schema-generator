@@ -70,6 +70,7 @@ public class NotMoreComplexSchema {
     
     
     public static class Not extends JsonSchema implements SchemaMapValidator<Object, Object, NotMap> {
+        private static Not instance;
         public Not() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -138,6 +139,7 @@ public class NotMoreComplexSchema {
     
         Do not edit the class manually.
         */
+        private static NotMoreComplexSchema1 instance;
         public NotMoreComplexSchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(Not.class))

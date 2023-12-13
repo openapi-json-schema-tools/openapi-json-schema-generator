@@ -47,6 +47,7 @@ public class AllofWithTheLastEmptySchema {
     
         Do not edit the class manually.
         */
+        private static AllofWithTheLastEmptySchema1 instance;
         public AllofWithTheLastEmptySchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(

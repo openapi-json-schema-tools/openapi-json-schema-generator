@@ -31,6 +31,7 @@ public class EnumWithEscapedCharacters {
     
         Do not edit the class manually.
         */
+        private static EnumWithEscapedCharacters1 instance;
         public EnumWithEscapedCharacters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

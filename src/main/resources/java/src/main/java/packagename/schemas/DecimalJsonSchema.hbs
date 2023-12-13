@@ -21,6 +21,8 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DecimalJsonSchema extends JsonSchema implements SchemaStringValidator {
+    private static DecimalJsonSchema instance;
+
     public DecimalJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),

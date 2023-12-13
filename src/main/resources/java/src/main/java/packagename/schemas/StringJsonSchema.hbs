@@ -23,6 +23,8 @@ import java.util.Map;
 import java.util.UUID;
 
 public class StringJsonSchema extends JsonSchema implements SchemaStringValidator {
+    private static StringJsonSchema instance;
+
     public StringJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))

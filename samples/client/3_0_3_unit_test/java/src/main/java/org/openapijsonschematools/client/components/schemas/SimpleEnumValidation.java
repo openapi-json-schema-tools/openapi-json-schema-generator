@@ -31,6 +31,7 @@ public class SimpleEnumValidation {
     
         Do not edit the class manually.
         */
+        private static SimpleEnumValidation1 instance;
         public SimpleEnumValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

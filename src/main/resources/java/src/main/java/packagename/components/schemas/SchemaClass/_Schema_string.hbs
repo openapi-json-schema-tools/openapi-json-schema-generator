@@ -13,6 +13,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     {{/if}}
     */
 {{/if}}
+    private static {{jsonPathPiece.camelCase}} instance;
     {{#each keywords}}
         {{#if @first}}
     public {{../jsonPathPiece.camelCase}}() {

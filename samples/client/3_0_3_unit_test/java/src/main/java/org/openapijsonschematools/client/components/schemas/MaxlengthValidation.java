@@ -39,6 +39,7 @@ public class MaxlengthValidation {
     
         Do not edit the class manually.
         */
+        private static MaxlengthValidation1 instance;
         public MaxlengthValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(2))

@@ -39,6 +39,7 @@ public class UriReferenceFormat {
     
         Do not edit the class manually.
         */
+        private static UriReferenceFormat1 instance;
         public UriReferenceFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("uri-reference"))

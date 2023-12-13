@@ -88,6 +88,7 @@ public class PropertiesWithEscapedCharacters {
     
         Do not edit the class manually.
         */
+        private static PropertiesWithEscapedCharacters1 instance;
         public PropertiesWithEscapedCharacters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

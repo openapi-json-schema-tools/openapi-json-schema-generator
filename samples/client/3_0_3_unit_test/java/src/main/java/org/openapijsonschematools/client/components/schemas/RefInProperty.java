@@ -70,6 +70,7 @@ public class RefInProperty {
     
         Do not edit the class manually.
         */
+        private static RefInProperty1 instance;
         public RefInProperty1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

@@ -31,6 +31,7 @@ public class EnumWithTrueDoesNotMatch1 {
     
         Do not edit the class manually.
         */
+        private static EnumWithTrueDoesNotMatch11 instance;
         public EnumWithTrueDoesNotMatch11() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),

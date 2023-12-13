@@ -36,6 +36,7 @@ public class AnyofWithBaseSchema {
     
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+        private static Schema0 instance;
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(2))
@@ -230,6 +231,7 @@ public class AnyofWithBaseSchema {
     }    
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+        private static Schema1 instance;
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(4))
@@ -430,6 +432,7 @@ public class AnyofWithBaseSchema {
     
         Do not edit the class manually.
         */
+        private static AnyofWithBaseSchema1 instance;
         public AnyofWithBaseSchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

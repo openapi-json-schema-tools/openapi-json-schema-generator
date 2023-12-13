@@ -43,6 +43,7 @@ public class Not {
     
         Do not edit the class manually.
         */
+        private static Not1 instance;
         public Not1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(Not2.class))

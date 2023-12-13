@@ -39,6 +39,7 @@ public class ByInt {
     
         Do not edit the class manually.
         */
+        private static ByInt1 instance;
         public ByInt1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(2))

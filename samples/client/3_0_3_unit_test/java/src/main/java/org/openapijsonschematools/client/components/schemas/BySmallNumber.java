@@ -39,6 +39,7 @@ public class BySmallNumber {
     
         Do not edit the class manually.
         */
+        private static BySmallNumber1 instance;
         public BySmallNumber1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(0.00010))

@@ -39,6 +39,7 @@ public class MaxitemsValidation {
     
         Do not edit the class manually.
         */
+        private static MaxitemsValidation1 instance;
         public MaxitemsValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxItems", new MaxItemsValidator(2))

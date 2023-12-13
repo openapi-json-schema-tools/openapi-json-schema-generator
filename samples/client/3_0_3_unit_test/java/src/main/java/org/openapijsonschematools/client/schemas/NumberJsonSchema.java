@@ -20,6 +20,8 @@ import java.util.Set;
 import java.util.Map;
 
 public class NumberJsonSchema extends JsonSchema implements SchemaNumberValidator {
+    private static NumberJsonSchema instance;
+
     public NumberJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

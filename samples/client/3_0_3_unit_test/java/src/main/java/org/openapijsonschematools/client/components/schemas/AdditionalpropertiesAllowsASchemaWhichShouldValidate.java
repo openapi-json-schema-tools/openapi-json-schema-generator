@@ -80,6 +80,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     
         Do not edit the class manually.
         */
+        private static AdditionalpropertiesAllowsASchemaWhichShouldValidate1 instance;
         public AdditionalpropertiesAllowsASchemaWhichShouldValidate1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),

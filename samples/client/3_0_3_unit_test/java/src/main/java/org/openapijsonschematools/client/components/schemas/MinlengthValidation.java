@@ -39,6 +39,7 @@ public class MinlengthValidation {
     
         Do not edit the class manually.
         */
+        private static MinlengthValidation1 instance;
         public MinlengthValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(2))

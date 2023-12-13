@@ -22,6 +22,8 @@ import java.util.Set;
 import java.util.UUID;
 
 public class UuidJsonSchema extends JsonSchema implements SchemaStringValidator {
+    private static UuidJsonSchema instance;
+
     public UuidJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),

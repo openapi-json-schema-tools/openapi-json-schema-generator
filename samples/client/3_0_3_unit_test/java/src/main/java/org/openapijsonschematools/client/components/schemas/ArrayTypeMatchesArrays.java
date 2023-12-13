@@ -50,6 +50,7 @@ public class ArrayTypeMatchesArrays {
     
         Do not edit the class manually.
         */
+        private static ArrayTypeMatchesArrays1 instance;
         public ArrayTypeMatchesArrays1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),

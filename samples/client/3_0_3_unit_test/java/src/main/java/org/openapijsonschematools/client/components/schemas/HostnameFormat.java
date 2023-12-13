@@ -39,6 +39,7 @@ public class HostnameFormat {
     
         Do not edit the class manually.
         */
+        private static HostnameFormat1 instance;
         public HostnameFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("hostname"))

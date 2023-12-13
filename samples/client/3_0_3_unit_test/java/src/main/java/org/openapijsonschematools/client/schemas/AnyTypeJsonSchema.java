@@ -28,6 +28,8 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    private static AnyTypeJsonSchema instance;
+
     public AnyTypeJsonSchema() {
         super(null);
     }

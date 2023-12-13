@@ -20,6 +20,8 @@ import java.util.Objects;
 import java.util.Set;
 
 public class BooleanJsonSchema extends JsonSchema implements SchemaBooleanValidator {
+    private static BooleanJsonSchema instance;
+
     public BooleanJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))

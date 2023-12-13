@@ -31,6 +31,7 @@ public class EnumWithFalseDoesNotMatch0 {
     
         Do not edit the class manually.
         */
+        private static EnumWithFalseDoesNotMatch01 instance;
         public EnumWithFalseDoesNotMatch01() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),

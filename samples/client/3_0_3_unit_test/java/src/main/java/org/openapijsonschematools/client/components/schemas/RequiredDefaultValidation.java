@@ -74,6 +74,7 @@ public class RequiredDefaultValidation {
     
         Do not edit the class manually.
         */
+        private static RequiredDefaultValidation1 instance;
         public RequiredDefaultValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

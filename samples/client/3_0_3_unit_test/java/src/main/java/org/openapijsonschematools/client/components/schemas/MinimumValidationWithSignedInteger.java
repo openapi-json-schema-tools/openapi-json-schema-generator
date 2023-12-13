@@ -39,6 +39,7 @@ public class MinimumValidationWithSignedInteger {
     
         Do not edit the class manually.
         */
+        private static MinimumValidationWithSignedInteger1 instance;
         public MinimumValidationWithSignedInteger1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minimum", new MinimumValidator(-2))

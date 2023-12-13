@@ -37,6 +37,7 @@ public class InvalidStringValueForDefault {
     
     
     public static class Bar extends JsonSchema implements SchemaStringValidator {
+        private static Bar instance;
         public Bar() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
@@ -113,6 +114,7 @@ public class InvalidStringValueForDefault {
     
         Do not edit the class manually.
         */
+        private static InvalidStringValueForDefault1 instance;
         public InvalidStringValueForDefault1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

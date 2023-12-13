@@ -37,6 +37,7 @@ public class NestedOneofToCheckValidationSemantics {
     
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+        private static Schema0 instance;
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
@@ -239,6 +240,7 @@ public class NestedOneofToCheckValidationSemantics {
     
         Do not edit the class manually.
         */
+        private static NestedOneofToCheckValidationSemantics1 instance;
         public NestedOneofToCheckValidationSemantics1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(

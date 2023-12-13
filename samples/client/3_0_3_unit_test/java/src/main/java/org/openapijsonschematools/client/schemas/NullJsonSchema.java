@@ -20,6 +20,8 @@ import java.util.Objects;
 import java.util.Set;
 
 public class NullJsonSchema extends JsonSchema implements SchemaNullValidator {
+    private static NullJsonSchema instance;
+
     public NullJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))

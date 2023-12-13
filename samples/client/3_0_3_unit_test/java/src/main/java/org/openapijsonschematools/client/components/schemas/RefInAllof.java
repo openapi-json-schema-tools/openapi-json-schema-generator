@@ -39,6 +39,7 @@ public class RefInAllof {
     
         Do not edit the class manually.
         */
+        private static RefInAllof1 instance;
         public RefInAllof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(

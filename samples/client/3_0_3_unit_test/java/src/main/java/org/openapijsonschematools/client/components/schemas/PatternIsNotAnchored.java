@@ -40,6 +40,7 @@ public class PatternIsNotAnchored {
     
         Do not edit the class manually.
         */
+        private static PatternIsNotAnchored1 instance;
         public PatternIsNotAnchored1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(

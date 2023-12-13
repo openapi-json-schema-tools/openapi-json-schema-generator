@@ -76,6 +76,7 @@ public class ForbiddenProperty {
     
         Do not edit the class manually.
         */
+        private static ForbiddenProperty1 instance;
         public ForbiddenProperty1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

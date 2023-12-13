@@ -39,6 +39,7 @@ public class MaximumValidationWithUnsignedInteger {
     
         Do not edit the class manually.
         */
+        private static MaximumValidationWithUnsignedInteger1 instance;
         public MaximumValidationWithUnsignedInteger1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maximum", new MaximumValidator(300))

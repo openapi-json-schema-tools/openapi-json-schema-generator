@@ -39,6 +39,7 @@ public class UniqueitemsValidation {
     
         Do not edit the class manually.
         */
+        private static UniqueitemsValidation1 instance;
         public UniqueitemsValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))

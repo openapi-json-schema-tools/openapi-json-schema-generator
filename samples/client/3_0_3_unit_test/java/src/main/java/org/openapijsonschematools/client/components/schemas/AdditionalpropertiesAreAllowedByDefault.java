@@ -84,6 +84,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
     
         Do not edit the class manually.
         */
+        private static AdditionalpropertiesAreAllowedByDefault1 instance;
         public AdditionalpropertiesAreAllowedByDefault1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

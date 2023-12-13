@@ -21,6 +21,8 @@ import java.util.Set;
 import java.util.Map;
 
 public class Int64JsonSchema extends JsonSchema implements SchemaNumberValidator {
+    private static Int64JsonSchema instance;
+
     public Int64JsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(

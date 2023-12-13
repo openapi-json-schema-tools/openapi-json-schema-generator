@@ -39,6 +39,7 @@ public class JsonPointerFormat {
     
         Do not edit the class manually.
         */
+        private static JsonPointerFormat1 instance;
         public JsonPointerFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("json-pointer"))

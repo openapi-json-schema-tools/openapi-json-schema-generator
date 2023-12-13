@@ -39,6 +39,7 @@ public class RefInAnyof {
     
         Do not edit the class manually.
         */
+        private static RefInAnyof1 instance;
         public RefInAnyof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(

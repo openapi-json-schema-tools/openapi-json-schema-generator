@@ -21,6 +21,8 @@ import java.util.Objects;
 import java.util.Set;
 
 public class FloatJsonSchema extends JsonSchema implements SchemaNumberValidator {
+    private static FloatJsonSchema instance;
+
     public FloatJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Float.class))),

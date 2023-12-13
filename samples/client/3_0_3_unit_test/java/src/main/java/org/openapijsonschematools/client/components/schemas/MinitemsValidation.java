@@ -39,6 +39,7 @@ public class MinitemsValidation {
     
         Do not edit the class manually.
         */
+        private static MinitemsValidation1 instance;
         public MinitemsValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minItems", new MinItemsValidator(1))

@@ -47,6 +47,7 @@ public class AnyofWithOneEmptySchema {
     
         Do not edit the class manually.
         */
+        private static AnyofWithOneEmptySchema1 instance;
         public AnyofWithOneEmptySchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(

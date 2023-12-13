@@ -14,6 +14,8 @@ import java.util.Map;
 import java.util.Objects;
 
 public class UnsetAnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    private static UnsetAnyTypeJsonSchema instance;
+
     public UnsetAnyTypeJsonSchema() {
         super(null);
     }
