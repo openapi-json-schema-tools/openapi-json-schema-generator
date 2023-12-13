@@ -146,17 +146,7 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements SchemaNullValida
 
     @Override
     public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        pathSet.add(pathToItem);
-        LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-        for (Map.Entry<?, ?> entry: arg.entrySet()) {
-            String key = (String) entry.getKey();
-            Object val = entry.getValue();
-            List<Object> newPathToItem = new ArrayList<>(pathToItem);
-            newPathToItem.add(key);
-            Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
-            argFixed.put(key, fixedVal);
-        }
-        return new FrozenMap<>(argFixed);
+        return castToAllowedMapTypes(arg, pathToItem, pathSet);
     }
 
     @Override
