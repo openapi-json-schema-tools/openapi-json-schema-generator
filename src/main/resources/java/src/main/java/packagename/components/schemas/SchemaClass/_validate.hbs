@@ -157,8 +157,15 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
             {{/eq}}
         {{/eq}}
         {{#eq this "boolean"}}
+@Override
 public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
-    return validateBoolean(arg, configuration);
+    Set<List<Object>> pathSet = new HashSet<>();
+    List<Object> pathToItem = List.of("args[0");
+    boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
 }
         {{/eq}}
     {{/each}}
