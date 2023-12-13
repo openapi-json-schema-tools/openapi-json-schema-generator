@@ -53,4 +53,12 @@ public class DateTimeJsonSchema extends JsonSchema implements SchemaStringValida
     public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
         return validate(arg.toString(), configuration);
     }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof String) {
+            return getNewInstance((String) arg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+    }
 }

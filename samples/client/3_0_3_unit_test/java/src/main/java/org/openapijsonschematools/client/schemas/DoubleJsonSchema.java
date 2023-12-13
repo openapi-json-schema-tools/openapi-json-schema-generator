@@ -53,4 +53,12 @@ public class DoubleJsonSchema extends JsonSchema implements SchemaNumberValidato
     public double validate(double arg, SchemaConfiguration configuration) {
         return (double) validate((Number) arg, configuration);
     }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof Number) {
+            return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+    }
 }
