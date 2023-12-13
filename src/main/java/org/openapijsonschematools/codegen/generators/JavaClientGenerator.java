@@ -1737,6 +1737,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import " + packageName + ".schemas.validation.SchemaListValidator;");
         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
         imports.add("import java.util.List;");
+        imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         addItemsValidator(schema, imports);
         addMaxItemsValidator(schema, imports);
         addMinItemsValidator(schema, imports);

@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -59,6 +60,22 @@ public class ArrayTypeMatchesArrays {
         protected ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayTypeMatchesArraysList(arg);
         }
+    
+        @Override
+        public FrozenList<Object> castToAllowedTypes(List<Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            List<Object> argFixed = new ArrayList<>();
+            int i =0;
+            for (Object item: arg) {
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(i);
+                                Object fixedVal = JsonSchemaFactory.getInstance(Items.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                argFixed.add(fixedVal);
+                i += 1;
+            }
+            return new FrozenList<>(argFixed);
+        }
+    
         @Override
         public ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
