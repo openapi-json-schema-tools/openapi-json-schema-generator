@@ -35,8 +35,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     public static class Foo extends AnyTypeJsonSchema {}
     
     
-    public static class Schema0Map extends FrozenMap<String, Object> {
-        Schema0Map(FrozenMap<String, Object> m) {
+    public static class Schema0Map extends FrozenMap<Object> {
+        Schema0Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -126,8 +126,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }    
     
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsMap extends FrozenMap<String, Boolean> {
-        AdditionalpropertiesShouldNotLookInApplicatorsMap(FrozenMap<String, Boolean> m) {
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsMap extends FrozenMap<Boolean> {
+        AdditionalpropertiesShouldNotLookInApplicatorsMap(FrozenMap<Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

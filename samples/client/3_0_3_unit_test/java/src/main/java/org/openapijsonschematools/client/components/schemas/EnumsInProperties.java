@@ -97,8 +97,8 @@ public class EnumsInProperties {
     
     }    
     
-    public static class EnumsInPropertiesMap extends FrozenMap<String, Object> {
-        EnumsInPropertiesMap(FrozenMap<String, Object> m) {
+    public static class EnumsInPropertiesMap extends FrozenMap<Object> {
+        EnumsInPropertiesMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

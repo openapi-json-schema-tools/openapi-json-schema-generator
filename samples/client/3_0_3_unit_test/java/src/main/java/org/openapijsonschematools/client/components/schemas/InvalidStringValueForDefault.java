@@ -61,8 +61,8 @@ public class InvalidStringValueForDefault {
     
     }    
     
-    public static class InvalidStringValueForDefaultMap extends FrozenMap<String, Object> {
-        InvalidStringValueForDefaultMap(FrozenMap<String, Object> m) {
+    public static class InvalidStringValueForDefaultMap extends FrozenMap<Object> {
+        InvalidStringValueForDefaultMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

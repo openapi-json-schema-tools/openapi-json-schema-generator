@@ -32,8 +32,8 @@ public class AdditionalpropertiesAreAllowedByDefault {
     public static class Bar extends AnyTypeJsonSchema {}
     
     
-    public static class AdditionalpropertiesAreAllowedByDefaultMap extends FrozenMap<String, Object> {
-        AdditionalpropertiesAreAllowedByDefaultMap(FrozenMap<String, Object> m) {
+    public static class AdditionalpropertiesAreAllowedByDefaultMap extends FrozenMap<Object> {
+        AdditionalpropertiesAreAllowedByDefaultMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -32,8 +32,8 @@ public class NotMoreComplexSchema {
     public static class Foo extends StringJsonSchema {}
     
     
-    public static class NotMap extends FrozenMap<String, Object> {
-        NotMap(FrozenMap<String, Object> m) {
+    public static class NotMap extends FrozenMap<Object> {
+        NotMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

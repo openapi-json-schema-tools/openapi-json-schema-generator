@@ -33,8 +33,8 @@ public class AllofWithBaseSchema {
     public static class Foo extends StringJsonSchema {}
     
     
-    public static class Schema0Map extends FrozenMap<String, Object> {
-        Schema0Map(FrozenMap<String, Object> m) {
+    public static class Schema0Map extends FrozenMap<Object> {
+        Schema0Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -128,8 +128,8 @@ public class AllofWithBaseSchema {
     public static class Baz extends NullJsonSchema {}
     
     
-    public static class Schema1Map extends FrozenMap<String, Object> {
-        Schema1Map(FrozenMap<String, Object> m) {
+    public static class Schema1Map extends FrozenMap<Object> {
+        Schema1Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -223,8 +223,8 @@ public class AllofWithBaseSchema {
     public static class Bar extends IntJsonSchema {}
     
     
-    public static class AllofWithBaseSchemaMap extends FrozenMap<String, Object> {
-        AllofWithBaseSchemaMap(FrozenMap<String, Object> m) {
+    public static class AllofWithBaseSchemaMap extends FrozenMap<Object> {
+        AllofWithBaseSchemaMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

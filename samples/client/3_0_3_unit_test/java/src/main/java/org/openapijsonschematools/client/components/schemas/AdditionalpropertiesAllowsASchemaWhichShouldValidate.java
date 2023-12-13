@@ -35,8 +35,8 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     public static class Bar extends AnyTypeJsonSchema {}
     
     
-    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap extends FrozenMap<String, Object> {
-        AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(FrozenMap<String, Object> m) {
+    public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap extends FrozenMap<Object> {
+        AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

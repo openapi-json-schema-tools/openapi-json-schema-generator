@@ -33,8 +33,8 @@ public class RequiredValidation {
     public static class Bar extends AnyTypeJsonSchema {}
     
     
-    public static class RequiredValidationMap extends FrozenMap<String, Object> {
-        RequiredValidationMap(FrozenMap<String, Object> m) {
+    public static class RequiredValidationMap extends FrozenMap<Object> {
+        RequiredValidationMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

@@ -29,8 +29,8 @@ public class PropertyNamedRefThatIsNotAReference {
     public static class Ref extends StringJsonSchema {}
     
     
-    public static class PropertyNamedRefThatIsNotAReferenceMap extends FrozenMap<String, Object> {
-        PropertyNamedRefThatIsNotAReferenceMap(FrozenMap<String, Object> m) {
+    public static class PropertyNamedRefThatIsNotAReferenceMap extends FrozenMap<Object> {
+        PropertyNamedRefThatIsNotAReferenceMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

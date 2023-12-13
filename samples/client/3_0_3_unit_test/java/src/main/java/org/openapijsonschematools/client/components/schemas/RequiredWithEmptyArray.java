@@ -29,8 +29,8 @@ public class RequiredWithEmptyArray {
     public static class Foo extends AnyTypeJsonSchema {}
     
     
-    public static class RequiredWithEmptyArrayMap extends FrozenMap<String, Object> {
-        RequiredWithEmptyArrayMap(FrozenMap<String, Object> m) {
+    public static class RequiredWithEmptyArrayMap extends FrozenMap<Object> {
+        RequiredWithEmptyArrayMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

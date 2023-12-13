@@ -24,8 +24,8 @@ public class RequiredWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class RequiredWithEscapedCharactersMap extends FrozenMap<String, Object> {
-        RequiredWithEscapedCharactersMap(FrozenMap<String, Object> m) {
+    public static class RequiredWithEscapedCharactersMap extends FrozenMap<Object> {
+        RequiredWithEscapedCharactersMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

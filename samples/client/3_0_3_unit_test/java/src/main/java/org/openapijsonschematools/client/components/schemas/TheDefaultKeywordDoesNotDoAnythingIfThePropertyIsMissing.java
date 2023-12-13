@@ -54,8 +54,8 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         }
     }    
     
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap extends FrozenMap<String, Object> {
-        TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap(FrozenMap<String, Object> m) {
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap extends FrozenMap<Object> {
+        TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

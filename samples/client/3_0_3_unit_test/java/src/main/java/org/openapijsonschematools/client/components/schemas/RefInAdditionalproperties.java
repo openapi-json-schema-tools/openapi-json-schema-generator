@@ -22,8 +22,8 @@ public class RefInAdditionalproperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class RefInAdditionalpropertiesMap extends FrozenMap<String, Object> {
-        RefInAdditionalpropertiesMap(FrozenMap<String, Object> m) {
+    public static class RefInAdditionalpropertiesMap extends FrozenMap<Object> {
+        RefInAdditionalpropertiesMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

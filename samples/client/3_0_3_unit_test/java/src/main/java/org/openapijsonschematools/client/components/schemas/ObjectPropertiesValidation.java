@@ -33,8 +33,8 @@ public class ObjectPropertiesValidation {
     public static class Bar extends StringJsonSchema {}
     
     
-    public static class ObjectPropertiesValidationMap extends FrozenMap<String, Object> {
-        ObjectPropertiesValidationMap(FrozenMap<String, Object> m) {
+    public static class ObjectPropertiesValidationMap extends FrozenMap<Object> {
+        ObjectPropertiesValidationMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

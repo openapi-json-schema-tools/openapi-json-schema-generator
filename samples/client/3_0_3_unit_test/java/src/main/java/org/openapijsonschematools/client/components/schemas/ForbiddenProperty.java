@@ -31,8 +31,8 @@ public class ForbiddenProperty {
         // NotAnyTypeSchema
     
     
-    public static class ForbiddenPropertyMap extends FrozenMap<String, Object> {
-        ForbiddenPropertyMap(FrozenMap<String, Object> m) {
+    public static class ForbiddenPropertyMap extends FrozenMap<Object> {
+        ForbiddenPropertyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

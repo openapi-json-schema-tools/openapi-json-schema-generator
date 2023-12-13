@@ -25,8 +25,8 @@ public class RefInProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class RefInPropertyMap extends FrozenMap<String, Object> {
-        RefInPropertyMap(FrozenMap<String, Object> m) {
+    public static class RefInPropertyMap extends FrozenMap<Object> {
+        RefInPropertyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

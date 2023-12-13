@@ -44,8 +44,8 @@ public class PropertiesWithEscapedCharacters {
     public static class Foofbar extends NumberJsonSchema {}
     
     
-    public static class PropertiesWithEscapedCharactersMap extends FrozenMap<String, Object> {
-        PropertiesWithEscapedCharactersMap(FrozenMap<String, Object> m) {
+    public static class PropertiesWithEscapedCharactersMap extends FrozenMap<Object> {
+        PropertiesWithEscapedCharactersMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

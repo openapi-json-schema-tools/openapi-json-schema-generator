@@ -32,8 +32,8 @@ public class Allof {
     public static class Bar extends IntJsonSchema {}
     
     
-    public static class Schema0Map extends FrozenMap<String, Object> {
-        Schema0Map(FrozenMap<String, Object> m) {
+    public static class Schema0Map extends FrozenMap<Object> {
+        Schema0Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -127,8 +127,8 @@ public class Allof {
     public static class Foo extends StringJsonSchema {}
     
     
-    public static class Schema1Map extends FrozenMap<String, Object> {
-        Schema1Map(FrozenMap<String, Object> m) {
+    public static class Schema1Map extends FrozenMap<Object> {
+        Schema1Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

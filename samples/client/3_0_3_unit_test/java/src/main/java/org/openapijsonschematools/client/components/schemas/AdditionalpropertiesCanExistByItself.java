@@ -26,8 +26,8 @@ public class AdditionalpropertiesCanExistByItself {
     public static class AdditionalProperties extends BooleanJsonSchema {}
     
     
-    public static class AdditionalpropertiesCanExistByItselfMap extends FrozenMap<String, Boolean> {
-        AdditionalpropertiesCanExistByItselfMap(FrozenMap<String, Boolean> m) {
+    public static class AdditionalpropertiesCanExistByItselfMap extends FrozenMap<Boolean> {
+        AdditionalpropertiesCanExistByItselfMap(FrozenMap<Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
