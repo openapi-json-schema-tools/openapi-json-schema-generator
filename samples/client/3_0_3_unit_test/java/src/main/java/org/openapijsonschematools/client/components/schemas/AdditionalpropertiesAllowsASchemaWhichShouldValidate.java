@@ -97,4 +97,5 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return validateMap(arg, configuration);
         }
     }
+
 }

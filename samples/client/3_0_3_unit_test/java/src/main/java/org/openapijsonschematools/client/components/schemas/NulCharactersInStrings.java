@@ -61,4 +61,5 @@ public class NulCharactersInStrings {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     
-    }}
+    }
+}

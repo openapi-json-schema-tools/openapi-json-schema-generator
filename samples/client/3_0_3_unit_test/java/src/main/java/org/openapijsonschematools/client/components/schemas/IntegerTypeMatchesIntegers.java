@@ -6,4 +6,5 @@ public class IntegerTypeMatchesIntegers {
     
     
     public static class IntegerTypeMatchesIntegers1 extends IntJsonSchema {}
+
 }

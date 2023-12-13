@@ -62,4 +62,5 @@ public class EnumWithEscapedCharacters {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     
-    }}
+    }
+}

@@ -58,4 +58,5 @@ public class RefInItems {
         public RefInItemsList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
-    }}
+    }
+}

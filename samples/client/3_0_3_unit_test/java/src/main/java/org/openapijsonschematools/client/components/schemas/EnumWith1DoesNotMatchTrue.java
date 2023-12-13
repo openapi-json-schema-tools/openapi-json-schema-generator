@@ -42,19 +42,41 @@ public class EnumWith1DoesNotMatchTrue {
                 )))
             )));
         }
+    
+        @Override
+        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateInt(arg, configuration);
+            return (int) validate((Number) arg, configuration);
         }
         
         public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateLong(arg, configuration);
+            return (long) validate((Number) arg, configuration);
         }
         
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateFloat(arg, configuration);
+            return (float) validate((Number) arg, configuration);
         }
         
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateDouble(arg, configuration);
+            return (double) validate((Number) arg, configuration);
         }
-    }}
+    }
+}

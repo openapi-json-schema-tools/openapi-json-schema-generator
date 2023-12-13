@@ -258,4 +258,5 @@ public class AllofCombinedWithAnyofOneof {
         public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
-    }}
+    }
+}

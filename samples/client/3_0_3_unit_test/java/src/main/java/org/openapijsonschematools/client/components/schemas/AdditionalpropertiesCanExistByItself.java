@@ -69,4 +69,5 @@ public class AdditionalpropertiesCanExistByItself {
             return validateMap(arg, configuration);
         }
     }
+
 }

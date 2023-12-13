@@ -65,4 +65,5 @@ public class RefInAdditionalproperties {
             return validateMap(arg, configuration);
         }
     }
+
 }

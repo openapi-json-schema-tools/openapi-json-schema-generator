@@ -161,4 +161,5 @@ public class EnumsInProperties {
             return validateMap(arg, configuration);
         }
     }
+
 }

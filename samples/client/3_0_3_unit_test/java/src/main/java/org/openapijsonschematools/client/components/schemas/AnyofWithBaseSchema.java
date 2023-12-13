@@ -178,4 +178,5 @@ public class AnyofWithBaseSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     
-    }}
+    }
+}

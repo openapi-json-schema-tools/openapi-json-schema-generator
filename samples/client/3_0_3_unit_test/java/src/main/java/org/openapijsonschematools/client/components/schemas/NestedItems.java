@@ -155,4 +155,5 @@ public class NestedItems {
         public NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
-    }}
+    }
+}

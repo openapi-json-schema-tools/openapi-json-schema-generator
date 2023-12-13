@@ -84,4 +84,5 @@ public class RefInAllof {
         public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
-    }}
+    }
+}

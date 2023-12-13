@@ -62,4 +62,5 @@ public class ArrayTypeMatchesArrays {
         public ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
-    }}
+    }
+}

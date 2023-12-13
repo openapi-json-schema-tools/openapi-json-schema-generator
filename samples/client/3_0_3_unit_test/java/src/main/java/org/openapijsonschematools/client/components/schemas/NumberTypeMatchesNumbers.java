@@ -6,4 +6,5 @@ public class NumberTypeMatchesNumbers {
     
     
     public static class NumberTypeMatchesNumbers1 extends NumberJsonSchema {}
+
 }

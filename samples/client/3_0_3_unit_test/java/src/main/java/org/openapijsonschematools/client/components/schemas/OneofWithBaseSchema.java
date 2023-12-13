@@ -178,4 +178,5 @@ public class OneofWithBaseSchema {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     
-    }}
+    }
+}

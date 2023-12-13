@@ -124,4 +124,5 @@ public class RequiredWithEscapedCharacters {
         public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return validateList(arg, configuration);
         }
-    }}
+    }
+}

@@ -39,6 +39,17 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
                 new KeywordEntry("multipleOf", new MultipleOfValidator(0.123456789))
             )));
         }
+    
+        @Override
+        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return validateInt(arg, configuration);
         }
@@ -54,4 +65,5 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return validateDouble(arg, configuration);
         }
-    }}
+    }
+}

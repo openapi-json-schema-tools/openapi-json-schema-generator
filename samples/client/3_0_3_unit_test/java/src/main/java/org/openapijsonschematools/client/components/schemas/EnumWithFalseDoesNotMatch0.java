@@ -40,4 +40,5 @@ public class EnumWithFalseDoesNotMatch0 {
         public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             return validateBoolean(arg, configuration);
         }
-    }}
+    }
+}
