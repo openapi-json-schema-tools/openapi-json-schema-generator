@@ -38,8 +38,15 @@ public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configu
 // FileIO,
 // bytes,
             {{else}}
+@Override
 public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-    return validateString(arg, configuration);
+    Set<List<Object>> pathSet = new HashSet<>();
+    List<Object> pathToItem = List.of("args[0");
+    String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
 }
             {{/eq}}
         {{/eq}}

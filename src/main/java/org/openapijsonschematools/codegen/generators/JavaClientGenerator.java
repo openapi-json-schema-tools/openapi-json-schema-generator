@@ -1355,7 +1355,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         addCustomSchemaImports(imports, schema);
                         imports.add("import " + packageName + ".schemas.validation.SchemaBooleanValidator;");
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                        imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
@@ -1373,7 +1372,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         addCustomSchemaImports(imports, schema);
                         imports.add("import " + packageName + ".schemas.validation.SchemaNullValidator;");
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                        imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
@@ -1396,7 +1394,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                        imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
@@ -1419,7 +1416,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                        imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
@@ -1448,7 +1444,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                        imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
@@ -1463,7 +1458,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                        imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
@@ -1481,7 +1475,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                        imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
@@ -1495,7 +1488,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             } else if (schema.types.size() > 1) {
                 addCustomSchemaImports(imports, schema);
                 imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                 imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                 imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.util.Map;");
@@ -1526,7 +1518,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             } else {
                 addCustomSchemaImports(imports, schema);
                 imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
-                imports.add("import "+packageName + ".schemas.validation.KeywordValidator;");
                 imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.time.LocalDate;");
                 imports.add("import java.time.ZonedDateTime;");
@@ -1713,10 +1704,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
-        imports.add("import "+packageName + ".schemas.validation.JsonSchemaFactory;");
         imports.add("import "+packageName + ".exceptions.ValidationException;");
-        imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for generic
-        imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for generic
+        imports.add("import java.util.List;"); // for castToAllowedTypes
+        imports.add("import java.util.HashSet;"); // for validate
+        imports.add("import java.util.Objects;"); // for validate
+        imports.add("import java.util.LinkedHashSet;"); // for validate
+        imports.add("import "+packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
+        imports.add("import "+packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
+        imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
     }
 
 

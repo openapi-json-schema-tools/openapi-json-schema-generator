@@ -1,19 +1,22 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class NulCharactersInStrings {
     // nest classes so all schemas and input/output classes can be public
@@ -36,7 +39,26 @@ public class NulCharactersInStrings {
                 )))
             )));
         }
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateString(arg, configuration);
+    
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
         }
+    
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+    
     }}
