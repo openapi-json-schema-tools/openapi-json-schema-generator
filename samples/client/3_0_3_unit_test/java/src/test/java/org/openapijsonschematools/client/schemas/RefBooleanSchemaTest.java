@@ -26,7 +26,7 @@ public class RefBooleanSchemaTest {
             new PathToSchemasMap(),
             new LinkedHashSet<>()
     );
-
+    
     @Test
     public void testValidateTrue() {
         Boolean validatedValue = refBooleanJsonSchema.validate(true, configuration);

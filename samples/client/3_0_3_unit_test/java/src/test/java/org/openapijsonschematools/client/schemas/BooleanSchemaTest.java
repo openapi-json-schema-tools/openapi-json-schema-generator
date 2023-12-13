@@ -22,7 +22,7 @@ public class BooleanSchemaTest {
             new PathToSchemasMap(),
             new LinkedHashSet<>()
     );
-
+    
     @Test
     public void testValidateTrue() {
         boolean validatedValue = booleanJsonSchema.validate(true, configuration);

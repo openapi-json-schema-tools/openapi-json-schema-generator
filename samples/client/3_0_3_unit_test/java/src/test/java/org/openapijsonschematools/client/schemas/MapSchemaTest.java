@@ -26,7 +26,7 @@ public class MapSchemaTest {
             new PathToSchemasMap(),
             new LinkedHashSet<>()
     );
-
+    
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
