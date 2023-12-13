@@ -12,21 +12,11 @@ import java.util.List;
 import java.util.Set;
 import java.util.Map;
 
-class SomeSchema extends JsonSchema<String, String, String> {
+class SomeSchema extends JsonSchema {
     public SomeSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
         )));
-    }
-
-    @Override
-    protected String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedStringTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
-    protected String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
     }
 }
 
@@ -43,12 +33,13 @@ public class JsonSchemaTest {
                 new LinkedHashSet<>()
         );
         SomeSchema schema = JsonSchemaFactory.getInstance(SomeSchema.class);
-        PathToSchemasMap pathToSchemas = schema.validate(
+        PathToSchemasMap pathToSchemas = JsonSchema.validate(
+                schema,
                 "hi",
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<JsonSchema<?, ?, ?>, Void> validatedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema, Void> validatedClasses = new LinkedHashMap<>();
         validatedClasses.put(schema, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
