@@ -59,8 +59,15 @@ public class ArrayTypeMatchesArrays {
         protected ArrayTypeMatchesArraysList getListOutputInstance(FrozenList<Object> arg) {
             return new ArrayTypeMatchesArraysList(arg);
         }
+        @Override
         public ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateList(arg, configuration);
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            FrozenList<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     }
 }
