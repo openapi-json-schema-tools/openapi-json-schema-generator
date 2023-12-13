@@ -407,7 +407,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");
-        keywordValidatorFiles.add("JsonSchemaValidator");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
@@ -427,6 +426,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
+        keywordValidatorFiles.add("SchemaNullValidator");
+        keywordValidatorFiles.add("SchemaBooleanValidator");
+        keywordValidatorFiles.add("SchemaNumberValidator");
+        keywordValidatorFiles.add("SchemaStringValidator");
+        keywordValidatorFiles.add("SchemaListValidator");
+        keywordValidatorFiles.add("SchemaMapValidator");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
