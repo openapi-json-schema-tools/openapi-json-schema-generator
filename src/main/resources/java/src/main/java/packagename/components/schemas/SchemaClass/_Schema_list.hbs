@@ -92,13 +92,21 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
             List<Object> itemPathToItem = new ArrayList<>(pathToItem);
             itemPathToItem.add(i);
             JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-            assert itemSchema instanceof {{items.jsonPathPiece.camelCase}};
-            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} castItem = JsonSchemaFactory.getInstance({{items.jsonPathPiece.camelCase}}.class).getNewInstance(item, itemPathToItem, pathToSchemas);
+            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
             items.add(castItem);
             i += 1;
         }
         FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> newInstanceItems = new FrozenList<>(items);
         return new {{../arrayOutputJsonPathPiece.camelCase}}(newInstanceItems);
+    }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof FrozenList) {
+            @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>) arg;
+            return getNewInstance(castArg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
 
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate }}

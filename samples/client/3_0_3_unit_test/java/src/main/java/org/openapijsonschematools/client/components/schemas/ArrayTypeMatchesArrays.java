@@ -79,13 +79,21 @@ public class ArrayTypeMatchesArrays {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                assert itemSchema instanceof Items;
-                Object castItem = JsonSchemaFactory.getInstance(Items.class).getNewInstance(item, itemPathToItem, pathToSchemas);
+                Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
             FrozenList<Object> newInstanceItems = new FrozenList<>(items);
             return new ArrayTypeMatchesArraysList(newInstanceItems);
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<Object> castArg = (FrozenList<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     
         @Override
