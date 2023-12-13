@@ -12,6 +12,7 @@ import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
+import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -49,5 +50,7 @@ public class DateJsonSchema extends JsonSchema implements SchemaStringValidator 
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
     }
 
-    // todo add localdate back in
+    public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+        return validate(arg.toString(), configuration);
+    }
 }

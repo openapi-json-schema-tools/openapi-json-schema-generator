@@ -29,10 +29,6 @@ public class DateTimeJsonSchema extends JsonSchema implements SchemaStringValida
         )));
     }
 
-    public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-        return validate(arg.toString(), configuration);
-    }
-
     @Override
     public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         return castToAllowedStringTypes(arg, pathToItem, pathSet);
@@ -52,5 +48,9 @@ public class DateTimeJsonSchema extends JsonSchema implements SchemaStringValida
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    }
+
+    public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
+        return validate(arg.toString(), configuration);
     }
 }
