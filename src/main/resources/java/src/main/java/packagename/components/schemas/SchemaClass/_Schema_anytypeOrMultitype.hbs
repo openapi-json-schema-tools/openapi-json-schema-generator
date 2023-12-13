@@ -140,6 +140,5 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema {
 {{/if}}
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
 {{/or}}
-    {{> src/main/java/packagename/components/schemas/SchemaClass/_getMapOutputInstance }}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate }}
 }
