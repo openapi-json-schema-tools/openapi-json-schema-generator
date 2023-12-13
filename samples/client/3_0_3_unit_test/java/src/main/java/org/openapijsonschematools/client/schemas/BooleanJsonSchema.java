@@ -40,12 +40,10 @@ public class BooleanJsonSchema extends JsonSchema implements SchemaBooleanValida
     @Override
     public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0");
         boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
         SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
-        PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
-        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
+        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
     }
