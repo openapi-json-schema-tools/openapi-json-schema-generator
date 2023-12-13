@@ -12,6 +12,7 @@ import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -63,7 +64,7 @@ public class NotMoreComplexSchema {
     }
     
     
-    public static class Not extends JsonSchema implements SchemaMapValidator<Object, Object, NotMap<Object>> {
+    public static class Not extends JsonSchema implements SchemaMapValidator<Object, Object, NotMap> {
         public Not() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
