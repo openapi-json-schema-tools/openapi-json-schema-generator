@@ -22,7 +22,12 @@ import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -62,7 +67,7 @@ public class OneofWithRequired {
     }
     
     
-    public static class Schema0 extends JsonSchema {
+    public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
@@ -71,14 +76,17 @@ public class OneofWithRequired {
                 )))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
@@ -288,7 +296,7 @@ public class OneofWithRequired {
     }
     
     
-    public static class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
@@ -297,14 +305,17 @@ public class OneofWithRequired {
                 )))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();

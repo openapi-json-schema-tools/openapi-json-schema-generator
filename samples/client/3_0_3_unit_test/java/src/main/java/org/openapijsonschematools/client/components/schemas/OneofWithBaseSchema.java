@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -21,6 +22,11 @@ import org.openapijsonschematools.client.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -29,20 +35,23 @@ public class OneofWithBaseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends JsonSchema {
+    public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(2))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
@@ -220,20 +229,23 @@ public class OneofWithBaseSchema {
         }
     }    
     
-    public static class Schema1 extends JsonSchema {
+    public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(4))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();

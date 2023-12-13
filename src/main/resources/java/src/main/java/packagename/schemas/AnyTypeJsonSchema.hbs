@@ -32,14 +32,17 @@ public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator
         super(null);
     }
 
+    @Override
     public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         return castToAllowedVoidTypes(arg, pathToItem, pathSet);
     }
 
+    @Override
     public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
 
+    @Override
     public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();

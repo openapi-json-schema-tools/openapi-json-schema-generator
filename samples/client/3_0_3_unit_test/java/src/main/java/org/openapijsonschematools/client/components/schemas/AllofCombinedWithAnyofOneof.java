@@ -1,12 +1,14 @@
 package org.openapijsonschematools.client.components.schemas;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -21,26 +23,35 @@ import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.MultipleOfValidator;
 import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class AllofCombinedWithAnyofOneof {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema02 extends JsonSchema {
+    public static class Schema02 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public Schema02() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(2))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
@@ -218,20 +229,23 @@ public class AllofCombinedWithAnyofOneof {
         }
     }    
     
-    public static class Schema01 extends JsonSchema {
+    public static class Schema01 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public Schema01() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(3))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
@@ -409,20 +423,23 @@ public class AllofCombinedWithAnyofOneof {
         }
     }    
     
-    public static class Schema0 extends JsonSchema {
+    public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         public Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(5))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
@@ -600,7 +617,7 @@ public class AllofCombinedWithAnyofOneof {
         }
     }    
     
-    public static class AllofCombinedWithAnyofOneof1 extends JsonSchema {
+    public static class AllofCombinedWithAnyofOneof1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -620,14 +637,17 @@ public class AllofCombinedWithAnyofOneof {
                 )))
             )));
         }
+        @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedVoidTypes(arg, pathToItem, pathSet);
         }
         
+        @Override
         public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
         
+        @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();

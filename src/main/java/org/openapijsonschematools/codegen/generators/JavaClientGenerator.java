@@ -1526,6 +1526,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import java.util.List;");
                 imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                 imports.add("import java.util.Map;");
+                imports.add("import "+packageName + ".schemas.validation.SchemaNullValidator;");
+                imports.add("import "+packageName + ".schemas.validation.SchemaBooleanValidator;");
+                imports.add("import "+packageName + ".schemas.validation.SchemaNumberValidator;");
+                imports.add("import "+packageName + ".schemas.validation.SchemaStringValidator;");
+                imports.add("import "+packageName + ".schemas.validation.SchemaListValidator;");
+                imports.add("import "+packageName + ".schemas.validation.SchemaMapValidator;");
                 addPropertiesValidator(schema, imports);
                 addRequiredValidator(schema, imports);
                 addAdditionalPropertiesValidator(schema, imports);
@@ -1706,10 +1712,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".exceptions.ValidationException;");
         imports.add("import "+packageName + ".exceptions.InvalidTypeException;"); // for castToAllowedTypes
-        imports.add("import java.util.List;"); // for castToAllowedTypes
+        imports.add("import java.util.Set;"); // for validate
+        imports.add("import java.util.ArrayList;"); // for validate
         imports.add("import java.util.HashSet;"); // for validate
         imports.add("import java.util.Objects;"); // for validate
         imports.add("import java.util.LinkedHashSet;"); // for validate
+        imports.add("import java.util.List;"); // for castToAllowedTypes
         imports.add("import "+packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
         imports.add("import "+packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
         imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
