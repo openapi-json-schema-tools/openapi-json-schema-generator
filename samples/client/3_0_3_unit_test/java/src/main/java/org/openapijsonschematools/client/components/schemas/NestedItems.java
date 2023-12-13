@@ -42,17 +42,12 @@ public class NestedItems {
     }
     
     
-    public static class Items2 extends JsonSchema implements SchemaListValidator<Number, Number, ItemsList<Number>> {
+    public static class Items2 extends JsonSchema implements SchemaListValidator<Number, Number, ItemsList> {
         public Items2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items3.class))
             )));
-        }
-        
-        @Override
-        protected ItemsList getListOutputInstance(FrozenList<Number> arg) {
-            return new ItemsList(arg);
         }
     
         @Override
@@ -68,6 +63,23 @@ public class NestedItems {
                 i += 1;
             }
             return new FrozenList<>(argFixed);
+        }
+    
+        @Override
+        public ItemsList getNewInstance(FrozenList<Number> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            ArrayList<Number> items = new ArrayList<>();
+            int i = 0;
+            for (Number item: arg) {
+                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+                itemPathToItem.add(i);
+                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+                assert itemSchema instanceof Items3;
+                Number castItem = JsonSchemaFactory.getInstance(Items3.class).getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(castItem);
+                i += 1;
+            }
+            FrozenList<Number> newInstanceItems = new FrozenList<>(items);
+            return new ItemsList(newInstanceItems);
         }
     
         @Override
@@ -96,17 +108,12 @@ public class NestedItems {
     }
     
     
-    public static class Items1 extends JsonSchema implements SchemaListValidator<List<Number>, FrozenList<Number>, ItemsList1<ItemsList>> {
+    public static class Items1 extends JsonSchema implements SchemaListValidator<List<Number>, FrozenList<Number>, ItemsList1> {
         public Items1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items2.class))
             )));
-        }
-        
-        @Override
-        protected ItemsList1 getListOutputInstance(FrozenList<ItemsList> arg) {
-            return new ItemsList1(arg);
         }
     
         @Override
@@ -125,10 +132,27 @@ public class NestedItems {
         }
     
         @Override
+        public ItemsList1 getNewInstance(FrozenList<FrozenList<Number>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            ArrayList<ItemsList> items = new ArrayList<>();
+            int i = 0;
+            for (FrozenList<Number> item: arg) {
+                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+                itemPathToItem.add(i);
+                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+                assert itemSchema instanceof Items2;
+                ItemsList castItem = JsonSchemaFactory.getInstance(Items2.class).getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(castItem);
+                i += 1;
+            }
+            FrozenList<ItemsList> newInstanceItems = new FrozenList<>(items);
+            return new ItemsList1(newInstanceItems);
+        }
+    
+        @Override
         public ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<ItemsList> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<FrozenList<Number>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -150,17 +174,12 @@ public class NestedItems {
     }
     
     
-    public static class Items extends JsonSchema implements SchemaListValidator<List<List<Number>>, FrozenList<FrozenList<Number>>, ItemsList2<ItemsList1>> {
+    public static class Items extends JsonSchema implements SchemaListValidator<List<List<Number>>, FrozenList<FrozenList<Number>>, ItemsList2> {
         public Items() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items1.class))
             )));
-        }
-        
-        @Override
-        protected ItemsList2 getListOutputInstance(FrozenList<ItemsList1> arg) {
-            return new ItemsList2(arg);
         }
     
         @Override
@@ -179,10 +198,27 @@ public class NestedItems {
         }
     
         @Override
+        public ItemsList2 getNewInstance(FrozenList<FrozenList<FrozenList<Number>>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            ArrayList<ItemsList1> items = new ArrayList<>();
+            int i = 0;
+            for (FrozenList<FrozenList<Number>> item: arg) {
+                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+                itemPathToItem.add(i);
+                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+                assert itemSchema instanceof Items1;
+                ItemsList1 castItem = JsonSchemaFactory.getInstance(Items1.class).getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(castItem);
+                i += 1;
+            }
+            FrozenList<ItemsList1> newInstanceItems = new FrozenList<>(items);
+            return new ItemsList2(newInstanceItems);
+        }
+    
+        @Override
         public ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<ItemsList1> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<FrozenList<FrozenList<Number>>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -204,7 +240,7 @@ public class NestedItems {
     }
     
     
-    public static class NestedItems1 extends JsonSchema implements SchemaListValidator<List<List<List<Number>>>, FrozenList<FrozenList<FrozenList<Number>>>, NestedItemsList<ItemsList2>> {
+    public static class NestedItems1 extends JsonSchema implements SchemaListValidator<List<List<List<Number>>>, FrozenList<FrozenList<FrozenList<Number>>>, NestedItemsList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -216,11 +252,6 @@ public class NestedItems {
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
             )));
-        }
-        
-        @Override
-        protected NestedItemsList getListOutputInstance(FrozenList<ItemsList2> arg) {
-            return new NestedItemsList(arg);
         }
     
         @Override
@@ -239,10 +270,27 @@ public class NestedItems {
         }
     
         @Override
+        public NestedItemsList getNewInstance(FrozenList<FrozenList<FrozenList<FrozenList<Number>>>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            ArrayList<ItemsList2> items = new ArrayList<>();
+            int i = 0;
+            for (FrozenList<FrozenList<FrozenList<Number>>> item: arg) {
+                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+                itemPathToItem.add(i);
+                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+                assert itemSchema instanceof Items;
+                ItemsList2 castItem = JsonSchemaFactory.getInstance(Items.class).getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(castItem);
+                i += 1;
+            }
+            FrozenList<ItemsList2> newInstanceItems = new FrozenList<>(items);
+            return new NestedItemsList(newInstanceItems);
+        }
+    
+        @Override
         public NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<ItemsList2> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<FrozenList<FrozenList<FrozenList<Number>>>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

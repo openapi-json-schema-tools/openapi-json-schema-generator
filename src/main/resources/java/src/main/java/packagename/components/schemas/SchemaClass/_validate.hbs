@@ -35,7 +35,7 @@ public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfigu
 public {{../arrayOutputJsonPathPiece.camelCase}} validate(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
-    FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+    FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
