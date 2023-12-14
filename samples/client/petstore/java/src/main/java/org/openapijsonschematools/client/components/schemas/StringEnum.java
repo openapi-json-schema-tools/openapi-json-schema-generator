@@ -68,6 +68,17 @@ public class StringEnum {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();

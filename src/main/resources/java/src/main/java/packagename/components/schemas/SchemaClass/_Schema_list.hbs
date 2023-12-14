@@ -117,5 +117,5 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
         throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
 
-    {{> src/main/java/packagename/components/schemas/SchemaClass/_validate }}
+    {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
 }

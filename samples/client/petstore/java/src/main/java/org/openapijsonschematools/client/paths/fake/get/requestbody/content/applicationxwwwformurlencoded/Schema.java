@@ -54,23 +54,23 @@ public class Schema {
         }
     
         @Override
-        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedStringTypes(arg, pathToItem, pathSet);
-        }
-    
-        @Override
-        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-    
-        @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
-    
+        
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -81,7 +81,6 @@ public class Schema {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
-    
     }    
     
     public static class EnumFormStringArrayList extends FrozenList<String> {
@@ -190,23 +189,23 @@ public class Schema {
         }
     
         @Override
-        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedStringTypes(arg, pathToItem, pathSet);
-        }
-    
-        @Override
-        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-    
-        @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
-    
+        
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -217,7 +216,6 @@ public class Schema {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
-    
     }    
     
     public static class SchemaMap extends FrozenMap<Object> {
