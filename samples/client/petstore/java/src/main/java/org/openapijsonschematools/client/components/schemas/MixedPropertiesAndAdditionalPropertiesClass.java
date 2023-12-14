@@ -54,7 +54,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     }
     
     
-    public static class MapSchema extends JsonSchema implements SchemaMapValidator<Map<String, Object>, FrozenMap<String, Object>, MapMap> {
+    public static class MapSchema extends JsonSchema implements SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, MapMap> {
         private static MapSchema instance;
         protected MapSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -71,27 +71,27 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
         
         @Override
-        public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenMap<FrozenMap<Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<Object>> argFixed = new LinkedHashMap<>();
             for (Map.Entry<String, Map<String, Object>> entry: arg.entrySet()) {
                 String key = entry.getKey();
                                 Map<String, Object> val = entry.getValue();
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(key);
-                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
                 argFixed.put(key, fixedVal);
             }
             return new FrozenMap<>(argFixed);
         }
         
-        public MapMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapMap getNewInstance(FrozenMap<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Animal.AnimalMap> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
+            for(Map.Entry<String, FrozenMap<Object>> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                FrozenMap<String, Object> value = entry.getValue();
+                FrozenMap<Object> value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 Animal.AnimalMap castValue = (Animal.AnimalMap) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -104,7 +104,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         public MapMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<FrozenMap<String, Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenMap<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

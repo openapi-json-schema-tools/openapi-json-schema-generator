@@ -603,7 +603,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<String, Object>, ArrayNullablePropList> {
+    public static class ArrayNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayNullablePropList> {
         private static ArrayNullableProp instance;
         protected ArrayNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -644,14 +644,14 @@ public class NullableClass {
         }
         
         @Override
-        public FrozenList<FrozenMap<String, Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenList<FrozenMap<Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            List<FrozenMap<String, Object>> argFixed = new ArrayList<>();
+            List<FrozenMap<Object>> argFixed = new ArrayList<>();
             int i =0;
             for (Map<String, Object> item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
+                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -659,10 +659,10 @@ public class NullableClass {
         }
         
         @Override
-        public ArrayNullablePropList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayNullablePropList getNewInstance(FrozenList<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<FrozenMap<Object>> items = new ArrayList<>();
             int i = 0;
-            for (FrozenMap<String, Object> item: arg) {
+            for (FrozenMap<Object> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -678,7 +678,7 @@ public class NullableClass {
         public ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenMap<String, Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -794,7 +794,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<String, Object>, ArrayAndItemsNullablePropList> {
+    public static class ArrayAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayAndItemsNullablePropList> {
         private static ArrayAndItemsNullableProp instance;
         protected ArrayAndItemsNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -835,14 +835,14 @@ public class NullableClass {
         }
         
         @Override
-        public FrozenList<FrozenMap<String, Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenList<FrozenMap<Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            List<FrozenMap<String, Object>> argFixed = new ArrayList<>();
+            List<FrozenMap<Object>> argFixed = new ArrayList<>();
             int i =0;
             for (Map<String, Object> item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
+                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -850,10 +850,10 @@ public class NullableClass {
         }
         
         @Override
-        public ArrayAndItemsNullablePropList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayAndItemsNullablePropList getNewInstance(FrozenList<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<FrozenMap<Object>> items = new ArrayList<>();
             int i = 0;
-            for (FrozenMap<String, Object> item: arg) {
+            for (FrozenMap<Object> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -869,7 +869,7 @@ public class NullableClass {
         public ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenMap<String, Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -985,7 +985,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayItemsNullable extends JsonSchema implements SchemaListValidator<Map<String, Object>, FrozenMap<String, Object>, ArrayItemsNullableList> {
+    public static class ArrayItemsNullable extends JsonSchema implements SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayItemsNullableList> {
         private static ArrayItemsNullable instance;
         protected ArrayItemsNullable() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -1002,14 +1002,14 @@ public class NullableClass {
         }
         
         @Override
-        public FrozenList<FrozenMap<String, Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenList<FrozenMap<Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            List<FrozenMap<String, Object>> argFixed = new ArrayList<>();
+            List<FrozenMap<Object>> argFixed = new ArrayList<>();
             int i =0;
             for (Map<String, Object> item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
+                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -1017,10 +1017,10 @@ public class NullableClass {
         }
         
         @Override
-        public ArrayItemsNullableList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayItemsNullableList getNewInstance(FrozenList<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<FrozenMap<Object>> items = new ArrayList<>();
             int i = 0;
-            for (FrozenMap<String, Object> item: arg) {
+            for (FrozenMap<Object> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -1036,7 +1036,7 @@ public class NullableClass {
         public ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenMap<String, Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -1076,7 +1076,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<String, Object>, ObjectNullablePropMap> {
+    public static class ObjectNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectNullablePropMap> {
         private static ObjectNullableProp instance;
         protected ObjectNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -1117,27 +1117,27 @@ public class NullableClass {
         }
         
         @Override
-        public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenMap<FrozenMap<Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<Object>> argFixed = new LinkedHashMap<>();
             for (Map.Entry<String, Map<String, Object>> entry: arg.entrySet()) {
                 String key = entry.getKey();
                                 Map<String, Object> val = entry.getValue();
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(key);
-                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
                 argFixed.put(key, fixedVal);
             }
             return new FrozenMap<>(argFixed);
         }
         
-        public ObjectNullablePropMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ObjectNullablePropMap getNewInstance(FrozenMap<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, FrozenMap<Object>> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
+            for(Map.Entry<String, FrozenMap<Object>> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                FrozenMap<String, Object> value = entry.getValue();
+                FrozenMap<Object> value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 FrozenMap<Object> castValue = (FrozenMap<Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -1150,7 +1150,7 @@ public class NullableClass {
         public ObjectNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<FrozenMap<String, Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenMap<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -1273,7 +1273,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<String, Object>, ObjectAndItemsNullablePropMap> {
+    public static class ObjectAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectAndItemsNullablePropMap> {
         private static ObjectAndItemsNullableProp instance;
         protected ObjectAndItemsNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -1314,27 +1314,27 @@ public class NullableClass {
         }
         
         @Override
-        public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenMap<FrozenMap<Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<Object>> argFixed = new LinkedHashMap<>();
             for (Map.Entry<String, Map<String, Object>> entry: arg.entrySet()) {
                 String key = entry.getKey();
                                 Map<String, Object> val = entry.getValue();
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(key);
-                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
                 argFixed.put(key, fixedVal);
             }
             return new FrozenMap<>(argFixed);
         }
         
-        public ObjectAndItemsNullablePropMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ObjectAndItemsNullablePropMap getNewInstance(FrozenMap<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, FrozenMap<Object>> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
+            for(Map.Entry<String, FrozenMap<Object>> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                FrozenMap<String, Object> value = entry.getValue();
+                FrozenMap<Object> value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 FrozenMap<Object> castValue = (FrozenMap<Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -1347,7 +1347,7 @@ public class NullableClass {
         public ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<FrozenMap<String, Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenMap<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -1470,7 +1470,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectItemsNullable extends JsonSchema implements SchemaMapValidator<Map<String, Object>, FrozenMap<String, Object>, ObjectItemsNullableMap> {
+    public static class ObjectItemsNullable extends JsonSchema implements SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectItemsNullableMap> {
         private static ObjectItemsNullable instance;
         protected ObjectItemsNullable() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -1487,27 +1487,27 @@ public class NullableClass {
         }
         
         @Override
-        public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenMap<FrozenMap<Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<Object>> argFixed = new LinkedHashMap<>();
             for (Map.Entry<String, Map<String, Object>> entry: arg.entrySet()) {
                 String key = entry.getKey();
                                 Map<String, Object> val = entry.getValue();
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(key);
-                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
                 argFixed.put(key, fixedVal);
             }
             return new FrozenMap<>(argFixed);
         }
         
-        public ObjectItemsNullableMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ObjectItemsNullableMap getNewInstance(FrozenMap<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, FrozenMap<Object>> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
+            for(Map.Entry<String, FrozenMap<Object>> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                FrozenMap<String, Object> value = entry.getValue();
+                FrozenMap<Object> value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 FrozenMap<Object> castValue = (FrozenMap<Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -1520,7 +1520,7 @@ public class NullableClass {
         public ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<FrozenMap<String, Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenMap<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

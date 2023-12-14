@@ -54,7 +54,7 @@ public class PaginatedResultMyObjectDto {
     }
     
     
-    public static class Results extends JsonSchema implements SchemaListValidator<Map<String, String>, FrozenMap<String, String>, ResultsList> {
+    public static class Results extends JsonSchema implements SchemaListValidator<Map<String, String>, FrozenMap<String>, ResultsList> {
         private static Results instance;
         protected Results() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -71,14 +71,14 @@ public class PaginatedResultMyObjectDto {
         }
         
         @Override
-        public FrozenList<FrozenMap<String, String>> castToAllowedTypes(List<Map<String, String>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        public FrozenList<FrozenMap<String>> castToAllowedTypes(List<Map<String, String>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
-            List<FrozenMap<String, String>> argFixed = new ArrayList<>();
+            List<FrozenMap<String>> argFixed = new ArrayList<>();
             int i =0;
             for (Map<String, String> item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                                FrozenMap<String, String> fixedVal = (FrozenMap<String, String>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
+                                FrozenMap<String> fixedVal = (FrozenMap<String>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -86,10 +86,10 @@ public class PaginatedResultMyObjectDto {
         }
         
         @Override
-        public ResultsList getNewInstance(FrozenList<FrozenMap<String, String>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ResultsList getNewInstance(FrozenList<FrozenMap<String>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<MyObjectDto.MyObjectDtoMap> items = new ArrayList<>();
             int i = 0;
-            for (FrozenMap<String, String> item: arg) {
+            for (FrozenMap<String> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -105,7 +105,7 @@ public class PaginatedResultMyObjectDto {
         public ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenMap<String, String>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<FrozenMap<String>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

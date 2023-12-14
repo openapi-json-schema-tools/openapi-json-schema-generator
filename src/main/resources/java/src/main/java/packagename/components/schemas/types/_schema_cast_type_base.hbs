@@ -97,9 +97,9 @@ FrozenList<Object>
 FrozenMap
                                         {{~else}}
                                             {{#with mapValueSchema}}
-FrozenMap<String, {{> src/main/java/packagename/components/schemas/types/schema_cast_type }}>
+FrozenMap<{{> src/main/java/packagename/components/schemas/types/schema_cast_type }}>
                                             {{~else}}
-FrozenMap<String, Object>
+FrozenMap<Object>
                                             {{~/with}}
                                         {{/eq}}
                                     {{/eq}}
@@ -176,9 +176,9 @@ FrozenList<Object>
 FrozenMap
                                             {{~else}}
                                                 {{#with mapValueSchema}}
-FrozenMap<String, {{> src/main/java/packagename/components/schemas/types/schema_cast_type }}>
+FrozenMap<{{> src/main/java/packagename/components/schemas/types/schema_cast_type }}>
                                                 {{~else}}
-FrozenMap<String, Object>
+FrozenMap<Object>
                                                 {{~/with}}
                                             {{/eq}}
                                         {{/eq}}
