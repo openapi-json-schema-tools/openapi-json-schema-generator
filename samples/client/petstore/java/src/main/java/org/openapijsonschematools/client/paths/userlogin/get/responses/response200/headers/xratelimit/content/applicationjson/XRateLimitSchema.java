@@ -6,4 +6,5 @@ public class XRateLimitSchema {
     
     
     public static class XRateLimitSchema1 extends Int32JsonSchema {}
+
 }

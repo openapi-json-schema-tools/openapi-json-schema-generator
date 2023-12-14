@@ -6,4 +6,5 @@ public class Int32JsonContentTypeHeaderSchema {
     
     
     public static class Int32JsonContentTypeHeaderSchema1 extends Int32JsonSchema {}
+
 }

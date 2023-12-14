@@ -6,4 +6,5 @@ public class Schema18 {
     
     
     public static class Schema181 extends StringJsonSchema {}
+
 }

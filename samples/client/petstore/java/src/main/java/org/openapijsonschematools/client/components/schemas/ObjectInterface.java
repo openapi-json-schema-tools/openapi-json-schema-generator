@@ -7,4 +7,5 @@ public class ObjectInterface {
     
     
     public static class ObjectInterface1 extends MapJsonSchema {}
+
 }

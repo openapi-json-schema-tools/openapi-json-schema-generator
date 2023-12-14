@@ -7,7 +7,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -50,7 +49,7 @@ public class ArrayTypeSchemaTest {
             for (String item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                String fixedVal = JsonSchemaFactory.getInstance(StringJsonSchema.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                String fixedVal = StringJsonSchema.getInstance().castToAllowedTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -89,7 +88,7 @@ public class ArrayTypeSchemaTest {
         }
 
         public static ArrayWithOutputClsSchemaList of(List<String> arg, SchemaConfiguration configuration) {
-            return JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class).validate(arg, configuration);
+            return new ArrayWithOutputClsSchema().validate(arg, configuration);
         }
     }
 
@@ -110,7 +109,7 @@ public class ArrayTypeSchemaTest {
             for (String item: arg) {
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(i);
-                String fixedVal = JsonSchemaFactory.getInstance(StringJsonSchema.class).castToAllowedTypes(item, newPathToItem, pathSet);
+                String fixedVal = StringJsonSchema.getInstance().castToAllowedTypes(item, newPathToItem, pathSet);
                 argFixed.add(fixedVal);
                 i += 1;
             }
@@ -157,7 +156,7 @@ public class ArrayTypeSchemaTest {
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class),
+                new ArrayWithItemsSchema(),
                 null,
                 validationMetadata
         ));
@@ -168,21 +167,21 @@ public class ArrayTypeSchemaTest {
         // list with only item works
         List<String> inList = new ArrayList<>();
         inList.add("abc");
-        FrozenList<String> validatedValue = JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class).validate(inList, configuration);
+        FrozenList<String> validatedValue = new ArrayWithItemsSchema().validate(inList, configuration);
         List<Object> outList = new ArrayList<>();
         outList.add("abc");
         Assert.assertEquals(validatedValue, outList);
 
         // list with no items works
         inList = new ArrayList<>();
-        validatedValue = JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class).validate(inList, configuration);
+        validatedValue = new ArrayWithItemsSchema().validate(inList, configuration);
         outList = new ArrayList<>();
         Assert.assertEquals(validatedValue, outList);
 
         // invalid item type fails
         List<Integer> intList = List.of(1);
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                JsonSchemaFactory.getInstance(ArrayWithItemsSchema.class),
+                new ArrayWithItemsSchema(),
                 intList,
                 validationMetadata
         ));
@@ -193,21 +192,21 @@ public class ArrayTypeSchemaTest {
         // list with only item works
         List<String> inList = new ArrayList<>();
         inList.add("abc");
-        ArrayWithOutputClsSchemaList validatedValue = JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class).validate(inList, configuration);
+        ArrayWithOutputClsSchemaList validatedValue = new ArrayWithOutputClsSchema().validate(inList, configuration);
         List<Object> outList = new ArrayList<>();
         outList.add("abc");
         Assert.assertEquals(validatedValue, outList);
 
         // list with no items works
         inList = new ArrayList<>();
-        validatedValue = JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class).validate(inList, configuration);
+        validatedValue = new ArrayWithOutputClsSchema().validate(inList, configuration);
         outList = new ArrayList<>();
         Assert.assertEquals(validatedValue, outList);
 
         // invalid item type fails
         List<Integer> intList = List.of(1);
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-                JsonSchemaFactory.getInstance(ArrayWithOutputClsSchema.class),
+                new ArrayWithOutputClsSchema(),
                 intList,
                 validationMetadata
         ));

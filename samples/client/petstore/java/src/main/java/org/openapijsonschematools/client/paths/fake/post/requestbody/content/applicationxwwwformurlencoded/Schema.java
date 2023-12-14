@@ -1,38 +1,47 @@
 package org.openapijsonschematools.client.paths.fake.post.requestbody.content.applicationxwwwformurlencoded;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
+import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FormatValidator;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.KeywordValidator;
 import org.openapijsonschematools.client.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
-import org.openapijsonschematools.client.schemas.validation.NonCollectionJsonSchema;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PatternValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
+import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class IntegerSchema extends NonCollectionJsonSchema {
-        public IntegerSchema() {
+    public static class IntegerSchema extends JsonSchema implements SchemaNumberValidator {
+        private static IntegerSchema instance;
+        protected IntegerSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -44,25 +53,63 @@ public class Schema {
                 new KeywordEntry("minimum", new MinimumValidator(10))
             )));
         }
+    
+        public static IntegerSchema getInstance() {
+            if (instance == null) {
+                instance = new IntegerSchema();
+            }
+            return instance;
+        }
+    
+        @Override
+        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateInt(arg, configuration);
+            return (int) validate((Number) arg, configuration);
         }
         
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateFloat(arg, configuration);
+            return (float) validate((Number) arg, configuration);
         }
         
         public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateLong(arg, configuration);
+            return (long) validate((Number) arg, configuration);
         }
         
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateDouble(arg, configuration);
+            return (double) validate((Number) arg, configuration);
         }
     }    
     
-    public static class Int32 extends NonCollectionJsonSchema {
-        public Int32() {
+    public static class Int32 extends JsonSchema implements SchemaNumberValidator {
+        private static Int32 instance;
+        protected Int32() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -75,28 +122,58 @@ public class Schema {
                 new KeywordEntry("minimum", new MinimumValidator(20))
             )));
         }
+    
+        public static Int32 getInstance() {
+            if (instance == null) {
+                instance = new Int32();
+            }
+            return instance;
+        }
+    
+        @Override
+        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateInt(arg, configuration);
+            return (int) validate((Number) arg, configuration);
         }
         
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateFloat(arg, configuration);
-        }
-        
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateLong(arg, configuration);
-        }
-        
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateDouble(arg, configuration);
+            return (float) validate((Number) arg, configuration);
         }
     }    
     
     public static class Int64 extends Int64JsonSchema {}
     
     
-    public static class NumberSchema extends NonCollectionJsonSchema {
-        public NumberSchema() {
+    public static class NumberSchema extends JsonSchema implements SchemaNumberValidator {
+        private static NumberSchema instance;
+        protected NumberSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -108,25 +185,62 @@ public class Schema {
                 new KeywordEntry("minimum", new MinimumValidator(32.1))
             )));
         }
+    
+        public static NumberSchema getInstance() {
+            if (instance == null) {
+                instance = new NumberSchema();
+            }
+            return instance;
+        }
+    
+        @Override
+        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateInt(arg, configuration);
+            return (int) validate((Number) arg, configuration);
         }
         
         public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateLong(arg, configuration);
+            return (long) validate((Number) arg, configuration);
         }
         
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateFloat(arg, configuration);
+            return (float) validate((Number) arg, configuration);
         }
         
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateDouble(arg, configuration);
+            return (double) validate((Number) arg, configuration);
         }
     }    
     
-    public static class FloatSchema extends NonCollectionJsonSchema {
-        public FloatSchema() {
+    public static class FloatSchema extends JsonSchema implements SchemaNumberValidator {
+        private static FloatSchema instance;
+        protected FloatSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -138,13 +252,50 @@ public class Schema {
                 new KeywordEntry("maximum", new MaximumValidator(987.6))
             )));
         }
+    
+        public static FloatSchema getInstance() {
+            if (instance == null) {
+                instance = new FloatSchema();
+            }
+            return instance;
+        }
+    
+        @Override
+        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateFloat(arg, configuration);
+            return (float) validate((Number) arg, configuration);
         }
     }    
     
-    public static class DoubleSchema extends NonCollectionJsonSchema {
-        public DoubleSchema() {
+    public static class DoubleSchema extends JsonSchema implements SchemaNumberValidator {
+        private static DoubleSchema instance;
+        protected DoubleSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -157,13 +308,51 @@ public class Schema {
                 new KeywordEntry("minimum", new MinimumValidator(67.8))
             )));
         }
+    
+        public static DoubleSchema getInstance() {
+            if (instance == null) {
+                instance = new DoubleSchema();
+            }
+            return instance;
+        }
+    
+        @Override
+        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateDouble(arg, configuration);
+            return (double) validate((Number) arg, configuration);
         }
     }    
     
-    public static class StringSchema extends NonCollectionJsonSchema {
-        public StringSchema() {
+    public static class StringSchema extends JsonSchema implements SchemaStringValidator {
+        private static StringSchema instance;
+    
+        protected StringSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -174,13 +363,49 @@ public class Schema {
                 )))
             )));
         }
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateString(arg, configuration);
+    
+        public static StringSchema getInstance() {
+            if (instance == null) {
+                instance = new StringSchema();
+            }
+            return instance;
         }
+    
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+    
     }    
     
-    public static class PatternWithoutDelimiter extends NonCollectionJsonSchema {
-        public PatternWithoutDelimiter() {
+    public static class PatternWithoutDelimiter extends JsonSchema implements SchemaStringValidator {
+        private static PatternWithoutDelimiter instance;
+    
+        protected PatternWithoutDelimiter() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -190,9 +415,43 @@ public class Schema {
                 )))
             )));
         }
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateString(arg, configuration);
+    
+        public static PatternWithoutDelimiter getInstance() {
+            if (instance == null) {
+                instance = new PatternWithoutDelimiter();
+            }
+            return instance;
         }
+    
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+    
     }    
     
     public static class ByteSchema extends StringJsonSchema {}
@@ -206,8 +465,10 @@ public class Schema {
     public static class Date extends DateJsonSchema {}
     
     
-    public static class DateTime extends NonCollectionJsonSchema {
-        public DateTime() {
+    public static class DateTime extends JsonSchema implements SchemaStringValidator {
+        private static DateTime instance;
+    
+        protected DateTime() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -215,13 +476,49 @@ public class Schema {
                 new KeywordEntry("format", new FormatValidator("date-time"))
             )));
         }
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateString(arg, configuration);
+    
+        public static DateTime getInstance() {
+            if (instance == null) {
+                instance = new DateTime();
+            }
+            return instance;
         }
+    
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+    
     }    
     
-    public static class Password extends NonCollectionJsonSchema {
-        public Password() {
+    public static class Password extends JsonSchema implements SchemaStringValidator {
+        private static Password instance;
+    
+        protected Password() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -231,16 +528,50 @@ public class Schema {
                 new KeywordEntry("minLength", new MinLengthValidator(10))
             )));
         }
-        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateString(arg, configuration);
+    
+        public static Password getInstance() {
+            if (instance == null) {
+                instance = new Password();
+            }
+            return instance;
         }
+    
+        @Override
+        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedStringTypes(arg, pathToItem, pathSet);
+        }
+    
+        @Override
+        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+    
     }    
     
     public static class Callback extends StringJsonSchema {}
     
     
-    public static class SchemaMap extends FrozenMap<String, Object> {
-        SchemaMap(FrozenMap<String, Object> m) {
+    public static class SchemaMap extends FrozenMap<Object> {
+        SchemaMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -262,7 +593,7 @@ public class Schema {
             "callback"
         );
         public static SchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Schema1.class).validate(arg, configuration);
+            return Schema1.getInstance().validate(arg, configuration);
         }
         
         public String pattern_without_delimiter() {
@@ -317,13 +648,14 @@ public class Schema {
             return get(name);
         }
     }
-    public class SchemaMapInput {
+    public static class SchemaMapInput {
         // Map<String, Object> because addProps is unset
     }
     
     
-    public static class Schema1 extends JsonSchema<Object, Object, SchemaMap, Object, Object, FrozenList<Object>> {
-        public Schema1() {
+    public static class Schema1 extends JsonSchema implements SchemaMapValidator<Object, Object, SchemaMap> {
+        private static Schema1 instance;
+        protected Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -350,13 +682,63 @@ public class Schema {
                 )))
             )));
         }
-        
-        @Override
-        protected SchemaMap getMapOutputInstance(FrozenMap<String, Object> arg) {
-            return new SchemaMap(arg);
+    
+        public static Schema1 getInstance() {
+            if (instance == null) {
+                instance = new Schema1();
+            }
+            return instance;
         }
-        public SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return validateMap(arg, configuration);
+    
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+    
+        public SchemaMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            for(Map.Entry<String, Object> entry: arg.entrySet()) {
+                String propertyName = entry.getKey();
+                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+                propertyPathToItem.add(propertyName);
+                Object value = entry.getValue();
+                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, castValue);
+            }
+            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            return new SchemaMap(castProperties);
+        }
+    
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    
+        @Override
+        public SchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            Set<List<Object>> pathSet = new HashSet<>();
+            List<Object> pathToItem = List.of("args[0");
+            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+            ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
     }
+
 }

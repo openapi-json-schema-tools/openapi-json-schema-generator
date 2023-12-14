@@ -7,6 +7,8 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.MapMaker;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.FrozenMap;
+import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
@@ -42,7 +44,7 @@ public class {{containerJsonPathPiece.camelCase}}Test {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             {{#with data}}
-            {{> src/main/java/packagename/components/schemas/helpers/payload_renderer any=true endChar="," }}
+            {{> src/main/java/packagename/components/schemas/helpers/payload_renderer_failing_test any=true endChar="," }}
             {{/with}}
             validationMetadata
         ));

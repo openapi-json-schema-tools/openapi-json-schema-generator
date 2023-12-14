@@ -7,6 +7,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -45,7 +47,7 @@ public class OneofComplexTypesTest {
         final var schema = OneofComplexTypes.OneofComplexTypes1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
@@ -54,7 +56,7 @@ public class OneofComplexTypesTest {
                     "bar",
                     2
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -80,7 +82,7 @@ public class OneofComplexTypesTest {
         final var schema = OneofComplexTypes.OneofComplexTypes1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     2
@@ -89,7 +91,7 @@ public class OneofComplexTypesTest {
                     "bar",
                     "quux"
                 )
-            ),
+            )),
             validationMetadata
         ));
     }

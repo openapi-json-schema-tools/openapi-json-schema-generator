@@ -7,6 +7,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -30,11 +32,11 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 1,
                 2,
                 1
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -45,7 +47,7 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -58,7 +60,7 @@ public class UniqueitemsValidationTest {
                         "bar"
                     )
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -109,10 +111,10 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 1,
                 1
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -146,7 +148,7 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "a",
@@ -167,7 +169,7 @@ public class UniqueitemsValidationTest {
                         1
                     )
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -178,14 +180,14 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 Arrays.asList(
                     "foo"
                 ),
                 Arrays.asList(
                     "foo"
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -219,7 +221,7 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 Arrays.asList(
                     "foo"
                 ),
@@ -229,7 +231,7 @@ public class UniqueitemsValidationTest {
                 Arrays.asList(
                     "foo"
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -257,7 +259,7 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "foo",
@@ -290,7 +292,7 @@ public class UniqueitemsValidationTest {
                         )
                     )
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -301,11 +303,11 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 1.0d,
                 1.0d,
                 1
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -316,11 +318,11 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 "foo",
                 "bar",
                 "foo"
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -541,7 +543,7 @@ public class UniqueitemsValidationTest {
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            Arrays.asList(
+            new FrozenList<>(Arrays.asList(
                 MapMaker.makeMap(
                 ),
                 Arrays.asList(
@@ -552,7 +554,7 @@ public class UniqueitemsValidationTest {
                 MapMaker.makeMap(
                 ),
                 1
-            ),
+            )),
             validationMetadata
         ));
     }

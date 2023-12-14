@@ -7,6 +7,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -49,7 +51,7 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -62,7 +64,7 @@ public class OneofWithRequiredTest {
                     "baz",
                     3
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -92,12 +94,12 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            ),
+            )),
             validationMetadata
         ));
     }

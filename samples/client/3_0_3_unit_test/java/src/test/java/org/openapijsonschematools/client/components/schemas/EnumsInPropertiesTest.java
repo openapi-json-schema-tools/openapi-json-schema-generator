@@ -7,6 +7,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapMaker;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -30,7 +32,7 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
@@ -39,7 +41,7 @@ public class EnumsInPropertiesTest {
                     "bar",
                     "bart"
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -50,7 +52,7 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foot"
@@ -59,7 +61,7 @@ public class EnumsInPropertiesTest {
                     "bar",
                     "bar"
                 )
-            ),
+            )),
             validationMetadata
         ));
     }
@@ -70,8 +72,8 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
-            ),
+            new FrozenMap<>(MapMaker.makeMap(
+            )),
             validationMetadata
         ));
     }
@@ -116,12 +118,12 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            MapMaker.makeMap(
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
                 )
-            ),
+            )),
             validationMetadata
         ));
     }

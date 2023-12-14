@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -13,10 +14,26 @@ import java.util.Set;
 import java.util.Map;
 
 class SomeSchema extends JsonSchema {
-    public SomeSchema() {
+    private static SomeSchema instance;
+    protected SomeSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
         )));
+    }
+
+    public static SomeSchema getInstance() {
+        if (instance == null) {
+            instance = new SomeSchema();
+        }
+        return instance;
+    }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof String) {
+            return arg;
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
 }
 
@@ -33,12 +50,13 @@ public class JsonSchemaTest {
                 new LinkedHashSet<>()
         );
         SomeSchema schema = JsonSchemaFactory.getInstance(SomeSchema.class);
-        PathToSchemasMap pathToSchemas = schema.validate(
+        PathToSchemasMap pathToSchemas = JsonSchema.validate(
+                schema,
                 "hi",
                 validationMetadata
         );
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
-        LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> validatedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema, Void> validatedClasses = new LinkedHashMap<>();
         validatedClasses.put(schema, null);
         expectedPathToSchemas.put(pathToItem, validatedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);

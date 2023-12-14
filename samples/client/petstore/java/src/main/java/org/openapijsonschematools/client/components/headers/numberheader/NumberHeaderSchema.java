@@ -6,4 +6,5 @@ public class NumberHeaderSchema {
     
     
     public static class NumberHeaderSchema1 extends DecimalJsonSchema {}
+
 }
