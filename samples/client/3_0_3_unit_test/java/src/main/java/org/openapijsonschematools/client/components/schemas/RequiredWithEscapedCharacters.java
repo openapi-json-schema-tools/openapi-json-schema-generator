@@ -69,7 +69,7 @@ public class RequiredWithEscapedCharacters {
         Do not edit the class manually.
         */
         private static RequiredWithEscapedCharacters1 instance;
-        private RequiredWithEscapedCharacters1() {
+        protected RequiredWithEscapedCharacters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "foo\tbar",

@@ -85,7 +85,7 @@ public class RequiredValidation {
         Do not edit the class manually.
         */
         private static RequiredValidation1 instance;
-        private RequiredValidation1() {
+        protected RequiredValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),

@@ -24,7 +24,7 @@ import java.util.Set;
 public class DateTimeJsonSchema extends JsonSchema implements SchemaStringValidator {
     private static DateTimeJsonSchema instance;
 
-    private DateTimeJsonSchema() {
+    protected DateTimeJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("date-time"))

@@ -31,7 +31,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
         Do not edit the class manually.
         */
         private static InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1 instance;
-        private InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1() {
+        protected InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,

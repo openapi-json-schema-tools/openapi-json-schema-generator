@@ -39,7 +39,7 @@ public class Anyof {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
-        private Schema1() {
+        protected Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minimum", new MinimumValidator(2))
             )));
@@ -257,7 +257,7 @@ public class Anyof {
         Do not edit the class manually.
         */
         private static Anyof1 instance;
-        private Anyof1() {
+        protected Anyof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     Schema0.class,

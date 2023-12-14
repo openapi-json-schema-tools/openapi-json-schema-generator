@@ -33,7 +33,7 @@ public class EnumsInProperties {
     public static class Foo extends JsonSchema implements SchemaStringValidator {
         private static Foo instance;
     
-        private Foo() {
+        protected Foo() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -85,7 +85,7 @@ public class EnumsInProperties {
     public static class Bar extends JsonSchema implements SchemaStringValidator {
         private static Bar instance;
     
-        private Bar() {
+        protected Bar() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -177,7 +177,7 @@ public class EnumsInProperties {
         Do not edit the class manually.
         */
         private static EnumsInProperties1 instance;
-        private EnumsInProperties1() {
+        protected EnumsInProperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

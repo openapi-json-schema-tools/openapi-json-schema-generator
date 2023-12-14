@@ -45,7 +45,7 @@ public class NestedItems {
     
     public static class Items2 extends JsonSchema implements SchemaListValidator<Number, Number, ItemsList> {
         private static Items2 instance;
-        private Items2() {
+        protected Items2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items3.class))
@@ -127,7 +127,7 @@ public class NestedItems {
     
     public static class Items1 extends JsonSchema implements SchemaListValidator<List<Number>, FrozenList<Number>, ItemsList1> {
         private static Items1 instance;
-        private Items1() {
+        protected Items1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items2.class))
@@ -209,7 +209,7 @@ public class NestedItems {
     
     public static class Items extends JsonSchema implements SchemaListValidator<List<List<Number>>, FrozenList<FrozenList<Number>>, ItemsList2> {
         private static Items instance;
-        private Items() {
+        protected Items() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items1.class))
@@ -297,7 +297,7 @@ public class NestedItems {
         Do not edit the class manually.
         */
         private static NestedItems1 instance;
-        private NestedItems1() {
+        protected NestedItems1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))

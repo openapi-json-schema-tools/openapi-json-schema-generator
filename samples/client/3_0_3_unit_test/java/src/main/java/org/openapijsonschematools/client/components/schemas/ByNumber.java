@@ -40,7 +40,7 @@ public class ByNumber {
         Do not edit the class manually.
         */
         private static ByNumber1 instance;
-        private ByNumber1() {
+        protected ByNumber1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(1.5))
             )));

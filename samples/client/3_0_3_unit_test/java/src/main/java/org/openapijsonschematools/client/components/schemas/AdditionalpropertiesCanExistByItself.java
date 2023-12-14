@@ -57,7 +57,7 @@ public class AdditionalpropertiesCanExistByItself {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesCanExistByItself1 instance;
-        private AdditionalpropertiesCanExistByItself1() {
+        protected AdditionalpropertiesCanExistByItself1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))

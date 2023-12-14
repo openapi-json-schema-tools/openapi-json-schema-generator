@@ -40,7 +40,7 @@ public class MinimumValidation {
         Do not edit the class manually.
         */
         private static MinimumValidation1 instance;
-        private MinimumValidation1() {
+        protected MinimumValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minimum", new MinimumValidator(1.1))
             )));

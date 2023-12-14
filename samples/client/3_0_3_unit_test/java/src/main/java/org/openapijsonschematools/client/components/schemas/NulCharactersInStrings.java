@@ -33,7 +33,7 @@ public class NulCharactersInStrings {
         */
         private static NulCharactersInStrings1 instance;
     
-        private NulCharactersInStrings1() {
+        protected NulCharactersInStrings1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class

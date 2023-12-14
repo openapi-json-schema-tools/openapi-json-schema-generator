@@ -40,7 +40,7 @@ public class RefInOneof {
         Do not edit the class manually.
         */
         private static RefInOneof1 instance;
-        private RefInOneof1() {
+        protected RefInOneof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class

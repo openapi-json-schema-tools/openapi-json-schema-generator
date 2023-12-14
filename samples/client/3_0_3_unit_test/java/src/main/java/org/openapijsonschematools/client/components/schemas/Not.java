@@ -44,7 +44,7 @@ public class Not {
         Do not edit the class manually.
         */
         private static Not1 instance;
-        private Not1() {
+        protected Not1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(Not2.class))
             )));

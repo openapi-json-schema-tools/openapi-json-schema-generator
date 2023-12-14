@@ -40,7 +40,7 @@ public class UriFormat {
         Do not edit the class manually.
         */
         private static UriFormat1 instance;
-        private UriFormat1() {
+        protected UriFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("uri"))
             )));

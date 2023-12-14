@@ -75,7 +75,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
-        private Schema0() {
+        protected Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
@@ -326,7 +326,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesShouldNotLookInApplicators1 instance;
-        private AdditionalpropertiesShouldNotLookInApplicators1() {
+        protected AdditionalpropertiesShouldNotLookInApplicators1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class)),
                 new KeywordEntry("allOf", new AllOfValidator(List.of(

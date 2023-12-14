@@ -33,7 +33,7 @@ public class EnumWithEscapedCharacters {
         */
         private static EnumWithEscapedCharacters1 instance;
     
-        private EnumWithEscapedCharacters1() {
+        protected EnumWithEscapedCharacters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class

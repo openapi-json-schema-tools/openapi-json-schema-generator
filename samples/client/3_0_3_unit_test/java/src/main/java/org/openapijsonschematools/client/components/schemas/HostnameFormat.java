@@ -40,7 +40,7 @@ public class HostnameFormat {
         Do not edit the class manually.
         */
         private static HostnameFormat1 instance;
-        private HostnameFormat1() {
+        protected HostnameFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("hostname"))
             )));

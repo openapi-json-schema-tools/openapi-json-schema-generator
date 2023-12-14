@@ -38,7 +38,7 @@ public class NestedAllofToCheckValidationSemantics {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
-        private Schema0() {
+        protected Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema01.class
@@ -258,7 +258,7 @@ public class NestedAllofToCheckValidationSemantics {
         Do not edit the class manually.
         */
         private static NestedAllofToCheckValidationSemantics1 instance;
-        private NestedAllofToCheckValidationSemantics1() {
+        protected NestedAllofToCheckValidationSemantics1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class

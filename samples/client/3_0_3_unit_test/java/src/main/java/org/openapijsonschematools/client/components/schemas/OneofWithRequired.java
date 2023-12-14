@@ -69,7 +69,7 @@ public class OneofWithRequired {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
-        private Schema0() {
+        protected Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "bar",
@@ -327,7 +327,7 @@ public class OneofWithRequired {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
-        private Schema1() {
+        protected Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "baz",
@@ -559,7 +559,7 @@ public class OneofWithRequired {
         Do not edit the class manually.
         */
         private static OneofWithRequired1 instance;
-        private OneofWithRequired1() {
+        protected OneofWithRequired1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(

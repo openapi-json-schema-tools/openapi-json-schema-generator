@@ -23,7 +23,7 @@ import java.util.Set;
 public class DecimalJsonSchema extends JsonSchema implements SchemaStringValidator {
     private static DecimalJsonSchema instance;
 
-    private DecimalJsonSchema() {
+    protected DecimalJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("number"))

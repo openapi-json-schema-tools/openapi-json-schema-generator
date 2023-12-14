@@ -30,7 +30,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     
     public static class Alpha extends JsonSchema implements SchemaNumberValidator {
         private static Alpha instance;
-        private Alpha() {
+        protected Alpha() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -131,7 +131,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         Do not edit the class manually.
         */
         private static TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1 instance;
-        private TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1() {
+        protected TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(

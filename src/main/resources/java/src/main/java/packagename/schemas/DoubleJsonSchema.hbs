@@ -23,7 +23,7 @@ import java.util.Set;
 public class DoubleJsonSchema extends JsonSchema implements SchemaNumberValidator {
     private static DoubleJsonSchema instance;
 
-    private DoubleJsonSchema() {
+    protected DoubleJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Double.class))),
                 new KeywordEntry("format", new FormatValidator("double"))

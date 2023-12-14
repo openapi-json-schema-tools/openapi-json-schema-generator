@@ -40,7 +40,7 @@ public class MinpropertiesValidation {
         Do not edit the class manually.
         */
         private static MinpropertiesValidation1 instance;
-        private MinpropertiesValidation1() {
+        protected MinpropertiesValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minProperties", new MinPropertiesValidator(1))
             )));

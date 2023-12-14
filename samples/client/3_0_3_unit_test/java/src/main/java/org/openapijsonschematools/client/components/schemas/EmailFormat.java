@@ -40,7 +40,7 @@ public class EmailFormat {
         Do not edit the class manually.
         */
         private static EmailFormat1 instance;
-        private EmailFormat1() {
+        protected EmailFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("email"))
             )));

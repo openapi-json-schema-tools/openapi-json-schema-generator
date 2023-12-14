@@ -40,7 +40,7 @@ public class RefInAnyof {
         Do not edit the class manually.
         */
         private static RefInAnyof1 instance;
-        private RefInAnyof1() {
+        protected RefInAnyof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class

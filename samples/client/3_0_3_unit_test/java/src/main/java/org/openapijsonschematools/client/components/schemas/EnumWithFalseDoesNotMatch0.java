@@ -32,7 +32,7 @@ public class EnumWithFalseDoesNotMatch0 {
         Do not edit the class manually.
         */
         private static EnumWithFalseDoesNotMatch01 instance;
-        private EnumWithFalseDoesNotMatch01() {
+        protected EnumWithFalseDoesNotMatch01() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),
                 new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(

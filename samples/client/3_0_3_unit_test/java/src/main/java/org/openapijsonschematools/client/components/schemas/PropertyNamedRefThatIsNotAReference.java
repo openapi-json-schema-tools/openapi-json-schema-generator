@@ -69,7 +69,7 @@ public class PropertyNamedRefThatIsNotAReference {
         Do not edit the class manually.
         */
         private static PropertyNamedRefThatIsNotAReference1 instance;
-        private PropertyNamedRefThatIsNotAReference1() {
+        protected PropertyNamedRefThatIsNotAReference1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("$ref", Ref.class)

@@ -53,7 +53,7 @@ public class RefInAdditionalproperties {
         Do not edit the class manually.
         */
         private static RefInAdditionalproperties1 instance;
-        private RefInAdditionalproperties1() {
+        protected RefInAdditionalproperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))

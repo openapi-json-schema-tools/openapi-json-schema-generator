@@ -47,7 +47,7 @@ public class AllofWithTwoEmptySchemas {
         Do not edit the class manually.
         */
         private static AllofWithTwoEmptySchemas1 instance;
-        private AllofWithTwoEmptySchemas1() {
+        protected AllofWithTwoEmptySchemas1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class,

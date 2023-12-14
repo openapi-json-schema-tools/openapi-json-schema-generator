@@ -40,7 +40,7 @@ public class ByInt {
         Do not edit the class manually.
         */
         private static ByInt1 instance;
-        private ByInt1() {
+        protected ByInt1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(2))
             )));

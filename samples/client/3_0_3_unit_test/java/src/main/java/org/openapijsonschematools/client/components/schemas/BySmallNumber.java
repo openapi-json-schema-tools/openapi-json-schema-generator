@@ -40,7 +40,7 @@ public class BySmallNumber {
         Do not edit the class manually.
         */
         private static BySmallNumber1 instance;
-        private BySmallNumber1() {
+        protected BySmallNumber1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(0.00010))
             )));

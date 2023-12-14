@@ -40,7 +40,7 @@ public class Ipv4Format {
         Do not edit the class manually.
         */
         private static Ipv4Format1 instance;
-        private Ipv4Format1() {
+        protected Ipv4Format1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("ipv4"))
             )));

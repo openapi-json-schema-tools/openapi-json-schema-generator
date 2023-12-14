@@ -86,7 +86,7 @@ public class ObjectPropertiesValidation {
         Do not edit the class manually.
         */
         private static ObjectPropertiesValidation1 instance;
-        private ObjectPropertiesValidation1() {
+        protected ObjectPropertiesValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),

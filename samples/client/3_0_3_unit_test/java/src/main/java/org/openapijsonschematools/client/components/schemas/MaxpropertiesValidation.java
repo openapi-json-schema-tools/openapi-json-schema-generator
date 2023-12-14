@@ -40,7 +40,7 @@ public class MaxpropertiesValidation {
         Do not edit the class manually.
         */
         private static MaxpropertiesValidation1 instance;
-        private MaxpropertiesValidation1() {
+        protected MaxpropertiesValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxProperties", new MaxPropertiesValidator(2))
             )));

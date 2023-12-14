@@ -47,7 +47,7 @@ public class RefInItems {
         Do not edit the class manually.
         */
         private static RefInItems1 instance;
-        private RefInItems1() {
+        protected RefInItems1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))

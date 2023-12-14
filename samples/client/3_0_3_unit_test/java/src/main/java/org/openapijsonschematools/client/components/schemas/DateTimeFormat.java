@@ -40,7 +40,7 @@ public class DateTimeFormat {
         Do not edit the class manually.
         */
         private static DateTimeFormat1 instance;
-        private DateTimeFormat1() {
+        protected DateTimeFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("date-time"))
             )));
