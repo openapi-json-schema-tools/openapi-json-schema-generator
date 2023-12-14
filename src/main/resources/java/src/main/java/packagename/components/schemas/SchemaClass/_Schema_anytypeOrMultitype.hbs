@@ -149,4 +149,5 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
 {{#or mapOutputJsonPathPiece arrayOutputJsonPathPiece}}
 {{/or}}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
+    {{> src/main/java/packagename/components/schemas/SchemaClass/_castToAllowedTypesObject_implementor }}
 }
