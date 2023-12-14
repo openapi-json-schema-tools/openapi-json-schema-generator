@@ -1353,34 +1353,24 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import " + packageName + ".schemas.validation.SchemaBooleanValidator;");
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
-                        addAllOfValidator(schema, imports);
-                        addAnyOfValidator(schema, imports);
-                        addOneOfValidator(schema, imports);
-                        addNotValidator(schema, imports);
-                        addEnumValidator(schema, imports);
+                        addBooleanSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("null")) {
                     if (schema.isSimpleNull()) {
                         imports.add("import "+packageName + ".schemas.NullJsonSchema;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import " + packageName + ".schemas.validation.SchemaNullValidator;");
                         imports.add("import "+packageName + ".schemas.validation.KeywordEntry;");
                         imports.add("import "+packageName + ".schemas.validation.TypeValidator;");
                         imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
-                        addAllOfValidator(schema, imports);
-                        addAnyOfValidator(schema, imports);
-                        addOneOfValidator(schema, imports);
-                        addNotValidator(schema, imports);
-                        addEnumValidator(schema, imports);
+                        addNullSchemaImports(imports, schema);
                     }
                 } else if (schema.types.contains("integer")) {
                     if (schema.isSimpleInteger()) {
@@ -1505,6 +1495,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 }
                 if (schema.types.contains("number") || schema.types.contains("integer")) {
                     addNumberSchemaImports(imports, schema);
+                }
+                if (schema.types.contains("boolean")) {
+                    addBooleanSchemaImports(imports, schema);
+                }
+                if (schema.types.contains("null")) {
+                    addNullSchemaImports(imports, schema);
                 }
             }
         } else {
@@ -1723,6 +1719,23 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
     }
 
+    private void addBooleanSchemaImports(Set<String> imports, CodegenSchema schema) {
+        imports.add("import " + packageName + ".schemas.validation.SchemaBooleanValidator;");
+        addAllOfValidator(schema, imports);
+        addAnyOfValidator(schema, imports);
+        addOneOfValidator(schema, imports);
+        addNotValidator(schema, imports);
+        addEnumValidator(schema, imports);
+    }
+
+    private void addNullSchemaImports(Set<String> imports, CodegenSchema schema) {
+        imports.add("import " + packageName + ".schemas.validation.SchemaNullValidator;");
+        addAllOfValidator(schema, imports);
+        addAnyOfValidator(schema, imports);
+        addOneOfValidator(schema, imports);
+        addNotValidator(schema, imports);
+        addEnumValidator(schema, imports);
+    }
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.SchemaMapValidator;");
