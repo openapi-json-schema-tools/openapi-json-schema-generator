@@ -107,6 +107,17 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class IntegerProp extends JsonSchema implements SchemaNullValidator, SchemaNumberValidator {
@@ -187,6 +198,16 @@ public class NullableClass {
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class NumberProp extends JsonSchema implements SchemaNullValidator, SchemaNumberValidator {
@@ -266,6 +287,16 @@ public class NullableClass {
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
         }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class BooleanProp extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator {
@@ -306,6 +337,17 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public boolean castToAllowedTypes(boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedBooleanTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -315,6 +357,17 @@ public class NullableClass {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return getNewInstance(boolArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }    
     
@@ -376,6 +429,16 @@ public class NullableClass {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }    
     
@@ -439,6 +502,16 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class DatetimeProp extends JsonSchema implements SchemaNullValidator, SchemaStringValidator {
@@ -500,6 +573,16 @@ public class NullableClass {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }    
     
@@ -601,6 +684,17 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<Map<String, Object>> castArg = (FrozenList<Map<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class Items1 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -673,6 +767,17 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<Object>> {
@@ -770,6 +875,17 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<Map<String, Object>> castArg = (FrozenList<Map<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class Items2 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -842,6 +958,17 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class ArrayItemsNullableList extends FrozenList<FrozenMap<Object>> {
@@ -872,15 +999,6 @@ public class NullableClass {
                 instance = new ArrayItemsNullable();
             }
             return instance;
-        }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenMap<String, Object>> castArg = (FrozenList<FrozenMap<String, Object>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
         
         @Override
@@ -923,6 +1041,15 @@ public class NullableClass {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<Map<String, Object>> castArg = (FrozenList<Map<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }    
     
@@ -1030,6 +1157,17 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Map<String, Object>> castArg = (FrozenMap<Map<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class AdditionalProperties1 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -1102,6 +1240,17 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class ObjectAndItemsNullablePropMap extends FrozenMap<FrozenMap<Object>> {
@@ -1205,6 +1354,17 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Map<String, Object>> castArg = (FrozenMap<Map<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class AdditionalProperties2 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -1277,6 +1437,17 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg == null) {
+                return getNewInstance((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class ObjectItemsNullableMap extends FrozenMap<FrozenMap<Object>> {
@@ -1313,15 +1484,6 @@ public class NullableClass {
                 instance = new ObjectItemsNullable();
             }
             return instance;
-        }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String, Object>> castArg = (FrozenMap<FrozenMap<String, Object>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
         
         @Override
@@ -1365,6 +1527,15 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Map<String, Object>> castArg = (FrozenMap<Map<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }
     
     
@@ -1508,15 +1679,6 @@ public class NullableClass {
             }
             return instance;
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
         
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -1559,6 +1721,15 @@ public class NullableClass {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }
 
 }
