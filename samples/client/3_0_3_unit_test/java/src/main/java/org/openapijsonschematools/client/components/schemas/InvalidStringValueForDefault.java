@@ -95,7 +95,7 @@ public class InvalidStringValueForDefault {
             "bar"
         );
         public static InvalidStringValueForDefaultMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(InvalidStringValueForDefault1.class).validate(arg, configuration);
+            return InvalidStringValueForDefault1.getInstance().validate(arg, configuration);
         }
         
         public String bar() {

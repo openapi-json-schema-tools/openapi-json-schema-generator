@@ -51,7 +51,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
             "bar"
         );
         public static AdditionalpropertiesAreAllowedByDefaultMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(AdditionalpropertiesAreAllowedByDefault1.class).validate(arg, configuration);
+            return AdditionalpropertiesAreAllowedByDefault1.getInstance().validate(arg, configuration);
         }
         
         public Object foo() {

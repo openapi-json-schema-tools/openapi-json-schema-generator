@@ -49,7 +49,7 @@ public class ForbiddenProperty {
             "foo"
         );
         public static ForbiddenPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(ForbiddenProperty1.class).validate(arg, configuration);
+            return ForbiddenProperty1.getInstance().validate(arg, configuration);
         }
         
         public Object foo() {

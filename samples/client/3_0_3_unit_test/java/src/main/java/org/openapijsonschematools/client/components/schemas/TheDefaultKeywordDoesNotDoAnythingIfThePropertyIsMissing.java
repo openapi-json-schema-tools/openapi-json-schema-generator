@@ -103,7 +103,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             "alpha"
         );
         public static TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.class).validate(arg, configuration);
+            return TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance().validate(arg, configuration);
         }
         
         public Number alpha() {

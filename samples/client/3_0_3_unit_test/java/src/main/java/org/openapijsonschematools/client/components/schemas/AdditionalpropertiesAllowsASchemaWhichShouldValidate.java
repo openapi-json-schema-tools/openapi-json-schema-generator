@@ -48,7 +48,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             "bar"
         );
         public static AdditionalpropertiesAllowsASchemaWhichShouldValidateMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(AdditionalpropertiesAllowsASchemaWhichShouldValidate1.class).validate(arg, configuration);
+            return AdditionalpropertiesAllowsASchemaWhichShouldValidate1.getInstance().validate(arg, configuration);
         }
         
         public Object foo() {

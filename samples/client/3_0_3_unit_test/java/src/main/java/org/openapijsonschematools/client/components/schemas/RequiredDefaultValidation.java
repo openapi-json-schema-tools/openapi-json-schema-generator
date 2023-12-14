@@ -47,7 +47,7 @@ public class RequiredDefaultValidation {
             "foo"
         );
         public static RequiredDefaultValidationMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(RequiredDefaultValidation1.class).validate(arg, configuration);
+            return RequiredDefaultValidation1.getInstance().validate(arg, configuration);
         }
         
         public Object foo() {

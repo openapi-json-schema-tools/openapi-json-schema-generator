@@ -43,7 +43,7 @@ public class RefInProperty {
             "a"
         );
         public static RefInPropertyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(RefInProperty1.class).validate(arg, configuration);
+            return RefInProperty1.getInstance().validate(arg, configuration);
         }
         
         public Object a() {

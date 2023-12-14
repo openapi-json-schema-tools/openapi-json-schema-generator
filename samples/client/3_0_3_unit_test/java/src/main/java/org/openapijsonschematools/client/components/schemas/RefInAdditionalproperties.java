@@ -32,7 +32,7 @@ public class RefInAdditionalproperties {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static RefInAdditionalpropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(RefInAdditionalproperties1.class).validate(arg, configuration);
+            return RefInAdditionalproperties1.getInstance().validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {

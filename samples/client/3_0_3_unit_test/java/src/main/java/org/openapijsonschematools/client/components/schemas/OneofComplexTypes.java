@@ -50,7 +50,7 @@ public class OneofComplexTypes {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Schema0.class).validate(arg, configuration);
+            return Schema0.getInstance().validate(arg, configuration);
         }
         
         public long bar() {
@@ -287,7 +287,7 @@ public class OneofComplexTypes {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static Schema1Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Schema1.class).validate(arg, configuration);
+            return Schema1.getInstance().validate(arg, configuration);
         }
         
         public String foo() {

@@ -30,7 +30,7 @@ public class RefInItems {
             super(m);
         }
         public static RefInItemsList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(RefInItems1.class).validate(arg, configuration);
+            return RefInItems1.getInstance().validate(arg, configuration);
         }
     }
     

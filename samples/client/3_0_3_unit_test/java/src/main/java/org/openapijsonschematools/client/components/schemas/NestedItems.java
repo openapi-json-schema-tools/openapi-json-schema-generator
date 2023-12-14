@@ -34,7 +34,7 @@ public class NestedItems {
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Items2.class).validate(arg, configuration);
+            return Items2.getInstance().validate(arg, configuration);
         }
     }
     
@@ -116,7 +116,7 @@ public class NestedItems {
             super(m);
         }
         public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Items1.class).validate(arg, configuration);
+            return Items1.getInstance().validate(arg, configuration);
         }
     }
     
@@ -198,7 +198,7 @@ public class NestedItems {
             super(m);
         }
         public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Items.class).validate(arg, configuration);
+            return Items.getInstance().validate(arg, configuration);
         }
     }
     
@@ -280,7 +280,7 @@ public class NestedItems {
             super(m);
         }
         public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(NestedItems1.class).validate(arg, configuration);
+            return NestedItems1.getInstance().validate(arg, configuration);
         }
     }
     

@@ -49,7 +49,7 @@ public class NotMoreComplexSchema {
             "foo"
         );
         public static NotMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Not.class).validate(arg, configuration);
+            return Not.getInstance().validate(arg, configuration);
         }
         
         public String foo() {

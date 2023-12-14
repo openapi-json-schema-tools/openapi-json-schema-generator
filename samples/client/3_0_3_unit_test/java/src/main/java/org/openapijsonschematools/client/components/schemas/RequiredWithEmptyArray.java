@@ -47,7 +47,7 @@ public class RequiredWithEmptyArray {
             "foo"
         );
         public static RequiredWithEmptyArrayMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(RequiredWithEmptyArray1.class).validate(arg, configuration);
+            return RequiredWithEmptyArray1.getInstance().validate(arg, configuration);
         }
         
         public Object foo() {

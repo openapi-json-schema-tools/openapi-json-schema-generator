@@ -53,7 +53,7 @@ public class RequiredValidation {
             "bar"
         );
         public static RequiredValidationMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(RequiredValidation1.class).validate(arg, configuration);
+            return RequiredValidation1.getInstance().validate(arg, configuration);
         }
         
         public Object foo() {

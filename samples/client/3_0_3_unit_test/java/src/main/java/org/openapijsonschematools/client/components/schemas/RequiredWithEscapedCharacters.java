@@ -47,7 +47,7 @@ public class RequiredWithEscapedCharacters {
         );
         public static final Set<String> optionalKeys = Set.of();
         public static RequiredWithEscapedCharactersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(RequiredWithEscapedCharacters1.class).validate(arg, configuration);
+            return RequiredWithEscapedCharacters1.getInstance().validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {

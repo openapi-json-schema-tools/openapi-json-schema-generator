@@ -145,7 +145,7 @@ public class EnumsInProperties {
             "foo"
         );
         public static EnumsInPropertiesMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(EnumsInProperties1.class).validate(arg, configuration);
+            return EnumsInProperties1.getInstance().validate(arg, configuration);
         }
         
         public String bar() {

@@ -67,7 +67,7 @@ public class PropertiesWithEscapedCharacters {
             "foo\fbar"
         );
         public static PropertiesWithEscapedCharactersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(PropertiesWithEscapedCharacters1.class).validate(arg, configuration);
+            return PropertiesWithEscapedCharacters1.getInstance().validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {

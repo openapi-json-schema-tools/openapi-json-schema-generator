@@ -34,7 +34,7 @@ public class ArrayTypeMatchesArrays {
             super(m);
         }
         public static ArrayTypeMatchesArraysList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(ArrayTypeMatchesArrays1.class).validate(arg, configuration);
+            return ArrayTypeMatchesArrays1.getInstance().validate(arg, configuration);
         }
     }
     

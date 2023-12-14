@@ -36,7 +36,7 @@ public class AdditionalpropertiesCanExistByItself {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static AdditionalpropertiesCanExistByItselfMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(AdditionalpropertiesCanExistByItself1.class).validate(arg, configuration);
+            return AdditionalpropertiesCanExistByItself1.getInstance().validate(arg, configuration);
         }
         
         public boolean getAdditionalProperty(String name) {

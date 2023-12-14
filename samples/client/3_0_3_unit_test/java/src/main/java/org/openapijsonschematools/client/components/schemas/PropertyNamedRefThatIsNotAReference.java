@@ -47,7 +47,7 @@ public class PropertyNamedRefThatIsNotAReference {
             "$ref"
         );
         public static PropertyNamedRefThatIsNotAReferenceMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(PropertyNamedRefThatIsNotAReference1.class).validate(arg, configuration);
+            return PropertyNamedRefThatIsNotAReference1.getInstance().validate(arg, configuration);
         }
         
         public Object getAdditionalProperty(String name) {

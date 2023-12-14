@@ -52,7 +52,7 @@ public class ObjectPropertiesValidation {
             "bar"
         );
         public static ObjectPropertiesValidationMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(ObjectPropertiesValidation1.class).validate(arg, configuration);
+            return ObjectPropertiesValidation1.getInstance().validate(arg, configuration);
         }
         
         public long foo() {

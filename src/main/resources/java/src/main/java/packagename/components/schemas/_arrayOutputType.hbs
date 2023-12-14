@@ -5,6 +5,6 @@ public static class {{arrayOutputJsonPathPiece.camelCase}} extends FrozenList<{{
         super(m);
     }
     public static {{arrayOutputJsonPathPiece.camelCase}} of(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchemaFactory.getInstance({{jsonPathPiece.camelCase}}.class).validate(arg, configuration);
+        return {{jsonPathPiece.camelCase}}.getInstance().validate(arg, configuration);
     }
 }

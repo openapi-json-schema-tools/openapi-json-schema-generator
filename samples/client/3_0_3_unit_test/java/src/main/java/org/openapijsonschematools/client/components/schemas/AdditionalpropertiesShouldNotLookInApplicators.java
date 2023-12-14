@@ -53,7 +53,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             "foo"
         );
         public static Schema0Map of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(Schema0.class).validate(arg, configuration);
+            return Schema0.getInstance().validate(arg, configuration);
         }
         
         public Object foo() {
@@ -284,7 +284,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         public static AdditionalpropertiesShouldNotLookInApplicatorsMap of(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException {
-            return JsonSchemaFactory.getInstance(AdditionalpropertiesShouldNotLookInApplicators1.class).validate(arg, configuration);
+            return AdditionalpropertiesShouldNotLookInApplicators1.getInstance().validate(arg, configuration);
         }
         
         public boolean getAdditionalProperty(String name) {
