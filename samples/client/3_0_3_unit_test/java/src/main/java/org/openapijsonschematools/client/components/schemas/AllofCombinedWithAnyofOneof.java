@@ -194,7 +194,17 @@ public class AllofCombinedWithAnyofOneof {
         
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedMapTypes(arg, pathToItem, pathSet);
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
         }
         
         @Override
@@ -396,7 +406,17 @@ public class AllofCombinedWithAnyofOneof {
         
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedMapTypes(arg, pathToItem, pathSet);
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
         }
         
         @Override
@@ -598,7 +618,17 @@ public class AllofCombinedWithAnyofOneof {
         
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedMapTypes(arg, pathToItem, pathSet);
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
         }
         
         @Override
@@ -814,7 +844,17 @@ public class AllofCombinedWithAnyofOneof {
         
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedMapTypes(arg, pathToItem, pathSet);
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
         }
         
         @Override
