@@ -39,7 +39,7 @@ public {{../mapOutputJsonPathPiece.camelCase}} validate(Map<String, Object> arg,
                 {{/if}}
             {{else}}
 @Override
-public FrozenMap<String, Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
     FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

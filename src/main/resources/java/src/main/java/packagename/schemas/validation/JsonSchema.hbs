@@ -174,7 +174,7 @@ public abstract class JsonSchema {
         pathSet.removeAll(pathToSchemasMap.keySet());
         if (!pathSet.isEmpty()) {
             LinkedHashMap<JsonSchema, Void> unsetAnyTypeSchema = new LinkedHashMap<>();
-            unsetAnyTypeSchema.put(JsonSchemaFactory.getInstance(UnsetAnyTypeJsonSchema.class), null);
+            unsetAnyTypeSchema.put(UnsetAnyTypeJsonSchema.getInstance(), null);
             for (List<Object> pathToItem: pathSet) {
                 pathToSchemasMap.put(pathToItem, unsetAnyTypeSchema);
             }

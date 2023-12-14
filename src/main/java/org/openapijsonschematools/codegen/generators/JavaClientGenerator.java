@@ -1721,9 +1721,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
         imports.add("import "+packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
         imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
-        if (schema.mapOutputJsonPathPiece != null || schema.arrayOutputJsonPathPiece != null) {
-            imports.add("import "+packageName + ".schemas.validation.JsonSchemaFactory;"); // for of
-        }
     }
 
 
