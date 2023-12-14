@@ -40,10 +40,17 @@ public class BySmallNumber {
         Do not edit the class manually.
         */
         private static BySmallNumber1 instance;
-        public BySmallNumber1() {
+        private BySmallNumber1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(0.00010))
             )));
+        }
+    
+        public static BySmallNumber1 getInstance() {
+            if (instance == null) {
+                instance = new BySmallNumber1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

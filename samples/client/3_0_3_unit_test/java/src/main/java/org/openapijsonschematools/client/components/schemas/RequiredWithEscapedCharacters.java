@@ -69,7 +69,7 @@ public class RequiredWithEscapedCharacters {
         Do not edit the class manually.
         */
         private static RequiredWithEscapedCharacters1 instance;
-        public RequiredWithEscapedCharacters1() {
+        private RequiredWithEscapedCharacters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "foo\tbar",
@@ -80,6 +80,13 @@ public class RequiredWithEscapedCharacters {
                     "foo\\bar"
                 )))
             )));
+        }
+    
+        public static RequiredWithEscapedCharacters1 getInstance() {
+            if (instance == null) {
+                instance = new RequiredWithEscapedCharacters1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

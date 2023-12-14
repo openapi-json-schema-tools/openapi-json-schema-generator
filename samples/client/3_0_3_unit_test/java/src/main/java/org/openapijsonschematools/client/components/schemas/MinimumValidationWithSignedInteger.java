@@ -40,10 +40,17 @@ public class MinimumValidationWithSignedInteger {
         Do not edit the class manually.
         */
         private static MinimumValidationWithSignedInteger1 instance;
-        public MinimumValidationWithSignedInteger1() {
+        private MinimumValidationWithSignedInteger1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minimum", new MinimumValidator(-2))
             )));
+        }
+    
+        public static MinimumValidationWithSignedInteger1 getInstance() {
+            if (instance == null) {
+                instance = new MinimumValidationWithSignedInteger1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

@@ -31,7 +31,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
         Do not edit the class manually.
         */
         private static InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1 instance;
-        public InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1() {
+        private InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -41,6 +41,13 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
                 ))),
                 new KeywordEntry("multipleOf", new MultipleOfValidator(0.123456789))
             )));
+        }
+    
+        public static InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1 getInstance() {
+            if (instance == null) {
+                instance = new InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1();
+            }
+            return instance;
         }
     
         @Override

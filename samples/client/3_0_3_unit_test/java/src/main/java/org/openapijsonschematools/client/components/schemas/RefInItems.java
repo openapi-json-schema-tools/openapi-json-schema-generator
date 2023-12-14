@@ -47,11 +47,18 @@ public class RefInItems {
         Do not edit the class manually.
         */
         private static RefInItems1 instance;
-        public RefInItems1() {
+        private RefInItems1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
             )));
+        }
+    
+        public static RefInItems1 getInstance() {
+            if (instance == null) {
+                instance = new RefInItems1();
+            }
+            return instance;
         }
     
         @Override

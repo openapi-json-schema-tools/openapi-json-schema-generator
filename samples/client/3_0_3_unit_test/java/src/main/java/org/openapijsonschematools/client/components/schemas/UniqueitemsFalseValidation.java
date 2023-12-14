@@ -40,10 +40,17 @@ public class UniqueitemsFalseValidation {
         Do not edit the class manually.
         */
         private static UniqueitemsFalseValidation1 instance;
-        public UniqueitemsFalseValidation1() {
+        private UniqueitemsFalseValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("uniqueItems", new UniqueItemsValidator(false))
             )));
+        }
+    
+        public static UniqueitemsFalseValidation1 getInstance() {
+            if (instance == null) {
+                instance = new UniqueitemsFalseValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

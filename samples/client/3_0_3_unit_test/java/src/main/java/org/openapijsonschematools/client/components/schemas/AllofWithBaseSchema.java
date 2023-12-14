@@ -71,7 +71,7 @@ public class AllofWithBaseSchema {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
-        public Schema0() {
+        private Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
@@ -80,6 +80,13 @@ public class AllofWithBaseSchema {
                     "foo"
                 )))
             )));
+        }
+    
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -301,7 +308,7 @@ public class AllofWithBaseSchema {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
-        public Schema1() {
+        private Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("baz", Baz.class)
@@ -310,6 +317,13 @@ public class AllofWithBaseSchema {
                     "baz"
                 )))
             )));
+        }
+    
+        public static Schema1 getInstance() {
+            if (instance == null) {
+                instance = new Schema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -537,7 +551,7 @@ public class AllofWithBaseSchema {
         Do not edit the class manually.
         */
         private static AllofWithBaseSchema1 instance;
-        public AllofWithBaseSchema1() {
+        private AllofWithBaseSchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
@@ -550,6 +564,13 @@ public class AllofWithBaseSchema {
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static AllofWithBaseSchema1 getInstance() {
+            if (instance == null) {
+                instance = new AllofWithBaseSchema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

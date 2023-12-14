@@ -48,13 +48,20 @@ public class OneofWithEmptySchema {
         Do not edit the class manually.
         */
         private static OneofWithEmptySchema1 instance;
-        public OneofWithEmptySchema1() {
+        private OneofWithEmptySchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static OneofWithEmptySchema1 getInstance() {
+            if (instance == null) {
+                instance = new OneofWithEmptySchema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

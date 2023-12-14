@@ -24,11 +24,18 @@ import java.util.Set;
 public class DateJsonSchema extends JsonSchema implements SchemaStringValidator {
     private static DateJsonSchema instance;
 
-    public DateJsonSchema() {
+    private DateJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("date"))
         )));
+    }
+
+    public static DateJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new DateJsonSchema();
+        }
+        return instance;
     }
 
     @Override

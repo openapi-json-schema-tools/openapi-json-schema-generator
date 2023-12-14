@@ -40,10 +40,17 @@ public class MinlengthValidation {
         Do not edit the class manually.
         */
         private static MinlengthValidation1 instance;
-        public MinlengthValidation1() {
+        private MinlengthValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(2))
             )));
+        }
+    
+        public static MinlengthValidation1 getInstance() {
+            if (instance == null) {
+                instance = new MinlengthValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

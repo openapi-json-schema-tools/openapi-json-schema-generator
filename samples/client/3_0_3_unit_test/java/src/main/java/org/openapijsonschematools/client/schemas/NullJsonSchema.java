@@ -22,10 +22,17 @@ import java.util.Set;
 public class NullJsonSchema extends JsonSchema implements SchemaNullValidator {
     private static NullJsonSchema instance;
 
-    public NullJsonSchema() {
+    private NullJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))
         )));
+    }
+
+    public static NullJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new NullJsonSchema();
+        }
+        return instance;
     }
 
     @Override

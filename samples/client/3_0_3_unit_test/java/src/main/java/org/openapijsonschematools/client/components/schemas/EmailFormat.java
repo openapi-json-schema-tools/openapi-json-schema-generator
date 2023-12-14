@@ -40,10 +40,17 @@ public class EmailFormat {
         Do not edit the class manually.
         */
         private static EmailFormat1 instance;
-        public EmailFormat1() {
+        private EmailFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("email"))
             )));
+        }
+    
+        public static EmailFormat1 getInstance() {
+            if (instance == null) {
+                instance = new EmailFormat1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

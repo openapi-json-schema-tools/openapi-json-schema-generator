@@ -51,11 +51,18 @@ public class ArrayTypeMatchesArrays {
         Do not edit the class manually.
         */
         private static ArrayTypeMatchesArrays1 instance;
-        public ArrayTypeMatchesArrays1() {
+        private ArrayTypeMatchesArrays1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
             )));
+        }
+    
+        public static ArrayTypeMatchesArrays1 getInstance() {
+            if (instance == null) {
+                instance = new ArrayTypeMatchesArrays1();
+            }
+            return instance;
         }
     
         @Override

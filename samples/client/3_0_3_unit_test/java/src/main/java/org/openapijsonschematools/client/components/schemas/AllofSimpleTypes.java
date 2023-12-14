@@ -36,10 +36,17 @@ public class AllofSimpleTypes {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
-        public Schema0() {
+        private Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maximum", new MaximumValidator(30))
             )));
+        }
+    
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -231,10 +238,17 @@ public class AllofSimpleTypes {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
-        public Schema1() {
+        private Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minimum", new MinimumValidator(20))
             )));
+        }
+    
+        public static Schema1 getInstance() {
+            if (instance == null) {
+                instance = new Schema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -432,13 +446,20 @@ public class AllofSimpleTypes {
         Do not edit the class manually.
         */
         private static AllofSimpleTypes1 instance;
-        public AllofSimpleTypes1() {
+        private AllofSimpleTypes1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static AllofSimpleTypes1 getInstance() {
+            if (instance == null) {
+                instance = new AllofSimpleTypes1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

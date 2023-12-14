@@ -47,13 +47,20 @@ public class AllofWithTwoEmptySchemas {
         Do not edit the class manually.
         */
         private static AllofWithTwoEmptySchemas1 instance;
-        public AllofWithTwoEmptySchemas1() {
+        private AllofWithTwoEmptySchemas1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static AllofWithTwoEmptySchemas1 getInstance() {
+            if (instance == null) {
+                instance = new AllofWithTwoEmptySchemas1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

@@ -32,7 +32,7 @@ public class EnumWith1DoesNotMatchTrue {
         Do not edit the class manually.
         */
         private static EnumWith1DoesNotMatchTrue1 instance;
-        public EnumWith1DoesNotMatchTrue1() {
+        private EnumWith1DoesNotMatchTrue1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -44,6 +44,13 @@ public class EnumWith1DoesNotMatchTrue {
                     1
                 )))
             )));
+        }
+    
+        public static EnumWith1DoesNotMatchTrue1 getInstance() {
+            if (instance == null) {
+                instance = new EnumWith1DoesNotMatchTrue1();
+            }
+            return instance;
         }
     
         @Override

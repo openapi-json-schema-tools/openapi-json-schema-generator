@@ -40,12 +40,19 @@ public class RefInOneof {
         Do not edit the class manually.
         */
         private static RefInOneof1 instance;
-        public RefInOneof1() {
+        private RefInOneof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class
                 )))
             )));
+        }
+    
+        public static RefInOneof1 getInstance() {
+            if (instance == null) {
+                instance = new RefInOneof1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

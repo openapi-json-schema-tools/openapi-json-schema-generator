@@ -53,11 +53,18 @@ public class RefInAdditionalproperties {
         Do not edit the class manually.
         */
         private static RefInAdditionalproperties1 instance;
-        public RefInAdditionalproperties1() {
+        private RefInAdditionalproperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
             )));
+        }
+    
+        public static RefInAdditionalproperties1 getInstance() {
+            if (instance == null) {
+                instance = new RefInAdditionalproperties1();
+            }
+            return instance;
         }
     
         @Override

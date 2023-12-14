@@ -89,7 +89,7 @@ public class PropertiesWithEscapedCharacters {
         Do not edit the class manually.
         */
         private static PropertiesWithEscapedCharacters1 instance;
-        public PropertiesWithEscapedCharacters1() {
+        private PropertiesWithEscapedCharacters1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo\nbar", Foonbar.class),
@@ -100,6 +100,13 @@ public class PropertiesWithEscapedCharacters {
                     new PropertyEntry("foo\fbar", Foofbar.class)
                 )))
             )));
+        }
+    
+        public static PropertiesWithEscapedCharacters1 getInstance() {
+            if (instance == null) {
+                instance = new PropertiesWithEscapedCharacters1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

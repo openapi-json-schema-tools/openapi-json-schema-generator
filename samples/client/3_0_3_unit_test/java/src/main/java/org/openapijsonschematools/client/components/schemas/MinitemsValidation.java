@@ -40,10 +40,17 @@ public class MinitemsValidation {
         Do not edit the class manually.
         */
         private static MinitemsValidation1 instance;
-        public MinitemsValidation1() {
+        private MinitemsValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minItems", new MinItemsValidator(1))
             )));
+        }
+    
+        public static MinitemsValidation1 getInstance() {
+            if (instance == null) {
+                instance = new MinitemsValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

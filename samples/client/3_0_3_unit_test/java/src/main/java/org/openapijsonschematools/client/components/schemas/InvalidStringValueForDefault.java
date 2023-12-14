@@ -38,13 +38,21 @@ public class InvalidStringValueForDefault {
     
     public static class Bar extends JsonSchema implements SchemaStringValidator {
         private static Bar instance;
-        public Bar() {
+    
+        private Bar() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
                 ))),
                 new KeywordEntry("minLength", new MinLengthValidator(4))
             )));
+        }
+    
+        public static Bar getInstance() {
+            if (instance == null) {
+                instance = new Bar();
+            }
+            return instance;
         }
     
         @Override
@@ -115,12 +123,19 @@ public class InvalidStringValueForDefault {
         Do not edit the class manually.
         */
         private static InvalidStringValueForDefault1 instance;
-        public InvalidStringValueForDefault1() {
+        private InvalidStringValueForDefault1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
                 )))
             )));
+        }
+    
+        public static InvalidStringValueForDefault1 getInstance() {
+            if (instance == null) {
+                instance = new InvalidStringValueForDefault1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

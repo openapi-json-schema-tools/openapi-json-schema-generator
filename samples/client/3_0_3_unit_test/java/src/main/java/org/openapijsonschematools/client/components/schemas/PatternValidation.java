@@ -41,12 +41,19 @@ public class PatternValidation {
         Do not edit the class manually.
         */
         private static PatternValidation1 instance;
-        public PatternValidation1() {
+        private PatternValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
                     "^a*$"
                 )))
             )));
+        }
+    
+        public static PatternValidation1 getInstance() {
+            if (instance == null) {
+                instance = new PatternValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

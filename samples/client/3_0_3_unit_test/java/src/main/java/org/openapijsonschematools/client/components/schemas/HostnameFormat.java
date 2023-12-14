@@ -40,10 +40,17 @@ public class HostnameFormat {
         Do not edit the class manually.
         */
         private static HostnameFormat1 instance;
-        public HostnameFormat1() {
+        private HostnameFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("hostname"))
             )));
+        }
+    
+        public static HostnameFormat1 getInstance() {
+            if (instance == null) {
+                instance = new HostnameFormat1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

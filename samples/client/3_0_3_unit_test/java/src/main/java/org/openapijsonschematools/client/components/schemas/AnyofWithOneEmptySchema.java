@@ -48,13 +48,20 @@ public class AnyofWithOneEmptySchema {
         Do not edit the class manually.
         */
         private static AnyofWithOneEmptySchema1 instance;
-        public AnyofWithOneEmptySchema1() {
+        private AnyofWithOneEmptySchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static AnyofWithOneEmptySchema1 getInstance() {
+            if (instance == null) {
+                instance = new AnyofWithOneEmptySchema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

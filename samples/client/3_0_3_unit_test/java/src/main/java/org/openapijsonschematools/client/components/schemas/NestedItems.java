@@ -45,11 +45,18 @@ public class NestedItems {
     
     public static class Items2 extends JsonSchema implements SchemaListValidator<Number, Number, ItemsList> {
         private static Items2 instance;
-        public Items2() {
+        private Items2() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items3.class))
             )));
+        }
+    
+        public static Items2 getInstance() {
+            if (instance == null) {
+                instance = new Items2();
+            }
+            return instance;
         }
     
         @Override
@@ -120,11 +127,18 @@ public class NestedItems {
     
     public static class Items1 extends JsonSchema implements SchemaListValidator<List<Number>, FrozenList<Number>, ItemsList1> {
         private static Items1 instance;
-        public Items1() {
+        private Items1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items2.class))
             )));
+        }
+    
+        public static Items1 getInstance() {
+            if (instance == null) {
+                instance = new Items1();
+            }
+            return instance;
         }
     
         @Override
@@ -195,11 +209,18 @@ public class NestedItems {
     
     public static class Items extends JsonSchema implements SchemaListValidator<List<List<Number>>, FrozenList<FrozenList<Number>>, ItemsList2> {
         private static Items instance;
-        public Items() {
+        private Items() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items1.class))
             )));
+        }
+    
+        public static Items getInstance() {
+            if (instance == null) {
+                instance = new Items();
+            }
+            return instance;
         }
     
         @Override
@@ -276,11 +297,18 @@ public class NestedItems {
         Do not edit the class manually.
         */
         private static NestedItems1 instance;
-        public NestedItems1() {
+        private NestedItems1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
                 new KeywordEntry("items", new ItemsValidator(Items.class))
             )));
+        }
+    
+        public static NestedItems1 getInstance() {
+            if (instance == null) {
+                instance = new NestedItems1();
+            }
+            return instance;
         }
     
         @Override

@@ -23,10 +23,17 @@ import java.util.Set;
 public class MapJsonSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
     private static MapJsonSchema instance;
 
-    public MapJsonSchema() {
+    private MapJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class)))
         )));
+    }
+
+    public static MapJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new MapJsonSchema();
+        }
+        return instance;
     }
 
     @Override

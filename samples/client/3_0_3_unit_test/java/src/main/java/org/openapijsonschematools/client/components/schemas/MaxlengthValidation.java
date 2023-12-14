@@ -40,10 +40,17 @@ public class MaxlengthValidation {
         Do not edit the class manually.
         */
         private static MaxlengthValidation1 instance;
-        public MaxlengthValidation1() {
+        private MaxlengthValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(2))
             )));
+        }
+    
+        public static MaxlengthValidation1 getInstance() {
+            if (instance == null) {
+                instance = new MaxlengthValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

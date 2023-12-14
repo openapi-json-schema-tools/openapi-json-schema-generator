@@ -30,10 +30,17 @@ import java.util.Objects;
 public class NotAnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
     private static NotAnyTypeJsonSchema instance;
 
-    public NotAnyTypeJsonSchema() {
+    private NotAnyTypeJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
         )));
+    }
+
+    public static NotAnyTypeJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new NotAnyTypeJsonSchema();
+        }
+        return instance;
     }
 
     public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

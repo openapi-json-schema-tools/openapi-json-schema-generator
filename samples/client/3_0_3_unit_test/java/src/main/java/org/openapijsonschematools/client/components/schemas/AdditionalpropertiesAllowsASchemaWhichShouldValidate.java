@@ -81,7 +81,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesAllowsASchemaWhichShouldValidate1 instance;
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidate1() {
+        private AdditionalpropertiesAllowsASchemaWhichShouldValidate1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -90,6 +90,13 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
                 ))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             )));
+        }
+    
+        public static AdditionalpropertiesAllowsASchemaWhichShouldValidate1 getInstance() {
+            if (instance == null) {
+                instance = new AdditionalpropertiesAllowsASchemaWhichShouldValidate1();
+            }
+            return instance;
         }
     
         @Override

@@ -40,10 +40,17 @@ public class MinimumValidation {
         Do not edit the class manually.
         */
         private static MinimumValidation1 instance;
-        public MinimumValidation1() {
+        private MinimumValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minimum", new MinimumValidator(1.1))
             )));
+        }
+    
+        public static MinimumValidation1 getInstance() {
+            if (instance == null) {
+                instance = new MinimumValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

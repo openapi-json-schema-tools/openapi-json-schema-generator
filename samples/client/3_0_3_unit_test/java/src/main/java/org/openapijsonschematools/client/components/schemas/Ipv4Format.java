@@ -40,10 +40,17 @@ public class Ipv4Format {
         Do not edit the class manually.
         */
         private static Ipv4Format1 instance;
-        public Ipv4Format1() {
+        private Ipv4Format1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("ipv4"))
             )));
+        }
+    
+        public static Ipv4Format1 getInstance() {
+            if (instance == null) {
+                instance = new Ipv4Format1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

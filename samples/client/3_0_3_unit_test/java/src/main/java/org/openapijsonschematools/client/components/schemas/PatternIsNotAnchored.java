@@ -41,12 +41,19 @@ public class PatternIsNotAnchored {
         Do not edit the class manually.
         */
         private static PatternIsNotAnchored1 instance;
-        public PatternIsNotAnchored1() {
+        private PatternIsNotAnchored1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
                     "a+"
                 )))
             )));
+        }
+    
+        public static PatternIsNotAnchored1 getInstance() {
+            if (instance == null) {
+                instance = new PatternIsNotAnchored1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

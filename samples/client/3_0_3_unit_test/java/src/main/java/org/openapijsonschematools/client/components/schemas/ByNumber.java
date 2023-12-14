@@ -40,10 +40,17 @@ public class ByNumber {
         Do not edit the class manually.
         */
         private static ByNumber1 instance;
-        public ByNumber1() {
+        private ByNumber1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(1.5))
             )));
+        }
+    
+        public static ByNumber1 getInstance() {
+            if (instance == null) {
+                instance = new ByNumber1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

@@ -25,10 +25,17 @@ import java.util.UUID;
 public class StringJsonSchema extends JsonSchema implements SchemaStringValidator {
     private static StringJsonSchema instance;
 
-    public StringJsonSchema() {
+    private StringJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
         )));
+    }
+
+    public static StringJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new StringJsonSchema();
+        }
+        return instance;
     }
 
     @Override

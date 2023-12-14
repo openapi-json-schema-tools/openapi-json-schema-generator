@@ -38,12 +38,19 @@ public class NestedOneofToCheckValidationSemantics {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
-        public Schema0() {
+        private Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Schema01.class
                 )))
             )));
+        }
+    
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -241,12 +248,19 @@ public class NestedOneofToCheckValidationSemantics {
         Do not edit the class manually.
         */
         private static NestedOneofToCheckValidationSemantics1 instance;
-        public NestedOneofToCheckValidationSemantics1() {
+        private NestedOneofToCheckValidationSemantics1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Schema0.class
                 )))
             )));
+        }
+    
+        public static NestedOneofToCheckValidationSemantics1 getInstance() {
+            if (instance == null) {
+                instance = new NestedOneofToCheckValidationSemantics1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

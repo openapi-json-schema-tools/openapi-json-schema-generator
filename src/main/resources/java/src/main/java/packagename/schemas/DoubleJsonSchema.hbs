@@ -23,13 +23,19 @@ import java.util.Set;
 public class DoubleJsonSchema extends JsonSchema implements SchemaNumberValidator {
     private static DoubleJsonSchema instance;
 
-    public DoubleJsonSchema() {
+    private DoubleJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Double.class))),
                 new KeywordEntry("format", new FormatValidator("double"))
         )));
     }
 
+    public static DoubleJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new DoubleJsonSchema();
+        }
+        return instance;
+    }
 
     @Override
     public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

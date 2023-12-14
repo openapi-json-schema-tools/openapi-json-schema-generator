@@ -69,12 +69,19 @@ public class PropertyNamedRefThatIsNotAReference {
         Do not edit the class manually.
         */
         private static PropertyNamedRefThatIsNotAReference1 instance;
-        public PropertyNamedRefThatIsNotAReference1() {
+        private PropertyNamedRefThatIsNotAReference1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("$ref", Ref.class)
                 )))
             )));
+        }
+    
+        public static PropertyNamedRefThatIsNotAReference1 getInstance() {
+            if (instance == null) {
+                instance = new PropertyNamedRefThatIsNotAReference1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

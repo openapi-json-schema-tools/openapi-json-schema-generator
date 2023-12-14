@@ -69,13 +69,20 @@ public class OneofWithRequired {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
-        public Schema0() {
+        private Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "bar",
                     "foo"
                 )))
             )));
+        }
+    
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -299,13 +306,20 @@ public class OneofWithRequired {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
-        public Schema1() {
+        private Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("required", new RequiredValidator(Set.of(
                     "baz",
                     "foo"
                 )))
             )));
+        }
+    
+        public static Schema1 getInstance() {
+            if (instance == null) {
+                instance = new Schema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -503,7 +517,7 @@ public class OneofWithRequired {
         Do not edit the class manually.
         */
         private static OneofWithRequired1 instance;
-        public OneofWithRequired1() {
+        private OneofWithRequired1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
@@ -511,6 +525,13 @@ public class OneofWithRequired {
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static OneofWithRequired1 getInstance() {
+            if (instance == null) {
+                instance = new OneofWithRequired1();
+            }
+            return instance;
         }
     
         @Override

@@ -40,10 +40,17 @@ public class MaxitemsValidation {
         Do not edit the class manually.
         */
         private static MaxitemsValidation1 instance;
-        public MaxitemsValidation1() {
+        private MaxitemsValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxItems", new MaxItemsValidator(2))
             )));
+        }
+    
+        public static MaxitemsValidation1 getInstance() {
+            if (instance == null) {
+                instance = new MaxitemsValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

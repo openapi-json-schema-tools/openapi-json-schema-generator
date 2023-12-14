@@ -40,12 +40,19 @@ public class RefInAllof {
         Do not edit the class manually.
         */
         private static RefInAllof1 instance;
-        public RefInAllof1() {
+        private RefInAllof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class
                 )))
             )));
+        }
+    
+        public static RefInAllof1 getInstance() {
+            if (instance == null) {
+                instance = new RefInAllof1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

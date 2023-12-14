@@ -44,10 +44,17 @@ public class Not {
         Do not edit the class manually.
         */
         private static Not1 instance;
-        public Not1() {
+        private Not1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(Not2.class))
             )));
+        }
+    
+        public static Not1 getInstance() {
+            if (instance == null) {
+                instance = new Not1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

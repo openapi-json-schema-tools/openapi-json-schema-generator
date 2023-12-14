@@ -32,7 +32,7 @@ public class SimpleEnumValidation {
         Do not edit the class manually.
         */
         private static SimpleEnumValidation1 instance;
-        public SimpleEnumValidation1() {
+        private SimpleEnumValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     Integer.class,
@@ -46,6 +46,13 @@ public class SimpleEnumValidation {
                     3
                 )))
             )));
+        }
+    
+        public static SimpleEnumValidation1 getInstance() {
+            if (instance == null) {
+                instance = new SimpleEnumValidation1();
+            }
+            return instance;
         }
     
         @Override

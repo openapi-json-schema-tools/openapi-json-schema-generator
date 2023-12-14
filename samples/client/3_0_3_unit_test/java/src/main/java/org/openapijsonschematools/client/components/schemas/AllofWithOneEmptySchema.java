@@ -44,12 +44,19 @@ public class AllofWithOneEmptySchema {
         Do not edit the class manually.
         */
         private static AllofWithOneEmptySchema1 instance;
-        public AllofWithOneEmptySchema1() {
+        private AllofWithOneEmptySchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class
                 )))
             )));
+        }
+    
+        public static AllofWithOneEmptySchema1 getInstance() {
+            if (instance == null) {
+                instance = new AllofWithOneEmptySchema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

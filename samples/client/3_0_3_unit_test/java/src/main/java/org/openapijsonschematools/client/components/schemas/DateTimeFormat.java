@@ -40,10 +40,17 @@ public class DateTimeFormat {
         Do not edit the class manually.
         */
         private static DateTimeFormat1 instance;
-        public DateTimeFormat1() {
+        private DateTimeFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("date-time"))
             )));
+        }
+    
+        public static DateTimeFormat1 getInstance() {
+            if (instance == null) {
+                instance = new DateTimeFormat1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

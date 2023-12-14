@@ -48,13 +48,20 @@ public class AllofWithTheLastEmptySchema {
         Do not edit the class manually.
         */
         private static AllofWithTheLastEmptySchema1 instance;
-        public AllofWithTheLastEmptySchema1() {
+        private AllofWithTheLastEmptySchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static AllofWithTheLastEmptySchema1 getInstance() {
+            if (instance == null) {
+                instance = new AllofWithTheLastEmptySchema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

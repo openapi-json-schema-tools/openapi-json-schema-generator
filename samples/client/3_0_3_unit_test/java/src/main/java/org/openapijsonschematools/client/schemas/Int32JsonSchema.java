@@ -23,7 +23,7 @@ import java.util.Map;
 public class Int32JsonSchema extends JsonSchema implements SchemaNumberValidator {
     private static Int32JsonSchema instance;
 
-    public Int32JsonSchema() {
+    private Int32JsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                         Integer.class,
@@ -31,6 +31,13 @@ public class Int32JsonSchema extends JsonSchema implements SchemaNumberValidator
                 ))),
                 new KeywordEntry("format", new FormatValidator("int32"))
         )));
+    }
+
+    public static Int32JsonSchema getInstance() {
+        if (instance == null) {
+            instance = new Int32JsonSchema();
+        }
+        return instance;
     }
 
     @Override

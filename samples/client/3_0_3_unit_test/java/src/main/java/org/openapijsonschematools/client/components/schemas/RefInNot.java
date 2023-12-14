@@ -40,10 +40,17 @@ public class RefInNot {
         Do not edit the class manually.
         */
         private static RefInNot1 instance;
-        public RefInNot1() {
+        private RefInNot1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("not", new NotValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
             )));
+        }
+    
+        public static RefInNot1 getInstance() {
+            if (instance == null) {
+                instance = new RefInNot1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

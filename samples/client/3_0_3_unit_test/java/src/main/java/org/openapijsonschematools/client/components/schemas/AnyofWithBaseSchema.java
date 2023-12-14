@@ -37,10 +37,17 @@ public class AnyofWithBaseSchema {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
-        public Schema0() {
+        private Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxLength", new MaxLengthValidator(2))
             )));
+        }
+    
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -232,10 +239,17 @@ public class AnyofWithBaseSchema {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
-        public Schema1() {
+        private Schema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minLength", new MinLengthValidator(4))
             )));
+        }
+    
+        public static Schema1 getInstance() {
+            if (instance == null) {
+                instance = new Schema1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -433,7 +447,8 @@ public class AnyofWithBaseSchema {
         Do not edit the class manually.
         */
         private static AnyofWithBaseSchema1 instance;
-        public AnyofWithBaseSchema1() {
+    
+        private AnyofWithBaseSchema1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -443,6 +458,13 @@ public class AnyofWithBaseSchema {
                     Schema1.class
                 )))
             )));
+        }
+    
+        public static AnyofWithBaseSchema1 getInstance() {
+            if (instance == null) {
+                instance = new AnyofWithBaseSchema1();
+            }
+            return instance;
         }
     
         @Override

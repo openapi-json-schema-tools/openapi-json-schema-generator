@@ -75,12 +75,19 @@ public class RequiredDefaultValidation {
         Do not edit the class manually.
         */
         private static RequiredDefaultValidation1 instance;
-        public RequiredDefaultValidation1() {
+        private RequiredDefaultValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 )))
             )));
+        }
+    
+        public static RequiredDefaultValidation1 getInstance() {
+            if (instance == null) {
+                instance = new RequiredDefaultValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

@@ -85,13 +85,20 @@ public class AdditionalpropertiesAreAllowedByDefault {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesAreAllowedByDefault1 instance;
-        public AdditionalpropertiesAreAllowedByDefault1() {
+        private AdditionalpropertiesAreAllowedByDefault1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
                     new PropertyEntry("bar", Bar.class)
                 )))
             )));
+        }
+    
+        public static AdditionalpropertiesAreAllowedByDefault1 getInstance() {
+            if (instance == null) {
+                instance = new AdditionalpropertiesAreAllowedByDefault1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

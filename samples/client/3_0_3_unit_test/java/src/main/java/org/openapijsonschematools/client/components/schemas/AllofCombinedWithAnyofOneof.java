@@ -37,10 +37,17 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema02 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema02 instance;
-        public Schema02() {
+        private Schema02() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(2))
             )));
+        }
+    
+        public static Schema02 getInstance() {
+            if (instance == null) {
+                instance = new Schema02();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -232,10 +239,17 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema01 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema01 instance;
-        public Schema01() {
+        private Schema01() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(3))
             )));
+        }
+    
+        public static Schema01 getInstance() {
+            if (instance == null) {
+                instance = new Schema01();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -427,10 +441,17 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
-        public Schema0() {
+        private Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("multipleOf", new MultipleOfValidator(5))
             )));
+        }
+    
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -628,7 +649,7 @@ public class AllofCombinedWithAnyofOneof {
         Do not edit the class manually.
         */
         private static AllofCombinedWithAnyofOneof1 instance;
-        public AllofCombinedWithAnyofOneof1() {
+        private AllofCombinedWithAnyofOneof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema02.class
@@ -640,6 +661,13 @@ public class AllofCombinedWithAnyofOneof {
                     Schema0.class
                 )))
             )));
+        }
+    
+        public static AllofCombinedWithAnyofOneof1 getInstance() {
+            if (instance == null) {
+                instance = new AllofCombinedWithAnyofOneof1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

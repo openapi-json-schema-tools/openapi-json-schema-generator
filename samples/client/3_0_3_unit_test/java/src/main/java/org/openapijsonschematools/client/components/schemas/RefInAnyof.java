@@ -40,12 +40,19 @@ public class RefInAnyof {
         Do not edit the class manually.
         */
         private static RefInAnyof1 instance;
-        public RefInAnyof1() {
+        private RefInAnyof1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("anyOf", new AnyOfValidator(List.of(
                     PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class
                 )))
             )));
+        }
+    
+        public static RefInAnyof1 getInstance() {
+            if (instance == null) {
+                instance = new RefInAnyof1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

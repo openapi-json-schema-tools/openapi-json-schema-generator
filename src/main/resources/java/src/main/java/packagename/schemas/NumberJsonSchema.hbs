@@ -22,7 +22,7 @@ import java.util.Map;
 public class NumberJsonSchema extends JsonSchema implements SchemaNumberValidator {
     private static NumberJsonSchema instance;
 
-    public NumberJsonSchema() {
+    private NumberJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                         Integer.class,
@@ -31,6 +31,13 @@ public class NumberJsonSchema extends JsonSchema implements SchemaNumberValidato
                         Double.class
                 )))
         )));
+    }
+
+    public static NumberJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new NumberJsonSchema();
+        }
+        return instance;
     }
 
     @Override

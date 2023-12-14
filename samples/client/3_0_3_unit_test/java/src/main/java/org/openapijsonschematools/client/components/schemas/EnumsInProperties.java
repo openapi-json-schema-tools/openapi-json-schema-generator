@@ -32,7 +32,8 @@ public class EnumsInProperties {
     
     public static class Foo extends JsonSchema implements SchemaStringValidator {
         private static Foo instance;
-        public Foo() {
+    
+        private Foo() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -41,6 +42,13 @@ public class EnumsInProperties {
                     "foo"
                 )))
             )));
+        }
+    
+        public static Foo getInstance() {
+            if (instance == null) {
+                instance = new Foo();
+            }
+            return instance;
         }
     
         @Override
@@ -76,7 +84,8 @@ public class EnumsInProperties {
     
     public static class Bar extends JsonSchema implements SchemaStringValidator {
         private static Bar instance;
-        public Bar() {
+    
+        private Bar() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -85,6 +94,13 @@ public class EnumsInProperties {
                     "bar"
                 )))
             )));
+        }
+    
+        public static Bar getInstance() {
+            if (instance == null) {
+                instance = new Bar();
+            }
+            return instance;
         }
     
         @Override
@@ -161,7 +177,7 @@ public class EnumsInProperties {
         Do not edit the class manually.
         */
         private static EnumsInProperties1 instance;
-        public EnumsInProperties1() {
+        private EnumsInProperties1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -172,6 +188,13 @@ public class EnumsInProperties {
                     "bar"
                 )))
             )));
+        }
+    
+        public static EnumsInProperties1 getInstance() {
+            if (instance == null) {
+                instance = new EnumsInProperties1();
+            }
+            return instance;
         }
     
         @Override

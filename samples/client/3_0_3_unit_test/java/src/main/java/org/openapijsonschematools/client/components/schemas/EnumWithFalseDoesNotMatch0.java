@@ -32,13 +32,20 @@ public class EnumWithFalseDoesNotMatch0 {
         Do not edit the class manually.
         */
         private static EnumWithFalseDoesNotMatch01 instance;
-        public EnumWithFalseDoesNotMatch01() {
+        private EnumWithFalseDoesNotMatch01() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),
                 new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     false
                 )))
             )));
+        }
+    
+        public static EnumWithFalseDoesNotMatch01 getInstance() {
+            if (instance == null) {
+                instance = new EnumWithFalseDoesNotMatch01();
+            }
+            return instance;
         }
     
         @Override

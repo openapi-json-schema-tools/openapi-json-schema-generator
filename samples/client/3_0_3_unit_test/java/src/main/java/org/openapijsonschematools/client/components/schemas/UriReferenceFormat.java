@@ -40,10 +40,17 @@ public class UriReferenceFormat {
         Do not edit the class manually.
         */
         private static UriReferenceFormat1 instance;
-        public UriReferenceFormat1() {
+        private UriReferenceFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("uri-reference"))
             )));
+        }
+    
+        public static UriReferenceFormat1 getInstance() {
+            if (instance == null) {
+                instance = new UriReferenceFormat1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

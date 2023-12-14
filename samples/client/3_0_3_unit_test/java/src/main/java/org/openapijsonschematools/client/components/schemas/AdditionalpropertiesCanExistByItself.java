@@ -57,11 +57,18 @@ public class AdditionalpropertiesCanExistByItself {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesCanExistByItself1 instance;
-        public AdditionalpropertiesCanExistByItself1() {
+        private AdditionalpropertiesCanExistByItself1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
             )));
+        }
+    
+        public static AdditionalpropertiesCanExistByItself1 getInstance() {
+            if (instance == null) {
+                instance = new AdditionalpropertiesCanExistByItself1();
+            }
+            return instance;
         }
     
         @Override

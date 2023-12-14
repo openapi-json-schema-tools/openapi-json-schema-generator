@@ -40,10 +40,17 @@ public class UniqueitemsValidation {
         Do not edit the class manually.
         */
         private static UniqueitemsValidation1 instance;
-        public UniqueitemsValidation1() {
+        private UniqueitemsValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))
             )));
+        }
+    
+        public static UniqueitemsValidation1 getInstance() {
+            if (instance == null) {
+                instance = new UniqueitemsValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

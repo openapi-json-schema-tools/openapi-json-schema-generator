@@ -32,7 +32,8 @@ public class NulCharactersInStrings {
         Do not edit the class manually.
         */
         private static NulCharactersInStrings1 instance;
-        public NulCharactersInStrings1() {
+    
+        private NulCharactersInStrings1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(
                     String.class
@@ -41,6 +42,13 @@ public class NulCharactersInStrings {
                     "hello\0there"
                 )))
             )));
+        }
+    
+        public static NulCharactersInStrings1 getInstance() {
+            if (instance == null) {
+                instance = new NulCharactersInStrings1();
+            }
+            return instance;
         }
     
         @Override

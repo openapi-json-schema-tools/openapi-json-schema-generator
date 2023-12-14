@@ -23,10 +23,17 @@ import java.util.Set;
 public class ListJsonSchema extends JsonSchema implements SchemaListValidator<Object, Object, FrozenList<Object>> {
     private static ListJsonSchema instance;
 
-    public ListJsonSchema() {
+    private ListJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))
         )));
+    }
+
+    public static ListJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new ListJsonSchema();
+        }
+        return instance;
     }
 
     @Override

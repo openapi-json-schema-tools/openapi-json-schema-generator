@@ -40,10 +40,17 @@ public class MaximumValidationWithUnsignedInteger {
         Do not edit the class manually.
         */
         private static MaximumValidationWithUnsignedInteger1 instance;
-        public MaximumValidationWithUnsignedInteger1() {
+        private MaximumValidationWithUnsignedInteger1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maximum", new MaximumValidator(300))
             )));
+        }
+    
+        public static MaximumValidationWithUnsignedInteger1 getInstance() {
+            if (instance == null) {
+                instance = new MaximumValidationWithUnsignedInteger1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

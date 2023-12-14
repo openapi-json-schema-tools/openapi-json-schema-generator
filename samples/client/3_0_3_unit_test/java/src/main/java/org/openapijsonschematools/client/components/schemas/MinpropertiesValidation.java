@@ -40,10 +40,17 @@ public class MinpropertiesValidation {
         Do not edit the class manually.
         */
         private static MinpropertiesValidation1 instance;
-        public MinpropertiesValidation1() {
+        private MinpropertiesValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("minProperties", new MinPropertiesValidator(1))
             )));
+        }
+    
+        public static MinpropertiesValidation1 getInstance() {
+            if (instance == null) {
+                instance = new MinpropertiesValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

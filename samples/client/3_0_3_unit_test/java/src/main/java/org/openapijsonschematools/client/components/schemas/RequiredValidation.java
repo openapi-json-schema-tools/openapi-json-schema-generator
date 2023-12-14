@@ -85,7 +85,7 @@ public class RequiredValidation {
         Do not edit the class manually.
         */
         private static RequiredValidation1 instance;
-        public RequiredValidation1() {
+        private RequiredValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
@@ -95,6 +95,13 @@ public class RequiredValidation {
                     "foo"
                 )))
             )));
+        }
+    
+        public static RequiredValidation1 getInstance() {
+            if (instance == null) {
+                instance = new RequiredValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

@@ -86,13 +86,20 @@ public class ObjectPropertiesValidation {
         Do not edit the class manually.
         */
         private static ObjectPropertiesValidation1 instance;
-        public ObjectPropertiesValidation1() {
+        private ObjectPropertiesValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
                     new PropertyEntry("bar", Bar.class)
                 )))
             )));
+        }
+    
+        public static ObjectPropertiesValidation1 getInstance() {
+            if (instance == null) {
+                instance = new ObjectPropertiesValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

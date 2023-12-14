@@ -40,10 +40,17 @@ public class MaxpropertiesValidation {
         Do not edit the class manually.
         */
         private static MaxpropertiesValidation1 instance;
-        public MaxpropertiesValidation1() {
+        private MaxpropertiesValidation1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxProperties", new MaxPropertiesValidator(2))
             )));
+        }
+    
+        public static MaxpropertiesValidation1 getInstance() {
+            if (instance == null) {
+                instance = new MaxpropertiesValidation1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

@@ -40,10 +40,17 @@ public class UriFormat {
         Do not edit the class manually.
         */
         private static UriFormat1 instance;
-        public UriFormat1() {
+        private UriFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("uri"))
             )));
+        }
+    
+        public static UriFormat1 getInstance() {
+            if (instance == null) {
+                instance = new UriFormat1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

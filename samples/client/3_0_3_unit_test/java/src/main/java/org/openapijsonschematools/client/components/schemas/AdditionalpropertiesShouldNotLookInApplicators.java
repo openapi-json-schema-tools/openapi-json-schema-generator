@@ -75,12 +75,19 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
-        public Schema0() {
+        private Schema0() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 )))
             )));
+        }
+    
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -298,13 +305,20 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesShouldNotLookInApplicators1 instance;
-        public AdditionalpropertiesShouldNotLookInApplicators1() {
+        private AdditionalpropertiesShouldNotLookInApplicators1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class)),
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class
                 )))
             )));
+        }
+    
+        public static AdditionalpropertiesShouldNotLookInApplicators1 getInstance() {
+            if (instance == null) {
+                instance = new AdditionalpropertiesShouldNotLookInApplicators1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

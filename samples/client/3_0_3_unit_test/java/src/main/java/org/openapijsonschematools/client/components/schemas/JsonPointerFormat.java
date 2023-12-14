@@ -40,10 +40,17 @@ public class JsonPointerFormat {
         Do not edit the class manually.
         */
         private static JsonPointerFormat1 instance;
-        public JsonPointerFormat1() {
+        private JsonPointerFormat1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("format", new FormatValidator("json-pointer"))
             )));
+        }
+    
+        public static JsonPointerFormat1 getInstance() {
+            if (instance == null) {
+                instance = new JsonPointerFormat1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

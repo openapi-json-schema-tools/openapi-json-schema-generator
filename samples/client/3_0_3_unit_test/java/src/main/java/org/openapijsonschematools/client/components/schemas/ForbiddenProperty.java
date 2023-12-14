@@ -77,12 +77,19 @@ public class ForbiddenProperty {
         Do not edit the class manually.
         */
         private static ForbiddenProperty1 instance;
-        public ForbiddenProperty1() {
+        private ForbiddenProperty1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 )))
             )));
+        }
+    
+        public static ForbiddenProperty1 getInstance() {
+            if (instance == null) {
+                instance = new ForbiddenProperty1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {

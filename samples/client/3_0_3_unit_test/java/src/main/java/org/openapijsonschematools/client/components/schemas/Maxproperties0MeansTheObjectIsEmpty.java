@@ -40,10 +40,17 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         Do not edit the class manually.
         */
         private static Maxproperties0MeansTheObjectIsEmpty1 instance;
-        public Maxproperties0MeansTheObjectIsEmpty1() {
+        private Maxproperties0MeansTheObjectIsEmpty1() {
             super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("maxProperties", new MaxPropertiesValidator(0))
             )));
+        }
+    
+        public static Maxproperties0MeansTheObjectIsEmpty1 getInstance() {
+            if (instance == null) {
+                instance = new Maxproperties0MeansTheObjectIsEmpty1();
+            }
+            return instance;
         }
         @Override
         public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
