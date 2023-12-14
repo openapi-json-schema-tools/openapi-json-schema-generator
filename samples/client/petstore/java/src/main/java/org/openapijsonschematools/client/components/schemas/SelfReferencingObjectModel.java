@@ -80,6 +80,15 @@ public class SelfReferencingObjectModel {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
@@ -93,7 +102,7 @@ public class SelfReferencingObjectModel {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public SelfReferencingObjectModelMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
@@ -108,16 +117,7 @@ public class SelfReferencingObjectModel {
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new SelfReferencingObjectModelMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public SelfReferencingObjectModelMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -128,6 +128,7 @@ public class SelfReferencingObjectModel {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
 
 }

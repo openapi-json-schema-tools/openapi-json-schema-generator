@@ -71,6 +71,15 @@ public class StringBooleanMap {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Boolean> castArg = (FrozenMap<Boolean>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<Boolean> castToAllowedTypes(Map<String, Boolean> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, Boolean> argFixed = new LinkedHashMap<>();
@@ -84,7 +93,7 @@ public class StringBooleanMap {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public StringBooleanMapMap getNewInstance(FrozenMap<Boolean> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Boolean> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Boolean> entry: arg.entrySet()) {
@@ -99,16 +108,7 @@ public class StringBooleanMap {
             FrozenMap<Boolean> castProperties = new FrozenMap<>(properties);
             return new StringBooleanMapMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Boolean> castArg = (FrozenMap<Boolean>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public StringBooleanMapMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -119,6 +119,7 @@ public class StringBooleanMap {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
 
 }

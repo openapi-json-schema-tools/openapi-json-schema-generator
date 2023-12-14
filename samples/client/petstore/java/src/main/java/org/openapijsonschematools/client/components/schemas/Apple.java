@@ -198,6 +198,17 @@ public class Apple {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -208,6 +219,37 @@ public class Apple {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        public AppleMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            for(Map.Entry<String, Object> entry: arg.entrySet()) {
+                String propertyName = entry.getKey();
+                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+                propertyPathToItem.add(propertyName);
+                Object value = entry.getValue();
+                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, castValue);
+            }
+            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            return new AppleMap(castProperties);
+        }
+        
         @Override
         public AppleMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -218,5 +260,6 @@ public class Apple {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
 }

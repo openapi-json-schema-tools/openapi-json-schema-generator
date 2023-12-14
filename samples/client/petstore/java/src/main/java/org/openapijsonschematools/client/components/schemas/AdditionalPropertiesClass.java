@@ -70,6 +70,15 @@ public class AdditionalPropertiesClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
@@ -83,7 +92,7 @@ public class AdditionalPropertiesClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public MapPropertyMap getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<String, String> entry: arg.entrySet()) {
@@ -98,16 +107,7 @@ public class AdditionalPropertiesClass {
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
             return new MapPropertyMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -118,6 +118,7 @@ public class AdditionalPropertiesClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
     
     
@@ -161,6 +162,15 @@ public class AdditionalPropertiesClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
@@ -174,7 +184,7 @@ public class AdditionalPropertiesClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public AdditionalPropertiesMap getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<String, String> entry: arg.entrySet()) {
@@ -189,16 +199,7 @@ public class AdditionalPropertiesClass {
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
             return new AdditionalPropertiesMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -209,6 +210,7 @@ public class AdditionalPropertiesClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
     
     
@@ -249,6 +251,15 @@ public class AdditionalPropertiesClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String, String>> castArg = (FrozenMap<FrozenMap<String, String>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<FrozenMap<String, String>> castToAllowedTypes(Map<String, Map<String, String>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, FrozenMap<String, String>> argFixed = new LinkedHashMap<>();
@@ -262,7 +273,7 @@ public class AdditionalPropertiesClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public MapOfMapPropertyMap getNewInstance(FrozenMap<FrozenMap<String, String>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, AdditionalPropertiesMap> properties = new LinkedHashMap<>();
             for(Map.Entry<String, FrozenMap<String, String>> entry: arg.entrySet()) {
@@ -277,16 +288,7 @@ public class AdditionalPropertiesClass {
             FrozenMap<AdditionalPropertiesMap> castProperties = new FrozenMap<>(properties);
             return new MapOfMapPropertyMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String, String>> castArg = (FrozenMap<FrozenMap<String, String>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -297,6 +299,7 @@ public class AdditionalPropertiesClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
     
     
@@ -349,6 +352,15 @@ public class AdditionalPropertiesClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
@@ -362,7 +374,7 @@ public class AdditionalPropertiesClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public MapWithUndeclaredPropertiesAnytype3Map getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
@@ -377,16 +389,7 @@ public class AdditionalPropertiesClass {
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new MapWithUndeclaredPropertiesAnytype3Map(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -397,6 +400,7 @@ public class AdditionalPropertiesClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
     
     
@@ -437,6 +441,15 @@ public class AdditionalPropertiesClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
@@ -450,7 +463,7 @@ public class AdditionalPropertiesClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public EmptyMapMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
@@ -465,16 +478,7 @@ public class AdditionalPropertiesClass {
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new EmptyMapMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -485,6 +489,7 @@ public class AdditionalPropertiesClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
     
     
@@ -528,6 +533,15 @@ public class AdditionalPropertiesClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
@@ -541,7 +555,7 @@ public class AdditionalPropertiesClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public MapWithUndeclaredPropertiesStringMap getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
             for(Map.Entry<String, String> entry: arg.entrySet()) {
@@ -556,16 +570,7 @@ public class AdditionalPropertiesClass {
             FrozenMap<String> castProperties = new FrozenMap<>(properties);
             return new MapWithUndeclaredPropertiesStringMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -576,6 +581,7 @@ public class AdditionalPropertiesClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
     
     
@@ -689,6 +695,15 @@ public class AdditionalPropertiesClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
@@ -702,7 +717,7 @@ public class AdditionalPropertiesClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public AdditionalPropertiesClassMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
@@ -717,16 +732,7 @@ public class AdditionalPropertiesClass {
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new AdditionalPropertiesClassMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -737,6 +743,7 @@ public class AdditionalPropertiesClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
 
 }

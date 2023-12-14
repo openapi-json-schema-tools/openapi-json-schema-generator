@@ -152,6 +152,15 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<FrozenList<String>> castArg = (FrozenMap<FrozenList<String>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<FrozenList<String>> castToAllowedTypes(Map<String, List<String>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, FrozenList<String>> argFixed = new LinkedHashMap<>();
@@ -165,7 +174,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public AdditionalPropertiesWithArrayOfEnumsMap getNewInstance(FrozenMap<FrozenList<String>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, AdditionalPropertiesList> properties = new LinkedHashMap<>();
             for(Map.Entry<String, FrozenList<String>> entry: arg.entrySet()) {
@@ -180,16 +189,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             FrozenMap<AdditionalPropertiesList> castProperties = new FrozenMap<>(properties);
             return new AdditionalPropertiesWithArrayOfEnumsMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<FrozenList<String>> castArg = (FrozenMap<FrozenList<String>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -200,6 +200,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
 
 }

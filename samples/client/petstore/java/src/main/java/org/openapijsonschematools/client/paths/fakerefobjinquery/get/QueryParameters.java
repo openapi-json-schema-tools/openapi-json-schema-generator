@@ -76,6 +76,15 @@ public class QueryParameters {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String, Object>> castArg = (FrozenMap<FrozenMap<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
@@ -89,7 +98,7 @@ public class QueryParameters {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public QueryParametersMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Foo.FooMap> properties = new LinkedHashMap<>();
             for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
@@ -104,16 +113,7 @@ public class QueryParameters {
             FrozenMap<Foo.FooMap> castProperties = new FrozenMap<>(properties);
             return new QueryParametersMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String, Object>> castArg = (FrozenMap<FrozenMap<String, Object>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public QueryParametersMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -124,6 +124,7 @@ public class QueryParameters {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
 
 }

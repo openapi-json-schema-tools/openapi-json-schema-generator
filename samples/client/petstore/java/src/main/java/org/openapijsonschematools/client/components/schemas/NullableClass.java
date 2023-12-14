@@ -52,6 +52,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -62,6 +73,27 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -72,6 +104,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }    
     
     public static class IntegerProp extends JsonSchema implements SchemaNullValidator, SchemaNumberValidator {
@@ -94,6 +127,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -163,6 +207,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -228,6 +283,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -267,6 +333,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -318,6 +395,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -369,6 +457,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -437,6 +536,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -476,6 +586,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -486,6 +607,27 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -496,6 +638,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }    
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<String, Object>> {
@@ -530,6 +673,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -569,6 +723,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -579,6 +744,27 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -589,6 +775,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }    
     
     public static class ArrayItemsNullableList extends FrozenList<FrozenMap<String, Object>> {
@@ -714,6 +901,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -724,6 +922,37 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Map<String, Object>> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Map<String, Object> val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        public ObjectNullablePropMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            LinkedHashMap<String, FrozenMap<String, Object>> properties = new LinkedHashMap<>();
+            for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
+                String propertyName = entry.getKey();
+                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+                propertyPathToItem.add(propertyName);
+                FrozenMap<String, Object> value = entry.getValue();
+                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+                FrozenMap<String, Object> castValue = (FrozenMap<String, Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, castValue);
+            }
+            FrozenMap<FrozenMap<String, Object>> castProperties = new FrozenMap<>(properties);
+            return new ObjectNullablePropMap(castProperties);
+        }
+        
         @Override
         public ObjectNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -734,6 +963,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }    
     
     public static class AdditionalProperties1 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -753,6 +983,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -763,6 +1004,27 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -773,6 +1035,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }    
     
     public static class ObjectAndItemsNullablePropMap extends FrozenMap<FrozenMap<String, Object>> {
@@ -813,6 +1076,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -823,6 +1097,37 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Map<String, Object>> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Map<String, Object> val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        public ObjectAndItemsNullablePropMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            LinkedHashMap<String, FrozenMap<String, Object>> properties = new LinkedHashMap<>();
+            for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
+                String propertyName = entry.getKey();
+                List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
+                propertyPathToItem.add(propertyName);
+                FrozenMap<String, Object> value = entry.getValue();
+                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
+                FrozenMap<String, Object> castValue = (FrozenMap<String, Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, castValue);
+            }
+            FrozenMap<FrozenMap<String, Object>> castProperties = new FrozenMap<>(properties);
+            return new ObjectAndItemsNullablePropMap(castProperties);
+        }
+        
         @Override
         public ObjectAndItemsNullablePropMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -833,6 +1138,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }    
     
     public static class AdditionalProperties2 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
@@ -852,6 +1158,17 @@ public class NullableClass {
             }
             return instance;
         }
+        
+        @Override
+        public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            return castToAllowedVoidTypes(arg, pathToItem, pathSet);
+        }
+        
+        @Override
+        public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -862,6 +1179,27 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+            for (Map.Entry<String, Object> entry: arg.entrySet()) {
+                String key = entry.getKey();
+                                Object val = entry.getValue();
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(key);
+                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
+                argFixed.put(key, fixedVal);
+            }
+            return new FrozenMap<>(argFixed);
+        }
+        
+        @Override
+        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return arg;
+        }
+        
         @Override
         public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -872,6 +1210,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }    
     
     public static class ObjectItemsNullableMap extends FrozenMap<FrozenMap<String, Object>> {
@@ -911,6 +1250,15 @@ public class NullableClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String, Object>> castArg = (FrozenMap<FrozenMap<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<FrozenMap<String, Object>> castToAllowedTypes(Map<String, Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, FrozenMap<String, Object>> argFixed = new LinkedHashMap<>();
@@ -924,7 +1272,7 @@ public class NullableClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public ObjectItemsNullableMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, FrozenMap<String, Object>> properties = new LinkedHashMap<>();
             for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
@@ -939,16 +1287,7 @@ public class NullableClass {
             FrozenMap<FrozenMap<String, Object>> castProperties = new FrozenMap<>(properties);
             return new ObjectItemsNullableMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String, Object>> castArg = (FrozenMap<FrozenMap<String, Object>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public ObjectItemsNullableMap validate(Map<String, Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -959,6 +1298,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
     
     
@@ -1104,6 +1444,15 @@ public class NullableClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
@@ -1117,7 +1466,7 @@ public class NullableClass {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public NullableClassMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
@@ -1132,16 +1481,7 @@ public class NullableClass {
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new NullableClassMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public NullableClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -1152,6 +1492,7 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
     }
 
 }
