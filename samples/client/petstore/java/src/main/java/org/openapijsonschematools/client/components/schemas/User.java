@@ -68,7 +68,7 @@ public class User {
     public static class ObjectWithNoDeclaredProps extends MapJsonSchema {}
     
     
-    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object> {
+    public static class ObjectWithNoDeclaredPropsNullable extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static ObjectWithNoDeclaredPropsNullable instance;
         protected ObjectWithNoDeclaredPropsNullable() {
             super(new LinkedHashMap<>(Map.ofEntries(
