@@ -71,6 +71,15 @@ public class PaginatedResultMyObjectDto {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<FrozenMap<String, String>> castArg = (FrozenList<FrozenMap<String, String>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenList<FrozenMap<String, String>> castToAllowedTypes(List<Map<String, String>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             List<FrozenMap<String, String>> argFixed = new ArrayList<>();
@@ -84,7 +93,7 @@ public class PaginatedResultMyObjectDto {
             }
             return new FrozenList<>(argFixed);
         }
-    
+        
         @Override
         public ResultsList getNewInstance(FrozenList<FrozenMap<String, String>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<MyObjectDto.MyObjectDtoMap> items = new ArrayList<>();
@@ -93,23 +102,14 @@ public class PaginatedResultMyObjectDto {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                MyObjectDto.MyObjectDtoMap castItem = (MyObjectDto.MyObjectDtoMap) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                                MyObjectDto.MyObjectDtoMap castItem = (MyObjectDto.MyObjectDtoMap) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
             FrozenList<MyObjectDto.MyObjectDtoMap> newInstanceItems = new FrozenList<>(items);
             return new ResultsList(newInstanceItems);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenMap<String, String>> castArg = (FrozenList<FrozenMap<String, String>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();

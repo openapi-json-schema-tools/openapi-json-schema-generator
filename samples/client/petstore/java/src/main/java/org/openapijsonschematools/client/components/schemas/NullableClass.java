@@ -557,6 +557,38 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenList<FrozenMap<String, Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            List<FrozenMap<String, Object>> argFixed = new ArrayList<>();
+            int i =0;
+            for (Map<String, Object> item: arg) {
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(i);
+                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
+                argFixed.add(fixedVal);
+                i += 1;
+            }
+            return new FrozenList<>(argFixed);
+        }
+        
+        @Override
+        public ArrayNullablePropList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            ArrayList<FrozenMap<String, Object>> items = new ArrayList<>();
+            int i = 0;
+            for (FrozenMap<String, Object> item: arg) {
+                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+                itemPathToItem.add(i);
+                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+                                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(castItem);
+                i += 1;
+            }
+            FrozenList<FrozenMap<String, Object>> newInstanceItems = new FrozenList<>(items);
+            return new ArrayNullablePropList(newInstanceItems);
+        }
+        
         @Override
         public ArrayNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -694,6 +726,38 @@ public class NullableClass {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
+        
+        @Override
+        public FrozenList<FrozenMap<String, Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+            pathSet.add(pathToItem);
+            List<FrozenMap<String, Object>> argFixed = new ArrayList<>();
+            int i =0;
+            for (Map<String, Object> item: arg) {
+                List<Object> newPathToItem = new ArrayList<>(pathToItem);
+                newPathToItem.add(i);
+                                FrozenMap<String, Object> fixedVal = (FrozenMap<String, Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
+                argFixed.add(fixedVal);
+                i += 1;
+            }
+            return new FrozenList<>(argFixed);
+        }
+        
+        @Override
+        public ArrayAndItemsNullablePropList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            ArrayList<FrozenMap<String, Object>> items = new ArrayList<>();
+            int i = 0;
+            for (FrozenMap<String, Object> item: arg) {
+                List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+                itemPathToItem.add(i);
+                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+                                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(castItem);
+                i += 1;
+            }
+            FrozenList<FrozenMap<String, Object>> newInstanceItems = new FrozenList<>(items);
+            return new ArrayAndItemsNullablePropList(newInstanceItems);
+        }
+        
         @Override
         public ArrayAndItemsNullablePropList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -809,6 +873,15 @@ public class NullableClass {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<FrozenMap<String, Object>> castArg = (FrozenList<FrozenMap<String, Object>>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenList<FrozenMap<String, Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             List<FrozenMap<String, Object>> argFixed = new ArrayList<>();
@@ -822,7 +895,7 @@ public class NullableClass {
             }
             return new FrozenList<>(argFixed);
         }
-    
+        
         @Override
         public ArrayItemsNullableList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<FrozenMap<String, Object>> items = new ArrayList<>();
@@ -831,23 +904,14 @@ public class NullableClass {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
             FrozenList<FrozenMap<String, Object>> newInstanceItems = new FrozenList<>(items);
             return new ArrayItemsNullableList(newInstanceItems);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenMap<String, Object>> castArg = (FrozenList<FrozenMap<String, Object>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public ArrayItemsNullableList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();

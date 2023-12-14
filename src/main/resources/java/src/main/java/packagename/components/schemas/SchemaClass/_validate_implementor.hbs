@@ -75,29 +75,52 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
 
         {{/eq}}
         {{#eq this "array"}}
+
+@Override
+public FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castToAllowedTypes(List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    pathSet.add(pathToItem);
+    List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> argFixed = new ArrayList<>();
+    int i =0;
+    for ({{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} item: arg) {
+        List<Object> newPathToItem = new ArrayList<>(pathToItem);
+        newPathToItem.add(i);
+        {{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} fixedVal = ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}) castToAllowedObjectTypes(item, newPathToItem, pathSet);
+        argFixed.add(fixedVal);
+        i += 1;
+    }
+    return new FrozenList<>(argFixed);
+}
+
+@Override
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} getNewInstance(FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             {{#if ../arrayOutputJsonPathPiece}}
-@Override
-public {{../arrayOutputJsonPathPiece.camelCase}} validate(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
-    Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = List.of("args[0");
-    FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
-    SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
-    ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-    PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-}
+    ArrayList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> items = new ArrayList<>();
+    int i = 0;
+    for ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} item: arg) {
+        List<Object> itemPathToItem = new ArrayList<>(pathToItem);
+        itemPathToItem.add(i);
+        JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
+        {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} castItem = ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+        items.add(castItem);
+        i += 1;
+    }
+    FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> newInstanceItems = new FrozenList<>(items);
+    return new {{../arrayOutputJsonPathPiece.camelCase}}(newInstanceItems);
             {{else}}
+    return arg;
+            {{/if}}
+}
+
 @Override
-public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} validate(List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
-    FrozenList<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+    FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
 }
-            {{/if}}
         {{/eq}}
         {{#eq this "string" }}
             {{#eq ../format "binary"}}

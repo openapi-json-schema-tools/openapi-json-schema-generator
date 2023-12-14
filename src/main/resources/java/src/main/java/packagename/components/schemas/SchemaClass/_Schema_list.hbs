@@ -78,37 +78,6 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     {{/if}}
 
     @Override
-    public FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> castToAllowedTypes(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        pathSet.add(pathToItem);
-        List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> argFixed = new ArrayList<>();
-        int i =0;
-        for ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} item: arg) {
-            List<Object> newPathToItem = new ArrayList<>(pathToItem);
-            newPathToItem.add(i);
-            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} fixedVal = ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-            argFixed.add(fixedVal);
-            i += 1;
-        }
-        return new FrozenList<>(argFixed);
-    }
-
-    @Override
-    public {{../arrayOutputJsonPathPiece.camelCase}} getNewInstance(FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        ArrayList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> items = new ArrayList<>();
-        int i = 0;
-        for ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} item: arg) {
-            List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-            itemPathToItem.add(i);
-            JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-            {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} castItem = ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-            items.add(castItem);
-            i += 1;
-        }
-        FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> newInstanceItems = new FrozenList<>(items);
-        return new {{../arrayOutputJsonPathPiece.camelCase}}(newInstanceItems);
-    }
-
-    @Override
     public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof FrozenList) {
             @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>) arg;
@@ -116,6 +85,5 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
         }
         throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
-
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
 }

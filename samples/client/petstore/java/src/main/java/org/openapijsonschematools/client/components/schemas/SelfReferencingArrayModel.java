@@ -61,6 +61,15 @@ public class SelfReferencingArrayModel {
         }
     
         @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenList) {
+                @SuppressWarnings("unchecked") FrozenList<FrozenList> castArg = (FrozenList<FrozenList>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+        
+        @Override
         public FrozenList<FrozenList> castToAllowedTypes(List<List> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
             List<FrozenList> argFixed = new ArrayList<>();
@@ -74,7 +83,7 @@ public class SelfReferencingArrayModel {
             }
             return new FrozenList<>(argFixed);
         }
-    
+        
         @Override
         public SelfReferencingArrayModelList getNewInstance(FrozenList<FrozenList> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<SelfReferencingArrayModelList> items = new ArrayList<>();
@@ -83,23 +92,14 @@ public class SelfReferencingArrayModel {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                SelfReferencingArrayModelList castItem = (SelfReferencingArrayModelList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                                SelfReferencingArrayModelList castItem = (SelfReferencingArrayModelList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
             FrozenList<SelfReferencingArrayModelList> newInstanceItems = new FrozenList<>(items);
             return new SelfReferencingArrayModelList(newInstanceItems);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenList> castArg = (FrozenList<FrozenList>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public SelfReferencingArrayModelList validate(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
