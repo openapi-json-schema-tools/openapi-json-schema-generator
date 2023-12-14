@@ -5,23 +5,33 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class ForbiddenPropertyTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ForbiddenProperty.ForbiddenProperty1 schema = JsonSchemaFactory.getInstance(
-        ForbiddenProperty.ForbiddenProperty1.class
+    static final ForbiddenProperty.ForbiddenProperty1 schema = (
+        ForbiddenProperty.ForbiddenProperty1.getInstance()
+    );
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
     public void testPropertyPresentFails() {
         // property present
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -32,7 +42,7 @@ public class ForbiddenPropertyTest {
                     2
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 

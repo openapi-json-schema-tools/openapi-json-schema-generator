@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 
 
 public class AnyTypeSchemaTest {
-    static final AnyTypeJsonSchema schema = JsonSchemaFactory.getInstance(AnyTypeJsonSchema.class);
+    static final AnyTypeJsonSchema schema = AnyTypeJsonSchema.getInstance();
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
     @Test

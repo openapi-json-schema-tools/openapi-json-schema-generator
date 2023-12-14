@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ListSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ListJsonSchema listJsonSchema = JsonSchemaFactory.getInstance(ListJsonSchema.class);
+    static final ListJsonSchema listJsonSchema = ListJsonSchema.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,

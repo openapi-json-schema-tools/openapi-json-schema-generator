@@ -19,7 +19,7 @@ public class RefBooleanSchemaTest {
     }
 
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final RefBooleanSchema.RefBooleanSchema1 refBooleanJsonSchema = JsonSchemaFactory.getInstance(RefBooleanSchema.RefBooleanSchema1.class);
+    static final BooleanJsonSchema refBooleanJsonSchema = RefBooleanSchema.RefBooleanSchema1.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,

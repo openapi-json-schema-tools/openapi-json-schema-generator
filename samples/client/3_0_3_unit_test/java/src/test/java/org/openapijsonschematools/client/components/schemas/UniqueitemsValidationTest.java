@@ -5,36 +5,47 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class UniqueitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final UniqueitemsValidation.UniqueitemsValidation1 schema = JsonSchemaFactory.getInstance(
-        UniqueitemsValidation.UniqueitemsValidation1.class
+    static final UniqueitemsValidation.UniqueitemsValidation1 schema = (
+        UniqueitemsValidation.UniqueitemsValidation1.getInstance()
+    );
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
     public void testNonUniqueArrayOfMoreThanTwoIntegersIsInvalidFails() {
         // non-unique array of more than two integers is invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 1,
                 2,
                 1
             ),
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testNonUniqueArrayOfObjectsIsInvalidFails() {
         // non-unique array of objects is invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
@@ -49,7 +60,7 @@ public class UniqueitemsValidationTest {
                     )
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 
@@ -94,12 +105,13 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfIntegersIsInvalidFails() {
         // non-unique array of integers is invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 1,
                 1
             ),
-            configuration
+            validationMetadata
         ));
     }
 
@@ -128,7 +140,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testObjectsAreNonUniqueDespiteKeyOrderFails() {
         // objects are non-unique despite key order
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
@@ -151,14 +164,15 @@ public class UniqueitemsValidationTest {
                     )
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testNonUniqueArrayOfArraysIsInvalidFails() {
         // non-unique array of arrays is invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 Arrays.asList(
                     "foo"
@@ -167,7 +181,7 @@ public class UniqueitemsValidationTest {
                     "foo"
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 
@@ -196,7 +210,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfMoreThanTwoArraysIsInvalidFails() {
         // non-unique array of more than two arrays is invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 Arrays.asList(
                     "foo"
@@ -208,7 +223,7 @@ public class UniqueitemsValidationTest {
                     "foo"
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 
@@ -231,7 +246,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfNestedObjectsIsInvalidFails() {
         // non-unique array of nested objects is invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
@@ -266,33 +282,35 @@ public class UniqueitemsValidationTest {
                     )
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testNumbersAreUniqueIfMathematicallyUnequalFails() {
         // numbers are unique if mathematically unequal
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 1.0d,
                 1.0d,
                 1
             ),
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testNonUniqueArrayOfStringsIsInvalidFails() {
         // non-unique array of strings is invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 "foo",
                 "bar",
                 "foo"
             ),
-            configuration
+            validationMetadata
         ));
     }
 
@@ -499,7 +517,8 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueHeterogeneousTypesAreInvalidFails() {
         // non-unique heterogeneous types are invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
                 MapMaker.makeMap(
                 ),
@@ -512,7 +531,7 @@ public class UniqueitemsValidationTest {
                 ),
                 1
             ),
-            configuration
+            validationMetadata
         ));
     }
 }

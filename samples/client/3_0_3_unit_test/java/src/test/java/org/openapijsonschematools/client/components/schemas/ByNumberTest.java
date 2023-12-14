@@ -5,25 +5,35 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class ByNumberTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ByNumber.ByNumber1 schema = JsonSchemaFactory.getInstance(
-        ByNumber.ByNumber1.class
+    static final ByNumber.ByNumber1 schema = (
+        ByNumber.ByNumber1.getInstance()
+    );
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
     public void test35IsNotMultipleOf15Fails() {
         // 35 is not multiple of 1.5
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             35,
-            configuration
+            validationMetadata
         ));
     }
 

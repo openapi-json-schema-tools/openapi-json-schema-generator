@@ -5,45 +5,57 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class IntegerTypeMatchesIntegersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1 schema = JsonSchemaFactory.getInstance(
-        IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.class
+    static final IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1 schema = (
+        IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance()
+    );
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
     public void testAnObjectIsNotAnIntegerFails() {
         // an object is not an integer
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             MapMaker.makeMap(
             ),
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testAnArrayIsNotAnIntegerFails() {
         // an array is not an integer
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             Arrays.asList(
             ),
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testNullIsNotAnIntegerFails() {
         // null is not an integer
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             (Void) null,
-            configuration
+            validationMetadata
         ));
     }
 
@@ -59,27 +71,30 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testABooleanIsNotAnIntegerFails() {
         // a boolean is not an integer
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             true,
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testAStringIsStillNotAnIntegerEvenIfItLooksLikeOneFails() {
         // a string is still not an integer, even if it looks like one
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             "1",
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testAStringIsNotAnIntegerFails() {
         // a string is not an integer
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             "foo",
-            configuration
+            validationMetadata
         ));
     }
 
@@ -95,9 +110,10 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAFloatIsNotAnIntegerFails() {
         // a float is not an integer
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             1.1d,
-            configuration
+            validationMetadata
         ));
     }
 }

@@ -5,17 +5,26 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class OneofComplexTypesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final OneofComplexTypes.OneofComplexTypes1 schema = JsonSchemaFactory.getInstance(
-        OneofComplexTypes.OneofComplexTypes1.class
+    static final OneofComplexTypes.OneofComplexTypes1 schema = (
+        OneofComplexTypes.OneofComplexTypes1.getInstance()
+    );
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
@@ -35,7 +44,8 @@ public class OneofComplexTypesTest {
     @Test
     public void testBothOneofValidComplexFails() {
         // both oneOf valid (complex)
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -46,7 +56,7 @@ public class OneofComplexTypesTest {
                     2
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 
@@ -67,7 +77,8 @@ public class OneofComplexTypesTest {
     @Test
     public void testNeitherOneofValidComplexFails() {
         // neither oneOf valid (complex)
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
@@ -78,7 +89,7 @@ public class OneofComplexTypesTest {
                     "quux"
                 )
             ),
-            configuration
+            validationMetadata
         ));
     }
 }

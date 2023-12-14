@@ -15,7 +15,7 @@ import java.util.List;
 
 public class NullSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NullJsonSchema nullJsonSchema = JsonSchemaFactory.getInstance(NullJsonSchema.class);
+    static final NullJsonSchema nullJsonSchema = NullJsonSchema.getInstance();
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,

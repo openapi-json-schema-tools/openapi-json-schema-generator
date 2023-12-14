@@ -12,7 +12,7 @@ import java.math.BigDecimal;
 
 public class NumberSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NumberJsonSchema numberJsonSchema = JsonSchemaFactory.getInstance(NumberJsonSchema.class);
+    static final NumberJsonSchema numberJsonSchema = NumberJsonSchema.getInstance();
 
     @Test
     public void testValidateInteger() {
