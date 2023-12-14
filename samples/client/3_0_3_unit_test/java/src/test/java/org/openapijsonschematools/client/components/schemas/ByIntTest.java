@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class ByIntTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ByInt.ByInt1 schema = (
-        ByInt.ByInt1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class ByIntTest {
     @Test
     public void testIntByIntFailFails() {
         // int by int fail
+        final var schema = ByInt.ByInt1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             7,
@@ -40,6 +38,7 @@ public class ByIntTest {
     @Test
     public void testIntByIntPasses() {
         // int by int
+        final var schema = ByInt.ByInt1.getInstance();
         schema.validate(
             10,
             configuration
@@ -49,6 +48,7 @@ public class ByIntTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
+        final var schema = ByInt.ByInt1.getInstance();
         schema.validate(
             "foo",
             configuration

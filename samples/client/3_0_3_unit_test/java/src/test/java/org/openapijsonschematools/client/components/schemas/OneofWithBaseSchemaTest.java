@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class OneofWithBaseSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final OneofWithBaseSchema.OneofWithBaseSchema1 schema = (
-        OneofWithBaseSchema.OneofWithBaseSchema1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testMismatchBaseSchemaFails() {
         // mismatch base schema
+        final var schema = OneofWithBaseSchema.OneofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             3,
@@ -40,6 +38,7 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testOneOneofValidPasses() {
         // one oneOf valid
+        final var schema = OneofWithBaseSchema.OneofWithBaseSchema1.getInstance();
         schema.validate(
             "foobar",
             configuration
@@ -49,6 +48,7 @@ public class OneofWithBaseSchemaTest {
     @Test
     public void testBothOneofValidFails() {
         // both oneOf valid
+        final var schema = OneofWithBaseSchema.OneofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",

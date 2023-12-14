@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AnyofComplexTypesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AnyofComplexTypes.AnyofComplexTypes1 schema = (
-        AnyofComplexTypes.AnyofComplexTypes1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AnyofComplexTypesTest {
     @Test
     public void testSecondAnyofValidComplexPasses() {
         // second anyOf valid (complex)
+        final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -44,6 +42,7 @@ public class AnyofComplexTypesTest {
     @Test
     public void testBothAnyofValidComplexPasses() {
         // both anyOf valid (complex)
+        final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -62,6 +61,7 @@ public class AnyofComplexTypesTest {
     @Test
     public void testFirstAnyofValidComplexPasses() {
         // first anyOf valid (complex)
+        final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -76,6 +76,7 @@ public class AnyofComplexTypesTest {
     @Test
     public void testNeitherAnyofValidComplexFails() {
         // neither anyOf valid (complex)
+        final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(

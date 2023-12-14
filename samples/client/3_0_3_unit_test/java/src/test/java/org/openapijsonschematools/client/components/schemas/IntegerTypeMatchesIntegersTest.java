@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class IntegerTypeMatchesIntegersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1 schema = (
-        IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAnObjectIsNotAnIntegerFails() {
         // an object is not an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -41,6 +39,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAnArrayIsNotAnIntegerFails() {
         // an array is not an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -52,6 +51,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testNullIsNotAnIntegerFails() {
         // null is not an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             (Void) null,
@@ -62,6 +62,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAFloatWithZeroFractionalPartIsAnIntegerPasses() {
         // a float with zero fractional part is an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         schema.validate(
             1.0d,
             configuration
@@ -71,6 +72,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testABooleanIsNotAnIntegerFails() {
         // a boolean is not an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             true,
@@ -81,6 +83,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAStringIsStillNotAnIntegerEvenIfItLooksLikeOneFails() {
         // a string is still not an integer, even if it looks like one
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "1",
@@ -91,6 +94,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAStringIsNotAnIntegerFails() {
         // a string is not an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",
@@ -101,6 +105,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAnIntegerIsAnIntegerPasses() {
         // an integer is an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         schema.validate(
             1,
             configuration
@@ -110,6 +115,7 @@ public class IntegerTypeMatchesIntegersTest {
     @Test
     public void testAFloatIsNotAnIntegerFails() {
         // a float is not an integer
+        final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.1d,

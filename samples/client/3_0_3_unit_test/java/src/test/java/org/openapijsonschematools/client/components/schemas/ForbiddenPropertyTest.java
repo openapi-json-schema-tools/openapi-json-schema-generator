@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class ForbiddenPropertyTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ForbiddenProperty.ForbiddenProperty1 schema = (
-        ForbiddenProperty.ForbiddenProperty1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class ForbiddenPropertyTest {
     @Test
     public void testPropertyPresentFails() {
         // property present
+        final var schema = ForbiddenProperty.ForbiddenProperty1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -49,6 +47,7 @@ public class ForbiddenPropertyTest {
     @Test
     public void testPropertyAbsentPasses() {
         // property absent
+        final var schema = ForbiddenProperty.ForbiddenProperty1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

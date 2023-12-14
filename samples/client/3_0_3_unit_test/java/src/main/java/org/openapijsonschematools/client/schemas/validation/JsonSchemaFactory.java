@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,11 +14,11 @@ public class JsonSchemaFactory {
             return (V) classToInstance.get(schemaCls);
         }
         try {
-            Constructor<V> constructor = schemaCls.getConstructor();
-            V inst = constructor.newInstance();
+            Method method = schemaCls.getMethod("getInstance");
+            V inst = (V) method.invoke(null);
             classToInstance.put(schemaCls, inst);
             return inst;
-        } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
             throw new RuntimeException(e);
         }
     }

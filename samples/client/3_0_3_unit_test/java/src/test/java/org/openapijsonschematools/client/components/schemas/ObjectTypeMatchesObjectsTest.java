@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class ObjectTypeMatchesObjectsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1 schema = (
-        ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAnObjectIsAnObjectPasses() {
         // an object is an object
+        final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         schema.validate(
             MapMaker.makeMap(
             ),
@@ -40,6 +38,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAnArrayIsNotAnObjectFails() {
         // an array is not an object
+        final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -51,6 +50,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAnIntegerIsNotAnObjectFails() {
         // an integer is not an object
+        final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1,
@@ -61,6 +61,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testABooleanIsNotAnObjectFails() {
         // a boolean is not an object
+        final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             true,
@@ -71,6 +72,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAStringIsNotAnObjectFails() {
         // a string is not an object
+        final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",
@@ -81,6 +83,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testAFloatIsNotAnObjectFails() {
         // a float is not an object
+        final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.1d,
@@ -91,6 +94,7 @@ public class ObjectTypeMatchesObjectsTest {
     @Test
     public void testNullIsNotAnObjectFails() {
         // null is not an object
+        final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             (Void) null,

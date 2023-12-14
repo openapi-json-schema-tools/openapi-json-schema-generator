@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class ArrayTypeMatchesArraysTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1 schema = (
-        ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testABooleanIsNotAnArrayFails() {
         // a boolean is not an array
+        final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             true,
@@ -40,6 +38,7 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAFloatIsNotAnArrayFails() {
         // a float is not an array
+        final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.1d,
@@ -50,6 +49,7 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAnArrayIsAnArrayPasses() {
         // an array is an array
+        final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         schema.validate(
             Arrays.asList(
             ),
@@ -60,6 +60,7 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testNullIsNotAnArrayFails() {
         // null is not an array
+        final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             (Void) null,
@@ -70,6 +71,7 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAStringIsNotAnArrayFails() {
         // a string is not an array
+        final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",
@@ -80,6 +82,7 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAnIntegerIsNotAnArrayFails() {
         // an integer is not an array
+        final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1,
@@ -90,6 +93,7 @@ public class ArrayTypeMatchesArraysTest {
     @Test
     public void testAnObjectIsNotAnArrayFails() {
         // an object is not an array
+        final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(

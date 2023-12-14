@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class SimpleEnumValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final SimpleEnumValidation.SimpleEnumValidation1 schema = (
-        SimpleEnumValidation.SimpleEnumValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class SimpleEnumValidationTest {
     @Test
     public void testSomethingElseIsInvalidFails() {
         // something else is invalid
+        final var schema = SimpleEnumValidation.SimpleEnumValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             4,
@@ -40,6 +38,7 @@ public class SimpleEnumValidationTest {
     @Test
     public void testOneOfTheEnumIsValidPasses() {
         // one of the enum is valid
+        final var schema = SimpleEnumValidation.SimpleEnumValidation1.getInstance();
         schema.validate(
             1,
             configuration

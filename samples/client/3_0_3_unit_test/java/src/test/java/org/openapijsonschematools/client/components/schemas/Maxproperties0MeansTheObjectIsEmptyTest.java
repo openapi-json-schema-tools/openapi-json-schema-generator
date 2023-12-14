@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class Maxproperties0MeansTheObjectIsEmptyTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1 schema = (
-        Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
     @Test
     public void testOnePropertyIsInvalidFails() {
         // one property is invalid
+        final var schema = Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -45,6 +43,7 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
     @Test
     public void testNoPropertiesIsValidPasses() {
         // no properties is valid
+        final var schema = Maxproperties0MeansTheObjectIsEmpty.Maxproperties0MeansTheObjectIsEmpty1.getInstance();
         schema.validate(
             MapMaker.makeMap(
             ),

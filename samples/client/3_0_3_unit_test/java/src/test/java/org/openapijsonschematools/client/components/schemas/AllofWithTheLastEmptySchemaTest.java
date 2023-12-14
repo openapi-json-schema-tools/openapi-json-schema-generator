@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AllofWithTheLastEmptySchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1 schema = (
-        AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AllofWithTheLastEmptySchemaTest {
     @Test
     public void testStringIsInvalidFails() {
         // string is invalid
+        final var schema = AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",
@@ -40,6 +38,7 @@ public class AllofWithTheLastEmptySchemaTest {
     @Test
     public void testNumberIsValidPasses() {
         // number is valid
+        final var schema = AllofWithTheLastEmptySchema.AllofWithTheLastEmptySchema1.getInstance();
         schema.validate(
             1,
             configuration

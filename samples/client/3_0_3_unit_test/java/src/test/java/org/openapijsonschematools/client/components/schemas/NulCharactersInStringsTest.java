@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class NulCharactersInStringsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NulCharactersInStrings.NulCharactersInStrings1 schema = (
-        NulCharactersInStrings.NulCharactersInStrings1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class NulCharactersInStringsTest {
     @Test
     public void testMatchStringWithNulPasses() {
         // match string with nul
+        final var schema = NulCharactersInStrings.NulCharactersInStrings1.getInstance();
         schema.validate(
             "hello\0there",
             configuration
@@ -39,6 +37,7 @@ public class NulCharactersInStringsTest {
     @Test
     public void testDoNotMatchStringLackingNulFails() {
         // do not match string lacking nul
+        final var schema = NulCharactersInStrings.NulCharactersInStrings1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "hellothere",

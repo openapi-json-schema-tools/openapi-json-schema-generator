@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class EnumWithEscapedCharactersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final EnumWithEscapedCharacters.EnumWithEscapedCharacters1 schema = (
-        EnumWithEscapedCharacters.EnumWithEscapedCharacters1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testAnotherStringIsInvalidFails() {
         // another string is invalid
+        final var schema = EnumWithEscapedCharacters.EnumWithEscapedCharacters1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "abc",
@@ -40,6 +38,7 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testMember2IsValidPasses() {
         // member 2 is valid
+        final var schema = EnumWithEscapedCharacters.EnumWithEscapedCharacters1.getInstance();
         schema.validate(
             "foo\rbar",
             configuration
@@ -49,6 +48,7 @@ public class EnumWithEscapedCharactersTest {
     @Test
     public void testMember1IsValidPasses() {
         // member 1 is valid
+        final var schema = EnumWithEscapedCharacters.EnumWithEscapedCharacters1.getInstance();
         schema.validate(
             "foo\nbar",
             configuration

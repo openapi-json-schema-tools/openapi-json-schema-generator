@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class MinimumValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final MinimumValidation.MinimumValidation1 schema = (
-        MinimumValidation.MinimumValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class MinimumValidationTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
+        final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(
             1.1d,
             configuration
@@ -39,6 +37,7 @@ public class MinimumValidationTest {
     @Test
     public void testBelowTheMinimumIsInvalidFails() {
         // below the minimum is invalid
+        final var schema = MinimumValidation.MinimumValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             0.6d,
@@ -49,6 +48,7 @@ public class MinimumValidationTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
+        final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(
             "x",
             configuration
@@ -58,6 +58,7 @@ public class MinimumValidationTest {
     @Test
     public void testAboveTheMinimumIsValidPasses() {
         // above the minimum is valid
+        final var schema = MinimumValidation.MinimumValidation1.getInstance();
         schema.validate(
             2.6d,
             configuration

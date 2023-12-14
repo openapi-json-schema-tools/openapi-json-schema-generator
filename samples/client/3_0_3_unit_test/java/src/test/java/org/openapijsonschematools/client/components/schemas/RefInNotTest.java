@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class RefInNotTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final RefInNot.RefInNot1 schema = (
-        RefInNot.RefInNot1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class RefInNotTest {
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
+        final var schema = RefInNot.RefInNot1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -44,6 +42,7 @@ public class RefInNotTest {
     @Test
     public void testPropertyNamedRefInvalidFails() {
         // property named $ref invalid
+        final var schema = RefInNot.RefInNot1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(

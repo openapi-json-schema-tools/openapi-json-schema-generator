@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class NestedOneofToCheckValidationSemanticsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1 schema = (
-        NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class NestedOneofToCheckValidationSemanticsTest {
     @Test
     public void testNullIsValidPasses() {
         // null is valid
+        final var schema = NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1.getInstance();
         schema.validate(
             (Void) null,
             configuration
@@ -39,6 +37,7 @@ public class NestedOneofToCheckValidationSemanticsTest {
     @Test
     public void testAnythingNonNullIsInvalidFails() {
         // anything non-null is invalid
+        final var schema = NestedOneofToCheckValidationSemantics.NestedOneofToCheckValidationSemantics1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             123,

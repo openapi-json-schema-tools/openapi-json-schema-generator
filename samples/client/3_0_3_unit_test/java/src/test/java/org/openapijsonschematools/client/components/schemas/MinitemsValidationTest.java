@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class MinitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final MinitemsValidation.MinitemsValidation1 schema = (
-        MinitemsValidation.MinitemsValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class MinitemsValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 1
@@ -41,6 +39,7 @@ public class MinitemsValidationTest {
     @Test
     public void testIgnoresNonArraysPasses() {
         // ignores non-arrays
+        final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
             "",
             configuration
@@ -50,6 +49,7 @@ public class MinitemsValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
+        final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 1,
@@ -62,6 +62,7 @@ public class MinitemsValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
+        final var schema = MinitemsValidation.MinitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(

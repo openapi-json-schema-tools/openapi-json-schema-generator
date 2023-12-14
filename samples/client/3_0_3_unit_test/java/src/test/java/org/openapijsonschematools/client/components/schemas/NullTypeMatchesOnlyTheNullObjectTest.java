@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class NullTypeMatchesOnlyTheNullObjectTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1 schema = (
-        NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testZeroIsNotNullFails() {
         // zero is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             0,
@@ -40,6 +38,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnArrayIsNotNullFails() {
         // an array is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -51,6 +50,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnObjectIsNotNullFails() {
         // an object is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -62,6 +62,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testTrueIsNotNullFails() {
         // true is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             true,
@@ -72,6 +73,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testFalseIsNotNullFails() {
         // false is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             false,
@@ -82,6 +84,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testNullIsNullPasses() {
         // null is null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         schema.validate(
             (Void) null,
             configuration
@@ -91,6 +94,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAStringIsNotNullFails() {
         // a string is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",
@@ -101,6 +105,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnIntegerIsNotNullFails() {
         // an integer is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1,
@@ -111,6 +116,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAnEmptyStringIsNotNullFails() {
         // an empty string is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "",
@@ -121,6 +127,7 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAFloatIsNotNullFails() {
         // a float is not null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.1d,

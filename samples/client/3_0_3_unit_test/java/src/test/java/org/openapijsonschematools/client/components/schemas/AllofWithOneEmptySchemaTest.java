@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AllofWithOneEmptySchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AllofWithOneEmptySchema.AllofWithOneEmptySchema1 schema = (
-        AllofWithOneEmptySchema.AllofWithOneEmptySchema1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AllofWithOneEmptySchemaTest {
     @Test
     public void testAnyDataIsValidPasses() {
         // any data is valid
+        final var schema = AllofWithOneEmptySchema.AllofWithOneEmptySchema1.getInstance();
         schema.validate(
             1,
             configuration

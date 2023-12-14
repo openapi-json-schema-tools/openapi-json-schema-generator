@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AnyofTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final Anyof.Anyof1 schema = (
-        Anyof.Anyof1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AnyofTest {
     @Test
     public void testBothAnyofValidPasses() {
         // both anyOf valid
+        final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
             3,
             configuration
@@ -39,6 +37,7 @@ public class AnyofTest {
     @Test
     public void testNeitherAnyofValidFails() {
         // neither anyOf valid
+        final var schema = Anyof.Anyof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.5d,
@@ -49,6 +48,7 @@ public class AnyofTest {
     @Test
     public void testFirstAnyofValidPasses() {
         // first anyOf valid
+        final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
             1,
             configuration
@@ -58,6 +58,7 @@ public class AnyofTest {
     @Test
     public void testSecondAnyofValidPasses() {
         // second anyOf valid
+        final var schema = Anyof.Anyof1.getInstance();
         schema.validate(
             2.5d,
             configuration

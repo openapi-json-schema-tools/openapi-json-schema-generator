@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class InvalidStringValueForDefaultTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final InvalidStringValueForDefault.InvalidStringValueForDefault1 schema = (
-        InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class InvalidStringValueForDefaultTest {
     @Test
     public void testValidWhenPropertyIsSpecifiedPasses() {
         // valid when property is specified
+        final var schema = InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -44,6 +42,7 @@ public class InvalidStringValueForDefaultTest {
     @Test
     public void testStillValidWhenTheInvalidDefaultIsUsedPasses() {
         // still valid when the invalid default is used
+        final var schema = InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance();
         schema.validate(
             MapMaker.makeMap(
             ),

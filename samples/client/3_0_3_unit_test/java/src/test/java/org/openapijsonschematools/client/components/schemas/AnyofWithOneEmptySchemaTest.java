@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AnyofWithOneEmptySchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1 schema = (
-        AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AnyofWithOneEmptySchemaTest {
     @Test
     public void testNumberIsValidPasses() {
         // number is valid
+        final var schema = AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance();
         schema.validate(
             123,
             configuration
@@ -39,6 +37,7 @@ public class AnyofWithOneEmptySchemaTest {
     @Test
     public void testStringIsValidPasses() {
         // string is valid
+        final var schema = AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance();
         schema.validate(
             "foo",
             configuration

@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class UniqueitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final UniqueitemsValidation.UniqueitemsValidation1 schema = (
-        UniqueitemsValidation.UniqueitemsValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfMoreThanTwoIntegersIsInvalidFails() {
         // non-unique array of more than two integers is invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -44,6 +42,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfObjectsIsInvalidFails() {
         // non-unique array of objects is invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -67,6 +66,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testATrueAndA1AreUniquePasses() {
         // {\\\&quot;a\\\&quot;: true} and {\\\&quot;a\\\&quot;: 1} are unique
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -89,6 +89,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void test1AndTrueAreUniquePasses() {
         // [1] and [true] are unique
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -105,6 +106,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfIntegersIsInvalidFails() {
         // non-unique array of integers is invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -118,6 +120,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNested0AndFalseAreUniquePasses() {
         // nested [0] and [false] are unique
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -140,6 +143,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testObjectsAreNonUniqueDespiteKeyOrderFails() {
         // objects are non-unique despite key order
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -171,6 +175,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfArraysIsInvalidFails() {
         // non-unique array of arrays is invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -188,6 +193,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testAFalseAndA0AreUniquePasses() {
         // {\\\&quot;a\\\&quot;: false} and {\\\&quot;a\\\&quot;: 0} are unique
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -210,6 +216,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfMoreThanTwoArraysIsInvalidFails() {
         // non-unique array of more than two arrays is invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -230,6 +237,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void test0AndFalseAreUniquePasses() {
         // [0] and [false] are unique
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -246,6 +254,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfNestedObjectsIsInvalidFails() {
         // non-unique array of nested objects is invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -289,6 +298,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNumbersAreUniqueIfMathematicallyUnequalFails() {
         // numbers are unique if mathematically unequal
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -303,6 +313,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueArrayOfStringsIsInvalidFails() {
         // non-unique array of strings is invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -317,6 +328,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfNestedObjectsIsValidPasses() {
         // unique array of nested objects is valid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -359,6 +371,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfArraysIsValidPasses() {
         // unique array of arrays is valid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -375,6 +388,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testTrueIsNotEqualToOnePasses() {
         // true is not equal to one
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 1,
@@ -387,6 +401,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNested1AndTrueAreUniquePasses() {
         // nested [1] and [true] are unique
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 Arrays.asList(
@@ -409,6 +424,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfStringsIsValidPasses() {
         // unique array of strings is valid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 "foo",
@@ -422,6 +438,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testFalseIsNotEqualToZeroPasses() {
         // false is not equal to zero
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 0,
@@ -434,6 +451,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfIntegersIsValidPasses() {
         // unique array of integers is valid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 1,
@@ -446,6 +464,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testDifferentObjectsAreUniquePasses() {
         // different objects are unique
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -476,6 +495,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueHeterogeneousTypesAreValidPasses() {
         // unique heterogeneous types are valid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -495,6 +515,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testUniqueArrayOfObjectsIsValidPasses() {
         // unique array of objects is valid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
@@ -517,6 +538,7 @@ public class UniqueitemsValidationTest {
     @Test
     public void testNonUniqueHeterogeneousTypesAreInvalidFails() {
         // non-unique heterogeneous types are invalid
+        final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(

@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class StringTypeMatchesStringsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final StringTypeMatchesStrings.StringTypeMatchesStrings1 schema = (
-        StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() {
         // a string is still a string, even if it looks like a number
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
             "1",
             configuration
@@ -39,6 +37,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void test1IsNotAStringFails() {
         // 1 is not a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1,
@@ -49,6 +48,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testABooleanIsNotAStringFails() {
         // a boolean is not a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             true,
@@ -59,6 +59,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnEmptyStringIsStillAStringPasses() {
         // an empty string is still a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
             "",
             configuration
@@ -68,6 +69,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnArrayIsNotAStringFails() {
         // an array is not a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -79,6 +81,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAnObjectIsNotAStringFails() {
         // an object is not a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -90,6 +93,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testNullIsNotAStringFails() {
         // null is not a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             (Void) null,
@@ -100,6 +104,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAStringIsAStringPasses() {
         // a string is a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         schema.validate(
             "foo",
             configuration
@@ -109,6 +114,7 @@ public class StringTypeMatchesStringsTest {
     @Test
     public void testAFloatIsNotAStringFails() {
         // a float is not a string
+        final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.1d,

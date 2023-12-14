@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class MaxitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final MaxitemsValidation.MaxitemsValidation1 schema = (
-        MaxitemsValidation.MaxitemsValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class MaxitemsValidationTest {
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
+        final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 1
@@ -41,6 +39,7 @@ public class MaxitemsValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(
             Arrays.asList(
                 1,
@@ -53,6 +52,7 @@ public class MaxitemsValidationTest {
     @Test
     public void testTooLongIsInvalidFails() {
         // too long is invalid
+        final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -67,6 +67,7 @@ public class MaxitemsValidationTest {
     @Test
     public void testIgnoresNonArraysPasses() {
         // ignores non-arrays
+        final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         schema.validate(
             "foobar",
             configuration

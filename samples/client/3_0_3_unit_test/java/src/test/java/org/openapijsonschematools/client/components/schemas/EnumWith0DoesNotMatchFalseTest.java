@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class EnumWith0DoesNotMatchFalseTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1 schema = (
-        EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class EnumWith0DoesNotMatchFalseTest {
     @Test
     public void testFloatZeroIsValidPasses() {
         // float zero is valid
+        final var schema = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.getInstance();
         schema.validate(
             0.0d,
             configuration
@@ -39,6 +37,7 @@ public class EnumWith0DoesNotMatchFalseTest {
     @Test
     public void testFalseIsInvalidFails() {
         // false is invalid
+        final var schema = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             false,
@@ -49,6 +48,7 @@ public class EnumWith0DoesNotMatchFalseTest {
     @Test
     public void testIntegerZeroIsValidPasses() {
         // integer zero is valid
+        final var schema = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.getInstance();
         schema.validate(
             0,
             configuration

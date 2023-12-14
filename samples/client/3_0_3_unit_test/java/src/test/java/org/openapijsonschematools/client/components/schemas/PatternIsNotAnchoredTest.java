@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class PatternIsNotAnchoredTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final PatternIsNotAnchored.PatternIsNotAnchored1 schema = (
-        PatternIsNotAnchored.PatternIsNotAnchored1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class PatternIsNotAnchoredTest {
     @Test
     public void testMatchesASubstringPasses() {
         // matches a substring
+        final var schema = PatternIsNotAnchored.PatternIsNotAnchored1.getInstance();
         schema.validate(
             "xxaayy",
             configuration

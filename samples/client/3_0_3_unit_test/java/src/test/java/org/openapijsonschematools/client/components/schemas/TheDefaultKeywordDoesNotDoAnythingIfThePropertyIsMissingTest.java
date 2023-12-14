@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1 schema = (
-        TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testMissingPropertiesAreNotFilledInWithTheDefaultPasses() {
         // missing properties are not filled in with the default
+        final var schema = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance();
         schema.validate(
             MapMaker.makeMap(
             ),
@@ -40,6 +38,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testAnExplicitPropertyValueIsCheckedAgainstMaximumPassingPasses() {
         // an explicit property value is checked against maximum (passing)
+        final var schema = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -54,6 +53,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
     @Test
     public void testAnExplicitPropertyValueIsCheckedAgainstMaximumFailingFails() {
         // an explicit property value is checked against maximum (failing)
+        final var schema = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(

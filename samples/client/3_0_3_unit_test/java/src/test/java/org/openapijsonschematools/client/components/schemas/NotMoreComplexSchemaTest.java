@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class NotMoreComplexSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NotMoreComplexSchema.NotMoreComplexSchema1 schema = (
-        NotMoreComplexSchema.NotMoreComplexSchema1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class NotMoreComplexSchemaTest {
     @Test
     public void testOtherMatchPasses() {
         // other match
+        final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -44,6 +42,7 @@ public class NotMoreComplexSchemaTest {
     @Test
     public void testMismatchFails() {
         // mismatch
+        final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -59,6 +58,7 @@ public class NotMoreComplexSchemaTest {
     @Test
     public void testMatchPasses() {
         // match
+        final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(
             1,
             configuration

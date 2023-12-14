@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class BySmallNumberTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final BySmallNumber.BySmallNumber1 schema = (
-        BySmallNumber.BySmallNumber1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class BySmallNumberTest {
     @Test
     public void test000751IsNotMultipleOf00001Fails() {
         // 0.00751 is not multiple of 0.0001
+        final var schema = BySmallNumber.BySmallNumber1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             0.00751d,
@@ -40,6 +38,7 @@ public class BySmallNumberTest {
     @Test
     public void test00075IsMultipleOf00001Passes() {
         // 0.0075 is multiple of 0.0001
+        final var schema = BySmallNumber.BySmallNumber1.getInstance();
         schema.validate(
             0.0075d,
             configuration

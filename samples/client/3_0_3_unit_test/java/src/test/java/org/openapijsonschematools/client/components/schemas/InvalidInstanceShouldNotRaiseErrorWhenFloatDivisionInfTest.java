@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1 schema = (
-        InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
     @Test
     public void testAlwaysInvalidButNaiveImplementationsMayRaiseAnOverflowErrorFails() {
         // always invalid, but naive implementations may raise an overflow error
+        final var schema = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.0E308d,
@@ -40,6 +38,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInfTest {
     @Test
     public void testValidIntegerWithMultipleofFloatPasses() {
         // valid integer with multipleOf float
+        final var schema = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1.getInstance();
         schema.validate(
             123456789,
             configuration

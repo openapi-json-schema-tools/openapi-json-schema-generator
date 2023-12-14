@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class MaximumValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final MaximumValidation.MaximumValidation1 schema = (
-        MaximumValidation.MaximumValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class MaximumValidationTest {
     @Test
     public void testAboveTheMaximumIsInvalidFails() {
         // above the maximum is invalid
+        final var schema = MaximumValidation.MaximumValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             3.5d,
@@ -40,6 +38,7 @@ public class MaximumValidationTest {
     @Test
     public void testBoundaryPointIsValidPasses() {
         // boundary point is valid
+        final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(
             3.0d,
             configuration
@@ -49,6 +48,7 @@ public class MaximumValidationTest {
     @Test
     public void testBelowTheMaximumIsValidPasses() {
         // below the maximum is valid
+        final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(
             2.6d,
             configuration
@@ -58,6 +58,7 @@ public class MaximumValidationTest {
     @Test
     public void testIgnoresNonNumbersPasses() {
         // ignores non-numbers
+        final var schema = MaximumValidation.MaximumValidation1.getInstance();
         schema.validate(
             "x",
             configuration

@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class NotTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final Not.Not1 schema = (
-        Not.Not1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class NotTest {
     @Test
     public void testDisallowedFails() {
         // disallowed
+        final var schema = Not.Not1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1,
@@ -40,6 +38,7 @@ public class NotTest {
     @Test
     public void testAllowedPasses() {
         // allowed
+        final var schema = Not.Not1.getInstance();
         schema.validate(
             "foo",
             configuration

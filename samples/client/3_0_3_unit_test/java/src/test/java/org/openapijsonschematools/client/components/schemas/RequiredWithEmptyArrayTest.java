@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class RequiredWithEmptyArrayTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final RequiredWithEmptyArray.RequiredWithEmptyArray1 schema = (
-        RequiredWithEmptyArray.RequiredWithEmptyArray1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class RequiredWithEmptyArrayTest {
     @Test
     public void testPropertyNotRequiredPasses() {
         // property not required
+        final var schema = RequiredWithEmptyArray.RequiredWithEmptyArray1.getInstance();
         schema.validate(
             MapMaker.makeMap(
             ),

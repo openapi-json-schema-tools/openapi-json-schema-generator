@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class MaxlengthValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final MaxlengthValidation.MaxlengthValidation1 schema = (
-        MaxlengthValidation.MaxlengthValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testShorterIsValidPasses() {
         // shorter is valid
+        final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
             "f",
             configuration
@@ -39,6 +37,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
             "fo",
             configuration
@@ -48,6 +47,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testTooLongIsInvalidFails() {
         // too long is invalid
+        final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",
@@ -58,6 +58,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testIgnoresNonStringsPasses() {
         // ignores non-strings
+        final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
             100,
             configuration
@@ -67,6 +68,7 @@ public class MaxlengthValidationTest {
     @Test
     public void testTwoSupplementaryUnicodeCodePointsIsLongEnoughPasses() {
         // two supplementary Unicode code points is long enough
+        final var schema = MaxlengthValidation.MaxlengthValidation1.getInstance();
         schema.validate(
             "💩💩",
             configuration

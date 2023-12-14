@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1 schema = (
-        AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
     @Test
     public void testPropertiesDefinedInAllofAreNotExaminedFails() {
         // properties defined in allOf are not examined
+        final var schema = AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -49,6 +47,7 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
     @Test
     public void testValidTestCasePasses() {
         // valid test case
+        final var schema = AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

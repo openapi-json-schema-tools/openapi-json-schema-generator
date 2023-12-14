@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AllofSimpleTypesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AllofSimpleTypes.AllofSimpleTypes1 schema = (
-        AllofSimpleTypes.AllofSimpleTypes1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AllofSimpleTypesTest {
     @Test
     public void testMismatchOneFails() {
         // mismatch one
+        final var schema = AllofSimpleTypes.AllofSimpleTypes1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             35,
@@ -40,6 +38,7 @@ public class AllofSimpleTypesTest {
     @Test
     public void testValidPasses() {
         // valid
+        final var schema = AllofSimpleTypes.AllofSimpleTypes1.getInstance();
         schema.validate(
             25,
             configuration

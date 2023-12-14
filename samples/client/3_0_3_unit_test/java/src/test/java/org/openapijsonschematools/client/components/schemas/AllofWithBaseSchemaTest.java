@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AllofWithBaseSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AllofWithBaseSchema.AllofWithBaseSchema1 schema = (
-        AllofWithBaseSchema.AllofWithBaseSchema1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchBaseSchemaFails() {
         // mismatch base schema
+        final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -49,6 +47,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchFirstAllofFails() {
         // mismatch first allOf
+        final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -68,6 +67,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testValidPasses() {
         // valid
+        final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -90,6 +90,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchBothFails() {
         // mismatch both
+        final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -105,6 +106,7 @@ public class AllofWithBaseSchemaTest {
     @Test
     public void testMismatchSecondAllofFails() {
         // mismatch second allOf
+        final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(

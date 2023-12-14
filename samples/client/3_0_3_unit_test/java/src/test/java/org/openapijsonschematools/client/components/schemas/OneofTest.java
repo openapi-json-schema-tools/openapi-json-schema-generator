@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class OneofTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final Oneof.Oneof1 schema = (
-        Oneof.Oneof1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class OneofTest {
     @Test
     public void testBothOneofValidFails() {
         // both oneOf valid
+        final var schema = Oneof.Oneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             3,
@@ -40,6 +38,7 @@ public class OneofTest {
     @Test
     public void testNeitherOneofValidFails() {
         // neither oneOf valid
+        final var schema = Oneof.Oneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.5d,
@@ -50,6 +49,7 @@ public class OneofTest {
     @Test
     public void testSecondOneofValidPasses() {
         // second oneOf valid
+        final var schema = Oneof.Oneof1.getInstance();
         schema.validate(
             2.5d,
             configuration
@@ -59,6 +59,7 @@ public class OneofTest {
     @Test
     public void testFirstOneofValidPasses() {
         // first oneOf valid
+        final var schema = Oneof.Oneof1.getInstance();
         schema.validate(
             1,
             configuration

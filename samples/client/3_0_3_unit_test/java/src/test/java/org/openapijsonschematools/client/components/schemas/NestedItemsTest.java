@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class NestedItemsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NestedItems.NestedItems1 schema = (
-        NestedItems.NestedItems1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class NestedItemsTest {
     @Test
     public void testNestedArrayWithInvalidTypeFails() {
         // nested array with invalid type
+        final var schema = NestedItems.NestedItems1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -69,6 +67,7 @@ public class NestedItemsTest {
     @Test
     public void testNotDeepEnoughFails() {
         // not deep enough
+        final var schema = NestedItems.NestedItems1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -102,6 +101,7 @@ public class NestedItemsTest {
     @Test
     public void testValidNestedArrayPasses() {
         // valid nested array
+        final var schema = NestedItems.NestedItems1.getInstance();
         schema.validate(
             Arrays.asList(
                 Arrays.asList(

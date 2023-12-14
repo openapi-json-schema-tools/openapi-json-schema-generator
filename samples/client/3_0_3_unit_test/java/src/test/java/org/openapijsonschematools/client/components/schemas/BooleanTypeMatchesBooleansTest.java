@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class BooleanTypeMatchesBooleansTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1 schema = (
-        BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAFloatIsNotABooleanFails() {
         // a float is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1.1d,
@@ -40,6 +38,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAStringIsNotABooleanFails() {
         // a string is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "foo",
@@ -50,6 +49,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testFalseIsABooleanPasses() {
         // false is a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         schema.validate(
             false,
             configuration
@@ -59,6 +59,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testTrueIsABooleanPasses() {
         // true is a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         schema.validate(
             true,
             configuration
@@ -68,6 +69,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnObjectIsNotABooleanFails() {
         // an object is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -79,6 +81,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnArrayIsNotABooleanFails() {
         // an array is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             Arrays.asList(
@@ -90,6 +93,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testNullIsNotABooleanFails() {
         // null is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             (Void) null,
@@ -100,6 +104,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnIntegerIsNotABooleanFails() {
         // an integer is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             1,
@@ -110,6 +115,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testZeroIsNotABooleanFails() {
         // zero is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             0,
@@ -120,6 +126,7 @@ public class BooleanTypeMatchesBooleansTest {
     @Test
     public void testAnEmptyStringIsNotABooleanFails() {
         // an empty string is not a boolean
+        final var schema = BooleanTypeMatchesBooleans.BooleanTypeMatchesBooleans1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "",

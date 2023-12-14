@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AllofTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final Allof.Allof1 schema = (
-        Allof.Allof1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AllofTest {
     @Test
     public void testMismatchSecondFails() {
         // mismatch second
+        final var schema = Allof.Allof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -45,6 +43,7 @@ public class AllofTest {
     @Test
     public void testWrongTypeFails() {
         // wrong type
+        final var schema = Allof.Allof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -64,6 +63,7 @@ public class AllofTest {
     @Test
     public void testMismatchFirstFails() {
         // mismatch first
+        final var schema = Allof.Allof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -79,6 +79,7 @@ public class AllofTest {
     @Test
     public void testAllofPasses() {
         // allOf
+        final var schema = Allof.Allof1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

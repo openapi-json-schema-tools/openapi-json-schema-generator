@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class MinlengthValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final MinlengthValidation.MinlengthValidation1 schema = (
-        MinlengthValidation.MinlengthValidation1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class MinlengthValidationTest {
     @Test
     public void testExactLengthIsValidPasses() {
         // exact length is valid
+        final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
             "fo",
             configuration
@@ -39,6 +37,7 @@ public class MinlengthValidationTest {
     @Test
     public void testLongerIsValidPasses() {
         // longer is valid
+        final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
             "foo",
             configuration
@@ -48,6 +47,7 @@ public class MinlengthValidationTest {
     @Test
     public void testIgnoresNonStringsPasses() {
         // ignores non-strings
+        final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         schema.validate(
             1,
             configuration
@@ -57,6 +57,7 @@ public class MinlengthValidationTest {
     @Test
     public void testTooShortIsInvalidFails() {
         // too short is invalid
+        final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "f",
@@ -67,6 +68,7 @@ public class MinlengthValidationTest {
     @Test
     public void testOneSupplementaryUnicodeCodePointIsNotLongEnoughFails() {
         // one supplementary Unicode code point is not long enough
+        final var schema = MinlengthValidation.MinlengthValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             "💩",

@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class OneofWithRequiredTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final OneofWithRequired.OneofWithRequired1 schema = (
-        OneofWithRequired.OneofWithRequired1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class OneofWithRequiredTest {
     @Test
     public void testFirstValidValidPasses() {
         // first valid - valid
+        final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -48,6 +46,7 @@ public class OneofWithRequiredTest {
     @Test
     public void testBothValidInvalidFails() {
         // both valid - invalid
+        final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
@@ -71,6 +70,7 @@ public class OneofWithRequiredTest {
     @Test
     public void testSecondValidValidPasses() {
         // second valid - valid
+        final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -89,6 +89,7 @@ public class OneofWithRequiredTest {
     @Test
     public void testBothInvalidInvalidFails() {
         // both invalid - invalid
+        final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(

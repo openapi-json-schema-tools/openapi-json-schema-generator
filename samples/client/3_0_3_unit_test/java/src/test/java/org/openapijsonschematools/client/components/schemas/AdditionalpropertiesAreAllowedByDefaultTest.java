@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class AdditionalpropertiesAreAllowedByDefaultTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AdditionalpropertiesAreAllowedByDefault.AdditionalpropertiesAreAllowedByDefault1 schema = (
-        AdditionalpropertiesAreAllowedByDefault.AdditionalpropertiesAreAllowedByDefault1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class AdditionalpropertiesAreAllowedByDefaultTest {
     @Test
     public void testAdditionalPropertiesAreAllowedPasses() {
         // additional properties are allowed
+        final var schema = AdditionalpropertiesAreAllowedByDefault.AdditionalpropertiesAreAllowedByDefault1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(

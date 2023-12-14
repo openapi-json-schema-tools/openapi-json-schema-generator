@@ -17,9 +17,6 @@ import java.util.LinkedHashSet;
 
 public class HostnameFormatTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final HostnameFormat.HostnameFormat1 schema = (
-        HostnameFormat.HostnameFormat1.getInstance()
-    );
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
             configuration,
@@ -30,6 +27,7 @@ public class HostnameFormatTest {
     @Test
     public void testAllStringFormatsIgnoreIntegersPasses() {
         // all string formats ignore integers
+        final var schema = HostnameFormat.HostnameFormat1.getInstance();
         schema.validate(
             12,
             configuration
@@ -39,6 +37,7 @@ public class HostnameFormatTest {
     @Test
     public void testAllStringFormatsIgnoreNullsPasses() {
         // all string formats ignore nulls
+        final var schema = HostnameFormat.HostnameFormat1.getInstance();
         schema.validate(
             (Void) null,
             configuration
@@ -48,6 +47,7 @@ public class HostnameFormatTest {
     @Test
     public void testAllStringFormatsIgnoreObjectsPasses() {
         // all string formats ignore objects
+        final var schema = HostnameFormat.HostnameFormat1.getInstance();
         schema.validate(
             MapMaker.makeMap(
             ),
@@ -58,6 +58,7 @@ public class HostnameFormatTest {
     @Test
     public void testAllStringFormatsIgnoreFloatsPasses() {
         // all string formats ignore floats
+        final var schema = HostnameFormat.HostnameFormat1.getInstance();
         schema.validate(
             13.7d,
             configuration
@@ -67,6 +68,7 @@ public class HostnameFormatTest {
     @Test
     public void testAllStringFormatsIgnoreArraysPasses() {
         // all string formats ignore arrays
+        final var schema = HostnameFormat.HostnameFormat1.getInstance();
         schema.validate(
             Arrays.asList(
             ),
@@ -77,6 +79,7 @@ public class HostnameFormatTest {
     @Test
     public void testAllStringFormatsIgnoreBooleansPasses() {
         // all string formats ignore booleans
+        final var schema = HostnameFormat.HostnameFormat1.getInstance();
         schema.validate(
             false,
             configuration
