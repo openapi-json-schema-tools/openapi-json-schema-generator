@@ -45,16 +45,16 @@ public class ObjectWithCollidingProperties {
             return ObjectWithCollidingProperties1.getInstance().validate(arg, configuration);
         }
         
-        public FrozenMap<String, Object> someProp() {
+        public FrozenMap<Object> someProp() {
             String key = "someProp";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
+            return (FrozenMap<Object>) get(key);
         }
         
-        public FrozenMap<String, Object> someprop() {
+        public FrozenMap<Object> someprop() {
             String key = "someprop";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
+            return (FrozenMap<Object>) get(key);
         }
         
         public Object getAdditionalProperty(String name) {

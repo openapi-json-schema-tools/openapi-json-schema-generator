@@ -29,8 +29,8 @@ public class Items {
     public static class Items2 extends MapJsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<FrozenMap<String, Object>> {
-        ItemsList(FrozenList<FrozenMap<String, Object>> m) {
+    public static class ItemsList extends FrozenList<FrozenMap<Object>> {
+        ItemsList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -93,17 +93,17 @@ public class Items {
         
         @Override
         public ItemsList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            ArrayList<FrozenMap<String, Object>> items = new ArrayList<>();
+            ArrayList<FrozenMap<Object>> items = new ArrayList<>();
             int i = 0;
             for (FrozenMap<String, Object> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                                FrozenMap<Object> castItem = (FrozenMap<Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<FrozenMap<String, Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<FrozenMap<Object>> newInstanceItems = new FrozenList<>(items);
             return new ItemsList(newInstanceItems);
         }
         

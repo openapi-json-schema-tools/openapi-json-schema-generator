@@ -622,16 +622,16 @@ public class AdditionalPropertiesClass {
             return get(key);
         }
         
-        public FrozenMap<String, Object> map_with_undeclared_properties_anytype_1() {
+        public FrozenMap<Object> map_with_undeclared_properties_anytype_1() {
             String key = "map_with_undeclared_properties_anytype_1";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
+            return (FrozenMap<Object>) get(key);
         }
         
-        public FrozenMap<String, Object> map_with_undeclared_properties_anytype_2() {
+        public FrozenMap<Object> map_with_undeclared_properties_anytype_2() {
             String key = "map_with_undeclared_properties_anytype_2";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
+            return (FrozenMap<Object>) get(key);
         }
         
         public MapWithUndeclaredPropertiesAnytype3Map map_with_undeclared_properties_anytype_3() {

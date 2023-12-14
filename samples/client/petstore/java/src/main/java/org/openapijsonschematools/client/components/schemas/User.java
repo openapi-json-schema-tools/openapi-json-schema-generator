@@ -433,16 +433,16 @@ public class User {
             return (int) get(key);
         }
         
-        public FrozenMap<String, Object> objectWithNoDeclaredProps() {
+        public FrozenMap<Object> objectWithNoDeclaredProps() {
             String key = "objectWithNoDeclaredProps";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
+            return (FrozenMap<Object>) get(key);
         }
         
-        public FrozenMap<String, Object> objectWithNoDeclaredPropsNullable() {
+        public FrozenMap<Object> objectWithNoDeclaredPropsNullable() {
             String key = "objectWithNoDeclaredPropsNullable";
             throwIfKeyNotPresent(key);
-            return (FrozenMap<String, Object>) get(key);
+            return (FrozenMap<Object>) get(key);
         }
         
         public Object anyTypeProp() {

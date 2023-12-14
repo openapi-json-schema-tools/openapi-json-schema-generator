@@ -506,8 +506,8 @@ public class NullableClass {
     public static class Items extends MapJsonSchema {}
     
     
-    public static class ArrayNullablePropList extends FrozenList<FrozenMap<String, Object>> {
-        ArrayNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
+    public static class ArrayNullablePropList extends FrozenList<FrozenMap<Object>> {
+        ArrayNullablePropList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ArrayNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -577,17 +577,17 @@ public class NullableClass {
         
         @Override
         public ArrayNullablePropList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            ArrayList<FrozenMap<String, Object>> items = new ArrayList<>();
+            ArrayList<FrozenMap<Object>> items = new ArrayList<>();
             int i = 0;
             for (FrozenMap<String, Object> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                                FrozenMap<Object> castItem = (FrozenMap<Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<FrozenMap<String, Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<FrozenMap<Object>> newInstanceItems = new FrozenList<>(items);
             return new ArrayNullablePropList(newInstanceItems);
         }
         
@@ -675,8 +675,8 @@ public class NullableClass {
         
     }    
     
-    public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<String, Object>> {
-        ArrayAndItemsNullablePropList(FrozenList<FrozenMap<String, Object>> m) {
+    public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<Object>> {
+        ArrayAndItemsNullablePropList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -746,17 +746,17 @@ public class NullableClass {
         
         @Override
         public ArrayAndItemsNullablePropList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            ArrayList<FrozenMap<String, Object>> items = new ArrayList<>();
+            ArrayList<FrozenMap<Object>> items = new ArrayList<>();
             int i = 0;
             for (FrozenMap<String, Object> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                                FrozenMap<Object> castItem = (FrozenMap<Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<FrozenMap<String, Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<FrozenMap<Object>> newInstanceItems = new FrozenList<>(items);
             return new ArrayAndItemsNullablePropList(newInstanceItems);
         }
         
@@ -844,8 +844,8 @@ public class NullableClass {
         
     }    
     
-    public static class ArrayItemsNullableList extends FrozenList<FrozenMap<String, Object>> {
-        ArrayItemsNullableList(FrozenList<FrozenMap<String, Object>> m) {
+    public static class ArrayItemsNullableList extends FrozenList<FrozenMap<Object>> {
+        ArrayItemsNullableList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -900,17 +900,17 @@ public class NullableClass {
         
         @Override
         public ArrayItemsNullableList getNewInstance(FrozenList<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            ArrayList<FrozenMap<String, Object>> items = new ArrayList<>();
+            ArrayList<FrozenMap<Object>> items = new ArrayList<>();
             int i = 0;
             for (FrozenMap<String, Object> item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                                FrozenMap<String, Object> castItem = (FrozenMap<String, Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                                FrozenMap<Object> castItem = (FrozenMap<Object>) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<FrozenMap<String, Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<FrozenMap<Object>> newInstanceItems = new FrozenList<>(items);
             return new ArrayItemsNullableList(newInstanceItems);
         }
         
@@ -929,8 +929,8 @@ public class NullableClass {
     public static class AdditionalProperties extends MapJsonSchema {}
     
     
-    public static class ObjectNullablePropMap extends FrozenMap<FrozenMap<String, Object>> {
-        ObjectNullablePropMap(FrozenMap<FrozenMap<String, Object>> m) {
+    public static class ObjectNullablePropMap extends FrozenMap<FrozenMap<Object>> {
+        ObjectNullablePropMap(FrozenMap<FrozenMap<Object>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -939,7 +939,7 @@ public class NullableClass {
             return ObjectNullableProp.getInstance().validate(arg, configuration);
         }
         
-        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+        public FrozenMap<Object> getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -1005,17 +1005,17 @@ public class NullableClass {
         }
         
         public ObjectNullablePropMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, FrozenMap<String, Object>> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<Object>> properties = new LinkedHashMap<>();
             for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 FrozenMap<String, Object> value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                FrozenMap<String, Object> castValue = (FrozenMap<String, Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                FrozenMap<Object> castValue = (FrozenMap<Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<FrozenMap<String, Object>> castProperties = new FrozenMap<>(properties);
+            FrozenMap<FrozenMap<Object>> castProperties = new FrozenMap<>(properties);
             return new ObjectNullablePropMap(castProperties);
         }
         
@@ -1104,8 +1104,8 @@ public class NullableClass {
         
     }    
     
-    public static class ObjectAndItemsNullablePropMap extends FrozenMap<FrozenMap<String, Object>> {
-        ObjectAndItemsNullablePropMap(FrozenMap<FrozenMap<String, Object>> m) {
+    public static class ObjectAndItemsNullablePropMap extends FrozenMap<FrozenMap<Object>> {
+        ObjectAndItemsNullablePropMap(FrozenMap<FrozenMap<Object>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -1114,7 +1114,7 @@ public class NullableClass {
             return ObjectAndItemsNullableProp.getInstance().validate(arg, configuration);
         }
         
-        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+        public FrozenMap<Object> getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -1180,17 +1180,17 @@ public class NullableClass {
         }
         
         public ObjectAndItemsNullablePropMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, FrozenMap<String, Object>> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<Object>> properties = new LinkedHashMap<>();
             for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 FrozenMap<String, Object> value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                FrozenMap<String, Object> castValue = (FrozenMap<String, Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                FrozenMap<Object> castValue = (FrozenMap<Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<FrozenMap<String, Object>> castProperties = new FrozenMap<>(properties);
+            FrozenMap<FrozenMap<Object>> castProperties = new FrozenMap<>(properties);
             return new ObjectAndItemsNullablePropMap(castProperties);
         }
         
@@ -1279,8 +1279,8 @@ public class NullableClass {
         
     }    
     
-    public static class ObjectItemsNullableMap extends FrozenMap<FrozenMap<String, Object>> {
-        ObjectItemsNullableMap(FrozenMap<FrozenMap<String, Object>> m) {
+    public static class ObjectItemsNullableMap extends FrozenMap<FrozenMap<Object>> {
+        ObjectItemsNullableMap(FrozenMap<FrozenMap<Object>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -1289,7 +1289,7 @@ public class NullableClass {
             return ObjectItemsNullable.getInstance().validate(arg, configuration);
         }
         
-        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+        public FrozenMap<Object> getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -1340,17 +1340,17 @@ public class NullableClass {
         }
         
         public ObjectItemsNullableMap getNewInstance(FrozenMap<FrozenMap<String, Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, FrozenMap<String, Object>> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<Object>> properties = new LinkedHashMap<>();
             for(Map.Entry<String, FrozenMap<String, Object>> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 FrozenMap<String, Object> value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                FrozenMap<String, Object> castValue = (FrozenMap<String, Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                FrozenMap<Object> castValue = (FrozenMap<Object>) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<FrozenMap<String, Object>> castProperties = new FrozenMap<>(properties);
+            FrozenMap<FrozenMap<Object>> castProperties = new FrozenMap<>(properties);
             return new ObjectItemsNullableMap(castProperties);
         }
         
@@ -1463,9 +1463,9 @@ public class NullableClass {
             return (ObjectItemsNullableMap) get(key);
         }
         
-        public FrozenMap<String, Object> getAdditionalProperty(String name) {
+        public FrozenMap<Object> getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
-            return (FrozenMap<String, Object>) get(name);
+            return (FrozenMap<Object>) get(name);
         }
     }
     public static class NullableClassMapInput {

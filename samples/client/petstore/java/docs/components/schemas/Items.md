@@ -73,7 +73,7 @@ Map<String, Object> |  |
 
 ## ItemsList
 public class ItemsList<br>
-extends `FrozenList<FrozenMap<String, Object>>`
+extends `FrozenList<FrozenMap<Object>>`
 
 A class to store validated List payloads
 
