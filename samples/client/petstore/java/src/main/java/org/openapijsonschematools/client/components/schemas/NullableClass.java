@@ -641,7 +641,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class ObjectNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<String, Object>, ObjectNullablePropMap> {
         private static ObjectNullableProp instance;
         protected ObjectNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
@@ -740,7 +740,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class ObjectAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<String, Object>, ObjectAndItemsNullablePropMap> {
         private static ObjectAndItemsNullableProp instance;
         protected ObjectAndItemsNullableProp() {
             super(new LinkedHashMap<>(Map.ofEntries(
