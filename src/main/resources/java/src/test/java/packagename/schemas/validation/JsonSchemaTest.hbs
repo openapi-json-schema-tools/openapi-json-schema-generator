@@ -14,10 +14,18 @@ import java.util.Set;
 import java.util.Map;
 
 class SomeSchema extends JsonSchema {
-    public SomeSchema() {
+    private static SomeSchema instance;
+    protected SomeSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
         )));
+    }
+
+    public static SomeSchema getInstance() {
+        if (instance == null) {
+            instance = new SomeSchema();
+        }
+        return instance;
     }
 
     @Override

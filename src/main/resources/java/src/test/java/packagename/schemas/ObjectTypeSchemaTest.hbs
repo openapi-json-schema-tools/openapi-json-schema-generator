@@ -7,7 +7,6 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.AdditionalPropertiesValidator;
 import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -38,7 +37,8 @@ public class ObjectTypeSchemaTest {
     );
 
     public static class ObjectWithPropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
-        public ObjectWithPropsSchema() {
+        private static ObjectWithPropsSchema instance;
+        private ObjectWithPropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                     new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -46,6 +46,13 @@ public class ObjectTypeSchemaTest {
                     )))
             )));
 
+        }
+
+        public static ObjectWithPropsSchema getInstance() {
+            if (instance == null) {
+                instance = new ObjectWithPropsSchema();
+            }
+            return instance;
         }
 
         @Override
@@ -80,11 +87,19 @@ public class ObjectTypeSchemaTest {
     }
 
     public static class ObjectWithAddpropsSchema extends JsonSchema implements SchemaMapValidator<String, String, FrozenMap<String>> {
-        public ObjectWithAddpropsSchema() {
+        private static ObjectWithAddpropsSchema instance;
+        private ObjectWithAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                     new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(StringJsonSchema.class))
             )));
+        }
+
+        public static ObjectWithAddpropsSchema getInstance() {
+            if (instance == null) {
+                instance = new ObjectWithAddpropsSchema();
+            }
+            return instance;
         }
 
         @Override
@@ -96,7 +111,7 @@ public class ObjectTypeSchemaTest {
                 String val = entry.getValue();
                 List<Object> newPathToItem = new ArrayList<>(pathToItem);
                 newPathToItem.add(key);
-                String fixedVal = JsonSchemaFactory.getInstance(StringJsonSchema.class).castToAllowedTypes(val, newPathToItem, pathSet);
+                String fixedVal = StringJsonSchema.getInstance().castToAllowedTypes(val, newPathToItem, pathSet);
                 argFixed.put(key, fixedVal);
             }
             return new FrozenMap<>(argFixed);
@@ -129,7 +144,8 @@ public class ObjectTypeSchemaTest {
     }
 
     public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
-        public ObjectWithPropsAndAddpropsSchema() {
+        private static ObjectWithPropsAndAddpropsSchema instance;
+        private ObjectWithPropsAndAddpropsSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
                     new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
@@ -137,6 +153,13 @@ public class ObjectTypeSchemaTest {
                     ))),
                     new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(BooleanJsonSchema.class))
             )));
+        }
+
+        public static ObjectWithPropsAndAddpropsSchema getInstance() {
+            if (instance == null) {
+                instance = new ObjectWithPropsAndAddpropsSchema();
+            }
+            return instance;
         }
 
         @Override
@@ -176,12 +199,13 @@ public class ObjectTypeSchemaTest {
         }
 
         public static ObjectWithOutputTypeSchemaMap of(Map<String, Object> arg, SchemaConfiguration configuration) {
-            return JsonSchemaFactory.getInstance(ObjectWithOutputTypeSchema.class).validate(arg, configuration);
+            return ObjectWithOutputTypeSchema.getInstance().validate(arg, configuration);
         }
     }
 
 
     public static class ObjectWithOutputTypeSchema extends JsonSchema implements SchemaMapValidator<Object, Object, ObjectWithOutputTypeSchemaMap> {
+        private static ObjectWithOutputTypeSchema instance;
         public ObjectWithOutputTypeSchema() {
             super(new LinkedHashMap<>(Map.ofEntries(
                     new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
@@ -191,6 +215,12 @@ public class ObjectTypeSchemaTest {
             )));
         }
 
+        public static ObjectWithOutputTypeSchema getInstance() {
+            if (instance == null) {
+                instance = new ObjectWithOutputTypeSchema();
+            }
+            return instance;
+        }
 
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
@@ -225,7 +255,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        ObjectWithPropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithPropsSchema.class);
+        ObjectWithPropsSchema schema = ObjectWithPropsSchema.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
                 schema,
                 null,
@@ -235,7 +265,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testValidateObjectWithPropsSchema() {
-        ObjectWithPropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithPropsSchema.class);
+        ObjectWithPropsSchema schema = ObjectWithPropsSchema.getInstance();
 
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
@@ -266,7 +296,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testValidateObjectWithAddpropsSchema() {
-        ObjectWithAddpropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithAddpropsSchema.class);
+        ObjectWithAddpropsSchema schema = ObjectWithAddpropsSchema.getInstance();
 
         // map with only property works
         Map<String, String> inMap = new LinkedHashMap<>();
@@ -297,7 +327,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testValidateObjectWithPropsAndAddpropsSchema() {
-        ObjectWithPropsAndAddpropsSchema schema = JsonSchemaFactory.getInstance(ObjectWithPropsAndAddpropsSchema.class);
+        ObjectWithPropsAndAddpropsSchema schema = ObjectWithPropsAndAddpropsSchema.getInstance();
 
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
@@ -336,7 +366,7 @@ public class ObjectTypeSchemaTest {
 
     @Test
     public void testValidateObjectWithOutputTypeSchema() {
-        ObjectWithOutputTypeSchema schema = JsonSchemaFactory.getInstance(ObjectWithOutputTypeSchema.class);
+        ObjectWithOutputTypeSchema schema = ObjectWithOutputTypeSchema.getInstance();
 
         // map with only property works
         Map<String, Object> inMap = new LinkedHashMap<>();
