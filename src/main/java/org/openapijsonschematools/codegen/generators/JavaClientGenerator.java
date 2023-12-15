@@ -1520,6 +1520,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addOneOfValidator(schema, imports);
                 addEnumValidator(schema, imports);
                 addPatternValidator(schema, imports);
+                addMultipleOfValidator(schema, imports);
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1580,6 +1581,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             imports.add("import "+packageName + ".schemas.validation.AdditionalPropertiesValidator;");
         }
     }
+
+    private void addMultipleOfValidator(CodegenSchema schema, Set<String> imports) {
+        if (schema.multipleOf != null) {
+            imports.add("import java.math.BigDecimal;");
+        }
+    }
+
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
@@ -1643,6 +1651,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
         addEnumValidator(schema, imports);
+        addMultipleOfValidator(schema, imports);
     }
 
     private void addStringSchemaImports(Set<String> imports, CodegenSchema schema) {

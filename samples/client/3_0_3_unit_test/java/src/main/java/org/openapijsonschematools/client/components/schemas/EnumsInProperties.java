@@ -32,7 +32,7 @@ public class EnumsInProperties {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "foo"
                 ))
@@ -83,7 +83,7 @@ public class EnumsInProperties {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "bar"
                 ))

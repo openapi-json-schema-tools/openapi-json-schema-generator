@@ -7,8 +7,8 @@ import java.math.BigDecimal;
 public class MultipleOfValidator implements KeywordValidator {
     public final BigDecimal multipleOf;
 
-    public MultipleOfValidator(Number multipleOf) {
-        this.multipleOf = getBigDecimal(multipleOf);
+    public MultipleOfValidator(BigDecimal multipleOf) {
+        this.multipleOf = multipleOf;
     }
 
     @Override

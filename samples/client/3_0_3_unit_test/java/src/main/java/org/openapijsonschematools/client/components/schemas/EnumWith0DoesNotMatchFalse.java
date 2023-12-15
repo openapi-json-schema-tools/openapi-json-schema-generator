@@ -38,7 +38,7 @@ public class EnumWith0DoesNotMatchFalse {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     0
                 ))

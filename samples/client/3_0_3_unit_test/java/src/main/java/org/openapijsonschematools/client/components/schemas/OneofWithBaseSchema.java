@@ -470,7 +470,7 @@ public class OneofWithBaseSchema {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .oneOf(List.of(
                     Schema0.class,
                     Schema1.class

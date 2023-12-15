@@ -35,7 +35,7 @@ public class EnumWithEscapedCharacters {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "foo\nbar",
                     "foo\rbar"

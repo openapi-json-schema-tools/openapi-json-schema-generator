@@ -46,7 +46,7 @@ long validatedPayload = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.I
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
 | Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>&nbsp;&nbsp;&nbsp;&nbsp;)<br/> |
-| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = 0.123456789<br> |
+| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("0.123456789")<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

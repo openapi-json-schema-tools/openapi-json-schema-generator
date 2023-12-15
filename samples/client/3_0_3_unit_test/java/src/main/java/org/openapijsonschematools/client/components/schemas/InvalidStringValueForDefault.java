@@ -39,7 +39,7 @@ public class InvalidStringValueForDefault {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .minLength(4)
             );
         }

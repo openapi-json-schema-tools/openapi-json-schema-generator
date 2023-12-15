@@ -34,7 +34,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .maximum(3)
             );
         }

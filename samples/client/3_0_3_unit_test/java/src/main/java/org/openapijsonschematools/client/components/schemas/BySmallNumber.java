@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class BySmallNumber {
     
         protected BySmallNumber1() {
             super(new JsonSchemaInfo()
-                .multipleOf(0.00010)
+                .multipleOf(new BigDecimal("0.00010"))
             );
         }
     

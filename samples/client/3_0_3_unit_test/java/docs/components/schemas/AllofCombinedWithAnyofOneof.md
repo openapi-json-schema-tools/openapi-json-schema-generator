@@ -52,7 +52,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = 5<br> |
+| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("5")<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -76,7 +76,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = 3<br> |
+| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("3")<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -100,7 +100,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = 2<br> |
+| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("2")<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

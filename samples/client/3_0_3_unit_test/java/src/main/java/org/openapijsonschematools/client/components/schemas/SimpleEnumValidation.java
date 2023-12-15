@@ -38,7 +38,7 @@ public class SimpleEnumValidation {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     1,
                     2,

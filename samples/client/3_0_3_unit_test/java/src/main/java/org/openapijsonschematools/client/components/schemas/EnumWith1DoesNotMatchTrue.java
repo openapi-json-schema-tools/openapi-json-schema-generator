@@ -38,7 +38,7 @@ public class EnumWith1DoesNotMatchTrue {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     1
                 ))

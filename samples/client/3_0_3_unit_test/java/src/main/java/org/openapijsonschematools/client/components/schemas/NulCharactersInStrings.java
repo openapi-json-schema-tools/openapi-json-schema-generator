@@ -35,7 +35,7 @@ public class NulCharactersInStrings {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "hello\0there"
                 ))

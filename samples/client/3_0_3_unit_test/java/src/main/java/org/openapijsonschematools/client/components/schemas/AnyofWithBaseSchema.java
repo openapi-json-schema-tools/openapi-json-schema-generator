@@ -470,7 +470,7 @@ public class AnyofWithBaseSchema {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .anyOf(List.of(
                     Schema0.class,
                     Schema1.class

@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class ByNumber {
     
         protected ByNumber1() {
             super(new JsonSchemaInfo()
-                .multipleOf(1.5)
+                .multipleOf(new BigDecimal("1.5"))
             );
         }
     

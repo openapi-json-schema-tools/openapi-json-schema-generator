@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class AllofCombinedWithAnyofOneof {
     
         protected Schema02() {
             super(new JsonSchemaInfo()
-                .multipleOf(2)
+                .multipleOf(new BigDecimal("2"))
             );
         }
     
@@ -249,7 +250,7 @@ public class AllofCombinedWithAnyofOneof {
     
         protected Schema01() {
             super(new JsonSchemaInfo()
-                .multipleOf(3)
+                .multipleOf(new BigDecimal("3"))
             );
         }
     
@@ -462,7 +463,7 @@ public class AllofCombinedWithAnyofOneof {
     
         protected Schema0() {
             super(new JsonSchemaInfo()
-                .multipleOf(5)
+                .multipleOf(new BigDecimal("5"))
             );
         }
     

@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -37,8 +38,8 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
                     Long.class,
                     Float.class,
                     Double.class
-                )
-                .multipleOf(0.123456789)
+                ))
+                .multipleOf(new BigDecimal("0.123456789"))
             );
         }
     
