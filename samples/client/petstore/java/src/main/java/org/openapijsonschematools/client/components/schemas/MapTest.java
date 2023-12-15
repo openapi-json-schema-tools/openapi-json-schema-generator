@@ -218,7 +218,7 @@ public class MapTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "UPPER",
                     "lower"

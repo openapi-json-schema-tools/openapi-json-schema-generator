@@ -41,7 +41,7 @@ public class ComposedNumber {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .allOf(List.of(
                     Schema0.class
                 ))

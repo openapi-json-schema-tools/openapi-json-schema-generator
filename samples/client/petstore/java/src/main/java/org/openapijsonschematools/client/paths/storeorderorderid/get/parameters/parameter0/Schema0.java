@@ -31,7 +31,7 @@ public class Schema0 {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int64")
                 .maximum(5)
                 .minimum(1)

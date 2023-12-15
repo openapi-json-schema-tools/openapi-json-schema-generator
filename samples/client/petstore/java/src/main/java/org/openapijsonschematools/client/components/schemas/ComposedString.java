@@ -38,7 +38,7 @@ public class ComposedString {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .allOf(List.of(
                     Schema0.class
                 ))

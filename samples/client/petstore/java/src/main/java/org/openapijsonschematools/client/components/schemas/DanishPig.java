@@ -32,7 +32,7 @@ public class DanishPig {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "DanishPig"
                 ))

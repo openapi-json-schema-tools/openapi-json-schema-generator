@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -31,7 +32,7 @@ public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator
     private static AnyTypeJsonSchema instance;
 
     protected AnyTypeJsonSchema() {
-        super(null);
+        super(new JsonSchemaInfo());
     }
 
     public static AnyTypeJsonSchema getInstance() {

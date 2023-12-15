@@ -35,7 +35,7 @@ public class Animal {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
             );
         }
     

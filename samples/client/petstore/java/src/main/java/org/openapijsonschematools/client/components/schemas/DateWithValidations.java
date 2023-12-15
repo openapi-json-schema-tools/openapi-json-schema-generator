@@ -36,7 +36,7 @@ public class DateWithValidations {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .format("date")
                 .pattern(Pattern.compile(
                     "^2020.*"

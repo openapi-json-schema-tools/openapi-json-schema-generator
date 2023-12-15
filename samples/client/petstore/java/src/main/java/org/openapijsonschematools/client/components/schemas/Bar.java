@@ -34,7 +34,7 @@ public class Bar {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
             );
         }
     

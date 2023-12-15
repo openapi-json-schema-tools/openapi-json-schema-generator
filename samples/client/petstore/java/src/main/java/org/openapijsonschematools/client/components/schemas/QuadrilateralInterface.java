@@ -41,7 +41,7 @@ public class QuadrilateralInterface {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "Quadrilateral"
                 ))

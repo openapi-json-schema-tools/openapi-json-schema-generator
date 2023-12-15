@@ -40,7 +40,7 @@ public class ScaleneTriangle {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "ScaleneTriangle"
                 ))

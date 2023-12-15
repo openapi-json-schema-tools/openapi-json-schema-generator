@@ -46,7 +46,7 @@ public class JSONPatchRequestAddReplaceTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "add",
                     "replace",

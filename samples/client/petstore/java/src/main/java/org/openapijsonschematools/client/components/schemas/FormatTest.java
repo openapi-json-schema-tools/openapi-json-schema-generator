@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -48,10 +49,10 @@ public class FormatTest {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .maximum(100)
                 .minimum(10)
-                .multipleOf(2)
+                .multipleOf(new BigDecimal("2"))
             );
         }
     
@@ -121,7 +122,7 @@ public class FormatTest {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int32")
                 .maximum(200)
                 .minimum(20)
@@ -186,10 +187,10 @@ public class FormatTest {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .maximum(543.2)
                 .minimum(32.1)
-                .multipleOf(32.5)
+                .multipleOf(new BigDecimal("32.5"))
             );
         }
     
@@ -255,7 +256,7 @@ public class FormatTest {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("float")
                 .maximum(987.6)
                 .minimum(54.3)
@@ -315,7 +316,7 @@ public class FormatTest {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("double")
                 .maximum(123.4)
                 .minimum(67.8)
@@ -459,7 +460,7 @@ public class FormatTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .pattern(Pattern.compile(
                     "[a-z]",
                     Pattern.CASE_INSENSITIVE
@@ -531,7 +532,7 @@ public class FormatTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .format("password")
                 .maxLength(64)
                 .minLength(10)
@@ -582,7 +583,7 @@ public class FormatTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .pattern(Pattern.compile(
                     "^\\d{10}$"
                 ))
@@ -633,7 +634,7 @@ public class FormatTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .pattern(Pattern.compile(
                     "^image_\\d{1,3}$",
                     Pattern.CASE_INSENSITIVE

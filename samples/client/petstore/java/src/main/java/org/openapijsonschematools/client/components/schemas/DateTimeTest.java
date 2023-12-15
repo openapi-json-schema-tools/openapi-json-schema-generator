@@ -35,7 +35,7 @@ public class DateTimeTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .format("date-time")
             );
         }

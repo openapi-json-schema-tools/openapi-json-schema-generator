@@ -35,7 +35,7 @@ public class UUIDString {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .format("uuid")
                 .minLength(1)
             );

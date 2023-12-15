@@ -667,7 +667,7 @@ int validatedPayload = FormatTest.NumberSchema.validate(
 | Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>&nbsp;&nbsp;&nbsp;&nbsp;)<br/> |
 | Number | &nbsp;&nbsp;&nbsp;&nbsp;maximum = 543.2<br> |
 | Number | &nbsp;&nbsp;&nbsp;&nbsp;minimum = 32.1<br> |
-| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = 32.5<br> |
+| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("32.5")<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -769,7 +769,7 @@ long validatedPayload = FormatTest.IntegerSchema.validate(
 | Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Integer.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Long.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Float.class,<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Double.class<br/>&nbsp;&nbsp;&nbsp;&nbsp;)<br/> |
 | Number | &nbsp;&nbsp;&nbsp;&nbsp;maximum = 100<br> |
 | Number | &nbsp;&nbsp;&nbsp;&nbsp;minimum = 10<br> |
-| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = 2<br> |
+| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("2")<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -39,7 +39,7 @@ public class StringEnum {
                 .type(Set.of(
                     Void.class,
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "placed",
                     "approved",

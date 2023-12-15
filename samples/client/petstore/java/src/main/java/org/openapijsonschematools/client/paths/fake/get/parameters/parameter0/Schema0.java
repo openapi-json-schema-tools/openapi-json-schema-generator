@@ -31,7 +31,7 @@ public class Schema0 {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     ">",
                     "$"

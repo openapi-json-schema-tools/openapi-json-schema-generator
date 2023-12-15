@@ -39,7 +39,7 @@ public class ObjectWithInlineCompositionProperty {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .minLength(1)
             );
         }

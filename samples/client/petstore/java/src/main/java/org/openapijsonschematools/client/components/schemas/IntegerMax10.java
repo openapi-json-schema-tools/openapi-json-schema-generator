@@ -37,7 +37,7 @@ public class IntegerMax10 {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int64")
                 .maximum(10)
             );

@@ -7,6 +7,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.NotValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -31,9 +32,9 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements SchemaNullValida
     private static NotAnyTypeJsonSchema instance;
 
     protected NotAnyTypeJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
-        )));
+        super(new JsonSchemaInfo()
+            .not(AnyTypeJsonSchema.class)
+        );
     }
 
     public static NotAnyTypeJsonSchema getInstance() {

@@ -41,7 +41,7 @@ public class TriangleInterface {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "Triangle"
                 ))

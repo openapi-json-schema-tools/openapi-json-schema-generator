@@ -46,7 +46,7 @@ public class JSONPatchRequestMoveCopy {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "move",
                     "copy"

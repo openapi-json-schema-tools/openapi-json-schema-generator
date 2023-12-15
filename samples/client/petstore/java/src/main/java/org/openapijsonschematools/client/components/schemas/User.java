@@ -73,7 +73,7 @@ public class User {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
             );
         }
     

@@ -34,7 +34,7 @@ public class HealthCheckResult {
                 .type(Set.of(
                     Void.class,
                     String.class
-                )
+                ))
             );
         }
     

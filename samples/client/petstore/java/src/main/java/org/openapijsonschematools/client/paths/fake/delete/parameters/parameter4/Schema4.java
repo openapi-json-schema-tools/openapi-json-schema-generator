@@ -29,7 +29,7 @@ public class Schema4 {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "true",
                     "false"

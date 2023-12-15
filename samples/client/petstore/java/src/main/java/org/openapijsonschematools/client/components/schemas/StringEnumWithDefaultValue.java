@@ -35,7 +35,7 @@ public class StringEnumWithDefaultValue {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "placed",
                     "approved",

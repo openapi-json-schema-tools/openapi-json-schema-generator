@@ -34,7 +34,7 @@ public class Apple {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .pattern(Pattern.compile(
                     "^[a-zA-Z\\s]*$"
                 ))
@@ -85,7 +85,7 @@ public class Apple {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .pattern(Pattern.compile(
                     "^[A-Z\\s]*$",
                     Pattern.CASE_INSENSITIVE
@@ -179,7 +179,7 @@ public class Apple {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
                 .properties(Map.ofEntries(
                     new PropertyEntry("cultivar", Cultivar.class),
                     new PropertyEntry("origin", Origin.class)

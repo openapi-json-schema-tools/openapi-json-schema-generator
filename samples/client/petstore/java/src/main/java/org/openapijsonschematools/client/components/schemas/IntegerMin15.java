@@ -37,7 +37,7 @@ public class IntegerMin15 {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int64")
                 .minimum(15)
             );

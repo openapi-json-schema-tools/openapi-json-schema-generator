@@ -37,7 +37,7 @@ public class NumberWithExclusiveMinMax {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .exclusiveMaximum(12)
                 .exclusiveMinimum(10)
             );

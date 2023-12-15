@@ -197,7 +197,7 @@ public class ComposedOneOfDifferentTypes {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .format("date-time")
                 .pattern(Pattern.compile(
                     "^2020.*"

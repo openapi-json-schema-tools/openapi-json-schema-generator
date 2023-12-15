@@ -24,8 +24,8 @@ public class ArrayTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
-            configuration, 
-            new PathToSchemasMap(), 
+            configuration,
+            new PathToSchemasMap(),
             new LinkedHashSet<>()
     );
 

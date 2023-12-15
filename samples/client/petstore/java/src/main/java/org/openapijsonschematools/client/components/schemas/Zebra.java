@@ -37,7 +37,7 @@ public class Zebra {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "plains",
                     "mountain",
@@ -90,7 +90,7 @@ public class Zebra {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "zebra"
                 ))

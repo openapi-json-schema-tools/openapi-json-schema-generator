@@ -34,7 +34,7 @@ public class StringWithValidation {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .minLength(7)
             );
         }

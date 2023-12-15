@@ -38,7 +38,7 @@ public class IntegerEnumBig {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     10,
                     11,

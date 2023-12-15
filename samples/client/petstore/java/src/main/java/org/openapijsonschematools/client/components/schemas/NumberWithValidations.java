@@ -37,7 +37,7 @@ public class NumberWithValidations {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .maximum(20)
                 .minimum(10)
             );

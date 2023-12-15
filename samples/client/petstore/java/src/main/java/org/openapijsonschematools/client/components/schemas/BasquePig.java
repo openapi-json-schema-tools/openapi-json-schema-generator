@@ -32,7 +32,7 @@ public class BasquePig {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "BasquePig"
                 ))

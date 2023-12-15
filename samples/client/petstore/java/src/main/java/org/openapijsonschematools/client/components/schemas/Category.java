@@ -35,7 +35,7 @@ public class Category {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
             );
         }
     

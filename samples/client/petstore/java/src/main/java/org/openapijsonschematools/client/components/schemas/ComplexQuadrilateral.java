@@ -40,7 +40,7 @@ public class ComplexQuadrilateral {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "ComplexQuadrilateral"
                 ))

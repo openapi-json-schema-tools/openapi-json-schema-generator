@@ -43,7 +43,7 @@ public class JSONPatchRequestRemove {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "remove"
                 ))

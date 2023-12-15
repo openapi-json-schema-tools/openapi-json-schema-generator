@@ -123,7 +123,7 @@ public class JsonSchemaInfo {
         return this;
     }
     public Pattern pattern;
-    public JsonSchemaInfo enumValues(Pattern pattern) {
+    public JsonSchemaInfo pattern(Pattern pattern) {
         this.pattern = pattern;
         return this;
     }

@@ -5,15 +5,12 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -39,12 +36,12 @@ public class ObjectTypeSchemaTest {
     public static class ObjectWithPropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static ObjectWithPropsSchema instance;
         private ObjectWithPropsSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                    new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                            new PropertyEntry("someString", StringJsonSchema.class)
-                    )))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
+                        new PropertyEntry("someString", StringJsonSchema.class)
+                ))
+            );
 
         }
 
@@ -89,10 +86,10 @@ public class ObjectTypeSchemaTest {
     public static class ObjectWithAddpropsSchema extends JsonSchema implements SchemaMapValidator<String, String, FrozenMap<String>> {
         private static ObjectWithAddpropsSchema instance;
         private ObjectWithAddpropsSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                    new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(StringJsonSchema.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(StringJsonSchema.class)
+            );
         }
 
         public static ObjectWithAddpropsSchema getInstance() {
@@ -146,13 +143,13 @@ public class ObjectTypeSchemaTest {
     public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static ObjectWithPropsAndAddpropsSchema instance;
         private ObjectWithPropsAndAddpropsSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                    new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                            new PropertyEntry("someString", StringJsonSchema.class)
-                    ))),
-                    new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(BooleanJsonSchema.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
+                        new PropertyEntry("someString", StringJsonSchema.class)
+                ))
+                .additionalProperties(BooleanJsonSchema.class)
+            );
         }
 
         public static ObjectWithPropsAndAddpropsSchema getInstance() {
@@ -207,12 +204,12 @@ public class ObjectTypeSchemaTest {
     public static class ObjectWithOutputTypeSchema extends JsonSchema implements SchemaMapValidator<Object, Object, ObjectWithOutputTypeSchemaMap> {
         private static ObjectWithOutputTypeSchema instance;
         public ObjectWithOutputTypeSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                    new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                            new PropertyEntry("someString", StringJsonSchema.class)
-                    )))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
+                        new PropertyEntry("someString", StringJsonSchema.class)
+                ))
+            );
         }
 
         public static ObjectWithOutputTypeSchema getInstance() {

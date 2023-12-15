@@ -40,7 +40,7 @@ public class Schema {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .maximum(100)
                 .minimum(10)
             );
@@ -109,7 +109,7 @@ public class Schema {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int32")
                 .maximum(200)
                 .minimum(20)
@@ -174,7 +174,7 @@ public class Schema {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .maximum(543.2)
                 .minimum(32.1)
             );
@@ -242,7 +242,7 @@ public class Schema {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("float")
                 .maximum(987.6)
             );
@@ -298,7 +298,7 @@ public class Schema {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("double")
                 .maximum(123.4)
                 .minimum(67.8)
@@ -352,7 +352,7 @@ public class Schema {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .pattern(Pattern.compile(
                     "[a-z]",
                     Pattern.CASE_INSENSITIVE
@@ -404,7 +404,7 @@ public class Schema {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .pattern(Pattern.compile(
                     "^[A-Z].*"
                 ))
@@ -466,7 +466,7 @@ public class Schema {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .format("date-time")
             );
         }
@@ -515,7 +515,7 @@ public class Schema {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .format("password")
                 .maxLength(64)
                 .minLength(10)

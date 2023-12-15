@@ -32,7 +32,7 @@ public class Schema5 {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("double")
                 .enumValues(SetMaker.makeSet(
                     1.1,

@@ -29,7 +29,7 @@ public class PathParamSchema0 {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "a",
                     "b"

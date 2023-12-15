@@ -17,7 +17,7 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements SchemaNullVali
     private static UnsetAnyTypeJsonSchema instance;
 
     protected UnsetAnyTypeJsonSchema() {
-        super(null);
+        super(new JsonSchemaInfo());
     }
 
     public static UnsetAnyTypeJsonSchema getInstance() {

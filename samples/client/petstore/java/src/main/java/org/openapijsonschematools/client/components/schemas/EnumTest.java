@@ -33,7 +33,7 @@ public class EnumTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "UPPER",
                     "lower",
@@ -86,7 +86,7 @@ public class EnumTest {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "UPPER",
                     "lower",
@@ -142,7 +142,7 @@ public class EnumTest {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int32")
                 .enumValues(SetMaker.makeSet(
                     1,
@@ -206,7 +206,7 @@ public class EnumTest {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("double")
                 .enumValues(SetMaker.makeSet(
                     1.1,

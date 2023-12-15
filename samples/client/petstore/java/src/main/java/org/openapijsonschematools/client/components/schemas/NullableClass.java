@@ -41,7 +41,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
             );
         }
     
@@ -128,7 +128,7 @@ public class NullableClass {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
             );
         }
     
@@ -219,7 +219,7 @@ public class NullableClass {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
             );
         }
     
@@ -306,7 +306,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     Boolean.class
-                )
+                ))
             );
         }
     
@@ -379,7 +379,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     String.class
-                )
+                ))
             );
         }
     
@@ -451,7 +451,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     String.class
-                )
+                ))
                 .format("date")
             );
         }
@@ -524,7 +524,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     String.class
-                )
+                ))
                 .format("date-time")
             );
         }
@@ -614,7 +614,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenList.class
-                )
+                ))
                 .items(Items.class)
             );
         }
@@ -709,7 +709,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
             );
         }
     
@@ -807,7 +807,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenList.class
-                )
+                ))
                 .items(Items1.class)
             );
         }
@@ -902,7 +902,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
             );
         }
     
@@ -1092,7 +1092,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
                 .additionalProperties(AdditionalProperties.class)
             );
         }
@@ -1187,7 +1187,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
             );
         }
     
@@ -1291,7 +1291,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
                 .additionalProperties(AdditionalProperties1.class)
             );
         }
@@ -1386,7 +1386,7 @@ public class NullableClass {
                 .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )
+                ))
             );
         }
     

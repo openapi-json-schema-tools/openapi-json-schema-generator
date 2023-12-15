@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.schemas;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -23,14 +24,14 @@ public class NumberJsonSchema extends JsonSchema implements SchemaNumberValidato
     private static NumberJsonSchema instance;
 
     protected NumberJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
-                        Integer.class,
-                        Long.class,
-                        Float.class,
-                        Double.class
-                )))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+            ))
+        );
     }
 
     public static NumberJsonSchema getInstance() {

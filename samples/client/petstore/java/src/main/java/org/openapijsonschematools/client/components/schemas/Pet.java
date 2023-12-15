@@ -128,7 +128,7 @@ public class Pet {
             super(new JsonSchemaInfo()
                 .type(Set.of(
                     String.class
-                )
+                ))
                 .enumValues(SetMaker.makeSet(
                     "available",
                     "pending",

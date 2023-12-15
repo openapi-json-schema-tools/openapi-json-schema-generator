@@ -32,7 +32,7 @@ public class Schema4 {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int32")
                 .enumValues(SetMaker.makeSet(
                     1,

@@ -38,7 +38,7 @@ public class NullableString {
                 .type(Set.of(
                     Void.class,
                     String.class
-                )
+                ))
             );
         }
     

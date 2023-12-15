@@ -33,7 +33,7 @@ public class ArrayWithValidationsInItems {
                     Long.class,
                     Float.class,
                     Double.class
-                )
+                ))
                 .format("int64")
                 .maximum(7)
             );

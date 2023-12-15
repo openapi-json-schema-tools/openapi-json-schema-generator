@@ -5,22 +5,18 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -28,17 +24,17 @@ public class ArrayTypeSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
     static final ValidationMetadata validationMetadata = new ValidationMetadata(
             List.of("args[0"),
-            configuration, 
-            new PathToSchemasMap(), 
+            configuration,
+            new PathToSchemasMap(),
             new LinkedHashSet<>()
     );
 
     public static class ArrayWithItemsSchema extends JsonSchema implements SchemaListValidator<String, String, FrozenList<String>> {
         public ArrayWithItemsSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                    new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(StringJsonSchema.class)
+            );
         }
 
         @Override
@@ -94,10 +90,10 @@ public class ArrayTypeSchemaTest {
 
     public static class ArrayWithOutputClsSchema extends JsonSchema implements SchemaListValidator<String, String, ArrayWithOutputClsSchemaList> {
         public ArrayWithOutputClsSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                    new KeywordEntry("items", new ItemsValidator(StringJsonSchema.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(StringJsonSchema.class)
+            );
 
         }
 
