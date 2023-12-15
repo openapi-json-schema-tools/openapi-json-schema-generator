@@ -14,43 +14,38 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     */
 {{/if}}
     private static {{jsonPathPiece.camelCase}} instance;
-    {{#each keywords}}
-        {{#if @first}}
+
     protected {{../jsonPathPiece.camelCase}}() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-        {{/if}}
-        {{#eq this "type"}}
+        super(new JsonSchemaInfo()
+        {{#if types}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
-        {{/eq}}
-        {{#eq this "items"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_items }}
-        {{/eq}}
-        {{#eq this "maxItems"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_maxItems }}
-        {{/eq}}
-        {{#eq this "minItems"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_minItems }}
-        {{/eq}}
-        {{#eq this "allOf"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
-        {{/eq}}
-        {{#eq this "anyOf"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
-        {{/eq}}
-        {{#eq this "oneOf"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
-        {{/eq}}
-        {{#eq this "not"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
-        {{/eq}}
-        {{#eq this "uniqueItems"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }}
-        {{/eq}}
-        {{#if @last}}
-        )));
-    }
         {{/if}}
-    {{/each}}
+        {{#if items}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_items }}
+        {{/if}}
+        {{#neq maxItems null}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_maxItems }}
+        {{/neq}}
+        {{#neq minItems null}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_minItems }}
+        {{/neq}}
+        {{#if allOf}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
+        {{/if}}
+        {{#if anyOf}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
+        {{/if}}
+        {{#if oneOf}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
+        {{/if}}
+        {{#if not}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
+        {{/if}}
+        {{#neq uniqueItems null}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }}
+        {{/neq}}
+        );
+    }
 
     public static {{jsonPathPiece.camelCase}} getInstance() {
         if (instance == null) {

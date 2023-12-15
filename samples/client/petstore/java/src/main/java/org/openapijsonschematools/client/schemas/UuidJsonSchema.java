@@ -3,6 +3,7 @@ package org.openapijsonschematools.client.schemas;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -25,10 +26,10 @@ public class UuidJsonSchema extends JsonSchema implements SchemaStringValidator 
     private static UuidJsonSchema instance;
 
     protected UuidJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
-                new KeywordEntry("format", new FormatValidator("uuid"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(String.class))
+            .format("uuid")
+        );
     }
 
     public static UuidJsonSchema getInstance() {

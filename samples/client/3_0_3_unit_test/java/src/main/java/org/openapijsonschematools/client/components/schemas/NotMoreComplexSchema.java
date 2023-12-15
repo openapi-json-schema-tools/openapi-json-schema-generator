@@ -18,10 +18,8 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.NotValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -29,7 +27,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class NotMoreComplexSchema {
@@ -70,13 +67,14 @@ public class NotMoreComplexSchema {
     
     public static class Not extends JsonSchema implements SchemaMapValidator<Object, Object, NotMap> {
         private static Not instance;
+    
         protected Not() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static Not getInstance() {
@@ -147,10 +145,11 @@ public class NotMoreComplexSchema {
         Do not edit the class manually.
         */
         private static NotMoreComplexSchema1 instance;
+    
         protected NotMoreComplexSchema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("not", new NotValidator(Not.class))
-            )));
+            super(new JsonSchemaInfo()
+                .not(Not.class)
+            );
         }
     
         public static NotMoreComplexSchema1 getInstance() {

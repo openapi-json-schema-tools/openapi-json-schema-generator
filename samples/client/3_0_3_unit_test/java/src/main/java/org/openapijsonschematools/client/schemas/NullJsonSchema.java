@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
@@ -23,9 +24,9 @@ public class NullJsonSchema extends JsonSchema implements SchemaNullValidator {
     private static NullJsonSchema instance;
 
     protected NullJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(Void.class))
+        );
     }
 
     public static NullJsonSchema getInstance() {

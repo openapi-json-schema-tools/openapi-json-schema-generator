@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("multipleOf", new MultipleOfValidator({{multipleOf}})){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("{{multipleOf.toString}}")<br>
 {{~else}}
-new KeywordEntry("multipleOf", new MultipleOfValidator({{multipleOf}})){{#unless @last}},{{/unless}}
+.multipleOf(new BigDecimal("{{multipleOf.toString}}"))
 {{/if}}

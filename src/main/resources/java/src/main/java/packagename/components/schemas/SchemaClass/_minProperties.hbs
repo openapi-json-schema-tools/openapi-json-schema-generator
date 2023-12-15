@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("minProperties", new MinPropertiesValidator({{minProperties}})){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minProperties = {{minProperties}}<br>
 {{~else}}
-new KeywordEntry("minProperties", new MinPropertiesValidator({{minProperties}})){{#unless @last}},{{/unless}}
+.minProperties({{minProperties}})
 {{/if}}

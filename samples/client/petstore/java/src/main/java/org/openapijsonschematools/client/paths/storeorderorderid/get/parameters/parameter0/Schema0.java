@@ -11,14 +11,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema0 {
@@ -27,18 +23,19 @@ public class Schema0 {
     
     public static class Schema01 extends JsonSchema implements SchemaNumberValidator {
         private static Schema01 instance;
+    
         protected Schema01() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("int64")),
-                new KeywordEntry("maximum", new MaximumValidator(5)),
-                new KeywordEntry("minimum", new MinimumValidator(1))
-            )));
+                ))
+                .format("int64")
+                .maximum(5)
+                .minimum(1)
+            );
         }
     
         public static Schema01 getInstance() {

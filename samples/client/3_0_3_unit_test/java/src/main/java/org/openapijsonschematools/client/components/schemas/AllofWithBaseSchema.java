@@ -17,15 +17,12 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
@@ -70,15 +67,16 @@ public class AllofWithBaseSchema {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
+    
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "foo"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema0 getInstance() {
@@ -328,15 +326,16 @@ public class AllofWithBaseSchema {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("baz", Baz.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "baz"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema1 getInstance() {
@@ -592,19 +591,20 @@ public class AllofWithBaseSchema {
         Do not edit the class manually.
         */
         private static AllofWithBaseSchema1 instance;
+    
         protected AllofWithBaseSchema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "bar"
-                ))),
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                ))
+                .allOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static AllofWithBaseSchema1 getInstance() {

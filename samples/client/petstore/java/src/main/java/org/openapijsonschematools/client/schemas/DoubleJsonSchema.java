@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
@@ -24,10 +25,10 @@ public class DoubleJsonSchema extends JsonSchema implements SchemaNumberValidato
     private static DoubleJsonSchema instance;
 
     protected DoubleJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Double.class))),
-                new KeywordEntry("format", new FormatValidator("double"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(Double.class))
+            .format("double")
+        );
     }
 
     public static DoubleJsonSchema getInstance() {

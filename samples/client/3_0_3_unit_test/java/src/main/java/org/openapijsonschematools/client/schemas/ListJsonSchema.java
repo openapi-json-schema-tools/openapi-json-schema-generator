@@ -4,6 +4,7 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -24,9 +25,9 @@ public class ListJsonSchema extends JsonSchema implements SchemaListValidator<Ob
     private static ListJsonSchema instance;
 
     protected ListJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(FrozenList.class))
+        );
     }
 
     public static ListJsonSchema getInstance() {

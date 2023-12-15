@@ -23,7 +23,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("multipleOf", new MultipleOfValidator(0.00010))<br>)); |
+| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("0.00010")<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -16,16 +16,13 @@ import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Order {
@@ -48,16 +45,16 @@ public class Order {
         private static Status instance;
     
         protected Status() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                ))
+                .enumValues(SetMaker.makeSet(
                     "placed",
                     "approved",
                     "delivered"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Status getInstance() {
@@ -172,18 +169,19 @@ public class Order {
         Do not edit the class manually.
         */
         private static Order1 instance;
+    
         protected Order1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("id", Id.class),
                     new PropertyEntry("petId", PetId.class),
                     new PropertyEntry("quantity", Quantity.class),
                     new PropertyEntry("shipDate", ShipDate.class),
                     new PropertyEntry("status", Status.class),
                     new PropertyEntry("complete", Complete.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static Order1 getInstance() {

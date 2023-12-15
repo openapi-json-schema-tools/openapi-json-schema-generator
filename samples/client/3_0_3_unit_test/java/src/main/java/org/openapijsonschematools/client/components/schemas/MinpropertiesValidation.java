@@ -17,8 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MinPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,10 +39,11 @@ public class MinpropertiesValidation {
         Do not edit the class manually.
         */
         private static MinpropertiesValidation1 instance;
+    
         protected MinpropertiesValidation1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("minProperties", new MinPropertiesValidator(1))
-            )));
+            super(new JsonSchemaInfo()
+                .minProperties(1)
+            );
         }
     
         public static MinpropertiesValidation1 getInstance() {

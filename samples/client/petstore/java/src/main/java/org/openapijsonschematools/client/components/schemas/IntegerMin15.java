@@ -11,13 +11,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class IntegerMin15 {
@@ -32,17 +29,18 @@ public class IntegerMin15 {
         Do not edit the class manually.
         */
         private static IntegerMin151 instance;
+    
         protected IntegerMin151() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("int64")),
-                new KeywordEntry("minimum", new MinimumValidator(15))
-            )));
+                ))
+                .format("int64")
+                .minimum(15)
+            );
         }
     
         public static IntegerMin151 getInstance() {

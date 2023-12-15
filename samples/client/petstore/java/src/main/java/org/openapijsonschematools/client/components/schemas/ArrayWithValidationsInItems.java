@@ -11,17 +11,12 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MaxItemsValidator;
-import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ArrayWithValidationsInItems {
@@ -30,17 +25,18 @@ public class ArrayWithValidationsInItems {
     
     public static class Items extends JsonSchema implements SchemaNumberValidator {
         private static Items instance;
+    
         protected Items() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("int64")),
-                new KeywordEntry("maximum", new MaximumValidator(7))
-            )));
+                ))
+                .format("int64")
+                .maximum(7)
+            );
         }
     
         public static Items getInstance() {
@@ -118,12 +114,13 @@ public class ArrayWithValidationsInItems {
         Do not edit the class manually.
         */
         private static ArrayWithValidationsInItems1 instance;
+    
         protected ArrayWithValidationsInItems1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class)),
-                new KeywordEntry("maxItems", new MaxItemsValidator(2))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+                .maxItems(2)
+            );
         }
     
         public static ArrayWithValidationsInItems1 getInstance() {

@@ -14,11 +14,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,12 +39,13 @@ public class RefInAnyof {
         Do not edit the class manually.
         */
         private static RefInAnyof1 instance;
+    
         protected RefInAnyof1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .anyOf(List.of(
                     PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static RefInAnyof1 getInstance() {

@@ -16,12 +16,10 @@ import org.openapijsonschematools.client.schemas.UuidJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class MixedPropertiesAndAdditionalPropertiesClass {
@@ -56,11 +54,12 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     public static class MapSchema extends JsonSchema implements SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, MapMap> {
         private static MapSchema instance;
+    
         protected MapSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Animal.Animal1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(Animal.Animal1.class)
+            );
         }
     
         public static MapSchema getInstance() {
@@ -162,15 +161,16 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         Do not edit the class manually.
         */
         private static MixedPropertiesAndAdditionalPropertiesClass1 instance;
+    
         protected MixedPropertiesAndAdditionalPropertiesClass1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("uuid", UuidSchema.class),
                     new PropertyEntry("dateTime", DateTime.class),
                     new PropertyEntry("map", MapSchema.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static MixedPropertiesAndAdditionalPropertiesClass1 getInstance() {

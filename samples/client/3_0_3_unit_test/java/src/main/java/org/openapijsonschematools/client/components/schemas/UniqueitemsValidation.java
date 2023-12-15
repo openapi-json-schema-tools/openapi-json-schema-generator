@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -25,7 +25,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.UniqueItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class UniqueitemsValidation {
@@ -40,10 +39,11 @@ public class UniqueitemsValidation {
         Do not edit the class manually.
         */
         private static UniqueitemsValidation1 instance;
+    
         protected UniqueitemsValidation1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))
-            )));
+            super(new JsonSchemaInfo()
+                .uniqueItems(true)
+            );
         }
     
         public static UniqueitemsValidation1 getInstance() {

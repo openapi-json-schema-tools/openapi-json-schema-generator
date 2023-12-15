@@ -15,15 +15,12 @@ import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ArrayTest {
@@ -49,11 +46,12 @@ public class ArrayTest {
     
     public static class ArrayOfString extends JsonSchema implements SchemaListValidator<String, String, ArrayOfStringList> {
         private static ArrayOfString instance;
+    
         protected ArrayOfString() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+            );
         }
     
         public static ArrayOfString getInstance() {
@@ -134,11 +132,12 @@ public class ArrayTest {
     
     public static class Items1 extends JsonSchema implements SchemaListValidator<Long, Long, ItemsList> {
         private static Items1 instance;
+    
         protected Items1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items2.class)
+            );
         }
     
         public static Items1 getInstance() {
@@ -216,11 +215,12 @@ public class ArrayTest {
     
     public static class ArrayArrayOfInteger extends JsonSchema implements SchemaListValidator<List<Long>, FrozenList<Long>, ArrayArrayOfIntegerList> {
         private static ArrayArrayOfInteger instance;
+    
         protected ArrayArrayOfInteger() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items1.class)
+            );
         }
     
         public static ArrayArrayOfInteger getInstance() {
@@ -298,11 +298,12 @@ public class ArrayTest {
     
     public static class Items3 extends JsonSchema implements SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ItemsList1> {
         private static Items3 instance;
+    
         protected Items3() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(ReadOnlyFirst.ReadOnlyFirst1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(ReadOnlyFirst.ReadOnlyFirst1.class)
+            );
         }
     
         public static Items3 getInstance() {
@@ -380,11 +381,12 @@ public class ArrayTest {
     
     public static class ArrayArrayOfModel extends JsonSchema implements SchemaListValidator<List<Map<String, Object>>, FrozenList<FrozenMap<Object>>, ArrayArrayOfModelList> {
         private static ArrayArrayOfModel instance;
+    
         protected ArrayArrayOfModel() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items3.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items3.class)
+            );
         }
     
         public static ArrayArrayOfModel getInstance() {
@@ -497,15 +499,16 @@ public class ArrayTest {
         Do not edit the class manually.
         */
         private static ArrayTest1 instance;
+    
         protected ArrayTest1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("array_of_string", ArrayOfString.class),
                     new PropertyEntry("array_array_of_integer", ArrayArrayOfInteger.class),
                     new PropertyEntry("array_array_of_model", ArrayArrayOfModel.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static ArrayTest1 getInstance() {

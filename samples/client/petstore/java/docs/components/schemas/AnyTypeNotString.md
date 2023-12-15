@@ -24,7 +24,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("not", new NotValidator([Not.class](#not)))<br>)); |
+| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;not = [Not.class](#not)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

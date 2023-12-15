@@ -17,8 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MaxItemsValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,10 +39,11 @@ public class MaxitemsValidation {
         Do not edit the class manually.
         */
         private static MaxitemsValidation1 instance;
+    
         protected MaxitemsValidation1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("maxItems", new MaxItemsValidator(2))
-            )));
+            super(new JsonSchemaInfo()
+                .maxItems(2)
+            );
         }
     
         public static MaxitemsValidation1 getInstance() {

@@ -17,8 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,10 +39,11 @@ public class MinlengthValidation {
         Do not edit the class manually.
         */
         private static MinlengthValidation1 instance;
+    
         protected MinlengthValidation1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("minLength", new MinLengthValidator(2))
-            )));
+            super(new JsonSchemaInfo()
+                .minLength(2)
+            );
         }
     
         public static MinlengthValidation1 getInstance() {

@@ -11,13 +11,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.ExclusiveMaximumValidator;
-import org.openapijsonschematools.client.schemas.validation.ExclusiveMinimumValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class NumberWithExclusiveMinMax {
@@ -32,17 +29,18 @@ public class NumberWithExclusiveMinMax {
         Do not edit the class manually.
         */
         private static NumberWithExclusiveMinMax1 instance;
+    
         protected NumberWithExclusiveMinMax1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("exclusiveMaximum", new ExclusiveMaximumValidator(12)),
-                new KeywordEntry("exclusiveMinimum", new ExclusiveMinimumValidator(10))
-            )));
+                ))
+                .exclusiveMaximum(12)
+                .exclusiveMinimum(10)
+            );
         }
     
         public static NumberWithExclusiveMinMax1 getInstance() {

@@ -15,14 +15,11 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -30,7 +27,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class SimpleQuadrilateral {
@@ -41,14 +37,14 @@ public class SimpleQuadrilateral {
         private static QuadrilateralType instance;
     
         protected QuadrilateralType() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                ))
+                .enumValues(SetMaker.makeSet(
                     "SimpleQuadrilateral"
-                )))
-            )));
+                ))
+            );
         }
     
         public static QuadrilateralType getInstance() {
@@ -119,13 +115,14 @@ public class SimpleQuadrilateral {
     
     public static class Schema1 extends JsonSchema implements SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("quadrilateralType", QuadrilateralType.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema1 getInstance() {
@@ -196,13 +193,14 @@ public class SimpleQuadrilateral {
         Do not edit the class manually.
         */
         private static SimpleQuadrilateral1 instance;
+    
         protected SimpleQuadrilateral1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .allOf(List.of(
                     QuadrilateralInterface.QuadrilateralInterface1.class,
                     Schema1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static SimpleQuadrilateral1 getInstance() {

@@ -16,9 +16,9 @@ import java.util.Map;
 class SomeSchema extends JsonSchema {
     private static SomeSchema instance;
     protected SomeSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(String.class))
+        );
     }
 
     public static SomeSchema getInstance() {

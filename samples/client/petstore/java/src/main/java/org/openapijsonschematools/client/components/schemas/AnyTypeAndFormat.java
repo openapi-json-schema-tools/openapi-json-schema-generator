@@ -14,13 +14,11 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -28,7 +26,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class AnyTypeAndFormat {
@@ -37,10 +34,11 @@ public class AnyTypeAndFormat {
     
     public static class UuidSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static UuidSchema instance;
+    
         protected UuidSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("uuid"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("uuid")
+            );
         }
     
         public static UuidSchema getInstance() {
@@ -249,10 +247,11 @@ public class AnyTypeAndFormat {
     
     public static class Date extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Date instance;
+    
         protected Date() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("date"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("date")
+            );
         }
     
         public static Date getInstance() {
@@ -461,10 +460,11 @@ public class AnyTypeAndFormat {
     
     public static class Datetime extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Datetime instance;
+    
         protected Datetime() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("date-time"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("date-time")
+            );
         }
     
         public static Datetime getInstance() {
@@ -673,10 +673,11 @@ public class AnyTypeAndFormat {
     
     public static class NumberSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static NumberSchema instance;
+    
         protected NumberSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("number"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("number")
+            );
         }
     
         public static NumberSchema getInstance() {
@@ -885,10 +886,11 @@ public class AnyTypeAndFormat {
     
     public static class Binary extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Binary instance;
+    
         protected Binary() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("binary"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("binary")
+            );
         }
     
         public static Binary getInstance() {
@@ -1097,10 +1099,11 @@ public class AnyTypeAndFormat {
     
     public static class Int32 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Int32 instance;
+    
         protected Int32() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("int32"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("int32")
+            );
         }
     
         public static Int32 getInstance() {
@@ -1309,10 +1312,11 @@ public class AnyTypeAndFormat {
     
     public static class Int64 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Int64 instance;
+    
         protected Int64() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("int64"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("int64")
+            );
         }
     
         public static Int64 getInstance() {
@@ -1521,10 +1525,11 @@ public class AnyTypeAndFormat {
     
     public static class DoubleSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static DoubleSchema instance;
+    
         protected DoubleSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("double"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("double")
+            );
         }
     
         public static DoubleSchema getInstance() {
@@ -1733,10 +1738,11 @@ public class AnyTypeAndFormat {
     
     public static class FloatSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static FloatSchema instance;
+    
         protected FloatSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("float"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("float")
+            );
         }
     
         public static FloatSchema getInstance() {
@@ -2006,10 +2012,11 @@ public class AnyTypeAndFormat {
         Do not edit the class manually.
         */
         private static AnyTypeAndFormat1 instance;
+    
         protected AnyTypeAndFormat1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("uuid", UuidSchema.class),
                     new PropertyEntry("date", Date.class),
                     new PropertyEntry("date-time", Datetime.class),
@@ -2019,8 +2026,8 @@ public class AnyTypeAndFormat {
                     new PropertyEntry("int64", Int64.class),
                     new PropertyEntry("double", DoubleSchema.class),
                     new PropertyEntry("float", FloatSchema.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static AnyTypeAndFormat1 getInstance() {

@@ -26,11 +26,8 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
         }
         Map<String, Object> castArg = (Map<String, Object>) arg;
         Set<String> presentAdditionalProperties = new LinkedHashSet<>(castArg.keySet());
-        if (schema.keywordToValidator != null) {
-            KeywordValidator propertiesValidator = schema.keywordToValidator.get("properties");
-            if (propertiesValidator instanceof PropertiesValidator) {
-                presentAdditionalProperties.removeAll(((PropertiesValidator) propertiesValidator).properties.keySet());
-            }
+        if (schema.properties != null) {
+            presentAdditionalProperties.removeAll(schema.properties.keySet());
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for validatedPatternProperties

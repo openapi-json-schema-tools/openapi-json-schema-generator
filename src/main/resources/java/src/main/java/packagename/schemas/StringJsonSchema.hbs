@@ -4,6 +4,7 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.SchemaStringValidator;
@@ -26,9 +27,9 @@ public class StringJsonSchema extends JsonSchema implements SchemaStringValidato
     private static StringJsonSchema instance;
 
     protected StringJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(String.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(String.class))
+        );
     }
 
     public static StringJsonSchema getInstance() {

@@ -12,19 +12,14 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class EnumTest {
@@ -35,16 +30,16 @@ public class EnumTest {
         private static EnumString instance;
     
         protected EnumString() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                ))
+                .enumValues(SetMaker.makeSet(
                     "UPPER",
                     "lower",
                     ""
-                )))
-            )));
+                ))
+            );
         }
     
         public static EnumString getInstance() {
@@ -88,16 +83,16 @@ public class EnumTest {
         private static EnumStringRequired instance;
     
         protected EnumStringRequired() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                ))
+                .enumValues(SetMaker.makeSet(
                     "UPPER",
                     "lower",
                     ""
-                )))
-            )));
+                ))
+            );
         }
     
         public static EnumStringRequired getInstance() {
@@ -139,20 +134,21 @@ public class EnumTest {
     
     public static class EnumInteger extends JsonSchema implements SchemaNumberValidator {
         private static EnumInteger instance;
+    
         protected EnumInteger() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("int32")),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                ))
+                .format("int32")
+                .enumValues(SetMaker.makeSet(
                     1,
                     -1
-                )))
-            )));
+                ))
+            );
         }
     
         public static EnumInteger getInstance() {
@@ -202,20 +198,21 @@ public class EnumTest {
     
     public static class EnumNumber extends JsonSchema implements SchemaNumberValidator {
         private static EnumNumber instance;
+    
         protected EnumNumber() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("double")),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                ))
+                .format("double")
+                .enumValues(SetMaker.makeSet(
                     1.1,
                     -1.2
-                )))
-            )));
+                ))
+            );
         }
     
         public static EnumNumber getInstance() {
@@ -350,10 +347,11 @@ public class EnumTest {
         Do not edit the class manually.
         */
         private static EnumTest1 instance;
+    
         protected EnumTest1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("enum_string", EnumString.class),
                     new PropertyEntry("enum_string_required", EnumStringRequired.class),
                     new PropertyEntry("enum_integer", EnumInteger.class),
@@ -363,11 +361,11 @@ public class EnumTest {
                     new PropertyEntry("StringEnumWithDefaultValue", StringEnumWithDefaultValue.StringEnumWithDefaultValue1.class),
                     new PropertyEntry("IntegerEnumWithDefaultValue", IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.class),
                     new PropertyEntry("IntegerEnumOneValue", IntegerEnumOneValue.IntegerEnumOneValue1.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "enum_string_required"
-                )))
-            )));
+                ))
+            );
         }
     
         public static EnumTest1 getInstance() {

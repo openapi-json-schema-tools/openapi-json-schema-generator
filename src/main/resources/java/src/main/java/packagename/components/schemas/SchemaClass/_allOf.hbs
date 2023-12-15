@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("allOf", new AllOfValidator(List.of(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;allOf = List.of(<br>
     {{~#each allOf}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -11,9 +11,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
         {{~/if}}
     {{/each}}
-&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
 {{~else}}
-new KeywordEntry("allOf", new AllOfValidator(List.of(
+.allOf(List.of(
     {{#each allOf}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ new KeywordEntry("allOf", new AllOfValidator(List.of(
     {{jsonPathPiece.camelCase}}.class{{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))){{#unless @last}},{{/unless}}
+))
 {{/if}}

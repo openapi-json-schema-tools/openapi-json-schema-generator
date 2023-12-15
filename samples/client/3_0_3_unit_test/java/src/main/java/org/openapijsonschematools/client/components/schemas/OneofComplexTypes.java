@@ -19,12 +19,9 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
@@ -69,15 +66,16 @@ public class OneofComplexTypes {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
+    
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "bar"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema0 getInstance() {
@@ -327,15 +325,16 @@ public class OneofComplexTypes {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "foo"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema1 getInstance() {
@@ -561,13 +560,14 @@ public class OneofComplexTypes {
         Do not edit the class manually.
         */
         private static OneofComplexTypes1 instance;
+    
         protected OneofComplexTypes1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .oneOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static OneofComplexTypes1 getInstance() {

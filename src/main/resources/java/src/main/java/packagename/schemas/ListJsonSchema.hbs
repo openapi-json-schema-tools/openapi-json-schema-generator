@@ -4,6 +4,7 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -24,9 +25,9 @@ public class ListJsonSchema extends JsonSchema implements SchemaListValidator<Ob
     private static ListJsonSchema instance;
 
     protected ListJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(FrozenList.class))
+        );
     }
 
     public static ListJsonSchema getInstance() {

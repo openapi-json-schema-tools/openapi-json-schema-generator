@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("uniqueItems", new UniqueItemsValidator({{uniqueItems}})){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;uniqueItems = {{uniqueItems}}<br>
 {{~else}}
-new KeywordEntry("uniqueItems", new UniqueItemsValidator({{uniqueItems}})){{#unless @last}},{{/unless}}
+.uniqueItems({{uniqueItems}})
 {{/if}}

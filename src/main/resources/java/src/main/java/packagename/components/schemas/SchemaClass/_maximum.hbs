@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("maximum", new MaximumValidator({{maximum}})){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maximum = {{maximum}}<br>
 {{~else}}
-new KeywordEntry("maximum", new MaximumValidator({{maximum}})){{#unless @last}},{{/unless}}
+.maximum({{maximum}})
 {{/if}}

@@ -15,16 +15,12 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PatternValidator;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Apple {
@@ -35,14 +31,14 @@ public class Apple {
         private static Cultivar instance;
     
         protected Cultivar() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                ))
+                .pattern(Pattern.compile(
                     "^[a-zA-Z\\s]*$"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Cultivar getInstance() {
@@ -86,15 +82,15 @@ public class Apple {
         private static Origin instance;
     
         protected Origin() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                ))
+                .pattern(Pattern.compile(
                     "^[A-Z\\s]*$",
                     Pattern.CASE_INSENSITIVE
-                )))
-            )));
+                ))
+            );
         }
     
         public static Origin getInstance() {
@@ -177,20 +173,21 @@ public class Apple {
         Do not edit the class manually.
         */
         private static Apple1 instance;
+    
         protected Apple1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                ))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                ))
+                .properties(Map.ofEntries(
                     new PropertyEntry("cultivar", Cultivar.class),
                     new PropertyEntry("origin", Origin.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "cultivar"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Apple1 getInstance() {

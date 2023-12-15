@@ -13,12 +13,10 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class NestedItems {
@@ -44,11 +42,12 @@ public class NestedItems {
     
     public static class Items2 extends JsonSchema implements SchemaListValidator<Number, Number, ItemsList> {
         private static Items2 instance;
+    
         protected Items2() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items3.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items3.class)
+            );
         }
     
         public static Items2 getInstance() {
@@ -126,11 +125,12 @@ public class NestedItems {
     
     public static class Items1 extends JsonSchema implements SchemaListValidator<List<Number>, FrozenList<Number>, ItemsList1> {
         private static Items1 instance;
+    
         protected Items1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items2.class)
+            );
         }
     
         public static Items1 getInstance() {
@@ -208,11 +208,12 @@ public class NestedItems {
     
     public static class Items extends JsonSchema implements SchemaListValidator<List<List<Number>>, FrozenList<FrozenList<Number>>, ItemsList2> {
         private static Items instance;
+    
         protected Items() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items1.class)
+            );
         }
     
         public static Items getInstance() {
@@ -296,11 +297,12 @@ public class NestedItems {
         Do not edit the class manually.
         */
         private static NestedItems1 instance;
+    
         protected NestedItems1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+            );
         }
     
         public static NestedItems1 getInstance() {

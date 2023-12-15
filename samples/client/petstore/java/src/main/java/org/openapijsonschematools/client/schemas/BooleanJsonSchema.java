@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -23,9 +24,9 @@ public class BooleanJsonSchema extends JsonSchema implements SchemaBooleanValida
     private static BooleanJsonSchema instance;
 
     protected BooleanJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(Boolean.class))
+        );
     }
 
     public static BooleanJsonSchema getInstance() {

@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -17,8 +18,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MultipleOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,10 +40,11 @@ public class BySmallNumber {
         Do not edit the class manually.
         */
         private static BySmallNumber1 instance;
+    
         protected BySmallNumber1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("multipleOf", new MultipleOfValidator(0.00010))
-            )));
+            super(new JsonSchemaInfo()
+                .multipleOf(new BigDecimal("0.00010"))
+            );
         }
     
         public static BySmallNumber1 getInstance() {

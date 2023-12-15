@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("maxLength", new MaxLengthValidator({{maxLength}})){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;maxLength = {{maxLength}}<br>
 {{~else}}
-new KeywordEntry("maxLength", new MaxLengthValidator({{maxLength}})){{#unless @last}},{{/unless}}
+.maxLength({{maxLength}})
 {{/if}}

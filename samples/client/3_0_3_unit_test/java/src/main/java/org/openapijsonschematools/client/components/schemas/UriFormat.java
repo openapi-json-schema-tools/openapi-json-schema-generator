@@ -14,11 +14,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,10 +39,11 @@ public class UriFormat {
         Do not edit the class manually.
         */
         private static UriFormat1 instance;
+    
         protected UriFormat1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("format", new FormatValidator("uri"))
-            )));
+            super(new JsonSchemaInfo()
+                .format("uri")
+            );
         }
     
         public static UriFormat1 getInstance() {

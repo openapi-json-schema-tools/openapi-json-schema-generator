@@ -4,6 +4,7 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -24,15 +25,15 @@ public class IntJsonSchema extends JsonSchema implements SchemaNumberValidator {
     private static IntJsonSchema instance;
 
     protected IntJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
-                        Integer.class,
-                        Long.class,
-                        Float.class,
-                        Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("int"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+            ))
+            .format("int")
+        );
     }
 
     public static IntJsonSchema getInstance() {

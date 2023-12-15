@@ -14,12 +14,10 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class SelfReferencingObjectModel {
@@ -62,14 +60,15 @@ public class SelfReferencingObjectModel {
         Do not edit the class manually.
         */
         private static SelfReferencingObjectModel1 instance;
+    
         protected SelfReferencingObjectModel1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("selfRef", SelfReferencingObjectModel1.class)
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(SelfReferencingObjectModel1.class))
-            )));
+                ))
+                .additionalProperties(SelfReferencingObjectModel1.class)
+            );
         }
     
         public static SelfReferencingObjectModel1 getInstance() {

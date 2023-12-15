@@ -17,8 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MaxPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,10 +39,11 @@ public class MaxpropertiesValidation {
         Do not edit the class manually.
         */
         private static MaxpropertiesValidation1 instance;
+    
         protected MaxpropertiesValidation1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("maxProperties", new MaxPropertiesValidator(2))
-            )));
+            super(new JsonSchemaInfo()
+                .maxProperties(2)
+            );
         }
     
         public static MaxpropertiesValidation1 getInstance() {

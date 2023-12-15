@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;properties = Map.ofEntries(<br>
     {{~#each properties}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -11,9 +11,9 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
         {{~/if}}
     {{/each}}
-&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
 {{~else}}
-new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+.properties(Map.ofEntries(
     {{#each properties}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
@@ -25,5 +25,5 @@ new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
     new PropertyEntry("{{{@key.original}}}", {{jsonPathPiece.camelCase}}.class){{#unless @last}},{{/unless}}
         {{/if}}
     {{/each}}
-))){{#unless @last}},{{/unless}}
+))
 {{/if}}

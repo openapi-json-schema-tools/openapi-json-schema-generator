@@ -13,11 +13,9 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ReqPropsFromUnsetAddProps {
@@ -60,14 +58,15 @@ public class ReqPropsFromUnsetAddProps {
         Do not edit the class manually.
         */
         private static ReqPropsFromUnsetAddProps1 instance;
+    
         protected ReqPropsFromUnsetAddProps1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .required(Set.of(
                     "invalid-name",
                     "validName"
-                )))
-            )));
+                ))
+            );
         }
     
         public static ReqPropsFromUnsetAddProps1 getInstance() {

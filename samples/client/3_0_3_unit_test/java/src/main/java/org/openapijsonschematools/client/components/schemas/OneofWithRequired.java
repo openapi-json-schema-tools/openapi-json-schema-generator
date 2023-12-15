@@ -17,17 +17,14 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class OneofWithRequired {
@@ -68,13 +65,14 @@ public class OneofWithRequired {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
+    
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .required(Set.of(
                     "bar",
                     "foo"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema0 getInstance() {
@@ -326,13 +324,14 @@ public class OneofWithRequired {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .required(Set.of(
                     "baz",
                     "foo"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema1 getInstance() {
@@ -558,14 +557,15 @@ public class OneofWithRequired {
         Do not edit the class manually.
         */
         private static OneofWithRequired1 instance;
+    
         protected OneofWithRequired1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .oneOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static OneofWithRequired1 getInstance() {

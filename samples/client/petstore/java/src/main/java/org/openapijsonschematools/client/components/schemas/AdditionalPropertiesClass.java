@@ -18,12 +18,10 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class AdditionalPropertiesClass {
@@ -55,11 +53,12 @@ public class AdditionalPropertiesClass {
     
     public static class MapProperty extends JsonSchema implements SchemaMapValidator<String, String, MapPropertyMap> {
         private static MapProperty instance;
+    
         protected MapProperty() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static MapProperty getInstance() {
@@ -147,11 +146,12 @@ public class AdditionalPropertiesClass {
     
     public static class AdditionalProperties1 extends JsonSchema implements SchemaMapValidator<String, String, AdditionalPropertiesMap> {
         private static AdditionalProperties1 instance;
+    
         protected AdditionalProperties1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties2.class)
+            );
         }
     
         public static AdditionalProperties1 getInstance() {
@@ -236,11 +236,12 @@ public class AdditionalPropertiesClass {
     
     public static class MapOfMapProperty extends JsonSchema implements SchemaMapValidator<Map<String, String>, FrozenMap<String>, MapOfMapPropertyMap> {
         private static MapOfMapProperty instance;
+    
         protected MapOfMapProperty() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties1.class)
+            );
         }
     
         public static MapOfMapProperty getInstance() {
@@ -337,11 +338,12 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema implements SchemaMapValidator<Object, Object, MapWithUndeclaredPropertiesAnytype3Map> {
         private static MapWithUndeclaredPropertiesAnytype3 instance;
+    
         protected MapWithUndeclaredPropertiesAnytype3() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties3.class)
+            );
         }
     
         public static MapWithUndeclaredPropertiesAnytype3 getInstance() {
@@ -426,11 +428,12 @@ public class AdditionalPropertiesClass {
     
     public static class EmptyMap extends JsonSchema implements SchemaMapValidator<Object, Object, EmptyMapMap> {
         private static EmptyMap instance;
+    
         protected EmptyMap() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties4.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties4.class)
+            );
         }
     
         public static EmptyMap getInstance() {
@@ -518,11 +521,12 @@ public class AdditionalPropertiesClass {
     
     public static class MapWithUndeclaredPropertiesString extends JsonSchema implements SchemaMapValidator<String, String, MapWithUndeclaredPropertiesStringMap> {
         private static MapWithUndeclaredPropertiesString instance;
+    
         protected MapWithUndeclaredPropertiesString() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties5.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties5.class)
+            );
         }
     
         public static MapWithUndeclaredPropertiesString getInstance() {
@@ -671,10 +675,11 @@ public class AdditionalPropertiesClass {
         Do not edit the class manually.
         */
         private static AdditionalPropertiesClass1 instance;
+    
         protected AdditionalPropertiesClass1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("map_property", MapProperty.class),
                     new PropertyEntry("map_of_map_property", MapOfMapProperty.class),
                     new PropertyEntry("anytype_1", Anytype1.class),
@@ -683,8 +688,8 @@ public class AdditionalPropertiesClass {
                     new PropertyEntry("map_with_undeclared_properties_anytype_3", MapWithUndeclaredPropertiesAnytype3.class),
                     new PropertyEntry("empty_map", EmptyMap.class),
                     new PropertyEntry("map_with_undeclared_properties_string", MapWithUndeclaredPropertiesString.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static AdditionalPropertiesClass1 getInstance() {

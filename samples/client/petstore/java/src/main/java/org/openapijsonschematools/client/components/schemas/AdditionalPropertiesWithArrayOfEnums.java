@@ -14,13 +14,11 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class AdditionalPropertiesWithArrayOfEnums {
@@ -43,11 +41,12 @@ public class AdditionalPropertiesWithArrayOfEnums {
     
     public static class AdditionalProperties extends JsonSchema implements SchemaListValidator<String, String, AdditionalPropertiesList> {
         private static AdditionalProperties instance;
+    
         protected AdditionalProperties() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(EnumClass.EnumClass1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(EnumClass.EnumClass1.class)
+            );
         }
     
         public static AdditionalProperties getInstance() {
@@ -137,11 +136,12 @@ public class AdditionalPropertiesWithArrayOfEnums {
         Do not edit the class manually.
         */
         private static AdditionalPropertiesWithArrayOfEnums1 instance;
+    
         protected AdditionalPropertiesWithArrayOfEnums1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static AdditionalPropertiesWithArrayOfEnums1 getInstance() {

@@ -17,8 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,10 +39,11 @@ public class MinimumValidationWithSignedInteger {
         Do not edit the class manually.
         */
         private static MinimumValidationWithSignedInteger1 instance;
+    
         protected MinimumValidationWithSignedInteger1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("minimum", new MinimumValidator(-2))
-            )));
+            super(new JsonSchemaInfo()
+                .minimum(-2)
+            );
         }
     
         public static MinimumValidationWithSignedInteger1 getInstance() {

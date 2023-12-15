@@ -17,9 +17,8 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
@@ -68,17 +67,18 @@ public class RequiredWithEscapedCharacters {
         Do not edit the class manually.
         */
         private static RequiredWithEscapedCharacters1 instance;
+    
         protected RequiredWithEscapedCharacters1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .required(Set.of(
                     "foo\tbar",
                     "foo\nbar",
                     "foo\fbar",
                     "foo\rbar",
                     "foo\"bar",
                     "foo\\bar"
-                )))
-            )));
+                ))
+            );
         }
     
         public static RequiredWithEscapedCharacters1 getInstance() {

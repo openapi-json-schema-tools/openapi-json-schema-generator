@@ -5,6 +5,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
@@ -24,10 +25,10 @@ public class DecimalJsonSchema extends JsonSchema implements SchemaStringValidat
     private static DecimalJsonSchema instance;
 
     protected DecimalJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
-                new KeywordEntry("format", new FormatValidator("number"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(String.class))
+            .format("number")
+        );
     }
 
     public static DecimalJsonSchema getInstance() {

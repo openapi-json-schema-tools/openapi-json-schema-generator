@@ -5,6 +5,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.SchemaBooleanValidator;
@@ -23,9 +24,9 @@ public class BooleanJsonSchema extends JsonSchema implements SchemaBooleanValida
     private static BooleanJsonSchema instance;
 
     protected BooleanJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(Boolean.class))
+        );
     }
 
     public static BooleanJsonSchema getInstance() {

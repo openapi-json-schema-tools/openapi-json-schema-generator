@@ -7,6 +7,7 @@ import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.SchemaNullValidator;
 import {{{packageName}}}.schemas.validation.SchemaBooleanValidator;
@@ -31,7 +32,7 @@ public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator
     private static AnyTypeJsonSchema instance;
 
     protected AnyTypeJsonSchema() {
-        super(null);
+        super(new JsonSchemaInfo());
     }
 
     public static AnyTypeJsonSchema getInstance() {

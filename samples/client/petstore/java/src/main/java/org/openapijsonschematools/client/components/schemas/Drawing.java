@@ -14,15 +14,12 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Drawing {
@@ -45,11 +42,12 @@ public class Drawing {
     
     public static class Shapes extends JsonSchema implements SchemaListValidator<Object, Object, ShapesList> {
         private static Shapes instance;
+    
         protected Shapes() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Shape.Shape1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Shape.Shape1.class)
+            );
         }
     
         public static Shapes getInstance() {
@@ -168,17 +166,18 @@ public class Drawing {
         Do not edit the class manually.
         */
         private static Drawing1 instance;
+    
         protected Drawing1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("mainShape", Shape.Shape1.class),
                     new PropertyEntry("shapeOrNull", ShapeOrNull.ShapeOrNull1.class),
                     new PropertyEntry("nullableShape", NullableShape.NullableShape1.class),
                     new PropertyEntry("shapes", Shapes.class)
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(Fruit.Fruit1.class))
-            )));
+                ))
+                .additionalProperties(Fruit.Fruit1.class)
+            );
         }
     
         public static Drawing1 getInstance() {

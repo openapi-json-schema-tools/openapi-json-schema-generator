@@ -21,12 +21,12 @@ public class AdditionalPropertiesValidatorTest {
     public static class ObjectWithPropsSchema extends JsonSchema {
         private static ObjectWithPropsSchema instance;
         private ObjectWithPropsSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                    new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
-                            new PropertyEntry("someString", StringJsonSchema.class)
-                    )))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
+                    new PropertyEntry("someString", StringJsonSchema.class)
+                ))
+            );
 
         }
 
@@ -41,7 +41,7 @@ public class AdditionalPropertiesValidatorTest {
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenMap) {
                 @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return arg;
+                return castArg;
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }

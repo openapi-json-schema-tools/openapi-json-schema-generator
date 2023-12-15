@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -14,14 +15,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
-import org.openapijsonschematools.client.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MultipleOfValidator;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -37,10 +34,11 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema02 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema02 instance;
+    
         protected Schema02() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("multipleOf", new MultipleOfValidator(2))
-            )));
+            super(new JsonSchemaInfo()
+                .multipleOf(new BigDecimal("2"))
+            );
         }
     
         public static Schema02 getInstance() {
@@ -249,10 +247,11 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema01 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema01 instance;
+    
         protected Schema01() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("multipleOf", new MultipleOfValidator(3))
-            )));
+            super(new JsonSchemaInfo()
+                .multipleOf(new BigDecimal("3"))
+            );
         }
     
         public static Schema01 getInstance() {
@@ -461,10 +460,11 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
+    
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("multipleOf", new MultipleOfValidator(5))
-            )));
+            super(new JsonSchemaInfo()
+                .multipleOf(new BigDecimal("5"))
+            );
         }
     
         public static Schema0 getInstance() {
@@ -679,18 +679,19 @@ public class AllofCombinedWithAnyofOneof {
         Do not edit the class manually.
         */
         private static AllofCombinedWithAnyofOneof1 instance;
+    
         protected AllofCombinedWithAnyofOneof1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .allOf(List.of(
                     Schema02.class
-                ))),
-                new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+                ))
+                .anyOf(List.of(
                     Schema01.class
-                ))),
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                ))
+                .oneOf(List.of(
                     Schema0.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static AllofCombinedWithAnyofOneof1 getInstance() {

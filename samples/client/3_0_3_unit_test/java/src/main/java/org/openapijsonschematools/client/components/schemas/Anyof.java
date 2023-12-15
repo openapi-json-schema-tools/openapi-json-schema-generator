@@ -15,12 +15,10 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -39,10 +37,11 @@ public class Anyof {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("minimum", new MinimumValidator(2))
-            )));
+            super(new JsonSchemaInfo()
+                .minimum(2)
+            );
         }
     
         public static Schema1 getInstance() {
@@ -257,13 +256,14 @@ public class Anyof {
         Do not edit the class manually.
         */
         private static Anyof1 instance;
+    
         protected Anyof1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .anyOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static Anyof1 getInstance() {

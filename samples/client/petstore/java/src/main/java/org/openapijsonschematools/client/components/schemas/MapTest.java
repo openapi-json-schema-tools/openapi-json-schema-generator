@@ -15,16 +15,13 @@ import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class MapTest {
@@ -56,11 +53,12 @@ public class MapTest {
     
     public static class AdditionalProperties extends JsonSchema implements SchemaMapValidator<String, String, AdditionalPropertiesMap> {
         private static AdditionalProperties instance;
+    
         protected AdditionalProperties() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties1.class)
+            );
         }
     
         public static AdditionalProperties getInstance() {
@@ -145,11 +143,12 @@ public class MapTest {
     
     public static class MapMapOfString extends JsonSchema implements SchemaMapValidator<Map<String, String>, FrozenMap<String>, MapMapOfStringMap> {
         private static MapMapOfString instance;
+    
         protected MapMapOfString() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static MapMapOfString getInstance() {
@@ -216,15 +215,15 @@ public class MapTest {
         private static AdditionalProperties2 instance;
     
         protected AdditionalProperties2() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                ))
+                .enumValues(SetMaker.makeSet(
                     "UPPER",
                     "lower"
-                )))
-            )));
+                ))
+            );
         }
     
         public static AdditionalProperties2 getInstance() {
@@ -286,11 +285,12 @@ public class MapTest {
     
     public static class MapOfEnumString extends JsonSchema implements SchemaMapValidator<String, String, MapOfEnumStringMap> {
         private static MapOfEnumString instance;
+    
         protected MapOfEnumString() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties2.class)
+            );
         }
     
         public static MapOfEnumString getInstance() {
@@ -378,11 +378,12 @@ public class MapTest {
     
     public static class DirectMap extends JsonSchema implements SchemaMapValidator<Boolean, Boolean, DirectMapMap> {
         private static DirectMap instance;
+    
         protected DirectMap() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties3.class)
+            );
         }
     
         public static DirectMap getInstance() {
@@ -503,16 +504,17 @@ public class MapTest {
         Do not edit the class manually.
         */
         private static MapTest1 instance;
+    
         protected MapTest1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("map_map_of_string", MapMapOfString.class),
                     new PropertyEntry("map_of_enum_string", MapOfEnumString.class),
                     new PropertyEntry("direct_map", DirectMap.class),
                     new PropertyEntry("indirect_map", StringBooleanMap.StringBooleanMap1.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static MapTest1 getInstance() {

@@ -16,23 +16,14 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MaxLengthValidator;
-import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
-import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PatternValidator;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
@@ -41,17 +32,18 @@ public class Schema {
     
     public static class IntegerSchema extends JsonSchema implements SchemaNumberValidator {
         private static IntegerSchema instance;
+    
         protected IntegerSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("maximum", new MaximumValidator(100)),
-                new KeywordEntry("minimum", new MinimumValidator(10))
-            )));
+                ))
+                .maximum(100)
+                .minimum(10)
+            );
         }
     
         public static IntegerSchema getInstance() {
@@ -109,18 +101,19 @@ public class Schema {
     
     public static class Int32 extends JsonSchema implements SchemaNumberValidator {
         private static Int32 instance;
+    
         protected Int32() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("int32")),
-                new KeywordEntry("maximum", new MaximumValidator(200)),
-                new KeywordEntry("minimum", new MinimumValidator(20))
-            )));
+                ))
+                .format("int32")
+                .maximum(200)
+                .minimum(20)
+            );
         }
     
         public static Int32 getInstance() {
@@ -173,17 +166,18 @@ public class Schema {
     
     public static class NumberSchema extends JsonSchema implements SchemaNumberValidator {
         private static NumberSchema instance;
+    
         protected NumberSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("maximum", new MaximumValidator(543.2)),
-                new KeywordEntry("minimum", new MinimumValidator(32.1))
-            )));
+                ))
+                .maximum(543.2)
+                .minimum(32.1)
+            );
         }
     
         public static NumberSchema getInstance() {
@@ -240,17 +234,18 @@ public class Schema {
     
     public static class FloatSchema extends JsonSchema implements SchemaNumberValidator {
         private static FloatSchema instance;
+    
         protected FloatSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("float")),
-                new KeywordEntry("maximum", new MaximumValidator(987.6))
-            )));
+                ))
+                .format("float")
+                .maximum(987.6)
+            );
         }
     
         public static FloatSchema getInstance() {
@@ -295,18 +290,19 @@ public class Schema {
     
     public static class DoubleSchema extends JsonSchema implements SchemaNumberValidator {
         private static DoubleSchema instance;
+    
         protected DoubleSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("double")),
-                new KeywordEntry("maximum", new MaximumValidator(123.4)),
-                new KeywordEntry("minimum", new MinimumValidator(67.8))
-            )));
+                ))
+                .format("double")
+                .maximum(123.4)
+                .minimum(67.8)
+            );
         }
     
         public static DoubleSchema getInstance() {
@@ -353,15 +349,15 @@ public class Schema {
         private static StringSchema instance;
     
         protected StringSchema() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                ))
+                .pattern(Pattern.compile(
                     "[a-z]",
                     Pattern.CASE_INSENSITIVE
-                )))
-            )));
+                ))
+            );
         }
     
         public static StringSchema getInstance() {
@@ -405,14 +401,14 @@ public class Schema {
         private static PatternWithoutDelimiter instance;
     
         protected PatternWithoutDelimiter() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                ))
+                .pattern(Pattern.compile(
                     "^[A-Z].*"
-                )))
-            )));
+                ))
+            );
         }
     
         public static PatternWithoutDelimiter getInstance() {
@@ -467,12 +463,12 @@ public class Schema {
         private static DateTime instance;
     
         protected DateTime() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("date-time"))
-            )));
+                ))
+                .format("date-time")
+            );
         }
     
         public static DateTime getInstance() {
@@ -516,14 +512,14 @@ public class Schema {
         private static Password instance;
     
         protected Password() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("password")),
-                new KeywordEntry("maxLength", new MaxLengthValidator(64)),
-                new KeywordEntry("minLength", new MinLengthValidator(10))
-            )));
+                ))
+                .format("password")
+                .maxLength(64)
+                .minLength(10)
+            );
         }
     
         public static Password getInstance() {
@@ -651,10 +647,11 @@ public class Schema {
     
     public static class Schema1 extends JsonSchema implements SchemaMapValidator<Object, Object, SchemaMap> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("integer", IntegerSchema.class),
                     new PropertyEntry("int32", Int32.class),
                     new PropertyEntry("int64", Int64.class),
@@ -669,14 +666,14 @@ public class Schema {
                     new PropertyEntry("dateTime", DateTime.class),
                     new PropertyEntry("password", Password.class),
                     new PropertyEntry("callback", Callback.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "byte",
                     "double",
                     "number",
                     "pattern_without_delimiter"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema1 getInstance() {

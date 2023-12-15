@@ -3,6 +3,7 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -25,10 +26,10 @@ public class UuidJsonSchema extends JsonSchema implements SchemaStringValidator 
     private static UuidJsonSchema instance;
 
     protected UuidJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
-                new KeywordEntry("format", new FormatValidator("uuid"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(String.class))
+            .format("uuid")
+        );
     }
 
     public static UuidJsonSchema getInstance() {

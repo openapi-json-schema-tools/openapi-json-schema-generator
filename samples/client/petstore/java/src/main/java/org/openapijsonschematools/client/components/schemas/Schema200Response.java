@@ -19,9 +19,8 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -81,13 +80,14 @@ public class Schema200Response {
         model with an invalid class name for python, starts with a number
         */
         private static Schema200Response1 instance;
+    
         protected Schema200Response1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("name", Name.class),
                     new PropertyEntry("class", ClassSchema.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema200Response1 getInstance() {

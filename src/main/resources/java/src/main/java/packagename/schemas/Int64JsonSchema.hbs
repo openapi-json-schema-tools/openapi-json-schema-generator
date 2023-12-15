@@ -4,6 +4,7 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -24,15 +25,15 @@ public class Int64JsonSchema extends JsonSchema implements SchemaNumberValidator
     private static Int64JsonSchema instance;
 
     protected Int64JsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
-                        Integer.class,
-                        Long.class,
-                        Float.class,
-                        Double.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("int64"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+            ))
+            .format("int64")
+        );
     }
 
     public static Int64JsonSchema getInstance() {

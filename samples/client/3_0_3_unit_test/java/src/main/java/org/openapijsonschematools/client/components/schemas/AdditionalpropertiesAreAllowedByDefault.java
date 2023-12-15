@@ -18,9 +18,8 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -84,13 +83,14 @@ public class AdditionalpropertiesAreAllowedByDefault {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesAreAllowedByDefault1 instance;
+    
         protected AdditionalpropertiesAreAllowedByDefault1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
                     new PropertyEntry("bar", Bar.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static AdditionalpropertiesAreAllowedByDefault1 getInstance() {
