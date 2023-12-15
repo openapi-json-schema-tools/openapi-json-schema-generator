@@ -18,9 +18,8 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -69,11 +68,11 @@ public class PropertyNamedRefThatIsNotAReference {
         */
         private static PropertyNamedRefThatIsNotAReference1 instance;
         protected PropertyNamedRefThatIsNotAReference1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("$ref", Ref.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static PropertyNamedRefThatIsNotAReference1 getInstance() {

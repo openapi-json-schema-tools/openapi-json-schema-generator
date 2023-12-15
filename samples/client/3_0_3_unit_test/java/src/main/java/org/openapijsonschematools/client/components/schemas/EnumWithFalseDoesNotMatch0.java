@@ -14,10 +14,9 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class EnumWithFalseDoesNotMatch0 {
@@ -33,12 +32,12 @@ public class EnumWithFalseDoesNotMatch0 {
         */
         private static EnumWithFalseDoesNotMatch01 instance;
         protected EnumWithFalseDoesNotMatch01() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),
+            super(new JsonSchemaInfo()
+                .type(Set.of(Boolean.class))
                 new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     false
                 )))
-            )));
+            );
         }
     
         public static EnumWithFalseDoesNotMatch01 getInstance() {

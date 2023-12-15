@@ -17,10 +17,10 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     {{#each keywords}}
         {{#if @first}}
     protected {{../jsonPathPiece.camelCase}}() {
-        JsonSchemaInfo schemaInfo = new JsonSchemaInfo();
+        super(new JsonSchemaInfo()
         {{/if}}
         {{#eq this "type"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
         {{/eq}}
         {{#eq this "allOf"}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
@@ -38,7 +38,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
             {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
         {{/eq}}
         {{#if @last}}
-        super(schemaInfo);
+        );
     }
         {{/if}}
     {{/each}}

@@ -15,10 +15,9 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ArrayTypeMatchesArrays {
@@ -51,10 +50,10 @@ public class ArrayTypeMatchesArrays {
         */
         private static ArrayTypeMatchesArrays1 instance;
         protected ArrayTypeMatchesArrays1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
+            super(new JsonSchemaInfo()
+            .type(Set.of(FrozenList.class))
                 new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            );
         }
     
         public static ArrayTypeMatchesArrays1 getInstance() {

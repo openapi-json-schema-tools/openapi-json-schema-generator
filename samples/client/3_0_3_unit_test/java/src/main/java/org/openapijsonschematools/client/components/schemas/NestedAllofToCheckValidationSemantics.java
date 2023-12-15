@@ -19,7 +19,7 @@ import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -39,11 +39,11 @@ public class NestedAllofToCheckValidationSemantics {
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema01.class
                 )))
-            )));
+            );
         }
     
         public static Schema0 getInstance() {
@@ -259,11 +259,11 @@ public class NestedAllofToCheckValidationSemantics {
         */
         private static NestedAllofToCheckValidationSemantics1 instance;
         protected NestedAllofToCheckValidationSemantics1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class
                 )))
-            )));
+            );
         }
     
         public static NestedAllofToCheckValidationSemantics1 getInstance() {

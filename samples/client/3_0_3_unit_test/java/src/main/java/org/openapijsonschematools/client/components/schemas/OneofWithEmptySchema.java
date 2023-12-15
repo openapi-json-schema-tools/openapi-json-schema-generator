@@ -19,7 +19,7 @@ import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -49,12 +49,12 @@ public class OneofWithEmptySchema {
         */
         private static OneofWithEmptySchema1 instance;
         protected OneofWithEmptySchema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
-            )));
+            );
         }
     
         public static OneofWithEmptySchema1 getInstance() {

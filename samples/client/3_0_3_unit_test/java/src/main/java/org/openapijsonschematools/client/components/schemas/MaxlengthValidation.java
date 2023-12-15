@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MaxLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -41,9 +41,9 @@ public class MaxlengthValidation {
         */
         private static MaxlengthValidation1 instance;
         protected MaxlengthValidation1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("maxLength", new MaxLengthValidator(2))
-            )));
+            );
         }
     
         public static MaxlengthValidation1 getInstance() {

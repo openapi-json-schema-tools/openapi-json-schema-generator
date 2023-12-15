@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -41,11 +41,11 @@ public class RefInOneof {
         */
         private static RefInOneof1 instance;
         protected RefInOneof1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("oneOf", new OneOfValidator(List.of(
                     PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class
                 )))
-            )));
+            );
         }
     
         public static RefInOneof1 getInstance() {

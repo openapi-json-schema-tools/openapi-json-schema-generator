@@ -3,7 +3,7 @@
         {{#if forDocs}}
 &nbsp;&nbsp;&nbsp;&nbsp;Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}FrozenMap.class{{/contains}}{{#contains types "array"}}FrozenList.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}})<br/>
         {{~else}}
-schemaInfo.type = Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}FrozenMap.class{{/contains}}{{#contains types "array"}}FrozenList.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}});
+.type(Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}FrozenMap.class{{/contains}}{{#contains types "array"}}FrozenList.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}}))
         {{/if}}
     {{else}}
         {{#if forDocs}}
@@ -38,7 +38,7 @@ schemaInfo.type = Set.of({{#contains types "null"}}Void.class{{/contains}}{{#con
             {{/each}}
 &nbsp;&nbsp;&nbsp;&nbsp;)<br/>
         {{~else}}
-schemaInfo.type = Set.of(
+.type(Set.of(
             {{#each types}}
                 {{#eq this "null"}}
     Void.class{{#unless @last}},{{/unless}}
@@ -73,7 +73,7 @@ schemaInfo.type = Set.of(
     Boolean.class{{#unless @last}},{{/unless}}
                 {{/eq}}
             {{/each}}
-);
+)
         {{/if}}
     {{/and}}
 {{/if}}

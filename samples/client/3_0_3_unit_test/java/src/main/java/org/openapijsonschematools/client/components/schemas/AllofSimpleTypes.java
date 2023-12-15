@@ -18,7 +18,7 @@ import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -37,9 +37,9 @@ public class AllofSimpleTypes {
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("maximum", new MaximumValidator(30))
-            )));
+            );
         }
     
         public static Schema0 getInstance() {
@@ -249,9 +249,9 @@ public class AllofSimpleTypes {
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("minimum", new MinimumValidator(20))
-            )));
+            );
         }
     
         public static Schema1 getInstance() {
@@ -467,12 +467,12 @@ public class AllofSimpleTypes {
         */
         private static AllofSimpleTypes1 instance;
         protected AllofSimpleTypes1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class,
                     Schema1.class
                 )))
-            )));
+            );
         }
     
         public static AllofSimpleTypes1 getInstance() {

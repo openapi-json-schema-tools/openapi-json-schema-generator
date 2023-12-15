@@ -14,10 +14,9 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class EnumWithEscapedCharacters {
@@ -34,15 +33,15 @@ public class EnumWithEscapedCharacters {
         private static EnumWithEscapedCharacters1 instance;
     
         protected EnumWithEscapedCharacters1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
+                )
                 new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
                     "foo\nbar",
                     "foo\rbar"
                 )))
-            )));
+            );
         }
     
         public static EnumWithEscapedCharacters1 getInstance() {

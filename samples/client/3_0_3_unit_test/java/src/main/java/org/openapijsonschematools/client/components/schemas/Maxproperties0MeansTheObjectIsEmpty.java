@@ -17,7 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MaxPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -41,9 +41,9 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         */
         private static Maxproperties0MeansTheObjectIsEmpty1 instance;
         protected Maxproperties0MeansTheObjectIsEmpty1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
+            super(new JsonSchemaInfo()
                 new KeywordEntry("maxProperties", new MaxPropertiesValidator(0))
-            )));
+            );
         }
     
         public static Maxproperties0MeansTheObjectIsEmpty1 getInstance() {

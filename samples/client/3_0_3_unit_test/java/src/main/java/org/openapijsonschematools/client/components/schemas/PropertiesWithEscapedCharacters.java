@@ -18,9 +18,8 @@ import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -89,16 +88,16 @@ public class PropertiesWithEscapedCharacters {
         */
         private static PropertiesWithEscapedCharacters1 instance;
         protected PropertiesWithEscapedCharacters1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("foo\nbar", Foonbar.class),
                     new PropertyEntry("foo\"bar", Foobar.class),
                     new PropertyEntry("foo\\bar", Foobar1.class),
                     new PropertyEntry("foo\rbar", Foorbar.class),
                     new PropertyEntry("foo\tbar", Footbar.class),
                     new PropertyEntry("foo\fbar", Foofbar.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static PropertiesWithEscapedCharacters1 getInstance() {

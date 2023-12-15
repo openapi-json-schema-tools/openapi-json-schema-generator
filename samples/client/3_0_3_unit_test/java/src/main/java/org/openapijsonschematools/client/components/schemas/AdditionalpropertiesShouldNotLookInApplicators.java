@@ -21,9 +21,8 @@ import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -75,11 +74,11 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema0 getInstance() {
@@ -326,12 +325,12 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         */
         private static AdditionalpropertiesShouldNotLookInApplicators1 instance;
         protected AdditionalpropertiesShouldNotLookInApplicators1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class)),
+            super(new JsonSchemaInfo()
+                .additionalProperties(AdditionalProperties.class)
                 new KeywordEntry("allOf", new AllOfValidator(List.of(
                     Schema0.class
                 )))
-            )));
+            );
         }
     
         public static AdditionalpropertiesShouldNotLookInApplicators1 getInstance() {
