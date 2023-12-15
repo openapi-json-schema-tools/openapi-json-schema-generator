@@ -40,7 +40,7 @@ public abstract class JsonSchema {
     public final Boolean uniqueItems;
     public final Set<Object> enumValues;
     public final Pattern pattern;
-    public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
+    private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
         LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
