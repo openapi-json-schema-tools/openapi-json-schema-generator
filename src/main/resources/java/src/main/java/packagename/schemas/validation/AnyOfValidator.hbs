@@ -22,7 +22,7 @@ public class AnyOfValidator implements KeywordValidator {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedAnyOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> anyOfClass: anyOf) {
-            if (anyOfClass == schema.getClass() {
+            if (anyOfClass == schema.getClass()) {
                 /*
                 optimistically assume that schema will pass validation
                 do not invoke _validate on it because that is recursive

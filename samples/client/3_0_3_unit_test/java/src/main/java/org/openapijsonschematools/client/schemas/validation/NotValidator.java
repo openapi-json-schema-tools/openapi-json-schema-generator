@@ -22,7 +22,7 @@ public class NotValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
         PathToSchemasMap pathToSchemas;
         try {
             JsonSchema notSchema = JsonSchemaFactory.getInstance(not);
@@ -32,7 +32,7 @@ public class NotValidator implements KeywordValidator {
         }
         if (!pathToSchemas.isEmpty()) {
             throw new ValidationException(
-                    "Invalid value "+arg+" was passed in to "+cls+". "+
+                    "Invalid value "+arg+" was passed in to "+schema.getClass()+". "+
                             "Value is invalid because it is disallowed by not "+not
             );
         }

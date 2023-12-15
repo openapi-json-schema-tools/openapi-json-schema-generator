@@ -22,7 +22,7 @@ public class OneOfValidator implements KeywordValidator {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedOneOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> oneOfClass: oneOf) {
-            if (oneOfClass == schema.getClass() {
+            if (oneOfClass == schema.getClass()) {
                 /*
                 optimistically assume that schema will pass validation
                 do not invoke validate on it because that is recursive

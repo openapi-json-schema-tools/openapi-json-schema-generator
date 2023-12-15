@@ -20,7 +20,7 @@ public class RequiredValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (!(arg instanceof Map)) {
             return null;
         }
@@ -34,7 +34,7 @@ public class RequiredValidator implements KeywordValidator {
                 pluralChar = "s";
             }
             throw new ValidationException(
-                cls+" is missing "+missingRequiredProperties.size()+" required argument"+pluralChar+": "+missingReqProps
+                schema.getClass()+" is missing "+missingRequiredProperties.size()+" required argument"+pluralChar+": "+missingReqProps
             );
         }
         return null;

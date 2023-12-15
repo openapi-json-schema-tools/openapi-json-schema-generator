@@ -18,13 +18,13 @@ public class OneOfValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedOneOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> oneOfClass: oneOf) {
-            if (oneOfClass == cls.getClass()) {
+            if (oneOfClass == schema.getClass()) {
                 /*
-                optimistically assume that cls schema will pass validation
+                optimistically assume that schema will pass validation
                 do not invoke validate on it because that is recursive
                 */
                 validatedOneOfClasses.add(oneOfClass);
@@ -40,12 +40,12 @@ public class OneOfValidator implements KeywordValidator {
             }
         }
         if (validatedOneOfClasses.isEmpty()) {
-            throw new ValidationException("Invalid inputs given to generate an instance of "+cls+". None "+
+            throw new ValidationException("Invalid inputs given to generate an instance of "+schema.getClass()+". None "+
                     "of the oneOf schemas matched the input data."
             );
         }
         if (validatedOneOfClasses.size() > 1) {
-            throw new ValidationException("Invalid inputs given to generate an instance of "+cls+". Multiple "+
+            throw new ValidationException("Invalid inputs given to generate an instance of "+schema.getClass()+". Multiple "+
                     "oneOf schemas validated the data, but a max of one is allowed."
             );
         }
