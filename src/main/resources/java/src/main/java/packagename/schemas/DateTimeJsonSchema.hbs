@@ -7,7 +7,7 @@ import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaStringValidator;
+import {{{packageName}}}.schemas.validation.StringSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class DateTimeJsonSchema extends JsonSchema implements SchemaStringValidator {
+public class DateTimeJsonSchema extends JsonSchema implements StringSchemaValidator {
     private static DateTimeJsonSchema instance;
 
     protected DateTimeJsonSchema() {

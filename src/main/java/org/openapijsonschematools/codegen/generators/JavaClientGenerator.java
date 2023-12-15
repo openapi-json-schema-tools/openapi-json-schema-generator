@@ -421,8 +421,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("NullSchemaValidator");
         keywordValidatorFiles.add("BooleanSchemaValidator");
-        keywordValidatorFiles.add("SchemaNumberValidator");
-        keywordValidatorFiles.add("SchemaStringValidator");
+        keywordValidatorFiles.add("NumberSchemaValidator");
+        keywordValidatorFiles.add("StringSchemaValidator");
         keywordValidatorFiles.add("ListSchemaValidator");
         keywordValidatorFiles.add("MapSchemaValidator");
         keywordValidatorFiles.add("TypeValidator");
@@ -1508,8 +1508,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import java.util.Map;");
                 imports.add("import "+packageName + ".schemas.validation.NullSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.BooleanSchemaValidator;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaNumberValidator;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaStringValidator;");
+                imports.add("import "+packageName + ".schemas.validation.NumberSchemaValidator;");
+                imports.add("import "+packageName + ".schemas.validation.StringSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.ListSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
                 addPropertiesValidator(schema, imports);
@@ -1646,7 +1646,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private void addNumberSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.SchemaNumberValidator;");
+        imports.add("import " + packageName + ".schemas.validation.NumberSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -1664,7 +1664,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import java.util.UUID;");
             }
         }
-        imports.add("import " + packageName + ".schemas.validation.SchemaStringValidator;");
+        imports.add("import " + packageName + ".schemas.validation.StringSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);

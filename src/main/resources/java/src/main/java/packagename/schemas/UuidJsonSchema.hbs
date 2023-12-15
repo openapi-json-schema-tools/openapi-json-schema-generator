@@ -7,7 +7,7 @@ import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaStringValidator;
+import {{{packageName}}}.schemas.validation.StringSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
@@ -22,7 +22,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 
-public class UuidJsonSchema extends JsonSchema implements SchemaStringValidator {
+public class UuidJsonSchema extends JsonSchema implements StringSchemaValidator {
     private static UuidJsonSchema instance;
 
     protected UuidJsonSchema() {

@@ -8,7 +8,7 @@ import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaNumberValidator;
+import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class FloatJsonSchema extends JsonSchema implements SchemaNumberValidator {
+public class FloatJsonSchema extends JsonSchema implements NumberSchemaValidator {
     private static FloatJsonSchema instance;
 
     protected FloatJsonSchema() {
