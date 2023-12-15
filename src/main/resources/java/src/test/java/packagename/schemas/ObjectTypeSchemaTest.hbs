@@ -10,7 +10,7 @@ import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.PropertyEntry;
-import {{{packageName}}}.schemas.validation.SchemaMapValidator;
+import {{{packageName}}}.schemas.validation.MapSchemaValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
@@ -33,7 +33,7 @@ public class ObjectTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static class ObjectWithPropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static ObjectWithPropsSchema instance;
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
@@ -83,7 +83,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema implements SchemaMapValidator<String, String, FrozenMap<String>> {
+    public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<String, String, FrozenMap<String>> {
         private static ObjectWithAddpropsSchema instance;
         private ObjectWithAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -140,7 +140,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static ObjectWithPropsAndAddpropsSchema instance;
         private ObjectWithPropsAndAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -201,7 +201,7 @@ public class ObjectTypeSchemaTest {
     }
 
 
-    public static class ObjectWithOutputTypeSchema extends JsonSchema implements SchemaMapValidator<Object, Object, ObjectWithOutputTypeSchemaMap> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<Object, Object, ObjectWithOutputTypeSchemaMap> {
         private static ObjectWithOutputTypeSchema instance;
         public ObjectWithOutputTypeSchema() {
             super(new JsonSchemaInfo()

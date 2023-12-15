@@ -9,12 +9,12 @@ import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaNullValidator;
+import {{{packageName}}}.schemas.validation.NullSchemaValidator;
 import {{{packageName}}}.schemas.validation.BooleanSchemaValidator;
 import {{{packageName}}}.schemas.validation.SchemaNumberValidator;
 import {{{packageName}}}.schemas.validation.SchemaStringValidator;
 import {{{packageName}}}.schemas.validation.ListSchemaValidator;
-import {{{packageName}}}.schemas.validation.SchemaMapValidator;
+import {{{packageName}}}.schemas.validation.MapSchemaValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
 import java.time.LocalDate;
@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-public class AnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, BooleanSchemaValidator, SchemaNumberValidator, SchemaStringValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, SchemaNumberValidator, SchemaStringValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
     private static AnyTypeJsonSchema instance;
 
     protected AnyTypeJsonSchema() {
