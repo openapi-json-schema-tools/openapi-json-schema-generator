@@ -18,7 +18,7 @@ public class OneOfValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedOneOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> oneOfClass: oneOf) {

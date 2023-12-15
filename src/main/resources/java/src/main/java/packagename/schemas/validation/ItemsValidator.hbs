@@ -16,7 +16,7 @@ public class ItemsValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof List)) {
             return null;
         }

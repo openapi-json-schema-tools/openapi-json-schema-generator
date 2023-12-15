@@ -35,8 +35,7 @@ public class RequiredValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -58,8 +57,7 @@ public class RequiredValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 1,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -84,8 +82,7 @@ public class RequiredValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 }

@@ -18,7 +18,7 @@ public class EnumValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         if (enumValues.isEmpty()) {
             throw new ValidationException("No value can match enum because enum is empty");
         }

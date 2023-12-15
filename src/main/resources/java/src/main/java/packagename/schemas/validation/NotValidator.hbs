@@ -22,7 +22,7 @@ public class NotValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         PathToSchemasMap pathToSchemas;
         try {
             JsonSchema notSchema = JsonSchemaFactory.getInstance(not);

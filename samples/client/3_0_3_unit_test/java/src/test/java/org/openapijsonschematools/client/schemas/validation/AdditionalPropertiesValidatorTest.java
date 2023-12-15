@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.exceptions.ValidationException;
@@ -13,14 +14,40 @@ import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class AdditionalPropertiesValidatorTest {
 
+    public static class ObjectWithPropsSchema extends JsonSchema {
+        private static ObjectWithPropsSchema instance;
+        private ObjectWithPropsSchema() {
+            super(new LinkedHashMap<>(Map.ofEntries(
+                    new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
+                    new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+                            new PropertyEntry("someString", StringJsonSchema.class)
+                    )))
+            )));
+
+        }
+
+        public static ObjectWithPropsSchema getInstance() {
+            if (instance == null) {
+                instance = new ObjectWithPropsSchema();
+            }
+            return instance;
+        }
+
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                return arg;
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
+    }
+
     @Test
     public void testCorrectPropertySucceeds() {
-        Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringJsonSchema.class);
-
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -35,10 +62,9 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
-                MapJsonSchema.getInstance(),
+                ObjectWithPropsSchema.getInstance(),
                 arg,
-                validationMetadata,
-                properties
+                validationMetadata
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -65,17 +91,13 @@ public class AdditionalPropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 1,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemas);
     }
 
     @Test
     public void testIncorrectPropertyValueFails() {
-        Map<String, Class<?>> properties = new LinkedHashMap<>();
-        properties.put("someString", StringJsonSchema.class);
-
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
@@ -90,10 +112,9 @@ public class AdditionalPropertiesValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final AdditionalPropertiesValidator validator = new AdditionalPropertiesValidator(StringJsonSchema.class);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                MapJsonSchema.getInstance(),
+                ObjectWithPropsSchema.getInstance(),
                 arg,
-                validationMetadata,
-                properties
+                validationMetadata
         ));
     }
 }

@@ -37,15 +37,11 @@ public abstract class JsonSchema {
                 if (disabledKeywords.contains(jsonKeyword)) {
                    continue;
                 }
-                if (jsonKeyword.equals("additionalProperties") && thisKeywordToValidator.containsKey("properties")) {
-                    extra = thisKeywordToValidator.get("properties").getConstraint();
-                }
                 KeywordValidator validator = entry.getValue();
                 PathToSchemasMap otherPathToSchemas = validator.validate(
                         jsonSchema,
                         arg,
-                        validationMetadata,
-                        extra
+                        validationMetadata
                 );
                 if (otherPathToSchemas == null) {
                     continue;

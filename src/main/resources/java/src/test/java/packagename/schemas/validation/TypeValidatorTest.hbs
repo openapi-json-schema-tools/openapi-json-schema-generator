@@ -26,8 +26,7 @@ public class TypeValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 StringJsonSchema.getInstance(),
                 "hi",
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -46,8 +45,7 @@ public class TypeValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 StringJsonSchema.getInstance(),
                 1,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 }

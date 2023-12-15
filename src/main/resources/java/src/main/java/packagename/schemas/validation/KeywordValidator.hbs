@@ -6,8 +6,7 @@ public interface KeywordValidator {
     PathToSchemasMap validate(
             JsonSchema schema,
             Object arg,
-            ValidationMetadata validationMetadata,
-            Object extra) throws ValidationException;
+            ValidationMetadata validationMetadata) throws ValidationException;
 
     Object getConstraint();
 }

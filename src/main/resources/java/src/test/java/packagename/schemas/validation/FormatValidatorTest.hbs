@@ -27,8 +27,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 1.0f,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -39,8 +38,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 3.14f,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -50,8 +48,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 1,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -62,8 +59,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 -2147483649L,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -73,8 +69,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 -2147483648,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -85,8 +80,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 2147483647,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -97,8 +91,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 2147483648L,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -109,8 +102,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 new BigInteger("-9223372036854775809"),
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -120,8 +112,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 -9223372036854775808L,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -132,8 +123,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 9223372036854775807L,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -145,8 +135,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 new BigInteger("9223372036854775808"),
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -156,8 +145,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 -3.402823466385289e+38d,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -167,8 +155,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 -3.4028234663852886e+38f,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -179,8 +166,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 3.4028234663852886e+38f,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -191,8 +177,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 3.402823466385289e+38d,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -202,8 +187,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 new BigDecimal("-1.7976931348623157082e+308"),
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -213,8 +197,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 -1.7976931348623157E+308d,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -225,8 +208,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 1.7976931348623157E+308d,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -237,8 +219,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 new BigDecimal("1.7976931348623157082e+308"),
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -248,8 +229,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 NumberJsonSchema.getInstance(),
                 "abc",
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -259,8 +239,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 "3.14",
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -271,8 +250,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 NumberJsonSchema.getInstance(),
                 "1",
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -283,8 +261,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 StringJsonSchema.getInstance(),
                 "abc",
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -294,8 +271,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 StringJsonSchema.getInstance(),
                 "2017-01-20",
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }
@@ -306,8 +282,7 @@ public class FormatValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 StringJsonSchema.getInstance(),
                 "abc",
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 
@@ -317,8 +292,7 @@ public class FormatValidatorTest {
         PathToSchemasMap pathToSchemasMap = validator.validate(
                 StringJsonSchema.getInstance(),
                 "2017-07-21T17:32:28Z",
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemasMap);
     }

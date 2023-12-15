@@ -15,7 +15,7 @@ public class MinLengthValidator extends LengthValidator implements KeywordValida
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof String)) {
             return null;
         }

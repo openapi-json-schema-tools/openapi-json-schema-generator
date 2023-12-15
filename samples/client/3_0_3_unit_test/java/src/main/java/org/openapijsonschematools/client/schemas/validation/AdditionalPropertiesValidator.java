@@ -20,17 +20,18 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Map)) {
             return null;
         }
         Map<String, Object> castArg = (Map<String, Object>) arg;
-        Map<String, Class<JsonSchema>> properties = (Map<String, Class<JsonSchema>>) extra;
-        if (properties == null) {
-            properties = new LinkedHashMap<>();
-        }
         Set<String> presentAdditionalProperties = new LinkedHashSet<>(castArg.keySet());
-        presentAdditionalProperties.removeAll(properties.keySet());
+        if (schema.keywordToValidator != null) {
+            KeywordValidator propertiesValidator = schema.keywordToValidator.get("properties");
+            if (propertiesValidator instanceof PropertiesValidator) {
+                presentAdditionalProperties.removeAll(((PropertiesValidator) propertiesValidator).properties.keySet());
+            }
+        }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for validatedPatternProperties
         for(String addPropName: presentAdditionalProperties) {

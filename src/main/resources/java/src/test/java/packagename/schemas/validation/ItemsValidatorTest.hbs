@@ -32,8 +32,7 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 ListJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -60,8 +59,7 @@ public class ItemsValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 ListJsonSchema.getInstance(),
                 1,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -83,8 +81,7 @@ public class ItemsValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 ListJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 }

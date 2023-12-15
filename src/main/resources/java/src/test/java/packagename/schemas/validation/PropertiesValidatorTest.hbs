@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.Map;
 
 public class PropertiesValidatorTest {
-
     @Test
     public void testCorrectPropertySucceeds() {
         Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
@@ -36,8 +35,7 @@ public class PropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         );
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
@@ -66,8 +64,7 @@ public class PropertiesValidatorTest {
         PathToSchemasMap pathToSchemas = validator.validate(
                 MapJsonSchema.getInstance(),
                 1,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -92,8 +89,7 @@ public class PropertiesValidatorTest {
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 }
