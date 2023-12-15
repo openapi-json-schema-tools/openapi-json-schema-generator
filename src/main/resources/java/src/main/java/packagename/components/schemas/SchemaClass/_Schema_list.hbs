@@ -17,10 +17,10 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     {{#each keywords}}
         {{#if @first}}
     protected {{../jsonPathPiece.camelCase}}() {
-        super(new LinkedHashMap<>(Map.ofEntries(
+        JsonSchemaInfo schemaInfo = new JsonSchemaInfo();
         {{/if}}
         {{#eq this "type"}}
-            {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
+        {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
         {{/eq}}
         {{#eq this "items"}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_items }}
@@ -47,7 +47,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
             {{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }}
         {{/eq}}
         {{#if @last}}
-        )));
+        super(schemaInfo);
     }
         {{/if}}
     {{/each}}

@@ -407,6 +407,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");
+        keywordValidatorFiles.add("JsonSchemaInfo");
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
@@ -1719,6 +1720,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
+        imports.add("import " + packageName + ".schemas.validation.JsonSchemaInfo;");
         imports.add("import "+packageName + ".configurations.SchemaConfiguration;");
         imports.add("import "+packageName + ".exceptions.ValidationException;");
         imports.add("import "+packageName + ".exceptions.InvalidTypeException;"); // for castToAllowedTypes

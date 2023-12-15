@@ -3,6 +3,7 @@ package {{{packageName}}}.schemas.validation;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
@@ -12,11 +13,205 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.regex.Pattern;
 
 public abstract class JsonSchema {
+    public final Set<Class<?>> type;
+    public final String format;
+    public final Class<? extends JsonSchema> items;
+    public final Map<String, Class<? extends JsonSchema>> properties;
+    public final Set<String> required;
+    public final Number exclusiveMaximum;
+    public final Number exclusiveMinimum;
+    public final Integer maxItems;
+    public final Integer minItems;
+    public final Integer maxLength;
+    public final Integer minLength;
+    public final Integer maxProperties;
+    public final Integer minProperties;
+    public final Number maximum;
+    public final Number minimum;
+    public final BigDecimal multipleOf;
+    public final Class<? extends JsonSchema> additionalProperties;
+    public final List<Class<? extends JsonSchema>> allOf;
+    public final List<Class<? extends JsonSchema>> anyOf;
+    public final List<Class<? extends JsonSchema>> oneOf;
+    public final Class<? extends JsonSchema> not;
+    public final Boolean uniqueItems;
+    public final Set<Object> enumValues;
+    public final Pattern pattern;
     public final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
-    protected JsonSchema(LinkedHashMap<String, KeywordValidator> keywordToValidator) {
+    protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
+        LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
+        this.type = jsonSchemaInfo.type;
+        if (this.type != null) {
+            keywordToValidator.put(
+                    "type",
+                    new TypeValidator(this.type)
+            );
+        }
+        this.format = jsonSchemaInfo.format;
+        if (this.format != null) {
+            keywordToValidator.put(
+                    "format",
+                    new FormatValidator(this.format)
+            );
+        }
+        this.items = jsonSchemaInfo.items;
+        if (this.items != null) {
+            keywordToValidator.put(
+                    "items",
+                    new ItemsValidator(this.items)
+            );
+        }
+        this.properties = jsonSchemaInfo.properties;
+        if (this.properties != null) {
+            keywordToValidator.put(
+                    "properties",
+                    new PropertiesValidator(this.properties)
+            );
+        }
+        this.required = jsonSchemaInfo.required;
+        if (this.required != null) {
+            keywordToValidator.put(
+                    "required",
+                    new RequiredValidator(this.required)
+            );
+        }
+        this.exclusiveMaximum = jsonSchemaInfo.exclusiveMaximum;
+        if (this.exclusiveMaximum != null) {
+            keywordToValidator.put(
+                    "exclusiveMaximum",
+                    new ExclusiveMaximumValidator(this.exclusiveMaximum)
+            );
+        }
+        this.exclusiveMinimum = jsonSchemaInfo.exclusiveMinimum;
+        if (this.exclusiveMinimum != null) {
+            keywordToValidator.put(
+                    "exclusiveMinimum",
+                    new ExclusiveMinimumValidator(this.exclusiveMinimum)
+            );
+        }
+        this.maxItems = jsonSchemaInfo.maxItems;
+        if (this.maxItems != null) {
+            keywordToValidator.put(
+                    "maxItems",
+                    new MaxItemsValidator(this.maxItems)
+            );
+        }
+        this.minItems = jsonSchemaInfo.minItems;
+        if (this.minItems != null) {
+            keywordToValidator.put(
+                    "minItems",
+                    new MinItemsValidator(this.minItems)
+            );
+        }
+        this.maxLength = jsonSchemaInfo.maxLength;
+        if (this.maxLength != null) {
+            keywordToValidator.put(
+                    "maxLength",
+                    new MaxLengthValidator(this.maxLength)
+            );
+        }
+        this.minLength = jsonSchemaInfo.minLength;
+        if (this.minLength != null) {
+            keywordToValidator.put(
+                    "minLength",
+                    new MinLengthValidator(this.minLength)
+            );
+        }
+        this.maxProperties = jsonSchemaInfo.maxProperties;
+        if (this.maxProperties != null) {
+            keywordToValidator.put(
+                    "maxProperties",
+                    new MaxPropertiesValidator(this.maxProperties)
+            );
+        }
+        this.minProperties = jsonSchemaInfo.minProperties;
+        if (this.minProperties != null) {
+            keywordToValidator.put(
+                    "minProperties",
+                    new MinPropertiesValidator(this.minProperties)
+            );
+        }
+        this.maximum = jsonSchemaInfo.maximum;
+        if (this.maximum != null) {
+            keywordToValidator.put(
+                    "maximum",
+                    new MaximumValidator(this.maximum)
+            );
+        }
+        this.minimum = jsonSchemaInfo.minimum;
+        if (this.minimum != null) {
+            keywordToValidator.put(
+                    "minimum",
+                    new MinimumValidator(this.minimum)
+            );
+        }
+        this.multipleOf = jsonSchemaInfo.multipleOf;
+        if (this.multipleOf != null) {
+            keywordToValidator.put(
+                    "multipleOf",
+                    new MultipleOfValidator(this.multipleOf)
+            );
+        }
+        this.additionalProperties = jsonSchemaInfo.additionalProperties;
+        if (this.additionalProperties != null) {
+            keywordToValidator.put(
+                    "additionalProperties",
+                    new AdditionalPropertiesValidator(this.additionalProperties)
+            );
+        }
+        this.allOf = jsonSchemaInfo.allOf;
+        if (this.allOf != null) {
+            keywordToValidator.put(
+                    "allOf",
+                    new AllOfValidator(this.allOf)
+            );
+        }
+        this.anyOf = jsonSchemaInfo.anyOf;
+        if (this.anyOf != null) {
+            keywordToValidator.put(
+                    "anyOf",
+                    new AnyOfValidator(this.anyOf)
+            );
+        }
+        this.oneOf = jsonSchemaInfo.oneOf;
+        if (this.oneOf != null) {
+            keywordToValidator.put(
+                    "oneOf",
+                    new OneOfValidator(this.oneOf)
+            );
+        }
+        this.not = jsonSchemaInfo.not;
+        if (this.not != null) {
+            keywordToValidator.put(
+                    "not",
+                    new NotValidator(this.not)
+            );
+        }
+        this.uniqueItems = jsonSchemaInfo.uniqueItems;
+        if (this.uniqueItems != null) {
+            keywordToValidator.put(
+                    "uniqueItems",
+                    new UniqueItemsValidator(this.uniqueItems)
+            );
+        }
+        this.enumValues = jsonSchemaInfo.enumValues;
+        if (this.enumValues != null) {
+            keywordToValidator.put(
+                    "enum",
+                    new EnumValidator(this.enumValues)
+            );
+        }
+        this.pattern = jsonSchemaInfo.pattern;
+        if (this.pattern != null) {
+            keywordToValidator.put(
+                    "pattern",
+                    new PatternValidator(this.pattern)
+            );
+        }
         this.keywordToValidator = keywordToValidator;
     }
 
