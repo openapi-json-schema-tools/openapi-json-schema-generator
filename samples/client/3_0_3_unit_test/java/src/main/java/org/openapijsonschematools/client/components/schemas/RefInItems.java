@@ -12,7 +12,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -48,7 +47,7 @@ public class RefInItems {
         protected RefInItems1() {
             super(new JsonSchemaInfo()
             .type(Set.of(FrozenList.class))
-                new KeywordEntry("items", new ItemsValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
+                .items(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
             );
         }
     

@@ -18,7 +18,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -41,7 +40,7 @@ public class InvalidStringValueForDefault {
                 .type(Set.of(
                     String.class
                 )
-                new KeywordEntry("minLength", new MinLengthValidator(4))
+                .minLength(4)
             );
         }
     

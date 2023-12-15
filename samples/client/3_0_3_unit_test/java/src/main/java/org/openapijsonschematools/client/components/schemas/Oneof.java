@@ -19,8 +19,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -41,7 +39,7 @@ public class Oneof {
         private static Schema1 instance;
         protected Schema1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("minimum", new MinimumValidator(2))
+                .minimum(2)
             );
         }
     
@@ -259,10 +257,10 @@ public class Oneof {
         private static Oneof1 instance;
         protected Oneof1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                .oneOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
+                ))
             );
         }
     

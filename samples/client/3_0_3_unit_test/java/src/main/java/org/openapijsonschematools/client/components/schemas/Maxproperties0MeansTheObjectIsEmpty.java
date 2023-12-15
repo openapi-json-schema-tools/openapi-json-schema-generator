@@ -18,7 +18,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MaxPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -42,7 +41,7 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         private static Maxproperties0MeansTheObjectIsEmpty1 instance;
         protected Maxproperties0MeansTheObjectIsEmpty1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("maxProperties", new MaxPropertiesValidator(0))
+                .maxProperties(0)
             );
         }
     

@@ -14,7 +14,6 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
@@ -35,7 +34,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
                     Float.class,
                     Double.class
                 )
-                new KeywordEntry("maximum", new MaximumValidator(3))
+                .maximum(3)
             );
         }
     

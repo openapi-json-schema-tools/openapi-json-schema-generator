@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("minItems", new MinItemsValidator({{minItems}})){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;minItems = {{minItems}}<br>
 {{~else}}
-new KeywordEntry("minItems", new MinItemsValidator({{minItems}})){{#unless @last}},{{/unless}}
+.minItems({{minItems}})
 {{/if}}

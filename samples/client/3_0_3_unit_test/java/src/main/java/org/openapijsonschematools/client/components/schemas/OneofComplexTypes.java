@@ -20,7 +20,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
@@ -561,10 +560,10 @@ public class OneofComplexTypes {
         private static OneofComplexTypes1 instance;
         protected OneofComplexTypes1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                .oneOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
+                ))
             );
         }
     

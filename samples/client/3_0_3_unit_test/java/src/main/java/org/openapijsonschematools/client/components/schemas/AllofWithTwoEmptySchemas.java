@@ -15,7 +15,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -49,10 +48,10 @@ public class AllofWithTwoEmptySchemas {
         private static AllofWithTwoEmptySchemas1 instance;
         protected AllofWithTwoEmptySchemas1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                .allOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
+                ))
             );
         }
     

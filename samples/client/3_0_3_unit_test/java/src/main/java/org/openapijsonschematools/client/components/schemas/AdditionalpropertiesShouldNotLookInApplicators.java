@@ -17,7 +17,6 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -327,9 +326,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         protected AdditionalpropertiesShouldNotLookInApplicators1() {
             super(new JsonSchemaInfo()
                 .additionalProperties(AdditionalProperties.class)
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                .allOf(List.of(
                     Schema0.class
-                )))
+                ))
             );
         }
     

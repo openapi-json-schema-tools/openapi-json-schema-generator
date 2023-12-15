@@ -16,7 +16,6 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -561,10 +560,10 @@ public class AnyofComplexTypes {
         private static AnyofComplexTypes1 instance;
         protected AnyofComplexTypes1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+                .anyOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
+                ))
             );
         }
     

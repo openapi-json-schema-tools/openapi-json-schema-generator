@@ -13,7 +13,6 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -52,7 +51,7 @@ public class ArrayTypeMatchesArrays {
         protected ArrayTypeMatchesArrays1() {
             super(new JsonSchemaInfo()
             .type(Set.of(FrozenList.class))
-                new KeywordEntry("items", new ItemsValidator(Items.class))
+                .items(Items.class)
             );
         }
     

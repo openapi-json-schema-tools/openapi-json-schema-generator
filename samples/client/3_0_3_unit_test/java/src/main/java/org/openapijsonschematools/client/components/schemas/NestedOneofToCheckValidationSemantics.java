@@ -19,7 +19,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,9 +39,9 @@ public class NestedOneofToCheckValidationSemantics {
         private static Schema0 instance;
         protected Schema0() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                .oneOf(List.of(
                     Schema01.class
-                )))
+                ))
             );
         }
     
@@ -260,9 +259,9 @@ public class NestedOneofToCheckValidationSemantics {
         private static NestedOneofToCheckValidationSemantics1 instance;
         protected NestedOneofToCheckValidationSemantics1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                .oneOf(List.of(
                     Schema0.class
-                )))
+                ))
             );
         }
     

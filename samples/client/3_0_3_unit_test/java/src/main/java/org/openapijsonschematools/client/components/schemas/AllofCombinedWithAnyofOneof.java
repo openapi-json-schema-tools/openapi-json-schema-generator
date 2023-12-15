@@ -14,14 +14,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
-import org.openapijsonschematools.client.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MultipleOfValidator;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -39,7 +35,7 @@ public class AllofCombinedWithAnyofOneof {
         private static Schema02 instance;
         protected Schema02() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("multipleOf", new MultipleOfValidator(2))
+                .multipleOf(2)
             );
         }
     
@@ -251,7 +247,7 @@ public class AllofCombinedWithAnyofOneof {
         private static Schema01 instance;
         protected Schema01() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("multipleOf", new MultipleOfValidator(3))
+                .multipleOf(3)
             );
         }
     
@@ -463,7 +459,7 @@ public class AllofCombinedWithAnyofOneof {
         private static Schema0 instance;
         protected Schema0() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("multipleOf", new MultipleOfValidator(5))
+                .multipleOf(5)
             );
         }
     
@@ -681,15 +677,15 @@ public class AllofCombinedWithAnyofOneof {
         private static AllofCombinedWithAnyofOneof1 instance;
         protected AllofCombinedWithAnyofOneof1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                .allOf(List.of(
                     Schema02.class
-                ))),
-                new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+                ))
+                .anyOf(List.of(
                     Schema01.class
-                ))),
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+                ))
+                .oneOf(List.of(
                     Schema0.class
-                )))
+                ))
             );
         }
     

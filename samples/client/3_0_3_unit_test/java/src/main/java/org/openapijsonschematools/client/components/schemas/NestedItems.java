@@ -13,7 +13,6 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -46,7 +45,7 @@ public class NestedItems {
         protected Items2() {
             super(new JsonSchemaInfo()
             .type(Set.of(FrozenList.class))
-                new KeywordEntry("items", new ItemsValidator(Items3.class))
+                .items(Items3.class)
             );
         }
     
@@ -128,7 +127,7 @@ public class NestedItems {
         protected Items1() {
             super(new JsonSchemaInfo()
             .type(Set.of(FrozenList.class))
-                new KeywordEntry("items", new ItemsValidator(Items2.class))
+                .items(Items2.class)
             );
         }
     
@@ -210,7 +209,7 @@ public class NestedItems {
         protected Items() {
             super(new JsonSchemaInfo()
             .type(Set.of(FrozenList.class))
-                new KeywordEntry("items", new ItemsValidator(Items1.class))
+                .items(Items1.class)
             );
         }
     
@@ -298,7 +297,7 @@ public class NestedItems {
         protected NestedItems1() {
             super(new JsonSchemaInfo()
             .type(Set.of(FrozenList.class))
-                new KeywordEntry("items", new ItemsValidator(Items.class))
+                .items(Items.class)
             );
         }
     

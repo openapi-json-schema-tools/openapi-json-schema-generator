@@ -18,7 +18,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -42,7 +41,7 @@ public class MaximumValidation {
         private static MaximumValidation1 instance;
         protected MaximumValidation1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("maximum", new MaximumValidator(3.0))
+                .maximum(3.0)
             );
         }
     

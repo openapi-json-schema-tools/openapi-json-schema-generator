@@ -12,7 +12,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -34,9 +33,9 @@ public class EnumsInProperties {
                 .type(Set.of(
                     String.class
                 )
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                .enumValues(SetMaker.makeSet(
                     "foo"
-                )))
+                ))
             );
         }
     
@@ -85,9 +84,9 @@ public class EnumsInProperties {
                 .type(Set.of(
                     String.class
                 )
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                .enumValues(SetMaker.makeSet(
                     "bar"
-                )))
+                ))
             );
         }
     

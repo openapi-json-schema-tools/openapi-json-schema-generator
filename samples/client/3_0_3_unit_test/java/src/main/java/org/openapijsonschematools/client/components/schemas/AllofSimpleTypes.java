@@ -14,13 +14,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MaximumValidator;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -38,7 +35,7 @@ public class AllofSimpleTypes {
         private static Schema0 instance;
         protected Schema0() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("maximum", new MaximumValidator(30))
+                .maximum(30)
             );
         }
     
@@ -250,7 +247,7 @@ public class AllofSimpleTypes {
         private static Schema1 instance;
         protected Schema1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("minimum", new MinimumValidator(20))
+                .minimum(20)
             );
         }
     
@@ -468,10 +465,10 @@ public class AllofSimpleTypes {
         private static AllofSimpleTypes1 instance;
         protected AllofSimpleTypes1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                .allOf(List.of(
                     Schema0.class,
                     Schema1.class
-                )))
+                ))
             );
         }
     

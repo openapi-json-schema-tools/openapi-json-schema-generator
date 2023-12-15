@@ -17,7 +17,6 @@
 
 package org.openapijsonschematools.codegen.generators;
 
-import io.swagger.v3.oas.models.media.Schema;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
@@ -29,31 +28,24 @@ import org.openapijsonschematools.codegen.generators.models.VendorExtension;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenHeader;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenKey;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenParameter;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenPatternInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRefInfo;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenRequestBody;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
-import org.openapijsonschematools.codegen.generators.openapimodels.CodegenText;
-import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
 import org.openapijsonschematools.codegen.generators.features.GzipFeatures;
 import org.openapijsonschematools.codegen.generators.features.PerformBeanValidationFeatures;
 import org.openapijsonschematools.codegen.templating.TemplatingEngineAdapter;
-import org.openapijsonschematools.codegen.templating.mustache.CaseFormatLambda;
 import org.openapijsonschematools.codegen.generators.generatormetadata.features.DocumentationFeature;
-import org.openapijsonschematools.codegen.common.ProcessUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -1523,22 +1515,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addPropertiesValidator(schema, imports);
                 addRequiredValidator(schema, imports);
                 addAdditionalPropertiesValidator(schema, imports);
-                addExclusiveMaximumValidator(schema, imports);
-                addExclusiveMinimumValidator(schema, imports);
-                addItemsValidator(schema, imports);
-                addMaxItemsValidator(schema, imports);
-                addMinItemsValidator(schema, imports);
-                addMaxLengthValidator(schema, imports);
-                addMinLengthValidator(schema, imports);
-                addMaxPropertiesValidator(schema, imports);
-                addMinPropertiesValidator(schema, imports);
-                addMaximumValidator(schema, imports);
-                addMinimumValidator(schema, imports);
-                addMultipleOfValidator(schema, imports);
                 addAllOfValidator(schema, imports);
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
-                addNotValidator(schema, imports);
                 addEnumValidator(schema, imports);
                 addPatternValidator(schema, imports);
                 if (schema.mapValueSchema != null) {
@@ -1560,7 +1539,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
-            imports.add("import "+packageName + ".schemas.validation.EnumValidator;");
             imports.add("import "+packageName + ".schemas.SetMaker;");
         }
     }
@@ -1575,28 +1553,19 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addAllOfValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.allOf != null) {
-            imports.add("import "+packageName + ".schemas.validation.AllOfValidator;");
             imports.add("import java.util.List;");
         }
     }
 
     private void addAnyOfValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.anyOf != null) {
-            imports.add("import "+packageName + ".schemas.validation.AnyOfValidator;");
             imports.add("import java.util.List;");
         }
     }
 
     private void addOneOfValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.oneOf != null) {
-            imports.add("import "+packageName + ".schemas.validation.OneOfValidator;");
             imports.add("import java.util.List;");
-        }
-    }
-
-    private void addNotValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.not != null) {
-            imports.add("import "+packageName + ".schemas.validation.NotValidator;");
         }
     }
 
@@ -1609,78 +1578,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addAdditionalPropertiesValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.additionalProperties != null) {
             imports.add("import "+packageName + ".schemas.validation.AdditionalPropertiesValidator;");
-        }
-    }
-
-    private void addExclusiveMinimumValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.exclusiveMaximum != null) {
-            imports.add("import "+packageName + ".schemas.validation.ExclusiveMinimumValidator;");
-        }
-    }
-
-    private void addExclusiveMaximumValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.exclusiveMaximum != null) {
-            imports.add("import "+packageName + ".schemas.validation.ExclusiveMaximumValidator;");
-        }
-    }
-
-    private void addItemsValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.items != null) {
-            imports.add("import "+packageName + ".schemas.validation.ItemsValidator;");
-        }
-    }
-
-    private void addMaxItemsValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.maxItems != null) {
-            imports.add("import "+packageName + ".schemas.validation.MaxItemsValidator;");
-        }
-    }
-
-    private void addMinItemsValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.minItems != null) {
-            imports.add("import "+packageName + ".schemas.validation.MinItemsValidator;");
-        }
-    }
-
-    private void addMaxLengthValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.maxLength != null) {
-            imports.add("import "+packageName + ".schemas.validation.MaxLengthValidator;");
-        }
-    }
-
-    private void addMinLengthValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.minLength != null) {
-            imports.add("import "+packageName + ".schemas.validation.MinLengthValidator;");
-        }
-    }
-
-    private void addMaxPropertiesValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.maxProperties != null) {
-            imports.add("import "+packageName + ".schemas.validation.MaxPropertiesValidator;");
-        }
-    }
-
-    private void addMinPropertiesValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.minProperties != null) {
-            imports.add("import "+packageName + ".schemas.validation.MinPropertiesValidator;");
-        }
-    }
-
-    private void addMaximumValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.maximum != null && schema.exclusiveMaximum == null) {
-            imports.add("import "+packageName + ".schemas.validation.MaximumValidator;");
-        }
-    }
-
-    private void addMinimumValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.minimum != null && schema.exclusiveMinimum == null) {
-            imports.add("import "+packageName + ".schemas.validation.MinimumValidator;");
-        }
-    }
-
-    private void addMultipleOfValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.multipleOf != null) {
-            imports.add("import "+packageName + ".schemas.validation.MultipleOfValidator;");
         }
     }
 
@@ -1706,7 +1603,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
-        addNotValidator(schema, imports);
         addEnumValidator(schema, imports);
     }
 
@@ -1715,7 +1611,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
-        addNotValidator(schema, imports);
         addEnumValidator(schema, imports);
     }
 
@@ -1727,12 +1622,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addRequiredValidator(schema, imports);
         addAdditionalPropertiesValidator(schema, imports);
         addPropertiesValidator(schema, imports);
-        addMaxPropertiesValidator(schema, imports);
-        addMinPropertiesValidator(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
-        addNotValidator(schema, imports);
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
@@ -1740,26 +1632,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
         imports.add("import java.util.List;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
-        addItemsValidator(schema, imports);
-        addMaxItemsValidator(schema, imports);
-        addMinItemsValidator(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
-        addNotValidator(schema, imports);
     }
 
     private void addNumberSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.SchemaNumberValidator;");
-        addExclusiveMaximumValidator(schema, imports);
-        addExclusiveMinimumValidator(schema, imports);
-        addMaximumValidator(schema, imports);
-        addMinimumValidator(schema, imports);
-        addMultipleOfValidator(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
-        addNotValidator(schema, imports);
         addEnumValidator(schema, imports);
     }
 
@@ -1774,12 +1656,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             }
         }
         imports.add("import " + packageName + ".schemas.validation.SchemaStringValidator;");
-        addMaxLengthValidator(schema, imports);
-        addMinLengthValidator(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
-        addNotValidator(schema, imports);
         addEnumValidator(schema, imports);
         addPatternValidator(schema, imports);
     }

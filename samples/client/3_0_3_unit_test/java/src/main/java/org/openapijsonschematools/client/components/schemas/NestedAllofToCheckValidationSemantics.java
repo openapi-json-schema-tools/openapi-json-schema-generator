@@ -15,7 +15,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -40,9 +39,9 @@ public class NestedAllofToCheckValidationSemantics {
         private static Schema0 instance;
         protected Schema0() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                .allOf(List.of(
                     Schema01.class
-                )))
+                ))
             );
         }
     
@@ -260,9 +259,9 @@ public class NestedAllofToCheckValidationSemantics {
         private static NestedAllofToCheckValidationSemantics1 instance;
         protected NestedAllofToCheckValidationSemantics1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+                .allOf(List.of(
                     Schema0.class
-                )))
+                ))
             );
         }
     

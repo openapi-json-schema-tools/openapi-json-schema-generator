@@ -18,7 +18,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.NotValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -42,7 +41,7 @@ public class RefInNot {
         private static RefInNot1 instance;
         protected RefInNot1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("not", new NotValidator(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class))
+                .not(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
             );
         }
     

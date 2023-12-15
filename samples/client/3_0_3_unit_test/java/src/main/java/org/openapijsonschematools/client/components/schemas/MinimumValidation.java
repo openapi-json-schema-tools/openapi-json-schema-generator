@@ -18,7 +18,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.MinimumValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -42,7 +41,7 @@ public class MinimumValidation {
         private static MinimumValidation1 instance;
         protected MinimumValidation1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("minimum", new MinimumValidator(1.1))
+                .minimum(1.1)
             );
         }
     

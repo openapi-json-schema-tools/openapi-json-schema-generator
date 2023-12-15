@@ -12,7 +12,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -34,9 +33,9 @@ public class EnumWithFalseDoesNotMatch0 {
         protected EnumWithFalseDoesNotMatch01() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Boolean.class))
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                .enumValues(SetMaker.makeSet(
                     false
-                )))
+                ))
             );
         }
     
