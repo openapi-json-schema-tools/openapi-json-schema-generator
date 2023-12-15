@@ -17,7 +17,7 @@ public class MinPropertiesValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Map)) {
             return null;
         }

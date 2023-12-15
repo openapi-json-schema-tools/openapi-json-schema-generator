@@ -5,6 +5,7 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.MapJsonSchema;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -32,10 +33,9 @@ public class RequiredValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         PathToSchemasMap pathToSchemas = validator.validate(
-                JsonSchema.class,
+                MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -55,10 +55,9 @@ public class RequiredValidatorTest {
         );
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         PathToSchemasMap pathToSchemas = validator.validate(
-                JsonSchema.class,
+                MapJsonSchema.getInstance(),
                 1,
-                validationMetadata,
-                null
+                validationMetadata
         );
         Assert.assertNull(pathToSchemas);
     }
@@ -81,10 +80,9 @@ public class RequiredValidatorTest {
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                JsonSchema.class,
+                MapJsonSchema.getInstance(),
                 arg,
-                validationMetadata,
-                null
+                validationMetadata
         ));
     }
 }

@@ -15,7 +15,7 @@ public class AllOfValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for(Class<? extends JsonSchema> allOfClass: allOf) {
             JsonSchema allOfSchema = JsonSchemaFactory.getInstance(allOfClass);
