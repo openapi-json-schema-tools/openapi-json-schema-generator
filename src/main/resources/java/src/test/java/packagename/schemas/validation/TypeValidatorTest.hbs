@@ -5,6 +5,7 @@ import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.StringJsonSchema;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -23,7 +24,7 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                JsonSchema.class,
+                StringJsonSchema.getInstance(),
                 "hi",
                 validationMetadata,
                 null
@@ -43,7 +44,7 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                JsonSchema.class,
+                StringJsonSchema.getInstance(),
                 1,
                 validationMetadata,
                 null
