@@ -23,7 +23,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;maximum = 300<br>)); |
+| Number | &nbsp;&nbsp;&nbsp;&nbsp;maximum = 300<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

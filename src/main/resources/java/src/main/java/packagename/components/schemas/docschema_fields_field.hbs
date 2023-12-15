@@ -1,80 +1,72 @@
-{{#each keywords}}
-    {{#if @first}}
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>
-    {{~/if}}
-    {{#eq this "type"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
-    {{~/eq}}
-    {{#eq this "format"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_format }}
-    {{~/eq}}
-    {{#eq this "items"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_items }}
-    {{~/eq}}
-    {{#eq this "properties"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_properties }}
-    {{~/eq}}
-    {{#eq this "required"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_required }}
-    {{~/eq}}
-    {{#eq this "exclusiveMaximum"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMaximum }}
-    {{~/eq}}
-    {{#eq this "exclusiveMinimum"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMinimum }}
-    {{~/eq}}
-    {{#eq this "maxItems"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_maxItems }}
-    {{~/eq}}
-    {{#eq this "minItems"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_minItems }}
-    {{~/eq}}
-    {{#eq this "maxLength"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_maxLength }}
-    {{~/eq}}
-    {{#eq this "minLength"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_minLength }}
-    {{~/eq}}
-    {{#eq this "maxProperties"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_maxProperties }}
-    {{~/eq}}
-    {{#eq this "minProperties"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_minProperties }}
-    {{~/eq}}
-    {{#eq this "maximum"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_maximum }}
-    {{~/eq}}
-    {{#eq this "minimum"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_minimum }}
-    {{~/eq}}
-    {{#eq this "multipleOf"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_multipleOf }}
-    {{~/eq}}
-    {{#eq this "additionalProperties"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_additionalProperties }}
-    {{~/eq}}
-    {{#eq this "allOf"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
-    {{~/eq}}
-    {{#eq this "anyOf"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
-    {{~/eq}}
-    {{#eq this "oneOf"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
-    {{~/eq}}
-    {{#eq this "not"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
-    {{~/eq}}
-    {{#eq this "uniqueItems"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }}
-    {{~/eq}}
-    {{#eq this "enum"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
-    {{~/eq}}
-    {{#eq this "pattern"}}
-{{> src/main/java/packagename/components/schemas/SchemaClass/_pattern }}
-    {{~/eq}}
-    {{#if @last ~}}
-)); |
-    {{/if}}
-{{/each}}
+{{#if types}}
+| Set<Class<?>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_types }} |
+{{/if}}
+{{#if format}}
+| String | {{> src/main/java/packagename/components/schemas/SchemaClass/_format }} |
+{{/if}}
+{{#if items}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_items }} |
+{{/if}}
+{{#if properties}}
+| Map<String, Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_properties }} |
+{{/if}}
+{{#if requiredProperties}}
+| Set<String> | {{> src/main/java/packagename/components/schemas/SchemaClass/_required }} |
+{{/if}}
+{{#neq exclusiveMaximum null}}
+| Number | {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMaximum }} |
+{{/neq}}
+{{#neq exclusiveMinimum null}}
+| Number | {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMinimum }} |
+{{/neq}}
+{{#neq maximum null}}
+| Number | {{> src/main/java/packagename/components/schemas/SchemaClass/_maximum }} |
+{{/neq}}
+{{#neq minimum null}}
+| Number | {{> src/main/java/packagename/components/schemas/SchemaClass/_minimum }} |
+{{/neq}}
+{{#neq multipleOf null}}
+| BigDecimal | {{> src/main/java/packagename/components/schemas/SchemaClass/_multipleOf }} |
+{{/neq}}
+{{#neq maxItems null}}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_maxItems }} |
+{{/neq}}
+{{#neq minItems null}}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_minItems }} |
+{{/neq}}
+{{#neq maxLength null }}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_maxLength }} |
+{{/neq}}
+{{#neq minLength null }}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_minLength }} |
+{{/neq}}
+{{#neq maxProperties null}}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_maxProperties }} |
+{{/neq}}
+{{#neq minProperties null}}
+| Integer | {{> src/main/java/packagename/components/schemas/SchemaClass/_minProperties }} |
+{{/neq}}
+{{#if additionalProperties}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_additionalProperties }} |
+{{/if}}
+{{#if allOf}}
+| List<Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }} |
+{{/if}}
+{{#if anyOf}}
+| List<Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }} |
+{{/if}}
+{{#if oneOf}}
+| List<Class<? extends JsonSchema>> | {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }} |
+{{/if}}
+{{#if not}}
+| Class<? extends JsonSchema> | {{> src/main/java/packagename/components/schemas/SchemaClass/_not }} |
+{{/if}}
+{{#neq uniqueItems null}}
+| Boolean | {{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }} |
+{{/neq}}
+{{#if enumInfo}}
+| Set<Object> | {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }} |
+{{/if}}
+{{#if patternInfo}}
+| Pattern | {{> src/main/java/packagename/components/schemas/SchemaClass/_pattern }} |
+{{/if}}
