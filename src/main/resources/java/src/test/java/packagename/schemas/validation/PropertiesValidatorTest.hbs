@@ -7,7 +7,6 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.StringJsonSchema;
 import {{{packageName}}}.exceptions.ValidationException;
 
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -32,7 +31,7 @@ public class PropertiesValidatorTest {
         );
         LinkedHashMap<String, Object> mutableMap = new LinkedHashMap<>();
         mutableMap.put("someString", "abc");
-        FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
+        FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
                 arg,
@@ -42,7 +41,7 @@ public class PropertiesValidatorTest {
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someString");
-        LinkedHashMap<JsonSchema<?, ?, ?, ?, ?, ?>, Void> expectedClasses = new LinkedHashMap<>();
+        LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.class), null);
         PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
@@ -88,7 +87,7 @@ public class PropertiesValidatorTest {
         );
         LinkedHashMap<String, Object> mutableMap = new LinkedHashMap<>();
         mutableMap.put("someString", 1);
-        FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
+        FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,
                 arg,

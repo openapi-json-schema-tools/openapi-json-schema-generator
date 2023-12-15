@@ -1,13 +1,13 @@
 
 
 {{#if mapValueSchema}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> {
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
         super(m);
     }
 {{else}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<String, Object> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<? extends String, ?> m) {
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Object> {
+    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<Object> m) {
         super(m);
     }
 {{/if}}
@@ -40,11 +40,11 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Strin
     {{/eq}}
         {{#if mapValueSchema}}
     public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchemaFactory.getInstance({{jsonPathPiece.camelCase}}.class).validate(arg, configuration);
+        return {{jsonPathPiece.camelCase}}.getInstance().validate(arg, configuration);
     }
         {{else}}
     public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
-        return JsonSchemaFactory.getInstance({{jsonPathPiece.camelCase}}.class).validate(arg, configuration);
+        return {{jsonPathPiece.camelCase}}.getInstance().validate(arg, configuration);
     }
         {{/if}}
     {{> src/main/java/packagename/components/schemas/_objectOutputProperties }}

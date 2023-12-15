@@ -692,7 +692,6 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/MinLengthVali
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinimumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MultipleOfValidator.java
-src/main/java/org/openapijsonschematools/client/schemas/validation/NonCollectionJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/NotValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/OneOfValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PathToSchemasMap.java
@@ -700,6 +699,12 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/PatternValida
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/RequiredValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/SchemaBooleanValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/SchemaListValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/SchemaMapValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/SchemaNullValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/SchemaNumberValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/SchemaStringValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UnsetAnyTypeJsonSchema.java

@@ -6,4 +6,5 @@ public class StringHeaderSchema {
     
     
     public static class StringHeaderSchema1 extends StringJsonSchema {}
+
 }

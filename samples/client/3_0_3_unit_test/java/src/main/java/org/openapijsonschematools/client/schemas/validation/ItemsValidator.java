@@ -39,7 +39,7 @@ public class ItemsValidator implements KeywordValidator {
                 i +=1;
                 continue;
             }
-            PathToSchemasMap otherPathToSchemas = itemsSchema.validate(itemValue, itemValidationMetadata);
+            PathToSchemasMap otherPathToSchemas = JsonSchema.validate(itemsSchema, itemValue, itemValidationMetadata);
             pathToSchemas.update(otherPathToSchemas);
             i += 1;
         }

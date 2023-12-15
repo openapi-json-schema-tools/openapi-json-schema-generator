@@ -2,12 +2,12 @@
     {{#if additionalProperties.isBooleanSchemaFalse}}
         {{! TypedDict use case }}
         {{#and requiredProperties optionalProperties}}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // requiredProperties, optionalProperties, NO additionalProperties
 }
         {{else}}
             {{! empty mapping }}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // empty mapping
 }
         {{/and}}
@@ -15,31 +15,31 @@ public class {{mapInputJsonPathPiece.camelCase}} {
         {{! addProps True/schema }}
         {{#if additionalProperties.isBooleanSchemaTrue }}
             {{! addProps True, does not matter what properties are because they are always covered by base types }}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // Map<String, Object> because additionalProperties == true
 }
         {{else}}
             {{! addProps schema }}
             {{#and requiredProperties optionalProperties}}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // requiredProperties + optionalProperties + additionalProperties
 }
             {{else}}
                 {{! no requiredProperties or optionalProperties or just one of them }}
                 {{#if requiredProperties}}
                     {{! requiredProperties + addProp }}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // requiredProperties + additionalProperties
 }
                 {{else}}
                     {{#if optionalProperties}}
                         {{! optionalProperties + addProp }}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // optionalProperties + additionalProperties
 }
                     {{else}}
                         {{! only addProp }}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // Map<String, additionalProperties>
 }
                     {{/if}}
@@ -49,7 +49,7 @@ public class {{mapInputJsonPathPiece.camelCase}} {
     {{/if}}
 {{else}}
     {{! addProps unset, does not matter what required and optional props are }}
-public class {{mapInputJsonPathPiece.camelCase}} {
+public static class {{mapInputJsonPathPiece.camelCase}} {
     // Map<String, Object> because addProps is unset
 }
 {{/if}}

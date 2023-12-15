@@ -12,36 +12,36 @@ import java.math.BigDecimal;
 
 public class NumberSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NumberJsonSchema numberJsonSchema = JsonSchemaFactory.getInstance(NumberJsonSchema.class);
+    static final NumberJsonSchema numberJsonSchema = NumberJsonSchema.getInstance();
 
     @Test
     public void testValidateInteger() {
-        Number validatedValue = numberJsonSchema.validate(1, configuration);
+        int validatedValue = numberJsonSchema.validate(1, configuration);
         Assert.assertEquals(validatedValue, 1);
     }
 
     @Test
     public void testValidateLong() {
-        Number validatedValue = numberJsonSchema.validate(1L, configuration);
+        long validatedValue = numberJsonSchema.validate(1L, configuration);
         Assert.assertEquals(validatedValue, 1L);
     }
 
     @Test
     public void testValidateFloat() {
-        Number validatedValue = numberJsonSchema.validate(3.14f, configuration);
-        Assert.assertEquals(validatedValue, 3.14f);
+        float validatedValue = numberJsonSchema.validate(3.14f, configuration);
+        Assert.assertEquals(Float.compare(validatedValue, 3.14f), 0);
     }
 
     @Test
     public void testValidateDouble() {
-        Number validatedValue = numberJsonSchema.validate(3.14d, configuration);
-        Assert.assertEquals(validatedValue, 3.14d);
+        double validatedValue = numberJsonSchema.validate(3.14d, configuration);
+        Assert.assertEquals(Double.compare(validatedValue, 3.14d), 0);
     }
 
     @Test
     public void testExceptionThrownForInvalidType() {
         Assert.assertThrows(ValidationException.class, () -> numberJsonSchema.validate(
-                (Void) null, configuration
+                null, configuration
         ));
     }
 }

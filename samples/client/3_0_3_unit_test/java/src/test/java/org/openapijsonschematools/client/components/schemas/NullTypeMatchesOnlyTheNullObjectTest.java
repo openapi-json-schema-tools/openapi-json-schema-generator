@@ -5,69 +5,88 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class NullTypeMatchesOnlyTheNullObjectTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1 schema = JsonSchemaFactory.getInstance(
-        NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.class
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
     public void testZeroIsNotNullFails() {
         // zero is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             0,
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testAnArrayIsNotNullFails() {
         // an array is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-            Arrays.asList(
-            ),
-            configuration
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
+            new FrozenList<>(Arrays.asList(
+            )),
+            validationMetadata
         ));
     }
 
     @Test
     public void testAnObjectIsNotNullFails() {
         // an object is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-            MapMaker.makeMap(
-            ),
-            configuration
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
+            new FrozenMap<>(MapMaker.makeMap(
+            )),
+            validationMetadata
         ));
     }
 
     @Test
     public void testTrueIsNotNullFails() {
         // true is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             true,
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testFalseIsNotNullFails() {
         // false is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             false,
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testNullIsNullPasses() {
         // null is null
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
         schema.validate(
             (Void) null,
             configuration
@@ -77,36 +96,44 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     @Test
     public void testAStringIsNotNullFails() {
         // a string is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             "foo",
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testAnIntegerIsNotNullFails() {
         // an integer is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             1,
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testAnEmptyStringIsNotNullFails() {
         // an empty string is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             "",
-            configuration
+            validationMetadata
         ));
     }
 
     @Test
     public void testAFloatIsNotNullFails() {
         // a float is not null
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
+        final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
             1.1d,
-            configuration
+            validationMetadata
         ));
     }
 }

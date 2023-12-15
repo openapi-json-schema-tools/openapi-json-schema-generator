@@ -6,4 +6,5 @@ public class NullTypeMatchesOnlyTheNullObject {
     
     
     public static class NullTypeMatchesOnlyTheNullObject1 extends NullJsonSchema {}
+
 }

@@ -6,4 +6,5 @@ public class LocationSchema {
     
     
     public static class LocationSchema1 extends StringJsonSchema {}
+
 }

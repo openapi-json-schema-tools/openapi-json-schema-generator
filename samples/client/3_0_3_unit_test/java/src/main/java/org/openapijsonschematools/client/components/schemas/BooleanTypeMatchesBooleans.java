@@ -6,4 +6,5 @@ public class BooleanTypeMatchesBooleans {
     
     
     public static class BooleanTypeMatchesBooleans1 extends BooleanJsonSchema {}
+
 }

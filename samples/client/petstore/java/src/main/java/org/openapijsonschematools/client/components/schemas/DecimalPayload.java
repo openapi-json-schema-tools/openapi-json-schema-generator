@@ -6,4 +6,5 @@ public class DecimalPayload {
     
     
     public static class DecimalPayload1 extends DecimalJsonSchema {}
+
 }

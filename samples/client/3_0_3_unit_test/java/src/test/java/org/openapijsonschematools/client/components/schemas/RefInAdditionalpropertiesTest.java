@@ -5,22 +5,31 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class RefInAdditionalpropertiesTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final RefInAdditionalproperties.RefInAdditionalproperties1 schema = JsonSchemaFactory.getInstance(
-        RefInAdditionalproperties.RefInAdditionalproperties1.class
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
     public void testPropertyNamedRefValidPasses() {
         // property named $ref valid
+        final var schema = RefInAdditionalproperties.RefInAdditionalproperties1.getInstance();
         schema.validate(
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
@@ -40,8 +49,10 @@ public class RefInAdditionalpropertiesTest {
     @Test
     public void testPropertyNamedRefInvalidFails() {
         // property named $ref invalid
-        Assert.assertThrows(ValidationException.class, () -> schema.validate(
-            MapMaker.makeMap(
+        final var schema = RefInAdditionalproperties.RefInAdditionalproperties1.getInstance();
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+            schema,
+            new FrozenMap<>(MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "someProp",
                     MapMaker.makeMap(
@@ -51,8 +62,8 @@ public class RefInAdditionalpropertiesTest {
                         )
                     )
                 )
-            ),
-            configuration
+            )),
+            validationMetadata
         ));
     }
 }

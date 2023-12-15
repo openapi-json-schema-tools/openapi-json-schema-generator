@@ -6,4 +6,5 @@ public class Schema0 {
     
     
     public static class Schema01 extends Int64JsonSchema {}
+
 }

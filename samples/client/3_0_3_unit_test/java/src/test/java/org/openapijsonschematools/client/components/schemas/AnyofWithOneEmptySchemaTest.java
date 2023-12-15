@@ -5,22 +5,31 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.MapMaker;
+import org.openapijsonschematools.client.schemas.validation.JsonSchema;
+import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.FrozenList;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.AbstractMap;
+import java.util.LinkedHashSet;
 
 public class AnyofWithOneEmptySchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1 schema = JsonSchemaFactory.getInstance(
-        AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.class
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
     );
 
     @Test
     public void testNumberIsValidPasses() {
         // number is valid
+        final var schema = AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance();
         schema.validate(
             123,
             configuration
@@ -30,6 +39,7 @@ public class AnyofWithOneEmptySchemaTest {
     @Test
     public void testStringIsValidPasses() {
         // string is valid
+        final var schema = AnyofWithOneEmptySchema.AnyofWithOneEmptySchema1.getInstance();
         schema.validate(
             "foo",
             configuration

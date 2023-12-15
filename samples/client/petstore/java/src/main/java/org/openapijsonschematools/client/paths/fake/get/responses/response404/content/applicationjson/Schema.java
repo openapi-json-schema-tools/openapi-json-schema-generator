@@ -7,4 +7,5 @@ public class Schema {
     
     
     public static class Schema1 extends MapJsonSchema {}
+
 }

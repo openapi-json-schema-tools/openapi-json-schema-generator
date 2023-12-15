@@ -16,7 +16,7 @@ import java.util.LinkedHashMap;
 
 
 public class AnyTypeSchemaTest {
-    static final AnyTypeJsonSchema schema = JsonSchemaFactory.getInstance(AnyTypeJsonSchema.class);
+    static final AnyTypeJsonSchema schema = AnyTypeJsonSchema.getInstance();
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
     @Test
@@ -80,7 +80,7 @@ public class AnyTypeSchemaTest {
     public void testValidateMap() {
         LinkedHashMap<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("today", LocalDate.of(2017, 7, 21));
-        FrozenMap<String, Object> validatedValue = schema.validate(inMap, configuration);
+        FrozenMap<?> validatedValue = schema.validate(inMap, configuration);
         LinkedHashMap<String, Object> outMap = new LinkedHashMap<>();
         outMap.put("today", "2017-07-21");
         Assert.assertEquals(validatedValue, outMap);
@@ -90,7 +90,7 @@ public class AnyTypeSchemaTest {
     public void testValidateList() {
         ArrayList<Object> inList = new ArrayList<>();
         inList.add(LocalDate.of(2017, 7, 21));
-        FrozenList<Object> validatedValue = schema.validate(inList, configuration);
+        FrozenList<?> validatedValue = schema.validate(inList, configuration);
         ArrayList<Object> outList = new ArrayList<>();
         outList.add( "2017-07-21");
         Assert.assertEquals(validatedValue, outList);

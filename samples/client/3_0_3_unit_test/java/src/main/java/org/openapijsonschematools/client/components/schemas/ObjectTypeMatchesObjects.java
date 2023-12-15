@@ -7,4 +7,5 @@ public class ObjectTypeMatchesObjects {
     
     
     public static class ObjectTypeMatchesObjects1 extends MapJsonSchema {}
+
 }

@@ -6,4 +6,5 @@ public class NumberSchema {
     
     
     public static class NumberSchema1 extends NumberJsonSchema {}
+
 }

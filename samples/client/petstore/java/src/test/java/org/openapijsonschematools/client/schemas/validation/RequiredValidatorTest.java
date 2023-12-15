@@ -4,14 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 
 public class RequiredValidatorTest {
@@ -31,7 +29,7 @@ public class RequiredValidatorTest {
         );
         LinkedHashMap<String, Object> mutableMap = new LinkedHashMap<>();
         mutableMap.put("someString", "abc");
-        FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
+        FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         PathToSchemasMap pathToSchemas = validator.validate(
                 JsonSchema.class,
@@ -80,7 +78,7 @@ public class RequiredValidatorTest {
         );
         LinkedHashMap<String, Object> mutableMap = new LinkedHashMap<>();
         mutableMap.put("aDifferentProp", 1);
-        FrozenMap<String, Object> arg = new FrozenMap<>(mutableMap);
+        FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         final RequiredValidator validator = new RequiredValidator(requiredProperties);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
                 JsonSchema.class,

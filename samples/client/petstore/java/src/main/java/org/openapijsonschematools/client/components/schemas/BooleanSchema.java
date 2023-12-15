@@ -6,4 +6,5 @@ public class BooleanSchema {
     
     
     public static class BooleanSchema1 extends BooleanJsonSchema {}
+
 }

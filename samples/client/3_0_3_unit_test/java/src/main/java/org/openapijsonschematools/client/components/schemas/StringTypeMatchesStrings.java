@@ -6,4 +6,5 @@ public class StringTypeMatchesStrings {
     
     
     public static class StringTypeMatchesStrings1 extends StringJsonSchema {}
+
 }

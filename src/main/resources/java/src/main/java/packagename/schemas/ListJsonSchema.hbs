@@ -1,26 +1,68 @@
 package {{{packageName}}}.schemas;
 
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
+import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.FrozenList;
-import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
+import {{{packageName}}}.schemas.validation.SchemaListValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
-public class ListJsonSchema extends JsonSchema<Object, Object, FrozenMap<String, Object>, Object, Object,FrozenList<Object>> {
-    public ListJsonSchema() {
+public class ListJsonSchema extends JsonSchema implements SchemaListValidator<Object, Object, FrozenList<Object>> {
+    private static ListJsonSchema instance;
+
+    protected ListJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class)))
         )));
     }
 
-    public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateList(arg, configuration);
+    public static ListJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new ListJsonSchema();
+        }
+        return instance;
+    }
+
+    @Override
+    public FrozenList<Object> castToAllowedTypes(List<Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedListTypes(arg, pathToItem, pathSet);
+    }
+
+    @Override
+    public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
+    }
+
+    @Override
+    public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        Set<List<Object>> pathSet = new HashSet<>();
+        List<Object> pathToItem = List.of("args[0");
+        FrozenList<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+        SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+        PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+        return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof FrozenList) {
+            @SuppressWarnings("unchecked") FrozenList<Object> castArg = (FrozenList<Object>) arg;
+            return getNewInstance(castArg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
 }

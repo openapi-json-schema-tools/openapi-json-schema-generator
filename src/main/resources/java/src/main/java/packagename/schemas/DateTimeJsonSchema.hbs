@@ -1,33 +1,73 @@
 package {{{packageName}}}.schemas;
 
-import {{{packageName}}}.schemas.validation.NonCollectionJsonSchema;
-import {{{packageName}}}.schemas.validation.FrozenMap;
-import {{{packageName}}}.schemas.validation.FrozenList;
+import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
-import {{{packageName}}}.schemas.validation.KeywordValidator;
+import {{{packageName}}}.schemas.validation.PathToSchemasMap;
+import {{{packageName}}}.schemas.validation.SchemaStringValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
+import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
 import java.time.ZonedDateTime;
+import java.util.HashSet;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
-public class DateTimeJsonSchema extends NonCollectionJsonSchema {
-    public DateTimeJsonSchema() {
+public class DateTimeJsonSchema extends JsonSchema implements SchemaStringValidator {
+    private static DateTimeJsonSchema instance;
+
+    protected DateTimeJsonSchema() {
         super(new LinkedHashMap<>(Map.ofEntries(
                 new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
                 new KeywordEntry("format", new FormatValidator("date-time"))
         )));
     }
 
-    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateString(arg, configuration);
+    public static DateTimeJsonSchema getInstance() {
+        if (instance == null) {
+            instance = new DateTimeJsonSchema();
+        }
+        return instance;
+    }
+
+    @Override
+    public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+        return castToAllowedStringTypes(arg, pathToItem, pathSet);
+    }
+
+    @Override
+    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
+    }
+
+    @Override
+    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        Set<List<Object>> pathSet = new HashSet<>();
+        List<Object> pathToItem = List.of("args[0");
+        String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+        SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
+        ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
+        PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
+        return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
     }
 
     public String validate(ZonedDateTime arg, SchemaConfiguration configuration) throws ValidationException {
-        return validateZonedDateTime(arg, configuration);
+        return validate(arg.toString(), configuration);
+    }
+
+    @Override
+    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        if (arg instanceof String) {
+            return getNewInstance((String) arg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
 }
