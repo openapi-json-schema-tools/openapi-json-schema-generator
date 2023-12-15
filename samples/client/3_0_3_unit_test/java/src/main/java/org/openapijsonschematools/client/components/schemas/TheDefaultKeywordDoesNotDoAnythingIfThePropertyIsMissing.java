@@ -47,25 +47,17 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             }
             return instance;
         }
-    
+        
         @Override
         public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedNumberTypes(arg, pathToItem, pathSet);
         }
-    
+        
         @Override
         public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof Number) {
-                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -90,6 +82,14 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
+        }
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof Number) {
+                return getNewInstance((Number) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }    
     
@@ -145,7 +145,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             }
             return instance;
         }
-    
+        
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
@@ -160,7 +160,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
@@ -175,16 +175,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -194,6 +185,16 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }
 

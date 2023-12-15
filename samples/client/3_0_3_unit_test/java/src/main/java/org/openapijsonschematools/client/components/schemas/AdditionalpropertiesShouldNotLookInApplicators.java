@@ -542,7 +542,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
                 @SuppressWarnings("unchecked") FrozenList<Object> castArg = (FrozenList<Object>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             } else if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                @SuppressWarnings("unchecked") FrozenMap<Boolean> castArg = (FrozenMap<Boolean>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");

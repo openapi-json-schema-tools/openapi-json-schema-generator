@@ -49,25 +49,17 @@ public class EnumsInProperties {
             }
             return instance;
         }
-    
+        
         @Override
         public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedStringTypes(arg, pathToItem, pathSet);
         }
-    
+        
         @Override
         public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof String) {
-                return getNewInstance((String) arg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -78,7 +70,14 @@ public class EnumsInProperties {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
-    
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class Bar extends JsonSchema implements SchemaStringValidator {
@@ -101,25 +100,17 @@ public class EnumsInProperties {
             }
             return instance;
         }
-    
+        
         @Override
         public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             return castToAllowedStringTypes(arg, pathToItem, pathSet);
         }
-    
+        
         @Override
         public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof String) {
-                return getNewInstance((String) arg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -130,7 +121,14 @@ public class EnumsInProperties {
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
-    
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof String) {
+                return getNewInstance((String) arg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        }
     }    
     
     public static class EnumsInPropertiesMap extends FrozenMap<Object> {
@@ -195,7 +193,7 @@ public class EnumsInProperties {
             }
             return instance;
         }
-    
+        
         @Override
         public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
             pathSet.add(pathToItem);
@@ -210,7 +208,7 @@ public class EnumsInProperties {
             }
             return new FrozenMap<>(argFixed);
         }
-    
+        
         public EnumsInPropertiesMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
@@ -225,16 +223,7 @@ public class EnumsInProperties {
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new EnumsInPropertiesMap(castProperties);
         }
-    
-        @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
-        }
-    
+        
         @Override
         public EnumsInPropertiesMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
@@ -244,6 +233,16 @@ public class EnumsInProperties {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+        }
+        
+        
+        @Override
+        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            if (arg instanceof FrozenMap) {
+                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
+                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            }
+            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
     }
 
