@@ -8,7 +8,7 @@ import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaListValidator;
+import {{{packageName}}}.schemas.validation.ListSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class ListJsonSchema extends JsonSchema implements SchemaListValidator<Object, Object, FrozenList<Object>> {
+public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Object, Object, FrozenList<Object>> {
     private static ListJsonSchema instance;
 
     protected ListJsonSchema() {
