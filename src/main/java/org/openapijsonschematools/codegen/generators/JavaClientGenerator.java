@@ -419,12 +419,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
-        keywordValidatorFiles.add("SchemaNullValidator");
-        keywordValidatorFiles.add("SchemaBooleanValidator");
-        keywordValidatorFiles.add("SchemaNumberValidator");
-        keywordValidatorFiles.add("SchemaStringValidator");
-        keywordValidatorFiles.add("SchemaListValidator");
-        keywordValidatorFiles.add("SchemaMapValidator");
+        keywordValidatorFiles.add("NullSchemaValidator");
+        keywordValidatorFiles.add("BooleanSchemaValidator");
+        keywordValidatorFiles.add("NumberSchemaValidator");
+        keywordValidatorFiles.add("StringSchemaValidator");
+        keywordValidatorFiles.add("ListSchemaValidator");
+        keywordValidatorFiles.add("MapSchemaValidator");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
@@ -1506,12 +1506,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import java.util.List;");
                 imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                 imports.add("import java.util.Map;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaNullValidator;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaBooleanValidator;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaNumberValidator;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaStringValidator;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaListValidator;");
-                imports.add("import "+packageName + ".schemas.validation.SchemaMapValidator;");
+                imports.add("import "+packageName + ".schemas.validation.NullSchemaValidator;");
+                imports.add("import "+packageName + ".schemas.validation.BooleanSchemaValidator;");
+                imports.add("import "+packageName + ".schemas.validation.NumberSchemaValidator;");
+                imports.add("import "+packageName + ".schemas.validation.StringSchemaValidator;");
+                imports.add("import "+packageName + ".schemas.validation.ListSchemaValidator;");
+                imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
                 addPropertiesValidator(schema, imports);
                 addRequiredValidator(schema, imports);
                 addAdditionalPropertiesValidator(schema, imports);
@@ -1607,7 +1607,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private void addBooleanSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.SchemaBooleanValidator;");
+        imports.add("import " + packageName + ".schemas.validation.BooleanSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -1615,7 +1615,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private void addNullSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.SchemaNullValidator;");
+        imports.add("import " + packageName + ".schemas.validation.NullSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -1623,7 +1623,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private void addMapSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.SchemaMapValidator;");
+        imports.add("import " + packageName + ".schemas.validation.MapSchemaValidator;");
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
         imports.add("import java.util.Map;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
@@ -1636,7 +1636,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.SchemaListValidator;");
+        imports.add("import " + packageName + ".schemas.validation.ListSchemaValidator;");
         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
         imports.add("import java.util.List;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
@@ -1646,7 +1646,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     private void addNumberSchemaImports(Set<String> imports, CodegenSchema schema) {
-        imports.add("import " + packageName + ".schemas.validation.SchemaNumberValidator;");
+        imports.add("import " + packageName + ".schemas.validation.NumberSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -1664,7 +1664,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import java.util.UUID;");
             }
         }
-        imports.add("import " + packageName + ".schemas.validation.SchemaStringValidator;");
+        imports.add("import " + packageName + ".schemas.validation.StringSchemaValidator;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);

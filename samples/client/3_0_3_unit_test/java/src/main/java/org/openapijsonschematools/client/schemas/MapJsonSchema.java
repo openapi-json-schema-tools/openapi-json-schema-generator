@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class MapJsonSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Object, Object, FrozenMap<Object>> {
     private static MapJsonSchema instance;
 
     protected MapJsonSchema() {

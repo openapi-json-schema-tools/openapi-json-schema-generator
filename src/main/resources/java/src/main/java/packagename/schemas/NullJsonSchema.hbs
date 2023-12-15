@@ -8,7 +8,7 @@ import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaNullValidator;
+import {{{packageName}}}.schemas.validation.NullSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class NullJsonSchema extends JsonSchema implements SchemaNullValidator {
+public class NullJsonSchema extends JsonSchema implements NullSchemaValidator {
     private static NullJsonSchema instance;
 
     protected NullJsonSchema() {

@@ -11,12 +11,12 @@ import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.NotValidator;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaNullValidator;
-import {{{packageName}}}.schemas.validation.SchemaBooleanValidator;
-import {{{packageName}}}.schemas.validation.SchemaNumberValidator;
-import {{{packageName}}}.schemas.validation.SchemaStringValidator;
-import {{{packageName}}}.schemas.validation.SchemaListValidator;
-import {{{packageName}}}.schemas.validation.SchemaMapValidator;
+import {{{packageName}}}.schemas.validation.NullSchemaValidator;
+import {{{packageName}}}.schemas.validation.BooleanSchemaValidator;
+import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
+import {{{packageName}}}.schemas.validation.StringSchemaValidator;
+import {{{packageName}}}.schemas.validation.ListSchemaValidator;
+import {{{packageName}}}.schemas.validation.MapSchemaValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 
 import java.util.List;
@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.Objects;
 
-public class NotAnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
     private static NotAnyTypeJsonSchema instance;
 
     protected NotAnyTypeJsonSchema() {

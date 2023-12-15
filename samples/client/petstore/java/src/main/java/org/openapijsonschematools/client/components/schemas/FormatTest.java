@@ -27,19 +27,19 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class FormatTest {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class IntegerSchema extends JsonSchema implements SchemaNumberValidator {
+    public static class IntegerSchema extends JsonSchema implements NumberSchemaValidator {
         private static IntegerSchema instance;
     
         protected IntegerSchema() {
@@ -112,7 +112,7 @@ public class FormatTest {
     public static class Int32 extends Int32JsonSchema {}
     
     
-    public static class Int32withValidations extends JsonSchema implements SchemaNumberValidator {
+    public static class Int32withValidations extends JsonSchema implements NumberSchemaValidator {
         private static Int32withValidations instance;
     
         protected Int32withValidations() {
@@ -177,7 +177,7 @@ public class FormatTest {
     public static class Int64 extends Int64JsonSchema {}
     
     
-    public static class NumberSchema extends JsonSchema implements SchemaNumberValidator {
+    public static class NumberSchema extends JsonSchema implements NumberSchemaValidator {
         private static NumberSchema instance;
     
         protected NumberSchema() {
@@ -246,7 +246,7 @@ public class FormatTest {
         }
     }    
     
-    public static class FloatSchema extends JsonSchema implements SchemaNumberValidator {
+    public static class FloatSchema extends JsonSchema implements NumberSchemaValidator {
         private static FloatSchema instance;
     
         protected FloatSchema() {
@@ -306,7 +306,7 @@ public class FormatTest {
     public static class Float32 extends FloatJsonSchema {}
     
     
-    public static class DoubleSchema extends JsonSchema implements SchemaNumberValidator {
+    public static class DoubleSchema extends JsonSchema implements NumberSchemaValidator {
         private static DoubleSchema instance;
     
         protected DoubleSchema() {
@@ -383,7 +383,7 @@ public class FormatTest {
     }
     
     
-    public static class ArrayWithUniqueItems extends JsonSchema implements SchemaListValidator<Number, Number, ArrayWithUniqueItemsList> {
+    public static class ArrayWithUniqueItems extends JsonSchema implements ListSchemaValidator<Number, Number, ArrayWithUniqueItemsList> {
         private static ArrayWithUniqueItems instance;
     
         protected ArrayWithUniqueItems() {
@@ -453,7 +453,7 @@ public class FormatTest {
         }
     }    
     
-    public static class StringSchema extends JsonSchema implements SchemaStringValidator {
+    public static class StringSchema extends JsonSchema implements StringSchemaValidator {
         private static StringSchema instance;
     
         protected StringSchema() {
@@ -525,7 +525,7 @@ public class FormatTest {
     public static class UuidNoExample extends UuidJsonSchema {}
     
     
-    public static class Password extends JsonSchema implements SchemaStringValidator {
+    public static class Password extends JsonSchema implements StringSchemaValidator {
         private static Password instance;
     
         protected Password() {
@@ -576,7 +576,7 @@ public class FormatTest {
         }
     }    
     
-    public static class PatternWithDigits extends JsonSchema implements SchemaStringValidator {
+    public static class PatternWithDigits extends JsonSchema implements StringSchemaValidator {
         private static PatternWithDigits instance;
     
         protected PatternWithDigits() {
@@ -627,7 +627,7 @@ public class FormatTest {
         }
     }    
     
-    public static class PatternWithDigitsAndDelimiter extends JsonSchema implements SchemaStringValidator {
+    public static class PatternWithDigitsAndDelimiter extends JsonSchema implements StringSchemaValidator {
         private static PatternWithDigitsAndDelimiter instance;
     
         protected PatternWithDigitsAndDelimiter() {
@@ -806,7 +806,7 @@ public class FormatTest {
     }
     
     
-    public static class FormatTest1 extends JsonSchema implements SchemaMapValidator<Object, Object, FormatTestMap> {
+    public static class FormatTest1 extends JsonSchema implements MapSchemaValidator<Object, Object, FormatTestMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator

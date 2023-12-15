@@ -8,7 +8,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
+import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -20,7 +20,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class NullJsonSchema extends JsonSchema implements SchemaNullValidator {
+public class NullJsonSchema extends JsonSchema implements NullSchemaValidator {
     private static NullJsonSchema instance;
 
     protected NullJsonSchema() {

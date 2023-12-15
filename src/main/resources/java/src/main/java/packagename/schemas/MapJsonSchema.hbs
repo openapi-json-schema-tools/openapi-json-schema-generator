@@ -8,7 +8,7 @@ import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
-import {{{packageName}}}.schemas.validation.SchemaMapValidator;
+import {{{packageName}}}.schemas.validation.MapSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class MapJsonSchema extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Object, Object, FrozenMap<Object>> {
     private static MapJsonSchema instance;
 
     protected MapJsonSchema() {

@@ -21,9 +21,9 @@ import org.openapijsonschematools.client.schemas.validation.AdditionalProperties
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class HeaderParameters {
@@ -66,7 +66,7 @@ public class HeaderParameters {
     }
     
     
-    public static class HeaderParameters1 extends JsonSchema implements SchemaMapValidator<Object, Object, HeaderParametersMap> {
+    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<Object, Object, HeaderParametersMap> {
         private static HeaderParameters1 instance;
     
         protected HeaderParameters1() {

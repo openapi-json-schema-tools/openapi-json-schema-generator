@@ -14,25 +14,25 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class AnyTypeAndFormat {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class UuidSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class UuidSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static UuidSchema instance;
     
         protected UuidSchema() {
@@ -245,7 +245,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Date extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class Date extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static Date instance;
     
         protected Date() {
@@ -458,7 +458,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Datetime extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class Datetime extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static Datetime instance;
     
         protected Datetime() {
@@ -671,7 +671,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class NumberSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class NumberSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static NumberSchema instance;
     
         protected NumberSchema() {
@@ -884,7 +884,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Binary extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class Binary extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static Binary instance;
     
         protected Binary() {
@@ -1097,7 +1097,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Int32 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class Int32 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static Int32 instance;
     
         protected Int32() {
@@ -1310,7 +1310,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class Int64 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class Int64 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static Int64 instance;
     
         protected Int64() {
@@ -1523,7 +1523,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class DoubleSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class DoubleSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static DoubleSchema instance;
     
         protected DoubleSchema() {
@@ -1736,7 +1736,7 @@ public class AnyTypeAndFormat {
         }
     }    
     
-    public static class FloatSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class FloatSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static FloatSchema instance;
     
         protected FloatSchema() {
@@ -2004,7 +2004,7 @@ public class AnyTypeAndFormat {
     }
     
     
-    public static class AnyTypeAndFormat1 extends JsonSchema implements SchemaMapValidator<Object, Object, AnyTypeAndFormatMap> {
+    public static class AnyTypeAndFormat1 extends JsonSchema implements MapSchemaValidator<Object, Object, AnyTypeAndFormatMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator

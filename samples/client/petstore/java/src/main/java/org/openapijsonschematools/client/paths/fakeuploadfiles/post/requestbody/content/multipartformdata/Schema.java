@@ -16,10 +16,10 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
@@ -45,7 +45,7 @@ public class Schema {
     }
     
     
-    public static class Files extends JsonSchema implements SchemaListValidator<String, String, FilesList> {
+    public static class Files extends JsonSchema implements ListSchemaValidator<String, String, FilesList> {
         private static Files instance;
     
         protected Files() {
@@ -143,7 +143,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements SchemaMapValidator<Object, Object, SchemaMap> {
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Object, Object, SchemaMap> {
         private static Schema1 instance;
     
         protected Schema1() {

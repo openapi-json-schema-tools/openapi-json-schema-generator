@@ -21,9 +21,9 @@ import org.openapijsonschematools.client.schemas.validation.AdditionalProperties
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class QueryParameters {
@@ -78,7 +78,7 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema implements SchemaMapValidator<Object, Object, QueryParametersMap> {
+    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<Object, Object, QueryParametersMap> {
         private static QueryParameters1 instance;
     
         protected QueryParameters1() {

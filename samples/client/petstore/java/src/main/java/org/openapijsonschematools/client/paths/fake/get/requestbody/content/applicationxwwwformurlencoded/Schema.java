@@ -16,18 +16,18 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items extends JsonSchema implements SchemaStringValidator {
+    public static class Items extends JsonSchema implements StringSchemaValidator {
         private static Items instance;
     
         protected Items() {
@@ -93,7 +93,7 @@ public class Schema {
     }
     
     
-    public static class EnumFormStringArray extends JsonSchema implements SchemaListValidator<String, String, EnumFormStringArrayList> {
+    public static class EnumFormStringArray extends JsonSchema implements ListSchemaValidator<String, String, EnumFormStringArrayList> {
         private static EnumFormStringArray instance;
     
         protected EnumFormStringArray() {
@@ -162,7 +162,7 @@ public class Schema {
         }
     }    
     
-    public static class EnumFormString extends JsonSchema implements SchemaStringValidator {
+    public static class EnumFormString extends JsonSchema implements StringSchemaValidator {
         private static EnumFormString instance;
     
         protected EnumFormString() {
@@ -251,7 +251,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements SchemaMapValidator<Object, Object, SchemaMap> {
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<Object, Object, SchemaMap> {
         private static Schema1 instance;
     
         protected Schema1() {
