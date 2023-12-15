@@ -196,7 +196,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<List<String>> castArg = (FrozenMap<List<String>>) arg;
+                @SuppressWarnings("unchecked") FrozenMap<FrozenList<String>> castArg = (FrozenMap<FrozenList<String>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");

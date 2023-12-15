@@ -22,11 +22,11 @@ public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasM
         return getNewInstance((String) arg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#eq this "array"}}
-        @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
+        @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
         return getNewInstance(castArg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#eq this "object"}}
-        @SuppressWarnings("unchecked") FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
+        @SuppressWarnings("unchecked") FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
         return getNewInstance(castArg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#if @last}}
@@ -44,10 +44,10 @@ public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasM
     } else if (arg instanceof String) {
         return getNewInstance((String) arg, pathToItem, pathToSchemas);
     } else if (arg instanceof FrozenList) {
-        @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
+        @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
         return getNewInstance(castArg, pathToItem, pathToSchemas);
     } else if (arg instanceof FrozenMap) {
-        @SuppressWarnings("unchecked") FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
+        @SuppressWarnings("unchecked") FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
         return getNewInstance(castArg, pathToItem, pathToSchemas);
     }
 {{/if}}

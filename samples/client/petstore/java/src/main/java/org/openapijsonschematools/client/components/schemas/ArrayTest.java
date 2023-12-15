@@ -275,7 +275,7 @@ public class ArrayTest {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<List<Long>> castArg = (FrozenList<List<Long>>) arg;
+                @SuppressWarnings("unchecked") FrozenList<FrozenList<Long>> castArg = (FrozenList<FrozenList<Long>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
@@ -357,7 +357,7 @@ public class ArrayTest {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<Map<String, Object>> castArg = (FrozenList<Map<String, Object>>) arg;
+                @SuppressWarnings("unchecked") FrozenList<FrozenMap<Object>> castArg = (FrozenList<FrozenMap<Object>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
@@ -439,7 +439,7 @@ public class ArrayTest {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<List<Map<String, Object>>> castArg = (FrozenList<List<Map<String, Object>>>) arg;
+                @SuppressWarnings("unchecked") FrozenList<FrozenList<FrozenMap<Object>>> castArg = (FrozenList<FrozenList<FrozenMap<Object>>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");

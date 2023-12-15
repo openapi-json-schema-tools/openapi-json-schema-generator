@@ -185,7 +185,7 @@ public class NestedItems {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<List<Number>> castArg = (FrozenList<List<Number>>) arg;
+                @SuppressWarnings("unchecked") FrozenList<FrozenList<Number>> castArg = (FrozenList<FrozenList<Number>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
@@ -267,7 +267,7 @@ public class NestedItems {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<List<List<Number>>> castArg = (FrozenList<List<List<Number>>>) arg;
+                @SuppressWarnings("unchecked") FrozenList<FrozenList<FrozenList<Number>>> castArg = (FrozenList<FrozenList<FrozenList<Number>>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
@@ -355,7 +355,7 @@ public class NestedItems {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<List<List<List<Number>>>> castArg = (FrozenList<List<List<List<Number>>>>) arg;
+                @SuppressWarnings("unchecked") FrozenList<FrozenList<FrozenList<FrozenList<Number>>>> castArg = (FrozenList<FrozenList<FrozenList<FrozenList<Number>>>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");

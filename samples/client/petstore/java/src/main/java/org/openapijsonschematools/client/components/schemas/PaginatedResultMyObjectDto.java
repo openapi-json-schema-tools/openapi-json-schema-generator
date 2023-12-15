@@ -115,7 +115,7 @@ public class PaginatedResultMyObjectDto {
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<Map<String, String>> castArg = (FrozenList<Map<String, String>>) arg;
+                @SuppressWarnings("unchecked") FrozenList<FrozenMap<String>> castArg = (FrozenList<FrozenMap<String>>) arg;
                 return getNewInstance(castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
