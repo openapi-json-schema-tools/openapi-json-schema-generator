@@ -15,14 +15,14 @@ import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema11 extends JsonSchema implements SchemaStringValidator {
+    public static class Schema11 extends JsonSchema implements StringSchemaValidator {
         private static Schema11 instance;
     
         protected Schema11() {

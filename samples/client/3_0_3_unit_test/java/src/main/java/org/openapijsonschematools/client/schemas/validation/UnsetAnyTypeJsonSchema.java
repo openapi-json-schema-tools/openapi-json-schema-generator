@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.Map;
 import java.util.Objects;
 
-public class UnsetAnyTypeJsonSchema extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
     private static UnsetAnyTypeJsonSchema instance;
 
     protected UnsetAnyTypeJsonSchema() {

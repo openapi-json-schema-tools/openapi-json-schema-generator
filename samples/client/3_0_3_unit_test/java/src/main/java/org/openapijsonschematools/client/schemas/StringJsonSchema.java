@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.Map;
 import java.util.UUID;
 
-public class StringJsonSchema extends JsonSchema implements SchemaStringValidator {
+public class StringJsonSchema extends JsonSchema implements StringSchemaValidator {
     private static StringJsonSchema instance;
 
     protected StringJsonSchema() {

@@ -9,7 +9,7 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
@@ -29,7 +29,7 @@ public class ArrayTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static class ArrayWithItemsSchema extends JsonSchema implements SchemaListValidator<String, String, FrozenList<String>> {
+    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<String, String, FrozenList<String>> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenList.class))
@@ -88,7 +88,7 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public static class ArrayWithOutputClsSchema extends JsonSchema implements SchemaListValidator<String, String, ArrayWithOutputClsSchemaList> {
+    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<String, String, ArrayWithOutputClsSchemaList> {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenList.class))

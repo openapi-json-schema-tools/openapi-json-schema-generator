@@ -15,8 +15,8 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema3 {
@@ -40,7 +40,7 @@ public class Schema3 {
     }
     
     
-    public static class Schema31 extends JsonSchema implements SchemaListValidator<String, String, SchemaList3> {
+    public static class Schema31 extends JsonSchema implements ListSchemaValidator<String, String, SchemaList3> {
         private static Schema31 instance;
     
         protected Schema31() {

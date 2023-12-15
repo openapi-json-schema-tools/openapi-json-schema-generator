@@ -16,8 +16,8 @@ import org.openapijsonschematools.client.schemas.validation.AdditionalProperties
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
@@ -47,7 +47,7 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements SchemaMapValidator<String, String, SchemaMap> {
+    public static class Schema1 extends JsonSchema implements MapSchemaValidator<String, String, SchemaMap> {
         private static Schema1 instance;
     
         protected Schema1() {

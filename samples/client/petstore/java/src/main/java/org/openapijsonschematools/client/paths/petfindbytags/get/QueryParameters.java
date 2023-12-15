@@ -19,9 +19,9 @@ import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class QueryParameters {
@@ -53,7 +53,7 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema implements SchemaMapValidator<List<String>, FrozenList<String>, QueryParametersMap> {
+    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<List<String>, FrozenList<String>, QueryParametersMap> {
         private static QueryParameters1 instance;
     
         protected QueryParameters1() {

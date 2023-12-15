@@ -7,7 +7,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import java.util.List;
 import java.util.Set;
 
-public interface SchemaStringValidator {
+public interface StringSchemaValidator {
     String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet);
     String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;

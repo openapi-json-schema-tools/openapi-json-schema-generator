@@ -15,25 +15,25 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class NullableClass {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties3 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class AdditionalProperties3 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties3 instance;
     
         protected AdditionalProperties3() {
@@ -117,7 +117,7 @@ public class NullableClass {
         }
     }    
     
-    public static class IntegerProp extends JsonSchema implements SchemaNullValidator, SchemaNumberValidator {
+    public static class IntegerProp extends JsonSchema implements NullSchemaValidator, NumberSchemaValidator {
         private static IntegerProp instance;
     
         protected IntegerProp() {
@@ -208,7 +208,7 @@ public class NullableClass {
         }
     }    
     
-    public static class NumberProp extends JsonSchema implements SchemaNullValidator, SchemaNumberValidator {
+    public static class NumberProp extends JsonSchema implements NullSchemaValidator, NumberSchemaValidator {
         private static NumberProp instance;
     
         protected NumberProp() {
@@ -298,7 +298,7 @@ public class NullableClass {
         }
     }    
     
-    public static class BooleanProp extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator {
+    public static class BooleanProp extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator {
         private static BooleanProp instance;
     
         protected BooleanProp() {
@@ -371,7 +371,7 @@ public class NullableClass {
         }
     }    
     
-    public static class StringProp extends JsonSchema implements SchemaNullValidator, SchemaStringValidator {
+    public static class StringProp extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
         private static StringProp instance;
     
         protected StringProp() {
@@ -443,7 +443,7 @@ public class NullableClass {
         }
     }    
     
-    public static class DateProp extends JsonSchema implements SchemaNullValidator, SchemaStringValidator {
+    public static class DateProp extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
         private static DateProp instance;
     
         protected DateProp() {
@@ -516,7 +516,7 @@ public class NullableClass {
         }
     }    
     
-    public static class DatetimeProp extends JsonSchema implements SchemaNullValidator, SchemaStringValidator {
+    public static class DatetimeProp extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
         private static DatetimeProp instance;
     
         protected DatetimeProp() {
@@ -606,7 +606,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayNullablePropList> {
+    public static class ArrayNullableProp extends JsonSchema implements NullSchemaValidator, ListSchemaValidator<Map<String, Object>, FrozenMap<Object>, ArrayNullablePropList> {
         private static ArrayNullableProp instance;
     
         protected ArrayNullableProp() {
@@ -701,7 +701,7 @@ public class NullableClass {
         }
     }    
     
-    public static class Items1 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class Items1 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static Items1 instance;
     
         protected Items1() {
@@ -799,7 +799,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayAndItemsNullablePropList> {
+    public static class ArrayAndItemsNullableProp extends JsonSchema implements NullSchemaValidator, ListSchemaValidator<Map<String, Object>, FrozenMap<Object>, ArrayAndItemsNullablePropList> {
         private static ArrayAndItemsNullableProp instance;
     
         protected ArrayAndItemsNullableProp() {
@@ -894,7 +894,7 @@ public class NullableClass {
         }
     }    
     
-    public static class Items2 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class Items2 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static Items2 instance;
     
         protected Items2() {
@@ -992,7 +992,7 @@ public class NullableClass {
     }
     
     
-    public static class ArrayItemsNullable extends JsonSchema implements SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayItemsNullableList> {
+    public static class ArrayItemsNullable extends JsonSchema implements ListSchemaValidator<Map<String, Object>, FrozenMap<Object>, ArrayItemsNullableList> {
         private static ArrayItemsNullable instance;
     
         protected ArrayItemsNullable() {
@@ -1084,7 +1084,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectNullablePropMap> {
+    public static class ObjectNullableProp extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<Map<String, Object>, FrozenMap<Object>, ObjectNullablePropMap> {
         private static ObjectNullableProp instance;
     
         protected ObjectNullableProp() {
@@ -1179,7 +1179,7 @@ public class NullableClass {
         }
     }    
     
-    public static class AdditionalProperties1 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class AdditionalProperties1 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties1 instance;
     
         protected AdditionalProperties1() {
@@ -1283,7 +1283,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectAndItemsNullablePropMap> {
+    public static class ObjectAndItemsNullableProp extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<Map<String, Object>, FrozenMap<Object>, ObjectAndItemsNullablePropMap> {
         private static ObjectAndItemsNullableProp instance;
     
         protected ObjectAndItemsNullableProp() {
@@ -1378,7 +1378,7 @@ public class NullableClass {
         }
     }    
     
-    public static class AdditionalProperties2 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
+    public static class AdditionalProperties2 extends JsonSchema implements NullSchemaValidator, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties2 instance;
     
         protected AdditionalProperties2() {
@@ -1482,7 +1482,7 @@ public class NullableClass {
     }
     
     
-    public static class ObjectItemsNullable extends JsonSchema implements SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectItemsNullableMap> {
+    public static class ObjectItemsNullable extends JsonSchema implements MapSchemaValidator<Map<String, Object>, FrozenMap<Object>, ObjectItemsNullableMap> {
         private static ObjectItemsNullable instance;
     
         protected ObjectItemsNullable() {
@@ -1657,7 +1657,7 @@ public class NullableClass {
     }
     
     
-    public static class NullableClass1 extends JsonSchema implements SchemaMapValidator<Object, Object, NullableClassMap> {
+    public static class NullableClass1 extends JsonSchema implements MapSchemaValidator<Object, Object, NullableClassMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator

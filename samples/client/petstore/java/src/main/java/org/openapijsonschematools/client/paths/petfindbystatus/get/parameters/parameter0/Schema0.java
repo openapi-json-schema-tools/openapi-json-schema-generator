@@ -15,16 +15,16 @@ import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
-import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
+import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items0 extends JsonSchema implements SchemaStringValidator {
+    public static class Items0 extends JsonSchema implements StringSchemaValidator {
         private static Items0 instance;
     
         protected Items0() {
@@ -91,7 +91,7 @@ public class Schema0 {
     }
     
     
-    public static class Schema01 extends JsonSchema implements SchemaListValidator<String, String, SchemaList0> {
+    public static class Schema01 extends JsonSchema implements ListSchemaValidator<String, String, SchemaList0> {
         private static Schema01 instance;
     
         protected Schema01() {
