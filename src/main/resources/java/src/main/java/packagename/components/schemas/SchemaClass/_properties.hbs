@@ -11,7 +11,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("{{{@key.original}}}", [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}))){{#unless @last}},{{/unless}}<br>
         {{~/if}}
     {{/each}}
-&nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
 {{~else}}
 .properties(Map.ofEntries(
     {{#each properties}}

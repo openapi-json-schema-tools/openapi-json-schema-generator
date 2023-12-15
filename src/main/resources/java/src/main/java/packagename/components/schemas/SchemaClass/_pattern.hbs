@@ -1,5 +1,5 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("pattern", new PatternValidator(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;pattern =<br>
     {{~#with patternInfo}}
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{pattern.codeEscaped}}}"{{#if flags}},{{/if}}<br>
         {{~#if flags}}
@@ -21,13 +21,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pattern.UNICODE_CHARACTER_CLASS{{#unless @last}} |{{/unless}}<br>
                     {{~/eq}}
                 {{/each}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
             {{~/eq}}
         {{/if}}
     {{/with}}
 &nbsp;&nbsp;&nbsp;&nbsp;))){{#unless @last}},{{/unless}}<br>
 {{~else}}
-new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+.pattern(Pattern.compile(
     {{#with patternInfo}}
     "{{{pattern.codeEscaped}}}"{{#if flags}},{{/if}}
         {{#if flags}}
@@ -53,5 +53,5 @@ new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
             {{/eq}}
         {{/if}}
     {{/with}}
-))){{#unless @last}},{{/unless}}
+))
 {{/if}}

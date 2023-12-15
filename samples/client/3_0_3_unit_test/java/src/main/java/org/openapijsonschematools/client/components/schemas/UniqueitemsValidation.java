@@ -25,7 +25,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.UniqueItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class UniqueitemsValidation {
@@ -42,7 +41,7 @@ public class UniqueitemsValidation {
         private static UniqueitemsValidation1 instance;
         protected UniqueitemsValidation1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("uniqueItems", new UniqueItemsValidator(true))
+                .uniqueItems(true)
             );
         }
     

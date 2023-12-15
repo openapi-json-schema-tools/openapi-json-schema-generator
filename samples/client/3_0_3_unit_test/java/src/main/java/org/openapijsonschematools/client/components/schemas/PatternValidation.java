@@ -20,7 +20,6 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PatternValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
@@ -43,9 +42,9 @@ public class PatternValidation {
         private static PatternValidation1 instance;
         protected PatternValidation1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                .pattern(Pattern.compile(
                     "^a*$"
-                )))
+                ))
             );
         }
     

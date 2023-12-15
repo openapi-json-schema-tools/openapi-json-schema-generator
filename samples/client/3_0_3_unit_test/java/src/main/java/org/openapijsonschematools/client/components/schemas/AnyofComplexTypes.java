@@ -23,7 +23,6 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
@@ -73,9 +72,9 @@ public class AnyofComplexTypes {
                 .properties(Map.ofEntries(
                     new PropertyEntry("bar", Bar.class)
                 ))
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                .required(Set.of(
                     "bar"
-                )))
+                ))
             );
         }
     
@@ -331,9 +330,9 @@ public class AnyofComplexTypes {
                 .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 ))
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                .required(Set.of(
                     "foo"
-                )))
+                ))
             );
         }
     

@@ -20,7 +20,6 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
@@ -69,10 +68,10 @@ public class OneofWithRequired {
         private static Schema0 instance;
         protected Schema0() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                .required(Set.of(
                     "bar",
                     "foo"
-                )))
+                ))
             );
         }
     
@@ -327,10 +326,10 @@ public class OneofWithRequired {
         private static Schema1 instance;
         protected Schema1() {
             super(new JsonSchemaInfo()
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                .required(Set.of(
                     "baz",
                     "foo"
-                )))
+                ))
             );
         }
     

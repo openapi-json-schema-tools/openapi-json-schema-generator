@@ -1535,7 +1535,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addMaximumValidator(schema, imports);
                 addMinimumValidator(schema, imports);
                 addMultipleOfValidator(schema, imports);
-                addUniqueItemsValidator(schema, imports);
                 addAllOfValidator(schema, imports);
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
@@ -1555,7 +1554,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addPatternValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.patternInfo != null) {
-            imports.add("import "+packageName + ".schemas.validation.PatternValidator;");
             imports.add("import java.util.regex.Pattern;");
         }
     }
@@ -1564,12 +1562,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (schema.enumInfo != null) {
             imports.add("import "+packageName + ".schemas.validation.EnumValidator;");
             imports.add("import "+packageName + ".schemas.SetMaker;");
-        }
-    }
-
-    private void addUniqueItemsValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.uniqueItems != null) {
-            imports.add("import "+packageName + ".schemas.validation.UniqueItemsValidator;");
         }
     }
 
@@ -1610,7 +1602,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
 
     private void addRequiredValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.requiredProperties != null) {
-            imports.add("import "+packageName + ".schemas.validation.RequiredValidator;");
             imports.add("import java.util.Set;");
         }
     }
@@ -1752,7 +1743,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addItemsValidator(schema, imports);
         addMaxItemsValidator(schema, imports);
         addMinItemsValidator(schema, imports);
-        addUniqueItemsValidator(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
