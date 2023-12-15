@@ -1274,12 +1274,14 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         if (schema.types != null) {
             if (schema.types.contains("array")) {
                 imports.add("import java.util.List;");
+                imports.add("import "+packageName + ".schemas.validation.FrozenList;");
                 if (schema.items != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
                 }
             }
             if (schema.types.contains("object")) {
                 imports.add("import java.util.Map;");
+                imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                 if (schema.mapValueSchema != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
@@ -1502,6 +1504,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 if (schema.types.contains("null")) {
                     addNullSchemaImports(imports, schema);
                 }
+                if (schema.mapValueSchema != null) {
+                    imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
+                }
+                if (schema.items != null) {
+                    imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
+                }
             }
         } else {
             // no types
@@ -1551,6 +1559,12 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 addNotValidator(schema, imports);
                 addEnumValidator(schema, imports);
                 addPatternValidator(schema, imports);
+                if (schema.mapValueSchema != null) {
+                    imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
+                }
+                if (schema.items != null) {
+                    imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
+                }
             }
         }
         return imports;
