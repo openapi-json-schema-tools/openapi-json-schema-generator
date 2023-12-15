@@ -33,6 +33,7 @@ public class AnyofWithBaseSchema {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
+    
         protected Schema0() {
             super(new JsonSchemaInfo()
                 .maxLength(2)
@@ -245,6 +246,7 @@ public class AnyofWithBaseSchema {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
+    
         protected Schema1() {
             super(new JsonSchemaInfo()
                 .minLength(4)

@@ -39,6 +39,7 @@ public class MaximumValidationWithUnsignedInteger {
         Do not edit the class manually.
         */
         private static MaximumValidationWithUnsignedInteger1 instance;
+    
         protected MaximumValidationWithUnsignedInteger1() {
             super(new JsonSchemaInfo()
                 .maximum(300)

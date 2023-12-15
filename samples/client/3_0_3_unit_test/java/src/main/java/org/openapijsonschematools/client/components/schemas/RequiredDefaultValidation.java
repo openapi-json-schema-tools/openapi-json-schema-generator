@@ -73,6 +73,7 @@ public class RequiredDefaultValidation {
         Do not edit the class manually.
         */
         private static RequiredDefaultValidation1 instance;
+    
         protected RequiredDefaultValidation1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

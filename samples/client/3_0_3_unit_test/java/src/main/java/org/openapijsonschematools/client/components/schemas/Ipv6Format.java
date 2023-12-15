@@ -39,6 +39,7 @@ public class Ipv6Format {
         Do not edit the class manually.
         */
         private static Ipv6Format1 instance;
+    
         protected Ipv6Format1() {
             super(new JsonSchemaInfo()
                 .format("ipv6")

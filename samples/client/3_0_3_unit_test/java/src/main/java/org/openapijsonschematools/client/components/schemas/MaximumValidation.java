@@ -39,6 +39,7 @@ public class MaximumValidation {
         Do not edit the class manually.
         */
         private static MaximumValidation1 instance;
+    
         protected MaximumValidation1() {
             super(new JsonSchemaInfo()
                 .maximum(3.0)

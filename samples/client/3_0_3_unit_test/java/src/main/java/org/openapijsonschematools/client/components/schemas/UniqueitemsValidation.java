@@ -39,6 +39,7 @@ public class UniqueitemsValidation {
         Do not edit the class manually.
         */
         private static UniqueitemsValidation1 instance;
+    
         protected UniqueitemsValidation1() {
             super(new JsonSchemaInfo()
                 .uniqueItems(true)

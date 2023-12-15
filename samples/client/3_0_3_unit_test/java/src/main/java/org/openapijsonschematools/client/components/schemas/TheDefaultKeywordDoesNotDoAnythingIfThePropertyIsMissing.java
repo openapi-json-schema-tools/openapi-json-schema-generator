@@ -26,6 +26,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     
     public static class Alpha extends JsonSchema implements SchemaNumberValidator {
         private static Alpha instance;
+    
         protected Alpha() {
             super(new JsonSchemaInfo()
                 .type(Set.of(
@@ -127,6 +128,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         Do not edit the class manually.
         */
         private static TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1 instance;
+    
         protected TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenMap.class))

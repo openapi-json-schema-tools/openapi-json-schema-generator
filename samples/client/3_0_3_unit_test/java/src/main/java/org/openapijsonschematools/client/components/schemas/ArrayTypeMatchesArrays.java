@@ -48,9 +48,10 @@ public class ArrayTypeMatchesArrays {
         Do not edit the class manually.
         */
         private static ArrayTypeMatchesArrays1 instance;
+    
         protected ArrayTypeMatchesArrays1() {
             super(new JsonSchemaInfo()
-            .type(Set.of(FrozenList.class))
+                .type(Set.of(FrozenList.class))
                 .items(Items.class)
             );
         }

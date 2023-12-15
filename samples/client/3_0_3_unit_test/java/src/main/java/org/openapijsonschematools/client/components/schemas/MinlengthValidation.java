@@ -39,6 +39,7 @@ public class MinlengthValidation {
         Do not edit the class manually.
         */
         private static MinlengthValidation1 instance;
+    
         protected MinlengthValidation1() {
             super(new JsonSchemaInfo()
                 .minLength(2)

@@ -42,9 +42,10 @@ public class NestedItems {
     
     public static class Items2 extends JsonSchema implements SchemaListValidator<Number, Number, ItemsList> {
         private static Items2 instance;
+    
         protected Items2() {
             super(new JsonSchemaInfo()
-            .type(Set.of(FrozenList.class))
+                .type(Set.of(FrozenList.class))
                 .items(Items3.class)
             );
         }
@@ -124,9 +125,10 @@ public class NestedItems {
     
     public static class Items1 extends JsonSchema implements SchemaListValidator<List<Number>, FrozenList<Number>, ItemsList1> {
         private static Items1 instance;
+    
         protected Items1() {
             super(new JsonSchemaInfo()
-            .type(Set.of(FrozenList.class))
+                .type(Set.of(FrozenList.class))
                 .items(Items2.class)
             );
         }
@@ -206,9 +208,10 @@ public class NestedItems {
     
     public static class Items extends JsonSchema implements SchemaListValidator<List<List<Number>>, FrozenList<FrozenList<Number>>, ItemsList2> {
         private static Items instance;
+    
         protected Items() {
             super(new JsonSchemaInfo()
-            .type(Set.of(FrozenList.class))
+                .type(Set.of(FrozenList.class))
                 .items(Items1.class)
             );
         }
@@ -294,9 +297,10 @@ public class NestedItems {
         Do not edit the class manually.
         */
         private static NestedItems1 instance;
+    
         protected NestedItems1() {
             super(new JsonSchemaInfo()
-            .type(Set.of(FrozenList.class))
+                .type(Set.of(FrozenList.class))
                 .items(Items.class)
             );
         }

@@ -46,6 +46,7 @@ public class AllofWithTwoEmptySchemas {
         Do not edit the class manually.
         */
         private static AllofWithTwoEmptySchemas1 instance;
+    
         protected AllofWithTwoEmptySchemas1() {
             super(new JsonSchemaInfo()
                 .allOf(List.of(

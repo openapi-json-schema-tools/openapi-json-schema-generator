@@ -30,6 +30,7 @@ public class EnumWithTrueDoesNotMatch1 {
         Do not edit the class manually.
         */
         private static EnumWithTrueDoesNotMatch11 instance;
+    
         protected EnumWithTrueDoesNotMatch11() {
             super(new JsonSchemaInfo()
                 .type(Set.of(Boolean.class))

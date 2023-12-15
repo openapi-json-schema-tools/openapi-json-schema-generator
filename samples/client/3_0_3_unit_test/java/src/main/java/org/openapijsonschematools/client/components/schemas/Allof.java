@@ -66,6 +66,7 @@ public class Allof {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
+    
         protected Schema0() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(
@@ -324,6 +325,7 @@ public class Allof {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
+    
         protected Schema1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(
@@ -558,6 +560,7 @@ public class Allof {
         Do not edit the class manually.
         */
         private static Allof1 instance;
+    
         protected Allof1() {
             super(new JsonSchemaInfo()
                 .allOf(List.of(

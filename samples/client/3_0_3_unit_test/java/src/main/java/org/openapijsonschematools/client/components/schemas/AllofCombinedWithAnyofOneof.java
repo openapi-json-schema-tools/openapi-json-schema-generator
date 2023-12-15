@@ -33,6 +33,7 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema02 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema02 instance;
+    
         protected Schema02() {
             super(new JsonSchemaInfo()
                 .multipleOf(2)
@@ -245,6 +246,7 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema01 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema01 instance;
+    
         protected Schema01() {
             super(new JsonSchemaInfo()
                 .multipleOf(3)
@@ -457,6 +459,7 @@ public class AllofCombinedWithAnyofOneof {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
+    
         protected Schema0() {
             super(new JsonSchemaInfo()
                 .multipleOf(5)
@@ -675,6 +678,7 @@ public class AllofCombinedWithAnyofOneof {
         Do not edit the class manually.
         */
         private static AllofCombinedWithAnyofOneof1 instance;
+    
         protected AllofCombinedWithAnyofOneof1() {
             super(new JsonSchemaInfo()
                 .allOf(List.of(

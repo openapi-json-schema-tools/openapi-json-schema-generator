@@ -43,6 +43,7 @@ public class Not {
         Do not edit the class manually.
         */
         private static Not1 instance;
+    
         protected Not1() {
             super(new JsonSchemaInfo()
                 .not(Not2.class)

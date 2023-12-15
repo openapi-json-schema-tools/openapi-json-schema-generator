@@ -67,6 +67,7 @@ public class PropertyNamedRefThatIsNotAReference {
         Do not edit the class manually.
         */
         private static PropertyNamedRefThatIsNotAReference1 instance;
+    
         protected PropertyNamedRefThatIsNotAReference1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

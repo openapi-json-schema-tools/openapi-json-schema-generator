@@ -118,6 +118,7 @@ public class InvalidStringValueForDefault {
         Do not edit the class manually.
         */
         private static InvalidStringValueForDefault1 instance;
+    
         protected InvalidStringValueForDefault1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

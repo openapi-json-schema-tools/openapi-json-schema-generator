@@ -30,6 +30,7 @@ public class SimpleEnumValidation {
         Do not edit the class manually.
         */
         private static SimpleEnumValidation1 instance;
+    
         protected SimpleEnumValidation1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(

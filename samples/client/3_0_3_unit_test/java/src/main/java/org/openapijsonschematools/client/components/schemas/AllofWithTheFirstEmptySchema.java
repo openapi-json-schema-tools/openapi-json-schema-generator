@@ -47,6 +47,7 @@ public class AllofWithTheFirstEmptySchema {
         Do not edit the class manually.
         */
         private static AllofWithTheFirstEmptySchema1 instance;
+    
         protected AllofWithTheFirstEmptySchema1() {
             super(new JsonSchemaInfo()
                 .allOf(List.of(

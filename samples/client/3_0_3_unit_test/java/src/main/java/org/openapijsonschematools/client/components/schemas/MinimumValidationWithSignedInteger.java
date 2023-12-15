@@ -39,6 +39,7 @@ public class MinimumValidationWithSignedInteger {
         Do not edit the class manually.
         */
         private static MinimumValidationWithSignedInteger1 instance;
+    
         protected MinimumValidationWithSignedInteger1() {
             super(new JsonSchemaInfo()
                 .minimum(-2)

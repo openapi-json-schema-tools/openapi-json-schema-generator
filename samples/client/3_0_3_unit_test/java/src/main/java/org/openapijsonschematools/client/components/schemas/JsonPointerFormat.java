@@ -39,6 +39,7 @@ public class JsonPointerFormat {
         Do not edit the class manually.
         */
         private static JsonPointerFormat1 instance;
+    
         protected JsonPointerFormat1() {
             super(new JsonSchemaInfo()
                 .format("json-pointer")

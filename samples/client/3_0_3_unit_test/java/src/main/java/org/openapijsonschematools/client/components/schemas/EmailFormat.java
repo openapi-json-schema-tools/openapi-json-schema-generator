@@ -39,6 +39,7 @@ public class EmailFormat {
         Do not edit the class manually.
         */
         private static EmailFormat1 instance;
+    
         protected EmailFormat1() {
             super(new JsonSchemaInfo()
                 .format("email")

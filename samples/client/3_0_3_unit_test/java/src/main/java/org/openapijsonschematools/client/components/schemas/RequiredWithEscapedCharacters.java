@@ -67,6 +67,7 @@ public class RequiredWithEscapedCharacters {
         Do not edit the class manually.
         */
         private static RequiredWithEscapedCharacters1 instance;
+    
         protected RequiredWithEscapedCharacters1() {
             super(new JsonSchemaInfo()
                 .required(Set.of(

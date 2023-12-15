@@ -39,6 +39,7 @@ public class MaxitemsValidation {
         Do not edit the class manually.
         */
         private static MaxitemsValidation1 instance;
+    
         protected MaxitemsValidation1() {
             super(new JsonSchemaInfo()
                 .maxItems(2)

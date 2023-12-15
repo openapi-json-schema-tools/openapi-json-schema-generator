@@ -44,9 +44,10 @@ public class RefInItems {
         Do not edit the class manually.
         */
         private static RefInItems1 instance;
+    
         protected RefInItems1() {
             super(new JsonSchemaInfo()
-            .type(Set.of(FrozenList.class))
+                .type(Set.of(FrozenList.class))
                 .items(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
             );
         }

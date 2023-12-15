@@ -39,6 +39,7 @@ public class MinpropertiesValidation {
         Do not edit the class manually.
         */
         private static MinpropertiesValidation1 instance;
+    
         protected MinpropertiesValidation1() {
             super(new JsonSchemaInfo()
                 .minProperties(1)

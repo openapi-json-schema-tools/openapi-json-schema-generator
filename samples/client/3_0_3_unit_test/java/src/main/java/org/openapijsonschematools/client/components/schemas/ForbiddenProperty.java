@@ -75,6 +75,7 @@ public class ForbiddenProperty {
         Do not edit the class manually.
         */
         private static ForbiddenProperty1 instance;
+    
         protected ForbiddenProperty1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

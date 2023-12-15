@@ -39,6 +39,7 @@ public class RefInAnyof {
         Do not edit the class manually.
         */
         private static RefInAnyof1 instance;
+    
         protected RefInAnyof1() {
             super(new JsonSchemaInfo()
                 .anyOf(List.of(

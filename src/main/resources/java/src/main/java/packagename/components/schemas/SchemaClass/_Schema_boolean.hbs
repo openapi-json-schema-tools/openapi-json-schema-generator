@@ -14,34 +14,29 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     */
 {{/if}}
     private static {{jsonPathPiece.camelCase}} instance;
-    {{#each keywords}}
-        {{#if @first}}
+
     protected {{../jsonPathPiece.camelCase}}() {
         super(new JsonSchemaInfo()
-        {{/if}}
-        {{#eq this "type"}}
+        {{#if types}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
-        {{/eq}}
-        {{#eq this "allOf"}}
+        {{/if}}
+        {{#if allOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
-        {{/eq}}
-        {{#eq this "anyOf"}}
+        {{/if}}
+        {{#if anyOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
-        {{/eq}}
-        {{#eq this "oneOf"}}
+        {{/if}}
+        {{#if oneOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
-        {{/eq}}
-        {{#eq this "not"}}
+        {{/if}}
+        {{#if not}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
-        {{/eq}}
-        {{#eq this "enum"}}
+        {{/if}}
+        {{#if enumInfo}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
-        {{/eq}}
-        {{#if @last}}
+        {{/if}}
         );
     }
-        {{/if}}
-    {{/each}}
 
     public static {{jsonPathPiece.camelCase}} getInstance() {
         if (instance == null) {

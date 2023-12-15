@@ -39,6 +39,7 @@ public class UriReferenceFormat {
         Do not edit the class manually.
         */
         private static UriReferenceFormat1 instance;
+    
         protected UriReferenceFormat1() {
             super(new JsonSchemaInfo()
                 .format("uri-reference")

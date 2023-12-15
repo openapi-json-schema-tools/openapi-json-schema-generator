@@ -39,6 +39,7 @@ public class RefInOneof {
         Do not edit the class manually.
         */
         private static RefInOneof1 instance;
+    
         protected RefInOneof1() {
             super(new JsonSchemaInfo()
                 .oneOf(List.of(

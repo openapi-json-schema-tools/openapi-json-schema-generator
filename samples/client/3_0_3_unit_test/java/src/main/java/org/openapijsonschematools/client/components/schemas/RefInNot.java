@@ -39,6 +39,7 @@ public class RefInNot {
         Do not edit the class manually.
         */
         private static RefInNot1 instance;
+    
         protected RefInNot1() {
             super(new JsonSchemaInfo()
                 .not(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)

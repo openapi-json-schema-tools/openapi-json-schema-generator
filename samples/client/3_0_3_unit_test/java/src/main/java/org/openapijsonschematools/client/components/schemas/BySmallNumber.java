@@ -39,6 +39,7 @@ public class BySmallNumber {
         Do not edit the class manually.
         */
         private static BySmallNumber1 instance;
+    
         protected BySmallNumber1() {
             super(new JsonSchemaInfo()
                 .multipleOf(0.00010)

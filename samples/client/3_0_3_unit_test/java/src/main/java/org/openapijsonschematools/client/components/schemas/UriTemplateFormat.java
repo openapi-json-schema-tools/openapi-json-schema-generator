@@ -39,6 +39,7 @@ public class UriTemplateFormat {
         Do not edit the class manually.
         */
         private static UriTemplateFormat1 instance;
+    
         protected UriTemplateFormat1() {
             super(new JsonSchemaInfo()
                 .format("uri-template")

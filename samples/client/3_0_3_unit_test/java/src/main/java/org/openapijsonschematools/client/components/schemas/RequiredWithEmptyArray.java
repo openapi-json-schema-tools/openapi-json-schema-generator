@@ -73,6 +73,7 @@ public class RequiredWithEmptyArray {
         Do not edit the class manually.
         */
         private static RequiredWithEmptyArray1 instance;
+    
         protected RequiredWithEmptyArray1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

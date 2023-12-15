@@ -30,6 +30,7 @@ public class EnumWith0DoesNotMatchFalse {
         Do not edit the class manually.
         */
         private static EnumWith0DoesNotMatchFalse1 instance;
+    
         protected EnumWith0DoesNotMatchFalse1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(

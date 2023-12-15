@@ -33,6 +33,7 @@ public class AllofSimpleTypes {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema0 instance;
+    
         protected Schema0() {
             super(new JsonSchemaInfo()
                 .maximum(30)
@@ -245,6 +246,7 @@ public class AllofSimpleTypes {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
+    
         protected Schema1() {
             super(new JsonSchemaInfo()
                 .minimum(20)
@@ -463,6 +465,7 @@ public class AllofSimpleTypes {
         Do not edit the class manually.
         */
         private static AllofSimpleTypes1 instance;
+    
         protected AllofSimpleTypes1() {
             super(new JsonSchemaInfo()
                 .allOf(List.of(

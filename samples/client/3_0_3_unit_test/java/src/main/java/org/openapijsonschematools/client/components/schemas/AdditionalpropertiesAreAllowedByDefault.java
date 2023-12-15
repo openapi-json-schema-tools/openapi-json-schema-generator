@@ -83,6 +83,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesAreAllowedByDefault1 instance;
+    
         protected AdditionalpropertiesAreAllowedByDefault1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

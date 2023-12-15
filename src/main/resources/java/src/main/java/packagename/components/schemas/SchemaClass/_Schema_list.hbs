@@ -14,43 +14,38 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     */
 {{/if}}
     private static {{jsonPathPiece.camelCase}} instance;
-    {{#each keywords}}
-        {{#if @first}}
+
     protected {{../jsonPathPiece.camelCase}}() {
         super(new JsonSchemaInfo()
+        {{#if types}}
+            {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
         {{/if}}
-        {{#eq this "type"}}
-        {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
-        {{/eq}}
-        {{#eq this "items"}}
+        {{#if items}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_items }}
-        {{/eq}}
-        {{#eq this "maxItems"}}
+        {{/if}}
+        {{#neq maxItems null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_maxItems }}
-        {{/eq}}
-        {{#eq this "minItems"}}
+        {{/neq}}
+        {{#neq minItems null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_minItems }}
-        {{/eq}}
-        {{#eq this "allOf"}}
+        {{/neq}}
+        {{#if allOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
-        {{/eq}}
-        {{#eq this "anyOf"}}
+        {{/if}}
+        {{#if anyOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
-        {{/eq}}
-        {{#eq this "oneOf"}}
+        {{/if}}
+        {{#if oneOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
-        {{/eq}}
-        {{#eq this "not"}}
+        {{/if}}
+        {{#if not}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
-        {{/eq}}
-        {{#eq this "uniqueItems"}}
+        {{/if}}
+        {{#neq uniqueItems null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_uniqueItems }}
-        {{/eq}}
-        {{#if @last}}
+        {{/neq}}
         );
     }
-        {{/if}}
-    {{/each}}
 
     public static {{jsonPathPiece.camelCase}} getInstance() {
         if (instance == null) {

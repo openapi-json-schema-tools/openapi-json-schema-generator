@@ -39,6 +39,7 @@ public class MaxpropertiesValidation {
         Do not edit the class manually.
         */
         private static MaxpropertiesValidation1 instance;
+    
         protected MaxpropertiesValidation1() {
             super(new JsonSchemaInfo()
                 .maxProperties(2)

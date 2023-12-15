@@ -39,6 +39,7 @@ public class Ipv4Format {
         Do not edit the class manually.
         */
         private static Ipv4Format1 instance;
+    
         protected Ipv4Format1() {
             super(new JsonSchemaInfo()
                 .format("ipv4")

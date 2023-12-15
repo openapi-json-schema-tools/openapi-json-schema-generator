@@ -37,6 +37,7 @@ public class Oneof {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
+    
         protected Schema1() {
             super(new JsonSchemaInfo()
                 .minimum(2)
@@ -255,6 +256,7 @@ public class Oneof {
         Do not edit the class manually.
         */
         private static Oneof1 instance;
+    
         protected Oneof1() {
             super(new JsonSchemaInfo()
                 .oneOf(List.of(

@@ -51,6 +51,7 @@ public class RefInAdditionalproperties {
         Do not edit the class manually.
         */
         private static RefInAdditionalproperties1 instance;
+    
         protected RefInAdditionalproperties1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenMap.class))

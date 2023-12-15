@@ -87,6 +87,7 @@ public class PropertiesWithEscapedCharacters {
         Do not edit the class manually.
         */
         private static PropertiesWithEscapedCharacters1 instance;
+    
         protected PropertiesWithEscapedCharacters1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

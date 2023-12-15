@@ -39,6 +39,7 @@ public class MaxlengthValidation {
         Do not edit the class manually.
         */
         private static MaxlengthValidation1 instance;
+    
         protected MaxlengthValidation1() {
             super(new JsonSchemaInfo()
                 .maxLength(2)

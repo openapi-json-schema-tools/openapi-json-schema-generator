@@ -40,6 +40,7 @@ public class PatternValidation {
         Do not edit the class manually.
         */
         private static PatternValidation1 instance;
+    
         protected PatternValidation1() {
             super(new JsonSchemaInfo()
                 .pattern(Pattern.compile(

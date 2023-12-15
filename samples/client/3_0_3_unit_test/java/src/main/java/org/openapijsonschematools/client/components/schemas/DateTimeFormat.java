@@ -39,6 +39,7 @@ public class DateTimeFormat {
         Do not edit the class manually.
         */
         private static DateTimeFormat1 instance;
+    
         protected DateTimeFormat1() {
             super(new JsonSchemaInfo()
                 .format("date-time")

@@ -40,6 +40,7 @@ public class PatternIsNotAnchored {
         Do not edit the class manually.
         */
         private static PatternIsNotAnchored1 instance;
+    
         protected PatternIsNotAnchored1() {
             super(new JsonSchemaInfo()
                 .pattern(Pattern.compile(

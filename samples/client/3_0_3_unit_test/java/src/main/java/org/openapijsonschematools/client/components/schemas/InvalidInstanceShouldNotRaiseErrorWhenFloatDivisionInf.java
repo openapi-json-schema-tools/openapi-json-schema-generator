@@ -29,6 +29,7 @@ public class InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf {
         Do not edit the class manually.
         */
         private static InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1 instance;
+    
         protected InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(

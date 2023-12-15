@@ -39,6 +39,7 @@ public class Maxproperties0MeansTheObjectIsEmpty {
         Do not edit the class manually.
         */
         private static Maxproperties0MeansTheObjectIsEmpty1 instance;
+    
         protected Maxproperties0MeansTheObjectIsEmpty1() {
             super(new JsonSchemaInfo()
                 .maxProperties(0)

@@ -47,6 +47,7 @@ public class OneofWithEmptySchema {
         Do not edit the class manually.
         */
         private static OneofWithEmptySchema1 instance;
+    
         protected OneofWithEmptySchema1() {
             super(new JsonSchemaInfo()
                 .oneOf(List.of(

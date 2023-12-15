@@ -39,6 +39,7 @@ public class ByInt {
         Do not edit the class manually.
         */
         private static ByInt1 instance;
+    
         protected ByInt1() {
             super(new JsonSchemaInfo()
                 .multipleOf(2)

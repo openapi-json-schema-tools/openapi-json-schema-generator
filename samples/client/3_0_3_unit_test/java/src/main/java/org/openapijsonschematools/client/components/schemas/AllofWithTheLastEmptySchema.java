@@ -47,6 +47,7 @@ public class AllofWithTheLastEmptySchema {
         Do not edit the class manually.
         */
         private static AllofWithTheLastEmptySchema1 instance;
+    
         protected AllofWithTheLastEmptySchema1() {
             super(new JsonSchemaInfo()
                 .allOf(List.of(

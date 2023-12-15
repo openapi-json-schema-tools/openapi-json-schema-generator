@@ -72,6 +72,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     public static class Schema0 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
+    
         protected Schema0() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(
@@ -323,6 +324,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesShouldNotLookInApplicators1 instance;
+    
         protected AdditionalpropertiesShouldNotLookInApplicators1() {
             super(new JsonSchemaInfo()
                 .additionalProperties(AdditionalProperties.class)

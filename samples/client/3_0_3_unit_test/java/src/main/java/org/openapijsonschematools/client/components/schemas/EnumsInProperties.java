@@ -170,6 +170,7 @@ public class EnumsInProperties {
         Do not edit the class manually.
         */
         private static EnumsInProperties1 instance;
+    
         protected EnumsInProperties1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenMap.class))

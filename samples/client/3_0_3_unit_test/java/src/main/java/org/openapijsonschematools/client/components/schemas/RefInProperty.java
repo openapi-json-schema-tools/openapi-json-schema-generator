@@ -69,6 +69,7 @@ public class RefInProperty {
         Do not edit the class manually.
         */
         private static RefInProperty1 instance;
+    
         protected RefInProperty1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

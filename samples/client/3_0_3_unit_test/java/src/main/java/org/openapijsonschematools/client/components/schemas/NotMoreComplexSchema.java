@@ -67,6 +67,7 @@ public class NotMoreComplexSchema {
     
     public static class Not extends JsonSchema implements SchemaMapValidator<Object, Object, NotMap> {
         private static Not instance;
+    
         protected Not() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenMap.class))
@@ -144,6 +145,7 @@ public class NotMoreComplexSchema {
         Do not edit the class manually.
         */
         private static NotMoreComplexSchema1 instance;
+    
         protected NotMoreComplexSchema1() {
             super(new JsonSchemaInfo()
                 .not(Not.class)

@@ -39,6 +39,7 @@ public class MinitemsValidation {
         Do not edit the class manually.
         */
         private static MinitemsValidation1 instance;
+    
         protected MinitemsValidation1() {
             super(new JsonSchemaInfo()
                 .minItems(1)

@@ -14,52 +14,47 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Sc
     */
 {{/if}}
     private static {{jsonPathPiece.camelCase}} instance;
-    {{#each keywords}}
-        {{#if @first}}
+
     protected {{../jsonPathPiece.camelCase}}() {
         super(new JsonSchemaInfo()
-        {{/if}}
-        {{#eq this "type"}}
+        {{#if types}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_types }}
-        {{/eq}}
-        {{#eq this "format"}}
+        {{/if}}
+        {{#if format}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_format }}
-        {{/eq}}
-        {{#eq this "exclusiveMaximum"}}
+        {{/if}}
+        {{#neq exclusiveMaximum null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMaximum }}
-        {{/eq}}
-        {{#eq this "exclusiveMinimum"}}
+        {{/neq}}
+        {{#neq exclusiveMinimum null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_exclusiveMinimum }}
-        {{/eq}}
-        {{#eq this "maximum"}}
+        {{/neq}}
+        {{#neq maximum null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_maximum }}
-        {{/eq}}
-        {{#eq this "minimum"}}
+        {{/neq}}
+        {{#neq minimum null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_minimum }}
-        {{/eq}}
-        {{#eq this "multipleOf"}}
+        {{/neq}}
+        {{#neq multipleOf null}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_multipleOf }}
-        {{/eq}}
-        {{#eq this "allOf"}}
+        {{/neq}}
+        {{#if allOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_allOf }}
-        {{/eq}}
-        {{#eq this "anyOf"}}
+        {{/if}}
+        {{#if anyOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_anyOf }}
-        {{/eq}}
-        {{#eq this "oneOf"}}
+        {{/if}}
+        {{#if oneOf}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_oneOf }}
-        {{/eq}}
-        {{#eq this "not"}}
+        {{/if}}
+        {{#if not}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_not }}
-        {{/eq}}
-        {{#eq this "enum"}}
+        {{/if}}
+        {{#if enumInfo}}
             {{> src/main/java/packagename/components/schemas/SchemaClass/_enum }}
-        {{/eq}}
-        {{#if @last}}
+        {{/if}}
         );
     }
-        {{/if}}
-    {{/each}}
 
     public static {{jsonPathPiece.camelCase}} getInstance() {
         if (instance == null) {

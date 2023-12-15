@@ -84,6 +84,7 @@ public class ObjectPropertiesValidation {
         Do not edit the class manually.
         */
         private static ObjectPropertiesValidation1 instance;
+    
         protected ObjectPropertiesValidation1() {
             super(new JsonSchemaInfo()
                 .properties(Map.ofEntries(

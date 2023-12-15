@@ -39,6 +39,7 @@ public class HostnameFormat {
         Do not edit the class manually.
         */
         private static HostnameFormat1 instance;
+    
         protected HostnameFormat1() {
             super(new JsonSchemaInfo()
                 .format("hostname")

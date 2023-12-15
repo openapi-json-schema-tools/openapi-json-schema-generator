@@ -78,6 +78,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         Do not edit the class manually.
         */
         private static AdditionalpropertiesAllowsASchemaWhichShouldValidate1 instance;
+    
         protected AdditionalpropertiesAllowsASchemaWhichShouldValidate1() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenMap.class))

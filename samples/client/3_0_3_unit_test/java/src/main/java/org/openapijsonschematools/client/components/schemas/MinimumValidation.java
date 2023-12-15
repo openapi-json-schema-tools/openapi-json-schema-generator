@@ -39,6 +39,7 @@ public class MinimumValidation {
         Do not edit the class manually.
         */
         private static MinimumValidation1 instance;
+    
         protected MinimumValidation1() {
             super(new JsonSchemaInfo()
                 .minimum(1.1)

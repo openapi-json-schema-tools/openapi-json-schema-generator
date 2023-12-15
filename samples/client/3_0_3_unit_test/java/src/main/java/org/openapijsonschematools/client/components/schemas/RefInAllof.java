@@ -39,6 +39,7 @@ public class RefInAllof {
         Do not edit the class manually.
         */
         private static RefInAllof1 instance;
+    
         protected RefInAllof1() {
             super(new JsonSchemaInfo()
                 .allOf(List.of(
