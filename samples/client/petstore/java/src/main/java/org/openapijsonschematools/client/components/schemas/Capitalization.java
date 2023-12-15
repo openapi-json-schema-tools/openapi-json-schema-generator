@@ -14,12 +14,10 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Capitalization {
@@ -116,18 +114,19 @@ public class Capitalization {
         Do not edit the class manually.
         */
         private static Capitalization1 instance;
+    
         protected Capitalization1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("smallCamel", SmallCamel.class),
                     new PropertyEntry("CapitalCamel", CapitalCamel.class),
                     new PropertyEntry("small_Snake", SmallSnake.class),
                     new PropertyEntry("Capital_Snake", CapitalSnake.class),
                     new PropertyEntry("SCA_ETH_Flow_Points", SCAETHFlowPoints.class),
                     new PropertyEntry("ATT_NAME", ATTNAME.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static Capitalization1 getInstance() {

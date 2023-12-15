@@ -20,12 +20,10 @@ import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class QueryParameters {
@@ -82,17 +80,18 @@ public class QueryParameters {
     
     public static class QueryParameters1 extends JsonSchema implements SchemaMapValidator<Object, Object, QueryParametersMap> {
         private static QueryParameters1 instance;
+    
         protected QueryParameters1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("enum_query_double", Schema5.Schema51.class),
                     new PropertyEntry("enum_query_string", Schema3.Schema31.class),
                     new PropertyEntry("enum_query_integer", Schema4.Schema41.class),
                     new PropertyEntry("enum_query_string_array", Schema2.Schema21.class)
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+                ))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static QueryParameters1 getInstance() {

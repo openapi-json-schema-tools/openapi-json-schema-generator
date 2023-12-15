@@ -16,17 +16,13 @@ import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class JSONPatchRequestAddReplaceTest {
@@ -47,16 +43,16 @@ public class JSONPatchRequestAddReplaceTest {
         private static Op instance;
     
         protected Op() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                )
+                .enumValues(SetMaker.makeSet(
                     "add",
                     "replace",
                     "test"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Op getInstance() {
@@ -135,21 +131,22 @@ public class JSONPatchRequestAddReplaceTest {
         Do not edit the class manually.
         */
         private static JSONPatchRequestAddReplaceTest1 instance;
+    
         protected JSONPatchRequestAddReplaceTest1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("path", Path.class),
                     new PropertyEntry("value", Value.class),
                     new PropertyEntry("op", Op.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "op",
                     "path",
                     "value"
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+                ))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static JSONPatchRequestAddReplaceTest1 getInstance() {

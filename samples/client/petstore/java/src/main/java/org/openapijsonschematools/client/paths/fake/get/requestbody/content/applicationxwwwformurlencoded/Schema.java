@@ -12,19 +12,15 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
@@ -35,15 +31,15 @@ public class Schema {
         private static Items instance;
     
         protected Items() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                )
+                .enumValues(SetMaker.makeSet(
                     ">",
                     "$"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Items getInstance() {
@@ -99,11 +95,12 @@ public class Schema {
     
     public static class EnumFormStringArray extends JsonSchema implements SchemaListValidator<String, String, EnumFormStringArrayList> {
         private static EnumFormStringArray instance;
+    
         protected EnumFormStringArray() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+            );
         }
     
         public static EnumFormStringArray getInstance() {
@@ -169,16 +166,16 @@ public class Schema {
         private static EnumFormString instance;
     
         protected EnumFormString() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                )
+                .enumValues(SetMaker.makeSet(
                     "_abc",
                     "-efg",
                     "(xyz)"
-                )))
-            )));
+                ))
+            );
         }
     
         public static EnumFormString getInstance() {
@@ -256,14 +253,15 @@ public class Schema {
     
     public static class Schema1 extends JsonSchema implements SchemaMapValidator<Object, Object, SchemaMap> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("enum_form_string_array", EnumFormStringArray.class),
                     new PropertyEntry("enum_form_string", EnumFormString.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema1 getInstance() {

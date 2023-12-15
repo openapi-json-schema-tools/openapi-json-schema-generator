@@ -23,7 +23,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("allOf", new AllOfValidator(List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ObjectInterface.ObjectInterface1.class](../../components/schemas/ObjectInterface.md#objectinterface1)<br>&nbsp;&nbsp;&nbsp;&nbsp;)))<br>)); |
+| List<Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;allOf = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ObjectInterface.ObjectInterface1.class](../../components/schemas/ObjectInterface.md#objectinterface1)<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

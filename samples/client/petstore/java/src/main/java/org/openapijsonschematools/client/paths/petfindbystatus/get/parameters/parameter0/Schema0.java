@@ -12,15 +12,12 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema0 {
@@ -31,16 +28,16 @@ public class Schema0 {
         private static Items0 instance;
     
         protected Items0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                )
+                .enumValues(SetMaker.makeSet(
                     "available",
                     "pending",
                     "sold"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Items0 getInstance() {
@@ -96,11 +93,12 @@ public class Schema0 {
     
     public static class Schema01 extends JsonSchema implements SchemaListValidator<String, String, SchemaList0> {
         private static Schema01 instance;
+    
         protected Schema01() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items0.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items0.class)
+            );
         }
     
         public static Schema01 getInstance() {

@@ -12,15 +12,12 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema2 {
@@ -31,15 +28,15 @@ public class Schema2 {
         private static Items2 instance;
     
         protected Items2() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                )
+                .enumValues(SetMaker.makeSet(
                     ">",
                     "$"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Items2 getInstance() {
@@ -95,11 +92,12 @@ public class Schema2 {
     
     public static class Schema21 extends JsonSchema implements SchemaListValidator<String, String, SchemaList2> {
         private static Schema21 instance;
+    
         protected Schema21() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items2.class)
+            );
         }
     
         public static Schema21 getInstance() {

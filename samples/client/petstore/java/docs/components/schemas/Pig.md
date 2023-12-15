@@ -23,7 +23,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("oneOf", new OneOfValidator(List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BasquePig.BasquePig1.class](../../components/schemas/BasquePig.md#basquepig1),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DanishPig.DanishPig1.class](../../components/schemas/DanishPig.md#danishpig1)<br>&nbsp;&nbsp;&nbsp;&nbsp;)))<br>)); |
+| List<Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;oneOf = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[BasquePig.BasquePig1.class](../../components/schemas/BasquePig.md#basquepig1),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DanishPig.DanishPig1.class](../../components/schemas/DanishPig.md#danishpig1)<br>&nbsp;&nbsp;&nbsp;&nbsp;))<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -18,8 +18,7 @@ import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -46,14 +45,15 @@ public class NullableShape {
         The value may be a shape or the 'null' value. For a composed schema to validate a null payload, one of its chosen oneOf schemas must be type null or nullable (introduced in OAS schema >= 3.0)
         */
         private static NullableShape1 instance;
+    
         protected NullableShape1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .oneOf(List.of(
                     Triangle.Triangle1.class,
                     Quadrilateral.Quadrilateral1.class,
                     Schema2.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static NullableShape1 getInstance() {

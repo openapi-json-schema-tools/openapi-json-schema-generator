@@ -12,12 +12,10 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ComposedBool {
@@ -35,13 +33,14 @@ public class ComposedBool {
         Do not edit the class manually.
         */
         private static ComposedBool1 instance;
+    
         protected ComposedBool1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Boolean.class))),
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(Boolean.class))
+                .allOf(List.of(
                     Schema0.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static ComposedBool1 getInstance() {

@@ -14,15 +14,12 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ArrayOfNumberOnly {
@@ -48,11 +45,12 @@ public class ArrayOfNumberOnly {
     
     public static class ArrayNumber extends JsonSchema implements SchemaListValidator<Number, Number, ArrayNumberList> {
         private static ArrayNumber instance;
+    
         protected ArrayNumber() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+            );
         }
     
         public static ArrayNumber getInstance() {
@@ -151,13 +149,14 @@ public class ArrayOfNumberOnly {
         Do not edit the class manually.
         */
         private static ArrayOfNumberOnly1 instance;
+    
         protected ArrayOfNumberOnly1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("ArrayNumber", ArrayNumber.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static ArrayOfNumberOnly1 getInstance() {

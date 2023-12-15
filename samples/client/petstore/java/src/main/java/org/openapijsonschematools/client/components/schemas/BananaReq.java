@@ -18,13 +18,10 @@ import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class BananaReq {
@@ -78,18 +75,19 @@ public class BananaReq {
         Do not edit the class manually.
         */
         private static BananaReq1 instance;
+    
         protected BananaReq1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("lengthCm", LengthCm.class),
                     new PropertyEntry("sweet", Sweet.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "lengthCm"
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+                ))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static BananaReq1 getInstance() {

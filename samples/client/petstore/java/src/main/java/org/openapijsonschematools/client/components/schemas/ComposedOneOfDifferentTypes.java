@@ -18,26 +18,17 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MaxItemsValidator;
-import org.openapijsonschematools.client.schemas.validation.MaxPropertiesValidator;
-import org.openapijsonschematools.client.schemas.validation.MinItemsValidator;
-import org.openapijsonschematools.client.schemas.validation.MinPropertiesValidator;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PatternValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ComposedOneOfDifferentTypes {
@@ -52,12 +43,13 @@ public class ComposedOneOfDifferentTypes {
     
     public static class Schema4 extends JsonSchema implements SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema4 instance;
+    
         protected Schema4() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("maxProperties", new MaxPropertiesValidator(4)),
-                new KeywordEntry("minProperties", new MinPropertiesValidator(4))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .maxProperties(4)
+                .minProperties(4)
+            );
         }
     
         public static Schema4 getInstance() {
@@ -129,13 +121,14 @@ public class ComposedOneOfDifferentTypes {
     
     public static class Schema5 extends JsonSchema implements SchemaListValidator<Object, Object, Schema5List> {
         private static Schema5 instance;
+    
         protected Schema5() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class)),
-                new KeywordEntry("maxItems", new MaxItemsValidator(4)),
-                new KeywordEntry("minItems", new MinItemsValidator(4))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+                .maxItems(4)
+                .minItems(4)
+            );
         }
     
         public static Schema5 getInstance() {
@@ -201,15 +194,15 @@ public class ComposedOneOfDifferentTypes {
         private static Schema6 instance;
     
         protected Schema6() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("date-time")),
-                new KeywordEntry("pattern", new PatternValidator(Pattern.compile(
+                )
+                .format("date-time")
+                .pattern(Pattern.compile(
                     "^2020.*"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema6 getInstance() {
@@ -259,9 +252,10 @@ public class ComposedOneOfDifferentTypes {
         this is a model that allows payloads of type object or number
         */
         private static ComposedOneOfDifferentTypes1 instance;
+    
         protected ComposedOneOfDifferentTypes1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .oneOf(List.of(
                     NumberWithValidations.NumberWithValidations1.class,
                     Animal.Animal1.class,
                     Schema2.class,
@@ -269,8 +263,8 @@ public class ComposedOneOfDifferentTypes {
                     Schema4.class,
                     Schema5.class,
                     Schema6.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static ComposedOneOfDifferentTypes1 getInstance() {

@@ -14,12 +14,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -27,7 +25,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
@@ -38,12 +35,12 @@ public class Schema {
         private static Schema0 instance;
     
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("minLength", new MinLengthValidator(1))
-            )));
+                )
+                .minLength(1)
+            );
         }
     
         public static Schema0 getInstance() {
@@ -85,12 +82,13 @@ public class Schema {
     
     public static class Schema1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .allOf(List.of(
                     Schema0.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static Schema1 getInstance() {

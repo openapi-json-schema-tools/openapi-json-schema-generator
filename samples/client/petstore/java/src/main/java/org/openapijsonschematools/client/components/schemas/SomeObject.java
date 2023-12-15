@@ -14,11 +14,10 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,12 +39,13 @@ public class SomeObject {
         Do not edit the class manually.
         */
         private static SomeObject1 instance;
+    
         protected SomeObject1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .allOf(List.of(
                     ObjectInterface.ObjectInterface1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static SomeObject1 getInstance() {

@@ -17,8 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,13 +39,14 @@ public class Shape {
         Do not edit the class manually.
         */
         private static Shape1 instance;
+    
         protected Shape1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .oneOf(List.of(
                     Triangle.Triangle1.class,
                     Quadrilateral.Quadrilateral1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static Shape1 getInstance() {

@@ -14,15 +14,12 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ArrayOfArrayOfNumberOnly {
@@ -48,11 +45,12 @@ public class ArrayOfArrayOfNumberOnly {
     
     public static class Items extends JsonSchema implements SchemaListValidator<Number, Number, ItemsList> {
         private static Items instance;
+    
         protected Items() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items1.class)
+            );
         }
     
         public static Items getInstance() {
@@ -130,11 +128,12 @@ public class ArrayOfArrayOfNumberOnly {
     
     public static class ArrayArrayNumber extends JsonSchema implements SchemaListValidator<List<Number>, FrozenList<Number>, ArrayArrayNumberList> {
         private static ArrayArrayNumber instance;
+    
         protected ArrayArrayNumber() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+            );
         }
     
         public static ArrayArrayNumber getInstance() {
@@ -233,13 +232,14 @@ public class ArrayOfArrayOfNumberOnly {
         Do not edit the class manually.
         */
         private static ArrayOfArrayOfNumberOnly1 instance;
+    
         protected ArrayOfArrayOfNumberOnly1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("ArrayArrayNumber", ArrayArrayNumber.class)
-                )))
-            )));
+                ))
+            );
         }
     
         public static ArrayOfArrayOfNumberOnly1 getInstance() {

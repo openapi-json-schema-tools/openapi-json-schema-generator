@@ -15,11 +15,9 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ReqPropsFromTrueAddProps {
@@ -64,15 +62,16 @@ public class ReqPropsFromTrueAddProps {
         Do not edit the class manually.
         */
         private static ReqPropsFromTrueAddProps1 instance;
+    
         protected ReqPropsFromTrueAddProps1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .required(Set.of(
                     "invalid-name",
                     "validName"
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+                ))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static ReqPropsFromTrueAddProps1 getInstance() {

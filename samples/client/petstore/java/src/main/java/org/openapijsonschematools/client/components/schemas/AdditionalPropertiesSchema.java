@@ -16,13 +16,10 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
-import org.openapijsonschematools.client.schemas.validation.AllOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MaxLengthValidator;
-import org.openapijsonschematools.client.schemas.validation.MinLengthValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -30,7 +27,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class AdditionalPropertiesSchema {
@@ -62,11 +58,12 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema0 extends JsonSchema implements SchemaMapValidator<Object, Object, Schema0Map> {
         private static Schema0 instance;
+    
         protected Schema0() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static Schema0 getInstance() {
@@ -131,10 +128,11 @@ public class AdditionalPropertiesSchema {
     
     public static class AdditionalProperties1 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties1 instance;
+    
         protected AdditionalProperties1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("minLength", new MinLengthValidator(3))
-            )));
+            super(new JsonSchemaInfo()
+                .minLength(3)
+            );
         }
     
         public static AdditionalProperties1 getInstance() {
@@ -363,11 +361,12 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema1 extends JsonSchema implements SchemaMapValidator<Object, Object, Schema1Map> {
         private static Schema1 instance;
+    
         protected Schema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties1.class)
+            );
         }
     
         public static Schema1 getInstance() {
@@ -432,10 +431,11 @@ public class AdditionalPropertiesSchema {
     
     public static class AdditionalProperties2 extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator, SchemaNumberValidator, SchemaStringValidator, SchemaListValidator<Object, Object, FrozenList<Object>>, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties2 instance;
+    
         protected AdditionalProperties2() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("maxLength", new MaxLengthValidator(5))
-            )));
+            super(new JsonSchemaInfo()
+                .maxLength(5)
+            );
         }
     
         public static AdditionalProperties2 getInstance() {
@@ -664,11 +664,12 @@ public class AdditionalPropertiesSchema {
     
     public static class Schema2 extends JsonSchema implements SchemaMapValidator<Object, Object, Schema2Map> {
         private static Schema2 instance;
+    
         protected Schema2() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties2.class)
+            );
         }
     
         public static Schema2 getInstance() {
@@ -739,15 +740,16 @@ public class AdditionalPropertiesSchema {
         Do not edit the class manually.
         */
         private static AdditionalPropertiesSchema1 instance;
+    
         protected AdditionalPropertiesSchema1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("allOf", new AllOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .allOf(List.of(
                     Schema0.class,
                     Schema1.class,
                     Schema2.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static AdditionalPropertiesSchema1 getInstance() {

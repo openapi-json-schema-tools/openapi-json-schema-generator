@@ -17,8 +17,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.OneOfValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,13 +39,14 @@ public class Pig {
         Do not edit the class manually.
         */
         private static Pig1 instance;
+    
         protected Pig1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("oneOf", new OneOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .oneOf(List.of(
                     BasquePig.BasquePig1.class,
                     DanishPig.DanishPig1.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static Pig1 getInstance() {

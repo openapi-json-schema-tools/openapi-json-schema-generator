@@ -17,16 +17,12 @@ import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class PaginatedResultMyObjectDto {
@@ -56,11 +52,12 @@ public class PaginatedResultMyObjectDto {
     
     public static class Results extends JsonSchema implements SchemaListValidator<Map<String, String>, FrozenMap<String>, ResultsList> {
         private static Results instance;
+    
         protected Results() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(MyObjectDto.MyObjectDto1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(MyObjectDto.MyObjectDto1.class)
+            );
         }
     
         public static Results getInstance() {
@@ -156,19 +153,20 @@ public class PaginatedResultMyObjectDto {
         Do not edit the class manually.
         */
         private static PaginatedResultMyObjectDto1 instance;
+    
         protected PaginatedResultMyObjectDto1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("count", Count.class),
                     new PropertyEntry("results", Results.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "count",
                     "results"
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+                ))
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static PaginatedResultMyObjectDto1 getInstance() {

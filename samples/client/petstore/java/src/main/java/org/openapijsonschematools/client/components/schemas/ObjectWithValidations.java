@@ -13,11 +13,9 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.MinPropertiesValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ObjectWithValidations {
@@ -32,11 +30,12 @@ public class ObjectWithValidations {
         Do not edit the class manually.
         */
         private static ObjectWithValidations1 instance;
+    
         protected ObjectWithValidations1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("minProperties", new MinPropertiesValidator(2))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .minProperties(2)
+            );
         }
     
         public static ObjectWithValidations1 getInstance() {

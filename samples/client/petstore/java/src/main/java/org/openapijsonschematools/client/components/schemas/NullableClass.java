@@ -15,14 +15,11 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -30,7 +27,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class NullableClass {
@@ -39,13 +35,14 @@ public class NullableClass {
     
     public static class AdditionalProperties3 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties3 instance;
+    
         protected AdditionalProperties3() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )))
-            )));
+                )
+            );
         }
     
         public static AdditionalProperties3 getInstance() {
@@ -122,16 +119,17 @@ public class NullableClass {
     
     public static class IntegerProp extends JsonSchema implements SchemaNullValidator, SchemaNumberValidator {
         private static IntegerProp instance;
+    
         protected IntegerProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                )))
-            )));
+                )
+            );
         }
     
         public static IntegerProp getInstance() {
@@ -212,16 +210,17 @@ public class NullableClass {
     
     public static class NumberProp extends JsonSchema implements SchemaNullValidator, SchemaNumberValidator {
         private static NumberProp instance;
+    
         protected NumberProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     Integer.class,
                     Long.class,
                     Float.class,
                     Double.class
-                )))
-            )));
+                )
+            );
         }
     
         public static NumberProp getInstance() {
@@ -301,13 +300,14 @@ public class NullableClass {
     
     public static class BooleanProp extends JsonSchema implements SchemaNullValidator, SchemaBooleanValidator {
         private static BooleanProp instance;
+    
         protected BooleanProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     Boolean.class
-                )))
-            )));
+                )
+            );
         }
     
         public static BooleanProp getInstance() {
@@ -373,13 +373,14 @@ public class NullableClass {
     
     public static class StringProp extends JsonSchema implements SchemaNullValidator, SchemaStringValidator {
         private static StringProp instance;
+    
         protected StringProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     String.class
-                )))
-            )));
+                )
+            );
         }
     
         public static StringProp getInstance() {
@@ -444,14 +445,15 @@ public class NullableClass {
     
     public static class DateProp extends JsonSchema implements SchemaNullValidator, SchemaStringValidator {
         private static DateProp instance;
+    
         protected DateProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     String.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("date"))
-            )));
+                )
+                .format("date")
+            );
         }
     
         public static DateProp getInstance() {
@@ -516,14 +518,15 @@ public class NullableClass {
     
     public static class DatetimeProp extends JsonSchema implements SchemaNullValidator, SchemaStringValidator {
         private static DatetimeProp instance;
+    
         protected DatetimeProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     String.class
-                ))),
-                new KeywordEntry("format", new FormatValidator("date-time"))
-            )));
+                )
+                .format("date-time")
+            );
         }
     
         public static DatetimeProp getInstance() {
@@ -605,14 +608,15 @@ public class NullableClass {
     
     public static class ArrayNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayNullablePropList> {
         private static ArrayNullableProp instance;
+    
         protected ArrayNullableProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenList.class
-                ))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+                )
+                .items(Items.class)
+            );
         }
     
         public static ArrayNullableProp getInstance() {
@@ -699,13 +703,14 @@ public class NullableClass {
     
     public static class Items1 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Items1 instance;
+    
         protected Items1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )))
-            )));
+                )
+            );
         }
     
         public static Items1 getInstance() {
@@ -796,14 +801,15 @@ public class NullableClass {
     
     public static class ArrayAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayAndItemsNullablePropList> {
         private static ArrayAndItemsNullableProp instance;
+    
         protected ArrayAndItemsNullableProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenList.class
-                ))),
-                new KeywordEntry("items", new ItemsValidator(Items1.class))
-            )));
+                )
+                .items(Items1.class)
+            );
         }
     
         public static ArrayAndItemsNullableProp getInstance() {
@@ -890,13 +896,14 @@ public class NullableClass {
     
     public static class Items2 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static Items2 instance;
+    
         protected Items2() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )))
-            )));
+                )
+            );
         }
     
         public static Items2 getInstance() {
@@ -987,11 +994,12 @@ public class NullableClass {
     
     public static class ArrayItemsNullable extends JsonSchema implements SchemaListValidator<Map<String, Object>, FrozenMap<Object>, ArrayItemsNullableList> {
         private static ArrayItemsNullable instance;
+    
         protected ArrayItemsNullable() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items2.class)
+            );
         }
     
         public static ArrayItemsNullable getInstance() {
@@ -1078,14 +1086,15 @@ public class NullableClass {
     
     public static class ObjectNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectNullablePropMap> {
         private static ObjectNullableProp instance;
+    
         protected ObjectNullableProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties.class))
-            )));
+                )
+                .additionalProperties(AdditionalProperties.class)
+            );
         }
     
         public static ObjectNullableProp getInstance() {
@@ -1172,13 +1181,14 @@ public class NullableClass {
     
     public static class AdditionalProperties1 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties1 instance;
+    
         protected AdditionalProperties1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )))
-            )));
+                )
+            );
         }
     
         public static AdditionalProperties1 getInstance() {
@@ -1275,14 +1285,15 @@ public class NullableClass {
     
     public static class ObjectAndItemsNullableProp extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectAndItemsNullablePropMap> {
         private static ObjectAndItemsNullableProp instance;
+    
         protected ObjectAndItemsNullableProp() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties1.class))
-            )));
+                )
+                .additionalProperties(AdditionalProperties1.class)
+            );
         }
     
         public static ObjectAndItemsNullableProp getInstance() {
@@ -1369,13 +1380,14 @@ public class NullableClass {
     
     public static class AdditionalProperties2 extends JsonSchema implements SchemaNullValidator, SchemaMapValidator<Object, Object, FrozenMap<Object>> {
         private static AdditionalProperties2 instance;
+    
         protected AdditionalProperties2() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     Void.class,
                     FrozenMap.class
-                )))
-            )));
+                )
+            );
         }
     
         public static AdditionalProperties2 getInstance() {
@@ -1472,11 +1484,12 @@ public class NullableClass {
     
     public static class ObjectItemsNullable extends JsonSchema implements SchemaMapValidator<Map<String, Object>, FrozenMap<Object>, ObjectItemsNullableMap> {
         private static ObjectItemsNullable instance;
+    
         protected ObjectItemsNullable() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties2.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .additionalProperties(AdditionalProperties2.class)
+            );
         }
     
         public static ObjectItemsNullable getInstance() {
@@ -1652,10 +1665,11 @@ public class NullableClass {
         Do not edit the class manually.
         */
         private static NullableClass1 instance;
+    
         protected NullableClass1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("integer_prop", IntegerProp.class),
                     new PropertyEntry("number_prop", NumberProp.class),
                     new PropertyEntry("boolean_prop", BooleanProp.class),
@@ -1668,9 +1682,9 @@ public class NullableClass {
                     new PropertyEntry("object_nullable_prop", ObjectNullableProp.class),
                     new PropertyEntry("object_and_items_nullable_prop", ObjectAndItemsNullableProp.class),
                     new PropertyEntry("object_items_nullable", ObjectItemsNullable.class)
-                ))),
-                new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator(AdditionalProperties3.class))
-            )));
+                ))
+                .additionalProperties(AdditionalProperties3.class)
+            );
         }
     
         public static NullableClass1 getInstance() {

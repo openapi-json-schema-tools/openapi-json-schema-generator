@@ -27,12 +27,10 @@ import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.NullJsonSchema;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AnyOfValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -40,7 +38,6 @@ import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNullValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaNumberValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ComposedAnyOfDifferentTypesNoValidations {
@@ -95,11 +92,12 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     public static class Schema9 extends JsonSchema implements SchemaListValidator<Object, Object, Schema9List> {
         private static Schema9 instance;
+    
         protected Schema9() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+            );
         }
     
         public static Schema9 getInstance() {
@@ -187,9 +185,10 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         Do not edit the class manually.
         */
         private static ComposedAnyOfDifferentTypesNoValidations1 instance;
+    
         protected ComposedAnyOfDifferentTypesNoValidations1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("anyOf", new AnyOfValidator(List.of(
+            super(new JsonSchemaInfo()
+                .anyOf(List.of(
                     Schema0.class,
                     Schema1.class,
                     Schema2.class,
@@ -206,8 +205,8 @@ public class ComposedAnyOfDifferentTypesNoValidations {
                     Schema13.class,
                     Schema14.class,
                     Schema15.class
-                )))
-            )));
+                ))
+            );
         }
     
         public static ComposedAnyOfDifferentTypesNoValidations1 getInstance() {

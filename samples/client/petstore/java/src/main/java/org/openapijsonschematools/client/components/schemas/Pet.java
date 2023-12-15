@@ -14,20 +14,15 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.EnumValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.ItemsValidator;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.PropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
-import org.openapijsonschematools.client.schemas.validation.RequiredValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaMapValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaStringValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Pet {
@@ -59,11 +54,12 @@ public class Pet {
     
     public static class PhotoUrls extends JsonSchema implements SchemaListValidator<String, String, PhotoUrlsList> {
         private static PhotoUrls instance;
+    
         protected PhotoUrls() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Items.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Items.class)
+            );
         }
     
         public static PhotoUrls getInstance() {
@@ -129,16 +125,16 @@ public class Pet {
         private static Status instance;
     
         protected Status() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
+            super(new JsonSchemaInfo()
+                .type(Set.of(
                     String.class
-                ))),
-                new KeywordEntry("enum", new EnumValidator(SetMaker.makeSet(
+                )
+                .enumValues(SetMaker.makeSet(
                     "available",
                     "pending",
                     "sold"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Status getInstance() {
@@ -194,11 +190,12 @@ public class Pet {
     
     public static class Tags extends JsonSchema implements SchemaListValidator<Map<String, Object>, FrozenMap<Object>, TagsList> {
         private static Tags instance;
+    
         protected Tags() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),
-                new KeywordEntry("items", new ItemsValidator(Tag.Tag1.class))
-            )));
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenList.class))
+                .items(Tag.Tag1.class)
+            );
         }
     
         public static Tags getInstance() {
@@ -331,22 +328,23 @@ public class Pet {
         Pet object that needs to be added to the store
         */
         private static Pet1 instance;
+    
         protected Pet1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),
-                new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(
+            super(new JsonSchemaInfo()
+                .type(Set.of(FrozenMap.class))
+                .properties(Map.ofEntries(
                     new PropertyEntry("id", Id.class),
                     new PropertyEntry("category", Category.Category1.class),
                     new PropertyEntry("name", Name.class),
                     new PropertyEntry("photoUrls", PhotoUrls.class),
                     new PropertyEntry("tags", Tags.class),
                     new PropertyEntry("status", Status.class)
-                ))),
-                new KeywordEntry("required", new RequiredValidator(Set.of(
+                ))
+                .required(Set.of(
                     "name",
                     "photoUrls"
-                )))
-            )));
+                ))
+            );
         }
     
         public static Pet1 getInstance() {

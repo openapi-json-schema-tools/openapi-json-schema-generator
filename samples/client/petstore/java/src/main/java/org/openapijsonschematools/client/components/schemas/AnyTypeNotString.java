@@ -18,8 +18,7 @@ import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
-import org.openapijsonschematools.client.schemas.validation.NotValidator;
+import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.SchemaBooleanValidator;
 import org.openapijsonschematools.client.schemas.validation.SchemaListValidator;
@@ -44,10 +43,11 @@ public class AnyTypeNotString {
         Do not edit the class manually.
         */
         private static AnyTypeNotString1 instance;
+    
         protected AnyTypeNotString1() {
-            super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("not", new NotValidator(Not.class))
-            )));
+            super(new JsonSchemaInfo()
+                .not(Not.class)
+            );
         }
     
         public static AnyTypeNotString1 getInstance() {

@@ -57,7 +57,9 @@ Drawing.DrawingMap validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("type", new TypeValidator(Set.of(FrozenMap.class))),<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("properties", new PropertiesValidator(Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("mainShape", [Shape.Shape1.class](../../components/schemas/Shape.md#shape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapeOrNull", [ShapeOrNull.ShapeOrNull1.class](../../components/schemas/ShapeOrNull.md#shapeornull1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("nullableShape", [NullableShape.NullableShape1.class](../../components/schemas/NullableShape.md#nullableshape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapes", [Shapes.class](#shapes)))<br>&nbsp;&nbsp;&nbsp;&nbsp;))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("additionalProperties", new AdditionalPropertiesValidator([Fruit.Fruit1.class](../../components/schemas/Fruit.md#fruit1))<br>)); |
+| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(FrozenMap.class)<br/> |
+| Map<String, Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("mainShape", [Shape.Shape1.class](../../components/schemas/Shape.md#shape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapeOrNull", [ShapeOrNull.ShapeOrNull1.class](../../components/schemas/ShapeOrNull.md#shapeornull1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("nullableShape", [NullableShape.NullableShape1.class](../../components/schemas/NullableShape.md#nullableshape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapes", [Shapes.class](#shapes)))<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
+| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;additionalProperties = [Fruit.Fruit1.class](../../components/schemas/Fruit.md#fruit1)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -128,7 +130,8 @@ Drawing.ShapesList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| static LinkedHashMap<String, KeywordValidator> |keywordToValidator<br/>new LinkedHashMap<>(Map.ofEntries(<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("type", new TypeValidator(Set.of(FrozenList.class))),<br/>&nbsp;&nbsp;&nbsp;&nbsp;new KeywordEntry("items", new ItemsValidator([Shape.Shape1.class](../../components/schemas/Shape.md#shape1))<br>)); |
+| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(FrozenList.class)<br/> |
+| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Shape.Shape1.class](../../components/schemas/Shape.md#shape1)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
