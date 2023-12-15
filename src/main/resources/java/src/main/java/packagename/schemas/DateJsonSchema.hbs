@@ -4,6 +4,7 @@ import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.SchemaStringValidator;
@@ -25,10 +26,10 @@ public class DateJsonSchema extends JsonSchema implements SchemaStringValidator 
     private static DateJsonSchema instance;
 
     protected DateJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
-                new KeywordEntry("format", new FormatValidator("date"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(String.class))
+            .format("date")
+        );
     }
 
     public static DateJsonSchema getInstance() {

@@ -7,6 +7,7 @@ import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.NotValidator;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -31,9 +32,9 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements SchemaNullValida
     private static NotAnyTypeJsonSchema instance;
 
     protected NotAnyTypeJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("not", new NotValidator(AnyTypeJsonSchema.class))
-        )));
+        super(new JsonSchemaInfo()
+            .not(AnyTypeJsonSchema.class)
+        );
     }
 
     public static NotAnyTypeJsonSchema getInstance() {

@@ -3,6 +3,7 @@ package {{{packageName}}}.schemas;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -23,14 +24,14 @@ public class NumberJsonSchema extends JsonSchema implements SchemaNumberValidato
     private static NumberJsonSchema instance;
 
     protected NumberJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(
-                        Integer.class,
-                        Long.class,
-                        Float.class,
-                        Double.class
-                )))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(
+                    Integer.class,
+                    Long.class,
+                    Float.class,
+                    Double.class
+            ))
+        );
     }
 
     public static NumberJsonSchema getInstance() {

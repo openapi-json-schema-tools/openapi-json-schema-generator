@@ -5,6 +5,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.SchemaNumberValidator;
@@ -24,10 +25,10 @@ public class DoubleJsonSchema extends JsonSchema implements SchemaNumberValidato
     private static DoubleJsonSchema instance;
 
     protected DoubleJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Double.class))),
-                new KeywordEntry("format", new FormatValidator("double"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(Double.class))
+            .format("double")
+        );
     }
 
     public static DoubleJsonSchema getInstance() {

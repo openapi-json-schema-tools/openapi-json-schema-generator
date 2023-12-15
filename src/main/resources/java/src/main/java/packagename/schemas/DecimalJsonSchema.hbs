@@ -5,6 +5,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.SchemaStringValidator;
@@ -24,10 +25,10 @@ public class DecimalJsonSchema extends JsonSchema implements SchemaStringValidat
     private static DecimalJsonSchema instance;
 
     protected DecimalJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(String.class))),
-                new KeywordEntry("format", new FormatValidator("number"))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(String.class))
+            .format("number")
+        );
     }
 
     public static DecimalJsonSchema getInstance() {

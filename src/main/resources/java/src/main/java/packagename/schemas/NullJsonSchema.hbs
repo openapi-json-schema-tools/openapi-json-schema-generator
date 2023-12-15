@@ -5,6 +5,7 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
+import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
 import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.SchemaNullValidator;
@@ -23,9 +24,9 @@ public class NullJsonSchema extends JsonSchema implements SchemaNullValidator {
     private static NullJsonSchema instance;
 
     protected NullJsonSchema() {
-        super(new LinkedHashMap<>(Map.ofEntries(
-                new KeywordEntry("type", new TypeValidator(Set.of(Void.class)))
-        )));
+        super(new JsonSchemaInfo()
+            .type(Set.of(Void.class))
+        );
     }
 
     public static NullJsonSchema getInstance() {
