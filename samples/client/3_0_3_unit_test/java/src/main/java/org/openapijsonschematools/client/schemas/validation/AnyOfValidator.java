@@ -18,11 +18,11 @@ public class AnyOfValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedAnyOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> anyOfClass: anyOf) {
-            if (anyOfClass == cls) {
+            if (anyOfClass == cls.getClass()) {
                 /*
                 optimistically assume that cls schema will pass validation
                 do not invoke _validate on it because that is recursive

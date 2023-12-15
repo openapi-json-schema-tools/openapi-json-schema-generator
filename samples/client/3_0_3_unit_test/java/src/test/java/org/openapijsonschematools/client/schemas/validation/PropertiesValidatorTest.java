@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
@@ -33,7 +34,7 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", "abc");
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         PathToSchemasMap pathToSchemas = validator.validate(
-                JsonSchema.class,
+                MapJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
                 null
@@ -63,7 +64,7 @@ public class PropertiesValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemas = validator.validate(
-                JsonSchema.class,
+                MapJsonSchema.getInstance(),
                 1,
                 validationMetadata,
                 null
@@ -89,7 +90,7 @@ public class PropertiesValidatorTest {
         mutableMap.put("someString", 1);
         FrozenMap<Object> arg = new FrozenMap<>(mutableMap);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                JsonSchema.class,
+                MapJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
                 null

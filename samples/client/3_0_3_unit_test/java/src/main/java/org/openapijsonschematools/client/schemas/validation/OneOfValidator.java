@@ -18,11 +18,11 @@ public class OneOfValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedOneOfClasses = new ArrayList<>();
         for(Class<? extends JsonSchema> oneOfClass: oneOf) {
-            if (oneOfClass == cls) {
+            if (oneOfClass == cls.getClass()) {
                 /*
                 optimistically assume that cls schema will pass validation
                 do not invoke validate on it because that is recursive

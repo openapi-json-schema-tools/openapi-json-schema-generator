@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.schemas.ListJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
@@ -29,7 +30,7 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
-                JsonSchema.class,
+                ListJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
                 null
@@ -57,7 +58,7 @@ public class ItemsValidatorTest {
         );
         final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         PathToSchemasMap pathToSchemas = validator.validate(
-                JsonSchema.class,
+                ListJsonSchema.getInstance(),
                 1,
                 validationMetadata,
                 null
@@ -80,7 +81,7 @@ public class ItemsValidatorTest {
         FrozenList<Object> arg = new FrozenList<>(mutableList);
         final ItemsValidator validator = new ItemsValidator(StringJsonSchema.class);
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                JsonSchema.class,
+                ListJsonSchema.getInstance(),
                 arg,
                 validationMetadata,
                 null

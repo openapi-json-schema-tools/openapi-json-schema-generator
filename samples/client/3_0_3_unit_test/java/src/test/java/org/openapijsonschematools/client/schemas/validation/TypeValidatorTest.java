@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.StringJsonSchema;
 
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -23,7 +24,7 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         PathToSchemasMap pathToSchemasMap = validator.validate(
-                JsonSchema.class,
+                StringJsonSchema.getInstance(),
                 "hi",
                 validationMetadata,
                 null
@@ -43,7 +44,7 @@ public class TypeValidatorTest {
                 new LinkedHashSet<>()
         );
         Assert.assertThrows(ValidationException.class, () -> validator.validate(
-                JsonSchema.class,
+                StringJsonSchema.getInstance(),
                 1,
                 validationMetadata,
                 null

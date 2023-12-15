@@ -147,7 +147,7 @@ public class FormatValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(Class<? extends JsonSchema> cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
+    public PathToSchemasMap validate(JsonSchema cls, Object arg, ValidationMetadata validationMetadata, Object extra) {
         if (arg instanceof Number) {
             validateNumericFormat(
                 (Number) arg,

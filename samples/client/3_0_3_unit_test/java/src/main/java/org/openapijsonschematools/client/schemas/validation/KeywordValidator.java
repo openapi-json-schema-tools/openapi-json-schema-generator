@@ -4,7 +4,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 
 public interface KeywordValidator {
     PathToSchemasMap validate(
-            Class<? extends JsonSchema> cls,
+            JsonSchema cls,
             Object arg,
             ValidationMetadata validationMetadata,
             Object extra) throws ValidationException;
