@@ -58,7 +58,7 @@ public class NestedItems {
         }
         
         @Override
-        public ItemsList getNewInstance(FrozenList<Number> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ItemsList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<Number> items = new ArrayList<>();
             int i = 0;
             for (Number item: arg) {
@@ -126,7 +126,7 @@ public class NestedItems {
         }
         
         @Override
-        public ItemsList1 getNewInstance(FrozenList<FrozenList<Number>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ItemsList1 getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<ItemsList> items = new ArrayList<>();
             int i = 0;
             for (FrozenList<Number> item: arg) {
@@ -194,7 +194,7 @@ public class NestedItems {
         }
         
         @Override
-        public ItemsList2 getNewInstance(FrozenList<FrozenList<FrozenList<Number>>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ItemsList2 getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<ItemsList1> items = new ArrayList<>();
             int i = 0;
             for (FrozenList<FrozenList<Number>> item: arg) {
@@ -268,7 +268,7 @@ public class NestedItems {
         }
         
         @Override
-        public NestedItemsList getNewInstance(FrozenList<FrozenList<FrozenList<FrozenList<Number>>>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public NestedItemsList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<ItemsList2> items = new ArrayList<>();
             int i = 0;
             for (FrozenList<FrozenList<FrozenList<Number>>> item: arg) {

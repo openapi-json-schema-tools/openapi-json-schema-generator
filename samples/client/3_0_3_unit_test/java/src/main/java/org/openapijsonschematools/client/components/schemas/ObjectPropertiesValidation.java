@@ -202,8 +202,8 @@ public class ObjectPropertiesValidation {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<Object>) arg;
         }
         
         @Override
@@ -220,7 +220,7 @@ public class ObjectPropertiesValidation {
         }
         
         @Override
-        public ObjectPropertiesValidationMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ObjectPropertiesValidationMap getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();

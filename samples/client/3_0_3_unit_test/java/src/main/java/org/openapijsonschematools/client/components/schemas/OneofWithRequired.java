@@ -183,8 +183,8 @@ public class OneofWithRequired {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<Object>) arg;
         }
         
         @Override
@@ -201,7 +201,7 @@ public class OneofWithRequired {
         }
         
         @Override
-        public Schema0Map getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Schema0Map getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
@@ -403,8 +403,8 @@ public class OneofWithRequired {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<Object>) arg;
         }
         
         @Override
@@ -421,7 +421,7 @@ public class OneofWithRequired {
         }
         
         @Override
-        public Schema1Map getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Schema1Map getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
@@ -498,8 +498,8 @@ public class OneofWithRequired {
         }
         
         @Override
-        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenMap<Object> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenMap<Object>) arg;
         }
         
         @Override

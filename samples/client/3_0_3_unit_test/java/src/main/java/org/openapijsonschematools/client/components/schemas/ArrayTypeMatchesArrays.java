@@ -64,7 +64,7 @@ public class ArrayTypeMatchesArrays {
         }
         
         @Override
-        public ArrayTypeMatchesArraysList getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayTypeMatchesArraysList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {

@@ -184,8 +184,8 @@ public class PropertyNamedRefThatIsNotAReference {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<Object>) arg;
         }
         
         @Override
@@ -202,7 +202,7 @@ public class PropertyNamedRefThatIsNotAReference {
         }
         
         @Override
-        public PropertyNamedRefThatIsNotAReferenceMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PropertyNamedRefThatIsNotAReferenceMap getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();

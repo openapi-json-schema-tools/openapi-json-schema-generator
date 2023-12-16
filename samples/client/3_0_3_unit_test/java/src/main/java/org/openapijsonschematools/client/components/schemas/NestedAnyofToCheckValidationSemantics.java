@@ -154,8 +154,8 @@ public class NestedAnyofToCheckValidationSemantics {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<Object>) arg;
         }
         
         @Override
@@ -172,8 +172,8 @@ public class NestedAnyofToCheckValidationSemantics {
         }
         
         @Override
-        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenMap<Object> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenMap<Object>) arg;
         }
         
         @Override
@@ -336,8 +336,8 @@ public class NestedAnyofToCheckValidationSemantics {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<Object>) arg;
         }
         
         @Override
@@ -354,8 +354,8 @@ public class NestedAnyofToCheckValidationSemantics {
         }
         
         @Override
-        public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenMap<Object> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenMap<Object>) arg;
         }
         
         @Override

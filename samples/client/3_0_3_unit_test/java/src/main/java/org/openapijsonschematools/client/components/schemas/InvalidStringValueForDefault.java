@@ -230,8 +230,8 @@ public class InvalidStringValueForDefault {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<Object>) arg;
         }
         
         @Override
@@ -248,7 +248,7 @@ public class InvalidStringValueForDefault {
         }
         
         @Override
-        public InvalidStringValueForDefaultMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public InvalidStringValueForDefaultMap getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<String, Object> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();

@@ -60,7 +60,7 @@ public class RefInItems {
         }
         
         @Override
-        public RefInItemsList getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public RefInItemsList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {

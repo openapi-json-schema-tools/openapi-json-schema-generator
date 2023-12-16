@@ -37,8 +37,8 @@ public {{../mapOutputJsonPathPiece.camelCase}} getNewInstance(FrozenMap<?> arg, 
 }
             {{else}}
 @Override
-public FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
+public FrozenMap<Object> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    return (FrozenMap<Object>) arg;
 }
             {{/if}}
 
@@ -344,7 +344,7 @@ public String validate(UUID arg, SchemaConfiguration configuration) throws Valid
 
 @Override
 public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
+    return (FrozenList<Object>) arg;
 }
 
 @Override
@@ -376,7 +376,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
     FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castProperties = new FrozenMap<>(properties);
     return new {{mapOutputJsonPathPiece.camelCase}}(castProperties);
     {{else}}
-    return arg;
+    return (FrozenMap<Object>) arg;
     {{/if}}
 }
 

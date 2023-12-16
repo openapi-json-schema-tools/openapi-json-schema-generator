@@ -70,9 +70,9 @@ public class AdditionalpropertiesCanExistByItself {
             return instance;
         }
         
-        public AdditionalpropertiesCanExistByItselfMap getNewInstance(FrozenMap<Boolean> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalpropertiesCanExistByItselfMap getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Boolean> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, Boolean> entry: arg.entrySet()) {
+            for(Map.Entry<String, ?> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
