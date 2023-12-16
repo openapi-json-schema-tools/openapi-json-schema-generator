@@ -27,7 +27,7 @@ public {{../mapOutputJsonPathPiece.camelCase}} getNewInstance(FrozenMap<?> arg, 
         String propertyName = entry.getKey();
         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
         propertyPathToItem.add(propertyName);
-        {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} value = entry.getValue();
+        Object value = entry.getValue();
         JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
         {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} castValue = ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
         properties.put(propertyName, castValue);
@@ -46,7 +46,7 @@ public FrozenMap<Object> getNewInstance(FrozenMap<?> arg, List<Object> pathToIte
 public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<Object>{{/if}} validate(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
-    FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+    FrozenMap<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -61,7 +61,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
             {{#if ../arrayOutputJsonPathPiece}}
     ArrayList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> items = new ArrayList<>();
     int i = 0;
-    for ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}} item: arg) {
+    for (Object item: arg) {
         List<Object> itemPathToItem = new ArrayList<>(pathToItem);
         itemPathToItem.add(i);
         JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -80,7 +80,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
 public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} validate(List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
-    FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+    FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -364,11 +364,11 @@ public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configu
 public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     {{#if mapOutputJsonPathPiece}}
     LinkedHashMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> properties = new LinkedHashMap<>();
-    for(Map.Entry<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> entry: arg.entrySet()) {
+    for(Map.Entry<String, ?> entry: arg.entrySet()) {
         String propertyName = entry.getKey();
         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
         propertyPathToItem.add(propertyName);
-        {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} value = entry.getValue();
+        Object value = entry.getValue();
         JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
         {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} castValue = ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
         properties.put(propertyName, castValue);
@@ -385,7 +385,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = new ArrayList<>();
     pathToItem.add("args[0]");
-    FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+    FrozenMap<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());

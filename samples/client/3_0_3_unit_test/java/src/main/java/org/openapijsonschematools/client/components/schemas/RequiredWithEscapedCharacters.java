@@ -209,11 +209,11 @@ public class RequiredWithEscapedCharacters {
         @Override
         public RequiredWithEscapedCharactersMap getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, Object> entry: arg.entrySet()) {
+            for(Map.Entry<String, ?> entry: arg.entrySet()) {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                                Object value = entry.getValue();
+                Object value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                                 Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -227,7 +227,7 @@ public class RequiredWithEscapedCharacters {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
-            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenMap<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());

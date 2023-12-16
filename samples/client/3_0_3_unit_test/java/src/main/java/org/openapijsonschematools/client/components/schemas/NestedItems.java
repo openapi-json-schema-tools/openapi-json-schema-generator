@@ -61,7 +61,7 @@ public class NestedItems {
         public ItemsList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<Number> items = new ArrayList<>();
             int i = 0;
-            for (Number item: arg) {
+            for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -77,7 +77,7 @@ public class NestedItems {
         public ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<Number> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -129,7 +129,7 @@ public class NestedItems {
         public ItemsList1 getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<ItemsList> items = new ArrayList<>();
             int i = 0;
-            for (FrozenList<Number> item: arg) {
+            for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -145,7 +145,7 @@ public class NestedItems {
         public ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenList<Number>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -197,7 +197,7 @@ public class NestedItems {
         public ItemsList2 getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<ItemsList1> items = new ArrayList<>();
             int i = 0;
-            for (FrozenList<FrozenList<Number>> item: arg) {
+            for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -213,7 +213,7 @@ public class NestedItems {
         public ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenList<FrozenList<Number>>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -271,7 +271,7 @@ public class NestedItems {
         public NestedItemsList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<ItemsList2> items = new ArrayList<>();
             int i = 0;
-            for (FrozenList<FrozenList<FrozenList<Number>>> item: arg) {
+            for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -287,7 +287,7 @@ public class NestedItems {
         public NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenList<FrozenList<FrozenList<Number>>>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

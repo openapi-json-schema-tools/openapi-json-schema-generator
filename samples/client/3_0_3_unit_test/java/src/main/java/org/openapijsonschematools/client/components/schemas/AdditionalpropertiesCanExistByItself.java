@@ -76,7 +76,7 @@ public class AdditionalpropertiesCanExistByItself {
                 String propertyName = entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                Boolean value = entry.getValue();
+                Object value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 Boolean castValue = (Boolean) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -89,7 +89,7 @@ public class AdditionalpropertiesCanExistByItself {
         public AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<Boolean> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenMap<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

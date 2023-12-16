@@ -38,8 +38,8 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Ob
     }
 
     @Override
-    public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
+    public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return (FrozenList<Object>) arg;
     }
 
     @Override
