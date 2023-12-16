@@ -64,21 +64,6 @@ public class ArrayTypeMatchesArrays {
         }
         
         @Override
-        public FrozenList<Object> castToAllowedTypes(List<Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<Object> argFixed = new ArrayList<>();
-            int i =0;
-            for (Object item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                                Object fixedVal = (Object) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
-        }
-        
-        @Override
         public ArrayTypeMatchesArraysList getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<Object> items = new ArrayList<>();
             int i = 0;

@@ -58,21 +58,6 @@ public class NestedItems {
         }
         
         @Override
-        public FrozenList<Number> castToAllowedTypes(List<Number> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<Number> argFixed = new ArrayList<>();
-            int i =0;
-            for (Number item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                                Number fixedVal = (Number) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
-        }
-        
-        @Override
         public ItemsList getNewInstance(FrozenList<Number> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<Number> items = new ArrayList<>();
             int i = 0;
@@ -141,21 +126,6 @@ public class NestedItems {
         }
         
         @Override
-        public FrozenList<FrozenList<Number>> castToAllowedTypes(List<List<Number>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<FrozenList<Number>> argFixed = new ArrayList<>();
-            int i =0;
-            for (List<Number> item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                                FrozenList<Number> fixedVal = (FrozenList<Number>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
-        }
-        
-        @Override
         public ItemsList1 getNewInstance(FrozenList<FrozenList<Number>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<ItemsList> items = new ArrayList<>();
             int i = 0;
@@ -221,21 +191,6 @@ public class NestedItems {
                 instance = new Items();
             }
             return instance;
-        }
-        
-        @Override
-        public FrozenList<FrozenList<FrozenList<Number>>> castToAllowedTypes(List<List<List<Number>>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<FrozenList<FrozenList<Number>>> argFixed = new ArrayList<>();
-            int i =0;
-            for (List<List<Number>> item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                                FrozenList<FrozenList<Number>> fixedVal = (FrozenList<FrozenList<Number>>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
         }
         
         @Override
@@ -310,21 +265,6 @@ public class NestedItems {
                 instance = new NestedItems1();
             }
             return instance;
-        }
-        
-        @Override
-        public FrozenList<FrozenList<FrozenList<FrozenList<Number>>>> castToAllowedTypes(List<List<List<List<Number>>>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<FrozenList<FrozenList<FrozenList<Number>>>> argFixed = new ArrayList<>();
-            int i =0;
-            for (List<List<List<Number>>> item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                                FrozenList<FrozenList<FrozenList<Number>>> fixedVal = (FrozenList<FrozenList<FrozenList<Number>>>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
         }
         
         @Override

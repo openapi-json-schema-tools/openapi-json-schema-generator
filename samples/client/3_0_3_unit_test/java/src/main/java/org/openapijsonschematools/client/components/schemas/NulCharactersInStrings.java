@@ -50,11 +50,6 @@ public class NulCharactersInStrings {
         }
         
         @Override
-        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedStringTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
         public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             return arg;
         }

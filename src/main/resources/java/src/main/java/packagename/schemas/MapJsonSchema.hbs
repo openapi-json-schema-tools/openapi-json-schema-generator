@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Object, Object, FrozenMap<Object>> {
+public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Object, FrozenMap<Object>> {
     private static MapJsonSchema instance;
 
     protected MapJsonSchema() {
@@ -38,11 +38,6 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Obje
     }
 
     @Override
-    public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedMapTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
     public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
@@ -51,7 +46,7 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Obje
     public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
-        FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+        FrozenMap<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
         SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

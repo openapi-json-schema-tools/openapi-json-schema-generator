@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
+public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, FrozenMap<Object>> {
     private static AnyTypeJsonSchema instance;
 
     protected AnyTypeJsonSchema() {
@@ -40,11 +40,6 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
             instance = new AnyTypeJsonSchema();
         }
         return instance;
-    }
-
-    @Override
-    public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedVoidTypes(arg, pathToItem, pathSet);
     }
 
     @Override
@@ -66,11 +61,6 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
     }
 
     @Override
-    public boolean castToAllowedTypes(boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedBooleanTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
     public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
@@ -86,11 +76,6 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
-
-    @Override
-    public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedNumberTypes(arg, pathToItem, pathSet);
     }
 
     @Override
@@ -128,11 +113,6 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
     }
 
     @Override
-    public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedStringTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
     public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
@@ -163,11 +143,6 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
     }
 
     @Override
-    public FrozenList<Object> castToAllowedTypes(List<Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedListTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
     public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
@@ -183,11 +158,6 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
-
-    @Override
-    public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedMapTypes(arg, pathToItem, pathSet);
     }
 
     @Override

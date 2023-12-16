@@ -27,3 +27,4 @@ public class FrozenList<E> extends AbstractList<E> {
         return list.size();
     }
 }
+

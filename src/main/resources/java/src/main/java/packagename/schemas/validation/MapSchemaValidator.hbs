@@ -8,8 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public interface MapSchemaValidator <InType, CastType, OutType> {
-    FrozenMap<CastType> castToAllowedTypes(Map<String, InType> arg, List<Object> pathToItem, Set<List<Object>> pathSet);
-    OutType getNewInstance(FrozenMap<CastType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+public interface MapSchemaValidator <InType, OutType> {
+    OutType getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     OutType validate(Map<String, InType> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

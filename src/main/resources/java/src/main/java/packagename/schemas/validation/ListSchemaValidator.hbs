@@ -7,8 +7,7 @@ import {{{packageName}}}.exceptions.ValidationException;
 import java.util.List;
 import java.util.Set;
 
-public interface ListSchemaValidator <InType, CastType, OutType> {
-    FrozenList<CastType> castToAllowedTypes(List<InType> arg, List<Object> pathToItem, Set<List<Object>> pathSet);
-    OutType getNewInstance(FrozenList<CastType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+public interface ListSchemaValidator <InType, OutType> {
+    OutType getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     OutType validate(List<InType> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

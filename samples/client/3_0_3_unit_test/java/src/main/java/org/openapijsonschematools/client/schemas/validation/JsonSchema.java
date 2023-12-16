@@ -253,27 +253,27 @@ public abstract class JsonSchema {
         return pathToSchemas;
     }
 
-    protected String castToAllowedStringTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         return arg;
     }
 
-    protected Boolean castToAllowedBooleanTypes(Boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected Boolean castToAllowedTypes(Boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         return arg;
     }
 
-    protected Number castToAllowedNumberTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         return arg;
     }
 
-    protected Void castToAllowedVoidTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         return arg;
     }
 
-    protected FrozenList<Object> castToAllowedListTypes(List<Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected FrozenList<Object> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         List<Object> argFixed = new ArrayList<>();
         int i =0;
@@ -287,10 +287,10 @@ public abstract class JsonSchema {
         return new FrozenList<>(argFixed);
     }
 
-    protected FrozenMap<Object> castToAllowedMapTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected FrozenMap<Object> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-        for (Map.Entry<?, ?> entry: ((Map<?, ?>) arg).entrySet()) {
+        for (Map.Entry<?, ?> entry:  arg.entrySet()) {
             String key = (String) entry.getKey();
             Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
@@ -303,43 +303,24 @@ public abstract class JsonSchema {
 
     protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
-            return castToAllowedVoidTypes((Void) arg, pathToItem, pathSet);
+            return castToAllowedTypes((Void) arg, pathToItem, pathSet);
         } else if (arg instanceof String) {
-            return castToAllowedStringTypes((String) arg, pathToItem, pathSet);
+            return castToAllowedTypes((String) arg, pathToItem, pathSet);
         } else if (arg instanceof Map) {
             pathSet.add(pathToItem);
-            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<?, ?> entry: ((Map<?, ?>) arg).entrySet()) {
-                String key = (String) entry.getKey();
-                Object val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
+            return castToAllowedTypes((Map<?, ?>) arg, pathToItem, pathSet);
         } else if (arg instanceof Boolean) {
-            return castToAllowedBooleanTypes((Boolean) arg, pathToItem, pathSet);
+            return castToAllowedTypes((Boolean) arg, pathToItem, pathSet);
         } else if (arg instanceof Integer) {
-            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
+            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof Long) {
-            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
+            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof Float) {
-            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
+            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof Double) {
-            return castToAllowedNumberTypes((Number) arg, pathToItem, pathSet);
+            return castToAllowedTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof List) {
-            pathSet.add(pathToItem);
-            List<Object> argFixed = new ArrayList<>();
-            int i =0;
-            for (Object item: ((List<?>) arg).toArray()) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                Object fixedVal = castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
+            return castToAllowedTypes((List<?> arg, pathToItem, pathSet);
         } else if (arg instanceof ZonedDateTime) {
             return castToAllowedStringTypes(arg.toString(), pathToItem, pathSet);
         } else if (arg instanceof LocalDate) {

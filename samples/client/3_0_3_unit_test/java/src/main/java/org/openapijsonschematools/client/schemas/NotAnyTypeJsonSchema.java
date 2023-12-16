@@ -28,7 +28,7 @@ import java.util.Map;
 import java.util.LinkedHashMap;
 import java.util.Objects;
 
-public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
+public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, FrozenMap<Object>> {
     private static NotAnyTypeJsonSchema instance;
 
     protected NotAnyTypeJsonSchema() {
@@ -42,10 +42,6 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
             instance = new NotAnyTypeJsonSchema();
         }
         return instance;
-    }
-
-    public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedVoidTypes(arg, pathToItem, pathSet);
     }
 
     public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -62,11 +58,6 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
-
-    @Override
-    public boolean castToAllowedTypes(boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedBooleanTypes(arg, pathToItem, pathSet);
     }
 
     @Override
@@ -88,11 +79,6 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
     }
 
     @Override
-    public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
     public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
@@ -108,11 +94,6 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
-
-    @Override
-    public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedStringTypes(arg, pathToItem, pathSet);
     }
 
     @Override
@@ -134,11 +115,6 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
     }
 
     @Override
-    public FrozenList<Object> castToAllowedTypes(List<Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedListTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
     public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
@@ -154,11 +130,6 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
         ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
         PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-    }
-
-    @Override
-    public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedMapTypes(arg, pathToItem, pathSet);
     }
 
     @Override

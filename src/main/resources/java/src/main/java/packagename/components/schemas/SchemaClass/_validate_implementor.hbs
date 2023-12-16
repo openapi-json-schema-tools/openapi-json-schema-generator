@@ -3,11 +3,6 @@
         {{#eq this "null"}}
 
 @Override
-public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedVoidTypes(arg, pathToItem, pathSet);
-}
-
-@Override
 public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
@@ -24,21 +19,6 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
 }
         {{/eq}}
         {{#eq this "object"}}
-
-@Override
-public FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castToAllowedTypes(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    pathSet.add(pathToItem);
-    LinkedHashMap<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> argFixed = new LinkedHashMap<>();
-    for (Map.Entry<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> entry: arg.entrySet()) {
-        String key = entry.getKey();
-        {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} val = entry.getValue();
-        List<Object> newPathToItem = new ArrayList<>(pathToItem);
-        newPathToItem.add(key);
-        {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} fixedVal = ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-        argFixed.put(key, fixedVal);
-    }
-    return new FrozenMap<>(argFixed);
-}
 
             {{#if ../mapOutputJsonPathPiece}}
 public {{../mapOutputJsonPathPiece.camelCase}} getNewInstance(FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -75,21 +55,6 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
 
         {{/eq}}
         {{#eq this "array"}}
-
-@Override
-public FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castToAllowedTypes(List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    pathSet.add(pathToItem);
-    List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> argFixed = new ArrayList<>();
-    int i =0;
-    for ({{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} item: arg) {
-        List<Object> newPathToItem = new ArrayList<>(pathToItem);
-        newPathToItem.add(i);
-        {{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} fixedVal = ({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-        argFixed.add(fixedVal);
-        i += 1;
-    }
-    return new FrozenList<>(argFixed);
-}
 
 @Override
 public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} getNewInstance(FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -129,11 +94,6 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
             {{else}}
 
 @Override
-public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedStringTypes(arg, pathToItem, pathSet);
-}
-
-@Override
 public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
@@ -151,11 +111,6 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
             {{/eq}}
         {{/eq}}
         {{#eq this "integer"}}
-
-@Override
-public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-}
 
 @Override
 public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -192,11 +147,6 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
             {{/neq}}
         {{/eq}}
         {{#eq this "number"}}
-
-@Override
-public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-}
 
 @Override
 public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -274,11 +224,6 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
         {{#eq this "boolean"}}
 
 @Override
-public boolean castToAllowedTypes(boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedBooleanTypes(arg, pathToItem, pathSet);
-}
-
-@Override
 public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
@@ -296,10 +241,6 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
         {{/eq}}
     {{/each}}
 {{else}}
-@Override
-public Void castToAllowedTypes(Void arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedVoidTypes(arg, pathToItem, pathSet);
-}
 
 @Override
 public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
@@ -320,11 +261,6 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
 }
 
 @Override
-public boolean castToAllowedTypes(boolean arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedBooleanTypes(arg, pathToItem, pathSet);
-}
-
-@Override
 public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
@@ -340,11 +276,6 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-}
-
-@Override
-public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedNumberTypes(arg, pathToItem, pathSet);
 }
 
 @Override
@@ -382,11 +313,6 @@ public double validate(double arg, SchemaConfiguration configuration) {
 }
 
 @Override
-public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedStringTypes(arg, pathToItem, pathSet);
-}
-
-@Override
 public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
@@ -417,11 +343,6 @@ public String validate(UUID arg, SchemaConfiguration configuration) throws Valid
 }
 
 @Override
-public FrozenList<Object> castToAllowedTypes(List<Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    return castToAllowedListTypes(arg, pathToItem, pathSet);
-}
-
-@Override
 public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
@@ -437,25 +358,6 @@ public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configu
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-}
-
-@Override
-public FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castToAllowedTypes(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-    {{#if mapValueSchema}}
-    pathSet.add(pathToItem);
-    LinkedHashMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> argFixed = new LinkedHashMap<>();
-    for (Map.Entry<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> entry: arg.entrySet()) {
-        String key = entry.getKey();
-        {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} val = entry.getValue();
-        List<Object> newPathToItem = new ArrayList<>(pathToItem);
-        newPathToItem.add(key);
-        {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}} fixedVal = ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-        argFixed.put(key, fixedVal);
-    }
-    return new FrozenMap<>(argFixed);
-    {{else}}
-    return castToAllowedMapTypes(arg, pathToItem, pathSet);
-    {{/if}}
 }
 
 @Override
