@@ -21,9 +21,9 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
         {{#eq this "object"}}
 
             {{#if ../mapOutputJsonPathPiece}}
-public {{../mapOutputJsonPathPiece.camelCase}} getNewInstance(FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public {{../mapOutputJsonPathPiece.camelCase}} getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     LinkedHashMap<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> properties = new LinkedHashMap<>();
-    for(Map.Entry<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> entry: arg.entrySet()) {
+    for(Map.Entry<String, ?> entry: arg.entrySet()) {
         String propertyName = entry.getKey();
         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
         propertyPathToItem.add(propertyName);
@@ -37,7 +37,7 @@ public {{../mapOutputJsonPathPiece.camelCase}} getNewInstance(FrozenMap<{{#with 
 }
             {{else}}
 @Override
-public FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> getNewInstance(FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
             {{/if}}
@@ -57,7 +57,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
         {{#eq this "array"}}
 
 @Override
-public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} getNewInstance(FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             {{#if ../arrayOutputJsonPathPiece}}
     ArrayList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> items = new ArrayList<>();
     int i = 0;
@@ -343,7 +343,7 @@ public String validate(UUID arg, SchemaConfiguration configuration) throws Valid
 }
 
 @Override
-public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     return arg;
 }
 
@@ -361,7 +361,7 @@ public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configu
 }
 
 @Override
-public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} getNewInstance(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>{{/if}} getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
     {{#if mapOutputJsonPathPiece}}
     LinkedHashMap<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> properties = new LinkedHashMap<>();
     for(Map.Entry<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> entry: arg.entrySet()) {
