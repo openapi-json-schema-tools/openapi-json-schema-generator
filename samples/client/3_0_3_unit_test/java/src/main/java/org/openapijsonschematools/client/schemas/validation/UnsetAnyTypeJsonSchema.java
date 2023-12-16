@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.Map;
 import java.util.Objects;
 
-public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, Object, FrozenList<Object>>, MapSchemaValidator<Object, Object, FrozenMap<Object>> {
+public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, FrozenMap<Object>> {
     private static UnsetAnyTypeJsonSchema instance;
 
     protected UnsetAnyTypeJsonSchema() {
@@ -100,8 +100,8 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaVali
     }
 
     @Override
-    public FrozenList<Object> getNewInstance(FrozenList<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
+    public FrozenList<Object> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return (FrozenList<Object>) arg;
     }
 
     @Override
@@ -118,8 +118,8 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaVali
     }
 
     @Override
-    public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
+    public FrozenMap<Object> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return (FrozenMap<Object>) arg;
     }
 
     @Override

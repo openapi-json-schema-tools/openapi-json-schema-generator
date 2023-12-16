@@ -223,7 +223,6 @@ public abstract class JsonSchema {
             ValidationMetadata validationMetadata
     ) throws ValidationException {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
-        Object extra = null;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
         if (thisKeywordToValidator != null) {
@@ -277,7 +276,7 @@ public abstract class JsonSchema {
         pathSet.add(pathToItem);
         List<Object> argFixed = new ArrayList<>();
         int i =0;
-        for (Object item: ((List<?>) arg).toArray()) {
+        for (Object item: arg) {
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(i);
             Object fixedVal = castToAllowedObjectTypes(item, newPathToItem, pathSet);
@@ -303,7 +302,7 @@ public abstract class JsonSchema {
 
     protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
-            return castToAllowedTypes((Void) arg, pathToItem, pathSet);
+            return castToAllowedTypes((Void) null, pathToItem, pathSet);
         } else if (arg instanceof String) {
             return castToAllowedTypes((String) arg, pathToItem, pathSet);
         } else if (arg instanceof Map) {
@@ -320,13 +319,13 @@ public abstract class JsonSchema {
         } else if (arg instanceof Double) {
             return castToAllowedTypes((Number) arg, pathToItem, pathSet);
         } else if (arg instanceof List) {
-            return castToAllowedTypes((List<?> arg, pathToItem, pathSet);
+            return castToAllowedTypes((List<?>) arg, pathToItem, pathSet);
         } else if (arg instanceof ZonedDateTime) {
-            return castToAllowedStringTypes(arg.toString(), pathToItem, pathSet);
+            return castToAllowedTypes(arg.toString(), pathToItem, pathSet);
         } else if (arg instanceof LocalDate) {
-            return castToAllowedStringTypes(arg.toString(), pathToItem, pathSet);
+            return castToAllowedTypes(arg.toString(), pathToItem, pathSet);
         } else if (arg instanceof UUID) {
-            return castToAllowedStringTypes(arg.toString(), pathToItem, pathSet);
+            return castToAllowedTypes(arg.toString(), pathToItem, pathSet);
         } else {
             Class<?> argClass = arg.getClass();
             throw new InvalidTypeException("Invalid type passed in for input="+arg+" type="+argClass);

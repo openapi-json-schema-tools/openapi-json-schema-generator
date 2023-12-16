@@ -38,8 +38,8 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Obje
     }
 
     @Override
-    public FrozenMap<Object> getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
+    public FrozenMap<Object> getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return (FrozenMap<Object>) arg;
     }
 
     @Override
