@@ -4,6 +4,8 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -18,7 +20,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, FrozenMap<Object>> {
-    private static UnsetAnyTypeJsonSchema instance;
+    private static @Nullable UnsetAnyTypeJsonSchema instance = null;
 
     protected UnsetAnyTypeJsonSchema() {
         super(new JsonSchemaInfo());

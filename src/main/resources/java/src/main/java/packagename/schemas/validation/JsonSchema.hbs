@@ -2,6 +2,8 @@ package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.exceptions.InvalidTypeException;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,31 +18,31 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 public abstract class JsonSchema {
-    public final Set<Class<?>> type;
-    public final String format;
-    public final Class<? extends JsonSchema> items;
-    public final Map<String, Class<? extends JsonSchema>> properties;
-    public final Set<String> required;
-    public final Number exclusiveMaximum;
-    public final Number exclusiveMinimum;
-    public final Integer maxItems;
-    public final Integer minItems;
-    public final Integer maxLength;
-    public final Integer minLength;
-    public final Integer maxProperties;
-    public final Integer minProperties;
-    public final Number maximum;
-    public final Number minimum;
-    public final BigDecimal multipleOf;
-    public final Class<? extends JsonSchema> additionalProperties;
-    public final List<Class<? extends JsonSchema>> allOf;
-    public final List<Class<? extends JsonSchema>> anyOf;
-    public final List<Class<? extends JsonSchema>> oneOf;
-    public final Class<? extends JsonSchema> not;
-    public final Boolean uniqueItems;
-    public final Set<Object> enumValues;
-    public final Pattern pattern;
-    private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
+    public final @Nullable Set<Class<?>> type;
+    public final @Nullable String format;
+    public final @Nullable Class<? extends JsonSchema> items;
+    public final @Nullable Map<String, Class<? extends JsonSchema>> properties;
+    public final @Nullable Set<String> required;
+    public final @Nullable Number exclusiveMaximum;
+    public final @Nullable Number exclusiveMinimum;
+    public final @Nullable Integer maxItems;
+    public final @Nullable Integer minItems;
+    public final @Nullable Integer maxLength;
+    public final @Nullable Integer minLength;
+    public final @Nullable Integer maxProperties;
+    public final @Nullable Integer minProperties;
+    public final @Nullable Number maximum;
+    public final @Nullable Number minimum;
+    public final @Nullable BigDecimal multipleOf;
+    public final @Nullable Class<? extends JsonSchema> additionalProperties;
+    public final @Nullable List<Class<? extends JsonSchema>> allOf;
+    public final @Nullable List<Class<? extends JsonSchema>> anyOf;
+    public final @Nullable List<Class<? extends JsonSchema>> oneOf;
+    public final @Nullable Class<? extends JsonSchema> not;
+    public final @Nullable Boolean uniqueItems;
+    public final @Nullable Set<Object> enumValues;
+    public final @Nullable Pattern pattern;
+    private final @NonNull LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
         LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();

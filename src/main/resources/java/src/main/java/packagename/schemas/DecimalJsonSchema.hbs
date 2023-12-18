@@ -12,6 +12,8 @@ import {{{packageName}}}.schemas.validation.StringSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -22,7 +24,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DecimalJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static DecimalJsonSchema instance;
+    private static @Nullable DecimalJsonSchema instance = null;
 
     protected DecimalJsonSchema() {
         super(new JsonSchemaInfo()

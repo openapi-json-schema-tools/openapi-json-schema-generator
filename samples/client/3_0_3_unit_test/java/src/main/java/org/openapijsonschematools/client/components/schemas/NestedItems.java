@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -41,7 +43,7 @@ public class NestedItems {
     
     
     public static class Items2 extends JsonSchema implements ListSchemaValidator<Number, ItemsList> {
-        private static Items2 instance;
+        private static @Nullable Items2 instance = null;
     
         protected Items2() {
             super(new JsonSchemaInfo()
@@ -108,7 +110,7 @@ public class NestedItems {
     
     
     public static class Items1 extends JsonSchema implements ListSchemaValidator<List<Number>, ItemsList1> {
-        private static Items1 instance;
+        private static @Nullable Items1 instance = null;
     
         protected Items1() {
             super(new JsonSchemaInfo()
@@ -175,7 +177,7 @@ public class NestedItems {
     
     
     public static class Items extends JsonSchema implements ListSchemaValidator<List<List<Number>>, ItemsList2> {
-        private static Items instance;
+        private static @Nullable Items instance = null;
     
         protected Items() {
             super(new JsonSchemaInfo()
@@ -248,7 +250,7 @@ public class NestedItems {
     
         Do not edit the class manually.
         */
-        private static NestedItems1 instance;
+        private static @Nullable NestedItems1 instance = null;
     
         protected NestedItems1() {
             super(new JsonSchemaInfo()

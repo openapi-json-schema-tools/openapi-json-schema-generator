@@ -1597,6 +1597,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
         imports.add("import "+packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
         imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
+        imports.add("import org.checkerframework.checker.nullness.qual.NonNull;");
+        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
     }
 
     private void addBooleanSchemaImports(Set<String> imports, CodegenSchema schema) {

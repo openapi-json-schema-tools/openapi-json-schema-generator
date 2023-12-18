@@ -10,6 +10,8 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -21,7 +23,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Object, FrozenMap<Object>> {
-    private static MapJsonSchema instance;
+    private static @Nullable MapJsonSchema instance = null;
 
     protected MapJsonSchema() {
         super(new JsonSchemaInfo()

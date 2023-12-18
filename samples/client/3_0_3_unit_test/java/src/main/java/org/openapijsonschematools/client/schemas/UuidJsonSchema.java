@@ -12,6 +12,8 @@ import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -23,7 +25,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public class UuidJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static UuidJsonSchema instance;
+    private static @Nullable UuidJsonSchema instance = null;
 
     protected UuidJsonSchema() {
         super(new JsonSchemaInfo()

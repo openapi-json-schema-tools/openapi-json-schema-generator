@@ -17,7 +17,7 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Nu
     {{/if}}
     */
 {{/if}}
-    private static {{jsonPathPiece.camelCase}} instance;
+    private static @Nullable {{jsonPathPiece.camelCase}} instance = null;
 
     protected {{../jsonPathPiece.camelCase}}() {
         super(new JsonSchemaInfo()

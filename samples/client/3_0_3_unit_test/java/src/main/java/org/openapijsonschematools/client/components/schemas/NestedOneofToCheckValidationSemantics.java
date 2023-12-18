@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -36,7 +38,7 @@ public class NestedOneofToCheckValidationSemantics {
     
     
     public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, FrozenMap<Object>> {
-        private static Schema0 instance;
+        private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
             super(new JsonSchemaInfo()
@@ -216,7 +218,7 @@ public class NestedOneofToCheckValidationSemantics {
     
         Do not edit the class manually.
         */
-        private static NestedOneofToCheckValidationSemantics1 instance;
+        private static @Nullable NestedOneofToCheckValidationSemantics1 instance = null;
     
         protected NestedOneofToCheckValidationSemantics1() {
             super(new JsonSchemaInfo()

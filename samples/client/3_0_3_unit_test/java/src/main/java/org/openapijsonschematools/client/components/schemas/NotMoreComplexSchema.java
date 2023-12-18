@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -66,7 +68,7 @@ public class NotMoreComplexSchema {
     
     
     public static class Not extends JsonSchema implements MapSchemaValidator<Object, NotMap> {
-        private static Not instance;
+        private static @Nullable Not instance = null;
     
         protected Not() {
             super(new JsonSchemaInfo()
@@ -128,7 +130,7 @@ public class NotMoreComplexSchema {
     
         Do not edit the class manually.
         */
-        private static NotMoreComplexSchema1 instance;
+        private static @Nullable NotMoreComplexSchema1 instance = null;
     
         protected NotMoreComplexSchema1() {
             super(new JsonSchemaInfo()

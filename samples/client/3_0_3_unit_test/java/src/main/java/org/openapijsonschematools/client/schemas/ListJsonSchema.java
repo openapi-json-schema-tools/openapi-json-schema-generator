@@ -10,6 +10,8 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -19,7 +21,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Object, FrozenList<Object>> {
-    private static ListJsonSchema instance;
+    private static @Nullable ListJsonSchema instance = null;
 
     protected ListJsonSchema() {
         super(new JsonSchemaInfo()

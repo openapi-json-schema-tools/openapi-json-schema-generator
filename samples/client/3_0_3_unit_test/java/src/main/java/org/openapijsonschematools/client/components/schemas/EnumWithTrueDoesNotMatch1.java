@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -29,7 +31,7 @@ public class EnumWithTrueDoesNotMatch1 {
     
         Do not edit the class manually.
         */
-        private static EnumWithTrueDoesNotMatch11 instance;
+        private static @Nullable EnumWithTrueDoesNotMatch11 instance = null;
     
         protected EnumWithTrueDoesNotMatch11() {
             super(new JsonSchemaInfo()

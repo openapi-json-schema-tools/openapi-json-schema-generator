@@ -5,13 +5,12 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -23,7 +22,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DateJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static DateJsonSchema instance;
+    private static @Nullable DateJsonSchema instance = null;
 
     protected DateJsonSchema() {
         super(new JsonSchemaInfo()
@@ -40,12 +39,12 @@ public class DateJsonSchema extends JsonSchema implements StringSchemaValidator 
     }
 
     @Override
-    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @NonNull String getNewInstance(@NonNull String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
 
     @Override
-    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public @NonNull String validate(@NonNull String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
         String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -55,7 +54,7 @@ public class DateJsonSchema extends JsonSchema implements StringSchemaValidator 
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
     }
 
-    public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+    public @NonNull String validate(@NonNull LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
         return validate(arg.toString(), configuration);
     }
 

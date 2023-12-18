@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -66,7 +68,7 @@ public class RequiredWithEscapedCharacters {
     
         Do not edit the class manually.
         */
-        private static RequiredWithEscapedCharacters1 instance;
+        private static @Nullable RequiredWithEscapedCharacters1 instance = null;
     
         protected RequiredWithEscapedCharacters1() {
             super(new JsonSchemaInfo()

@@ -11,6 +11,8 @@ import org.openapijsonschematools.client.schemas.validation.StringSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -24,7 +26,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class StringJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static StringJsonSchema instance;
+    private static @Nullable StringJsonSchema instance = null;
 
     protected StringJsonSchema() {
         super(new JsonSchemaInfo()

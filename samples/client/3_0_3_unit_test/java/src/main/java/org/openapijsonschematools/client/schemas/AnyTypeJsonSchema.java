@@ -16,6 +16,8 @@ import org.openapijsonschematools.client.schemas.validation.StringSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -30,7 +32,7 @@ import java.util.Objects;
 import java.util.UUID;
 
 public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, FrozenMap<Object>> {
-    private static AnyTypeJsonSchema instance;
+    private static @Nullable AnyTypeJsonSchema instance = null;
 
     protected AnyTypeJsonSchema() {
         super(new JsonSchemaInfo());

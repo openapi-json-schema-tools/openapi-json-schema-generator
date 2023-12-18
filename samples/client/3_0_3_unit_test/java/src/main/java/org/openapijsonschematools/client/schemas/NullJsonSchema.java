@@ -11,6 +11,8 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -21,7 +23,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class NullJsonSchema extends JsonSchema implements NullSchemaValidator {
-    private static NullJsonSchema instance;
+    private static @Nullable NullJsonSchema instance = null;
 
     protected NullJsonSchema() {
         super(new JsonSchemaInfo()

@@ -12,6 +12,8 @@ import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -22,7 +24,7 @@ import java.util.Set;
 import java.util.Map;
 
 public class Int64JsonSchema extends JsonSchema implements NumberSchemaValidator {
-    private static Int64JsonSchema instance;
+    private static @Nullable Int64JsonSchema instance = null;
 
     protected Int64JsonSchema() {
         super(new JsonSchemaInfo()

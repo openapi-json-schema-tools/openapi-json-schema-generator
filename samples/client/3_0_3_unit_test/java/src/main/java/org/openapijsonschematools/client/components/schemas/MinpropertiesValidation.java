@@ -10,6 +10,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -38,7 +40,7 @@ public class MinpropertiesValidation {
     
         Do not edit the class manually.
         */
-        private static MinpropertiesValidation1 instance;
+        private static @Nullable MinpropertiesValidation1 instance = null;
     
         protected MinpropertiesValidation1() {
             super(new JsonSchemaInfo()

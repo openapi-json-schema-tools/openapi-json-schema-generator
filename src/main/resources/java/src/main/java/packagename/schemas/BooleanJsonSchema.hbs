@@ -11,6 +11,8 @@ import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.BooleanSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -21,7 +23,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class BooleanJsonSchema extends JsonSchema implements BooleanSchemaValidator {
-    private static BooleanJsonSchema instance;
+    private static @Nullable BooleanJsonSchema instance = null;
 
     protected BooleanJsonSchema() {
         super(new JsonSchemaInfo()

@@ -11,6 +11,8 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
 import java.util.regex.Pattern;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -39,7 +41,7 @@ public class PatternIsNotAnchored {
     
         Do not edit the class manually.
         */
-        private static PatternIsNotAnchored1 instance;
+        private static @Nullable PatternIsNotAnchored1 instance = null;
     
         protected PatternIsNotAnchored1() {
             super(new JsonSchemaInfo()
