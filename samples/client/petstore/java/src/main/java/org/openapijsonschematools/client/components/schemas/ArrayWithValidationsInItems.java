@@ -83,7 +83,7 @@ public class ArrayWithValidationsInItems {
     }    
     
     public static class ArrayWithValidationsInItemsList extends FrozenList<Long> {
-        ArrayWithValidationsInItemsList(FrozenList<Long> m) {
+        protected ArrayWithValidationsInItemsList(FrozenList<Long> m) {
             super(m);
         }
         public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {

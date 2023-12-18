@@ -74,7 +74,7 @@ public class Whale {
     }    
     
     public static class WhaleMap extends FrozenMap<Object> {
-        WhaleMap(FrozenMap<Object> m) {
+        protected WhaleMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

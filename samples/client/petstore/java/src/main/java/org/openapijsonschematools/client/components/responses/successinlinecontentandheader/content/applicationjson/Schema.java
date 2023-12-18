@@ -27,7 +27,7 @@ public class Schema {
     
     
     public static class SchemaMap extends FrozenMap<Integer> {
-        SchemaMap(FrozenMap<Integer> m) {
+        protected SchemaMap(FrozenMap<Integer> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

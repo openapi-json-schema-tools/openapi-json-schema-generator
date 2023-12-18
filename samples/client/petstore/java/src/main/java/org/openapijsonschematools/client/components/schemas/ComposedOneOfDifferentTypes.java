@@ -100,7 +100,7 @@ public class ComposedOneOfDifferentTypes {
     
     
     public static class Schema5List extends FrozenList<Object> {
-        Schema5List(FrozenList<Object> m) {
+        protected Schema5List(FrozenList<Object> m) {
             super(m);
         }
         public static Schema5List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

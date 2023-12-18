@@ -37,7 +37,7 @@ public class RequiredWithEmptyArray {
     
     
     public static class RequiredWithEmptyArrayMap extends FrozenMap<Object> {
-        RequiredWithEmptyArrayMap(FrozenMap<Object> m) {
+        protected RequiredWithEmptyArrayMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

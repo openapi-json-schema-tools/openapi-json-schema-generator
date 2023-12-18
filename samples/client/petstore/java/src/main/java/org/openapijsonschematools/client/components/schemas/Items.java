@@ -28,7 +28,7 @@ public class Items {
     
     
     public static class ItemsList extends FrozenList<FrozenMap<Object>> {
-        ItemsList(FrozenList<FrozenMap<Object>> m) {
+        protected ItemsList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ItemsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {

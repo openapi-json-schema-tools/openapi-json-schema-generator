@@ -208,7 +208,7 @@ public class JSONPatchRequest {
     }    
     
     public static class JSONPatchRequestList extends FrozenList<Object> {
-        JSONPatchRequestList(FrozenList<Object> m) {
+        protected JSONPatchRequestList(FrozenList<Object> m) {
             super(m);
         }
         public static JSONPatchRequestList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

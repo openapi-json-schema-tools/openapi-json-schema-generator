@@ -41,7 +41,7 @@ public class Schema200Response {
     
     
     public static class Schema200ResponseMap extends FrozenMap<Object> {
-        Schema200ResponseMap(FrozenMap<Object> m) {
+        protected Schema200ResponseMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

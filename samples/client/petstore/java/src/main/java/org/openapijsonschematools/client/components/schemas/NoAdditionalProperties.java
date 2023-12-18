@@ -37,7 +37,7 @@ public class NoAdditionalProperties {
     
     
     public static class NoAdditionalPropertiesMap extends FrozenMap<Long> {
-        NoAdditionalPropertiesMap(FrozenMap<Long> m) {
+        protected NoAdditionalPropertiesMap(FrozenMap<Long> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

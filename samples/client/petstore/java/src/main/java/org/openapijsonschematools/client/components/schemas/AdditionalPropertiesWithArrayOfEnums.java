@@ -25,7 +25,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
     
     
     public static class AdditionalPropertiesList extends FrozenList<String> {
-        AdditionalPropertiesList(FrozenList<String> m) {
+        protected AdditionalPropertiesList(FrozenList<String> m) {
             super(m);
         }
         public static AdditionalPropertiesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -92,7 +92,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
     }    
     
     public static class AdditionalPropertiesWithArrayOfEnumsMap extends FrozenMap<AdditionalPropertiesList> {
-        AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<AdditionalPropertiesList> m) {
+        protected AdditionalPropertiesWithArrayOfEnumsMap(FrozenMap<AdditionalPropertiesList> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

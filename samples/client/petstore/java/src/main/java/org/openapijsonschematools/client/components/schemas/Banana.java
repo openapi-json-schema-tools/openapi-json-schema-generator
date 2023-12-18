@@ -28,7 +28,7 @@ public class Banana {
     
     
     public static class BananaMap extends FrozenMap<Object> {
-        BananaMap(FrozenMap<Object> m) {
+        protected BananaMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

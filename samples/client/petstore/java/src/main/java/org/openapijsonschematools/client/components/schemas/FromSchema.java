@@ -32,7 +32,7 @@ public class FromSchema {
     
     
     public static class FromSchemaMap extends FrozenMap<Object> {
-        FromSchemaMap(FrozenMap<Object> m) {
+        protected FromSchemaMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

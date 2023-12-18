@@ -28,7 +28,7 @@ public class Player {
     
     
     public static class PlayerMap extends FrozenMap<Object> {
-        PlayerMap(FrozenMap<Object> m) {
+        protected PlayerMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

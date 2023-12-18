@@ -39,7 +39,7 @@ public class ForbiddenProperty {
     
     
     public static class ForbiddenPropertyMap extends FrozenMap<Object> {
-        ForbiddenPropertyMap(FrozenMap<Object> m) {
+        protected ForbiddenPropertyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

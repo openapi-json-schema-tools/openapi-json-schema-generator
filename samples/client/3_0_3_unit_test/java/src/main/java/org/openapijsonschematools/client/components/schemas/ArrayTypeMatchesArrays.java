@@ -27,7 +27,7 @@ public class ArrayTypeMatchesArrays {
     
     
     public static class ArrayTypeMatchesArraysList extends FrozenList<Object> {
-        ArrayTypeMatchesArraysList(FrozenList<Object> m) {
+        protected ArrayTypeMatchesArraysList(FrozenList<Object> m) {
             super(m);
         }
         public static ArrayTypeMatchesArraysList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

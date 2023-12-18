@@ -79,7 +79,7 @@ public class HealthCheckResult {
     }    
     
     public static class HealthCheckResultMap extends FrozenMap<Object> {
-        HealthCheckResultMap(FrozenMap<Object> m) {
+        protected HealthCheckResultMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

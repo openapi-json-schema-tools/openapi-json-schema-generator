@@ -37,7 +37,7 @@ public class ReturnSchema {
     
     
     public static class ReturnMap extends FrozenMap<Object> {
-        ReturnMap(FrozenMap<Object> m) {
+        protected ReturnMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -43,7 +43,7 @@ public class Capitalization {
     
     
     public static class CapitalizationMap extends FrozenMap<Object> {
-        CapitalizationMap(FrozenMap<Object> m) {
+        protected CapitalizationMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

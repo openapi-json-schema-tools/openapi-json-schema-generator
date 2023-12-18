@@ -31,7 +31,7 @@ public class MapTest {
     
     
     public static class AdditionalPropertiesMap extends FrozenMap<String> {
-        AdditionalPropertiesMap(FrozenMap<String> m) {
+        protected AdditionalPropertiesMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -105,7 +105,7 @@ public class MapTest {
     
     
     public static class MapMapOfStringMap extends FrozenMap<AdditionalPropertiesMap> {
-        MapMapOfStringMap(FrozenMap<AdditionalPropertiesMap> m) {
+        protected MapMapOfStringMap(FrozenMap<AdditionalPropertiesMap> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -221,7 +221,7 @@ public class MapTest {
     }    
     
     public static class MapOfEnumStringMap extends FrozenMap<String> {
-        MapOfEnumStringMap(FrozenMap<String> m) {
+        protected MapOfEnumStringMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -298,7 +298,7 @@ public class MapTest {
     
     
     public static class DirectMapMap extends FrozenMap<Boolean> {
-        DirectMapMap(FrozenMap<Boolean> m) {
+        protected DirectMapMap(FrozenMap<Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -372,7 +372,7 @@ public class MapTest {
     
     
     public static class MapTestMap extends FrozenMap<Object> {
-        MapTestMap(FrozenMap<Object> m) {
+        protected MapTestMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

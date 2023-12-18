@@ -31,7 +31,7 @@ public class HasOnlyReadOnly {
     
     
     public static class HasOnlyReadOnlyMap extends FrozenMap<Object> {
-        HasOnlyReadOnlyMap(FrozenMap<Object> m) {
+        protected HasOnlyReadOnlyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

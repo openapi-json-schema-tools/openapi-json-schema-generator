@@ -67,7 +67,7 @@ public class Category {
     }    
     
     public static class CategoryMap extends FrozenMap<Object> {
-        CategoryMap(FrozenMap<Object> m) {
+        protected CategoryMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

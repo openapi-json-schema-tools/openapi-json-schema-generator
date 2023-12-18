@@ -41,7 +41,7 @@ public class ObjectPropertiesValidation {
     
     
     public static class ObjectPropertiesValidationMap extends FrozenMap<Object> {
-        ObjectPropertiesValidationMap(FrozenMap<Object> m) {
+        protected ObjectPropertiesValidationMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

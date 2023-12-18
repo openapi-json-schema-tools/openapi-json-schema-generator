@@ -67,7 +67,7 @@ public class BasquePig {
     }    
     
     public static class BasquePigMap extends FrozenMap<Object> {
-        BasquePigMap(FrozenMap<Object> m) {
+        protected BasquePigMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

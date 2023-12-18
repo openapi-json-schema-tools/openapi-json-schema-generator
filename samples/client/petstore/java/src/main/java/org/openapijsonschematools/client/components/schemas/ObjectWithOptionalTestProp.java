@@ -28,7 +28,7 @@ public class ObjectWithOptionalTestProp {
     
     
     public static class ObjectWithOptionalTestPropMap extends FrozenMap<Object> {
-        ObjectWithOptionalTestPropMap(FrozenMap<Object> m) {
+        protected ObjectWithOptionalTestPropMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

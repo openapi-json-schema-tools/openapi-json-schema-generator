@@ -32,7 +32,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     
     public static class MapMap extends FrozenMap<Animal.AnimalMap> {
-        MapMap(FrozenMap<Animal.AnimalMap> m) {
+        protected MapMap(FrozenMap<Animal.AnimalMap> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -106,7 +106,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
     
     
     public static class MixedPropertiesAndAdditionalPropertiesClassMap extends FrozenMap<Object> {
-        MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<Object> m) {
+        protected MixedPropertiesAndAdditionalPropertiesClassMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

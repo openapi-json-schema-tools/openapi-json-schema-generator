@@ -111,7 +111,7 @@ public class Apple {
     }    
     
     public static class AppleMap extends FrozenMap<Object> {
-        AppleMap(FrozenMap<Object> m) {
+        protected AppleMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

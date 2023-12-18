@@ -28,7 +28,7 @@ public class ObjectWithDecimalProperties {
     
     
     public static class ObjectWithDecimalPropertiesMap extends FrozenMap<Object> {
-        ObjectWithDecimalPropertiesMap(FrozenMap<Object> m) {
+        protected ObjectWithDecimalPropertiesMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

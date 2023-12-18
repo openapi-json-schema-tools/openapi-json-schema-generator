@@ -2,12 +2,12 @@
 
 {{#if mapValueSchema}}
 public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
+    protected {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type forceNull=true }}{{/with}}> m) {
         super(m);
     }
 {{else}}
 public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Object> {
-    {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<Object> m) {
+    protected {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<Object> m) {
         super(m);
     }
 {{/if}}

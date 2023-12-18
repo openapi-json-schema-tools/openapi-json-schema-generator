@@ -38,7 +38,7 @@ public class AnyofComplexTypes {
     
     
     public static class Schema0Map extends FrozenMap<Object> {
-        Schema0Map(FrozenMap<Object> m) {
+        protected Schema0Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -245,7 +245,7 @@ public class AnyofComplexTypes {
     
     
     public static class Schema1Map extends FrozenMap<Object> {
-        Schema1Map(FrozenMap<Object> m) {
+        protected Schema1Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

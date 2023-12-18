@@ -35,7 +35,7 @@ public class CookieParameters {
     
     
     public static class CookieParametersMap extends FrozenMap<Object> {
-        CookieParametersMap(FrozenMap<Object> m) {
+        protected CookieParametersMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

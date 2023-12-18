@@ -28,7 +28,7 @@ public class AbstractStepMessage {
     
     
     public static class AbstractStepMessageMap extends FrozenMap<Object> {
-        AbstractStepMessageMap(FrozenMap<Object> m) {
+        protected AbstractStepMessageMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

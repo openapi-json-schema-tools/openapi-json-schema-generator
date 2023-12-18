@@ -32,7 +32,7 @@ public class ObjectWithNonIntersectingValues {
     
     
     public static class ObjectWithNonIntersectingValuesMap extends FrozenMap<Object> {
-        ObjectWithNonIntersectingValuesMap(FrozenMap<Object> m) {
+        protected ObjectWithNonIntersectingValuesMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -31,7 +31,7 @@ public class ArrayTest {
     
     
     public static class ArrayOfStringList extends FrozenList<String> {
-        ArrayOfStringList(FrozenList<String> m) {
+        protected ArrayOfStringList(FrozenList<String> m) {
             super(m);
         }
         public static ArrayOfStringList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -101,7 +101,7 @@ public class ArrayTest {
     
     
     public static class ItemsList extends FrozenList<Long> {
-        ItemsList(FrozenList<Long> m) {
+        protected ItemsList(FrozenList<Long> m) {
             super(m);
         }
         public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -168,7 +168,7 @@ public class ArrayTest {
     }    
     
     public static class ArrayArrayOfIntegerList extends FrozenList<ItemsList> {
-        ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
+        protected ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
             super(m);
         }
         public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -235,7 +235,7 @@ public class ArrayTest {
     }    
     
     public static class ItemsList1 extends FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> {
-        ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
+        protected ItemsList1(FrozenList<ReadOnlyFirst.ReadOnlyFirstMap> m) {
             super(m);
         }
         public static ItemsList1 of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -302,7 +302,7 @@ public class ArrayTest {
     }    
     
     public static class ArrayArrayOfModelList extends FrozenList<ItemsList1> {
-        ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
+        protected ArrayArrayOfModelList(FrozenList<ItemsList1> m) {
             super(m);
         }
         public static ArrayArrayOfModelList of(List<List<Map<String, Object>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -369,7 +369,7 @@ public class ArrayTest {
     }    
     
     public static class ArrayTestMap extends FrozenMap<Object> {
-        ArrayTestMap(FrozenMap<Object> m) {
+        protected ArrayTestMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

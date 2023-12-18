@@ -27,7 +27,7 @@ public class StringBooleanMap {
     
     
     public static class StringBooleanMapMap extends FrozenMap<Boolean> {
-        StringBooleanMapMap(FrozenMap<Boolean> m) {
+        protected StringBooleanMapMap(FrozenMap<Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

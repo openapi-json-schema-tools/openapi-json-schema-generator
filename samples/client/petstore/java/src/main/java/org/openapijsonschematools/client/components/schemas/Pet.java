@@ -39,7 +39,7 @@ public class Pet {
     
     
     public static class PhotoUrlsList extends FrozenList<String> {
-        PhotoUrlsList(FrozenList<String> m) {
+        protected PhotoUrlsList(FrozenList<String> m) {
             super(m);
         }
         public static PhotoUrlsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -149,7 +149,7 @@ public class Pet {
     }    
     
     public static class TagsList extends FrozenList<Tag.TagMap> {
-        TagsList(FrozenList<Tag.TagMap> m) {
+        protected TagsList(FrozenList<Tag.TagMap> m) {
             super(m);
         }
         public static TagsList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -216,7 +216,7 @@ public class Pet {
     }    
     
     public static class PetMap extends FrozenMap<Object> {
-        PetMap(FrozenMap<Object> m) {
+        protected PetMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

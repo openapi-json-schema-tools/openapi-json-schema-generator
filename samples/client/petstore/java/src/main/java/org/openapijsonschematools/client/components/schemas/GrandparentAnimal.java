@@ -28,7 +28,7 @@ public class GrandparentAnimal {
     
     
     public static class GrandparentAnimalMap extends FrozenMap<Object> {
-        GrandparentAnimalMap(FrozenMap<Object> m) {
+        protected GrandparentAnimalMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

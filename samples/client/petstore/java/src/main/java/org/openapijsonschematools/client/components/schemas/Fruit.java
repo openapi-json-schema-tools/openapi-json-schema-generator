@@ -37,7 +37,7 @@ public class Fruit {
     
     
     public static class FruitMap extends FrozenMap<Object> {
-        FruitMap(FrozenMap<Object> m) {
+        protected FruitMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

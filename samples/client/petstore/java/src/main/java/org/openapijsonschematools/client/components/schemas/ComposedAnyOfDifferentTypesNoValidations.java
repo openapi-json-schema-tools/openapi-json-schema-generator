@@ -77,7 +77,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     
     
     public static class Schema9List extends FrozenList<Object> {
-        Schema9List(FrozenList<Object> m) {
+        protected Schema9List(FrozenList<Object> m) {
             super(m);
         }
         public static Schema9List of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

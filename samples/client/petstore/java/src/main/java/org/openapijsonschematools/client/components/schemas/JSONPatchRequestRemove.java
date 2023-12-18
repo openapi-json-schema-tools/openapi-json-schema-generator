@@ -77,7 +77,7 @@ public class JSONPatchRequestRemove {
     }    
     
     public static class JSONPatchRequestRemoveMap extends FrozenMap<String> {
-        JSONPatchRequestRemoveMap(FrozenMap<String> m) {
+        protected JSONPatchRequestRemoveMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

@@ -34,7 +34,7 @@ public class MyObjectDto {
     
     
     public static class MyObjectDtoMap extends FrozenMap<String> {
-        MyObjectDtoMap(FrozenMap<String> m) {
+        protected MyObjectDtoMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -70,7 +70,7 @@ public class Schema {
     }    
     
     public static class EnumFormStringArrayList extends FrozenList<String> {
-        EnumFormStringArrayList(FrozenList<String> m) {
+        protected EnumFormStringArrayList(FrozenList<String> m) {
             super(m);
         }
         public static EnumFormStringArrayList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -180,7 +180,7 @@ public class Schema {
     }    
     
     public static class SchemaMap extends FrozenMap<Object> {
-        SchemaMap(FrozenMap<Object> m) {
+        protected SchemaMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

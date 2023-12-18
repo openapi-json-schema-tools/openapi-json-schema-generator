@@ -27,7 +27,7 @@ public class ComposedArray {
     
     
     public static class ComposedArrayList extends FrozenList<Object> {
-        ComposedArrayList(FrozenList<Object> m) {
+        protected ComposedArrayList(FrozenList<Object> m) {
             super(m);
         }
         public static ComposedArrayList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

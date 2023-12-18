@@ -1581,7 +1581,7 @@ public class AnyTypeAndFormat {
     }    
     
     public static class AnyTypeAndFormatMap extends FrozenMap<Object> {
-        AnyTypeAndFormatMap(FrozenMap<Object> m) {
+        protected AnyTypeAndFormatMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -246,7 +246,7 @@ public class ObjectWithInlineCompositionProperty {
     }    
     
     public static class ObjectWithInlineCompositionPropertyMap extends FrozenMap<Object> {
-        ObjectWithInlineCompositionPropertyMap(FrozenMap<Object> m) {
+        protected ObjectWithInlineCompositionPropertyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

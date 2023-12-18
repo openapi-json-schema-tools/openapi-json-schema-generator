@@ -216,7 +216,7 @@ public class EnumTest {
     }    
     
     public static class EnumTestMap extends FrozenMap<Object> {
-        EnumTestMap(FrozenMap<Object> m) {
+        protected EnumTestMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

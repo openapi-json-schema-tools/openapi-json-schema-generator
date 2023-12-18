@@ -36,7 +36,7 @@ public class PaginatedResultMyObjectDto {
     
     
     public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {
-        ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
+        protected ResultsList(FrozenList<MyObjectDto.MyObjectDtoMap> m) {
             super(m);
         }
         public static ResultsList of(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -103,7 +103,7 @@ public class PaginatedResultMyObjectDto {
     }    
     
     public static class PaginatedResultMyObjectDtoMap extends FrozenMap<Object> {
-        PaginatedResultMyObjectDtoMap(FrozenMap<Object> m) {
+        protected PaginatedResultMyObjectDtoMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

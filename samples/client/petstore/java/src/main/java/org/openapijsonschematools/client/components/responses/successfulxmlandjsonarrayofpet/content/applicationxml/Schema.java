@@ -25,7 +25,7 @@ public class Schema {
     
     
     public static class SchemaList extends FrozenList<Pet.PetMap> {
-        SchemaList(FrozenList<Pet.PetMap> m) {
+        protected SchemaList(FrozenList<Pet.PetMap> m) {
             super(m);
         }
         public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {

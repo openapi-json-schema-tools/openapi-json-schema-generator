@@ -24,7 +24,7 @@ public class SelfReferencingObjectModel {
     
     
     public static class SelfReferencingObjectModelMap extends FrozenMap<Object> {
-        SelfReferencingObjectModelMap(FrozenMap<Object> m) {
+        protected SelfReferencingObjectModelMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

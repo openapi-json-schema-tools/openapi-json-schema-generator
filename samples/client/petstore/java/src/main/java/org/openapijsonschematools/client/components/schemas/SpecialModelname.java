@@ -28,7 +28,7 @@ public class SpecialModelname {
     
     
     public static class SpecialModelnameMap extends FrozenMap<Object> {
-        SpecialModelnameMap(FrozenMap<Object> m) {
+        protected SpecialModelnameMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

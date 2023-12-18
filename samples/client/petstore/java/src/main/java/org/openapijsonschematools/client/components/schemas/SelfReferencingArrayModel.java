@@ -23,7 +23,7 @@ public class SelfReferencingArrayModel {
     
     
     public static class SelfReferencingArrayModelList extends FrozenList<SelfReferencingArrayModelList> {
-        SelfReferencingArrayModelList(FrozenList<SelfReferencingArrayModelList> m) {
+        protected SelfReferencingArrayModelList(FrozenList<SelfReferencingArrayModelList> m) {
             super(m);
         }
         public static SelfReferencingArrayModelList of(List<List> arg, SchemaConfiguration configuration) throws ValidationException {

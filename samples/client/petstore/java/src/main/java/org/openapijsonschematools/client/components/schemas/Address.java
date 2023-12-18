@@ -27,7 +27,7 @@ public class Address {
     
     
     public static class AddressMap extends FrozenMap<Long> {
-        AddressMap(FrozenMap<Long> m) {
+        protected AddressMap(FrozenMap<Long> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -81,7 +81,7 @@ public class JSONPatchRequestMoveCopy {
     }    
     
     public static class JSONPatchRequestMoveCopyMap extends FrozenMap<String> {
-        JSONPatchRequestMoveCopyMap(FrozenMap<String> m) {
+        protected JSONPatchRequestMoveCopyMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

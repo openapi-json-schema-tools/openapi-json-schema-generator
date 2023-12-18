@@ -23,7 +23,7 @@ public class ReqPropsFromUnsetAddProps {
     
     
     public static class ReqPropsFromUnsetAddPropsMap extends FrozenMap<Object> {
-        ReqPropsFromUnsetAddPropsMap(FrozenMap<Object> m) {
+        protected ReqPropsFromUnsetAddPropsMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

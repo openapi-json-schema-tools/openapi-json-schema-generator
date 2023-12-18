@@ -34,7 +34,7 @@ public class Headers {
     
     
     public static class HeadersMap extends FrozenMap<Object> {
-        HeadersMap(FrozenMap<Object> m) {
+        protected HeadersMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

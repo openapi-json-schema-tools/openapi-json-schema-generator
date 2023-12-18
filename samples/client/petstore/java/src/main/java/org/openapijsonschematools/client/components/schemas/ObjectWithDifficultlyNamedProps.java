@@ -36,7 +36,7 @@ public class ObjectWithDifficultlyNamedProps {
     
     
     public static class ObjectWithDifficultlyNamedPropsMap extends FrozenMap<Object> {
-        ObjectWithDifficultlyNamedPropsMap(FrozenMap<Object> m) {
+        protected ObjectWithDifficultlyNamedPropsMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

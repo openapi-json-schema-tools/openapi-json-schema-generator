@@ -28,7 +28,7 @@ public class File {
     
     
     public static class FileMap extends FrozenMap<Object> {
-        FileMap(FrozenMap<Object> m) {
+        protected FileMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

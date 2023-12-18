@@ -23,7 +23,7 @@ public class ArrayOfEnums {
     
     
     public static class ArrayOfEnumsList extends FrozenList<String> {
-        ArrayOfEnumsList(FrozenList<String> m) {
+        protected ArrayOfEnumsList(FrozenList<String> m) {
             super(m);
         }
         public static ArrayOfEnumsList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {

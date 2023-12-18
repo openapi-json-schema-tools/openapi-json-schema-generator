@@ -73,7 +73,7 @@ public class ArrayTypeSchemaTest {
     }
 
     public static class ArrayWithOutputClsSchemaList extends FrozenList<String> {
-        ArrayWithOutputClsSchemaList(FrozenList<String> m) {
+        protected ArrayWithOutputClsSchemaList(FrozenList<String> m) {
             super(m);
         }
 

@@ -315,7 +315,7 @@ public class User {
     
     
     public static class UserMap extends FrozenMap<Object> {
-        UserMap(FrozenMap<Object> m) {
+        protected UserMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

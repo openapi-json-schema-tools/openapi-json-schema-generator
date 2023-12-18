@@ -25,7 +25,7 @@ public class Schema {
     
     
     public static class SchemaList extends FrozenList<User.UserMap> {
-        SchemaList(FrozenList<User.UserMap> m) {
+        protected SchemaList(FrozenList<User.UserMap> m) {
             super(m);
         }
         public static SchemaList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {

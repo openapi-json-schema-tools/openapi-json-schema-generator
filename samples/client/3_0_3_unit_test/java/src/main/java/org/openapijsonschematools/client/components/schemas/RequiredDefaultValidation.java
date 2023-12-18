@@ -37,7 +37,7 @@ public class RequiredDefaultValidation {
     
     
     public static class RequiredDefaultValidationMap extends FrozenMap<Object> {
-        RequiredDefaultValidationMap(FrozenMap<Object> m) {
+        protected RequiredDefaultValidationMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

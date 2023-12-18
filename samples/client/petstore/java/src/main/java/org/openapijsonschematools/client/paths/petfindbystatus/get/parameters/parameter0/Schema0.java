@@ -68,7 +68,7 @@ public class Schema0 {
     }    
     
     public static class SchemaList0 extends FrozenList<String> {
-        SchemaList0(FrozenList<String> m) {
+        protected SchemaList0(FrozenList<String> m) {
             super(m);
         }
         public static SchemaList0 of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {

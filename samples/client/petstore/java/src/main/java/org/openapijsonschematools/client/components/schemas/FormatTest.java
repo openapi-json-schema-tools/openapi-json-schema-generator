@@ -320,7 +320,7 @@ public class FormatTest {
     
     
     public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
-        ArrayWithUniqueItemsList(FrozenList<Number> m) {
+        protected ArrayWithUniqueItemsList(FrozenList<Number> m) {
             super(m);
         }
         public static ArrayWithUniqueItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -577,7 +577,7 @@ public class FormatTest {
     
     
     public static class FormatTestMap extends FrozenMap<Object> {
-        FormatTestMap(FrozenMap<Object> m) {
+        protected FormatTestMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
