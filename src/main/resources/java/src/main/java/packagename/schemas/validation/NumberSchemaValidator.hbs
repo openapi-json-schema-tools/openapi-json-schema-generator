@@ -8,6 +8,5 @@ import java.util.List;
 import java.util.Set;
 
 public interface NumberSchemaValidator {
-    Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

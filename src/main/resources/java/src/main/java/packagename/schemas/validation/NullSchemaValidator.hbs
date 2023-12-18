@@ -8,6 +8,5 @@ import java.util.List;
 import java.util.Set;
 
 public interface NullSchemaValidator {
-    Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

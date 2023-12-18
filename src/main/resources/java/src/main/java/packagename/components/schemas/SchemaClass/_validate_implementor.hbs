@@ -3,11 +3,6 @@
         {{#eq this "null"}}
 
 @Override
-public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
-}
-
-@Override
 public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
@@ -15,7 +10,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    return castArg;
 }
         {{/eq}}
         {{#eq this "object"}}
@@ -94,11 +89,6 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
             {{else}}
 
 @Override
-public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
-}
-
-@Override
 public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
@@ -106,16 +96,11 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    return castArg;
 }
             {{/eq}}
         {{/eq}}
         {{#eq this "integer"}}
-
-@Override
-public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
-}
 
 @Override
 public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
@@ -125,7 +110,7 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    return castArg;
 }
 
 public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
@@ -149,11 +134,6 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
         {{#eq this "number"}}
 
 @Override
-public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
-}
-
-@Override
 public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
@@ -161,7 +141,7 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    return castArg;
 }
             {{#eq ../format null}}
 public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
@@ -224,11 +204,6 @@ public double validate(double arg, SchemaConfiguration configuration) throws Val
         {{#eq this "boolean"}}
 
 @Override
-public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
-}
-
-@Override
 public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
@@ -236,16 +211,11 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    return castArg;
 }
         {{/eq}}
     {{/each}}
 {{else}}
-
-@Override
-public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
-}
 
 @Override
 public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
@@ -257,12 +227,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-}
-
-@Override
-public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
+    return castArg;
 }
 
 @Override
@@ -275,12 +240,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
-}
-
-@Override
-public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
+    return castArg;
 }
 
 @Override
@@ -293,7 +253,7 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    return castArg;
 }
 
 public int validate(int arg, SchemaConfiguration configuration) {
@@ -313,11 +273,6 @@ public double validate(double arg, SchemaConfiguration configuration) {
 }
 
 @Override
-public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-    return arg;
-}
-
-@Override
 public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = new ArrayList<>();
@@ -327,7 +282,7 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
     ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
     PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-    return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+    return castArg;
 }
 
 public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {

@@ -332,6 +332,22 @@ public abstract class JsonSchema {
         }
     }
 
+    public Void getNewInstance(Void arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
+    }
+
+    public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
+    }
+
+    public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
+    }
+
+    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        return arg;
+    }
+
     protected static PathToSchemasMap getPathToSchemas(JsonSchema jsonSchema,  Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
         PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
         // todo add check of validationMetadata.validationRanEarlier(this)
