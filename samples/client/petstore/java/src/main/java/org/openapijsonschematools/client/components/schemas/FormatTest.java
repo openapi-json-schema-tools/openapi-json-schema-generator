@@ -64,24 +64,14 @@ public class FormatTest {
         }
         
         @Override
-        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return castArg;
         }
         
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
@@ -137,24 +127,14 @@ public class FormatTest {
         }
         
         @Override
-        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return castArg;
         }
         
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
@@ -202,16 +182,6 @@ public class FormatTest {
         }
         
         @Override
-        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -219,7 +189,7 @@ public class FormatTest {
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            return castArg;
         }
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
@@ -271,16 +241,6 @@ public class FormatTest {
         }
         
         @Override
-        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -288,7 +248,7 @@ public class FormatTest {
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            return castArg;
         }
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
@@ -331,16 +291,6 @@ public class FormatTest {
         }
         
         @Override
-        public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -348,7 +298,7 @@ public class FormatTest {
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            return castArg;
         }
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
@@ -383,12 +333,12 @@ public class FormatTest {
     }
     
     
-    public static class ArrayWithUniqueItems extends JsonSchema implements ListSchemaValidator<Number, Number, ArrayWithUniqueItemsList> {
+    public static class ArrayWithUniqueItems extends JsonSchema implements ListSchemaValidator<Number, ArrayWithUniqueItemsList> {
         private static ArrayWithUniqueItems instance;
     
         protected ArrayWithUniqueItems() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(Items.class)
                 .uniqueItems(true)
             );
@@ -402,29 +352,14 @@ public class FormatTest {
         }
         
         @Override
-        public FrozenList<Number> castToAllowedTypes(List<Number> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<Number> argFixed = new ArrayList<>();
-            int i =0;
-            for (Number item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                                Number fixedVal = (Number) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
-        }
-        
-        @Override
-        public ArrayWithUniqueItemsList getNewInstance(FrozenList<Number> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            ArrayList<Number> items = new ArrayList<>();
+        public ArrayWithUniqueItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            List<Number> items = new ArrayList<>();
             int i = 0;
-            for (Number item: arg) {
+            for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                                Number castItem = (Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                Number castItem = (Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
@@ -436,7 +371,7 @@ public class FormatTest {
         public ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<Number> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -445,9 +380,8 @@ public class FormatTest {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<Number> castArg = (FrozenList<Number>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof List) {
+                return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -476,24 +410,14 @@ public class FormatTest {
         }
         
         @Override
-        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedStringTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return castArg;
         }
         
         @Override
@@ -547,24 +471,14 @@ public class FormatTest {
         }
         
         @Override
-        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedStringTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return castArg;
         }
         
         @Override
@@ -598,24 +512,14 @@ public class FormatTest {
         }
         
         @Override
-        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedStringTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return castArg;
         }
         
         @Override
@@ -650,24 +554,14 @@ public class FormatTest {
         }
         
         @Override
-        public String castToAllowedTypes(String arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            return castToAllowedStringTypes(arg, pathToItem, pathSet);
-        }
-        
-        @Override
-        public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
-        }
-        
-        @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
-            PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
-            return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
+            getPathToSchemas(this, castArg, validationMetadata, pathSet);
+            return castArg;
         }
         
         @Override
@@ -806,7 +700,7 @@ public class FormatTest {
     }
     
     
-    public static class FormatTest1 extends JsonSchema implements MapSchemaValidator<Object, Object, FormatTestMap> {
+    public static class FormatTest1 extends JsonSchema implements MapSchemaValidator<Object, FormatTestMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -817,7 +711,7 @@ public class FormatTest {
     
         protected FormatTest1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("integer", IntegerSchema.class),
                     new PropertyEntry("int32", Int32.class),
@@ -857,25 +751,10 @@ public class FormatTest {
             return instance;
         }
         
-        @Override
-        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, Object> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                Object val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public FormatTestMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public FormatTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, Object> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -891,7 +770,7 @@ public class FormatTest {
         public FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -901,9 +780,8 @@ public class FormatTest {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }

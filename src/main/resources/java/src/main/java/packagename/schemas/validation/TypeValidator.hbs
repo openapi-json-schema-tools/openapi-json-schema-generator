@@ -2,6 +2,8 @@ package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class TypeValidator implements KeywordValidator {
@@ -21,6 +23,10 @@ public class TypeValidator implements KeywordValidator {
         Class<?> argClass;
         if (arg == null) {
             argClass = Void.class;
+        } else if (arg instanceof List) {
+            argClass = List.class;
+        } else if (arg instanceof Map) {
+            argClass = Map.class;
         } else {
             argClass = arg.getClass();
         }

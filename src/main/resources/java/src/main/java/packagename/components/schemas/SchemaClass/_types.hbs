@@ -1,9 +1,9 @@
 {{#if types}}
     {{#and (eq types.size 1) (or (contains types "null") (contains types "object") (contains types "array") (contains types "boolean"))}}
         {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;type = Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}FrozenMap.class{{/contains}}{{#contains types "array"}}FrozenList.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}})<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;type = Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}Map.class{{/contains}}{{#contains types "array"}}List.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}})<br/>
         {{~else}}
-.type(Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}FrozenMap.class{{/contains}}{{#contains types "array"}}FrozenList.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}}))
+.type(Set.of({{#contains types "null"}}Void.class{{/contains}}{{#contains types "object"}}Map.class{{/contains}}{{#contains types "array"}}List.class{{/contains}}{{#contains types  "boolean"}}Boolean.class{{/contains}}))
         {{/if}}
     {{else}}
         {{#if forDocs}}
@@ -13,10 +13,10 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Void.class{{#unless @last}},{{/unless}}<br/>
                 {{~/eq}}
                 {{#eq this "object"}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FrozenMap.class{{#unless @last}},{{/unless}}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Map.class{{#unless @last}},{{/unless}}<br/>
                 {{~/eq}}
                 {{#eq this "array"}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FrozenList.class{{#unless @last}},{{/unless}}<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List.class{{#unless @last}},{{/unless}}<br/>
                 {{~/eq}}
                 {{#eq this "string" }}
                     {{#eq ../format "binary"}}
@@ -44,10 +44,10 @@
     Void.class{{#unless @last}},{{/unless}}
                 {{/eq}}
                 {{#eq this "object"}}
-    FrozenMap.class{{#unless @last}},{{/unless}}
+    Map.class{{#unless @last}},{{/unless}}
                 {{/eq}}
                 {{#eq this "array"}}
-    FrozenList.class{{#unless @last}},{{/unless}}
+    List.class{{#unless @last}},{{/unless}}
                 {{/eq}}
                 {{#eq this "string" }}
                     {{#eq ../format "binary"}}

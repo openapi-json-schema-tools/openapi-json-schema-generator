@@ -122,7 +122,7 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(FrozenList.class)<br/> |
+| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
 | Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Items.class](#items)<br> |
 | Integer | &nbsp;&nbsp;&nbsp;&nbsp;maxItems = 4<br> |
 | Integer | &nbsp;&nbsp;&nbsp;&nbsp;minItems = 4<br> |
@@ -173,7 +173,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(FrozenMap.class)<br/> |
+| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
 | Integer | &nbsp;&nbsp;&nbsp;&nbsp;maxProperties = 4<br> |
 | Integer | &nbsp;&nbsp;&nbsp;&nbsp;minProperties = 4<br> |
 

@@ -50,7 +50,7 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(FrozenList.class)<br/> |
+| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
 | Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [StringEnum.StringEnum1.class](../../components/schemas/StringEnum.md#stringenum1)<br> |
 
 ### Method Summary

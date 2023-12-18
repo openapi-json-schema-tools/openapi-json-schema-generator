@@ -38,12 +38,12 @@ public class Schema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements ListSchemaValidator<Map<String, Object>, FrozenMap<Object>, SchemaList> {
+    public static class Schema1 extends JsonSchema implements ListSchemaValidator<Map<String, Object>, SchemaList> {
         private static Schema1 instance;
     
         protected Schema1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(User.User1.class)
             );
         }
@@ -56,29 +56,14 @@ public class Schema {
         }
         
         @Override
-        public FrozenList<FrozenMap<Object>> castToAllowedTypes(List<Map<String, Object>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<FrozenMap<Object>> argFixed = new ArrayList<>();
-            int i =0;
-            for (Map<String, Object> item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                                FrozenMap<Object> fixedVal = (FrozenMap<Object>) castToAllowedObjectTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
-        }
-        
-        @Override
-        public SchemaList getNewInstance(FrozenList<FrozenMap<Object>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            ArrayList<User.UserMap> items = new ArrayList<>();
+        public SchemaList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            List<User.UserMap> items = new ArrayList<>();
             int i = 0;
-            for (FrozenMap<Object> item: arg) {
+            for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                                User.UserMap castItem = (User.UserMap) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                User.UserMap castItem = (User.UserMap) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
@@ -90,7 +75,7 @@ public class Schema {
         public SchemaList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<FrozenMap<Object>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -99,9 +84,8 @@ public class Schema {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenMap<Object>> castArg = (FrozenList<FrozenMap<Object>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof List) {
+                return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }

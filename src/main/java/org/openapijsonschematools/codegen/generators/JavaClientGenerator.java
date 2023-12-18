@@ -1514,7 +1514,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
                 addPropertiesValidator(schema, imports);
                 addRequiredValidator(schema, imports);
-                addAdditionalPropertiesValidator(schema, imports);
                 addAllOfValidator(schema, imports);
                 addAnyOfValidator(schema, imports);
                 addOneOfValidator(schema, imports);
@@ -1576,12 +1575,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
     }
 
-    private void addAdditionalPropertiesValidator(CodegenSchema schema, Set<String> imports) {
-        if (schema.additionalProperties != null) {
-            imports.add("import "+packageName + ".schemas.validation.AdditionalPropertiesValidator;");
-        }
-    }
-
     private void addMultipleOfValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.multipleOf != null) {
             imports.add("import java.math.BigDecimal;");
@@ -1628,7 +1621,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import java.util.Map;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
         addRequiredValidator(schema, imports);
-        addAdditionalPropertiesValidator(schema, imports);
         addPropertiesValidator(schema, imports);
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
