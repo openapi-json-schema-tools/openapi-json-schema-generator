@@ -16,7 +16,6 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -198,7 +197,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
-            FrozenList<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());
@@ -412,7 +411,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
-            FrozenList<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());

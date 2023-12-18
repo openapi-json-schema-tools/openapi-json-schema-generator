@@ -29,7 +29,7 @@ public class ArrayTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<String, String, FrozenList<String>> {
+    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<String, FrozenList<String>> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenList.class))
@@ -38,30 +38,15 @@ public class ArrayTypeSchemaTest {
         }
 
         @Override
-        public FrozenList<String> castToAllowedTypes(List<String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<String> argFixed = new ArrayList<>();
-            int i =0;
-            for (String item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                String fixedVal = StringJsonSchema.getInstance().castToAllowedTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
-        }
-
-        @Override
-        public FrozenList<String> getNewInstance(FrozenList<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            return arg;
+        public FrozenList<String> getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            return (FrozenList<String>) arg;
         }
 
         @Override
         public FrozenList<String> validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<String> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -88,7 +73,7 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<String, String, ArrayWithOutputClsSchemaList> {
+    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<String, ArrayWithOutputClsSchemaList> {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(FrozenList.class))
@@ -98,25 +83,10 @@ public class ArrayTypeSchemaTest {
         }
 
         @Override
-        public FrozenList<String> castToAllowedTypes(List<String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            List<String> argFixed = new ArrayList<>();
-            int i =0;
-            for (String item: arg) {
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(i);
-                String fixedVal = StringJsonSchema.getInstance().castToAllowedTypes(item, newPathToItem, pathSet);
-                argFixed.add(fixedVal);
-                i += 1;
-            }
-            return new FrozenList<>(argFixed);
-        }
-
-        @Override
-        public ArrayWithOutputClsSchemaList getNewInstance(FrozenList<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public ArrayWithOutputClsSchemaList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             ArrayList<String> items = new ArrayList<>();
             int i = 0;
-            for (String item: arg) {
+            for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
@@ -132,7 +102,7 @@ public class ArrayTypeSchemaTest {
         public ArrayWithOutputClsSchemaList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<String> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

@@ -254,7 +254,7 @@ public class NotMoreComplexSchema {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
-            FrozenList<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, validatedPathToSchemas, new LinkedHashSet<>());

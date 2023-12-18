@@ -272,7 +272,7 @@ public abstract class JsonSchema {
         return arg;
     }
 
-    protected FrozenList<Object> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected FrozenList<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         List<Object> argFixed = new ArrayList<>();
         int i =0;
@@ -286,7 +286,7 @@ public abstract class JsonSchema {
         return new FrozenList<>(argFixed);
     }
 
-    protected FrozenMap<Object> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected FrozenMap<?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
