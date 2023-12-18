@@ -31,7 +31,7 @@ public class ObjectModelWithArgAndArgsProperties {
     
     
     public static class ObjectModelWithArgAndArgsPropertiesMap extends FrozenMap<Object> {
-        ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<Object> m) {
+        protected ObjectModelWithArgAndArgsPropertiesMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

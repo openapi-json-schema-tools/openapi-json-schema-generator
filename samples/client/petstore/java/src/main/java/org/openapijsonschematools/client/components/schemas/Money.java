@@ -34,7 +34,7 @@ public class Money {
     
     
     public static class MoneyMap extends FrozenMap<Object> {
-        MoneyMap(FrozenMap<Object> m) {
+        protected MoneyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

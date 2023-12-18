@@ -27,7 +27,7 @@ public class NestedItems {
     
     
     public static class ItemsList extends FrozenList<Number> {
-        ItemsList(FrozenList<Number> m) {
+        protected ItemsList(FrozenList<Number> m) {
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -94,7 +94,7 @@ public class NestedItems {
     }    
     
     public static class ItemsList1 extends FrozenList<ItemsList> {
-        ItemsList1(FrozenList<ItemsList> m) {
+        protected ItemsList1(FrozenList<ItemsList> m) {
             super(m);
         }
         public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -161,7 +161,7 @@ public class NestedItems {
     }    
     
     public static class ItemsList2 extends FrozenList<ItemsList1> {
-        ItemsList2(FrozenList<ItemsList1> m) {
+        protected ItemsList2(FrozenList<ItemsList1> m) {
             super(m);
         }
         public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -228,7 +228,7 @@ public class NestedItems {
     }    
     
     public static class NestedItemsList extends FrozenList<ItemsList2> {
-        NestedItemsList(FrozenList<ItemsList2> m) {
+        protected NestedItemsList(FrozenList<ItemsList2> m) {
             super(m);
         }
         public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {

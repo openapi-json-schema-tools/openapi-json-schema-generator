@@ -30,7 +30,7 @@ public class ArrayOfNumberOnly {
     
     
     public static class ArrayNumberList extends FrozenList<Number> {
-        ArrayNumberList(FrozenList<Number> m) {
+        protected ArrayNumberList(FrozenList<Number> m) {
             super(m);
         }
         public static ArrayNumberList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -97,7 +97,7 @@ public class ArrayOfNumberOnly {
     }    
     
     public static class ArrayOfNumberOnlyMap extends FrozenMap<Object> {
-        ArrayOfNumberOnlyMap(FrozenMap<Object> m) {
+        protected ArrayOfNumberOnlyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -456,7 +456,7 @@ public class NullableClass {
     
     
     public static class ArrayNullablePropList extends FrozenList<FrozenMap<Object>> {
-        ArrayNullablePropList(FrozenList<FrozenMap<Object>> m) {
+        protected ArrayNullablePropList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ArrayNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -607,7 +607,7 @@ public class NullableClass {
     }    
     
     public static class ArrayAndItemsNullablePropList extends FrozenList<FrozenMap<Object>> {
-        ArrayAndItemsNullablePropList(FrozenList<FrozenMap<Object>> m) {
+        protected ArrayAndItemsNullablePropList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ArrayAndItemsNullablePropList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -758,7 +758,7 @@ public class NullableClass {
     }    
     
     public static class ArrayItemsNullableList extends FrozenList<FrozenMap<Object>> {
-        ArrayItemsNullableList(FrozenList<FrozenMap<Object>> m) {
+        protected ArrayItemsNullableList(FrozenList<FrozenMap<Object>> m) {
             super(m);
         }
         public static ArrayItemsNullableList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -828,7 +828,7 @@ public class NullableClass {
     
     
     public static class ObjectNullablePropMap extends FrozenMap<FrozenMap<Object>> {
-        ObjectNullablePropMap(FrozenMap<FrozenMap<Object>> m) {
+        protected ObjectNullablePropMap(FrozenMap<FrozenMap<Object>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -985,7 +985,7 @@ public class NullableClass {
     }    
     
     public static class ObjectAndItemsNullablePropMap extends FrozenMap<FrozenMap<Object>> {
-        ObjectAndItemsNullablePropMap(FrozenMap<FrozenMap<Object>> m) {
+        protected ObjectAndItemsNullablePropMap(FrozenMap<FrozenMap<Object>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -1142,7 +1142,7 @@ public class NullableClass {
     }    
     
     public static class ObjectItemsNullableMap extends FrozenMap<FrozenMap<Object>> {
-        ObjectItemsNullableMap(FrozenMap<FrozenMap<Object>> m) {
+        protected ObjectItemsNullableMap(FrozenMap<FrozenMap<Object>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -1216,7 +1216,7 @@ public class NullableClass {
     
     
     public static class NullableClassMap extends FrozenMap<Object> {
-        NullableClassMap(FrozenMap<Object> m) {
+        protected NullableClassMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

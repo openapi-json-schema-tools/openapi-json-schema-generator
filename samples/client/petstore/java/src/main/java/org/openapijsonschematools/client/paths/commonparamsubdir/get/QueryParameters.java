@@ -31,7 +31,7 @@ public class QueryParameters {
     
     
     public static class QueryParametersMap extends FrozenMap<String> {
-        QueryParametersMap(FrozenMap<String> m) {
+        protected QueryParametersMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

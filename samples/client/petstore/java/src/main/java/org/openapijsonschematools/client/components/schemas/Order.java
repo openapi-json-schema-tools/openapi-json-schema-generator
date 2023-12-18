@@ -88,7 +88,7 @@ public class Order {
     
     
     public static class OrderMap extends FrozenMap<Object> {
-        OrderMap(FrozenMap<Object> m) {
+        protected OrderMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

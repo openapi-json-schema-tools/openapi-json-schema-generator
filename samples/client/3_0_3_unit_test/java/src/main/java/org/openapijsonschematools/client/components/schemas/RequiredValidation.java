@@ -40,7 +40,7 @@ public class RequiredValidation {
     
     
     public static class RequiredValidationMap extends FrozenMap<Object> {
-        RequiredValidationMap(FrozenMap<Object> m) {
+        protected RequiredValidationMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

@@ -28,7 +28,7 @@ public class Client {
     
     
     public static class ClientMap extends FrozenMap<Object> {
-        ClientMap(FrozenMap<Object> m) {
+        protected ClientMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -32,7 +32,7 @@ public class Tag {
     
     
     public static class TagMap extends FrozenMap<Object> {
-        TagMap(FrozenMap<Object> m) {
+        protected TagMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

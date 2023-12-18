@@ -112,7 +112,7 @@ public class EnumArrays {
     }    
     
     public static class ArrayEnumList extends FrozenList<String> {
-        ArrayEnumList(FrozenList<String> m) {
+        protected ArrayEnumList(FrozenList<String> m) {
             super(m);
         }
         public static ArrayEnumList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -179,7 +179,7 @@ public class EnumArrays {
     }    
     
     public static class EnumArraysMap extends FrozenMap<Object> {
-        EnumArraysMap(FrozenMap<Object> m) {
+        protected EnumArraysMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

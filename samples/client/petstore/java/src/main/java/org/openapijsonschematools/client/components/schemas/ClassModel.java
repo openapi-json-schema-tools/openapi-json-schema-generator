@@ -37,7 +37,7 @@ public class ClassModel {
     
     
     public static class ClassModelMap extends FrozenMap<Object> {
-        ClassModelMap(FrozenMap<Object> m) {
+        protected ClassModelMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

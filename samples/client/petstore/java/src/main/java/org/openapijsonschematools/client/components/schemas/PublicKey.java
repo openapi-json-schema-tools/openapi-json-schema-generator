@@ -28,7 +28,7 @@ public class PublicKey {
     
     
     public static class PublicKeyMap extends FrozenMap<Object> {
-        PublicKeyMap(FrozenMap<Object> m) {
+        protected PublicKeyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

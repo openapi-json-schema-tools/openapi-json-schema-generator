@@ -195,7 +195,7 @@ public class ObjectTypeSchemaTest {
     }
 
     public static class ObjectWithOutputTypeSchemaMap extends FrozenMap<Object> {
-        ObjectWithOutputTypeSchemaMap(FrozenMap<Object> m) {
+        protected ObjectWithOutputTypeSchemaMap(FrozenMap<Object> m) {
             super(m);
         }
 

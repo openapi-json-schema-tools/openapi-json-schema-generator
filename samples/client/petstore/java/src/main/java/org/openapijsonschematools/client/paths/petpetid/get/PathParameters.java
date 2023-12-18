@@ -31,7 +31,7 @@ public class PathParameters {
     
     
     public static class PathParametersMap extends FrozenMap<Long> {
-        PathParametersMap(FrozenMap<Long> m) {
+        protected PathParametersMap(FrozenMap<Long> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

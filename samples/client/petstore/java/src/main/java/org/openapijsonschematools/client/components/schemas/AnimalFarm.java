@@ -24,7 +24,7 @@ public class AnimalFarm {
     
     
     public static class AnimalFarmList extends FrozenList<Animal.AnimalMap> {
-        AnimalFarmList(FrozenList<Animal.AnimalMap> m) {
+        protected AnimalFarmList(FrozenList<Animal.AnimalMap> m) {
             super(m);
         }
         public static AnimalFarmList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {

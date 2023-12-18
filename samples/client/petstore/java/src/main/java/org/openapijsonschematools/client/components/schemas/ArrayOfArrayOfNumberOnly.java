@@ -30,7 +30,7 @@ public class ArrayOfArrayOfNumberOnly {
     
     
     public static class ItemsList extends FrozenList<Number> {
-        ItemsList(FrozenList<Number> m) {
+        protected ItemsList(FrozenList<Number> m) {
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -97,7 +97,7 @@ public class ArrayOfArrayOfNumberOnly {
     }    
     
     public static class ArrayArrayNumberList extends FrozenList<ItemsList> {
-        ArrayArrayNumberList(FrozenList<ItemsList> m) {
+        protected ArrayArrayNumberList(FrozenList<ItemsList> m) {
             super(m);
         }
         public static ArrayArrayNumberList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -164,7 +164,7 @@ public class ArrayOfArrayOfNumberOnly {
     }    
     
     public static class ArrayOfArrayOfNumberOnlyMap extends FrozenMap<Object> {
-        ArrayOfArrayOfNumberOnlyMap(FrozenMap<Object> m) {
+        protected ArrayOfArrayOfNumberOnlyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

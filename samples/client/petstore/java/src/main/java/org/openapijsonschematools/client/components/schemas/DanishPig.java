@@ -67,7 +67,7 @@ public class DanishPig {
     }    
     
     public static class DanishPigMap extends FrozenMap<Object> {
-        DanishPigMap(FrozenMap<Object> m) {
+        protected DanishPigMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

@@ -31,7 +31,7 @@ public class HeaderParameters {
     
     
     public static class HeaderParametersMap extends FrozenMap<String> {
-        HeaderParametersMap(FrozenMap<String> m) {
+        protected HeaderParametersMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

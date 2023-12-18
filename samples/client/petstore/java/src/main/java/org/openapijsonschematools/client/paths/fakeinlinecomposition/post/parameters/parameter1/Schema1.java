@@ -246,7 +246,7 @@ public class Schema1 {
     }    
     
     public static class SchemaMap1 extends FrozenMap<Object> {
-        SchemaMap1(FrozenMap<Object> m) {
+        protected SchemaMap1(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

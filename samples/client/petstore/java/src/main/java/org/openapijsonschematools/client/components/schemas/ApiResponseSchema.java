@@ -35,7 +35,7 @@ public class ApiResponseSchema {
     
     
     public static class ApiResponseMap extends FrozenMap<Object> {
-        ApiResponseMap(FrozenMap<Object> m) {
+        protected ApiResponseMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

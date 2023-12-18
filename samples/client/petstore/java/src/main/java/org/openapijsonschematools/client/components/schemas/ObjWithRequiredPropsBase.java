@@ -28,7 +28,7 @@ public class ObjWithRequiredPropsBase {
     
     
     public static class ObjWithRequiredPropsBaseMap extends FrozenMap<Object> {
-        ObjWithRequiredPropsBaseMap(FrozenMap<Object> m) {
+        protected ObjWithRequiredPropsBaseMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

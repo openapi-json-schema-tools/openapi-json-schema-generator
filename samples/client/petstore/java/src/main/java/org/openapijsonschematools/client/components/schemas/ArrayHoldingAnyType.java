@@ -27,7 +27,7 @@ public class ArrayHoldingAnyType {
     
     
     public static class ArrayHoldingAnyTypeList extends FrozenList<Object> {
-        ArrayHoldingAnyTypeList(FrozenList<Object> m) {
+        protected ArrayHoldingAnyTypeList(FrozenList<Object> m) {
             super(m);
         }
         public static ArrayHoldingAnyTypeList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

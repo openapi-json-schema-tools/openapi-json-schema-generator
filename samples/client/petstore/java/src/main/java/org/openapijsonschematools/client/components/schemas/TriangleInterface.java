@@ -79,7 +79,7 @@ public class TriangleInterface {
     
     
     public static class TriangleInterfaceMap extends FrozenMap<Object> {
-        TriangleInterfaceMap(FrozenMap<Object> m) {
+        protected TriangleInterfaceMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

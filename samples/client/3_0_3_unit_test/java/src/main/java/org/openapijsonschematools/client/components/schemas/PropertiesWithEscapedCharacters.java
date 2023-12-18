@@ -52,7 +52,7 @@ public class PropertiesWithEscapedCharacters {
     
     
     public static class PropertiesWithEscapedCharactersMap extends FrozenMap<Object> {
-        PropertiesWithEscapedCharactersMap(FrozenMap<Object> m) {
+        protected PropertiesWithEscapedCharactersMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

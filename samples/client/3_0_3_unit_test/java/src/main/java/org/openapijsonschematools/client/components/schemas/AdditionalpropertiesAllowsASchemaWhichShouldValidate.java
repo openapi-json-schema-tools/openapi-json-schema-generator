@@ -35,7 +35,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap extends FrozenMap<Object> {
-        AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(FrozenMap<Object> m) {
+        protected AdditionalpropertiesAllowsASchemaWhichShouldValidateMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

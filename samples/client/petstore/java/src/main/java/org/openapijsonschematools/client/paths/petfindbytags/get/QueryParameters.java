@@ -32,7 +32,7 @@ public class QueryParameters {
     
     
     public static class QueryParametersMap extends FrozenMap<Schema0.SchemaList0> {
-        QueryParametersMap(FrozenMap<Schema0.SchemaList0> m) {
+        protected QueryParametersMap(FrozenMap<Schema0.SchemaList0> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

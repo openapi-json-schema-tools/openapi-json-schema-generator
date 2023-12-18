@@ -32,7 +32,7 @@ public class Schema {
     
     
     public static class FilesList extends FrozenList<String> {
-        FilesList(FrozenList<String> m) {
+        protected FilesList(FrozenList<String> m) {
             super(m);
         }
         public static FilesList of(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -99,7 +99,7 @@ public class Schema {
     }    
     
     public static class SchemaMap extends FrozenMap<Object> {
-        SchemaMap(FrozenMap<Object> m) {
+        protected SchemaMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

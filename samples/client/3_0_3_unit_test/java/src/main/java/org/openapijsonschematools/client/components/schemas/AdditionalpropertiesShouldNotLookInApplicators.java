@@ -41,7 +41,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     
     
     public static class Schema0Map extends FrozenMap<Object> {
-        Schema0Map(FrozenMap<Object> m) {
+        protected Schema0Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -244,7 +244,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     }    
     
     public static class AdditionalpropertiesShouldNotLookInApplicatorsMap extends FrozenMap<Boolean> {
-        AdditionalpropertiesShouldNotLookInApplicatorsMap(FrozenMap<Boolean> m) {
+        protected AdditionalpropertiesShouldNotLookInApplicatorsMap(FrozenMap<Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

@@ -82,7 +82,7 @@ public class JSONPatchRequestAddReplaceTest {
     }    
     
     public static class JSONPatchRequestAddReplaceTestMap extends FrozenMap<Object> {
-        JSONPatchRequestAddReplaceTestMap(FrozenMap<Object> m) {
+        protected JSONPatchRequestAddReplaceTestMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

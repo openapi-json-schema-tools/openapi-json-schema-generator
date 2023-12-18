@@ -23,7 +23,7 @@ public class RefInItems {
     
     
     public static class RefInItemsList extends FrozenList<Object> {
-        RefInItemsList(FrozenList<Object> m) {
+        protected RefInItemsList(FrozenList<Object> m) {
             super(m);
         }
         public static RefInItemsList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {

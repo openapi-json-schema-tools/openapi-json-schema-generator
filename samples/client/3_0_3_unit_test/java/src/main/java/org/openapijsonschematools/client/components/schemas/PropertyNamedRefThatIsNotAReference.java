@@ -37,7 +37,7 @@ public class PropertyNamedRefThatIsNotAReference {
     
     
     public static class PropertyNamedRefThatIsNotAReferenceMap extends FrozenMap<Object> {
-        PropertyNamedRefThatIsNotAReferenceMap(FrozenMap<Object> m) {
+        protected PropertyNamedRefThatIsNotAReferenceMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

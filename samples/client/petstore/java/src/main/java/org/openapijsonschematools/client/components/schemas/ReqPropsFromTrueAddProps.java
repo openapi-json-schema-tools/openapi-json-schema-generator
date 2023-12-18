@@ -27,7 +27,7 @@ public class ReqPropsFromTrueAddProps {
     
     
     public static class ReqPropsFromTrueAddPropsMap extends FrozenMap<Object> {
-        ReqPropsFromTrueAddPropsMap(FrozenMap<Object> m) {
+        protected ReqPropsFromTrueAddPropsMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

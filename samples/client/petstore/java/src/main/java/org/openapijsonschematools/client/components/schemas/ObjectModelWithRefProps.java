@@ -24,7 +24,7 @@ public class ObjectModelWithRefProps {
     
     
     public static class ObjectModelWithRefPropsMap extends FrozenMap<Object> {
-        ObjectModelWithRefPropsMap(FrozenMap<Object> m) {
+        protected ObjectModelWithRefPropsMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

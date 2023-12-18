@@ -26,7 +26,7 @@ public class Drawing {
     
     
     public static class ShapesList extends FrozenList<Object> {
-        ShapesList(FrozenList<Object> m) {
+        protected ShapesList(FrozenList<Object> m) {
             super(m);
         }
         public static ShapesList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -93,7 +93,7 @@ public class Drawing {
     }    
     
     public static class DrawingMap extends FrozenMap<Object> {
-        DrawingMap(FrozenMap<Object> m) {
+        protected DrawingMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

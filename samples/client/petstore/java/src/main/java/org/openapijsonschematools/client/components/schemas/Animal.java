@@ -67,7 +67,7 @@ public class Animal {
     }    
     
     public static class AnimalMap extends FrozenMap<Object> {
-        AnimalMap(FrozenMap<Object> m) {
+        protected AnimalMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

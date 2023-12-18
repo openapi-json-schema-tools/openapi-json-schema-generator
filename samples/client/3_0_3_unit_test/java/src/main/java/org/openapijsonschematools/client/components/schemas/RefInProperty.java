@@ -33,7 +33,7 @@ public class RefInProperty {
     
     
     public static class RefInPropertyMap extends FrozenMap<Object> {
-        RefInPropertyMap(FrozenMap<Object> m) {
+        protected RefInPropertyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

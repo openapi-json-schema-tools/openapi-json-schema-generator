@@ -38,7 +38,7 @@ public class AppleReq {
     
     
     public static class AppleReqMap extends FrozenMap<Object> {
-        AppleReqMap(FrozenMap<Object> m) {
+        protected AppleReqMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

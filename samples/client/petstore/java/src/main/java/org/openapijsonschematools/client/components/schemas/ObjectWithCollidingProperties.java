@@ -31,7 +31,7 @@ public class ObjectWithCollidingProperties {
     
     
     public static class ObjectWithCollidingPropertiesMap extends FrozenMap<Object> {
-        ObjectWithCollidingPropertiesMap(FrozenMap<Object> m) {
+        protected ObjectWithCollidingPropertiesMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

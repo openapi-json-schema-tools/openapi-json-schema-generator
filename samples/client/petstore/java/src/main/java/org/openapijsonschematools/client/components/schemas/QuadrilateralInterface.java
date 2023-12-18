@@ -79,7 +79,7 @@ public class QuadrilateralInterface {
     
     
     public static class QuadrilateralInterfaceMap extends FrozenMap<Object> {
-        QuadrilateralInterfaceMap(FrozenMap<Object> m) {
+        protected QuadrilateralInterfaceMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

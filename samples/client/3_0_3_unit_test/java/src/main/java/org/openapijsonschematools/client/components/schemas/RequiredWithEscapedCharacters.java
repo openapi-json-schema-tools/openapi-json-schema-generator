@@ -32,7 +32,7 @@ public class RequiredWithEscapedCharacters {
     
     
     public static class RequiredWithEscapedCharactersMap extends FrozenMap<Object> {
-        RequiredWithEscapedCharactersMap(FrozenMap<Object> m) {
+        protected RequiredWithEscapedCharactersMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

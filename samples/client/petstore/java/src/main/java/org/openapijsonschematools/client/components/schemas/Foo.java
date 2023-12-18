@@ -24,7 +24,7 @@ public class Foo {
     
     
     public static class FooMap extends FrozenMap<Object> {
-        FooMap(FrozenMap<Object> m) {
+        protected FooMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

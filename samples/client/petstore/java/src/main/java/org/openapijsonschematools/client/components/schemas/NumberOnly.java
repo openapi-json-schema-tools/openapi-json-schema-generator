@@ -28,7 +28,7 @@ public class NumberOnly {
     
     
     public static class NumberOnlyMap extends FrozenMap<Object> {
-        NumberOnlyMap(FrozenMap<Object> m) {
+        protected NumberOnlyMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

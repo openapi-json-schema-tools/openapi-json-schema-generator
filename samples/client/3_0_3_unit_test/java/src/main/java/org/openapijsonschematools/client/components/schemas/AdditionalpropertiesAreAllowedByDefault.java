@@ -40,7 +40,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
     
     
     public static class AdditionalpropertiesAreAllowedByDefaultMap extends FrozenMap<Object> {
-        AdditionalpropertiesAreAllowedByDefaultMap(FrozenMap<Object> m) {
+        protected AdditionalpropertiesAreAllowedByDefaultMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

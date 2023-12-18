@@ -114,7 +114,7 @@ public class Zebra {
     }    
     
     public static class ZebraMap extends FrozenMap<Object> {
-        ZebraMap(FrozenMap<Object> m) {
+        protected ZebraMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

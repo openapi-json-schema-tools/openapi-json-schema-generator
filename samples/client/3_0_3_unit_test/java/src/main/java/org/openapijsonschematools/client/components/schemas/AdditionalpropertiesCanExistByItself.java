@@ -27,7 +27,7 @@ public class AdditionalpropertiesCanExistByItself {
     
     
     public static class AdditionalpropertiesCanExistByItselfMap extends FrozenMap<Boolean> {
-        AdditionalpropertiesCanExistByItselfMap(FrozenMap<Boolean> m) {
+        protected AdditionalpropertiesCanExistByItselfMap(FrozenMap<Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

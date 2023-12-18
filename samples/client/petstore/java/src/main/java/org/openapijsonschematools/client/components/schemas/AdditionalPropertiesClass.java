@@ -31,7 +31,7 @@ public class AdditionalPropertiesClass {
     
     
     public static class MapPropertyMap extends FrozenMap<String> {
-        MapPropertyMap(FrozenMap<String> m) {
+        protected MapPropertyMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -108,7 +108,7 @@ public class AdditionalPropertiesClass {
     
     
     public static class AdditionalPropertiesMap extends FrozenMap<String> {
-        AdditionalPropertiesMap(FrozenMap<String> m) {
+        protected AdditionalPropertiesMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -182,7 +182,7 @@ public class AdditionalPropertiesClass {
     
     
     public static class MapOfMapPropertyMap extends FrozenMap<AdditionalPropertiesMap> {
-        MapOfMapPropertyMap(FrozenMap<AdditionalPropertiesMap> m) {
+        protected MapOfMapPropertyMap(FrozenMap<AdditionalPropertiesMap> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -268,7 +268,7 @@ public class AdditionalPropertiesClass {
     
     
     public static class MapWithUndeclaredPropertiesAnytype3Map extends FrozenMap<Object> {
-        MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<Object> m) {
+        protected MapWithUndeclaredPropertiesAnytype3Map(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -346,7 +346,7 @@ public class AdditionalPropertiesClass {
     
     
     public static class EmptyMapMap extends FrozenMap<Object> {
-        EmptyMapMap(FrozenMap<Object> m) {
+        protected EmptyMapMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -419,7 +419,7 @@ public class AdditionalPropertiesClass {
     
     
     public static class MapWithUndeclaredPropertiesStringMap extends FrozenMap<String> {
-        MapWithUndeclaredPropertiesStringMap(FrozenMap<String> m) {
+        protected MapWithUndeclaredPropertiesStringMap(FrozenMap<String> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -493,7 +493,7 @@ public class AdditionalPropertiesClass {
     
     
     public static class AdditionalPropertiesClassMap extends FrozenMap<Object> {
-        AdditionalPropertiesClassMap(FrozenMap<Object> m) {
+        protected AdditionalPropertiesClassMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

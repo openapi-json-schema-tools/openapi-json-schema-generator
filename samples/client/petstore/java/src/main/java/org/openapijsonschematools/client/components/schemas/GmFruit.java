@@ -37,7 +37,7 @@ public class GmFruit {
     
     
     public static class GmFruitMap extends FrozenMap<Object> {
-        GmFruitMap(FrozenMap<Object> m) {
+        protected GmFruitMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

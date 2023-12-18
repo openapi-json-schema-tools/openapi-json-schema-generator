@@ -26,7 +26,7 @@ public class FileSchemaTestClass {
     
     
     public static class FilesList extends FrozenList<File.FileMap> {
-        FilesList(FrozenList<File.FileMap> m) {
+        protected FilesList(FrozenList<File.FileMap> m) {
             super(m);
         }
         public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -93,7 +93,7 @@ public class FileSchemaTestClass {
     }    
     
     public static class FileSchemaTestClassMap extends FrozenMap<Object> {
-        FileSchemaTestClassMap(FrozenMap<Object> m) {
+        protected FileSchemaTestClassMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

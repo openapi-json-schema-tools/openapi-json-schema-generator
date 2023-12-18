@@ -38,7 +38,7 @@ public class ObjectWithOnlyOptionalProps {
     
     
     public static class ObjectWithOnlyOptionalPropsMap extends FrozenMap<Object> {
-        ObjectWithOnlyOptionalPropsMap(FrozenMap<Object> m) {
+        protected ObjectWithOnlyOptionalPropsMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();

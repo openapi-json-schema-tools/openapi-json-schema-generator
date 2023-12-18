@@ -44,7 +44,7 @@ public class Name {
     
     
     public static class NameMap extends FrozenMap<Object> {
-        NameMap(FrozenMap<Object> m) {
+        protected NameMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(

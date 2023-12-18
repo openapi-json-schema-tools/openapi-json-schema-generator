@@ -24,7 +24,7 @@ public class ObjectWithInvalidNamedRefedProperties {
     
     
     public static class ObjectWithInvalidNamedRefedPropertiesMap extends FrozenMap<Object> {
-        ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<Object> m) {
+        protected ObjectWithInvalidNamedRefedPropertiesMap(FrozenMap<Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
