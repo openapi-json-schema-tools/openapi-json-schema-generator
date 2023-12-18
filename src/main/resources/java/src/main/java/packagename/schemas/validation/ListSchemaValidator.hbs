@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Set;
 
 public interface ListSchemaValidator <InType, OutType> {
-    OutType getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+    OutType getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
     OutType validate(List<InType> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

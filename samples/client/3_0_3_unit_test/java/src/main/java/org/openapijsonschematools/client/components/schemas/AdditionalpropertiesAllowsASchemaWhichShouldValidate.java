@@ -96,10 +96,10 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return instance;
         }
         
-        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMap getNewInstance(FrozenMap<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalpropertiesAllowsASchemaWhichShouldValidateMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, ?> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -115,7 +115,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         public AdditionalpropertiesAllowsASchemaWhichShouldValidateMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

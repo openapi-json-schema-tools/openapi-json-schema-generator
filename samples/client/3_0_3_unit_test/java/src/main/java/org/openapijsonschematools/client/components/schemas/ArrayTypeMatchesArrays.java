@@ -64,14 +64,14 @@ public class ArrayTypeMatchesArrays {
         }
         
         @Override
-        public ArrayTypeMatchesArraysList getNewInstance(FrozenList<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            ArrayList<Object> items = new ArrayList<>();
+        public ArrayTypeMatchesArraysList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            List<Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
                 JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                                Object castItem = (Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                Object castItem = (Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
@@ -83,7 +83,7 @@ public class ArrayTypeMatchesArrays {
         public ArrayTypeMatchesArraysList validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenList<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);

@@ -272,7 +272,7 @@ public abstract class JsonSchema {
         return arg;
     }
 
-    protected FrozenList<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected List<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         List<Object> argFixed = new ArrayList<>();
         int i =0;
@@ -283,21 +283,21 @@ public abstract class JsonSchema {
             argFixed.add(fixedVal);
             i += 1;
         }
-        return new FrozenList<>(argFixed);
+        return argFixed;
     }
 
-    protected FrozenMap<?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
         LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
             String key = (String) entry.getKey();
-            Object val = entry.getValue();
+            Object val = arg.get(entry.getKey());
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);
             Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
             argFixed.put(key, fixedVal);
         }
-        return new FrozenMap<>(argFixed);
+        return argFixed;
     }
 
     protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
