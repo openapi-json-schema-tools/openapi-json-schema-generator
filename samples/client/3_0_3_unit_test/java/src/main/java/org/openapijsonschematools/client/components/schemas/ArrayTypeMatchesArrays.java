@@ -51,7 +51,7 @@ public class ArrayTypeMatchesArrays {
     
         protected ArrayTypeMatchesArrays1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(Items.class)
             );
         }

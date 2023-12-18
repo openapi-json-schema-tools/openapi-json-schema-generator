@@ -121,7 +121,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
     
         protected TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("alpha", Alpha.class)
                 ))

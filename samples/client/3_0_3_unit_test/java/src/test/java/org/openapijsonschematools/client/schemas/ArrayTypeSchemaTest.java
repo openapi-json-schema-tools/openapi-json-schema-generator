@@ -32,7 +32,7 @@ public class ArrayTypeSchemaTest {
     public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<String, FrozenList<String>> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(StringJsonSchema.class)
             );
         }
@@ -85,7 +85,7 @@ public class ArrayTypeSchemaTest {
     public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<String, ArrayWithOutputClsSchemaList> {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(StringJsonSchema.class)
             );
 

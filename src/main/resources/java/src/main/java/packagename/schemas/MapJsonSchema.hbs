@@ -25,7 +25,7 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Obje
 
     protected MapJsonSchema() {
         super(new JsonSchemaInfo()
-            .type(Set.of(FrozenMap.class))
+            .type(Set.of(Map.class))
         );
     }
 

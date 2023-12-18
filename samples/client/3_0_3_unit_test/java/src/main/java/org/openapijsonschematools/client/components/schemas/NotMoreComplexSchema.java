@@ -70,7 +70,7 @@ public class NotMoreComplexSchema {
     
         protected Not() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class)
                 ))

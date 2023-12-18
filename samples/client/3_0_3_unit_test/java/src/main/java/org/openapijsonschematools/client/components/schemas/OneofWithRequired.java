@@ -456,7 +456,7 @@ public class OneofWithRequired {
     
         protected OneofWithRequired1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .oneOf(List.of(
                     Schema0.class,
                     Schema1.class

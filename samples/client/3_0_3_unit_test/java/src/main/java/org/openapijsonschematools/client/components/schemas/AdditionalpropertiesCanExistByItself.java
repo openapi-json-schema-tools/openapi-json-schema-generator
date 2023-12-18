@@ -57,7 +57,7 @@ public class AdditionalpropertiesCanExistByItself {
     
         protected AdditionalpropertiesCanExistByItself1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(AdditionalProperties.class)
             );
         }

@@ -53,7 +53,7 @@ public class RefInAdditionalproperties {
     
         protected RefInAdditionalproperties1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(PropertyNamedRefThatIsNotAReference.PropertyNamedRefThatIsNotAReference1.class)
             );
         }

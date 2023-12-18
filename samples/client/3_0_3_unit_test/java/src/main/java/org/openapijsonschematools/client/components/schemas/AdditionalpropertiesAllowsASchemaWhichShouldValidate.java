@@ -80,7 +80,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     
         protected AdditionalpropertiesAllowsASchemaWhichShouldValidate1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("foo", Foo.class),
                     new PropertyEntry("bar", Bar.class)

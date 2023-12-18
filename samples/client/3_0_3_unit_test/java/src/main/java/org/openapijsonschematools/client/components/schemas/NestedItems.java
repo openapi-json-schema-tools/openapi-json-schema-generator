@@ -45,7 +45,7 @@ public class NestedItems {
     
         protected Items2() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(Items3.class)
             );
         }
@@ -112,7 +112,7 @@ public class NestedItems {
     
         protected Items1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(Items2.class)
             );
         }
@@ -179,7 +179,7 @@ public class NestedItems {
     
         protected Items() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(Items1.class)
             );
         }
@@ -252,7 +252,7 @@ public class NestedItems {
     
         protected NestedItems1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenList.class))
+                .type(Set.of(List.class))
                 .items(Items.class)
             );
         }

@@ -37,7 +37,7 @@ public class ObjectTypeSchemaTest {
         private static ObjectWithPropsSchema instance;
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                         new PropertyEntry("someString", StringJsonSchema.class)
                 ))
@@ -91,7 +91,7 @@ public class ObjectTypeSchemaTest {
         private static ObjectWithAddpropsSchema instance;
         private ObjectWithAddpropsSchema() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(StringJsonSchema.class)
             );
         }
@@ -143,7 +143,7 @@ public class ObjectTypeSchemaTest {
         private static ObjectWithPropsAndAddpropsSchema instance;
         private ObjectWithPropsAndAddpropsSchema() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                         new PropertyEntry("someString", StringJsonSchema.class)
                 ))
@@ -209,7 +209,7 @@ public class ObjectTypeSchemaTest {
         private static ObjectWithOutputTypeSchema instance;
         public ObjectWithOutputTypeSchema() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                         new PropertyEntry("someString", StringJsonSchema.class)
                 ))

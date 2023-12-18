@@ -23,7 +23,7 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Ob
 
     protected ListJsonSchema() {
         super(new JsonSchemaInfo()
-            .type(Set.of(FrozenList.class))
+            .type(Set.of(List.class))
         );
     }
 
