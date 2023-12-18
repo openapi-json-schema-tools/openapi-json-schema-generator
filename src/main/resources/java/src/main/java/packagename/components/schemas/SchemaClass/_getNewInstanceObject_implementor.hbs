@@ -22,10 +22,10 @@ public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasM
         return getNewInstance((String) arg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#eq this "array"}}
-        return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
+        return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#eq this "object"}}
-        return getNewInstance((Map<?, ?>) castArg, pathToItem, pathToSchemas);
+        return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#if @last}}
     }
@@ -42,9 +42,9 @@ public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasM
     } else if (arg instanceof String) {
         return getNewInstance((String) arg, pathToItem, pathToSchemas);
     } else if (arg instanceof List) {
-        return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
+        return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
     } else if (arg instanceof Map) {
-        return getNewInstance((Map<?, ?>) castArg, pathToItem, pathToSchemas);
+        return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
     }
 {{/if}}
     throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");

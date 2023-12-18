@@ -84,5 +84,5 @@ public static class {{jsonPathPiece.camelCase}} extends JsonSchema implements Ma
     {{!> components/schemas/schema_cls/_unevaluated_properties }}
     {{/if}}
     {{> src/main/java/packagename/components/schemas/SchemaClass/_validate_implementor }}
-    {{> src/main/java/packagename/components/schemas/SchemaClass/_castToAllowedTypesObject_implementor }}
+    {{> src/main/java/packagename/components/schemas/SchemaClass/_getNewInstanceObject_implementor }}
 }

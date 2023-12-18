@@ -179,9 +179,9 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaVali
         } else if (arg instanceof String) {
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         } else if (arg instanceof List) {
-            return getNewInstance((List) arg, pathToItem, pathToSchemas);
+            return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
         } else if (arg instanceof Map) {
-            return getNewInstance((Map) arg, pathToItem, pathToSchemas);
+            return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
     }
