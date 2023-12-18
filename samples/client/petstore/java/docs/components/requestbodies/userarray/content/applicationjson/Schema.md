@@ -87,7 +87,7 @@ Schema.SchemaList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(FrozenList.class)<br/> |
+| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
 | Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [User.User1.class](../../../../components/schemas/User.md#user1)<br> |
 
 ### Method Summary

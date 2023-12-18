@@ -51,7 +51,7 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(FrozenList.class)<br/> |
+| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
 | Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Items.class](#items)<br> |
 | Integer | &nbsp;&nbsp;&nbsp;&nbsp;maxItems = 2<br> |
 

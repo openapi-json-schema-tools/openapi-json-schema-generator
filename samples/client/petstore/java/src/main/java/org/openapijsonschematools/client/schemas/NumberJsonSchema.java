@@ -42,11 +42,6 @@ public class NumberJsonSchema extends JsonSchema implements NumberSchemaValidato
     }
 
     @Override
-    public Number castToAllowedTypes(Number arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-        return castToAllowedNumberTypes(arg, pathToItem, pathSet);
-    }
-
-    @Override
     public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }

@@ -14,7 +14,6 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.storeorderorderid.delete.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -52,12 +51,12 @@ public class PathParameters {
     }
     
     
-    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<String, String, PathParametersMap> {
+    public static class PathParameters1 extends JsonSchema implements MapSchemaValidator<String, PathParametersMap> {
         private static PathParameters1 instance;
     
         protected PathParameters1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("order_id", Schema0.Schema01.class)
                 ))
@@ -75,28 +74,13 @@ public class PathParameters {
             return instance;
         }
         
-        @Override
-        public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, String> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                String val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                String fixedVal = (String) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public PathParametersMap getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public PathParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, String> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                String value = entry.getValue();
+                Object value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 String castValue = (String) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -109,7 +93,7 @@ public class PathParameters {
         public PathParametersMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<String> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -119,9 +103,8 @@ public class PathParameters {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }

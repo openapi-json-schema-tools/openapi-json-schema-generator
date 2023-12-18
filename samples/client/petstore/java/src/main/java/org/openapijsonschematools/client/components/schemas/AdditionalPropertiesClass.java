@@ -15,7 +15,6 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.MapJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
-import org.openapijsonschematools.client.schemas.validation.AdditionalPropertiesValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -51,12 +50,12 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapProperty extends JsonSchema implements MapSchemaValidator<String, String, MapPropertyMap> {
+    public static class MapProperty extends JsonSchema implements MapSchemaValidator<String, MapPropertyMap> {
         private static MapProperty instance;
     
         protected MapProperty() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(AdditionalProperties.class)
             );
         }
@@ -68,28 +67,13 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        @Override
-        public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, String> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                String val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                String fixedVal = (String) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public MapPropertyMap getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapPropertyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, String> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                String value = entry.getValue();
+                Object value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 String castValue = (String) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -102,7 +86,7 @@ public class AdditionalPropertiesClass {
         public MapPropertyMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<String> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -112,9 +96,8 @@ public class AdditionalPropertiesClass {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -144,12 +127,12 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalProperties1 extends JsonSchema implements MapSchemaValidator<String, String, AdditionalPropertiesMap> {
+    public static class AdditionalProperties1 extends JsonSchema implements MapSchemaValidator<String, AdditionalPropertiesMap> {
         private static AdditionalProperties1 instance;
     
         protected AdditionalProperties1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(AdditionalProperties2.class)
             );
         }
@@ -161,28 +144,13 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        @Override
-        public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, String> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                String val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                String fixedVal = (String) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public AdditionalPropertiesMap getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, String> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                String value = entry.getValue();
+                Object value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 String castValue = (String) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -195,7 +163,7 @@ public class AdditionalPropertiesClass {
         public AdditionalPropertiesMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<String> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -205,9 +173,8 @@ public class AdditionalPropertiesClass {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -234,12 +201,12 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapOfMapProperty extends JsonSchema implements MapSchemaValidator<Map<String, String>, FrozenMap<String>, MapOfMapPropertyMap> {
+    public static class MapOfMapProperty extends JsonSchema implements MapSchemaValidator<Map<String, String>, MapOfMapPropertyMap> {
         private static MapOfMapProperty instance;
     
         protected MapOfMapProperty() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(AdditionalProperties1.class)
             );
         }
@@ -251,28 +218,13 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        @Override
-        public FrozenMap<FrozenMap<String>> castToAllowedTypes(Map<String, Map<String, String>> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, FrozenMap<String>> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, Map<String, String>> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                Map<String, String> val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                FrozenMap<String> fixedVal = (FrozenMap<String>) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public MapOfMapPropertyMap getNewInstance(FrozenMap<FrozenMap<String>> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapOfMapPropertyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, AdditionalPropertiesMap> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, FrozenMap<String>> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                FrozenMap<String> value = entry.getValue();
+                Object value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 AdditionalPropertiesMap castValue = (AdditionalPropertiesMap) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -285,7 +237,7 @@ public class AdditionalPropertiesClass {
         public MapOfMapPropertyMap validate(Map<String, Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<FrozenMap<String>> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -295,9 +247,8 @@ public class AdditionalPropertiesClass {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<FrozenMap<String>> castArg = (FrozenMap<FrozenMap<String>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -336,12 +287,12 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema implements MapSchemaValidator<Object, Object, MapWithUndeclaredPropertiesAnytype3Map> {
+    public static class MapWithUndeclaredPropertiesAnytype3 extends JsonSchema implements MapSchemaValidator<Object, MapWithUndeclaredPropertiesAnytype3Map> {
         private static MapWithUndeclaredPropertiesAnytype3 instance;
     
         protected MapWithUndeclaredPropertiesAnytype3() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(AdditionalProperties3.class)
             );
         }
@@ -353,25 +304,10 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        @Override
-        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, Object> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                Object val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public MapWithUndeclaredPropertiesAnytype3Map getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapWithUndeclaredPropertiesAnytype3Map getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, Object> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -387,7 +323,7 @@ public class AdditionalPropertiesClass {
         public MapWithUndeclaredPropertiesAnytype3Map validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -397,9 +333,8 @@ public class AdditionalPropertiesClass {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -426,12 +361,12 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class EmptyMap extends JsonSchema implements MapSchemaValidator<Object, Object, EmptyMapMap> {
+    public static class EmptyMap extends JsonSchema implements MapSchemaValidator<Object, EmptyMapMap> {
         private static EmptyMap instance;
     
         protected EmptyMap() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(AdditionalProperties4.class)
             );
         }
@@ -443,25 +378,10 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        @Override
-        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, Object> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                Object val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public EmptyMapMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public EmptyMapMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, Object> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -477,7 +397,7 @@ public class AdditionalPropertiesClass {
         public EmptyMapMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -487,9 +407,8 @@ public class AdditionalPropertiesClass {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -519,12 +438,12 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class MapWithUndeclaredPropertiesString extends JsonSchema implements MapSchemaValidator<String, String, MapWithUndeclaredPropertiesStringMap> {
+    public static class MapWithUndeclaredPropertiesString extends JsonSchema implements MapSchemaValidator<String, MapWithUndeclaredPropertiesStringMap> {
         private static MapWithUndeclaredPropertiesString instance;
     
         protected MapWithUndeclaredPropertiesString() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .additionalProperties(AdditionalProperties5.class)
             );
         }
@@ -536,28 +455,13 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        @Override
-        public FrozenMap<String> castToAllowedTypes(Map<String, String> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, String> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, String> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                String val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                String fixedVal = (String) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public MapWithUndeclaredPropertiesStringMap getNewInstance(FrozenMap<String> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public MapWithUndeclaredPropertiesStringMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, String> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, String> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
-                String value = entry.getValue();
+                Object value = entry.getValue();
                 JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
                 String castValue = (String) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
@@ -570,7 +474,7 @@ public class AdditionalPropertiesClass {
         public MapWithUndeclaredPropertiesStringMap validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<String> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -580,9 +484,8 @@ public class AdditionalPropertiesClass {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<String> castArg = (FrozenMap<String>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -667,7 +570,7 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class AdditionalPropertiesClass1 extends JsonSchema implements MapSchemaValidator<Object, Object, AdditionalPropertiesClassMap> {
+    public static class AdditionalPropertiesClass1 extends JsonSchema implements MapSchemaValidator<Object, AdditionalPropertiesClassMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -678,7 +581,7 @@ public class AdditionalPropertiesClass {
     
         protected AdditionalPropertiesClass1() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
+                .type(Set.of(Map.class))
                 .properties(Map.ofEntries(
                     new PropertyEntry("map_property", MapProperty.class),
                     new PropertyEntry("map_of_map_property", MapOfMapProperty.class),
@@ -699,25 +602,10 @@ public class AdditionalPropertiesClass {
             return instance;
         }
         
-        @Override
-        public FrozenMap<Object> castToAllowedTypes(Map<String, Object> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
-            pathSet.add(pathToItem);
-            LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
-            for (Map.Entry<String, Object> entry: arg.entrySet()) {
-                String key = entry.getKey();
-                                Object val = entry.getValue();
-                List<Object> newPathToItem = new ArrayList<>(pathToItem);
-                newPathToItem.add(key);
-                                Object fixedVal = (Object) castToAllowedObjectTypes(val, newPathToItem, pathSet);
-                argFixed.put(key, fixedVal);
-            }
-            return new FrozenMap<>(argFixed);
-        }
-        
-        public AdditionalPropertiesClassMap getNewInstance(FrozenMap<Object> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public AdditionalPropertiesClassMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
-            for(Map.Entry<String, Object> entry: arg.entrySet()) {
-                String propertyName = entry.getKey();
+            for(Map.Entry<?, ?> entry: arg.entrySet()) {
+                String propertyName = (String) entry.getKey();
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -733,7 +621,7 @@ public class AdditionalPropertiesClass {
         public AdditionalPropertiesClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
-            FrozenMap<Object> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
+            Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
             SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             PathToSchemasMap pathToSchemasMap = getPathToSchemas(this, castArg, validationMetadata, pathSet);
@@ -743,9 +631,8 @@ public class AdditionalPropertiesClass {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
