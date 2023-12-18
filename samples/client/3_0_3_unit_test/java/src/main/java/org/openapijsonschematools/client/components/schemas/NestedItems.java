@@ -86,9 +86,8 @@ public class NestedItems {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<Number> castArg = (FrozenList<Number>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof List) {
+                return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -154,9 +153,8 @@ public class NestedItems {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenList<Number>> castArg = (FrozenList<FrozenList<Number>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof List) {
+                return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -222,9 +220,8 @@ public class NestedItems {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenList<FrozenList<Number>>> castArg = (FrozenList<FrozenList<FrozenList<Number>>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof List) {
+                return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -296,9 +293,8 @@ public class NestedItems {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<FrozenList<FrozenList<FrozenList<Number>>>> castArg = (FrozenList<FrozenList<FrozenList<FrozenList<Number>>>>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof List) {
+                return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }

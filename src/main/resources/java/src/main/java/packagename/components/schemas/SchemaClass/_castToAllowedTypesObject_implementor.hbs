@@ -4,9 +4,9 @@ public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasM
 {{#if types}}
     {{#each types}}
         {{#if @first}}
-    if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}instanceof Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}instanceof Number{{/or}}{{#eq this "string" }}instanceof String{{/eq}}{{#eq this "array"}}instanceof FrozenList{{/eq}}{{#eq this "object"}}instanceof FrozenMap{{/eq}}) {
+    if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}instanceof Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}instanceof Number{{/or}}{{#eq this "string" }}instanceof String{{/eq}}{{#eq this "array"}}instanceof List{{/eq}}{{#eq this "object"}}instanceof Map{{/eq}}) {
         {{else}}
-    } else if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}instanceof Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}instanceof Number{{/or}}{{#eq this "string" }}instanceof String{{/eq}}{{#eq this "array"}}instanceof FrozenList{{/eq}}{{#eq this "object"}}instanceof FrozenMap{{/eq}}) {
+    } else if (arg {{#eq this "null"}}== null{{/eq}}{{#eq this "boolean"}}instanceof Boolean{{/eq}}{{#or (eq this "integer") (eq this "number")}}instanceof Number{{/or}}{{#eq this "string" }}instanceof String{{/eq}}{{#eq this "array"}}instanceof List{{/eq}}{{#eq this "object"}}instanceof Map{{/eq}}) {
         {{/if}}
         {{#eq this "null"}}
         return getNewInstance((Void) null, pathToItem, pathToSchemas);
@@ -22,12 +22,10 @@ public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasM
         return getNewInstance((String) arg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#eq this "array"}}
-        @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
-        return getNewInstance(castArg, pathToItem, pathToSchemas);
+        return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#eq this "object"}}
-        @SuppressWarnings("unchecked") FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
-        return getNewInstance(castArg, pathToItem, pathToSchemas);
+        return getNewInstance((Map<?, ?>) castArg, pathToItem, pathToSchemas);
         {{/eq}}
         {{#if @last}}
     }
@@ -43,12 +41,10 @@ public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasM
         return getNewInstance((Number) arg, pathToItem, pathToSchemas);
     } else if (arg instanceof String) {
         return getNewInstance((String) arg, pathToItem, pathToSchemas);
-    } else if (arg instanceof FrozenList) {
-        @SuppressWarnings("unchecked") FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
-        return getNewInstance(castArg, pathToItem, pathToSchemas);
-    } else if (arg instanceof FrozenMap) {
-        @SuppressWarnings("unchecked") FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> castArg = (FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_cast_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}>) arg;
-        return getNewInstance(castArg, pathToItem, pathToSchemas);
+    } else if (arg instanceof List) {
+        return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
+    } else if (arg instanceof Map) {
+        return getNewInstance((Map<?, ?>) castArg, pathToItem, pathToSchemas);
     }
 {{/if}}
     throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");

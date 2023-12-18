@@ -229,12 +229,10 @@ public class OneofWithRequired {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             } else if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
-            } else if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<Object> castArg = (FrozenList<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            } else if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            } else if (arg instanceof List) {
+                return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
+            } else if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -438,12 +436,10 @@ public class OneofWithRequired {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             } else if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
-            } else if (arg instanceof FrozenList) {
-                @SuppressWarnings("unchecked") FrozenList<Object> castArg = (FrozenList<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
-            } else if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            } else if (arg instanceof List) {
+                return getNewInstance((List<?>) castArg, pathToItem, pathToSchemas);
+            } else if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
@@ -504,9 +500,8 @@ public class OneofWithRequired {
         
         @Override
         public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            if (arg instanceof FrozenMap) {
-                @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
-                return getNewInstance(castArg, pathToItem, pathToSchemas);
+            if (arg instanceof Map) {
+                return getNewInstance((Map<?, ?>) castArg, pathToItem, pathToSchemas);
             }
             throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
         }
