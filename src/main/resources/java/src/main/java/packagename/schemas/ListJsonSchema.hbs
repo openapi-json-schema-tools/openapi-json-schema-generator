@@ -69,6 +69,6 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Ob
         if (arg instanceof List) {
             return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

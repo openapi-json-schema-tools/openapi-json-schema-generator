@@ -371,5 +371,12 @@ public abstract class JsonSchema {
         return pathToSchemasMap;
     }
 
-   // todo add bytes and FileIO
+    public static String getClass(@Nullable Object arg) {
+        if (arg == null) {
+            return Void.class.getSimpleName();
+        } else {
+            return arg.getClass().getSimpleName();
+        }
+    }
+    // todo add bytes and FileIO
 }

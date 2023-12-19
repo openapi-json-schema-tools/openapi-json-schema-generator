@@ -72,6 +72,6 @@ public class Int32JsonSchema extends JsonSchema implements NumberSchemaValidator
         if (arg instanceof Number) {
             return getNewInstance((Number) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

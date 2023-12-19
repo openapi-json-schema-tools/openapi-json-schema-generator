@@ -47,5 +47,5 @@ public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, Path
         return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
     }
 {{/if}}
-    throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+    throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
 }
