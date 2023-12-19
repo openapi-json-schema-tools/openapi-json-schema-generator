@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 public class MaxLengthValidator extends LengthValidator implements KeywordValidator {
     public final int maxLength;
@@ -15,7 +16,7 @@ public class MaxLengthValidator extends LengthValidator implements KeywordValida
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
+    public PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof String)) {
             return null;
         }

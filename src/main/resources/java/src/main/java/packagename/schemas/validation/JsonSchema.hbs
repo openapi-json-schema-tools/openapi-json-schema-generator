@@ -221,7 +221,7 @@ public abstract class JsonSchema {
 
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
-            Object arg,
+            @Nullable Object arg,
             ValidationMetadata validationMetadata
     ) throws ValidationException {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
@@ -276,7 +276,7 @@ public abstract class JsonSchema {
 
     protected List<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
-        List<Object> argFixed = new ArrayList<>();
+        List<@Nullable Object> argFixed = new ArrayList<>();
         int i =0;
         for (Object item: arg) {
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
@@ -290,10 +290,10 @@ public abstract class JsonSchema {
 
     protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
-        LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+        LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
-            String key = (String) entry.getKey();
-            Object val = arg.get(entry.getKey());
+            @NonNull String key = (@NonNull String) entry.getKey();
+            Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);
             Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
@@ -302,7 +302,7 @@ public abstract class JsonSchema {
         return argFixed;
     }
 
-    private Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    private @Nullable Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
             return castToAllowedTypes((Void) null, pathToItem, pathSet);
         } else if (arg instanceof String) {
