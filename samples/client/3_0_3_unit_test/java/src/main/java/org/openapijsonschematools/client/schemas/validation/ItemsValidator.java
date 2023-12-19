@@ -22,11 +22,10 @@ public class ItemsValidator implements KeywordValidator {
         if (!(arg instanceof List)) {
             return null;
         }
-        List<Object> castArg = (List<Object>) arg;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for prefixItems
         int i = 0;
-        for(Object itemValue: castArg) {
+        for(Object itemValue: (List<?>) arg) {
             List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             itemPathToItem.add(i);
             ValidationMetadata itemValidationMetadata = new ValidationMetadata(

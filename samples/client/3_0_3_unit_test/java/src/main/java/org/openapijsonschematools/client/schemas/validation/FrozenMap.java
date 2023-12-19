@@ -34,7 +34,7 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
     }
 
     @Override
-    public Set<Entry<String, V>> entrySet() {
+    public @NonNull Set<Entry<String, V>> entrySet() {
         return map.entrySet();
     }
 }

@@ -70,7 +70,7 @@ public class StringJsonSchema extends JsonSchema implements StringSchemaValidato
     }
 
     @Override
-    public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof String) {
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         }
