@@ -11,11 +11,6 @@ public class MinLengthValidator extends LengthValidator implements KeywordValida
     }
 
     @Override
-    public Object getConstraint() {
-        return minLength;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof String)) {
             return null;

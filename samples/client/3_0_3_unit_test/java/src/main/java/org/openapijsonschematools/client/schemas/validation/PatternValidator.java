@@ -13,11 +13,6 @@ public class PatternValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return pattern;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof String)) {
             return null;

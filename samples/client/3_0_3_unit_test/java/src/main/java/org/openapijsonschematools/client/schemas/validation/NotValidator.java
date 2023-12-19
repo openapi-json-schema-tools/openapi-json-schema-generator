@@ -18,11 +18,6 @@ public class NotValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return not;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         PathToSchemasMap pathToSchemas;
         try {

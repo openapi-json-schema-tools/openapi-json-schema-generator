@@ -15,11 +15,6 @@ public class FormatValidator implements KeywordValidator {
         this.format = format;
     }
 
-    @Override
-    public Object getConstraint() {
-        return format;
-    }
-
     private final static BigInteger int32InclusiveMinimum = BigInteger.valueOf(-2147483648L);
     private final static BigInteger int32InclusiveMaximum = BigInteger.valueOf(2147483647L);
     private final static BigInteger int64InclusiveMinimum = BigInteger.valueOf(-9223372036854775808L);

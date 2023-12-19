@@ -11,11 +11,6 @@ public class MaxLengthValidator extends LengthValidator implements KeywordValida
     }
 
     @Override
-    public Object getConstraint() {
-        return maxLength;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof String)) {
             return null;

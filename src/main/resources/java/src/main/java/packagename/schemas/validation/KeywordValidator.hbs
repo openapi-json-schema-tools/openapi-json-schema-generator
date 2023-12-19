@@ -8,6 +8,4 @@ public interface KeywordValidator {
             JsonSchema schema,
             @Nullable Object arg,
             ValidationMetadata validationMetadata) throws ValidationException;
-
-    Object getConstraint();
 }

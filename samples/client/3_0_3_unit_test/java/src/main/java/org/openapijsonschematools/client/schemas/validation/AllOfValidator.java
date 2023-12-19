@@ -11,11 +11,6 @@ public class AllOfValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return allOf;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         for(Class<? extends JsonSchema> allOfClass: allOf) {

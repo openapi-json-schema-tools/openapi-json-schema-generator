@@ -12,11 +12,6 @@ public class ExclusiveMinimumValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return exclusiveMinimum;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Number)) {
             return null;

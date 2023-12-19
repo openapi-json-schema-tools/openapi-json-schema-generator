@@ -12,11 +12,6 @@ public class ExclusiveMaximumValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return exclusiveMaximum;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Number)) {
             return null;

@@ -16,11 +16,6 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return additionalProperties;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Map)) {
             return null;

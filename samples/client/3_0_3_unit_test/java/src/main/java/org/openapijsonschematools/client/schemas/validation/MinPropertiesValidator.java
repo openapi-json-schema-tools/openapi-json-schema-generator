@@ -13,11 +13,6 @@ public class MinPropertiesValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return minProperties;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Map)) {
             return null;

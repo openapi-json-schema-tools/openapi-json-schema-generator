@@ -12,11 +12,6 @@ public class MultipleOfValidator implements KeywordValidator {
         this.multipleOf = multipleOf;
     }
 
-    @Override
-    public Object getConstraint() {
-        return multipleOf;
-    }
-
     private BigDecimal getBigDecimal(Number arg) {
         if (arg instanceof Integer) {
             return new BigDecimal((Integer) arg);

@@ -15,11 +15,6 @@ public class TypeValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return type;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         Class<?> argClass;
         if (arg == null) {

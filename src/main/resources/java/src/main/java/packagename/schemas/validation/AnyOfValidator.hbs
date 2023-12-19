@@ -14,11 +14,6 @@ public class AnyOfValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return anyOf;
-    }
-
-    @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         List<Class<? extends JsonSchema>> validatedAnyOfClasses = new ArrayList<>();
