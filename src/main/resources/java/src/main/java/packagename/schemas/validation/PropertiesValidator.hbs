@@ -22,15 +22,22 @@ public class PropertiesValidator implements KeywordValidator {
 
     @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
-        if (!(arg instanceof Map)) {
+        if (!(arg instanceof Map<?, ?> mapArg)) {
             return null;
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
-        Map<String, Object> castArg = (Map<String, Object>) arg;
-        Set<String> presentProperties = new LinkedHashSet<>(castArg.keySet());
-        presentProperties.retainAll(properties.keySet());
-        for(String propName: presentProperties) {
-            Object propValue = castArg.get(propName);
+        Set<String> presentProperties = new LinkedHashSet<>();
+        for (Object key: mapArg.keySet()) {
+            if (key instanceof String) {
+                presentProperties.add((String) key);
+            }
+        }
+        for(Map.Entry<String, Class<? extends JsonSchema>> entry: properties.entrySet()) {
+            String propName = entry.getKey();
+            if (!presentProperties.contains(propName)) {
+                continue;
+            }
+            @Nullable Object propValue = ((Map<?, ?>) arg).get(propName);
             List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             propPathToItem.add(propName);
             ValidationMetadata propValidationMetadata = new ValidationMetadata(
@@ -39,7 +46,7 @@ public class PropertiesValidator implements KeywordValidator {
                     validationMetadata.validatedPathToSchemas(),
                     validationMetadata.seenClasses()
             );
-            Class<? extends JsonSchema> propClass = properties.get(propName);
+            Class<? extends JsonSchema> propClass = entry.getValue();
             JsonSchema propSchema = JsonSchemaFactory.getInstance(propClass);
             if (propValidationMetadata.validationRanEarlier(propSchema)) {
                 // todo add_deeper_validated_schemas
