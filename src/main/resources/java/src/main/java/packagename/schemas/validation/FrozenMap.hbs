@@ -1,5 +1,7 @@
 package {{{packageName}}}.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.KeyFor;
+import org.checkerframework.checker.nullness.qual.NonNull;
 import {{{packageName}}}.exceptions.UnsetPropertyException;
 import {{{packageName}}}.exceptions.InvalidAdditionalPropertyException;
 
@@ -7,6 +9,7 @@ import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FrozenMap<V> extends AbstractMap<String, V> {
     /*
@@ -34,8 +37,10 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
     }
 
     @Override
-    public @NonNull Set<Entry<String, V>> entrySet() {
-        return map.entrySet();
+    public @NonNull Set<Entry<@KeyFor("this") String, V>> entrySet() {
+        return  map.entrySet().stream()
+                .map(x -> new AbstractMap.SimpleEntry<>(x.getKey(), x.getValue()))
+                .collect(Collectors.toSet());
     }
 }
 
