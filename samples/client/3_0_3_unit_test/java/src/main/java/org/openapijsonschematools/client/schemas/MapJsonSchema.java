@@ -82,3 +82,4 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Obje
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }
+
