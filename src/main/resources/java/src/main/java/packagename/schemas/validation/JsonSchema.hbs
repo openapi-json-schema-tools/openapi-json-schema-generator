@@ -217,7 +217,7 @@ public abstract class JsonSchema {
         this.keywordToValidator = keywordToValidator;
     }
 
-    public abstract Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+    public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
 
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,

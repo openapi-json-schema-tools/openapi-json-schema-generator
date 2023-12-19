@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+@SuppressWarnings("serial")
 public class PathToSchemasMap extends LinkedHashMap<List<Object>, LinkedHashMap<JsonSchema, Void>> {
 
     public void update(PathToSchemasMap other) {
