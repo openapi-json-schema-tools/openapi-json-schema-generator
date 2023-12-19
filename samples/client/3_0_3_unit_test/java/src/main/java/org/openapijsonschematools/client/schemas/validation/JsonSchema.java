@@ -302,7 +302,7 @@ public abstract class JsonSchema {
         return argFixed;
     }
 
-    protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    private Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
             return castToAllowedTypes((Void) null, pathToItem, pathSet);
         } else if (arg instanceof String) {
@@ -370,36 +370,6 @@ public abstract class JsonSchema {
         }
         return pathToSchemasMap;
     }
-
-   /*
-   protected <MapValueCastType, MapValueOutType> FrozenMap<String, MapValueOutType> getProperties(Map<String, MapValueCastType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      LinkedHashMap<String, MapValueOutType> properties = new LinkedHashMap<>();
-      for(Map.Entry<String, MapValueCastType> entry: arg.entrySet()) {
-         String propertyName = entry.getKey();
-         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-         propertyPathToItem.add(propertyName);
-         MapValueCastType value = entry.getValue();
-         JsonSchema<?, MapValueCastType, MapValueOutType> propertySchema = (JsonSchema<?, MapValueCastType, MapValueOutType>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-         MapValueOutType castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-         properties.put(propertyName, castValue);
-      }
-      return new FrozenMap<>(properties);
-   }
-
-   private <ListItemCastType, ListItemOutType> FrozenList<ListItemOutType> getItems(List<ListItemCastType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      ArrayList<ListItemOutType> items = new ArrayList<>();
-      int i = 0;
-      for (ListItemCastType item: arg) {
-         List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-         itemPathToItem.add(i);
-         JsonSchema<?, ListItemCastType, ListItemOutType> itemSchema = (JsonSchema<?, ListItemCastType, ListItemOutType>) pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-         ListItemOutType castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-         items.add(castItem);
-         i += 1;
-      }
-      return new FrozenList<>(items);
-   }
-   */
 
    // todo add bytes and FileIO
 }

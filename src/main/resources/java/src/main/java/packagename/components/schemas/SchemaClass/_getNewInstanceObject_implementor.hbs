@@ -1,6 +1,6 @@
 
 @Override
-public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
 {{#if types}}
     {{#each types}}
         {{#if @first}}
