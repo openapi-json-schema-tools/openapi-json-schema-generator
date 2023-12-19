@@ -25,9 +25,12 @@ public class RequiredValidator implements KeywordValidator {
         if (!(arg instanceof Map)) {
             return null;
         }
-        Map<String, Object> castArg = (Map<String, Object>) arg;
         Set<String> missingRequiredProperties = new HashSet<>(required);
-        missingRequiredProperties.removeAll(castArg.keySet());
+        for (Object key: ((Map<?, ?>) arg).keySet()) {
+            if (key instanceof String) {
+                missingRequiredProperties.remove(key);
+            }
+        }
         if (!missingRequiredProperties.isEmpty()) {
             List<String> missingReqProps = missingRequiredProperties.stream().sorted().toList();
             String pluralChar = "";
