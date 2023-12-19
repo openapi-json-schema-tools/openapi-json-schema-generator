@@ -217,7 +217,7 @@ public abstract class JsonSchema {
         this.keywordToValidator = keywordToValidator;
     }
 
-    public abstract Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+    public abstract Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
 
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
@@ -227,30 +227,30 @@ public abstract class JsonSchema {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
-        if (thisKeywordToValidator != null) {
-            for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
-                String jsonKeyword = entry.getKey();
-                if (disabledKeywords.contains(jsonKeyword)) {
-                   continue;
-                }
-                KeywordValidator validator = entry.getValue();
-                PathToSchemasMap otherPathToSchemas = validator.validate(
-                        jsonSchema,
-                        arg,
-                        validationMetadata
-                );
-                if (otherPathToSchemas == null) {
-                    continue;
-                }
-                pathToSchemas.update(otherPathToSchemas);
+        for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
+            String jsonKeyword = entry.getKey();
+            if (disabledKeywords.contains(jsonKeyword)) {
+               continue;
             }
+            KeywordValidator validator = entry.getValue();
+            PathToSchemasMap otherPathToSchemas = validator.validate(
+                    jsonSchema,
+                    arg,
+                    validationMetadata
+            );
+            if (otherPathToSchemas == null) {
+                continue;
+            }
+            pathToSchemas.update(otherPathToSchemas);
         }
         List<Object> pathToItem = validationMetadata.pathToItem();
         if (!pathToSchemas.containsKey(pathToItem)) {
             pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
         }
-        pathToSchemas.get(pathToItem).put(jsonSchema, null);
-
+        @Nullable LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(pathToItem);
+        if (schemas != null) {
+            schemas.put(jsonSchema, null);
+        }
         return pathToSchemas;
     }
 
@@ -350,7 +350,7 @@ public abstract class JsonSchema {
         return arg;
     }
 
-    protected static PathToSchemasMap getPathToSchemas(JsonSchema jsonSchema,  Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+    protected static PathToSchemasMap getPathToSchemas(JsonSchema jsonSchema, @Nullable Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
         PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
         // todo add check of validationMetadata.validationRanEarlier(this)
         PathToSchemasMap otherPathToSchemas = validate(jsonSchema, arg, validationMetadata);

@@ -302,7 +302,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.6.3</swagger-annotations-version>
-        <checker-version>3.35.0</checker-version>
+        <checker-version>3.34.0</checker-version>
         <jersey-version>1.19.4</jersey-version>
         <jackson-version>2.12.6</jackson-version>
         <jackson-databind-version>2.12.6.1</jackson-databind-version>
