@@ -233,7 +233,7 @@ public abstract class JsonSchema {
                continue;
             }
             KeywordValidator validator = entry.getValue();
-            PathToSchemasMap otherPathToSchemas = validator.validate(
+            @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(
                     jsonSchema,
                     arg,
                     validationMetadata
