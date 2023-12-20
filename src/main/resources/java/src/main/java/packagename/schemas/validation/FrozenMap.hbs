@@ -30,7 +30,7 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
         }
     }
 
-    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws IllegalArgumentException {
+    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws InvalidAdditionalPropertyException {
         if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
             throw new InvalidAdditionalPropertyException ("The known key " + key + " may not be passed in when getting an additional property");
         }

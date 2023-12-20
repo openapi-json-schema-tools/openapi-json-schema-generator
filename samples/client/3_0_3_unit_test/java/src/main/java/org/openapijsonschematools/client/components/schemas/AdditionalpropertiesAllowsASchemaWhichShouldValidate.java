@@ -63,7 +63,8 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return get(key);
         }
         
-        public boolean getAdditionalProperty(String name) {
+        public boolean getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
+            throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return (boolean) get(name);
         }

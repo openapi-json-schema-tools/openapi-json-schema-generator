@@ -40,7 +40,7 @@ public class AdditionalpropertiesCanExistByItself {
             return AdditionalpropertiesCanExistByItself1.getInstance().validate(arg, configuration);
         }
         
-        public boolean getAdditionalProperty(String name) {
+        public boolean getAdditionalProperty(String name) throws UnsetPropertyException {
             throwIfKeyNotPresent(name);
             return get(name);
         }

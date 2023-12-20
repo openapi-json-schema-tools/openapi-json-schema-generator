@@ -50,8 +50,8 @@ public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyE
     {{#with additionalProperties}}
         {{#unless isBooleanSchemaFalse}}
 
-public {{> src/main/java/packagename/components/schemas/types/schema_output_type }} getAdditionalProperty(String name) {
-            {{#or optionalProperties requiredProperties}}
+public {{> src/main/java/packagename/components/schemas/types/schema_output_type }} getAdditionalProperty(String name) throws UnsetPropertyException{{#or ../optionalProperties ../requiredProperties}}, InvalidAdditionalPropertyException{{/or}} {
+            {{#or ../optionalProperties ../requiredProperties}}
     throwIfKeyKnown(name, requiredKeys, optionalKeys);
             {{/or}}
     throwIfKeyNotPresent(name);

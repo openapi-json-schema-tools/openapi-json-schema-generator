@@ -36,7 +36,7 @@ public class RefInAdditionalproperties {
             return RefInAdditionalproperties1.getInstance().validate(arg, configuration);
         }
         
-        public @Nullable Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException {
             throwIfKeyNotPresent(name);
             return get(name);
         }
