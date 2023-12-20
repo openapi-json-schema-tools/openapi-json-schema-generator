@@ -66,7 +66,11 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         public boolean getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
-            return (boolean) get(name);
+                        @Nullable Object value = get(name);
+            if (!(value instanceof Boolean)) {
+                throw new RuntimeException("Invalid value stored for " + name);
+            }
+            return (boolean) value;
         }
     }
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput {

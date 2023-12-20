@@ -56,7 +56,7 @@ public class AllofWithBaseSchema {
         
         public @NonNull String foo() {
                         @Nullable Object value = get("foo");
-            if (!(value instanceof @NonNull String)) {
+            if (!(value instanceof String)) {
                 throw new RuntimeException("Invalid value stored for foo");
             }
             return (@NonNull String) value;
@@ -506,7 +506,7 @@ public class AllofWithBaseSchema {
         
         public long bar() {
                         @Nullable Object value = get("bar");
-            if (!(value instanceof @NonNull Long)) {
+            if (!(value instanceof Long)) {
                 throw new RuntimeException("Invalid value stored for bar");
             }
             return (long) value;
