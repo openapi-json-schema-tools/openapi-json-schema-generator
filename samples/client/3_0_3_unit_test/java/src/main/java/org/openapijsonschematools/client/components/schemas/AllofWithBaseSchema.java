@@ -54,12 +54,12 @@ public class AllofWithBaseSchema {
             return Schema0.getInstance().validate(arg, configuration);
         }
         
-        public String foo() {
+        public @NonNull String foo() {
                         @Nullable Object value = get("foo");
-            if (!(value instanceof String)) {
+            if (!(value instanceof @NonNull String)) {
                 throw new RuntimeException("Invalid value stored for foo");
             }
-            return (String) value;
+            return (@NonNull String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -506,7 +506,7 @@ public class AllofWithBaseSchema {
         
         public long bar() {
                         @Nullable Object value = get("bar");
-            if (!(value instanceof Long)) {
+            if (!(value instanceof @NonNull Long)) {
                 throw new RuntimeException("Invalid value stored for bar");
             }
             return (long) value;

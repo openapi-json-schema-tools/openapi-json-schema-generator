@@ -84,7 +84,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | of([Map<String, Object>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput) arg, SchemaConfiguration configuration) |
-| Number | alpha()<br>[optional] if omitted the server will use the default value of 5.0 |
+| @NonNull Number | alpha()<br>[optional] if omitted the server will use the default value of 5.0 |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Alpha

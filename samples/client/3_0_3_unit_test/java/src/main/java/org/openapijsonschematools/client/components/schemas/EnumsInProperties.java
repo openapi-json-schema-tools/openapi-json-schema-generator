@@ -125,22 +125,22 @@ public class EnumsInProperties {
             return EnumsInProperties1.getInstance().validate(arg, configuration);
         }
         
-        public String bar() {
+        public @NonNull String bar() {
                         @Nullable Object value = get("bar");
-            if (!(value instanceof String)) {
+            if (!(value instanceof @NonNull String)) {
                 throw new RuntimeException("Invalid value stored for bar");
             }
-            return (String) value;
+            return (@NonNull String) value;
         }
         
-        public String foo() throws UnsetPropertyException {
+        public @NonNull String foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
                         @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
+            if (!(value instanceof @NonNull String)) {
                 throw new RuntimeException("Invalid value stored for foo");
             }
-            return (String) value;
+            return (@NonNull String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

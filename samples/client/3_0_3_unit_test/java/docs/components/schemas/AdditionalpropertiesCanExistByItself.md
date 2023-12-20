@@ -71,7 +71,7 @@ A class that builds the Map input type
 
 ## AdditionalpropertiesCanExistByItselfMap
 public static class AdditionalpropertiesCanExistByItselfMap<br>
-extends FrozenMap<String, Boolean>
+extends FrozenMap<String, @NonNull Boolean>
 
 A class to store validated Map payloads
 

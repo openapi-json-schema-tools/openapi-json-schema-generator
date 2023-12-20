@@ -28,8 +28,8 @@ public class NestedItems {
     public static class Items3 extends NumberJsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<Number> {
-        protected ItemsList(FrozenList<Number> m) {
+    public static class ItemsList extends FrozenList<@NonNull Number> {
+        protected ItemsList(FrozenList<@NonNull Number> m) {
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -61,7 +61,7 @@ public class NestedItems {
         
         @Override
         public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<Number> items = new ArrayList<>();
+            List<@NonNull Number> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -71,11 +71,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                Number castItem = (Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                @NonNull Number castItem = (@NonNull Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<Number> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@NonNull Number> newInstanceItems = new FrozenList<>(items);
             return new ItemsList(newInstanceItems);
         }
         
@@ -99,8 +99,8 @@ public class NestedItems {
         }
     }    
     
-    public static class ItemsList1 extends FrozenList<ItemsList> {
-        protected ItemsList1(FrozenList<ItemsList> m) {
+    public static class ItemsList1 extends FrozenList<@NonNull ItemsList> {
+        protected ItemsList1(FrozenList<@NonNull ItemsList> m) {
             super(m);
         }
         public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -132,7 +132,7 @@ public class NestedItems {
         
         @Override
         public ItemsList1 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<ItemsList> items = new ArrayList<>();
+            List<@NonNull ItemsList> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -142,11 +142,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                ItemsList castItem = (ItemsList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                @NonNull ItemsList castItem = (@NonNull ItemsList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<ItemsList> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@NonNull ItemsList> newInstanceItems = new FrozenList<>(items);
             return new ItemsList1(newInstanceItems);
         }
         
@@ -170,8 +170,8 @@ public class NestedItems {
         }
     }    
     
-    public static class ItemsList2 extends FrozenList<ItemsList1> {
-        protected ItemsList2(FrozenList<ItemsList1> m) {
+    public static class ItemsList2 extends FrozenList<@NonNull ItemsList1> {
+        protected ItemsList2(FrozenList<@NonNull ItemsList1> m) {
             super(m);
         }
         public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -203,7 +203,7 @@ public class NestedItems {
         
         @Override
         public ItemsList2 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<ItemsList1> items = new ArrayList<>();
+            List<@NonNull ItemsList1> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -213,11 +213,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                ItemsList1 castItem = (ItemsList1) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                @NonNull ItemsList1 castItem = (@NonNull ItemsList1) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<ItemsList1> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@NonNull ItemsList1> newInstanceItems = new FrozenList<>(items);
             return new ItemsList2(newInstanceItems);
         }
         
@@ -241,8 +241,8 @@ public class NestedItems {
         }
     }    
     
-    public static class NestedItemsList extends FrozenList<ItemsList2> {
-        protected NestedItemsList(FrozenList<ItemsList2> m) {
+    public static class NestedItemsList extends FrozenList<@NonNull ItemsList2> {
+        protected NestedItemsList(FrozenList<@NonNull ItemsList2> m) {
             super(m);
         }
         public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -280,7 +280,7 @@ public class NestedItems {
         
         @Override
         public NestedItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<ItemsList2> items = new ArrayList<>();
+            List<@NonNull ItemsList2> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -290,11 +290,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                ItemsList2 castItem = (ItemsList2) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                @NonNull ItemsList2 castItem = (@NonNull ItemsList2) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<ItemsList2> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@NonNull ItemsList2> newInstanceItems = new FrozenList<>(items);
             return new NestedItemsList(newInstanceItems);
         }
         

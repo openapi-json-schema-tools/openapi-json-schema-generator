@@ -52,14 +52,14 @@ public class NotMoreComplexSchema {
             return Not.getInstance().validate(arg, configuration);
         }
         
-        public String foo() throws UnsetPropertyException {
+        public @NonNull String foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
                         @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
+            if (!(value instanceof @NonNull String)) {
                 throw new RuntimeException("Invalid value stored for foo");
             }
-            return (String) value;
+            return (@NonNull String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

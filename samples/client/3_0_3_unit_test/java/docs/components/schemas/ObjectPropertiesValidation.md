@@ -66,7 +66,7 @@ A class to store validated Map payloads
 | ----------------- | ---------------------- |
 | static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
 | long | foo()<br>[optional] |
-| String | bar()<br>[optional] |
+| @NonNull String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar

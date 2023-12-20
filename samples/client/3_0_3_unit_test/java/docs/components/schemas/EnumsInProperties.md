@@ -91,8 +91,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [EnumsInPropertiesMap](#enumsinpropertiesmap) | of([Map<String, Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| String | bar()<br> must be one of ["bar"] |
-| String | foo()<br>[optional] must be one of ["foo"] |
+| @NonNull String | bar()<br> must be one of ["bar"] |
+| @NonNull String | foo()<br>[optional] must be one of ["foo"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar

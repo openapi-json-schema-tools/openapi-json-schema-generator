@@ -3,7 +3,7 @@
         {{#each types}}
             {{#eq this "boolean"}}
                 {{#if forceNull}}
-Boolean
+@NonNull Boolean
                 {{~else}}
 boolean
                 {{~/if}}
@@ -16,37 +16,37 @@ Void
 {{! todo binary types}}
 String
                         {{~else}}
-String
+@NonNull String
                         {{~/eq}}
                     {{else}}
                         {{#eq this "number"}}
                             {{#eq ../format null}}
-Number
+@NonNull Number
                             {{~else}}
                                 {{#eq ../format "float"}}
                                     {{#if forceNull}}
-Float
+@NonNull Float
                                     {{~else}}
 float
                                     {{~/if}}
                                 {{else}}
                                     {{#eq ../format "double"}}
                                         {{#if forceNull}}
-Double
+@NonNull Double
                                         {{~else}}
 double
                                         {{~/if}}
                                     {{else}}
                                         {{#eq ../format "int32"}}
                                             {{#if forceNull}}
-Integer
+@NonNull Integer
                                             {{~else}}
 int
                                             {{~/if}}
                                         {{else}}
                                             {{#eq ../format "int64"}}
                                                 {{#if forceNull}}
-Long
+@NonNull Long
                                                 {{~else}}
 long
                                                 {{~/if}}
@@ -59,21 +59,21 @@ long
                             {{#eq this "integer"}}
                                 {{#eq ../format null}}
                                     {{#if forceNull}}
-Long
+@NonNull Long
                                     {{~else}}
 long
                                     {{~/if}}
                                 {{else}}
                                     {{#eq ../format "int32"}}
                                         {{#if forceNull}}
-Integer
+@NonNull Integer
                                         {{~else}}
 int
                                         {{~/if}}
                                     {{else}}
                                         {{#eq ../format "int64"}}
                                             {{#if forceNull}}
-Long
+@NonNull Long
                                             {{~else}}
 long
                                             {{~/if}}
@@ -91,13 +91,13 @@ long
                                             {{~/if}}
                                         {{else}}
                                             {{#if fullRefModule}}
-{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
+@NonNull {{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
                                             {{~else}}
-{{arrayOutputJsonPathPiece.camelCase}}
+@NonNull {{arrayOutputJsonPathPiece.camelCase}}
                                             {{~/if}}
                                         {{/if}}
                                     {{else}}
-FrozenList<@Nullable Object>
+@NonNull FrozenList<@Nullable Object>
                                     {{~/if}}
                                 {{else}}
                                     {{#eq this "object"}}
@@ -110,13 +110,13 @@ FrozenList<@Nullable Object>
                                                 {{~/if}}
                                             {{else}}
                                                 {{#if fullRefModule}}
-{{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}
+@NonNull {{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}
                                                 {{~else}}
-{{mapOutputJsonPathPiece.camelCase}}
+@NonNull {{mapOutputJsonPathPiece.camelCase}}
                                                 {{~/if}}
                                             {{/if}}
                                         {{~else}}
-FrozenMap<@Nullable Object>
+@NonNull FrozenMap<@Nullable Object>
                                         {{~/if}}
                                     {{/eq}}
                                 {{/eq}}

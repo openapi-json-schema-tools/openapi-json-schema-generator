@@ -30,8 +30,8 @@ public class AdditionalpropertiesCanExistByItself {
     public static class AdditionalProperties extends BooleanJsonSchema {}
     
     
-    public static class AdditionalpropertiesCanExistByItselfMap extends FrozenMap<Boolean> {
-        protected AdditionalpropertiesCanExistByItselfMap(FrozenMap<Boolean> m) {
+    public static class AdditionalpropertiesCanExistByItselfMap extends FrozenMap<@NonNull Boolean> {
+        protected AdditionalpropertiesCanExistByItselfMap(FrozenMap<@NonNull Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -74,7 +74,7 @@ public class AdditionalpropertiesCanExistByItself {
         }
         
         public AdditionalpropertiesCanExistByItselfMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Boolean> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @NonNull Boolean> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -91,10 +91,10 @@ public class AdditionalpropertiesCanExistByItself {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Boolean castValue = (Boolean) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @NonNull Boolean castValue = (@NonNull Boolean) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Boolean> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@NonNull Boolean> castProperties = new FrozenMap<>(properties);
             return new AdditionalpropertiesCanExistByItselfMap(castProperties);
         }
         
