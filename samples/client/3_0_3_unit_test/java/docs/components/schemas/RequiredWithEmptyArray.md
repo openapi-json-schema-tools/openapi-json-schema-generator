@@ -55,7 +55,7 @@ A class that builds the Map input type
 
 ## RequiredWithEmptyArrayMap
 public static class RequiredWithEmptyArrayMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -63,7 +63,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [RequiredWithEmptyArrayMap](#requiredwithemptyarraymap) | of([Map<String, Object>](#requiredwithemptyarraymapinput) arg, SchemaConfiguration configuration) |
-| Object | foo()<br>[optional] |
+| @Nullable Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo

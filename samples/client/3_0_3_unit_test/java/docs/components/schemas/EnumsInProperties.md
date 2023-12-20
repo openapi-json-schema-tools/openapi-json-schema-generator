@@ -83,7 +83,7 @@ A class that builds the Map input type
 
 ## EnumsInPropertiesMap
 public static class EnumsInPropertiesMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 

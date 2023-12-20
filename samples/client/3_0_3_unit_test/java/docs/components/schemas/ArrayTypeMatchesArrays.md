@@ -71,7 +71,7 @@ Object |  |
 
 ## ArrayTypeMatchesArraysList
 public class ArrayTypeMatchesArraysList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 

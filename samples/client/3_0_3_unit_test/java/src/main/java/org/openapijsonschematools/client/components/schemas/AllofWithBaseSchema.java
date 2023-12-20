@@ -40,8 +40,8 @@ public class AllofWithBaseSchema {
     public static class Foo extends StringJsonSchema {}
     
     
-    public static class Schema0Map extends FrozenMap<Object> {
-        protected Schema0Map(FrozenMap<Object> m) {
+    public static class Schema0Map extends FrozenMap<@Nullable Object> {
+        protected Schema0Map(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -201,7 +201,7 @@ public class AllofWithBaseSchema {
         
         @Override
         public Schema0Map getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -218,10 +218,10 @@ public class AllofWithBaseSchema {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new Schema0Map(castProperties);
         }
         
@@ -261,8 +261,8 @@ public class AllofWithBaseSchema {
     public static class Baz extends NullJsonSchema {}
     
     
-    public static class Schema1Map extends FrozenMap<Object> {
-        protected Schema1Map(FrozenMap<Object> m) {
+    public static class Schema1Map extends FrozenMap<@Nullable Object> {
+        protected Schema1Map(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -422,7 +422,7 @@ public class AllofWithBaseSchema {
         
         @Override
         public Schema1Map getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -439,10 +439,10 @@ public class AllofWithBaseSchema {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new Schema1Map(castProperties);
         }
         
@@ -482,8 +482,8 @@ public class AllofWithBaseSchema {
     public static class Bar extends IntJsonSchema {}
     
     
-    public static class AllofWithBaseSchemaMap extends FrozenMap<Object> {
-        protected AllofWithBaseSchemaMap(FrozenMap<Object> m) {
+    public static class AllofWithBaseSchemaMap extends FrozenMap<@Nullable Object> {
+        protected AllofWithBaseSchemaMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -653,7 +653,7 @@ public class AllofWithBaseSchema {
         
         @Override
         public AllofWithBaseSchemaMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -670,10 +670,10 @@ public class AllofWithBaseSchema {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new AllofWithBaseSchemaMap(castProperties);
         }
         

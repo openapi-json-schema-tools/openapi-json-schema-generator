@@ -24,8 +24,8 @@ public class RefInAdditionalproperties {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class RefInAdditionalpropertiesMap extends FrozenMap<Object> {
-        protected RefInAdditionalpropertiesMap(FrozenMap<Object> m) {
+    public static class RefInAdditionalpropertiesMap extends FrozenMap<@Nullable Object> {
+        protected RefInAdditionalpropertiesMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -34,7 +34,7 @@ public class RefInAdditionalproperties {
             return RefInAdditionalproperties1.getInstance().validate(arg, configuration);
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -68,7 +68,7 @@ public class RefInAdditionalproperties {
         }
         
         public RefInAdditionalpropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -85,10 +85,10 @@ public class RefInAdditionalproperties {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new RefInAdditionalpropertiesMap(castProperties);
         }
         

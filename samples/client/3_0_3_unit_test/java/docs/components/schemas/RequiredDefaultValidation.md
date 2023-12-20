@@ -55,7 +55,7 @@ A class that builds the Map input type
 
 ## RequiredDefaultValidationMap
 public static class RequiredDefaultValidationMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -63,7 +63,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | of([Map<String, Object>](#requireddefaultvalidationmapinput) arg, SchemaConfiguration configuration) |
-| Object | foo()<br>[optional] |
+| @Nullable Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo

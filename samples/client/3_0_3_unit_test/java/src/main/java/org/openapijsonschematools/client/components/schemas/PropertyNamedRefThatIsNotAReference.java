@@ -38,8 +38,8 @@ public class PropertyNamedRefThatIsNotAReference {
     public static class Ref extends StringJsonSchema {}
     
     
-    public static class PropertyNamedRefThatIsNotAReferenceMap extends FrozenMap<Object> {
-        protected PropertyNamedRefThatIsNotAReferenceMap(FrozenMap<Object> m) {
+    public static class PropertyNamedRefThatIsNotAReferenceMap extends FrozenMap<@Nullable Object> {
+        protected PropertyNamedRefThatIsNotAReferenceMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -198,7 +198,7 @@ public class PropertyNamedRefThatIsNotAReference {
         
         @Override
         public PropertyNamedRefThatIsNotAReferenceMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -215,10 +215,10 @@ public class PropertyNamedRefThatIsNotAReference {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new PropertyNamedRefThatIsNotAReferenceMap(castProperties);
         }
         

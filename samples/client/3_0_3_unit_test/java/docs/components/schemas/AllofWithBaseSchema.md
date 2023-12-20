@@ -65,7 +65,7 @@ A class that builds the Map input type
 
 ## AllofWithBaseSchemaMap
 public static class AllofWithBaseSchemaMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -125,7 +125,7 @@ A class that builds the Map input type
 
 ## Schema1Map
 public static class Schema1Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -185,7 +185,7 @@ A class that builds the Map input type
 
 ## Schema0Map
 public static class Schema0Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 

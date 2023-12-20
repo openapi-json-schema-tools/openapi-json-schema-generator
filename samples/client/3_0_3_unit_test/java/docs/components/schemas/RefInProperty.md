@@ -54,7 +54,7 @@ A class that builds the Map input type
 
 ## RefInPropertyMap
 public static class RefInPropertyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -62,7 +62,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [RefInPropertyMap](#refinpropertymap) | of([Map<String, Object>](#refinpropertymapinput) arg, SchemaConfiguration configuration) |
-| Object | a()<br>[optional] |
+| @Nullable Object | a()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

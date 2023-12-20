@@ -109,8 +109,8 @@ public class EnumsInProperties {
         }
     }    
     
-    public static class EnumsInPropertiesMap extends FrozenMap<Object> {
-        protected EnumsInPropertiesMap(FrozenMap<Object> m) {
+    public static class EnumsInPropertiesMap extends FrozenMap<@Nullable Object> {
+        protected EnumsInPropertiesMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -174,7 +174,7 @@ public class EnumsInProperties {
         }
         
         public EnumsInPropertiesMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -191,10 +191,10 @@ public class EnumsInProperties {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new EnumsInPropertiesMap(castProperties);
         }
         

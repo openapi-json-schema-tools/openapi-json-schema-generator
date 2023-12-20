@@ -57,7 +57,7 @@ A class that builds the Map input type
 
 ## ObjectPropertiesValidationMap
 public static class ObjectPropertiesValidationMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 

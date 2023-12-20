@@ -55,7 +55,7 @@ A class that builds the Map input type
 
 ## InvalidStringValueForDefaultMap
 public static class InvalidStringValueForDefaultMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 

@@ -101,7 +101,7 @@ A class that builds the Map input type
 
 ## NotMap
 public static class NotMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 

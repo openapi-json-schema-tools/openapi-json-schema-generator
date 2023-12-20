@@ -55,7 +55,7 @@ A class that builds the Map input type
 
 ## PropertyNamedRefThatIsNotAReferenceMap
 public static class PropertyNamedRefThatIsNotAReferenceMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -63,7 +63,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | of([Map<String, Object>](#propertynamedrefthatisnotareferencemapinput) arg, SchemaConfiguration configuration) |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["$ref"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["$ref"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Ref

@@ -70,7 +70,7 @@ Object |  |
 
 ## RefInItemsList
 public class RefInItemsList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 

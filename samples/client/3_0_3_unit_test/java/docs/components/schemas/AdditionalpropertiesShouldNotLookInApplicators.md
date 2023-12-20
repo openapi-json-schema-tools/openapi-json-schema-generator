@@ -107,7 +107,7 @@ A class that builds the Map input type
 
 ## Schema0Map
 public static class Schema0Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -115,7 +115,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
-| Object | foo()<br>[optional] |
+| @Nullable Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo

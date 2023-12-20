@@ -42,8 +42,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
     public static class Foo extends AnyTypeJsonSchema {}
     
     
-    public static class Schema0Map extends FrozenMap<Object> {
-        protected Schema0Map(FrozenMap<Object> m) {
+    public static class Schema0Map extends FrozenMap<@Nullable Object> {
+        protected Schema0Map(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -54,7 +54,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
             return Schema0.getInstance().validate(arg, configuration);
         }
         
-        public Object foo() {
+        public @Nullable Object foo() {
             String key = "foo";
             throwIfKeyNotPresent(key);
             return get(key);
@@ -202,7 +202,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         
         @Override
         public Schema0Map getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 @NonNull String propertyName;
@@ -219,10 +219,10 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 properties.put(propertyName, castValue);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new Schema0Map(castProperties);
         }
         

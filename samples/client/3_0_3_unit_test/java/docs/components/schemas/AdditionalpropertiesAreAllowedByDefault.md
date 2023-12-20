@@ -57,7 +57,7 @@ A class that builds the Map input type
 
 ## AdditionalpropertiesAreAllowedByDefaultMap
 public static class AdditionalpropertiesAreAllowedByDefaultMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -65,8 +65,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | of([Map<String, Object>](#additionalpropertiesareallowedbydefaultmapinput) arg, SchemaConfiguration configuration) |
-| Object | foo()<br>[optional] |
-| Object | bar()<br>[optional] |
+| @Nullable Object | foo()<br>[optional] |
+| @Nullable Object | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar

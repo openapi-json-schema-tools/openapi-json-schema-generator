@@ -24,8 +24,8 @@ public class RefInItems {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class RefInItemsList extends FrozenList<Object> {
-        protected RefInItemsList(FrozenList<Object> m) {
+    public static class RefInItemsList extends FrozenList<@Nullable Object> {
+        protected RefInItemsList(FrozenList<@Nullable Object> m) {
             super(m);
         }
         public static RefInItemsList of(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -63,7 +63,7 @@ public class RefInItems {
         
         @Override
         public RefInItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<Object> items = new ArrayList<>();
+            List<@Nullable Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -73,11 +73,11 @@ public class RefInItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                Object castItem = (Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                @Nullable Object castItem = (@Nullable Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 items.add(castItem);
                 i += 1;
             }
-            FrozenList<Object> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
             return new RefInItemsList(newInstanceItems);
         }
         

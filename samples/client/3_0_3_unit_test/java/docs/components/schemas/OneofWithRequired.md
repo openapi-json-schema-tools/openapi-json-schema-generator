@@ -76,7 +76,7 @@ A class that builds the Map input type
 
 ## Schema1Map
 public static class Schema1Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -84,8 +84,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema1Map](#schema1map) | of([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
-| Object | baz()<br> |
-| Object | foo()<br> |
+| @Nullable Object | baz()<br> |
+| @Nullable Object | foo()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Schema0
@@ -127,7 +127,7 @@ A class that builds the Map input type
 
 ## Schema0Map
 public static class Schema0Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
@@ -135,8 +135,8 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
-| Object | bar()<br> |
-| Object | foo()<br> |
+| @Nullable Object | bar()<br> |
+| @Nullable Object | foo()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
