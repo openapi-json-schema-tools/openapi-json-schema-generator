@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.schemas;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -39,7 +40,7 @@ public class MapSchemaTest {
     public void testValidateMap() {
         Map<String, Object> inMap = new LinkedHashMap<>();
         inMap.put("today", LocalDate.of(2017, 7, 21));
-        FrozenMap<Object> validatedValue = mapJsonSchema.validate(inMap, configuration);
+        FrozenMap<@Nullable Object> validatedValue = mapJsonSchema.validate(inMap, configuration);
         LinkedHashMap<String, String> outMap = new LinkedHashMap<>();
         outMap.put("today", "2017-07-21");
         Assert.assertEquals(validatedValue, outMap);
