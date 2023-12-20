@@ -71,8 +71,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                @NonNull Number castItem = (@NonNull Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof Number)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                items.add((@NonNull Number) itemInstance);
                 i += 1;
             }
             FrozenList<@NonNull Number> newInstanceItems = new FrozenList<>(items);
@@ -142,8 +145,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                @NonNull ItemsList castItem = (@NonNull ItemsList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof ItemsList)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                items.add((@NonNull ItemsList) itemInstance);
                 i += 1;
             }
             FrozenList<@NonNull ItemsList> newInstanceItems = new FrozenList<>(items);
@@ -213,8 +219,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                @NonNull ItemsList1 castItem = (@NonNull ItemsList1) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof ItemsList1)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                items.add((@NonNull ItemsList1) itemInstance);
                 i += 1;
             }
             FrozenList<@NonNull ItemsList1> newInstanceItems = new FrozenList<>(items);
@@ -290,8 +299,11 @@ public class NestedItems {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                @NonNull ItemsList2 castItem = (@NonNull ItemsList2) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof ItemsList2)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                items.add((@NonNull ItemsList2) itemInstance);
                 i += 1;
             }
             FrozenList<@NonNull ItemsList2> newInstanceItems = new FrozenList<>(items);

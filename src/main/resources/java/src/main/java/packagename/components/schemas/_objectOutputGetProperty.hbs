@@ -14,8 +14,6 @@ throwIfKeyNotPresent(key);
     {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
 return get(key);
     {{else}}
-// mapValueSchema.typeSchema {{../../mapValueSchema.typeSchema}}
-// typeSchema {{typeSchema}}
 {{#with ../../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get(key);
 if (!(value instanceof {{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
     throw new RuntimeException("Invalid value stored for {{{@key.original}}}");

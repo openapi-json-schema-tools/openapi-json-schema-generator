@@ -186,8 +186,11 @@ public class AllofWithBaseSchema {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castItem = (@Nullable Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof Object)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                items.add((@Nullable Object) itemInstance);
                 i += 1;
             }
             FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
@@ -412,8 +415,11 @@ public class AllofWithBaseSchema {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castItem = (@Nullable Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof Object)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                items.add((@Nullable Object) itemInstance);
                 i += 1;
             }
             FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
@@ -648,8 +654,11 @@ public class AllofWithBaseSchema {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castItem = (@Nullable Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof Object)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                items.add((@Nullable Object) itemInstance);
                 i += 1;
             }
             FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
