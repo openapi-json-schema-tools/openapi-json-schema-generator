@@ -1526,6 +1526,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 if (schema.items != null) {
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.items));
                 }
+                if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
+                    imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
+                    imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
+                }
             }
         }
         return imports;
