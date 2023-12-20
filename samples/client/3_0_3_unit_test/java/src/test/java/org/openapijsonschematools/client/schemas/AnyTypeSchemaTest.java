@@ -1,10 +1,10 @@
 package org.openapijsonschematools.client.schemas;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 
@@ -19,10 +19,16 @@ public class AnyTypeSchemaTest {
     static final AnyTypeJsonSchema schema = AnyTypeJsonSchema.getInstance();
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
+    }
+
     @Test
     public void testValidateNull() {
         Void validatedValue = schema.validate((Void) null, configuration);
-        Assert.assertNull(validatedValue);
+        assertNull(validatedValue);
     }
 
     @Test
