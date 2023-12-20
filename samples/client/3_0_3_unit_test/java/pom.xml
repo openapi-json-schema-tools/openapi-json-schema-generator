@@ -234,7 +234,7 @@
             <version>${swagger-annotations-version}</version>
         </dependency>
 
-        <!-- @NonNull / @Nullable annotations -->
+        <!-- @Nullable annotations -->
         <dependency>
             <groupId>org.checkerframework</groupId>
             <artifactId>checker-qual</artifactId>

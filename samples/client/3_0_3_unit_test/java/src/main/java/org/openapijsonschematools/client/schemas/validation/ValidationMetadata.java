@@ -1,6 +1,5 @@
 package org.openapijsonschematools.client.schemas.validation;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import java.util.List;
@@ -10,7 +9,7 @@ import java.util.Set;
 public record ValidationMetadata(
         List<Object> pathToItem,
         SchemaConfiguration configuration,
-        @NonNull PathToSchemasMap validatedPathToSchemas,
+        PathToSchemasMap validatedPathToSchemas,
         Set<Class<?>> seenClasses
 ) {
 

@@ -213,7 +213,7 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -265,8 +265,8 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         }
     }    
     
-    public static class AdditionalpropertiesShouldNotLookInApplicatorsMap extends FrozenMap<@NonNull Boolean> {
-        protected AdditionalpropertiesShouldNotLookInApplicatorsMap(FrozenMap<@NonNull Boolean> m) {
+    public static class AdditionalpropertiesShouldNotLookInApplicatorsMap extends FrozenMap<Boolean> {
+        protected AdditionalpropertiesShouldNotLookInApplicatorsMap(FrozenMap<Boolean> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -430,13 +430,13 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
         
         @Override
         public AdditionalpropertiesShouldNotLookInApplicatorsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, @NonNull Boolean> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, Boolean> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -449,9 +449,9 @@ public class AdditionalpropertiesShouldNotLookInApplicators {
                 if (!(propertyInstance instanceof Boolean)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                properties.put(propertyName, (@NonNull Boolean) propertyInstance);
+                properties.put(propertyName, (Boolean) propertyInstance);
             }
-            FrozenMap<@NonNull Boolean> castProperties = new FrozenMap<>(properties);
+            FrozenMap<Boolean> castProperties = new FrozenMap<>(properties);
             return new AdditionalpropertiesShouldNotLookInApplicatorsMap(castProperties);
         }
         

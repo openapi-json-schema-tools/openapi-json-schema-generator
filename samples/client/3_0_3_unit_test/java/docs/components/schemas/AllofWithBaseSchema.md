@@ -193,7 +193,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
-| @NonNull String | foo()<br> |
+| String | foo()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo

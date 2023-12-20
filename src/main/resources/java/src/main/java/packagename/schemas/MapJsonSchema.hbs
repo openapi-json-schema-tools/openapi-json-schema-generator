@@ -10,7 +10,6 @@ import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.MapSchemaValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
@@ -46,7 +45,7 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Obje
             if (!(entryKey instanceof String)) {
                 throw new InvalidTypeException("Invalid non-string key value");
             }
-            @NonNull String propertyName = (@NonNull String) entryKey;
+            String propertyName = (String) entryKey;
             List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
             propertyPathToItem.add(propertyName);
             Object value = entry.getValue();

@@ -1,7 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
 import org.checkerframework.checker.nullness.qual.KeyFor;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 
@@ -37,7 +36,7 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
     }
 
     @Override
-    public @NonNull Set<Entry<@KeyFor("this") String, V>> entrySet() {
+    public Set<Entry<@KeyFor("this") String, V>> entrySet() {
         return  map.entrySet().stream()
                 .map(x -> new AbstractMap.SimpleEntry<>(x.getKey(), x.getValue()))
                 .collect(Collectors.toSet());

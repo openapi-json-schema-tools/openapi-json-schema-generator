@@ -52,14 +52,14 @@ public class NotMoreComplexSchema {
             return Not.getInstance().validate(arg, configuration);
         }
         
-        public @NonNull String foo() throws UnsetPropertyException {
+        public String foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
                         @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for foo");
             }
-            return (@NonNull String) value;
+            return (String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -99,7 +99,7 @@ public class NotMoreComplexSchema {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -284,7 +284,7 @@ public class NotMoreComplexSchema {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();

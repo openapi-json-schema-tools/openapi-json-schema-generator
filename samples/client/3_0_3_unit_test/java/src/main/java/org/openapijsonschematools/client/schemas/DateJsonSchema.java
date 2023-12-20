@@ -9,7 +9,6 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
@@ -39,12 +38,12 @@ public class DateJsonSchema extends JsonSchema implements StringSchemaValidator 
     }
 
     @Override
-    public @NonNull String getNewInstance(@NonNull String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         return arg;
     }
 
     @Override
-    public @NonNull String validate(@NonNull String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
         String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -54,7 +53,7 @@ public class DateJsonSchema extends JsonSchema implements StringSchemaValidator 
         return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
     }
 
-    public @NonNull String validate(@NonNull LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
+    public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
         return validate(arg.toString(), configuration);
     }
 

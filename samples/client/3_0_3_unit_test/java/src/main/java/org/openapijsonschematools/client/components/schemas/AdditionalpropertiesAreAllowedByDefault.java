@@ -226,7 +226,7 @@ public class AdditionalpropertiesAreAllowedByDefault {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();

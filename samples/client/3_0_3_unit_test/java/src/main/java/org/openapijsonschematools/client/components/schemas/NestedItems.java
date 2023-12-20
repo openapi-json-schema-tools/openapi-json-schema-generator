@@ -28,8 +28,8 @@ public class NestedItems {
     public static class Items3 extends NumberJsonSchema {}
     
     
-    public static class ItemsList extends FrozenList<@NonNull Number> {
-        protected ItemsList(FrozenList<@NonNull Number> m) {
+    public static class ItemsList extends FrozenList<Number> {
+        protected ItemsList(FrozenList<Number> m) {
             super(m);
         }
         public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -61,7 +61,7 @@ public class NestedItems {
         
         @Override
         public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<@NonNull Number> items = new ArrayList<>();
+            List<Number> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -75,10 +75,10 @@ public class NestedItems {
                 if (!(itemInstance instanceof Number)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((@NonNull Number) itemInstance);
+                items.add((Number) itemInstance);
                 i += 1;
             }
-            FrozenList<@NonNull Number> newInstanceItems = new FrozenList<>(items);
+            FrozenList<Number> newInstanceItems = new FrozenList<>(items);
             return new ItemsList(newInstanceItems);
         }
         
@@ -102,8 +102,8 @@ public class NestedItems {
         }
     }    
     
-    public static class ItemsList1 extends FrozenList<@NonNull ItemsList> {
-        protected ItemsList1(FrozenList<@NonNull ItemsList> m) {
+    public static class ItemsList1 extends FrozenList<ItemsList> {
+        protected ItemsList1(FrozenList<ItemsList> m) {
             super(m);
         }
         public static ItemsList1 of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -135,7 +135,7 @@ public class NestedItems {
         
         @Override
         public ItemsList1 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<@NonNull ItemsList> items = new ArrayList<>();
+            List<ItemsList> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -149,10 +149,10 @@ public class NestedItems {
                 if (!(itemInstance instanceof ItemsList)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((@NonNull ItemsList) itemInstance);
+                items.add((ItemsList) itemInstance);
                 i += 1;
             }
-            FrozenList<@NonNull ItemsList> newInstanceItems = new FrozenList<>(items);
+            FrozenList<ItemsList> newInstanceItems = new FrozenList<>(items);
             return new ItemsList1(newInstanceItems);
         }
         
@@ -176,8 +176,8 @@ public class NestedItems {
         }
     }    
     
-    public static class ItemsList2 extends FrozenList<@NonNull ItemsList1> {
-        protected ItemsList2(FrozenList<@NonNull ItemsList1> m) {
+    public static class ItemsList2 extends FrozenList<ItemsList1> {
+        protected ItemsList2(FrozenList<ItemsList1> m) {
             super(m);
         }
         public static ItemsList2 of(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -209,7 +209,7 @@ public class NestedItems {
         
         @Override
         public ItemsList2 getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<@NonNull ItemsList1> items = new ArrayList<>();
+            List<ItemsList1> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -223,10 +223,10 @@ public class NestedItems {
                 if (!(itemInstance instanceof ItemsList1)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((@NonNull ItemsList1) itemInstance);
+                items.add((ItemsList1) itemInstance);
                 i += 1;
             }
-            FrozenList<@NonNull ItemsList1> newInstanceItems = new FrozenList<>(items);
+            FrozenList<ItemsList1> newInstanceItems = new FrozenList<>(items);
             return new ItemsList2(newInstanceItems);
         }
         
@@ -250,8 +250,8 @@ public class NestedItems {
         }
     }    
     
-    public static class NestedItemsList extends FrozenList<@NonNull ItemsList2> {
-        protected NestedItemsList(FrozenList<@NonNull ItemsList2> m) {
+    public static class NestedItemsList extends FrozenList<ItemsList2> {
+        protected NestedItemsList(FrozenList<ItemsList2> m) {
             super(m);
         }
         public static NestedItemsList of(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -289,7 +289,7 @@ public class NestedItems {
         
         @Override
         public NestedItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<@NonNull ItemsList2> items = new ArrayList<>();
+            List<ItemsList2> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -303,10 +303,10 @@ public class NestedItems {
                 if (!(itemInstance instanceof ItemsList2)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((@NonNull ItemsList2) itemInstance);
+                items.add((ItemsList2) itemInstance);
                 i += 1;
             }
-            FrozenList<@NonNull ItemsList2> newInstanceItems = new FrozenList<>(items);
+            FrozenList<ItemsList2> newInstanceItems = new FrozenList<>(items);
             return new NestedItemsList(newInstanceItems);
         }
         

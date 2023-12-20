@@ -54,12 +54,12 @@ public class AllofWithBaseSchema {
             return Schema0.getInstance().validate(arg, configuration);
         }
         
-        public @NonNull String foo() {
+        public String foo() {
                         @Nullable Object value = get("foo");
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for foo");
             }
-            return (@NonNull String) value;
+            return (String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -216,7 +216,7 @@ public class AllofWithBaseSchema {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -445,7 +445,7 @@ public class AllofWithBaseSchema {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
@@ -684,7 +684,7 @@ public class AllofWithBaseSchema {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();

@@ -109,7 +109,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [NotMap](#notmap) | of([Map<String, Object>](#notmapinput) arg, SchemaConfiguration configuration) |
-| @NonNull String | foo()<br>[optional] |
+| String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo

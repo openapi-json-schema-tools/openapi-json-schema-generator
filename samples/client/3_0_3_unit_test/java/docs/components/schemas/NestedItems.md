@@ -87,7 +87,7 @@ List<List<List<Number>>> |  |
 
 ## NestedItemsList
 public class NestedItemsList<br>
-extends `FrozenList<@NonNull ItemsList2>`
+extends `FrozenList<ItemsList2>`
 
 A class to store validated List payloads
 
@@ -155,7 +155,7 @@ List<List<Number>> |  |
 
 ## ItemsList2
 public class ItemsList2<br>
-extends `FrozenList<@NonNull ItemsList1>`
+extends `FrozenList<ItemsList1>`
 
 A class to store validated List payloads
 
@@ -221,7 +221,7 @@ List<Number> |  |
 
 ## ItemsList1
 public class ItemsList1<br>
-extends `FrozenList<@NonNull ItemsList>`
+extends `FrozenList<ItemsList>`
 
 A class to store validated List payloads
 
@@ -285,7 +285,7 @@ Number |  |
 
 ## ItemsList
 public class ItemsList<br>
-extends `FrozenList<@NonNull Number>`
+extends `FrozenList<Number>`
 
 A class to store validated List payloads
 

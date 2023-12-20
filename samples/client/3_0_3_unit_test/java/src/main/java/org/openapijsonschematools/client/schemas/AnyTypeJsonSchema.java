@@ -16,7 +16,6 @@ import org.openapijsonschematools.client.schemas.validation.StringSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
@@ -165,7 +164,7 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
             if (!(entryKey instanceof String)) {
                 throw new InvalidTypeException("Invalid non-string key value");
             }
-            @NonNull String propertyName = (@NonNull String) entryKey;
+            String propertyName = (String) entryKey;
             List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
             propertyPathToItem.add(propertyName);
             Object value = entry.getValue();

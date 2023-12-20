@@ -67,14 +67,14 @@ public class ObjectPropertiesValidation {
             return (long) value;
         }
         
-        public @NonNull String bar() throws UnsetPropertyException {
+        public String bar() throws UnsetPropertyException {
             String key = "bar";
             throwIfKeyNotPresent(key);
                         @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for bar");
             }
-            return (@NonNull String) value;
+            return (String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -235,7 +235,7 @@ public class ObjectPropertiesValidation {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();

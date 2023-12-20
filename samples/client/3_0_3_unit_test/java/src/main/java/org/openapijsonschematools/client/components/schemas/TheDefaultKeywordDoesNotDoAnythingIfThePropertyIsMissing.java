@@ -97,14 +97,14 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance().validate(arg, configuration);
         }
         
-        public @NonNull Number alpha() throws UnsetPropertyException {
+        public Number alpha() throws UnsetPropertyException {
             String key = "alpha";
             throwIfKeyNotPresent(key);
                         @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for alpha");
             }
-            return (@NonNull Number) value;
+            return (Number) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -150,7 +150,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
                 if (!(entryKey instanceof String)) {
                     throw new InvalidTypeException("Invalid non-string key value");
                 }
-                @NonNull String propertyName = (@NonNull String) entryKey;
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();

@@ -59,7 +59,7 @@ A class that builds the Map input type
 
 ## AdditionalpropertiesShouldNotLookInApplicatorsMap
 public static class AdditionalpropertiesShouldNotLookInApplicatorsMap<br>
-extends FrozenMap<String, @NonNull Boolean>
+extends FrozenMap<String, Boolean>
 
 A class to store validated Map payloads
 

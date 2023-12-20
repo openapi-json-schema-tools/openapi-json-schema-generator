@@ -2,7 +2,6 @@ package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.exceptions.InvalidTypeException;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
@@ -42,7 +41,7 @@ public abstract class JsonSchema {
     public final @Nullable Boolean uniqueItems;
     public final @Nullable Set<@Nullable Object> enumValues;
     public final @Nullable Pattern pattern;
-    private final @NonNull LinkedHashMap<String, KeywordValidator> keywordToValidator;
+    private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
         LinkedHashMap<String, KeywordValidator> keywordToValidator = new LinkedHashMap<>();
@@ -296,7 +295,7 @@ public abstract class JsonSchema {
             if (!(entryKey instanceof String)) {
                 throw new InvalidTypeException("Invalid non-string key value");
             }
-            @NonNull String key = (@NonNull String) entryKey;
+            String key = (String) entryKey;
             Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);
