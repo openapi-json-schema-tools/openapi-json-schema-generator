@@ -68,7 +68,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             throwIfKeyNotPresent(name);
                         @Nullable Object value = get(name);
             if (!(value instanceof Boolean)) {
-                throw new RuntimeException("Invalid value stored for " + name);
+                throw new InvalidTypeException("Invalid value stored for " + name);
             }
             return (boolean) value;
         }
@@ -110,7 +110,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 @NonNull String propertyName = (@NonNull String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -118,12 +118,12 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 properties.put(propertyName, (@Nullable Object) propertyInstance);
             }

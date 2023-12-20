@@ -57,7 +57,7 @@ public class AllofWithBaseSchema {
         public @NonNull String foo() {
                         @Nullable Object value = get("foo");
             if (!(value instanceof String)) {
-                throw new RuntimeException("Invalid value stored for foo");
+                throw new InvalidTypeException("Invalid value stored for foo");
             }
             return (@NonNull String) value;
         }
@@ -183,12 +183,12 @@ public class AllofWithBaseSchema {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((@Nullable Object) itemInstance);
                 i += 1;
@@ -214,7 +214,7 @@ public class AllofWithBaseSchema {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 @NonNull String propertyName = (@NonNull String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -222,12 +222,12 @@ public class AllofWithBaseSchema {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 properties.put(propertyName, (@Nullable Object) propertyInstance);
             }
@@ -286,7 +286,7 @@ public class AllofWithBaseSchema {
         public Void baz() {
                         @Nullable Object value = get("baz");
             if (!(value instanceof Void)) {
-                throw new RuntimeException("Invalid value stored for baz");
+                throw new InvalidTypeException("Invalid value stored for baz");
             }
             return (Void) value;
         }
@@ -412,12 +412,12 @@ public class AllofWithBaseSchema {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((@Nullable Object) itemInstance);
                 i += 1;
@@ -443,7 +443,7 @@ public class AllofWithBaseSchema {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 @NonNull String propertyName = (@NonNull String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -451,12 +451,12 @@ public class AllofWithBaseSchema {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 properties.put(propertyName, (@Nullable Object) propertyInstance);
             }
@@ -515,7 +515,7 @@ public class AllofWithBaseSchema {
         public long bar() {
                         @Nullable Object value = get("bar");
             if (!(value instanceof Long)) {
-                throw new RuntimeException("Invalid value stored for bar");
+                throw new InvalidTypeException("Invalid value stored for bar");
             }
             return (long) value;
         }
@@ -651,12 +651,12 @@ public class AllofWithBaseSchema {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((@Nullable Object) itemInstance);
                 i += 1;
@@ -682,7 +682,7 @@ public class AllofWithBaseSchema {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 @NonNull String propertyName = (@NonNull String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -690,12 +690,12 @@ public class AllofWithBaseSchema {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 properties.put(propertyName, (@Nullable Object) propertyInstance);
             }

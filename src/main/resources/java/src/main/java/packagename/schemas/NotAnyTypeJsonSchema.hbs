@@ -136,7 +136,7 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
             itemPathToItem.add(i);
             LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
             if (schemas == null) {
-                throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
             }
             JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
             @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
@@ -165,7 +165,7 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
         for(Map.Entry<?, ?> entry: arg.entrySet()) {
             @Nullable Object entryKey = entry.getKey();
             if (!(entryKey instanceof String)) {
-                throw new RuntimeException("Invalid non-string key value");
+                throw new InvalidTypeException("Invalid non-string key value");
             }
             @NonNull String propertyName = (@NonNull String) entryKey;
             List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -173,7 +173,7 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
             Object value = entry.getValue();
             LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
             if (schemas == null) {
-                throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
             }
             JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
             @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);

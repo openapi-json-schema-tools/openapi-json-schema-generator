@@ -51,11 +51,9 @@ public class RefInProperty {
         public @Nullable Object a() throws UnsetPropertyException {
             String key = "a";
             throwIfKeyNotPresent(key);
-            // mapValueSchema.typeSchema CodegenSchema{, description&#x3D;&#x27;null&#x27;, jsonPathPiece&#x3D;&#x27;null&#x27;, defaultValue&#x3D;&#x27;null&#x27;, title&#x3D;&#x27;null&#x27;, maxLength&#x3D;null, minLength&#x3D;null, patternInfo&#x3D;&#x27;null&#x27;, example&#x3D;&#x27;null&#x27;, minimum&#x3D;&#x27;null&#x27;, maximum&#x3D;&#x27;null&#x27;, exclusiveMinimum&#x3D;null, exclusiveMaximum&#x3D;null, deprecated&#x3D;null, types&#x3D;null, readOnly&#x3D;null, writeOnly&#x3D;null, nullable&#x3D;null, allowableValues&#x3D;null, items&#x3D;null, additionalProperties&#x3D;null, vendorExtensions&#x3D;null, hasValidation&#x3D;false, maxItems&#x3D;null, minItems&#x3D;null, maxProperties&#x3D;null, minProperties&#x3D;null, uniqueItems&#x3D;null, multipleOf&#x3D;null, xml&#x3D;null, requiredProperties&#x3D;null, optionalProperties&#x3D;null, properties&#x3D;null, refInfo&#x3D;null, schemaIsFromAdditionalProperties&#x3D;false, isBooleanSchemaTrue&#x3D;false, isBooleanSchemaFalse&#x3D;false, format&#x3D;null, dependentRequired&#x3D;null, contains&#x3D;null, allOf&#x3D;null, anyOf&#x3D;null, oneOf&#x3D;null, not&#x3D;null, externalDocumentation&#x3D;null, discriminator&#x3D;null, imports&#x3D;null, componentModule&#x3D;false, testCases&#x3D;{}, instanceType&#x3D;null, jsonPath&#x3D;null, arrayOutputJsonPathPiece&#x3D;null}
-            // typeSchema CodegenSchema{, description&#x3D;&#x27;null&#x27;, jsonPathPiece&#x3D;&#x27;null&#x27;, defaultValue&#x3D;&#x27;null&#x27;, title&#x3D;&#x27;null&#x27;, maxLength&#x3D;null, minLength&#x3D;null, patternInfo&#x3D;&#x27;null&#x27;, example&#x3D;&#x27;null&#x27;, minimum&#x3D;&#x27;null&#x27;, maximum&#x3D;&#x27;null&#x27;, exclusiveMinimum&#x3D;null, exclusiveMaximum&#x3D;null, deprecated&#x3D;null, types&#x3D;null, readOnly&#x3D;null, writeOnly&#x3D;null, nullable&#x3D;null, allowableValues&#x3D;null, items&#x3D;null, additionalProperties&#x3D;null, vendorExtensions&#x3D;null, hasValidation&#x3D;false, maxItems&#x3D;null, minItems&#x3D;null, maxProperties&#x3D;null, minProperties&#x3D;null, uniqueItems&#x3D;null, multipleOf&#x3D;null, xml&#x3D;null, requiredProperties&#x3D;null, optionalProperties&#x3D;null, properties&#x3D;null, refInfo&#x3D;CodegenRefInfo{refModule&#x3D;PropertyNamedRefThatIsNotAReference, refClass&#x3D;PropertyNamedRefThatIsNotAReference1, refModuleLocation&#x3D;org.openapijsonschematools.client.components.schemas, refModuleAlias&#x3D;null}, schemaIsFromAdditionalProperties&#x3D;false, isBooleanSchemaTrue&#x3D;false, isBooleanSchemaFalse&#x3D;false, format&#x3D;null, dependentRequired&#x3D;null, contains&#x3D;null, allOf&#x3D;null, anyOf&#x3D;null, oneOf&#x3D;null, not&#x3D;null, externalDocumentation&#x3D;null, discriminator&#x3D;null, imports&#x3D;null, componentModule&#x3D;false, testCases&#x3D;{}, instanceType&#x3D;null, jsonPath&#x3D;null, arrayOutputJsonPathPiece&#x3D;null}
-            @Nullable Object value = get(key);
+                        @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
-                throw new RuntimeException("Invalid value stored for a");
+                throw new InvalidTypeException("Invalid value stored for a");
             }
             return (@Nullable Object) value;
         }
@@ -184,12 +182,12 @@ public class RefInProperty {
                 itemPathToItem.add(i);
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
                 if (!(itemInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((@Nullable Object) itemInstance);
                 i += 1;
@@ -215,7 +213,7 @@ public class RefInProperty {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 @NonNull String propertyName = (@NonNull String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -223,12 +221,12 @@ public class RefInProperty {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Object)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 properties.put(propertyName, (@Nullable Object) propertyInstance);
             }

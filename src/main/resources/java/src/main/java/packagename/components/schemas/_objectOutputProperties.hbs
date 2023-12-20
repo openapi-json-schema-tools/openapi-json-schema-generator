@@ -56,11 +56,19 @@ public {{> src/main/java/packagename/components/schemas/types/schema_output_type
             {{/or}}
     throwIfKeyNotPresent(name);
             {{#and ../../mapValueSchema (eq typeSchema ../../mapValueSchema.typeSchema) }}
+                {{#and (neq types null) (eq types.size 1) (contains types "boolean") }}
+    Boolean value = get(name);
+    if (value == null) {
+        throw new InvalidTypeException("Value may not be null");
+    }
+    return (boolean) value;
+                {{else}}
     return get(name);
+                {{/and}}
             {{else}}
     {{#with ../../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get(name);
     if (!(value instanceof {{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
-        throw new RuntimeException("Invalid value stored for " + name);
+        throw new InvalidTypeException("Invalid value stored for " + name);
     }
     return ({{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;
             {{/and}}

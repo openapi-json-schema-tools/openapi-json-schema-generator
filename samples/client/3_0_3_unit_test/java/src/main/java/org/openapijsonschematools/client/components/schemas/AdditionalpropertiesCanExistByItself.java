@@ -42,7 +42,11 @@ public class AdditionalpropertiesCanExistByItself {
         
         public boolean getAdditionalProperty(String name) throws UnsetPropertyException {
             throwIfKeyNotPresent(name);
-            return get(name);
+            Boolean value = get(name);
+            if (value == null) {
+                throw new InvalidTypeException("Value may not be null");
+            }
+            return (boolean) value;
         }
     }
     public static class AdditionalpropertiesCanExistByItselfMapInput {
@@ -78,7 +82,7 @@ public class AdditionalpropertiesCanExistByItself {
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
-                    throw new RuntimeException("Invalid non-string key value");
+                    throw new InvalidTypeException("Invalid non-string key value");
                 }
                 @NonNull String propertyName = (@NonNull String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
@@ -86,12 +90,12 @@ public class AdditionalpropertiesCanExistByItself {
                 Object value = entry.getValue();
                 LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
                 if (schemas == null) {
-                    throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
                 if (!(propertyInstance instanceof Boolean)) {
-                    throw new RuntimeException("Invalid instantiated value");
+                    throw new InvalidTypeException("Invalid instantiated value");
                 }
                 properties.put(propertyName, (@NonNull Boolean) propertyInstance);
             }

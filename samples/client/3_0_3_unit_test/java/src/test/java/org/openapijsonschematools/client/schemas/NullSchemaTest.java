@@ -25,6 +25,7 @@ public class NullSchemaTest {
 
 
     @Test
+    @SuppressWarnings("nullness")
     public void testValidateNull() {
         Void validatedValue = nullJsonSchema.validate(null, configuration);
         Assert.assertNull(validatedValue);

@@ -4,7 +4,7 @@ return get("{{{@key.original}}}");
     {{else}}
 {{#with ../../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get("{{{@key.original}}}");
 if (!(value instanceof {{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
-    throw new RuntimeException("Invalid value stored for {{{@key.original}}}");
+    throw new InvalidTypeException("Invalid value stored for {{{@key.original}}}");
 }
 return ({{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;
     {{/and}}
@@ -16,7 +16,7 @@ return get(key);
     {{else}}
 {{#with ../../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get(key);
 if (!(value instanceof {{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
-    throw new RuntimeException("Invalid value stored for {{{@key.original}}}");
+    throw new InvalidTypeException("Invalid value stored for {{{@key.original}}}");
 }
 return ({{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;
     {{/and}}

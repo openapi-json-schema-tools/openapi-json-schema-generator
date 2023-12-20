@@ -294,7 +294,7 @@ public abstract class JsonSchema {
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
             @Nullable Object entryKey = entry.getKey();
             if (!(entryKey instanceof String)) {
-                throw new RuntimeException("Invalid non-string key value");
+                throw new InvalidTypeException("Invalid non-string key value");
             }
             @NonNull String key = (@NonNull String) entryKey;
             Object val = entry.getValue();

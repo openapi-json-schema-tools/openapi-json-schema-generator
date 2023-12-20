@@ -45,7 +45,7 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Ob
             itemPathToItem.add(i);
             LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
             if (schemas == null) {
-                throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
+                throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
             }
             JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
             @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
