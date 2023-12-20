@@ -1,5 +1,6 @@
 package {{{packageName}}}.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Set;
 
 class SomeSchema extends JsonSchema {
-    private static SomeSchema instance;
+    private static @Nullable SomeSchema instance = null;
     protected SomeSchema() {
         super(new JsonSchemaInfo()
             .type(Set.of(String.class))
@@ -28,11 +29,11 @@ class SomeSchema extends JsonSchema {
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof String) {
             return arg;
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }
 
