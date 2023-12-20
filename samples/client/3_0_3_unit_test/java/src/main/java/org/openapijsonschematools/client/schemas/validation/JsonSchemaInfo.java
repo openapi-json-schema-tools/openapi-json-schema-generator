@@ -119,8 +119,8 @@ public class JsonSchemaInfo {
         this.uniqueItems = uniqueItems;
         return this;
     }
-    public @Nullable Set<Object> enumValues = null;
-    public JsonSchemaInfo enumValues(@NonNull Set<Object> enumValues) {
+    public @Nullable Set<@Nullable Object> enumValues = null;
+    public JsonSchemaInfo enumValues(@NonNull Set<@Nullable Object> enumValues) {
         this.enumValues = enumValues;
         return this;
     }

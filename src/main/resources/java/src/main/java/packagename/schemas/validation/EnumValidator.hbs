@@ -7,9 +7,9 @@ import java.math.BigDecimal;
 import java.util.Set;
 
 public class EnumValidator implements KeywordValidator {
-    public final Set<Object> enumValues;
+    public final Set<@Nullable Object> enumValues;
 
-    public EnumValidator(Set<Object> enumValues) {
+    public EnumValidator(Set<@Nullable Object> enumValues) {
         this.enumValues = enumValues;
     }
 

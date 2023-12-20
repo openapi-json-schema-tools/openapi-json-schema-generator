@@ -40,7 +40,7 @@ public abstract class JsonSchema {
     public final @Nullable List<Class<? extends JsonSchema>> oneOf;
     public final @Nullable Class<? extends JsonSchema> not;
     public final @Nullable Boolean uniqueItems;
-    public final @Nullable Set<Object> enumValues;
+    public final @Nullable Set<@Nullable Object> enumValues;
     public final @Nullable Pattern pattern;
     private final @NonNull LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
