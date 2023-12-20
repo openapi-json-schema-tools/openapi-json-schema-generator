@@ -13,12 +13,17 @@ public class EnumValidator implements KeywordValidator {
         this.enumValues = enumValues;
     }
 
+    @SuppressWarnings("nullness")
+    private boolean enumContainsArg(@Nullable Object arg){
+        return enumValues.contains(arg);
+    }
+
     @Override
     public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (enumValues.isEmpty()) {
             throw new ValidationException("No value can match enum because enum is empty");
         }
-        if (enumValues.contains(arg)) {
+        if (enumContainsArg(arg)) {
             return null;
         }
         if (arg instanceof Float) {
