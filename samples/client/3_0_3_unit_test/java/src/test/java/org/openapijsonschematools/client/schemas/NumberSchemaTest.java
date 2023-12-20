@@ -5,14 +5,22 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.JsonSchemaFactory;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
-import java.math.BigDecimal;
+import java.util.LinkedHashSet;
+import java.util.List;
 
 public class NumberSchemaTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
     static final NumberJsonSchema numberJsonSchema = NumberJsonSchema.getInstance();
+    static final ValidationMetadata validationMetadata = new ValidationMetadata(
+            List.of("args[0"),
+            configuration,
+            new PathToSchemasMap(),
+            new LinkedHashSet<>()
+    );
 
     @Test
     public void testValidateInteger() {
@@ -40,8 +48,10 @@ public class NumberSchemaTest {
 
     @Test
     public void testExceptionThrownForInvalidType() {
-        Assert.assertThrows(ValidationException.class, () -> numberJsonSchema.validate(
-                null, configuration
+        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
+                numberJsonSchema,
+                null,
+                validationMetadata
         ));
     }
 }
