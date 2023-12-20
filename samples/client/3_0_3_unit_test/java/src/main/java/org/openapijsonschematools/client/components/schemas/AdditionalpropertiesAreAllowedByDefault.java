@@ -232,8 +232,11 @@ public class AdditionalpropertiesAreAllowedByDefault {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                @Nullable Object castValue = (@Nullable Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                if (!(propertyInstance instanceof Object)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                properties.put(propertyName, (@Nullable Object) propertyInstance);
             }
             FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new AdditionalpropertiesAreAllowedByDefaultMap(castProperties);

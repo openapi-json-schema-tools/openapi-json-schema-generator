@@ -89,8 +89,11 @@ public class AdditionalpropertiesCanExistByItself {
                     throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-                @NonNull Boolean castValue = (@NonNull Boolean) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                if (!(propertyInstance instanceof Boolean)) {
+                    throw new RuntimeException("Invalid instantiated value");
+                }
+                properties.put(propertyName, (@NonNull Boolean) propertyInstance);
             }
             FrozenMap<@NonNull Boolean> castProperties = new FrozenMap<>(properties);
             return new AdditionalpropertiesCanExistByItselfMap(castProperties);

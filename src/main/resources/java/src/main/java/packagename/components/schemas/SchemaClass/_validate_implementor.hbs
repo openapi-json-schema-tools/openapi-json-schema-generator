@@ -31,8 +31,11 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
             throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
         }
         JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-        {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}} castValue = ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-        properties.put(propertyName, castValue);
+        @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+        if (!(propertyInstance instanceof {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+            throw new RuntimeException("Invalid instantiated value");
+        }
+        properties.put(propertyName, ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
     }
     FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> castProperties = new FrozenMap<>(properties);
             {{#if ../mapOutputJsonPathPiece}}
@@ -358,8 +361,11 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
             throw new RuntimeException("Validation result is invalid, schemas must exist for a pathToItem");
         }
         JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
-        {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}} castValue = ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-        properties.put(propertyName, castValue);
+        @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+        if (!(propertyInstance instanceof {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+            throw new RuntimeException("Invalid instantiated value");
+        }
+        properties.put(propertyName, ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
     }
     FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> castProperties = new FrozenMap<>(properties);
             {{#if ../mapOutputJsonPathPiece}}
