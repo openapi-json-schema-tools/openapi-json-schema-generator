@@ -293,12 +293,10 @@ public abstract class JsonSchema {
         LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
             @Nullable Object entryKey = entry.getKey();
-            @NonNull String key;
-            if (entryKey instanceof String) {
-                key = (@NonNull String) entryKey;
-            } else {
+            if (!(entryKey instanceof String)) {
                 throw new RuntimeException("Invalid non-string key value");
             }
+            @NonNull String key = (@NonNull String) entryKey;
             Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);

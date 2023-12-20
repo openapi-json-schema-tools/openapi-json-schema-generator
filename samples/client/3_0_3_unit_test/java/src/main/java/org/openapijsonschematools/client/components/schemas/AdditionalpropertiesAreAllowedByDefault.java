@@ -220,12 +220,10 @@ public class AdditionalpropertiesAreAllowedByDefault {
             LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
-                @NonNull String propertyName;
-                if (entryKey instanceof String) {
-                    propertyName = (@NonNull String) entryKey;
-                } else {
+                if (!(entryKey instanceof String)) {
                     throw new RuntimeException("Invalid non-string key value");
                 }
+                @NonNull String propertyName = (@NonNull String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
