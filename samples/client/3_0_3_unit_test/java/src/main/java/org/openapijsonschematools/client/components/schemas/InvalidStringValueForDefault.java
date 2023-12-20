@@ -90,7 +90,11 @@ public class InvalidStringValueForDefault {
         public String bar() throws UnsetPropertyException {
             String key = "bar";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new RuntimeException("Invalid value stored for bar");
+            }
+            return (String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

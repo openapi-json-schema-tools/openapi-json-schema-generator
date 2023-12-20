@@ -60,13 +60,21 @@ public class ObjectPropertiesValidation {
         public long foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Long)) {
+                throw new RuntimeException("Invalid value stored for foo");
+            }
+            return (long) value;
         }
         
         public String bar() throws UnsetPropertyException {
             String key = "bar";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new RuntimeException("Invalid value stored for bar");
+            }
+            return (String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

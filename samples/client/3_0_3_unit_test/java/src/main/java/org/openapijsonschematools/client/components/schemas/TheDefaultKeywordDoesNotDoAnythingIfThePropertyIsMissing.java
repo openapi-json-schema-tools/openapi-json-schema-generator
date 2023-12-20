@@ -100,7 +100,11 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
         public Number alpha() throws UnsetPropertyException {
             String key = "alpha";
             throwIfKeyNotPresent(key);
-            return (Number) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Number)) {
+                throw new RuntimeException("Invalid value stored for alpha");
+            }
+            return (Number) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

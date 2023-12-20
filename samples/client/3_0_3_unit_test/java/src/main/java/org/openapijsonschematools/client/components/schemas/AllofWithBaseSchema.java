@@ -55,7 +55,11 @@ public class AllofWithBaseSchema {
         }
         
         public String foo() {
-            return (String) get("foo");
+                        @Nullable Object value = get("foo");
+            if (!(value instanceof String)) {
+                throw new RuntimeException("Invalid value stored for foo");
+            }
+            return (String) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -276,7 +280,11 @@ public class AllofWithBaseSchema {
         }
         
         public Void baz() {
-            return (Void) get("baz");
+                        @Nullable Object value = get("baz");
+            if (!(value instanceof Void)) {
+                throw new RuntimeException("Invalid value stored for baz");
+            }
+            return (Void) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -497,7 +505,11 @@ public class AllofWithBaseSchema {
         }
         
         public long bar() {
-            return (long) get("bar");
+                        @Nullable Object value = get("bar");
+            if (!(value instanceof Long)) {
+                throw new RuntimeException("Invalid value stored for bar");
+            }
+            return (long) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

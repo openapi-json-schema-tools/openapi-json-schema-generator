@@ -51,7 +51,11 @@ public class RefInProperty {
         public @Nullable Object a() throws UnsetPropertyException {
             String key = "a";
             throwIfKeyNotPresent(key);
-            return (@Nullable Object) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof @Nullable Object)) {
+                throw new RuntimeException("Invalid value stored for a");
+            }
+            return (@Nullable Object) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
