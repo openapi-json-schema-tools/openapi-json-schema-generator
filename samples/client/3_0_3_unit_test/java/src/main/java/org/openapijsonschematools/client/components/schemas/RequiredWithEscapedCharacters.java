@@ -50,7 +50,7 @@ public class RequiredWithEscapedCharacters {
             return RequiredWithEscapedCharacters1.getInstance().validate(arg, configuration);
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);

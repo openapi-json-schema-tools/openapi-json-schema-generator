@@ -14,7 +14,9 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -46,15 +48,15 @@ public class OneofWithRequired {
             return Schema0.getInstance().validate(arg, configuration);
         }
         
-        public Object bar() {
+        public @Nullable Object bar() {
             return get("bar");
         }
         
-        public Object foo() {
+        public @Nullable Object foo() {
             return get("foo");
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -267,15 +269,15 @@ public class OneofWithRequired {
             return Schema1.getInstance().validate(arg, configuration);
         }
         
-        public Object baz() {
+        public @Nullable Object baz() {
             return get("baz");
         }
         
-        public Object foo() {
+        public @Nullable Object foo() {
             return get("foo");
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);

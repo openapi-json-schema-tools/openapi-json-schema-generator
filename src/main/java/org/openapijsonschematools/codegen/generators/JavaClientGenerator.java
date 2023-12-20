@@ -1548,6 +1548,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             imports.add("import "+packageName + ".schemas.validation.PropertyEntry;");
             imports.add("import java.util.Map;");
             imports.add("import java.util.Set;");
+            imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
         }
     }
 
@@ -1627,6 +1628,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
+        if (schema.additionalProperties == null || !schema.additionalProperties.isBooleanSchemaFalse) {
+            imports.add("import "+packageName + ".exceptions.UnsetPropertyException;");
+            imports.add("import "+packageName + ".exceptions.InvalidAdditionalPropertyException;");
+        }
     }
 
     private void addListSchemaImports(Set<String> imports, CodegenSchema schema) {

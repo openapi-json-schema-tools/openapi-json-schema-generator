@@ -16,7 +16,7 @@ public {{> src/main/java/packagename/components/schemas/types/schema_output_type
                 {{else}}
                     {{! for when additionalProperties is unset, use OUTPUT_BASE_TYPES }}
 
-public Object {{@key.original}}() {
+public @Nullable Object {{@key.original}}() {
     {{> src/main/java/packagename/components/schemas/_objectOutputGetProperty required=true }}
 }
                 {{/if}}
@@ -30,7 +30,7 @@ public Object {{@key.original}}() {
         {{#if @key.isValid}}
         {{#with this}}
 
-public {{> src/main/java/packagename/components/schemas/types/schema_output_type }} {{{@key.original}}}() {
+public {{> src/main/java/packagename/components/schemas/types/schema_output_type }} {{{@key.original}}}() throws UnsetPropertyException {
     {{> src/main/java/packagename/components/schemas/_objectOutputGetProperty required=false }}
 }
         {{/with}}
@@ -39,7 +39,7 @@ public {{> src/main/java/packagename/components/schemas/types/schema_output_type
 {{/if}}
 {{#eq additionalProperties null }}
 
-public Object getAdditionalProperty(String name) {
+public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
     {{#or optionalProperties requiredProperties}}
     throwIfKeyKnown(name, requiredKeys, optionalKeys);
     {{/or}}

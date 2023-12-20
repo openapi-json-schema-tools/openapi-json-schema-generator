@@ -11,7 +11,9 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
@@ -49,13 +51,13 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
             return AdditionalpropertiesAllowsASchemaWhichShouldValidate1.getInstance().validate(arg, configuration);
         }
         
-        public @Nullable Object foo() {
+        public @Nullable Object foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
             return get(key);
         }
         
-        public @Nullable Object bar() {
+        public @Nullable Object bar() throws UnsetPropertyException {
             String key = "bar";
             throwIfKeyNotPresent(key);
             return get(key);
