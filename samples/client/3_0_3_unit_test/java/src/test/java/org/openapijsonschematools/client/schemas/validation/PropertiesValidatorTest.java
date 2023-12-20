@@ -44,15 +44,12 @@ public class PropertiesValidatorTest {
                 arg,
                 validationMetadata
         );
-        if (pathToSchemas == null) {
-            throw new RuntimeException("Invalid null value for pathToSchemas for this test case");
-        }
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someString");
         LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.class), null);
-        PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
+        @Nullable PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
     }
@@ -103,3 +100,4 @@ public class PropertiesValidatorTest {
         ));
     }
 }
+
