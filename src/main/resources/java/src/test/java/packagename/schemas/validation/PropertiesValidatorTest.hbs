@@ -1,5 +1,6 @@
 package {{{packageName}}}.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
@@ -15,6 +16,12 @@ import java.util.List;
 import java.util.Map;
 
 public class PropertiesValidatorTest {
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
+    }
+
     @Test
     public void testCorrectPropertySucceeds() {
         Map<String, Class<? extends JsonSchema>> properties = new LinkedHashMap<>();
@@ -42,7 +49,7 @@ public class PropertiesValidatorTest {
         expectedPathToItem.add("someString");
         LinkedHashMap<JsonSchema, Void> expectedClasses = new LinkedHashMap<>();
         expectedClasses.put(JsonSchemaFactory.getInstance(StringJsonSchema.class), null);
-        PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
+        @Nullable PathToSchemasMap expectedPathToSchemas = new PathToSchemasMap();
         expectedPathToSchemas.put(expectedPathToItem, expectedClasses);
         Assert.assertEquals(pathToSchemas, expectedPathToSchemas);
     }
@@ -66,7 +73,7 @@ public class PropertiesValidatorTest {
                 1,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemas);
+        assertNull(pathToSchemas);
     }
 
     @Test
@@ -93,3 +100,4 @@ public class PropertiesValidatorTest {
         ));
     }
 }
+
