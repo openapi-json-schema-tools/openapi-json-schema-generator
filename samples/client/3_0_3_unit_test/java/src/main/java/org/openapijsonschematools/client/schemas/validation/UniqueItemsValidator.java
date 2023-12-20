@@ -22,8 +22,8 @@ public class UniqueItemsValidator implements KeywordValidator {
         if (!uniqueItems) {
             return null;
         }
-        Set<Object> seenItems = new HashSet<>();
-        for (Object item: (List<?>) arg) {
+        Set<@Nullable Object> seenItems = new HashSet<>();
+        for (@Nullable Object item: (List<?>) arg) {
             int startingSeenItemsSize = seenItems.size();
             seenItems.add(item);
             if (seenItems.size() == startingSeenItemsSize) {
