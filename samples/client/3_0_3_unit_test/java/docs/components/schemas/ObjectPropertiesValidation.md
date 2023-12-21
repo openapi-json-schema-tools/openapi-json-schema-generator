@@ -39,12 +39,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<String, Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<String, @Nullable Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ObjectPropertiesValidationMapInput
 public class ObjectPropertiesValidationMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -64,7 +64,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, @Nullable Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
 | long | foo()<br>[optional] |
 | String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -88,7 +88,7 @@ List
                                         {{#with items}}
 List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                         {{~else}}
-List<Object>
+List<@Nullable Object>
                                         {{~/with}}
                                     {{/eq}}
                                 {{else}}
@@ -99,7 +99,7 @@ Map
                                             {{#with mapValueSchema}}
 Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                             {{~else}}
-Map<String, Object>
+Map<String, @Nullable Object>
                                             {{~/with}}
                                         {{/eq}}
                                     {{/eq}}
@@ -116,31 +116,31 @@ Map<String, Object>
                 {{! nullable types }}
                 {{#each types}}
                     {{#eq this "boolean"}}
-Boolean
+@Nullable Boolean
                     {{~else}}
                         {{#eq this "string"}}
                             {{#eq format "binary"}}
 {{! todo binary types}}
-String
+@Nullable String
                             {{~else}}
-String
+@Nullable String
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
                                 {{#eq ../format null}}
-Number
+@Nullable Number
                                 {{~else}}
                                     {{#eq ../format "float"}}
-Float
+@Nullable Float
                                     {{~else}}
                                         {{#eq ../format "double"}}
-Double
+@Nullable Double
                                         {{~else}}
                                             {{#eq ../format "int32"}}
-Integer
+@Nullable Integer
                                             {{~else}}
                                                 {{#eq ../format "int64"}}
-Long
+@Nullable Long
                                                 {{~/eq}}
                                             {{/eq}}
                                         {{/eq}}
@@ -149,36 +149,36 @@ Long
                             {{else}}
                                 {{#eq this "integer"}}
                                     {{#eq ../format null}}
-Long
+@Nullable Long
                                     {{~else}}
                                         {{#eq ../format "int32"}}
-Integer
+@Nullable Integer
                                         {{~else}}
                                             {{#eq ../format "int64"}}
-Long
+@Nullable Long
                                             {{~/eq}}
                                         {{/eq}}
                                     {{/eq}}
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
-List
+@Nullable List
                                         {{~else}}
                                             {{#with items}}
-List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
+@Nullable List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                             {{~else}}
-List<Object>
+@Nullable List<@Nullable Object>
                                             {{~/with}}
                                         {{/eq}}
                                     {{else}}
                                         {{#eq this "object"}}
                                             {{#eq ../jsonPath sourceJsonPath}}
-Map
+@Nullable Map
                                             {{~else}}
                                                 {{#with mapValueSchema}}
-Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
+@Nullable Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                                 {{~else}}
-Map<String, Object>
+@Nullable Map<String, @Nullable Object>
                                                 {{~/with}}
                                             {{/eq}}
                                         {{/eq}}
@@ -198,9 +198,13 @@ Object
             {{/contains}}
         {{else}}
             {{! 3 or more types }}
+            {{#contains types "null"}}
+@Nullable Object
+            {{else}}
 Object
+            {{/contains}}
         {{~/eq}}
     {{/eq}}
 {{else}}
-Object
+@Nullable Object
 {{~/if}}

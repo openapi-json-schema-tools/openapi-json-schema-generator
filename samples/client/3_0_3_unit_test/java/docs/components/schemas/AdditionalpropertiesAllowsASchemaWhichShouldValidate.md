@@ -59,19 +59,19 @@ AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsA
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<String, Object>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<String, @Nullable Object>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput
 public class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **foo** | Object |  | [optional] |
-| **bar** | Object |  | [optional] |
+| **foo** | @Nullable Object |  | [optional] |
+| **bar** | @Nullable Object |  | [optional] |
 | **anyStringName** | boolean | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMap
@@ -83,7 +83,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | of([Map<String, Object>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | of([Map<String, @Nullable Object>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br>[optional] |
 | @Nullable Object | bar()<br>[optional] |
 | boolean | getAdditionalProperty(String name)<br>provides type safety for additional properties |
