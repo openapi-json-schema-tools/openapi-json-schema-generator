@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Object, FrozenList<@Nullable Object>> {
+public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>> {
     private static @Nullable ListJsonSchema instance = null;
 
     protected ListJsonSchema() {
@@ -55,8 +55,7 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Ob
         return new FrozenList<>(items);
     }
 
-    @Override
-    public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");

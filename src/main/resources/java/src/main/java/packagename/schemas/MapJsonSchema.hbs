@@ -21,7 +21,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
-public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Object, FrozenMap<@Nullable Object>> {
+public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>> {
     private static @Nullable MapJsonSchema instance = null;
 
     protected MapJsonSchema() {
@@ -60,8 +60,7 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Obje
         return new FrozenMap<>(properties);
     }
 
-    @Override
-    public FrozenMap<@Nullable Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
         Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

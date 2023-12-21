@@ -50,7 +50,7 @@ public class AllofWithBaseSchema {
             "foo"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static Schema0Map of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema0Map of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema0.getInstance().validate(arg, configuration);
         }
         
@@ -73,7 +73,7 @@ public class AllofWithBaseSchema {
     }
     
     
-    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, Schema0Map> {
+    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<Schema0Map> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -197,7 +197,6 @@ public class AllofWithBaseSchema {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -235,8 +234,7 @@ public class AllofWithBaseSchema {
             return new Schema0Map(castProperties);
         }
         
-        @Override
-        public Schema0Map validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Schema0Map validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -279,7 +277,7 @@ public class AllofWithBaseSchema {
             "baz"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static Schema1Map of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static Schema1Map of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema1.getInstance().validate(arg, configuration);
         }
         
@@ -302,7 +300,7 @@ public class AllofWithBaseSchema {
     }
     
     
-    public static class Schema1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, Schema1Map> {
+    public static class Schema1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<Schema1Map> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -426,7 +424,6 @@ public class AllofWithBaseSchema {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -464,8 +461,7 @@ public class AllofWithBaseSchema {
             return new Schema1Map(castProperties);
         }
         
-        @Override
-        public Schema1Map validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public Schema1Map validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -508,7 +504,7 @@ public class AllofWithBaseSchema {
             "bar"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static AllofWithBaseSchemaMap of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static AllofWithBaseSchemaMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return AllofWithBaseSchema1.getInstance().validate(arg, configuration);
         }
         
@@ -531,7 +527,7 @@ public class AllofWithBaseSchema {
     }
     
     
-    public static class AllofWithBaseSchema1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, AllofWithBaseSchemaMap> {
+    public static class AllofWithBaseSchema1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<AllofWithBaseSchemaMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -665,7 +661,6 @@ public class AllofWithBaseSchema {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -703,8 +698,7 @@ public class AllofWithBaseSchema {
             return new AllofWithBaseSchemaMap(castProperties);
         }
         
-        @Override
-        public AllofWithBaseSchemaMap validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public AllofWithBaseSchemaMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");

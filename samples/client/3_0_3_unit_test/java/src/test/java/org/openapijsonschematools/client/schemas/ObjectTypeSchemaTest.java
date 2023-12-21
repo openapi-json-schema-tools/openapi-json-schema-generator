@@ -33,7 +33,7 @@ public class ObjectTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<Object, FrozenMap<@Nullable Object>> {
+    public static class ObjectWithPropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable ObjectWithPropsSchema instance = null;
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
@@ -75,7 +75,6 @@ public class ObjectTypeSchemaTest {
             return new FrozenMap<>(properties);
         }
 
-        @Override
         public FrozenMap<@Nullable Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -95,7 +94,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<String, FrozenMap<String>> {
+    public static class ObjectWithAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<String>> {
         private static @Nullable ObjectWithAddpropsSchema instance = null;
         private ObjectWithAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -137,7 +136,6 @@ public class ObjectTypeSchemaTest {
             return new FrozenMap<>(properties);
         }
 
-        @Override
         public FrozenMap<String> validate(Map<String, String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -158,7 +156,7 @@ public class ObjectTypeSchemaTest {
         }
     }
 
-    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<Object, FrozenMap<@Nullable Object>> {
+    public static class ObjectWithPropsAndAddpropsSchema extends JsonSchema implements MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable ObjectWithPropsAndAddpropsSchema instance = null;
         private ObjectWithPropsAndAddpropsSchema() {
             super(new JsonSchemaInfo()
@@ -200,7 +198,6 @@ public class ObjectTypeSchemaTest {
             return new FrozenMap<>(properties);
         }
 
-        @Override
         public FrozenMap<@Nullable Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -232,7 +229,7 @@ public class ObjectTypeSchemaTest {
     }
 
 
-    public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<Object, ObjectWithOutputTypeSchemaMap> {
+    public static class ObjectWithOutputTypeSchema extends JsonSchema implements MapSchemaValidator<ObjectWithOutputTypeSchemaMap> {
         private static @Nullable ObjectWithOutputTypeSchema instance = null;
         public ObjectWithOutputTypeSchema() {
             super(new JsonSchemaInfo()
@@ -273,7 +270,6 @@ public class ObjectTypeSchemaTest {
             return new ObjectWithOutputTypeSchemaMap(new FrozenMap<>(properties));
         }
 
-        @Override
         public ObjectWithOutputTypeSchemaMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");

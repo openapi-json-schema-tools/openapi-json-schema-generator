@@ -45,7 +45,6 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
             {{/if}}
 }
 
-@Override
 public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<@Nullable Object>{{/if}} validate(Map<String, {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
@@ -86,7 +85,6 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
             {{/if}}
 }
 
-@Override
 public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
@@ -339,7 +337,6 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{e
             {{/if}}
 }
 
-@Override
 public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{else}}FrozenList<{{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = List.of("args[0");
@@ -381,7 +378,6 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
             {{/if}}
 }
 
-@Override
 public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}>{{/if}} validate(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}Object{{/with}}> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
     List<Object> pathToItem = new ArrayList<>();

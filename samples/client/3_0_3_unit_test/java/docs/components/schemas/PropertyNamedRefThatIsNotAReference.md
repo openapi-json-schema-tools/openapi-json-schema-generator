@@ -38,12 +38,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | validate([Map<String, @Nullable Object>](#propertynamedrefthatisnotareferencemapinput) arg, SchemaConfiguration configuration) |
+| static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | validate([Map<String, ? extends @Nullable Object>](#propertynamedrefthatisnotareferencemapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## PropertyNamedRefThatIsNotAReferenceMapInput
 public class PropertyNamedRefThatIsNotAReferenceMapInput<br>
-builder for `Map<String, @Nullable Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -62,7 +62,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | of([Map<String, @Nullable Object>](#propertynamedrefthatisnotareferencemapinput) arg, SchemaConfiguration configuration) |
+| static [PropertyNamedRefThatIsNotAReferenceMap](#propertynamedrefthatisnotareferencemap) | of([Map<String, ? extends @Nullable Object>](#propertynamedrefthatisnotareferencemapinput) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["$ref"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

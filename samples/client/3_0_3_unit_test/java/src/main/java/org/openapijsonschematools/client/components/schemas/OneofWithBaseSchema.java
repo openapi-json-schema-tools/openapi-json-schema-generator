@@ -35,7 +35,7 @@ public class OneofWithBaseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, FrozenMap<@Nullable Object>> {
+    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -154,7 +154,6 @@ public class OneofWithBaseSchema {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -192,8 +191,7 @@ public class OneofWithBaseSchema {
             return castProperties;
         }
         
-        @Override
-        public FrozenMap<@Nullable Object> validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -225,7 +223,7 @@ public class OneofWithBaseSchema {
         }
     }    
     
-    public static class Schema1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, FrozenMap<@Nullable Object>> {
+    public static class Schema1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable Schema1 instance = null;
     
         protected Schema1() {
@@ -344,7 +342,6 @@ public class OneofWithBaseSchema {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -382,8 +379,7 @@ public class OneofWithBaseSchema {
             return castProperties;
         }
         
-        @Override
-        public FrozenMap<@Nullable Object> validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");

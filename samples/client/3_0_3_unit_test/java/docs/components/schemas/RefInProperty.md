@@ -37,19 +37,19 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RefInPropertyMap](#refinpropertymap) | validate([Map<String, @Nullable Object>](#refinpropertymapinput) arg, SchemaConfiguration configuration) |
+| static [RefInPropertyMap](#refinpropertymap) | validate([Map<String, ? extends @Nullable Object>](#refinpropertymapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## RefInPropertyMapInput
 public class RefInPropertyMapInput<br>
-builder for `Map<String, @Nullable Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **a** | @Nullable Object |  | [optional] |
+| **a** | ? extends @Nullable Object |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## RefInPropertyMap
@@ -61,7 +61,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInPropertyMap](#refinpropertymap) | of([Map<String, @Nullable Object>](#refinpropertymapinput) arg, SchemaConfiguration configuration) |
+| static [RefInPropertyMap](#refinpropertymap) | of([Map<String, ? extends @Nullable Object>](#refinpropertymapinput) arg, SchemaConfiguration configuration) |
 | @Nullable Object | a()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

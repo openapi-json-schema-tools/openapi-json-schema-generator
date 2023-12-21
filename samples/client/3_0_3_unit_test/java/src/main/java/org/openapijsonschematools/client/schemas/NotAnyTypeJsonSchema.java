@@ -30,7 +30,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<@Nullable Object>>, MapSchemaValidator<Object, FrozenMap<@Nullable Object>> {
+public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
     private static @Nullable NotAnyTypeJsonSchema instance = null;
 
     protected NotAnyTypeJsonSchema() {
@@ -145,8 +145,7 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
         return new FrozenList<>(items);
     }
 
-    @Override
-    public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -181,8 +180,7 @@ public class NotAnyTypeJsonSchema extends JsonSchema implements NullSchemaValida
         return new FrozenMap<>(properties);
     }
 
-    @Override
-    public FrozenMap<@Nullable Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");

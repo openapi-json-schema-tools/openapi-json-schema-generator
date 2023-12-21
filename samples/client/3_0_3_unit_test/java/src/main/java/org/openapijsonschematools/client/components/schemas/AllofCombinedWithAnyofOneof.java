@@ -36,7 +36,7 @@ public class AllofCombinedWithAnyofOneof {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema02 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, FrozenMap<@Nullable Object>> {
+    public static class Schema02 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable Schema02 instance = null;
     
         protected Schema02() {
@@ -155,7 +155,6 @@ public class AllofCombinedWithAnyofOneof {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -193,8 +192,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        @Override
-        public FrozenMap<@Nullable Object> validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -226,7 +224,7 @@ public class AllofCombinedWithAnyofOneof {
         }
     }    
     
-    public static class Schema01 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, FrozenMap<@Nullable Object>> {
+    public static class Schema01 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable Schema01 instance = null;
     
         protected Schema01() {
@@ -345,7 +343,6 @@ public class AllofCombinedWithAnyofOneof {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -383,8 +380,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        @Override
-        public FrozenMap<@Nullable Object> validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -416,7 +412,7 @@ public class AllofCombinedWithAnyofOneof {
         }
     }    
     
-    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, FrozenMap<@Nullable Object>> {
+    public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         private static @Nullable Schema0 instance = null;
     
         protected Schema0() {
@@ -535,7 +531,6 @@ public class AllofCombinedWithAnyofOneof {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -573,8 +568,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        @Override
-        public FrozenMap<@Nullable Object> validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -606,7 +600,7 @@ public class AllofCombinedWithAnyofOneof {
         }
     }    
     
-    public static class AllofCombinedWithAnyofOneof1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<@Nullable Object, FrozenList<@Nullable Object>>, MapSchemaValidator<@Nullable Object, FrozenMap<@Nullable Object>> {
+    public static class AllofCombinedWithAnyofOneof1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
@@ -739,7 +733,6 @@ public class AllofCombinedWithAnyofOneof {
             return newInstanceItems;
         }
         
-        @Override
         public FrozenList<@Nullable Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -777,8 +770,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        @Override
-        public FrozenMap<@Nullable Object> validate(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");

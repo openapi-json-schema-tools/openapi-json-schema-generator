@@ -31,7 +31,7 @@ public class ArrayTypeSchemaTest {
             new LinkedHashSet<>()
     );
 
-    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<String, FrozenList<String>> {
+    public static class ArrayWithItemsSchema extends JsonSchema implements ListSchemaValidator<FrozenList<String>> {
         public ArrayWithItemsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -61,7 +61,6 @@ public class ArrayTypeSchemaTest {
             return new FrozenList<>(items);
         }
 
-        @Override
         public FrozenList<String> validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -91,7 +90,7 @@ public class ArrayTypeSchemaTest {
         }
     }
 
-    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<String, ArrayWithOutputClsSchemaList> {
+    public static class ArrayWithOutputClsSchema extends JsonSchema implements ListSchemaValidator<ArrayWithOutputClsSchemaList> {
         public ArrayWithOutputClsSchema() {
             super(new JsonSchemaInfo()
                 .type(Set.of(List.class))
@@ -123,7 +122,6 @@ public class ArrayTypeSchemaTest {
             return new ArrayWithOutputClsSchemaList(newInstanceItems);
         }
 
-        @Override
         public ArrayWithOutputClsSchemaList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");

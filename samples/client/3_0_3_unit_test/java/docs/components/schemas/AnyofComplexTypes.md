@@ -68,12 +68,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema1Map](#schema1map) | validate([Map<String, @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | validate([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema1MapInput
 public class Schema1MapInput<br>
-builder for `Map<String, @Nullable Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -92,7 +92,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | of([Map<String, @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 | String | foo()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
@@ -128,12 +128,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema0Map](#schema0map) | validate([Map<String, @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | validate([Map<String, ? extends @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0MapInput
 public class Schema0MapInput<br>
-builder for `Map<String, @Nullable Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -152,7 +152,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | of([Map<String, @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | long | bar()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

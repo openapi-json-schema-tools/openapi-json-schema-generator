@@ -40,20 +40,20 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RequiredValidationMap](#requiredvalidationmap) | validate([Map<String, @Nullable Object>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
+| static [RequiredValidationMap](#requiredvalidationmap) | validate([Map<String, ? extends @Nullable Object>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## RequiredValidationMapInput
 public class RequiredValidationMapInput<br>
-builder for `Map<String, @Nullable Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **foo** | @Nullable Object |  | |
-| **bar** | @Nullable Object |  | [optional] |
+| **foo** | ? extends @Nullable Object |  | |
+| **bar** | ? extends @Nullable Object |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## RequiredValidationMap
@@ -65,7 +65,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RequiredValidationMap](#requiredvalidationmap) | of([Map<String, @Nullable Object>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
+| static [RequiredValidationMap](#requiredvalidationmap) | of([Map<String, ? extends @Nullable Object>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br> |
 | @Nullable Object | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
