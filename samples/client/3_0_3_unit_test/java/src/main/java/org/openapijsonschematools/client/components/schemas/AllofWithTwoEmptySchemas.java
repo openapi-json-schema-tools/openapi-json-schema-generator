@@ -36,10 +36,26 @@ public class AllofWithTwoEmptySchemas {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends AnyTypeJsonSchema {}
+    public static class Schema0 extends AnyTypeJsonSchema {
+        private static @Nullable Schema0 instance = null;
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Schema1 extends AnyTypeJsonSchema {}
+    public static class Schema1 extends AnyTypeJsonSchema {
+        private static @Nullable Schema1 instance = null;
+        public static Schema1 getInstance() {
+            if (instance == null) {
+                instance = new Schema1();
+            }
+            return instance;
+        }
+    }
     
     
     public static class AllofWithTwoEmptySchemas1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {

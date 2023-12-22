@@ -37,10 +37,26 @@ public class RequiredValidation {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foo extends AnyTypeJsonSchema {}
+    public static class Foo extends AnyTypeJsonSchema {
+        private static @Nullable Foo instance = null;
+        public static Foo getInstance() {
+            if (instance == null) {
+                instance = new Foo();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Bar extends AnyTypeJsonSchema {}
+    public static class Bar extends AnyTypeJsonSchema {
+        private static @Nullable Bar instance = null;
+        public static Bar getInstance() {
+            if (instance == null) {
+                instance = new Bar();
+            }
+            return instance;
+        }
+    }
     
     
     public static class RequiredValidationMap extends FrozenMap<@Nullable Object> {

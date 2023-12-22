@@ -38,8 +38,16 @@ public class ForbiddenProperty {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foo extends NotAnyTypeJsonSchema {}
+    public static class Foo extends NotAnyTypeJsonSchema {
         // NotAnyTypeSchema
+        private static @Nullable Foo instance = null;
+        public static Foo getInstance() {
+            if (instance == null) {
+                instance = new Foo();
+            }
+            return instance;
+        }
+    }
     
     
     public static class ForbiddenPropertyMap extends FrozenMap<@Nullable Object> {

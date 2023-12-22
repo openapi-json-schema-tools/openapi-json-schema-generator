@@ -36,7 +36,15 @@ public class Not {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Not2 extends IntJsonSchema {}
+    public static class Not2 extends IntJsonSchema {
+        private static @Nullable Not2 instance = null;
+        public static Not2 getInstance() {
+            if (instance == null) {
+                instance = new Not2();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Not1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {

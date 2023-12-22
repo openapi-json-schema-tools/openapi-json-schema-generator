@@ -29,13 +29,37 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends BooleanJsonSchema {}
+    public static class AdditionalProperties extends BooleanJsonSchema {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
+            if (instance == null) {
+                instance = new AdditionalProperties();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foo extends AnyTypeJsonSchema {}
+    public static class Foo extends AnyTypeJsonSchema {
+        private static @Nullable Foo instance = null;
+        public static Foo getInstance() {
+            if (instance == null) {
+                instance = new Foo();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Bar extends AnyTypeJsonSchema {}
+    public static class Bar extends AnyTypeJsonSchema {
+        private static @Nullable Bar instance = null;
+        public static Bar getInstance() {
+            if (instance == null) {
+                instance = new Bar();
+            }
+            return instance;
+        }
+    }
     
     
     public static class AdditionalpropertiesAllowsASchemaWhichShouldValidateMap extends FrozenMap<@Nullable Object> {

@@ -36,7 +36,15 @@ public class NestedAnyofToCheckValidationSemantics {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema01 extends NullJsonSchema {}
+    public static class Schema01 extends NullJsonSchema {
+        private static @Nullable Schema01 instance = null;
+        public static Schema01 getInstance() {
+            if (instance == null) {
+                instance = new Schema01();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Schema0 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {

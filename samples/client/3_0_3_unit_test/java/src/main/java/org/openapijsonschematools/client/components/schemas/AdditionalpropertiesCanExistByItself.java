@@ -27,7 +27,15 @@ public class AdditionalpropertiesCanExistByItself {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends BooleanJsonSchema {}
+    public static class AdditionalProperties extends BooleanJsonSchema {
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
+            if (instance == null) {
+                instance = new AdditionalProperties();
+            }
+            return instance;
+        }
+    }
     
     
     public static class AdditionalpropertiesCanExistByItselfMap extends FrozenMap<Boolean> {

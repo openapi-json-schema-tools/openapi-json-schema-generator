@@ -36,7 +36,15 @@ public class Anyof {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Schema0 extends IntJsonSchema {}
+    public static class Schema0 extends IntJsonSchema {
+        private static @Nullable Schema0 instance = null;
+        public static Schema0 getInstance() {
+            if (instance == null) {
+                instance = new Schema0();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Schema1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {

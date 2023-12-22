@@ -1339,6 +1339,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
         if (schema.refInfo != null) {
             // todo remove this when ref is supported with adjacent properties
+            imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
             return imports;
         }
         if (schema.types != null) {
@@ -1346,6 +1347,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 if (schema.types.contains("boolean")) {
                     if (schema.isSimpleBoolean()) {
                         imports.add("import "+packageName + ".schemas.BooleanJsonSchema;");
+                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import java.util.LinkedHashMap;");
@@ -1356,6 +1358,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 } else if (schema.types.contains("null")) {
                     if (schema.isSimpleNull()) {
                         imports.add("import "+packageName + ".schemas.NullJsonSchema;");
+                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
                         imports.add("import java.util.LinkedHashMap;");
@@ -1365,6 +1368,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     }
                 } else if (schema.types.contains("integer")) {
                     if (schema.isSimpleInteger()) {
+                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null) {
                             imports.add("import "+packageName + ".schemas.IntJsonSchema;");
                         } else if (schema.format.equals("int32")) {
@@ -1381,6 +1385,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     }
                 } else if (schema.types.contains("number")) {
                     if (schema.isSimpleNumber()) {
+                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null) {
                             imports.add("import "+packageName + ".schemas.NumberJsonSchema;");
                         } else if (schema.format.equals("int32")) {
@@ -1401,6 +1406,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     }
                 } else if (schema.types.contains("string")) {
                     if (schema.isSimpleString()) {
+                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         if (schema.format == null) {
                             imports.add("import "+packageName + ".schemas.StringJsonSchema;");
                         } else if (schema.format.equals("date")) {
@@ -1427,6 +1433,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     }
                 } else if (schema.types.contains("object")) {
                     if (schema.isSimpleObject()) {
+                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         imports.add("import "+packageName + ".schemas.MapJsonSchema;");
                         // add this in case the 1 higher schema is an array of FrozenMap
                         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
@@ -1442,6 +1449,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     }
                 } else if (schema.types.contains("array")) {
                     if (schema.isSimpleArray()) {
+                        imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                         imports.add("import "+packageName + ".schemas.ListJsonSchema;");
                         // add this in case the 1 higher schema is a map of FrozenList
                         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
@@ -1491,10 +1499,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         } else {
             // no types
             if (schema.isBooleanSchemaTrue) {
+                imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
             } else if (schema.isBooleanSchemaFalse) {
+                imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                 imports.add("import "+packageName + ".schemas.NotAnyTypeJsonSchema;");
             } else if (schema.isSimpleAnyType()) {
+                imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
             } else {
                 addCustomSchemaImports(imports, schema);

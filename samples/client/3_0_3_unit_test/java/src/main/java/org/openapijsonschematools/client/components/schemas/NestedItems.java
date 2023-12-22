@@ -25,7 +25,15 @@ public class NestedItems {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items3 extends NumberJsonSchema {}
+    public static class Items3 extends NumberJsonSchema {
+        private static @Nullable Items3 instance = null;
+        public static Items3 getInstance() {
+            if (instance == null) {
+                instance = new Items3();
+            }
+            return instance;
+        }
+    }
     
     
     public static class ItemsList extends FrozenList<Number> {

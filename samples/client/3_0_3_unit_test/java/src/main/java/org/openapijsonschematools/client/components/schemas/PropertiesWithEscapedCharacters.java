@@ -37,22 +37,70 @@ public class PropertiesWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foonbar extends NumberJsonSchema {}
+    public static class Foonbar extends NumberJsonSchema {
+        private static @Nullable Foonbar instance = null;
+        public static Foonbar getInstance() {
+            if (instance == null) {
+                instance = new Foonbar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foobar extends NumberJsonSchema {}
+    public static class Foobar extends NumberJsonSchema {
+        private static @Nullable Foobar instance = null;
+        public static Foobar getInstance() {
+            if (instance == null) {
+                instance = new Foobar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foobar1 extends NumberJsonSchema {}
+    public static class Foobar1 extends NumberJsonSchema {
+        private static @Nullable Foobar1 instance = null;
+        public static Foobar1 getInstance() {
+            if (instance == null) {
+                instance = new Foobar1();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foorbar extends NumberJsonSchema {}
+    public static class Foorbar extends NumberJsonSchema {
+        private static @Nullable Foorbar instance = null;
+        public static Foorbar getInstance() {
+            if (instance == null) {
+                instance = new Foorbar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Footbar extends NumberJsonSchema {}
+    public static class Footbar extends NumberJsonSchema {
+        private static @Nullable Footbar instance = null;
+        public static Footbar getInstance() {
+            if (instance == null) {
+                instance = new Footbar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foofbar extends NumberJsonSchema {}
+    public static class Foofbar extends NumberJsonSchema {
+        private static @Nullable Foofbar instance = null;
+        public static Foofbar getInstance() {
+            if (instance == null) {
+                instance = new Foofbar();
+            }
+            return instance;
+        }
+    }
     
     
     public static class PropertiesWithEscapedCharactersMap extends FrozenMap<@Nullable Object> {

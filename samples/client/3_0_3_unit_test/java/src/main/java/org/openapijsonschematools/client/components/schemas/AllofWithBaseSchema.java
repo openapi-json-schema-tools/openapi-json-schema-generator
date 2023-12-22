@@ -39,7 +39,15 @@ public class AllofWithBaseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foo extends StringJsonSchema {}
+    public static class Foo extends StringJsonSchema {
+        private static @Nullable Foo instance = null;
+        public static Foo getInstance() {
+            if (instance == null) {
+                instance = new Foo();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Schema0Map extends FrozenMap<@Nullable Object> {
@@ -266,7 +274,15 @@ public class AllofWithBaseSchema {
         }
     }    
     
-    public static class Baz extends NullJsonSchema {}
+    public static class Baz extends NullJsonSchema {
+        private static @Nullable Baz instance = null;
+        public static Baz getInstance() {
+            if (instance == null) {
+                instance = new Baz();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Schema1Map extends FrozenMap<@Nullable Object> {
@@ -493,7 +509,15 @@ public class AllofWithBaseSchema {
         }
     }    
     
-    public static class Bar extends IntJsonSchema {}
+    public static class Bar extends IntJsonSchema {
+        private static @Nullable Bar instance = null;
+        public static Bar getInstance() {
+            if (instance == null) {
+                instance = new Bar();
+            }
+            return instance;
+        }
+    }
     
     
     public static class AllofWithBaseSchemaMap extends FrozenMap<@Nullable Object> {

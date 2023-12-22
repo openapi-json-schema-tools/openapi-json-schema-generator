@@ -37,7 +37,15 @@ public class PropertyNamedRefThatIsNotAReference {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Ref extends StringJsonSchema {}
+    public static class Ref extends StringJsonSchema {
+        private static @Nullable Ref instance = null;
+        public static Ref getInstance() {
+            if (instance == null) {
+                instance = new Ref();
+            }
+            return instance;
+        }
+    }
     
     
     public static class PropertyNamedRefThatIsNotAReferenceMap extends FrozenMap<@Nullable Object> {

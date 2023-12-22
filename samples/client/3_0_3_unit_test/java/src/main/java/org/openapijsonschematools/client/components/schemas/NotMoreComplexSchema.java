@@ -37,7 +37,15 @@ public class NotMoreComplexSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foo extends StringJsonSchema {}
+    public static class Foo extends StringJsonSchema {
+        private static @Nullable Foo instance = null;
+        public static Foo getInstance() {
+            if (instance == null) {
+                instance = new Foo();
+            }
+            return instance;
+        }
+    }
     
     
     public static class NotMap extends FrozenMap<@Nullable Object> {
