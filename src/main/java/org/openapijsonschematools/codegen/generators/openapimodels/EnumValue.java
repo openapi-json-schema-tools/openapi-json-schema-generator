@@ -2,6 +2,7 @@ package org.openapijsonschematools.codegen.generators.openapimodels;
 
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class EnumValue {
@@ -31,6 +32,23 @@ public class EnumValue {
                 }
             }
             schema.items = itemSchema;
+        }
+        if (value instanceof Map) {
+            if (((Map<?, ?>) value).isEmpty()) {
+                schema.mapValueSchema = new CodegenSchema();
+                return schema;
+            }
+            CodegenSchema mapValueSchema = null;
+            for (Object mapValue: ((Map<?, ?>) value).values()) {
+                if (mapValue instanceof EnumValue) {
+                    if (mapValueSchema == null) {
+                        mapValueSchema =  ((EnumValue) mapValue).schema;
+                    } else {
+                        mapValueSchema = ((EnumValue) mapValue).schema.add(mapValueSchema);
+                    }
+                }
+            }
+            schema.mapValueSchema = mapValueSchema;
         }
         return schema;
     }
