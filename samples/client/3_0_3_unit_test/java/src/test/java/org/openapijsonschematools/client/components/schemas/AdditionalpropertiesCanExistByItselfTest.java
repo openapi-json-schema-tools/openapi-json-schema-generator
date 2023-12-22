@@ -47,12 +47,12 @@ public class AdditionalpropertiesCanExistByItselfTest {
         final var schema = AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

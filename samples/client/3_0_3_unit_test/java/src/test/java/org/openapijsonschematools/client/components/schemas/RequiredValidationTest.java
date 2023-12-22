@@ -78,12 +78,12 @@ public class RequiredValidationTest {
         final var schema = RequiredValidation.RequiredValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     1
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

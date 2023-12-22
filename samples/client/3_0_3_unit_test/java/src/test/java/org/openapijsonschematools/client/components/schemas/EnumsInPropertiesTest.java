@@ -32,7 +32,7 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
@@ -41,7 +41,7 @@ public class EnumsInPropertiesTest {
                     "bar",
                     "bart"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -52,7 +52,7 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foot"
@@ -61,7 +61,7 @@ public class EnumsInPropertiesTest {
                     "bar",
                     "bar"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -72,8 +72,8 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
-            )),
+            MapMaker.makeMap(
+            ),
             validationMetadata
         ));
     }
@@ -118,12 +118,12 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

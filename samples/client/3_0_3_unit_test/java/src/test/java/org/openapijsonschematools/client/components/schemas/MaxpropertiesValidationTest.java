@@ -66,7 +66,7 @@ public class MaxpropertiesValidationTest {
         final var schema = MaxpropertiesValidation.MaxpropertiesValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -79,7 +79,7 @@ public class MaxpropertiesValidationTest {
                     "baz",
                     3
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

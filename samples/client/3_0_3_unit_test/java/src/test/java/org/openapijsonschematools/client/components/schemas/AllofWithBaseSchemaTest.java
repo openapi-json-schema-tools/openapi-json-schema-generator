@@ -32,7 +32,7 @@ public class AllofWithBaseSchemaTest {
         final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "quux"
@@ -41,7 +41,7 @@ public class AllofWithBaseSchemaTest {
                     "baz",
                     (Void) null
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -52,7 +52,7 @@ public class AllofWithBaseSchemaTest {
         final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
@@ -61,7 +61,7 @@ public class AllofWithBaseSchemaTest {
                     "baz",
                     (Void) null
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -95,12 +95,12 @@ public class AllofWithBaseSchemaTest {
         final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -111,7 +111,7 @@ public class AllofWithBaseSchemaTest {
         final var schema = AllofWithBaseSchema.AllofWithBaseSchema1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "quux"
@@ -120,7 +120,7 @@ public class AllofWithBaseSchemaTest {
                     "bar",
                     2
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

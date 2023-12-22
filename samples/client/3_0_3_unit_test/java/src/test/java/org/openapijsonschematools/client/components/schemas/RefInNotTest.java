@@ -47,12 +47,12 @@ public class RefInNotTest {
         final var schema = RefInNot.RefInNot1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "$ref",
                     "a"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

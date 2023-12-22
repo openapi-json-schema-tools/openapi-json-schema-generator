@@ -77,7 +77,7 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     Arrays.asList(
@@ -88,7 +88,7 @@ public class ObjectPropertiesValidationTest {
                     MapMaker.makeMap(
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -110,7 +110,7 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -120,7 +120,7 @@ public class ObjectPropertiesValidationTest {
                     MapMaker.makeMap(
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

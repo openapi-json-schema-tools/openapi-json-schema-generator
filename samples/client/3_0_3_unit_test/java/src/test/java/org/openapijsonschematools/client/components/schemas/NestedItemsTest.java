@@ -32,7 +32,7 @@ public class NestedItemsTest {
         final var schema = NestedItems.NestedItems1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
+            Arrays.asList(
                 Arrays.asList(
                     Arrays.asList(
                         Arrays.asList(
@@ -61,7 +61,7 @@ public class NestedItemsTest {
                         )
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -72,7 +72,7 @@ public class NestedItemsTest {
         final var schema = NestedItems.NestedItems1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
+            Arrays.asList(
                 Arrays.asList(
                     Arrays.asList(
                         1
@@ -95,7 +95,7 @@ public class NestedItemsTest {
                         6
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

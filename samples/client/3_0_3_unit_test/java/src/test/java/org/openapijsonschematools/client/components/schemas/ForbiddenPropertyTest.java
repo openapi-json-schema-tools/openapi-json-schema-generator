@@ -32,7 +32,7 @@ public class ForbiddenPropertyTest {
         final var schema = ForbiddenProperty.ForbiddenProperty1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -41,7 +41,7 @@ public class ForbiddenPropertyTest {
                     "bar",
                     2
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

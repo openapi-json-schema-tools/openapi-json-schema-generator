@@ -98,8 +98,8 @@ public class ArrayTypeMatchesArraysTest {
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
-            )),
+            MapMaker.makeMap(
+            ),
             validationMetadata
         ));
     }

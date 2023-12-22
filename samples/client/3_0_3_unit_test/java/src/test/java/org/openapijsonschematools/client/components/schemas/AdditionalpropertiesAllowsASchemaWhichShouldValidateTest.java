@@ -70,7 +70,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
         final var schema = AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsASchemaWhichShouldValidate1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -83,7 +83,7 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidateTest {
                     "quux",
                     12
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

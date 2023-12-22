@@ -87,8 +87,8 @@ public class MinpropertiesValidationTest {
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
-            )),
+            MapMaker.makeMap(
+            ),
             validationMetadata
         ));
     }

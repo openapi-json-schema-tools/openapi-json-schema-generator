@@ -43,8 +43,8 @@ public class ObjectTypeMatchesObjectsTest {
         final var schema = ObjectTypeMatchesObjects.ObjectTypeMatchesObjects1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
-            )),
+            Arrays.asList(
+            ),
             validationMetadata
         ));
     }

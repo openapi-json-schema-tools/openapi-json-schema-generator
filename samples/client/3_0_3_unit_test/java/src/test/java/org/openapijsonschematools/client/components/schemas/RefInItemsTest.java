@@ -49,14 +49,14 @@ public class RefInItemsTest {
         final var schema = RefInItems.RefInItems1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
+            Arrays.asList(
                 MapMaker.makeMap(
                     new AbstractMap.SimpleEntry<>(
                         "$ref",
                         2
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

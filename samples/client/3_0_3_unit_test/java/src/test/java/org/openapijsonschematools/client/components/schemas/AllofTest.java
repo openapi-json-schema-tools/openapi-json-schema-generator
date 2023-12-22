@@ -32,12 +32,12 @@ public class AllofTest {
         final var schema = Allof.Allof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -48,7 +48,7 @@ public class AllofTest {
         final var schema = Allof.Allof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
@@ -57,7 +57,7 @@ public class AllofTest {
                     "bar",
                     "quux"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -68,12 +68,12 @@ public class AllofTest {
         final var schema = Allof.Allof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
                     2
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

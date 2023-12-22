@@ -32,8 +32,8 @@ public class IntegerTypeMatchesIntegersTest {
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
-            )),
+            MapMaker.makeMap(
+            ),
             validationMetadata
         ));
     }
@@ -44,8 +44,8 @@ public class IntegerTypeMatchesIntegersTest {
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
-            )),
+            Arrays.asList(
+            ),
             validationMetadata
         ));
     }

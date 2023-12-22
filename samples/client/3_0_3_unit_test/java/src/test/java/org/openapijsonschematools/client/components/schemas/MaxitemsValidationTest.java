@@ -57,11 +57,11 @@ public class MaxitemsValidationTest {
         final var schema = MaxitemsValidation.MaxitemsValidation1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
+            Arrays.asList(
                 1,
                 2,
                 3
-            )),
+            ),
             validationMetadata
         ));
     }

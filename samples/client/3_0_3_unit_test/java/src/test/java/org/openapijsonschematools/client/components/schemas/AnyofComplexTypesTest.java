@@ -81,7 +81,7 @@ public class AnyofComplexTypesTest {
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     2
@@ -90,7 +90,7 @@ public class AnyofComplexTypesTest {
                     "bar",
                     "quux"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

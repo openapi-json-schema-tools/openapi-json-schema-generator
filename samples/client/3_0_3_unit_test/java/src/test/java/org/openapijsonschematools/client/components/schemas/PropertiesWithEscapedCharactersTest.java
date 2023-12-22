@@ -67,7 +67,7 @@ public class PropertiesWithEscapedCharactersTest {
         final var schema = PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",
                     "1"
@@ -92,7 +92,7 @@ public class PropertiesWithEscapedCharactersTest {
                     "foo\fbar",
                     "1"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

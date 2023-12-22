@@ -52,7 +52,7 @@ public class RefInAdditionalpropertiesTest {
         final var schema = RefInAdditionalproperties.RefInAdditionalproperties1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "someProp",
                     MapMaker.makeMap(
@@ -62,7 +62,7 @@ public class RefInAdditionalpropertiesTest {
                         )
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

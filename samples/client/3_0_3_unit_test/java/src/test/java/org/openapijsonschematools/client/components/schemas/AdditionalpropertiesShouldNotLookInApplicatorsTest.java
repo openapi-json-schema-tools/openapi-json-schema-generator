@@ -32,7 +32,7 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
         final var schema = AdditionalpropertiesShouldNotLookInApplicators.AdditionalpropertiesShouldNotLookInApplicators1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo",
                     1
@@ -41,7 +41,7 @@ public class AdditionalpropertiesShouldNotLookInApplicatorsTest {
                     "bar",
                     true
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

@@ -47,12 +47,12 @@ public class RefInAllofTest {
         final var schema = RefInAllof.RefInAllof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "$ref",
                     2
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

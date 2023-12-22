@@ -32,7 +32,7 @@ public class RequiredWithEscapedCharactersTest {
         final var schema = RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
+            MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "foo\nbar",
                     "1"
@@ -41,7 +41,7 @@ public class RequiredWithEscapedCharactersTest {
                     "foo\"bar",
                     "1"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

@@ -44,7 +44,7 @@ public class {{containerJsonPathPiece.camelCase}}Test {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             {{#with data}}
-            {{> src/main/java/packagename/components/schemas/helpers/payload_renderer_failing_test any=true endChar="," }}
+            {{> src/main/java/packagename/components/schemas/helpers/payload_renderer any=true endChar="," }}
             {{/with}}
             validationMetadata
         ));
