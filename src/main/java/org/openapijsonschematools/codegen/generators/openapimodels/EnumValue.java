@@ -1,16 +1,45 @@
 package org.openapijsonschematools.codegen.generators.openapimodels;
 
+import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Objects;
 
 public class EnumValue {
     public final String type; // null (unset) "integer" "number" "string" "object" "array" "boolean" "null"
     public final Object value;
     public final String description;
+    public final CodegenSchema schema;
+
+    private CodegenSchema toSchema() {
+        CodegenSchema schema = new CodegenSchema();
+        schema.types = new LinkedHashSet<>();
+        schema.types.add(type);
+        if (value instanceof List) {
+            if (((List<?>) value).isEmpty()) {
+                schema.items = new CodegenSchema();
+                return schema;
+            }
+            CodegenSchema itemSchema = null;
+            for (int i = 0; i < ((List<?>) value).size(); i++) {
+                Object item = ((List<?>) value).get(i);
+                if (item instanceof EnumValue) {
+                    if (i == 0) {
+                        itemSchema =  ((EnumValue) item).schema;
+                    } else {
+                        itemSchema = ((EnumValue) item).schema.add(itemSchema);
+                    }
+                }
+            }
+            schema.items = itemSchema;
+        }
+        return schema;
+    }
 
     public EnumValue(Object value, String type, String description) {
         this.value = value;
         this.type = type;
         this.description = description;
+        this.schema = toSchema();
     }
 
     public String javaType() {

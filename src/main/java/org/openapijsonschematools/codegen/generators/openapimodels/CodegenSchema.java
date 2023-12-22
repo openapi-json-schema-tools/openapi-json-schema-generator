@@ -353,6 +353,7 @@ public class CodegenSchema {
         types
         enumInfo
         refInfo
+        items needed for schema test EnumValue schema, so Java can write payload types
          */
         CodegenSchema newSchema = new CodegenSchema();
         if (other == null) {
@@ -384,6 +385,15 @@ public class CodegenSchema {
                 newSchema.enumInfo = enumInfo;
             } else {
                 newSchema.enumInfo = null;
+            }
+        }
+        if (items == null || other.items == null) {
+            newSchema.items = null;
+        } else {
+            if (items == other.items) {
+                newSchema.items = items;
+            } else {
+                newSchema.items = items.add(other.items);
             }
         }
         return newSchema;

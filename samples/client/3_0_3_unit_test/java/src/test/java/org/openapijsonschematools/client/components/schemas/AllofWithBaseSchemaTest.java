@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.components.schemas;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -33,13 +34,13 @@ public class AllofWithBaseSchemaTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new MapMaker.SimpleEntry<>(
                     "foo",
                     "quux"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new MapMaker.SimpleEntry<>(
                     "baz",
-                    (Void) null
+                    null
                 )
             ),
             validationMetadata
@@ -59,7 +60,7 @@ public class AllofWithBaseSchemaTest {
                 ),
                 new AbstractMap.SimpleEntry<>(
                     "baz",
-                    (Void) null
+                    null
                 )
             ),
             validationMetadata
@@ -82,7 +83,7 @@ public class AllofWithBaseSchemaTest {
                 ),
                 new AbstractMap.SimpleEntry<>(
                     "baz",
-                    (Void) null
+                    null
                 )
             ),
             configuration
