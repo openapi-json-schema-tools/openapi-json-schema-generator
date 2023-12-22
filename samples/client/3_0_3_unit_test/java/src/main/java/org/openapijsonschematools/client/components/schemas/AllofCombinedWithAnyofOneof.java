@@ -145,10 +145,7 @@ public class AllofCombinedWithAnyofOneof {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof Object)) {
-                    throw new InvalidTypeException("Invalid instantiated value");
-                }
-                items.add((@Nullable Object) itemInstance);
+                items.add(itemInstance);
                 i += 1;
             }
             FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
@@ -333,10 +330,7 @@ public class AllofCombinedWithAnyofOneof {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof Object)) {
-                    throw new InvalidTypeException("Invalid instantiated value");
-                }
-                items.add((@Nullable Object) itemInstance);
+                items.add(itemInstance);
                 i += 1;
             }
             FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
@@ -521,10 +515,7 @@ public class AllofCombinedWithAnyofOneof {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof Object)) {
-                    throw new InvalidTypeException("Invalid instantiated value");
-                }
-                items.add((@Nullable Object) itemInstance);
+                items.add(itemInstance);
                 i += 1;
             }
             FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
@@ -723,10 +714,7 @@ public class AllofCombinedWithAnyofOneof {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof Object)) {
-                    throw new InvalidTypeException("Invalid instantiated value");
-                }
-                items.add((@Nullable Object) itemInstance);
+                items.add(itemInstance);
                 i += 1;
             }
             FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
