@@ -38,6 +38,11 @@ public class EnumValidator implements KeywordValidator {
             if (hasIntValue && enumValues.contains(castArg.intValue())) {
                 return null;
             }
+        } else if (arg instanceof Long && (Long) arg <= 2147483647L && (Long) arg >= -2147483648L) {
+            int castArg = Integer.valueOf(arg.toString());
+            if (enumValues.contains(castArg)) {
+                return null;
+            }
         }
         throw new ValidationException("Invalid value "+arg+" was not one of the allowed enum "+enumValues);
     }
