@@ -83,7 +83,7 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
             {{#if ../items.isNullableObject }}
         items.add(itemInstance);
             {{else}}
-        if (!(itemInstance instanceof {{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+        if (!({{#contains ../items.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         items.add(({{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
@@ -343,7 +343,7 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{e
             {{#if items.isNullableObject }}
         items.add(itemInstance);
             {{else}}
-        if (!(itemInstance instanceof {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+        if (!({{#contains items.types "null" }}itemInstance == null || {{/contains}}itemInstance instanceof {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         items.add(({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);

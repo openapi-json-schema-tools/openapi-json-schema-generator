@@ -696,7 +696,7 @@ public class NullableClass {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(itemInstance == null || itemInstance instanceof FrozenMap<@Nullable Object>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((@Nullable FrozenMap<@Nullable Object>) itemInstance);
@@ -846,7 +846,7 @@ public class NullableClass {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(itemInstance == null || itemInstance instanceof FrozenMap<@Nullable Object>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
                 items.add((@Nullable FrozenMap<@Nullable Object>) itemInstance);
