@@ -33,10 +33,14 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
         JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
         {{#if ../mapValueSchema}}
+            {{#if ../mapValueSchema.isNullableObject }}
+        properties.put(propertyName, propertyInstance);
+            {{else}}
         if (!(propertyInstance instanceof {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         properties.put(propertyName, ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
+            {{/if}}
         {{else}}
         properties.put(propertyName, propertyInstance);
         {{/if}}
@@ -76,10 +80,14 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
         JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
         {{#if ../items}}
+            {{#if ../items.isNullableObject }}
+        items.add(itemInstance);
+            {{else}}
         if (!(itemInstance instanceof {{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         items.add(({{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
+            {{/if}}
         {{else}}
         items.add(itemInstance);
         {{/if}}
@@ -332,10 +340,14 @@ public {{#if arrayOutputJsonPathPiece}}{{arrayOutputJsonPathPiece.camelCase}}{{e
         JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
         {{#if items}}
+            {{#if items.isNullableObject }}
+        items.add(itemInstance);
+            {{else}}
         if (!(itemInstance instanceof {{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         items.add(({{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
+            {{/if}}
         {{else}}
         items.add(itemInstance);
         {{/if}}
@@ -378,10 +390,14 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
         JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
         {{#if mapValueSchema}}
+            {{#if mapValueSchema.isNullableObject }}
+        properties.put(propertyName, propertyInstance);
+            {{else}}
         if (!(propertyInstance instanceof {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         properties.put(propertyName, ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
+            {{/if}}
         {{else}}
         properties.put(propertyName, propertyInstance);
         {{/if}}
