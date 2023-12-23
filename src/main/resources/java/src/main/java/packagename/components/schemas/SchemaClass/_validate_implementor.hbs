@@ -36,7 +36,7 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
             {{#if ../mapValueSchema.isNullableObject }}
         properties.put(propertyName, propertyInstance);
             {{else}}
-        if (!(propertyInstance instanceof {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+        if (!({{#contains ../mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance instanceof {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         properties.put(propertyName, ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
@@ -393,7 +393,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
             {{#if mapValueSchema.isNullableObject }}
         properties.put(propertyName, propertyInstance);
             {{else}}
-        if (!(propertyInstance instanceof {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
+        if (!({{#contains mapValueSchema.types "null" }}propertyInstance == null || {{/contains}}propertyInstance instanceof {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         properties.put(propertyName, ({{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
