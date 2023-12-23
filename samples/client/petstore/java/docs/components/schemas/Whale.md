@@ -44,15 +44,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Whale.WhaleMap validatedPayload =
     Whale.Whale1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "className",
             "whale"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "hasBaleen",
             true
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "hasTeeth",
             true
         )
@@ -71,11 +71,11 @@ Whale.WhaleMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [WhaleMap](#whalemap) | validate([Map<String, Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
+| static [WhaleMap](#whalemap) | validate([Map<String, ? extends @Nullable Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
 
 ## WhaleMapInput
 public class WhaleMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -89,14 +89,14 @@ A class that builds the Map input type
 
 ## WhaleMap
 public static class WhaleMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [WhaleMap](#whalemap) | of([Map<String, Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
+| static [WhaleMap](#whalemap) | of([Map<String, ? extends @Nullable Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["whale"] |
 | boolean | hasBaleen()<br>[optional] |
 | boolean | hasTeeth()<br>[optional] |

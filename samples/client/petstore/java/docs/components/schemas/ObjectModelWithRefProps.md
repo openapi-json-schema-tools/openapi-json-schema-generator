@@ -58,11 +58,11 @@ ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<String, Object>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<String, ? extends @Nullable Object>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectModelWithRefPropsMapInput
 public class ObjectModelWithRefPropsMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -76,14 +76,14 @@ A class that builds the Map input type
 
 ## ObjectModelWithRefPropsMap
 public static class ObjectModelWithRefPropsMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | of([Map<String, Object>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
 | Number | myNumber()<br>[optional] |
 | String | myString()<br>[optional] |
 | boolean | myBoolean()<br>[optional] |

@@ -45,15 +45,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
     JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopy1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "from",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "op",
             "move"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "path",
             "a"
         )

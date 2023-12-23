@@ -55,11 +55,11 @@ Foo.FooMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FooMap](#foomap) | validate([Map<String, Object>](#foomapinput) arg, SchemaConfiguration configuration) |
+| static [FooMap](#foomap) | validate([Map<String, ? extends @Nullable Object>](#foomapinput) arg, SchemaConfiguration configuration) |
 
 ## FooMapInput
 public class FooMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -71,14 +71,14 @@ A class that builds the Map input type
 
 ## FooMap
 public static class FooMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FooMap](#foomap) | of([Map<String, Object>](#foomapinput) arg, SchemaConfiguration configuration) |
+| static [FooMap](#foomap) | of([Map<String, ? extends @Nullable Object>](#foomapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

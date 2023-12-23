@@ -61,11 +61,11 @@ Banana.BananaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BananaMap](#bananamap) | validate([Map<String, Object>](#bananamapinput) arg, SchemaConfiguration configuration) |
+| static [BananaMap](#bananamap) | validate([Map<String, ? extends @Nullable Object>](#bananamapinput) arg, SchemaConfiguration configuration) |
 
 ## BananaMapInput
 public class BananaMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -77,14 +77,14 @@ A class that builds the Map input type
 
 ## BananaMap
 public static class BananaMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BananaMap](#bananamap) | of([Map<String, Object>](#bananamapinput) arg, SchemaConfiguration configuration) |
+| static [BananaMap](#bananamap) | of([Map<String, ? extends @Nullable Object>](#bananamapinput) arg, SchemaConfiguration configuration) |
 | Number | lengthCm()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

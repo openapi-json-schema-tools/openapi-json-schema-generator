@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Animal.AnimalMap validatedPayload =
     Animal.Animal1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "className",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "color",
             "a"
         )
@@ -66,11 +66,11 @@ Animal.AnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalMap](#animalmap) | validate([Map<String, Object>](#animalmapinput) arg, SchemaConfiguration configuration) |
+| static [AnimalMap](#animalmap) | validate([Map<String, ? extends @Nullable Object>](#animalmapinput) arg, SchemaConfiguration configuration) |
 
 ## AnimalMapInput
 public class AnimalMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -83,14 +83,14 @@ A class that builds the Map input type
 
 ## AnimalMap
 public static class AnimalMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalMap](#animalmap) | of([Map<String, Object>](#animalmapinput) arg, SchemaConfiguration configuration) |
+| static [AnimalMap](#animalmap) | of([Map<String, ? extends @Nullable Object>](#animalmapinput) arg, SchemaConfiguration configuration) |
 | String | className()<br> |
 | String | color()<br>[optional] if omitted the server will use the default value of red |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -44,11 +44,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
     JSONPatchRequestRemove.JSONPatchRequestRemove1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "op",
             "remove"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "path",
             "a"
         )

@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Money.MoneyMap validatedPayload =
     Money.Money1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "amount",
             "3.14"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "currency",
             "eur"
         )
@@ -67,11 +67,11 @@ Money.MoneyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MoneyMap](#moneymap) | validate([Map<String, Object>](#moneymapinput) arg, SchemaConfiguration configuration) |
+| static [MoneyMap](#moneymap) | validate([Map<String, ? extends @Nullable Object>](#moneymapinput) arg, SchemaConfiguration configuration) |
 
 ## MoneyMapInput
 public class MoneyMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -83,14 +83,14 @@ A class that builds the Map input type
 
 ## MoneyMap
 public static class MoneyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MoneyMap](#moneymap) | of([Map<String, Object>](#moneymapinput) arg, SchemaConfiguration configuration) |
+| static [MoneyMap](#moneymap) | of([Map<String, ? extends @Nullable Object>](#moneymapinput) arg, SchemaConfiguration configuration) |
 | String | amount()<br> value must be int or float numeric |
 | String | currency()<br> |
 

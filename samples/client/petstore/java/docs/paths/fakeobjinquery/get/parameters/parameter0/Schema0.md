@@ -60,11 +60,11 @@ Schema0.SchemaMap0 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap0](#schemamap0) | validate([Map<String, Object>](#schemamapinput0) arg, SchemaConfiguration configuration) |
+| static [SchemaMap0](#schemamap0) | validate([Map<String, ? extends @Nullable Object>](#schemamapinput0) arg, SchemaConfiguration configuration) |
 
 ## SchemaMapInput0
 public class SchemaMapInput0<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -76,14 +76,14 @@ A class that builds the Map input type
 
 ## SchemaMap0
 public static class SchemaMap0<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap0](#schemamap0) | of([Map<String, Object>](#schemamapinput0) arg, SchemaConfiguration configuration) |
+| static [SchemaMap0](#schemamap0) | of([Map<String, ? extends @Nullable Object>](#schemamapinput0) arg, SchemaConfiguration configuration) |
 | String | keyword()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

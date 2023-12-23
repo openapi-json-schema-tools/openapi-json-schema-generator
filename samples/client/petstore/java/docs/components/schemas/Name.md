@@ -44,12 +44,12 @@ Model for testing model name same as property name
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [NameMap](#namemap) | validate([Map<String, Object>](#namemapinput) arg, SchemaConfiguration configuration) |
+| static [NameMap](#namemap) | validate([Map<String, ? extends @Nullable Object>](#namemapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## NameMapInput
 public class NameMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -63,14 +63,14 @@ A class that builds the Map input type
 
 ## NameMap
 public static class NameMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NameMap](#namemap) | of([Map<String, Object>](#namemapinput) arg, SchemaConfiguration configuration) |
+| static [NameMap](#namemap) | of([Map<String, ? extends @Nullable Object>](#namemapinput) arg, SchemaConfiguration configuration) |
 | int | name()<br> value must be a 32 bit integer |
 | int | snake_case()<br>[optional] value must be a 32 bit integer |
 | String | property()<br>[optional] |

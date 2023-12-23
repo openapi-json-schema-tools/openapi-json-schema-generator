@@ -57,31 +57,31 @@ ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map<String, Object>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map<String, ? extends @Nullable Object>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectWithInlineCompositionPropertyMapInput
 public class ObjectWithInlineCompositionPropertyMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **someProp** | Object |  | [optional] |
+| **someProp** | ? extends @Nullable Object |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectWithInlineCompositionPropertyMap
 public static class ObjectWithInlineCompositionPropertyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | of([Map<String, Object>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
-| Object | someProp()<br>[optional] |
+| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | of([Map<String, ? extends @Nullable Object>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | someProp()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## SomeProp

@@ -47,15 +47,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayload =
     ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedProps1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "123-list",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "$special[property.name]",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "123Number",
             1L
         )
@@ -74,11 +74,11 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<String, Object>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<String, ? extends @Nullable Object>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectWithDifficultlyNamedPropsMapInput
 public class ObjectWithDifficultlyNamedPropsMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -92,15 +92,15 @@ A class that builds the Map input type
 
 ## ObjectWithDifficultlyNamedPropsMap
 public static class ObjectWithDifficultlyNamedPropsMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | of([Map<String, Object>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["123-list"], instance["$special[property.name]"], instance["123Number"],  |
+| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | of([Map<String, ? extends @Nullable Object>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["123-list"], instance["$special[property.name]"], instance["123Number"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Schema123Number

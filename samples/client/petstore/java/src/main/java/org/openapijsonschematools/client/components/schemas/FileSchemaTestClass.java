@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -29,18 +33,18 @@ public class FileSchemaTestClass {
         protected FilesList(FrozenList<File.FileMap> m) {
             super(m);
         }
-        public static FilesList of(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FilesList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             return Files.getInstance().validate(arg, configuration);
         }
     }
     
     public static class FilesListInput {
-        // class to build List<Map<String, Object>>
+        // class to build List<Map<String, ? extends @Nullable Object>>
     }
     
     
-    public static class Files extends JsonSchema implements ListSchemaValidator<Map<String, Object>, FilesList> {
-        private static Files instance;
+    public static class Files extends JsonSchema implements ListSchemaValidator<FilesList> {
+        private static @Nullable Files instance = null;
     
         protected Files() {
             super(new JsonSchemaInfo()
@@ -63,17 +67,23 @@ public class FileSchemaTestClass {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                File.FileMap castItem = (File.FileMap) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof File.FileMap)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((File.FileMap) itemInstance);
                 i += 1;
             }
             FrozenList<File.FileMap> newInstanceItems = new FrozenList<>(items);
             return new FilesList(newInstanceItems);
         }
         
-        @Override
-        public FilesList validate(List<Map<String, Object>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FilesList validate(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -84,16 +94,16 @@ public class FileSchemaTestClass {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class FileSchemaTestClassMap extends FrozenMap<Object> {
-        protected FileSchemaTestClassMap(FrozenMap<Object> m) {
+    public static class FileSchemaTestClassMap extends FrozenMap<@Nullable Object> {
+        protected FileSchemaTestClassMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -101,23 +111,31 @@ public class FileSchemaTestClass {
             "file",
             "files"
         );
-        public static FileSchemaTestClassMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FileSchemaTestClassMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FileSchemaTestClass1.getInstance().validate(arg, configuration);
         }
         
-        public File.FileMap file() {
+        public File.FileMap file() throws UnsetPropertyException {
             String key = "file";
             throwIfKeyNotPresent(key);
-            return (File.FileMap) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof File.FileMap)) {
+                throw new InvalidTypeException("Invalid value stored for file");
+            }
+            return (File.FileMap) value;
         }
         
-        public FilesList files() {
+        public FilesList files() throws UnsetPropertyException {
             String key = "files";
             throwIfKeyNotPresent(key);
-            return (FilesList) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof FilesList)) {
+                throw new InvalidTypeException("Invalid value stored for files");
+            }
+            return (FilesList) value;
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -128,14 +146,14 @@ public class FileSchemaTestClass {
     }
     
     
-    public static class FileSchemaTestClass1 extends JsonSchema implements MapSchemaValidator<Object, FileSchemaTestClassMap> {
+    public static class FileSchemaTestClass1 extends JsonSchema implements MapSchemaValidator<FileSchemaTestClassMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static FileSchemaTestClass1 instance;
+        private static @Nullable FileSchemaTestClass1 instance = null;
     
         protected FileSchemaTestClass1() {
             super(new JsonSchemaInfo()
@@ -155,22 +173,29 @@ public class FileSchemaTestClass {
         }
         
         public FileSchemaTestClassMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new FileSchemaTestClassMap(castProperties);
         }
         
-        @Override
-        public FileSchemaTestClassMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FileSchemaTestClassMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -182,11 +207,11 @@ public class FileSchemaTestClass {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

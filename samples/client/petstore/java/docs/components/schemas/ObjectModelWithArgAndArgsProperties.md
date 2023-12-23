@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap validatedPayload =
     ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsProperties1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "arg",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "args",
             "a"
         )
@@ -66,11 +66,11 @@ ObjectModelWithArgAndArgsProperties.ObjectModelWithArgAndArgsPropertiesMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map<String, Object>](#objectmodelwithargandargspropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#objectmodelwithargandargspropertiesmapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectModelWithArgAndArgsPropertiesMapInput
 public class ObjectModelWithArgAndArgsPropertiesMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -83,14 +83,14 @@ A class that builds the Map input type
 
 ## ObjectModelWithArgAndArgsPropertiesMap
 public static class ObjectModelWithArgAndArgsPropertiesMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | of([Map<String, Object>](#objectmodelwithargandargspropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithArgAndArgsPropertiesMap](#objectmodelwithargandargspropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectmodelwithargandargspropertiesmapinput) arg, SchemaConfiguration configuration) |
 | String | arg()<br> |
 | String | args()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

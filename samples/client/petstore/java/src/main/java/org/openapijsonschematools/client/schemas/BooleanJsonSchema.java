@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -21,7 +22,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class BooleanJsonSchema extends JsonSchema implements BooleanSchemaValidator {
-    private static BooleanJsonSchema instance;
+    private static @Nullable BooleanJsonSchema instance = null;
 
     protected BooleanJsonSchema() {
         super(new JsonSchemaInfo()
@@ -53,11 +54,11 @@ public class BooleanJsonSchema extends JsonSchema implements BooleanSchemaValida
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof Boolean) {
             boolean boolArg = (Boolean) arg;
             return getNewInstance(boolArg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

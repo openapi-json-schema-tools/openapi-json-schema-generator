@@ -44,11 +44,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 BananaReq.BananaReqMap validatedPayload =
     BananaReq.BananaReq1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "lengthCm",
             1
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "sweet",
             true
         )

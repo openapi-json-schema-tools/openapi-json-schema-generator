@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 FromSchema.FromSchemaMap validatedPayload =
     FromSchema.FromSchema1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "data",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "id",
             1L
         )
@@ -65,11 +65,11 @@ FromSchema.FromSchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FromSchemaMap](#fromschemamap) | validate([Map<String, Object>](#fromschemamapinput) arg, SchemaConfiguration configuration) |
+| static [FromSchemaMap](#fromschemamap) | validate([Map<String, ? extends @Nullable Object>](#fromschemamapinput) arg, SchemaConfiguration configuration) |
 
 ## FromSchemaMapInput
 public class FromSchemaMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -82,14 +82,14 @@ A class that builds the Map input type
 
 ## FromSchemaMap
 public static class FromSchemaMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FromSchemaMap](#fromschemamap) | of([Map<String, Object>](#fromschemamapinput) arg, SchemaConfiguration configuration) |
+| static [FromSchemaMap](#fromschemamap) | of([Map<String, ? extends @Nullable Object>](#fromschemamapinput) arg, SchemaConfiguration configuration) |
 | String | data()<br>[optional] |
 | long | id()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

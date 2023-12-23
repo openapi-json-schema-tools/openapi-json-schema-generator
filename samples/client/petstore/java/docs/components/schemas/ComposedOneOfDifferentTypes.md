@@ -130,29 +130,29 @@ ComposedOneOfDifferentTypes.Schema5List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | validate([List<Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | validate([List<? extends @Nullable Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
 
 ## Schema5ListInput
 public class Schema5ListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object |  |
+? extends @Nullable Object |  |
 
 ## Schema5List
 public class Schema5List<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema5List](#schema5list) | of([List<Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
+| static [Schema5List](#schema5list) | of([List<? extends @Nullable Object>](#schema5listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

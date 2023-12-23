@@ -60,33 +60,33 @@ ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map<String, Object>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectWithCollidingPropertiesMapInput
 public class ObjectWithCollidingPropertiesMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **someProp** | Map<String, Object> |  | [optional] |
-| **someprop** | Map<String, Object> |  | [optional] |
+| **someProp** | Map<String, ? extends @Nullable Object> |  | [optional] |
+| **someprop** | Map<String, ? extends @Nullable Object> |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectWithCollidingPropertiesMap
 public static class ObjectWithCollidingPropertiesMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | of([Map<String, Object>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| FrozenMap<Object> | someProp()<br>[optional] |
-| FrozenMap<Object> | someprop()<br>[optional] |
+| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| FrozenMap<@Nullable Object> | someProp()<br>[optional] |
+| FrozenMap<@Nullable Object> | someprop()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Someprop

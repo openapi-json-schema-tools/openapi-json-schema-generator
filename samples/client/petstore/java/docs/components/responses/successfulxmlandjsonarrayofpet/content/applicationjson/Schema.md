@@ -42,34 +42,34 @@ Schema.SchemaList validatedPayload =
     Schema.Schema1.validate(
     Arrays.asList(
         MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "name",
                 "a"
             ),
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "photoUrls",
                 Arrays.asList(
                     "a"
                 )
             ),
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "id",
                 1L
             ),
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "category",
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Object>(
                         "name",
                         "a"
                     ),
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Object>(
                         "id",
                         1L
                     )
                 )
             ),
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "tags",
                 Arrays.asList(
                     MapMaker.makeMap(
@@ -80,7 +80,7 @@ Schema.SchemaList validatedPayload =
                     )
                 )
             ),
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "status",
                 "available"
             )
@@ -99,18 +99,18 @@ Schema.SchemaList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList](#schemalist) | validate([List<Map<String, Object>>](#schemalistinput) arg, SchemaConfiguration configuration) |
+| static [SchemaList](#schemalist) | validate([List<Map<String, ? extends @Nullable Object>>](#schemalistinput) arg, SchemaConfiguration configuration) |
 
 ## SchemaListInput
 public class SchemaListInput<br>
-builder for `List<Map<String, Object>>`
+builder for `List<Map<String, ? extends @Nullable Object>>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Map<String, Object> |  |
+Map<String, ? extends @Nullable Object> |  |
 
 ## SchemaList
 public class SchemaList<br>
@@ -121,4 +121,4 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList](#schemalist) | of([List<Map<String, Object>>](#schemalistinput) arg, SchemaConfiguration configuration) |
+| static [SchemaList](#schemalist) | of([List<Map<String, ? extends @Nullable Object>>](#schemalistinput) arg, SchemaConfiguration configuration) |

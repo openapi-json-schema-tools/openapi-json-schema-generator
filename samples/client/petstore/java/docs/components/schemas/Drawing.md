@@ -64,38 +64,38 @@ Drawing.DrawingMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DrawingMap](#drawingmap) | validate([Map<String, Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
+| static [DrawingMap](#drawingmap) | validate([Map<String, ? extends @Nullable Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
 
 ## DrawingMapInput
 public class DrawingMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **mainShape** | Object |  | [optional] |
-| **shapeOrNull** | Object |  | [optional] |
-| **nullableShape** | Object |  | [optional] |
-| **shapes** | List<Object> |  | [optional] |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+| **mainShape** | ? extends @Nullable Object |  | [optional] |
+| **shapeOrNull** | ? extends @Nullable Object |  | [optional] |
+| **nullableShape** | ? extends @Nullable Object |  | [optional] |
+| **shapes** | List<? extends @Nullable Object> |  | [optional] |
+| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## DrawingMap
 public static class DrawingMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DrawingMap](#drawingmap) | of([Map<String, Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
-| Object | mainShape()<br>[optional] |
-| Object | shapeOrNull()<br>[optional] |
-| Object | nullableShape()<br>[optional] |
+| static [DrawingMap](#drawingmap) | of([Map<String, ? extends @Nullable Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | mainShape()<br>[optional] |
+| @Nullable Object | shapeOrNull()<br>[optional] |
+| @Nullable Object | nullableShape()<br>[optional] |
 | [ShapesList](#shapeslist) | shapes()<br>[optional] |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Shapes
 public static class Shapes<br>
@@ -136,28 +136,28 @@ Drawing.ShapesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | validate([List<Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | validate([List<? extends @Nullable Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
 
 ## ShapesListInput
 public class ShapesListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object |  |
+? extends @Nullable Object |  |
 
 ## ShapesList
 public class ShapesList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | of([List<Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
+| static [ShapesList](#shapeslist) | of([List<? extends @Nullable Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

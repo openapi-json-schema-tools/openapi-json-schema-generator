@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
@@ -25,17 +29,41 @@ public class ApiResponseSchema {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Code extends Int32JsonSchema {}
+    public static class Code extends Int32JsonSchema {
+        private static @Nullable Code instance = null;
+        public static Code getInstance() {
+            if (instance == null) {
+                instance = new Code();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Type extends StringJsonSchema {}
+    public static class Type extends StringJsonSchema {
+        private static @Nullable Type instance = null;
+        public static Type getInstance() {
+            if (instance == null) {
+                instance = new Type();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Message extends StringJsonSchema {}
+    public static class Message extends StringJsonSchema {
+        private static @Nullable Message instance = null;
+        public static Message getInstance() {
+            if (instance == null) {
+                instance = new Message();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class ApiResponseMap extends FrozenMap<Object> {
-        protected ApiResponseMap(FrozenMap<Object> m) {
+    public static class ApiResponseMap extends FrozenMap<@Nullable Object> {
+        protected ApiResponseMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -44,29 +72,41 @@ public class ApiResponseSchema {
             "type",
             "message"
         );
-        public static ApiResponseMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ApiResponseMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ApiResponseSchema1.getInstance().validate(arg, configuration);
         }
         
-        public int code() {
+        public int code() throws UnsetPropertyException {
             String key = "code";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Integer)) {
+                throw new InvalidTypeException("Invalid value stored for code");
+            }
+            return (int) value;
         }
         
-        public String type() {
+        public String type() throws UnsetPropertyException {
             String key = "type";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for type");
+            }
+            return (String) value;
         }
         
-        public String message() {
+        public String message() throws UnsetPropertyException {
             String key = "message";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for message");
+            }
+            return (String) value;
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -77,14 +117,14 @@ public class ApiResponseSchema {
     }
     
     
-    public static class ApiResponseSchema1 extends JsonSchema implements MapSchemaValidator<Object, ApiResponseMap> {
+    public static class ApiResponseSchema1 extends JsonSchema implements MapSchemaValidator<ApiResponseMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static ApiResponseSchema1 instance;
+        private static @Nullable ApiResponseSchema1 instance = null;
     
         protected ApiResponseSchema1() {
             super(new JsonSchemaInfo()
@@ -105,22 +145,29 @@ public class ApiResponseSchema {
         }
         
         public ApiResponseMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new ApiResponseMap(castProperties);
         }
         
-        @Override
-        public ApiResponseMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ApiResponseMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -132,11 +179,11 @@ public class ApiResponseSchema {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

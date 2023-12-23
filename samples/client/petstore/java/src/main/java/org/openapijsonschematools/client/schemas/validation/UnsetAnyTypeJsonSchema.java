@@ -4,6 +4,7 @@ import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -17,8 +18,8 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
-public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, FrozenMap<Object>> {
-    private static UnsetAnyTypeJsonSchema instance;
+public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<FrozenMap<@Nullable Object>> {
+    private static @Nullable UnsetAnyTypeJsonSchema instance = null;
 
     protected UnsetAnyTypeJsonSchema() {
         super(new JsonSchemaInfo());
@@ -112,22 +113,25 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaVali
     }
 
     @Override
-    public FrozenList<Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        List<Object> items = new ArrayList<>();
+    public FrozenList<@Nullable Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        List<@Nullable Object> items = new ArrayList<>();
         int i = 0;
         for (Object item: arg) {
             List<Object> itemPathToItem = new ArrayList<>(pathToItem);
             itemPathToItem.add(i);
-            JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-            Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+            LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+            if (schemas == null) {
+                throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+            }
+            JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+            @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
             items.add(castItem);
             i += 1;
         }
         return new FrozenList<>(items);
     }
 
-    @Override
-    public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -140,22 +144,29 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaVali
     }
 
     @Override
-    public FrozenMap<Object> getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+    public FrozenMap<@Nullable Object> getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
         for(Map.Entry<?, ?> entry: arg.entrySet()) {
-            String propertyName = (String) entry.getKey();
+            @Nullable Object entryKey = entry.getKey();
+            if (!(entryKey instanceof String)) {
+                throw new InvalidTypeException("Invalid non-string key value");
+            }
+            String propertyName = (String) entryKey;
             List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
             propertyPathToItem.add(propertyName);
             Object value = entry.getValue();
-            JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-            Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+            LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+            if (schemas == null) {
+                throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+            }
+            JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+            @Nullable Object castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
             properties.put(propertyName, castValue);
         }
         return new FrozenMap<>(properties);
     }
 
-    @Override
-    public FrozenMap<Object> validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -168,7 +179,7 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaVali
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg == null) {
             return getNewInstance((Void) null, pathToItem, pathToSchemas);
         } else if (arg instanceof Boolean) {
@@ -183,6 +194,6 @@ public class UnsetAnyTypeJsonSchema extends JsonSchema implements NullSchemaVali
         } else if (arg instanceof Map) {
             return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

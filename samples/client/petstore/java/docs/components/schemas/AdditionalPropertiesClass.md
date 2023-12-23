@@ -67,27 +67,27 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
     AdditionalPropertiesClass.AdditionalPropertiesClass1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map>(
             "map_property",
             MapMaker.makeMap(
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map>(
             "map_of_map_property",
             MapMaker.makeMap(
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map>(
             "map_with_undeclared_properties_anytype_3",
             MapMaker.makeMap(
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map>(
             "empty_map",
             MapMaker.makeMap(
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map>(
             "map_with_undeclared_properties_string",
             MapMaker.makeMap(
             )
@@ -106,11 +106,11 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map<String, Object>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map<String, ? extends @Nullable Object>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
 
 ## AdditionalPropertiesClassMapInput
 public class AdditionalPropertiesClassMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -119,29 +119,29 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **map_property** | Map<String, String> |  | [optional] |
 | **map_of_map_property** | Map<String, Map<String, String>> |  | [optional] |
-| **anytype_1** | Object |  | [optional] |
-| **map_with_undeclared_properties_anytype_1** | Map<String, Object> |  | [optional] |
-| **map_with_undeclared_properties_anytype_2** | Map<String, Object> |  | [optional] |
-| **map_with_undeclared_properties_anytype_3** | Map<String, Object> |  | [optional] |
-| **empty_map** | Map<String, Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional] |
+| **anytype_1** | ? extends @Nullable Object |  | [optional] |
+| **map_with_undeclared_properties_anytype_1** | Map<String, ? extends @Nullable Object> |  | [optional] |
+| **map_with_undeclared_properties_anytype_2** | Map<String, ? extends @Nullable Object> |  | [optional] |
+| **map_with_undeclared_properties_anytype_3** | Map<String, ? extends @Nullable Object> |  | [optional] |
+| **empty_map** | Map<String, ? extends @Nullable Object> | an object with no declared properties and no undeclared properties, hence it&#x27;s an empty map. | [optional] |
 | **map_with_undeclared_properties_string** | Map<String, String> |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalPropertiesClassMap
 public static class AdditionalPropertiesClassMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | of([Map<String, Object>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | of([Map<String, ? extends @Nullable Object>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
 | [MapPropertyMap](#mappropertymap) | map_property()<br>[optional] |
 | [MapOfMapPropertyMap](#mapofmappropertymap) | map_of_map_property()<br>[optional] |
-| Object | anytype_1()<br>[optional] |
-| FrozenMap<Object> | map_with_undeclared_properties_anytype_1()<br>[optional] |
-| FrozenMap<Object> | map_with_undeclared_properties_anytype_2()<br>[optional] |
+| @Nullable Object | anytype_1()<br>[optional] |
+| FrozenMap<@Nullable Object> | map_with_undeclared_properties_anytype_1()<br>[optional] |
+| FrozenMap<@Nullable Object> | map_with_undeclared_properties_anytype_2()<br>[optional] |
 | [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | map_with_undeclared_properties_anytype_3()<br>[optional] |
 | [EmptyMapMap](#emptymapmap) | empty_map()<br>[optional] |
 | [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | map_with_undeclared_properties_string()<br>[optional] |
@@ -335,11 +335,11 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map<String, Object>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map<String, ? extends @Nullable Object>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
 
 ## MapWithUndeclaredPropertiesAnytype3MapInput
 public class MapWithUndeclaredPropertiesAnytype3MapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -350,14 +350,14 @@ A class that builds the Map input type
 
 ## MapWithUndeclaredPropertiesAnytype3Map
 public static class MapWithUndeclaredPropertiesAnytype3Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | of([Map<String, Object>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
+| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | of([Map<String, ? extends @Nullable Object>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties3

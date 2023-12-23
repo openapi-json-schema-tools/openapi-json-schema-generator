@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
 
@@ -9,11 +10,6 @@ public class MultipleOfValidator implements KeywordValidator {
 
     public MultipleOfValidator(BigDecimal multipleOf) {
         this.multipleOf = multipleOf;
-    }
-
-    @Override
-    public Object getConstraint() {
-        return multipleOf;
     }
 
     private BigDecimal getBigDecimal(Number arg) {
@@ -31,7 +27,7 @@ public class MultipleOfValidator implements KeywordValidator {
     }
 
     @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Number)) {
             return null;
         }

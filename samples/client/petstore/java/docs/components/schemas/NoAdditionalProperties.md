@@ -44,11 +44,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 NoAdditionalProperties.NoAdditionalPropertiesMap validatedPayload =
     NoAdditionalProperties.NoAdditionalProperties1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Long>(
             "id",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Long>(
             "petId",
             1L
         )

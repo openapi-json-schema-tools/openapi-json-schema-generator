@@ -41,7 +41,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayOfEnums.ArrayOfEnumsList validatedPayload =
     ArrayOfEnums.ArrayOfEnums1.validate(
     Arrays.asList(
-        (Void) null
+        null
     ),
     configuration
 );
@@ -56,28 +56,28 @@ ArrayOfEnums.ArrayOfEnumsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfEnumsList](#arrayofenumslist) | validate([List<String>](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | validate([List<? extends @Nullable String>](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayOfEnumsListInput
 public class ArrayOfEnumsListInput<br>
-builder for `List<String>`
+builder for `List<? extends @Nullable String>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-String |  |
+? extends @Nullable String |  |
 
 ## ArrayOfEnumsList
 public class ArrayOfEnumsList<br>
-extends `FrozenList<String>`
+extends `FrozenList<@Nullable String>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfEnumsList](#arrayofenumslist) | of([List<String>](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfEnumsList](#arrayofenumslist) | of([List<? extends @Nullable String>](#arrayofenumslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

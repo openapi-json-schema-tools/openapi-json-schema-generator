@@ -55,41 +55,41 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 User.UserMap validatedPayload =
     User.User1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "id",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "username",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "firstName",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "lastName",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "email",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "password",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "phone",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "userStatus",
-            1
+            1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "objectWithNoDeclaredPropsNullable",
-            (Void) null
+            null
         )
     ),
     configuration
@@ -105,11 +105,11 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserMap](#usermap) | validate([Map<String, Object>](#usermapinput) arg, SchemaConfiguration configuration) |
+| static [UserMap](#usermap) | validate([Map<String, ? extends @Nullable Object>](#usermapinput) arg, SchemaConfiguration configuration) |
 
 ## UserMapInput
 public class UserMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -124,23 +124,23 @@ A class that builds the Map input type
 | **password** | String |  | [optional] |
 | **phone** | String |  | [optional] |
 | **userStatus** | int | User Status | [optional] value must be a 32 bit integer |
-| **objectWithNoDeclaredProps** | Map<String, Object> | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional] |
-| **objectWithNoDeclaredPropsNullable** | Map<String, Object> | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional] |
-| **anyTypeProp** | Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional] |
-| **anyTypeExceptNullProp** | Object | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional] |
-| **anyTypePropNullable** | Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional] |
+| **objectWithNoDeclaredProps** | Map<String, ? extends @Nullable Object> | test code generation for objects Value must be a map of strings to values. It cannot be the &#x27;null&#x27; value. | [optional] |
+| **objectWithNoDeclaredPropsNullable** | ? extends @Nullable Map<String, ? extends @Nullable Object> | test code generation for nullable objects. Value must be a map of strings to values or the &#x27;null&#x27; value. | [optional] |
+| **anyTypeProp** | ? extends @Nullable Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. See https://github.com/OAI/OpenAPI-Specification/issues/1389 | [optional] |
+| **anyTypeExceptNullProp** | ? extends @Nullable Object | any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. | [optional] |
+| **anyTypePropNullable** | ? extends @Nullable Object | test code generation for any type Here the &#x27;type&#x27; attribute is not specified, which means the value can be anything, including the null value, string, number, boolean, array or object. The &#x27;nullable&#x27; attribute does not change the allowed values. | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## UserMap
 public static class UserMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserMap](#usermap) | of([Map<String, Object>](#usermapinput) arg, SchemaConfiguration configuration) |
+| static [UserMap](#usermap) | of([Map<String, ? extends @Nullable Object>](#usermapinput) arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | String | username()<br>[optional] |
 | String | firstName()<br>[optional] |
@@ -149,11 +149,11 @@ A class to store validated Map payloads
 | String | password()<br>[optional] |
 | String | phone()<br>[optional] |
 | int | userStatus()<br>[optional] value must be a 32 bit integer |
-| FrozenMap<Object> | objectWithNoDeclaredProps()<br>[optional] |
-| FrozenMap<Object> | objectWithNoDeclaredPropsNullable()<br>[optional] |
-| Object | anyTypeProp()<br>[optional] |
-| Object | anyTypeExceptNullProp()<br>[optional] |
-| Object | anyTypePropNullable()<br>[optional] |
+| FrozenMap<@Nullable Object> | objectWithNoDeclaredProps()<br>[optional] |
+| @Nullable FrozenMap<@Nullable Object> | objectWithNoDeclaredPropsNullable()<br>[optional] |
+| @Nullable Object | anyTypeProp()<br>[optional] |
+| @Nullable Object | anyTypeExceptNullProp()<br>[optional] |
+| @Nullable Object | anyTypePropNullable()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AnyTypePropNullable

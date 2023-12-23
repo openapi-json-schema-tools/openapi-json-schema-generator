@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -14,6 +15,11 @@ import java.util.LinkedHashSet;
 import java.util.List;
 
 public class ItemsValidatorTest {
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
+    }
 
     @Test
     public void testCorrectItemsSucceeds() {
@@ -34,6 +40,9 @@ public class ItemsValidatorTest {
                 arg,
                 validationMetadata
         );
+        if (pathToSchemas == null) {
+            throw new RuntimeException("Invalid null value in pathToSchemas for this test case");
+        }
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add(0);
@@ -61,7 +70,7 @@ public class ItemsValidatorTest {
                 1,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemas);
+        assertNull(pathToSchemas);
     }
 
     @Test
@@ -85,3 +94,4 @@ public class ItemsValidatorTest {
         ));
     }
 }
+

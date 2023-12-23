@@ -47,7 +47,7 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<>(
             "NullableMessage",
-            (Void) null
+            null
         )
     ),
     configuration
@@ -63,31 +63,31 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<String, Object>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
+| static [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<String, ? extends @Nullable Object>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
 
 ## HealthCheckResultMapInput
 public class HealthCheckResultMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **NullableMessage** | String |  | [optional] |
+| **NullableMessage** | ? extends @Nullable String |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## HealthCheckResultMap
 public static class HealthCheckResultMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HealthCheckResultMap](#healthcheckresultmap) | of([Map<String, Object>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
-| String | NullableMessage()<br>[optional] |
+| static [HealthCheckResultMap](#healthcheckresultmap) | of([Map<String, ? extends @Nullable Object>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable String | NullableMessage()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NullableMessage

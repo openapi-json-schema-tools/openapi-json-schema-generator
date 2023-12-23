@@ -56,29 +56,29 @@ JSONPatchRequest.JSONPatchRequestList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestList](#jsonpatchrequestlist) | validate([List<Object>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | validate([List<? extends @Nullable Object>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
 
 ## JSONPatchRequestListInput
 public class JSONPatchRequestListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object |  |
+? extends @Nullable Object |  |
 
 ## JSONPatchRequestList
 public class JSONPatchRequestList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestList](#jsonpatchrequestlist) | of([List<Object>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestList](#jsonpatchrequestlist) | of([List<? extends @Nullable Object>](#jsonpatchrequestlistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

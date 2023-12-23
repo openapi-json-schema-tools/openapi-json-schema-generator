@@ -47,27 +47,27 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Capitalization.CapitalizationMap validatedPayload =
     Capitalization.Capitalization1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "smallCamel",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "CapitalCamel",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "small_Snake",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "Capital_Snake",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "SCA_ETH_Flow_Points",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "ATT_NAME",
             "a"
         )
@@ -85,11 +85,11 @@ Capitalization.CapitalizationMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CapitalizationMap](#capitalizationmap) | validate([Map<String, Object>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
+| static [CapitalizationMap](#capitalizationmap) | validate([Map<String, ? extends @Nullable Object>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
 
 ## CapitalizationMapInput
 public class CapitalizationMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -106,14 +106,14 @@ A class that builds the Map input type
 
 ## CapitalizationMap
 public static class CapitalizationMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CapitalizationMap](#capitalizationmap) | of([Map<String, Object>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
+| static [CapitalizationMap](#capitalizationmap) | of([Map<String, ? extends @Nullable Object>](#capitalizationmapinput) arg, SchemaConfiguration configuration) |
 | String | smallCamel()<br>[optional] |
 | String | CapitalCamel()<br>[optional] |
 | String | small_Snake()<br>[optional] |

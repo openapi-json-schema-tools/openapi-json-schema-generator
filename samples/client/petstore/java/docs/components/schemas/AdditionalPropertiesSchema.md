@@ -82,30 +82,30 @@ AdditionalPropertiesSchema.Schema2Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema2Map](#schema2map) | validate([Map<String, Object>](#schema2mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema2Map](#schema2map) | validate([Map<String, ? extends @Nullable Object>](#schema2mapinput) arg, SchemaConfiguration configuration) |
 
 ## Schema2MapInput
 public class Schema2MapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema2Map
 public static class Schema2Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema2Map](#schema2map) | of([Map<String, Object>](#schema2mapinput) arg, SchemaConfiguration configuration) |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| static [Schema2Map](#schema2map) | of([Map<String, ? extends @Nullable Object>](#schema2mapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -170,30 +170,30 @@ AdditionalPropertiesSchema.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | validate([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | validate([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 
 ## Schema1MapInput
 public class Schema1MapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema1Map
 public static class Schema1Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | of([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -258,11 +258,11 @@ AdditionalPropertiesSchema.Schema0Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | validate([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | validate([Map<String, ? extends @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 
 ## Schema0MapInput
 public class Schema0MapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -273,14 +273,14 @@ A class that builds the Map input type
 
 ## Schema0Map
 public static class Schema0Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties

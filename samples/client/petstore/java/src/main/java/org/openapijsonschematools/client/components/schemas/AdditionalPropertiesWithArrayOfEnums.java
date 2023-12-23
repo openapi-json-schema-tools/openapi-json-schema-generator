@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -38,8 +42,8 @@ public class AdditionalPropertiesWithArrayOfEnums {
     }
     
     
-    public static class AdditionalProperties extends JsonSchema implements ListSchemaValidator<String, AdditionalPropertiesList> {
-        private static AdditionalProperties instance;
+    public static class AdditionalProperties extends JsonSchema implements ListSchemaValidator<AdditionalPropertiesList> {
+        private static @Nullable AdditionalProperties instance = null;
     
         protected AdditionalProperties() {
             super(new JsonSchemaInfo()
@@ -62,16 +66,22 @@ public class AdditionalPropertiesWithArrayOfEnums {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                String castItem = (String) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof String)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((String) itemInstance);
                 i += 1;
             }
             FrozenList<String> newInstanceItems = new FrozenList<>(items);
             return new AdditionalPropertiesList(newInstanceItems);
         }
         
-        @Override
         public AdditionalPropertiesList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -83,11 +93,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
@@ -101,9 +111,13 @@ public class AdditionalPropertiesWithArrayOfEnums {
             return AdditionalPropertiesWithArrayOfEnums1.getInstance().validate(arg, configuration);
         }
         
-        public AdditionalPropertiesList getAdditionalProperty(String name) {
+        public AdditionalPropertiesList getAdditionalProperty(String name) throws UnsetPropertyException {
             throwIfKeyNotPresent(name);
-            return (AdditionalPropertiesList) get(name);
+                        AdditionalPropertiesList value = get(name);
+            if (!(value instanceof AdditionalPropertiesList)) {
+                throw new InvalidTypeException("Invalid value stored for " + name);
+            }
+            return (AdditionalPropertiesList) value;
         }
     }
     public static class AdditionalPropertiesWithArrayOfEnumsMapInput {
@@ -111,14 +125,14 @@ public class AdditionalPropertiesWithArrayOfEnums {
     }
     
     
-    public static class AdditionalPropertiesWithArrayOfEnums1 extends JsonSchema implements MapSchemaValidator<List<String>, AdditionalPropertiesWithArrayOfEnumsMap> {
+    public static class AdditionalPropertiesWithArrayOfEnums1 extends JsonSchema implements MapSchemaValidator<AdditionalPropertiesWithArrayOfEnumsMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static AdditionalPropertiesWithArrayOfEnums1 instance;
+        private static @Nullable AdditionalPropertiesWithArrayOfEnums1 instance = null;
     
         protected AdditionalPropertiesWithArrayOfEnums1() {
             super(new JsonSchemaInfo()
@@ -137,19 +151,29 @@ public class AdditionalPropertiesWithArrayOfEnums {
         public AdditionalPropertiesWithArrayOfEnumsMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, AdditionalPropertiesList> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                AdditionalPropertiesList castValue = (AdditionalPropertiesList) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                if (!(propertyInstance instanceof AdditionalPropertiesList)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                properties.put(propertyName, (AdditionalPropertiesList) propertyInstance);
             }
             FrozenMap<AdditionalPropertiesList> castProperties = new FrozenMap<>(properties);
             return new AdditionalPropertiesWithArrayOfEnumsMap(castProperties);
         }
         
-        @Override
         public AdditionalPropertiesWithArrayOfEnumsMap validate(Map<String, List<String>> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -162,11 +186,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

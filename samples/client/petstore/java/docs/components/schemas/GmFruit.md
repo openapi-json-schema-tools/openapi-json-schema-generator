@@ -39,12 +39,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [GmFruitMap](#gmfruitmap) | validate([Map<String, Object>](#gmfruitmapinput) arg, SchemaConfiguration configuration) |
+| static [GmFruitMap](#gmfruitmap) | validate([Map<String, ? extends @Nullable Object>](#gmfruitmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## GmFruitMapInput
 public class GmFruitMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -56,14 +56,14 @@ A class that builds the Map input type
 
 ## GmFruitMap
 public static class GmFruitMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GmFruitMap](#gmfruitmap) | of([Map<String, Object>](#gmfruitmapinput) arg, SchemaConfiguration configuration) |
+| static [GmFruitMap](#gmfruitmap) | of([Map<String, ? extends @Nullable Object>](#gmfruitmapinput) arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

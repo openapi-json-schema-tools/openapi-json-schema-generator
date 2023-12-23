@@ -40,12 +40,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map<String, Object>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
+| static [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map<String, ? extends @Nullable Object>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## TriangleInterfaceMapInput
 public class TriangleInterfaceMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -58,14 +58,14 @@ A class that builds the Map input type
 
 ## TriangleInterfaceMap
 public static class TriangleInterfaceMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TriangleInterfaceMap](#triangleinterfacemap) | of([Map<String, Object>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
+| static [TriangleInterfaceMap](#triangleinterfacemap) | of([Map<String, ? extends @Nullable Object>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
 | String | shapeType()<br> must be one of ["Triangle"] |
 | String | triangleType()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -56,29 +56,29 @@ ComposedArray.ComposedArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | validate([List<Object>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | validate([List<? extends @Nullable Object>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## ComposedArrayListInput
 public class ComposedArrayListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object |  |
+? extends @Nullable Object |  |
 
 ## ComposedArrayList
 public class ComposedArrayList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | of([List<Object>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| static [ComposedArrayList](#composedarraylist) | of([List<? extends @Nullable Object>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -86,32 +86,32 @@ ObjectWithAllOfWithReqTestPropFromUnsetAddProp.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | validate([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | validate([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 
 ## Schema1MapInput
 public class Schema1MapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **test** | Object |  | |
+| **test** | ? extends @Nullable Object |  | |
 | **name** | String |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema1Map
 public static class Schema1Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | of([Map<String, Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
-| Object | test()<br> |
+| static [Schema1Map](#schema1map) | of([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | test()<br> |
 | String | name()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

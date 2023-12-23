@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.KeyFor;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 
@@ -7,6 +8,7 @@ import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FrozenMap<V> extends AbstractMap<String, V> {
     /*
@@ -27,15 +29,17 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
         }
     }
 
-    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws IllegalArgumentException {
+    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws InvalidAdditionalPropertyException {
         if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
             throw new InvalidAdditionalPropertyException ("The known key " + key + " may not be passed in when getting an additional property");
         }
     }
 
     @Override
-    public Set<Entry<String, V>> entrySet() {
-        return map.entrySet();
+    public Set<Entry<@KeyFor("this") String, V>> entrySet() {
+        return  map.entrySet().stream()
+                .map(x -> new AbstractMap.SimpleEntry<>(x.getKey(), x.getValue()))
+                .collect(Collectors.toSet());
     }
 }
 

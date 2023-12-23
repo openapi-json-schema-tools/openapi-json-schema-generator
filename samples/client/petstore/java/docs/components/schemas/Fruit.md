@@ -39,12 +39,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [FruitMap](#fruitmap) | validate([Map<String, Object>](#fruitmapinput) arg, SchemaConfiguration configuration) |
+| static [FruitMap](#fruitmap) | validate([Map<String, ? extends @Nullable Object>](#fruitmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## FruitMapInput
 public class FruitMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -56,14 +56,14 @@ A class that builds the Map input type
 
 ## FruitMap
 public static class FruitMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FruitMap](#fruitmap) | of([Map<String, Object>](#fruitmapinput) arg, SchemaConfiguration configuration) |
+| static [FruitMap](#fruitmap) | of([Map<String, ? extends @Nullable Object>](#fruitmapinput) arg, SchemaConfiguration configuration) |
 | String | color()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

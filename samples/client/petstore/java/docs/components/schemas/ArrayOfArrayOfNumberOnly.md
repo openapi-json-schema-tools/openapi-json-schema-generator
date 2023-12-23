@@ -70,11 +70,11 @@ ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate([Map<String, Object>](#arrayofarrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | validate([Map<String, ? extends @Nullable Object>](#arrayofarrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayOfArrayOfNumberOnlyMapInput
 public class ArrayOfArrayOfNumberOnlyMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -86,14 +86,14 @@ A class that builds the Map input type
 
 ## ArrayOfArrayOfNumberOnlyMap
 public static class ArrayOfArrayOfNumberOnlyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | of([Map<String, Object>](#arrayofarrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
+| static [ArrayOfArrayOfNumberOnlyMap](#arrayofarrayofnumberonlymap) | of([Map<String, ? extends @Nullable Object>](#arrayofarrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
 | [ArrayArrayNumberList](#arrayarraynumberlist) | ArrayArrayNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

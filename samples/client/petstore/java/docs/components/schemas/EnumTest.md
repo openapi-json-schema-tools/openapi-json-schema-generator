@@ -45,19 +45,19 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 EnumTest.EnumTestMap validatedPayload =
     EnumTest.EnumTest1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "enum_string_required",
             "UPPER"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "enum_string",
             "UPPER"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "enum_integer",
-            1
+            1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "enum_number",
             1.1d
         )
@@ -76,11 +76,11 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | validate([Map<String, Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | validate([Map<String, ? extends @Nullable Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
 
 ## EnumTestMapInput
 public class EnumTestMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -91,7 +91,7 @@ A class that builds the Map input type
 | **enum_string** | String |  | [optional] must be one of ["UPPER", "lower", ""] |
 | **enum_integer** | int |  | [optional] must be one of [1, -1] value must be a 32 bit integer |
 | **enum_number** | double |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float |
-| **stringEnum** | String |  | [optional] |
+| **stringEnum** | ? extends @Nullable String |  | [optional] |
 | **IntegerEnum** | long |  | [optional] |
 | **StringEnumWithDefaultValue** | String |  | [optional] |
 | **IntegerEnumWithDefaultValue** | long |  | [optional] |
@@ -100,19 +100,19 @@ A class that builds the Map input type
 
 ## EnumTestMap
 public static class EnumTestMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | of([Map<String, Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | of([Map<String, ? extends @Nullable Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
 | String | enum_string_required()<br> must be one of ["UPPER", "lower", ""] |
 | String | enum_string()<br>[optional] must be one of ["UPPER", "lower", ""] |
 | int | enum_integer()<br>[optional] must be one of [1, -1] value must be a 32 bit integer |
 | double | enum_number()<br>[optional] must be one of [1.1, -1.2] value must be a 64 bit float |
-| String | stringEnum()<br>[optional] |
+| @Nullable String | stringEnum()<br>[optional] |
 | long | IntegerEnum()<br>[optional] |
 | String | StringEnumWithDefaultValue()<br>[optional] |
 | long | IntegerEnumWithDefaultValue()<br>[optional] |
@@ -182,7 +182,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = EnumTest.EnumInteger.validate(
-    1,
+    1L,
     configuration
 );
 ```

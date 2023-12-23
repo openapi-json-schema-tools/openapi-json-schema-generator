@@ -44,11 +44,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Zebra.ZebraMap validatedPayload =
     Zebra.Zebra1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "className",
             "zebra"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "type",
             "plains"
         )
@@ -68,11 +68,11 @@ Zebra.ZebraMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ZebraMap](#zebramap) | validate([Map<String, Object>](#zebramapinput) arg, SchemaConfiguration configuration) |
+| static [ZebraMap](#zebramap) | validate([Map<String, ? extends @Nullable Object>](#zebramapinput) arg, SchemaConfiguration configuration) |
 
 ## ZebraMapInput
 public class ZebraMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -85,14 +85,14 @@ A class that builds the Map input type
 
 ## ZebraMap
 public static class ZebraMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ZebraMap](#zebramap) | of([Map<String, Object>](#zebramapinput) arg, SchemaConfiguration configuration) |
+| static [ZebraMap](#zebramap) | of([Map<String, ? extends @Nullable Object>](#zebramapinput) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["zebra"] |
 | String | type()<br>[optional] must be one of ["plains", "mountain", "grevys"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

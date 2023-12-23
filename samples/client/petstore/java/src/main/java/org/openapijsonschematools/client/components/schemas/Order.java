@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
@@ -29,20 +33,52 @@ public class Order {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Id extends Int64JsonSchema {}
+    public static class Id extends Int64JsonSchema {
+        private static @Nullable Id instance = null;
+        public static Id getInstance() {
+            if (instance == null) {
+                instance = new Id();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class PetId extends Int64JsonSchema {}
+    public static class PetId extends Int64JsonSchema {
+        private static @Nullable PetId instance = null;
+        public static PetId getInstance() {
+            if (instance == null) {
+                instance = new PetId();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Quantity extends Int32JsonSchema {}
+    public static class Quantity extends Int32JsonSchema {
+        private static @Nullable Quantity instance = null;
+        public static Quantity getInstance() {
+            if (instance == null) {
+                instance = new Quantity();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class ShipDate extends DateTimeJsonSchema {}
+    public static class ShipDate extends DateTimeJsonSchema {
+        private static @Nullable ShipDate instance = null;
+        public static ShipDate getInstance() {
+            if (instance == null) {
+                instance = new ShipDate();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Status extends JsonSchema implements StringSchemaValidator {
-        private static Status instance;
+        private static @Nullable Status instance = null;
     
         protected Status() {
             super(new JsonSchemaInfo()
@@ -76,19 +112,27 @@ public class Order {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class Complete extends BooleanJsonSchema {}
+    public static class Complete extends BooleanJsonSchema {
+        private static @Nullable Complete instance = null;
+        public static Complete getInstance() {
+            if (instance == null) {
+                instance = new Complete();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class OrderMap extends FrozenMap<Object> {
-        protected OrderMap(FrozenMap<Object> m) {
+    public static class OrderMap extends FrozenMap<@Nullable Object> {
+        protected OrderMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -100,47 +144,71 @@ public class Order {
             "status",
             "complete"
         );
-        public static OrderMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static OrderMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Order1.getInstance().validate(arg, configuration);
         }
         
-        public long id() {
+        public long id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Long)) {
+                throw new InvalidTypeException("Invalid value stored for id");
+            }
+            return (long) value;
         }
         
-        public long petId() {
+        public long petId() throws UnsetPropertyException {
             String key = "petId";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Long)) {
+                throw new InvalidTypeException("Invalid value stored for petId");
+            }
+            return (long) value;
         }
         
-        public int quantity() {
+        public int quantity() throws UnsetPropertyException {
             String key = "quantity";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Integer)) {
+                throw new InvalidTypeException("Invalid value stored for quantity");
+            }
+            return (int) value;
         }
         
-        public String shipDate() {
+        public String shipDate() throws UnsetPropertyException {
             String key = "shipDate";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for shipDate");
+            }
+            return (String) value;
         }
         
-        public String status() {
+        public String status() throws UnsetPropertyException {
             String key = "status";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for status");
+            }
+            return (String) value;
         }
         
-        public boolean complete() {
+        public boolean complete() throws UnsetPropertyException {
             String key = "complete";
             throwIfKeyNotPresent(key);
-            return (boolean) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Boolean)) {
+                throw new InvalidTypeException("Invalid value stored for complete");
+            }
+            return (boolean) value;
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -151,14 +219,14 @@ public class Order {
     }
     
     
-    public static class Order1 extends JsonSchema implements MapSchemaValidator<Object, OrderMap> {
+    public static class Order1 extends JsonSchema implements MapSchemaValidator<OrderMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static Order1 instance;
+        private static @Nullable Order1 instance = null;
     
         protected Order1() {
             super(new JsonSchemaInfo()
@@ -182,22 +250,29 @@ public class Order {
         }
         
         public OrderMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new OrderMap(castProperties);
         }
         
-        @Override
-        public OrderMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public OrderMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -209,11 +284,11 @@ public class Order {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

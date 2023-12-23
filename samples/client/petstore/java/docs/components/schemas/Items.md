@@ -59,29 +59,29 @@ Items.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate([List<Map<String, Object>>](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | validate([List<Map<String, ? extends @Nullable Object>>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput
 public class ItemsListInput<br>
-builder for `List<Map<String, Object>>`
+builder for `List<Map<String, ? extends @Nullable Object>>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Map<String, Object> |  |
+Map<String, ? extends @Nullable Object> |  |
 
 ## ItemsList
 public class ItemsList<br>
-extends `FrozenList<FrozenMap<Object>>`
+extends `FrozenList<FrozenMap<@Nullable Object>>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | of([List<Map<String, Object>>](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static [ItemsList](#itemslist) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items2
 public static class Items2<br>

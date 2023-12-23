@@ -60,11 +60,11 @@ ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<String, Object>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<String, ? extends @Nullable Object>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectWithOptionalTestPropMapInput
 public class ObjectWithOptionalTestPropMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -76,14 +76,14 @@ A class that builds the Map input type
 
 ## ObjectWithOptionalTestPropMap
 public static class ObjectWithOptionalTestPropMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of([Map<String, Object>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | of([Map<String, ? extends @Nullable Object>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
 | String | test()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

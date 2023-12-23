@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.paths.fake.get.parameters.parameter1.Schema1;
@@ -27,12 +30,20 @@ public class HeaderParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
         // NotAnyTypeSchema
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
+            if (instance == null) {
+                instance = new AdditionalProperties();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class HeaderParametersMap extends FrozenMap<Object> {
-        protected HeaderParametersMap(FrozenMap<Object> m) {
+    public static class HeaderParametersMap extends FrozenMap<@Nullable Object> {
+        protected HeaderParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -40,20 +51,28 @@ public class HeaderParameters {
             "enum_header_string",
             "enum_header_string_array"
         );
-        public static HeaderParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static HeaderParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return HeaderParameters1.getInstance().validate(arg, configuration);
         }
         
-        public String enum_header_string() {
+        public String enum_header_string() throws UnsetPropertyException {
             String key = "enum_header_string";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for enum_header_string");
+            }
+            return (String) value;
         }
         
-        public Schema0.SchemaList0 enum_header_string_array() {
+        public Schema0.SchemaList0 enum_header_string_array() throws UnsetPropertyException {
             String key = "enum_header_string_array";
             throwIfKeyNotPresent(key);
-            return (Schema0.SchemaList0) get(key);
+                        @Nullable Object value = get(key);
+            if (!(value instanceof Schema0.SchemaList0)) {
+                throw new InvalidTypeException("Invalid value stored for enum_header_string_array");
+            }
+            return (Schema0.SchemaList0) value;
         }
     }
     public static class HeaderParametersMapInput {
@@ -61,8 +80,8 @@ public class HeaderParameters {
     }
     
     
-    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<Object, HeaderParametersMap> {
-        private static HeaderParameters1 instance;
+    public static class HeaderParameters1 extends JsonSchema implements MapSchemaValidator<HeaderParametersMap> {
+        private static @Nullable HeaderParameters1 instance = null;
     
         protected HeaderParameters1() {
             super(new JsonSchemaInfo()
@@ -83,22 +102,29 @@ public class HeaderParameters {
         }
         
         public HeaderParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new HeaderParametersMap(castProperties);
         }
         
-        @Override
-        public HeaderParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public HeaderParametersMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -110,11 +136,11 @@ public class HeaderParameters {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 
