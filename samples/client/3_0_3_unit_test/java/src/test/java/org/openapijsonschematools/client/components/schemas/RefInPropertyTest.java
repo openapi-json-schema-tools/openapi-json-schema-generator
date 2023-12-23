@@ -34,10 +34,10 @@ public class RefInPropertyTest {
         final var schema = RefInProperty.RefInProperty1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Map>(
+                new AbstractMap.SimpleEntry<>(
                     "a",
                     MapMaker.makeMap(
-                        new AbstractMap.SimpleEntry<String, String>(
+                        new AbstractMap.SimpleEntry<>(
                             "$ref",
                             "a"
                         )
@@ -55,10 +55,10 @@ public class RefInPropertyTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Map>(
+                new AbstractMap.SimpleEntry<>(
                     "a",
                     MapMaker.makeMap(
-                        new AbstractMap.SimpleEntry<String, Long>(
+                        new AbstractMap.SimpleEntry<>(
                             "$ref",
                             2L
                         )

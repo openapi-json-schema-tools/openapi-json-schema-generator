@@ -105,7 +105,7 @@ public class EnumsInPropertiesTest {
         final var schema = EnumsInProperties.EnumsInProperties1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
+                new AbstractMap.SimpleEntry<>(
                     "bar",
                     "bar"
                 )
@@ -121,7 +121,7 @@ public class EnumsInPropertiesTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     "foo"
                 )

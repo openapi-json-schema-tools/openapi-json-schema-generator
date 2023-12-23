@@ -42,7 +42,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap validatedPayload =
     TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, Number>(
+        new AbstractMap.SimpleEntry<>(
             "alpha",
             1
         )

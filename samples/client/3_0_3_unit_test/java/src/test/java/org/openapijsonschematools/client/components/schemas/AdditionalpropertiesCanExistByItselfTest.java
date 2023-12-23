@@ -34,7 +34,7 @@ public class AdditionalpropertiesCanExistByItselfTest {
         final var schema = AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItself1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Boolean>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     true
                 )
@@ -50,7 +50,7 @@ public class AdditionalpropertiesCanExistByItselfTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     1L
                 )

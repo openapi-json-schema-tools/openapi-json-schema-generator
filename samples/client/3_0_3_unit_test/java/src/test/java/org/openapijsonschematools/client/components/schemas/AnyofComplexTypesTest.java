@@ -34,7 +34,7 @@ public class AnyofComplexTypesTest {
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     "baz"
                 )
@@ -68,7 +68,7 @@ public class AnyofComplexTypesTest {
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "bar",
                     2L
                 )

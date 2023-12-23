@@ -53,7 +53,7 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, List>(
+                new AbstractMap.SimpleEntry<>(
                     "quux",
                     Arrays.asList(
                     )

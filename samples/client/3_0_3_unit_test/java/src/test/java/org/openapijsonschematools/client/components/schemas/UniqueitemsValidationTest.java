@@ -51,13 +51,13 @@ public class UniqueitemsValidationTest {
             schema,
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, String>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, String>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
@@ -74,13 +74,13 @@ public class UniqueitemsValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Boolean>(
+                    new AbstractMap.SimpleEntry<>(
                         "a",
                         true
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<>(
                         "a",
                         1L
                     )
@@ -201,13 +201,13 @@ public class UniqueitemsValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Boolean>(
+                    new AbstractMap.SimpleEntry<>(
                         "a",
                         false
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<>(
                         "a",
                         0L
                     )
@@ -263,13 +263,13 @@ public class UniqueitemsValidationTest {
             schema,
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Map>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<String, Map>(
+                            new AbstractMap.SimpleEntry<>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<String, Boolean>(
+                                    new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
@@ -279,13 +279,13 @@ public class UniqueitemsValidationTest {
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Map>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<String, Map>(
+                            new AbstractMap.SimpleEntry<>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<String, Boolean>(
+                                    new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
@@ -336,13 +336,13 @@ public class UniqueitemsValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Map>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<String, Map>(
+                            new AbstractMap.SimpleEntry<>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<String, Boolean>(
+                                    new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         true
                                     )
@@ -352,13 +352,13 @@ public class UniqueitemsValidationTest {
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Map>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<String, Map>(
+                            new AbstractMap.SimpleEntry<>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<String, Boolean>(
+                                    new AbstractMap.SimpleEntry<>(
                                         "baz",
                                         false
                                     )
@@ -523,13 +523,13 @@ public class UniqueitemsValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, String>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         "bar"
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, String>(
+                    new AbstractMap.SimpleEntry<>(
                         "foo",
                         "baz"
                     )

@@ -45,7 +45,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
         final var schema = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "alpha",
                     1L
                 )
@@ -61,7 +61,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "alpha",
                     5L
                 )

@@ -35,7 +35,7 @@ public class RefInItemsTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, String>(
+                    new AbstractMap.SimpleEntry<>(
                         "$ref",
                         "a"
                     )
@@ -53,7 +53,7 @@ public class RefInItemsTest {
             schema,
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
+                    new AbstractMap.SimpleEntry<>(
                         "$ref",
                         2L
                     )

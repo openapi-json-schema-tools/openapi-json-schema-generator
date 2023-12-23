@@ -34,7 +34,7 @@ public class RequiredValidationTest {
         final var schema = RequiredValidation.RequiredValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     1L
                 )
@@ -81,7 +81,7 @@ public class RequiredValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "bar",
                     1L
                 )

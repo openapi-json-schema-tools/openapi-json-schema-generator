@@ -35,7 +35,7 @@ public class Maxproperties0MeansTheObjectIsEmptyTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     1L
                 )

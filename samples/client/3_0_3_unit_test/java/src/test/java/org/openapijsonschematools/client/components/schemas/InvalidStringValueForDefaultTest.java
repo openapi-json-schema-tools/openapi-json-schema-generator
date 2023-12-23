@@ -34,7 +34,7 @@ public class InvalidStringValueForDefaultTest {
         final var schema = InvalidStringValueForDefault.InvalidStringValueForDefault1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
+                new AbstractMap.SimpleEntry<>(
                     "bar",
                     "good"
                 )

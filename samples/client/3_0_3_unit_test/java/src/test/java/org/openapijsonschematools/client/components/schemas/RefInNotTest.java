@@ -34,7 +34,7 @@ public class RefInNotTest {
         final var schema = RefInNot.RefInNot1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "$ref",
                     2L
                 )
@@ -50,7 +50,7 @@ public class RefInNotTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
+                new AbstractMap.SimpleEntry<>(
                     "$ref",
                     "a"
                 )

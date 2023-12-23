@@ -34,7 +34,7 @@ public class NotMoreComplexSchemaTest {
         final var schema = NotMoreComplexSchema.NotMoreComplexSchema1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     1L
                 )
@@ -50,7 +50,7 @@ public class NotMoreComplexSchemaTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, String>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     "bar"
                 )

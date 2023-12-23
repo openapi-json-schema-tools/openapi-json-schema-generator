@@ -34,7 +34,7 @@ public class MinpropertiesValidationTest {
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<String, Long>(
+                new AbstractMap.SimpleEntry<>(
                     "foo",
                     1L
                 )
