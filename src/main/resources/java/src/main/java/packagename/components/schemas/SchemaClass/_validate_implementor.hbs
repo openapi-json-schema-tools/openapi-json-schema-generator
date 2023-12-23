@@ -32,10 +32,14 @@ public {{#if ../mapOutputJsonPathPiece}}{{../mapOutputJsonPathPiece.camelCase}}{
         }
         JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+        {{#if ../mapValueSchema}}
         if (!(propertyInstance instanceof {{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         properties.put(propertyName, ({{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) propertyInstance);
+        {{else}}
+        properties.put(propertyName, propertyInstance);
+        {{/if}}
     }
     FrozenMap<{{#with ../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> castProperties = new FrozenMap<>(properties);
             {{#if ../mapOutputJsonPathPiece}}
@@ -71,10 +75,14 @@ public {{#if ../arrayOutputJsonPathPiece}}{{../arrayOutputJsonPathPiece.camelCas
         }
         JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
         @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+        {{#if ../items}}
         if (!(itemInstance instanceof {{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true noAnnotations=true }}{{else}}Object{{/with}})) {
             throw new InvalidTypeException("Invalid instantiated value");
         }
         items.add(({{#with ../items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}) itemInstance);
+        {{else}}
+        items.add(itemInstance);
+        {{/if}}
         i += 1;
     }
     FrozenList<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> newInstanceItems = new FrozenList<>(items);

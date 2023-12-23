@@ -458,6 +458,37 @@ public class CodegenSchema {
     }
 
     /**
+     *
+     * @return if the schema's type in java is @Nullable Object
+     */
+    public boolean isNullableObject() {
+        if (refInfo != null) {
+            return false;
+        }
+        if (types == null) {
+            return true;
+        }
+        int numberOfTypes = types.size();
+        switch (numberOfTypes) {
+            case 3:
+                if (types.contains("null") && !(types.contains("integer") && types.contains("number"))) {
+                    return true;
+                }
+                return false;
+            case 4:
+            case 6:
+            case 5:
+                if (types.contains("null")) {
+                    return true;
+                } else {
+                    return false;
+                }
+            default:
+                return false;
+        }
+    }
+
+    /**
      * Returns all schemas in post order traversal, used by templates to write schema classes
      * @param schemasBeforeImports the input list that stores this and all required schemas
      */
