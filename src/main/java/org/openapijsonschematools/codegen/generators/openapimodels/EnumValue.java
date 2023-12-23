@@ -54,8 +54,12 @@ public class EnumValue {
     }
 
     public EnumValue(Object value, String type, String description) {
-        this.value = value;
         this.type = type;
+        if ("integer".equals(type) && value instanceof Integer) {
+            this.value = Long.parseLong(value.toString());
+        } else {
+            this.value = value;
+        }
         this.description = description;
         this.schema = toSchema();
     }

@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -32,7 +34,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            5,
+            5L,
             validationMetadata
         ));
     }
@@ -43,7 +45,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            3,
+            3L,
             validationMetadata
         ));
     }
@@ -54,7 +56,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            15,
+            15L,
             validationMetadata
         ));
     }
@@ -65,7 +67,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            2,
+            2L,
             validationMetadata
         ));
     }
@@ -75,7 +77,7 @@ public class AllofCombinedWithAnyofOneofTest {
         // allOf: true, anyOf: true, oneOf: true
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         schema.validate(
-            30,
+            30L,
             configuration
         );
     }
@@ -86,7 +88,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            1,
+            1L,
             validationMetadata
         ));
     }
@@ -97,7 +99,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            10,
+            10L,
             validationMetadata
         ));
     }
@@ -108,7 +110,7 @@ public class AllofCombinedWithAnyofOneofTest {
         final var schema = AllofCombinedWithAnyofOneof.AllofCombinedWithAnyofOneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            6,
+            6L,
             validationMetadata
         ));
     }

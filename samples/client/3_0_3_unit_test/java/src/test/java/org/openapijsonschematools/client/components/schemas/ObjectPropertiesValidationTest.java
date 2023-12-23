@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -32,11 +34,11 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
                     "baz"
                 )
@@ -51,7 +53,7 @@ public class ObjectPropertiesValidationTest {
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, List>(
                     "quux",
                     Arrays.asList(
                     )
@@ -66,7 +68,7 @@ public class ObjectPropertiesValidationTest {
         // ignores other non-objects
         final var schema = ObjectPropertiesValidation.ObjectPropertiesValidation1.getInstance();
         schema.validate(
-            12,
+            12L,
             configuration
         );
     }
@@ -78,12 +80,12 @@ public class ObjectPropertiesValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
                     Arrays.asList(
                     )
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
                     MapMaker.makeMap(
                     )
@@ -111,11 +113,11 @@ public class ObjectPropertiesValidationTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
                     MapMaker.makeMap(
                     )

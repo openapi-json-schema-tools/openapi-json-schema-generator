@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -32,7 +34,7 @@ public class OneofTest {
         final var schema = Oneof.Oneof1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            3,
+            3L,
             validationMetadata
         ));
     }
@@ -63,7 +65,7 @@ public class OneofTest {
         // first oneOf valid
         final var schema = Oneof.Oneof1.getInstance();
         schema.validate(
-            1,
+            1L,
             configuration
         );
     }

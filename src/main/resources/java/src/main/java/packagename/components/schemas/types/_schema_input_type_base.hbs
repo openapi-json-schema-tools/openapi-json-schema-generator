@@ -88,7 +88,7 @@ List
                                         {{#with items}}
 List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                         {{~else}}
-List<? extends @Nullable Object>
+List<{{#unless noExtends}}? extends {{/unless}}@Nullable Object>
                                         {{~/with}}
                                     {{/eq}}
                                 {{else}}
@@ -99,7 +99,7 @@ Map
                                             {{#with mapValueSchema}}
 Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                             {{~else}}
-Map<String, ? extends @Nullable Object>
+Map<String, {{#unless noExtends}}? extends {{/unless}}@Nullable Object>
                                             {{~/with}}
                                         {{/eq}}
                                     {{/eq}}
@@ -116,31 +116,31 @@ Map<String, ? extends @Nullable Object>
                 {{! nullable types }}
                 {{#each types}}
                     {{#eq this "boolean"}}
-? extends @Nullable Boolean
+{{#unless noExtends}}? extends {{/unless}}@Nullable Boolean
                     {{~else}}
                         {{#eq this "string"}}
                             {{#eq format "binary"}}
 {{! todo binary types}}
-? extends @Nullable String
+{{#unless noExtends}}? extends {{/unless}}@Nullable String
                             {{~else}}
-? extends @Nullable String
+{{#unless noExtends}}? extends {{/unless}}@Nullable String
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
                                 {{#eq ../format null}}
-? extends @Nullable Number
+{{#unless noExtends}}? extends {{/unless}}@Nullable Number
                                 {{~else}}
                                     {{#eq ../format "float"}}
-? extends @Nullable Float
+{{#unless noExtends}}? extends {{/unless}}@Nullable Float
                                     {{~else}}
                                         {{#eq ../format "double"}}
-? extends @Nullable Double
+{{#unless noExtends}}? extends {{/unless}}@Nullable Double
                                         {{~else}}
                                             {{#eq ../format "int32"}}
-? extends @Nullable Integer
+{{#unless noExtends}}? extends {{/unless}}@Nullable Integer
                                             {{~else}}
                                                 {{#eq ../format "int64"}}
-? extends @Nullable Long
+{{#unless noExtends}}? extends {{/unless}}@Nullable Long
                                                 {{~/eq}}
                                             {{/eq}}
                                         {{/eq}}
@@ -149,36 +149,36 @@ Map<String, ? extends @Nullable Object>
                             {{else}}
                                 {{#eq this "integer"}}
                                     {{#eq ../format null}}
-? extends @Nullable Long
+{{#unless noExtends}}? extends {{/unless}}@Nullable Long
                                     {{~else}}
                                         {{#eq ../format "int32"}}
-? extends @Nullable Integer
+{{#unless noExtends}}? extends {{/unless}}@Nullable Integer
                                         {{~else}}
                                             {{#eq ../format "int64"}}
-? extends @Nullable Long
+{{#unless noExtends}}? extends {{/unless}}@Nullable Long
                                             {{~/eq}}
                                         {{/eq}}
                                     {{/eq}}
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
-? extends @Nullable List
+{{#unless noExtends}}? extends {{/unless}}@Nullable List
                                         {{~else}}
                                             {{#with items}}
-? extends @Nullable List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
+{{#unless noExtends}}? extends {{/unless}}@Nullable List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                             {{~else}}
-? extends @Nullable List<@Nullable Object>
+{{#unless noExtends}}? extends {{/unless}}@Nullable List<@Nullable Object>
                                             {{~/with}}
                                         {{/eq}}
                                     {{else}}
                                         {{#eq this "object"}}
                                             {{#eq ../jsonPath sourceJsonPath}}
-? extends @Nullable Map
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map
                                             {{~else}}
                                                 {{#with mapValueSchema}}
-? extends @Nullable Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                                 {{~else}}
-? extends @Nullable Map<String, @Nullable Object>
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map<String, @Nullable Object>
                                                 {{~/with}}
                                             {{/eq}}
                                         {{/eq}}
@@ -199,12 +199,12 @@ Object
         {{else}}
             {{! 3 or more types }}
             {{#contains types "null"}}
-? extends @Nullable Object
-            {{else}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Object
+            {{~else}}
 Object
-            {{/contains}}
-        {{~/eq}}
+            {{~/contains}}
+        {{/eq}}
     {{/eq}}
 {{else}}
-? extends @Nullable Object
+{{#unless noExtends}}? extends {{/unless}}@Nullable Object
 {{~/if}}

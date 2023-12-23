@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -32,29 +34,29 @@ public class PropertiesWithEscapedCharactersTest {
         final var schema = PropertiesWithEscapedCharacters.PropertiesWithEscapedCharacters1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo\nbar",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo\"bar",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo\\bar",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo\rbar",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo\tbar",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo\fbar",
-                    1
+                    1L
                 )
             ),
             configuration
@@ -68,27 +70,27 @@ public class PropertiesWithEscapedCharactersTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo\nbar",
                     "1"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo\"bar",
                     "1"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo\\bar",
                     "1"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo\rbar",
                     "1"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo\tbar",
                     "1"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "foo\fbar",
                     "1"
                 )

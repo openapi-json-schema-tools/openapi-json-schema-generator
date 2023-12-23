@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -32,13 +34,13 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "bar",
-                    2
+                    2L
                 )
             ),
             configuration
@@ -52,17 +54,17 @@ public class OneofWithRequiredTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "bar",
-                    2
+                    2L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "baz",
-                    3
+                    3L
                 )
             ),
             validationMetadata
@@ -75,13 +77,13 @@ public class OneofWithRequiredTest {
         final var schema = OneofWithRequired.OneofWithRequired1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "baz",
-                    3
+                    3L
                 )
             ),
             configuration
@@ -95,9 +97,9 @@ public class OneofWithRequiredTest {
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "bar",
-                    2
+                    2L
                 )
             ),
             validationMetadata

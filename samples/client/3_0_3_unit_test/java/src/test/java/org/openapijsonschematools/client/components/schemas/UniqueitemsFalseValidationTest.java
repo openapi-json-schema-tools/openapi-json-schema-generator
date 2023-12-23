@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -34,7 +36,7 @@ public class UniqueitemsFalseValidationTest {
             Arrays.asList(
                 1.0d,
                 1.0d,
-                1
+                1L
             ),
             configuration
         );
@@ -46,8 +48,8 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1,
-                1
+                1L,
+                1L
             ),
             configuration
         );
@@ -60,13 +62,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
@@ -99,7 +101,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1,
+                1L,
                 true
             ),
             configuration
@@ -113,13 +115,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )
@@ -129,13 +131,13 @@ public class UniqueitemsFalseValidationTest {
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         false
                                     )
@@ -172,7 +174,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1,
+                1L,
                 true
             ),
             configuration
@@ -188,13 +190,13 @@ public class UniqueitemsFalseValidationTest {
                 MapMaker.makeMap(
                 ),
                 Arrays.asList(
-                    1
+                    1L
                 ),
                 true,
-                (Void) null,
+                null,
                 MapMaker.makeMap(
                 ),
-                1
+                1L
             ),
             configuration
         );
@@ -206,7 +208,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                0,
+                0L,
                 false
             ),
             configuration
@@ -219,8 +221,8 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                1,
-                2
+                1L,
+                2L
             ),
             configuration
         );
@@ -232,7 +234,7 @@ public class UniqueitemsFalseValidationTest {
         final var schema = UniqueitemsFalseValidation.UniqueitemsFalseValidation1.getInstance();
         schema.validate(
             Arrays.asList(
-                0,
+                0L,
                 false
             ),
             configuration
@@ -248,11 +250,11 @@ public class UniqueitemsFalseValidationTest {
                 MapMaker.makeMap(
                 ),
                 Arrays.asList(
-                    1
+                    1L
                 ),
                 true,
-                (Void) null,
-                1
+                null,
+                1L
             ),
             configuration
         );
@@ -265,13 +267,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "bar"
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, String>(
                         "foo",
                         "baz"
                     )
@@ -288,13 +290,13 @@ public class UniqueitemsFalseValidationTest {
         schema.validate(
             Arrays.asList(
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )
@@ -304,13 +306,13 @@ public class UniqueitemsFalseValidationTest {
                     )
                 ),
                 MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
+                    new AbstractMap.SimpleEntry<String, Map>(
                         "foo",
                         MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
+                            new AbstractMap.SimpleEntry<String, Map>(
                                 "bar",
                                 MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
+                                    new AbstractMap.SimpleEntry<String, Boolean>(
                                         "baz",
                                         true
                                     )

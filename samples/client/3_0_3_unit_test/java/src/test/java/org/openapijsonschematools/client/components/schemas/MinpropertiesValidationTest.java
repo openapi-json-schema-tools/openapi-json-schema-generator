@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -32,9 +34,9 @@ public class MinpropertiesValidationTest {
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo",
-                    1
+                    1L
                 )
             ),
             configuration
@@ -46,7 +48,7 @@ public class MinpropertiesValidationTest {
         // ignores other non-objects
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
-            12,
+            12L,
             configuration
         );
     }
@@ -57,13 +59,13 @@ public class MinpropertiesValidationTest {
         final var schema = MinpropertiesValidation.MinpropertiesValidation1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "foo",
-                    1
+                    1L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Long>(
                     "bar",
-                    2
+                    2L
                 )
             ),
             configuration

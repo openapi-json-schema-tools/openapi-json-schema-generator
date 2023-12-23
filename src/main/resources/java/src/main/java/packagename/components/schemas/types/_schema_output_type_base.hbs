@@ -232,10 +232,10 @@ Object
             {{! 3 or more types }}
             {{#contains types "null"}}
 {{#unless noAnnotations}}@Nullable {{/unless}}Object
-            {{else}}
+            {{~else}}
 Object
-            {{/contains}}
-        {{~/eq}}
+            {{~/contains}}
+        {{/eq}}
     {{/eq}}
 {{else}}
 {{#unless noAnnotations}}@Nullable {{/unless}}Object

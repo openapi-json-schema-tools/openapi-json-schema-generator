@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -41,7 +43,7 @@ public class MinimumValidationWithSignedIntegerTest {
         // boundary point is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
-            -2,
+            -2L,
             configuration
         );
     }
@@ -52,7 +54,7 @@ public class MinimumValidationWithSignedIntegerTest {
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            -3,
+            -3L,
             validationMetadata
         ));
     }
@@ -62,7 +64,7 @@ public class MinimumValidationWithSignedIntegerTest {
         // positive above the minimum is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
-            0,
+            0L,
             configuration
         );
     }
@@ -72,7 +74,7 @@ public class MinimumValidationWithSignedIntegerTest {
         // negative above the minimum is valid
         final var schema = MinimumValidationWithSignedInteger.MinimumValidationWithSignedInteger1.getInstance();
         schema.validate(
-            -1,
+            -1L,
             configuration
         );
     }
