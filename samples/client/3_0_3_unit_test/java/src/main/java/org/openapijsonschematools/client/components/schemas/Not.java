@@ -218,7 +218,7 @@ public class Not {
         @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
-                return validate((Void) null, pathToItem, pathToSchemas);
+                return validate((Void) null, configuration);
             } else if (arg instanceof Boolean) {
                 boolean boolArg = (Boolean) arg;
                 return validate(boolArg, configuration);
