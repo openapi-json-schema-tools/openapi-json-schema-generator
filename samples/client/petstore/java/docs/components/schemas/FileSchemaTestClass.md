@@ -63,7 +63,7 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<String, ?>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
+| static [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<?, ?>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileSchemaTestClassMapInput
 public class FileSchemaTestClassMapInput<br>

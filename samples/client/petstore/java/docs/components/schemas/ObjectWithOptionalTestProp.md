@@ -60,7 +60,7 @@ ObjectWithOptionalTestProp.ObjectWithOptionalTestPropMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<String, ?>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithOptionalTestPropMap](#objectwithoptionaltestpropmap) | validate([Map<?, ?>](#objectwithoptionaltestpropmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithOptionalTestPropMapInput
 public class ObjectWithOptionalTestPropMapInput<br>

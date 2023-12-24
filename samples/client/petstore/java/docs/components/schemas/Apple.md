@@ -73,7 +73,7 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [AppleMap](#applemap) | validate([Map<String, ?>](#applemapinput) arg, SchemaConfiguration configuration) |
+| static [AppleMap](#applemap) | validate([Map<?, ?>](#applemapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AppleMapInput
 public class AppleMapInput<br>

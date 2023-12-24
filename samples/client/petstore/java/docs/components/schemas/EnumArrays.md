@@ -70,7 +70,7 @@ EnumArrays.EnumArraysMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | validate([Map<String, ?>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumArraysMap](#enumarraysmap) | validate([Map<?, ?>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumArraysMapInput
 public class EnumArraysMapInput<br>

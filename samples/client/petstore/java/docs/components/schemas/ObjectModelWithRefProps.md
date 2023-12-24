@@ -58,7 +58,7 @@ ObjectModelWithRefProps.ObjectModelWithRefPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<String, ?>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectModelWithRefPropsMap](#objectmodelwithrefpropsmap) | validate([Map<?, ?>](#objectmodelwithrefpropsmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectModelWithRefPropsMapInput
 public class ObjectModelWithRefPropsMapInput<br>

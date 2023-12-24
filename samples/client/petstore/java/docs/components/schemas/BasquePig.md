@@ -61,7 +61,7 @@ BasquePig.BasquePigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BasquePigMap](#basquepigmap) | validate([Map<String, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| static [BasquePigMap](#basquepigmap) | validate([Map<?, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BasquePigMapInput
 public class BasquePigMapInput<br>

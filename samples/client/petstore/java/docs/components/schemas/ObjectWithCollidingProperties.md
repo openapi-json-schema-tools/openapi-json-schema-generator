@@ -60,7 +60,7 @@ ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map<String, ?>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map<?, ?>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithCollidingPropertiesMapInput
 public class ObjectWithCollidingPropertiesMapInput<br>

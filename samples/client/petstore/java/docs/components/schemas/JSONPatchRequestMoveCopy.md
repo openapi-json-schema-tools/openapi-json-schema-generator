@@ -73,7 +73,7 @@ JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<String, ?>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<?, ?>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestMoveCopyMapInput
 public class JSONPatchRequestMoveCopyMapInput<br>

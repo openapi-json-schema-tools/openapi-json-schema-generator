@@ -71,7 +71,7 @@ Whale.WhaleMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [WhaleMap](#whalemap) | validate([Map<String, ?>](#whalemapinput) arg, SchemaConfiguration configuration) |
+| static [WhaleMap](#whalemap) | validate([Map<?, ?>](#whalemapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## WhaleMapInput
 public class WhaleMapInput<br>

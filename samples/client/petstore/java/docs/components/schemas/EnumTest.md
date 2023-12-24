@@ -76,7 +76,7 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | validate([Map<String, ?>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumTestMapInput
 public class EnumTestMapInput<br>

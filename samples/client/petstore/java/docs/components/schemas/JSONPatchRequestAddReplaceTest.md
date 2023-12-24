@@ -69,7 +69,7 @@ JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<String, ?>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<?, ?>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestAddReplaceTestMapInput
 public class JSONPatchRequestAddReplaceTestMapInput<br>

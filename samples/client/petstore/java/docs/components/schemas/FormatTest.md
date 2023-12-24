@@ -166,7 +166,7 @@ FormatTest.FormatTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FormatTestMap](#formattestmap) | validate([Map<String, ?>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| static [FormatTestMap](#formattestmap) | validate([Map<?, ?>](#formattestmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FormatTestMapInput
 public class FormatTestMapInput<br>

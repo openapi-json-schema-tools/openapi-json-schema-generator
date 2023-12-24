@@ -58,7 +58,7 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap val
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map<String, ?>](#additionalpropertieswitharrayofenumsmapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalPropertiesWithArrayOfEnumsMap](#additionalpropertieswitharrayofenumsmap) | validate([Map<?, ?>](#additionalpropertieswitharrayofenumsmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesWithArrayOfEnumsMapInput
 public class AdditionalPropertiesWithArrayOfEnumsMapInput<br>

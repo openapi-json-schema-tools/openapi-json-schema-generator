@@ -138,7 +138,7 @@ NullableClass.NullableClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NullableClassMap](#nullableclassmap) | validate([Map<String, ?>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
+| static [NullableClassMap](#nullableclassmap) | validate([Map<?, ?>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NullableClassMapInput
 public class NullableClassMapInput<br>
@@ -226,7 +226,7 @@ NullableClass.ObjectItemsNullableMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map<String, ?>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map<?, ?>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectItemsNullableMapInput
 public class ObjectItemsNullableMapInput<br>
@@ -288,7 +288,7 @@ Void validatedPayload = NullableClass.AdditionalProperties2.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
@@ -336,7 +336,7 @@ NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map<String, ?>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map<?, ?>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullablePropMapInput
 public class ObjectAndItemsNullablePropMapInput<br>
@@ -398,7 +398,7 @@ Void validatedPayload = NullableClass.AdditionalProperties1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
@@ -446,7 +446,7 @@ NullableClass.ObjectNullablePropMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map<String, ?>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map<?, ?>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullablePropMapInput
 public class ObjectNullablePropMapInput<br>
@@ -582,7 +582,7 @@ Void validatedPayload = NullableClass.Items2.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
@@ -692,7 +692,7 @@ Void validatedPayload = NullableClass.Items1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
@@ -1083,6 +1083,6 @@ Void validatedPayload = NullableClass.AdditionalProperties3.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

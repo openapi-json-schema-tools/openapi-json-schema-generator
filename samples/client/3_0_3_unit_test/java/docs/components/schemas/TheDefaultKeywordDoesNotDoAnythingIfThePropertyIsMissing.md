@@ -60,7 +60,7 @@ TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate([Map<String, ?>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput) arg, SchemaConfiguration configuration) |
+| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate([Map<?, ?>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput
 public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput<br>

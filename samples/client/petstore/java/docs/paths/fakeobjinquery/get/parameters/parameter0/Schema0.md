@@ -60,7 +60,7 @@ Schema0.SchemaMap0 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap0](#schemamap0) | validate([Map<String, ?>](#schemamapinput0) arg, SchemaConfiguration configuration) |
+| static [SchemaMap0](#schemamap0) | validate([Map<?, ?>](#schemamapinput0) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapInput0
 public class SchemaMapInput0<br>

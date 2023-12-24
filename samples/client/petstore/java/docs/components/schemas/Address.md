@@ -56,7 +56,7 @@ Address.AddressMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AddressMap](#addressmap) | validate([Map<String, ?>](#addressmapinput) arg, SchemaConfiguration configuration) |
+| static [AddressMap](#addressmap) | validate([Map<?, ?>](#addressmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AddressMapInput
 public class AddressMapInput<br>

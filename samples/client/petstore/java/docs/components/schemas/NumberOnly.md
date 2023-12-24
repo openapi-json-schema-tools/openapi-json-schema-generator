@@ -60,7 +60,7 @@ NumberOnly.NumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NumberOnlyMap](#numberonlymap) | validate([Map<String, ?>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
+| static [NumberOnlyMap](#numberonlymap) | validate([Map<?, ?>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberOnlyMapInput
 public class NumberOnlyMapInput<br>

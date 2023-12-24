@@ -57,7 +57,7 @@ ObjectWithInlineCompositionProperty.ObjectWithInlineCompositionPropertyMap valid
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map<String, ?>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithInlineCompositionPropertyMap](#objectwithinlinecompositionpropertymap) | validate([Map<?, ?>](#objectwithinlinecompositionpropertymapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithInlineCompositionPropertyMapInput
 public class ObjectWithInlineCompositionPropertyMapInput<br>
@@ -105,8 +105,8 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0
 public static class Schema0<br>

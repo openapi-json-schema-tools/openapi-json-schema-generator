@@ -57,7 +57,7 @@ Schema1.SchemaMap1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap1](#schemamap1) | validate([Map<String, ?>](#schemamapinput1) arg, SchemaConfiguration configuration) |
+| static [SchemaMap1](#schemamap1) | validate([Map<?, ?>](#schemamapinput1) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapInput1
 public class SchemaMapInput1<br>
@@ -105,8 +105,8 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema01
 public static class Schema01<br>

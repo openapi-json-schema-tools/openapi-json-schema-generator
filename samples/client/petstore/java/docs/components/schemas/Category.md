@@ -66,7 +66,7 @@ Category.CategoryMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CategoryMap](#categorymap) | validate([Map<String, ?>](#categorymapinput) arg, SchemaConfiguration configuration) |
+| static [CategoryMap](#categorymap) | validate([Map<?, ?>](#categorymapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CategoryMapInput
 public class CategoryMapInput<br>

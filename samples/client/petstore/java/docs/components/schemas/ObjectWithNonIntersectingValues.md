@@ -62,7 +62,7 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map<String, ?>](#objectwithnonintersectingvaluesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map<?, ?>](#objectwithnonintersectingvaluesmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNonIntersectingValuesMapInput
 public class ObjectWithNonIntersectingValuesMapInput<br>

@@ -63,7 +63,7 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<String, ?>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
+| static [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<?, ?>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HealthCheckResultMapInput
 public class HealthCheckResultMapInput<br>

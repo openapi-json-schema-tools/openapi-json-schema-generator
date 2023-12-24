@@ -68,7 +68,7 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<String, ?>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
+| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<?, ?>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestRemoveMapInput
 public class JSONPatchRequestRemoveMapInput<br>

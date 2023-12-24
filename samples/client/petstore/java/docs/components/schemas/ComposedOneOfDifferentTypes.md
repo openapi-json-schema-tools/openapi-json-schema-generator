@@ -46,8 +46,8 @@ this is a model that allows payloads of type object or number
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema6
 public static class Schema6<br>
@@ -180,7 +180,7 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema3
 public static class Schema3<br>

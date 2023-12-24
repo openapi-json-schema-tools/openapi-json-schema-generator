@@ -61,7 +61,7 @@ ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<String, ?>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
+| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<?, ?>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjWithRequiredPropsBaseMapInput
 public class ObjWithRequiredPropsBaseMapInput<br>

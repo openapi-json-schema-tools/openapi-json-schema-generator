@@ -85,7 +85,7 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | validate([Map<String, ?>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| static [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## OrderMapInput
 public class OrderMapInput<br>

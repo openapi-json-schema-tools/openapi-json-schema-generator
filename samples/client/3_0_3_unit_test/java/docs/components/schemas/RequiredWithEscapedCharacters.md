@@ -37,8 +37,8 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate([Map<String, ?>](#requiredwithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate([Map<?, ?>](#requiredwithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RequiredWithEscapedCharactersMapInput
 public class RequiredWithEscapedCharactersMapInput<br>

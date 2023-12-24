@@ -63,7 +63,7 @@ File.FileMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FileMap](#filemap) | validate([Map<String, ?>](#filemapinput) arg, SchemaConfiguration configuration) |
+| static [FileMap](#filemap) | validate([Map<?, ?>](#filemapinput) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileMapInput
 public class FileMapInput<br>
