@@ -395,7 +395,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("FakeValidator");
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("FrozenList");
+        keywordValidatorFiles.add("FrozenListOfAnything");
         keywordValidatorFiles.add("FrozenMap");
+        keywordValidatorFiles.add("FrozenMapOfAnything");
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");

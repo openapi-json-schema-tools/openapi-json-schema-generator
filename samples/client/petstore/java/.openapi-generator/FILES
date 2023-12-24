@@ -677,7 +677,9 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMini
 src/main/java/org/openapijsonschematools/client/schemas/validation/FakeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FormatValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenList.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenListOfAnything.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenMap.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenMapOfAnything.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/JsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/JsonSchemaFactory.java
