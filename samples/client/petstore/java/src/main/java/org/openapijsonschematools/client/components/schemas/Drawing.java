@@ -120,7 +120,7 @@ public class Drawing {
         public @Nullable Object mainShape() throws UnsetPropertyException {
             String key = "mainShape";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
                 throw new InvalidTypeException("Invalid value stored for mainShape");
             }
@@ -130,7 +130,7 @@ public class Drawing {
         public @Nullable Object shapeOrNull() throws UnsetPropertyException {
             String key = "shapeOrNull";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
                 throw new InvalidTypeException("Invalid value stored for shapeOrNull");
             }
@@ -140,7 +140,7 @@ public class Drawing {
         public @Nullable Object nullableShape() throws UnsetPropertyException {
             String key = "nullableShape";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
                 throw new InvalidTypeException("Invalid value stored for nullableShape");
             }
@@ -150,7 +150,7 @@ public class Drawing {
         public ShapesList shapes() throws UnsetPropertyException {
             String key = "shapes";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ShapesList)) {
                 throw new InvalidTypeException("Invalid value stored for shapes");
             }

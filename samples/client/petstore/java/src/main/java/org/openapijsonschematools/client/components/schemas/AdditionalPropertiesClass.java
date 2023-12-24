@@ -636,7 +636,7 @@ public class AdditionalPropertiesClass {
         public MapPropertyMap map_property() throws UnsetPropertyException {
             String key = "map_property";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof MapPropertyMap)) {
                 throw new InvalidTypeException("Invalid value stored for map_property");
             }
@@ -646,7 +646,7 @@ public class AdditionalPropertiesClass {
         public MapOfMapPropertyMap map_of_map_property() throws UnsetPropertyException {
             String key = "map_of_map_property";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof MapOfMapPropertyMap)) {
                 throw new InvalidTypeException("Invalid value stored for map_of_map_property");
             }
@@ -654,35 +654,33 @@ public class AdditionalPropertiesClass {
         }
         
         public @Nullable Object anytype_1() throws UnsetPropertyException {
-            String key = "anytype_1";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("anytype_1");
         }
         
-        public FrozenMap<@Nullable Object> map_with_undeclared_properties_anytype_1() throws UnsetPropertyException {
+        public FrozenMap<?> map_with_undeclared_properties_anytype_1() throws UnsetPropertyException {
             String key = "map_with_undeclared_properties_anytype_1";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
-            if (!(value instanceof FrozenMap<@Nullable Object>)) {
+            @Nullable Object value = get(key);
+            if (!(value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_anytype_1");
             }
-            return (FrozenMap<@Nullable Object>) value;
+            return (FrozenMap<?>) value;
         }
         
-        public FrozenMap<@Nullable Object> map_with_undeclared_properties_anytype_2() throws UnsetPropertyException {
+        public FrozenMap<?> map_with_undeclared_properties_anytype_2() throws UnsetPropertyException {
             String key = "map_with_undeclared_properties_anytype_2";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
-            if (!(value instanceof FrozenMap<@Nullable Object>)) {
+            @Nullable Object value = get(key);
+            if (!(value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_anytype_2");
             }
-            return (FrozenMap<@Nullable Object>) value;
+            return (FrozenMap<?>) value;
         }
         
         public MapWithUndeclaredPropertiesAnytype3Map map_with_undeclared_properties_anytype_3() throws UnsetPropertyException {
             String key = "map_with_undeclared_properties_anytype_3";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof MapWithUndeclaredPropertiesAnytype3Map)) {
                 throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_anytype_3");
             }
@@ -692,7 +690,7 @@ public class AdditionalPropertiesClass {
         public EmptyMapMap empty_map() throws UnsetPropertyException {
             String key = "empty_map";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof EmptyMapMap)) {
                 throw new InvalidTypeException("Invalid value stored for empty_map");
             }
@@ -702,7 +700,7 @@ public class AdditionalPropertiesClass {
         public MapWithUndeclaredPropertiesStringMap map_with_undeclared_properties_string() throws UnsetPropertyException {
             String key = "map_with_undeclared_properties_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof MapWithUndeclaredPropertiesStringMap)) {
                 throw new InvalidTypeException("Invalid value stored for map_with_undeclared_properties_string");
             }

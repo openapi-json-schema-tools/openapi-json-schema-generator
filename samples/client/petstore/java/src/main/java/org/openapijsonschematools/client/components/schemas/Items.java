@@ -37,8 +37,8 @@ public class Items {
     }
     
     
-    public static class ItemsList extends FrozenList<FrozenMap<@Nullable Object>> {
-        protected ItemsList(FrozenList<FrozenMap<@Nullable Object>> m) {
+    public static class ItemsList extends FrozenList<FrozenMap<?>> {
+        protected ItemsList(FrozenList<FrozenMap<?>> m) {
             super(m);
         }
         public static ItemsList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -78,7 +78,7 @@ public class Items {
         
         @Override
         public ItemsList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<FrozenMap<@Nullable Object>> items = new ArrayList<>();
+            List<FrozenMap<?>> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -89,13 +89,13 @@ public class Items {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(itemInstance instanceof FrozenMap<?>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((FrozenMap<@Nullable Object>) itemInstance);
+                items.add((FrozenMap<?>) itemInstance);
                 i += 1;
             }
-            FrozenList<FrozenMap<@Nullable Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<FrozenMap<?>> newInstanceItems = new FrozenList<>(items);
             return new ItemsList(newInstanceItems);
         }
         

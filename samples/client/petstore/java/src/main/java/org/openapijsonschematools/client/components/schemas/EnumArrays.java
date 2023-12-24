@@ -204,7 +204,7 @@ public class EnumArrays {
         public String just_symbol() throws UnsetPropertyException {
             String key = "just_symbol";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for just_symbol");
             }
@@ -214,7 +214,7 @@ public class EnumArrays {
         public ArrayEnumList array_enum() throws UnsetPropertyException {
             String key = "array_enum";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayEnumList)) {
                 throw new InvalidTypeException("Invalid value stored for array_enum");
             }

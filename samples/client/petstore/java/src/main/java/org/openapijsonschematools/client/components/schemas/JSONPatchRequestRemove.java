@@ -117,7 +117,7 @@ public class JSONPatchRequestRemove {
         }
         
         public String path() {
-            return get("path");
+            return getOrThrow("path");
         }
     }
     public static class JSONPatchRequestRemoveMapInput {

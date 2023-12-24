@@ -63,24 +63,24 @@ public class ObjectWithCollidingProperties {
             return ObjectWithCollidingProperties1.getInstance().validate(arg, configuration);
         }
         
-        public FrozenMap<@Nullable Object> someProp() throws UnsetPropertyException {
+        public FrozenMap<?> someProp() throws UnsetPropertyException {
             String key = "someProp";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
-            if (!(value instanceof FrozenMap<@Nullable Object>)) {
+            @Nullable Object value = get(key);
+            if (!(value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for someProp");
             }
-            return (FrozenMap<@Nullable Object>) value;
+            return (FrozenMap<?>) value;
         }
         
-        public FrozenMap<@Nullable Object> someprop() throws UnsetPropertyException {
+        public FrozenMap<?> someprop() throws UnsetPropertyException {
             String key = "someprop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
-            if (!(value instanceof FrozenMap<@Nullable Object>)) {
+            @Nullable Object value = get(key);
+            if (!(value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for someprop");
             }
-            return (FrozenMap<@Nullable Object>) value;
+            return (FrozenMap<?>) value;
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

@@ -62,7 +62,7 @@ public class QueryParameters {
         public double enum_query_double() throws UnsetPropertyException {
             String key = "enum_query_double";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Double)) {
                 throw new InvalidTypeException("Invalid value stored for enum_query_double");
             }
@@ -72,7 +72,7 @@ public class QueryParameters {
         public String enum_query_string() throws UnsetPropertyException {
             String key = "enum_query_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for enum_query_string");
             }
@@ -82,7 +82,7 @@ public class QueryParameters {
         public int enum_query_integer() throws UnsetPropertyException {
             String key = "enum_query_integer";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for enum_query_integer");
             }
@@ -92,7 +92,7 @@ public class QueryParameters {
         public Schema2.SchemaList2 enum_query_string_array() throws UnsetPropertyException {
             String key = "enum_query_string_array";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Schema2.SchemaList2)) {
                 throw new InvalidTypeException("Invalid value stored for enum_query_string_array");
             }

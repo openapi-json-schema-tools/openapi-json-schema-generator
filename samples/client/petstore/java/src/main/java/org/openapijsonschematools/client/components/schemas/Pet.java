@@ -292,7 +292,7 @@ public class Pet {
         public long id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
@@ -302,7 +302,7 @@ public class Pet {
         public Category.CategoryMap category() throws UnsetPropertyException {
             String key = "category";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Category.CategoryMap)) {
                 throw new InvalidTypeException("Invalid value stored for category");
             }
@@ -312,7 +312,7 @@ public class Pet {
         public TagsList tags() throws UnsetPropertyException {
             String key = "tags";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof TagsList)) {
                 throw new InvalidTypeException("Invalid value stored for tags");
             }
@@ -322,7 +322,7 @@ public class Pet {
         public String status() throws UnsetPropertyException {
             String key = "status";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for status");
             }

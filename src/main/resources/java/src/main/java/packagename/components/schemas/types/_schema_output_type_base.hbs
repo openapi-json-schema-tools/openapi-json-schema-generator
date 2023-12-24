@@ -97,7 +97,7 @@ long
                                             {{~/if}}
                                         {{/if}}
                                     {{else}}
-FrozenList<@Nullable Object>
+FrozenList<?>
                                     {{~/if}}
                                 {{else}}
                                     {{#eq this "object"}}
@@ -116,7 +116,7 @@ FrozenList<@Nullable Object>
                                                 {{~/if}}
                                             {{/if}}
                                         {{~else}}
-FrozenMap<@Nullable Object>
+FrozenMap<?>
                                         {{~/if}}
                                     {{/eq}}
                                 {{/eq}}
@@ -192,7 +192,7 @@ FrozenMap<@Nullable Object>
                                                 {{~/if}}
                                             {{/if}}
                                         {{else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}FrozenList<@Nullable Object>
+{{#unless noAnnotations}}@Nullable {{/unless}}FrozenList<?>
                                         {{~/if}}
                                     {{else}}
                                         {{#eq this "object"}}
@@ -211,7 +211,7 @@ FrozenMap<@Nullable Object>
                                                     {{~/if}}
                                                 {{/if}}
                                             {{~else}}
-{{#unless noAnnotations}}@Nullable {{/unless}}FrozenMap<@Nullable Object>
+{{#unless noAnnotations}}@Nullable {{/unless}}FrozenMap<?>
                                             {{~/if}}
                                         {{/eq}}
                                     {{/eq}}

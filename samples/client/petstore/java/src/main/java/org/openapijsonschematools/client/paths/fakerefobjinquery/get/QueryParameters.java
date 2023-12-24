@@ -54,9 +54,7 @@ public class QueryParameters {
         }
         
         public Foo.FooMap mapBean() throws UnsetPropertyException {
-            String key = "mapBean";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("mapBean");
         }
     }
     public static class QueryParametersMapInput {

@@ -58,7 +58,7 @@ public class QueryParameters {
         public @Nullable Object compositionAtRoot() throws UnsetPropertyException {
             String key = "compositionAtRoot";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Object)) {
                 throw new InvalidTypeException("Invalid value stored for compositionAtRoot");
             }
@@ -68,7 +68,7 @@ public class QueryParameters {
         public Schema1.SchemaMap1 compositionInProperty() throws UnsetPropertyException {
             String key = "compositionInProperty";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Schema1.SchemaMap1)) {
                 throw new InvalidTypeException("Invalid value stored for compositionInProperty");
             }

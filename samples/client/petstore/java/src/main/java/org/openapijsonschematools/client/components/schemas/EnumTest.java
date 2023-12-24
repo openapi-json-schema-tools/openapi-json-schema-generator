@@ -251,7 +251,7 @@ public class EnumTest {
         public String enum_string() throws UnsetPropertyException {
             String key = "enum_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for enum_string");
             }
@@ -261,7 +261,7 @@ public class EnumTest {
         public int enum_integer() throws UnsetPropertyException {
             String key = "enum_integer";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for enum_integer");
             }
@@ -271,7 +271,7 @@ public class EnumTest {
         public double enum_number() throws UnsetPropertyException {
             String key = "enum_number";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Double)) {
                 throw new InvalidTypeException("Invalid value stored for enum_number");
             }
@@ -281,7 +281,7 @@ public class EnumTest {
         public @Nullable String stringEnum() throws UnsetPropertyException {
             String key = "stringEnum";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for stringEnum");
             }
@@ -291,7 +291,7 @@ public class EnumTest {
         public long IntegerEnum() throws UnsetPropertyException {
             String key = "IntegerEnum";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for IntegerEnum");
             }
@@ -301,7 +301,7 @@ public class EnumTest {
         public String StringEnumWithDefaultValue() throws UnsetPropertyException {
             String key = "StringEnumWithDefaultValue";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for StringEnumWithDefaultValue");
             }
@@ -311,7 +311,7 @@ public class EnumTest {
         public long IntegerEnumWithDefaultValue() throws UnsetPropertyException {
             String key = "IntegerEnumWithDefaultValue";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for IntegerEnumWithDefaultValue");
             }
@@ -321,7 +321,7 @@ public class EnumTest {
         public long IntegerEnumOneValue() throws UnsetPropertyException {
             String key = "IntegerEnumOneValue";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for IntegerEnumOneValue");
             }

@@ -272,9 +272,7 @@ public class ObjectWithInlineCompositionProperty {
         }
         
         public @Nullable Object someProp() throws UnsetPropertyException {
-            String key = "someProp";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("someProp");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

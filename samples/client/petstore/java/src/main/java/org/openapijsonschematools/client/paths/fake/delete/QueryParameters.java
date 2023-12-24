@@ -79,7 +79,7 @@ public class QueryParameters {
         public long int64_group() throws UnsetPropertyException {
             String key = "int64_group";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for int64_group");
             }
@@ -89,7 +89,7 @@ public class QueryParameters {
         public String string_group() throws UnsetPropertyException {
             String key = "string_group";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for string_group");
             }

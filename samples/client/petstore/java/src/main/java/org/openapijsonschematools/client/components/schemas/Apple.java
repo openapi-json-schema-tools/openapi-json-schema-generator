@@ -139,7 +139,7 @@ public class Apple {
         public String origin() throws UnsetPropertyException {
             String key = "origin";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for origin");
             }

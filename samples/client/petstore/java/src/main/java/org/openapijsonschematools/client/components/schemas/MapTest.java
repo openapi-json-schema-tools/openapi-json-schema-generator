@@ -453,7 +453,7 @@ public class MapTest {
         public MapMapOfStringMap map_map_of_string() throws UnsetPropertyException {
             String key = "map_map_of_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof MapMapOfStringMap)) {
                 throw new InvalidTypeException("Invalid value stored for map_map_of_string");
             }
@@ -463,7 +463,7 @@ public class MapTest {
         public MapOfEnumStringMap map_of_enum_string() throws UnsetPropertyException {
             String key = "map_of_enum_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof MapOfEnumStringMap)) {
                 throw new InvalidTypeException("Invalid value stored for map_of_enum_string");
             }
@@ -473,7 +473,7 @@ public class MapTest {
         public DirectMapMap direct_map() throws UnsetPropertyException {
             String key = "direct_map";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof DirectMapMap)) {
                 throw new InvalidTypeException("Invalid value stored for direct_map");
             }
@@ -483,7 +483,7 @@ public class MapTest {
         public StringBooleanMap.StringBooleanMapMap indirect_map() throws UnsetPropertyException {
             String key = "indirect_map";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof StringBooleanMap.StringBooleanMapMap)) {
                 throw new InvalidTypeException("Invalid value stored for indirect_map");
             }

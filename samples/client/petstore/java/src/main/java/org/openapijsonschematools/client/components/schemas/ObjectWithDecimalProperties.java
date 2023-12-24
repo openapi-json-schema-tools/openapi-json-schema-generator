@@ -56,7 +56,7 @@ public class ObjectWithDecimalProperties {
         public String length() throws UnsetPropertyException {
             String key = "length";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for length");
             }
@@ -66,7 +66,7 @@ public class ObjectWithDecimalProperties {
         public String width() throws UnsetPropertyException {
             String key = "width";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for width");
             }
@@ -76,7 +76,7 @@ public class ObjectWithDecimalProperties {
         public Money.MoneyMap cost() throws UnsetPropertyException {
             String key = "cost";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Money.MoneyMap)) {
                 throw new InvalidTypeException("Invalid value stored for cost");
             }

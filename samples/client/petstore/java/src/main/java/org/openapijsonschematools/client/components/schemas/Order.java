@@ -151,7 +151,7 @@ public class Order {
         public long id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
@@ -161,7 +161,7 @@ public class Order {
         public long petId() throws UnsetPropertyException {
             String key = "petId";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for petId");
             }
@@ -171,7 +171,7 @@ public class Order {
         public int quantity() throws UnsetPropertyException {
             String key = "quantity";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for quantity");
             }
@@ -181,7 +181,7 @@ public class Order {
         public String shipDate() throws UnsetPropertyException {
             String key = "shipDate";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for shipDate");
             }
@@ -191,7 +191,7 @@ public class Order {
         public String status() throws UnsetPropertyException {
             String key = "status";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for status");
             }
@@ -201,7 +201,7 @@ public class Order {
         public boolean complete() throws UnsetPropertyException {
             String key = "complete";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for complete");
             }

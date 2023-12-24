@@ -119,7 +119,7 @@ public class Whale {
         public boolean hasBaleen() throws UnsetPropertyException {
             String key = "hasBaleen";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for hasBaleen");
             }
@@ -129,7 +129,7 @@ public class Whale {
         public boolean hasTeeth() throws UnsetPropertyException {
             String key = "hasTeeth";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for hasTeeth");
             }

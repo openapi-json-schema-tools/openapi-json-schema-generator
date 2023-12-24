@@ -149,8 +149,8 @@ A class to store validated Map payloads
 | String | password()<br>[optional] |
 | String | phone()<br>[optional] |
 | int | userStatus()<br>[optional] value must be a 32 bit integer |
-| FrozenMap<@Nullable Object> | objectWithNoDeclaredProps()<br>[optional] |
-| @Nullable FrozenMap<@Nullable Object> | objectWithNoDeclaredPropsNullable()<br>[optional] |
+| FrozenMap<?> | objectWithNoDeclaredProps()<br>[optional] |
+| @Nullable FrozenMap<?> | objectWithNoDeclaredPropsNullable()<br>[optional] |
 | @Nullable Object | anyTypeProp()<br>[optional] |
 | @Nullable Object | anyTypeExceptNullProp()<br>[optional] |
 | @Nullable Object | anyTypePropNullable()<br>[optional] |

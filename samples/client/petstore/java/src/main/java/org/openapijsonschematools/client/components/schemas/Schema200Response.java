@@ -76,7 +76,7 @@ public class Schema200Response {
         public int name() throws UnsetPropertyException {
             String key = "name";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for name");
             }

@@ -66,7 +66,7 @@ public class ReadOnlyFirst {
         public String bar() throws UnsetPropertyException {
             String key = "bar";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for bar");
             }
@@ -76,7 +76,7 @@ public class ReadOnlyFirst {
         public String baz() throws UnsetPropertyException {
             String key = "baz";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for baz");
             }

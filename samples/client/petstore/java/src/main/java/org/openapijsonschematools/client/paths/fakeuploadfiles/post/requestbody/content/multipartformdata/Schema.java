@@ -130,7 +130,7 @@ public class Schema {
         public FilesList files() throws UnsetPropertyException {
             String key = "files";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof FilesList)) {
                 throw new InvalidTypeException("Invalid value stored for files");
             }

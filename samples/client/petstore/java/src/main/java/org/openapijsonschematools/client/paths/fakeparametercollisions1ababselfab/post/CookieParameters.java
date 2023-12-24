@@ -64,7 +64,7 @@ public class CookieParameters {
         public String aB() throws UnsetPropertyException {
             String key = "aB";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for aB");
             }
@@ -74,7 +74,7 @@ public class CookieParameters {
         public String Ab() throws UnsetPropertyException {
             String key = "Ab";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for Ab");
             }
@@ -84,7 +84,7 @@ public class CookieParameters {
         public String self() throws UnsetPropertyException {
             String key = "self";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for self");
             }

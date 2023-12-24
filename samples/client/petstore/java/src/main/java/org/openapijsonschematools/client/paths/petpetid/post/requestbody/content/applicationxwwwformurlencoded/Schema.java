@@ -66,7 +66,7 @@ public class Schema {
         public String name() throws UnsetPropertyException {
             String key = "name";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for name");
             }
@@ -76,7 +76,7 @@ public class Schema {
         public String status() throws UnsetPropertyException {
             String key = "status";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for status");
             }

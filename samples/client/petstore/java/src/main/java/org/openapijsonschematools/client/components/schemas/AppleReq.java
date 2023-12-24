@@ -89,7 +89,7 @@ public class AppleReq {
         public boolean mealy() throws UnsetPropertyException {
             String key = "mealy";
             throwIfKeyNotPresent(key);
-                        Object value = get(key);
+            Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for mealy");
             }

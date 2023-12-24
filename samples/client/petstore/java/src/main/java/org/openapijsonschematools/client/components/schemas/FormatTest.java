@@ -733,7 +733,7 @@ public class FormatTest {
         public int int32() throws UnsetPropertyException {
             String key = "int32";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for int32");
             }
@@ -743,7 +743,7 @@ public class FormatTest {
         public int int32withValidations() throws UnsetPropertyException {
             String key = "int32withValidations";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for int32withValidations");
             }
@@ -753,7 +753,7 @@ public class FormatTest {
         public long int64() throws UnsetPropertyException {
             String key = "int64";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for int64");
             }
@@ -763,7 +763,7 @@ public class FormatTest {
         public float float32() throws UnsetPropertyException {
             String key = "float32";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Float)) {
                 throw new InvalidTypeException("Invalid value stored for float32");
             }
@@ -773,7 +773,7 @@ public class FormatTest {
         public double float64() throws UnsetPropertyException {
             String key = "float64";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Double)) {
                 throw new InvalidTypeException("Invalid value stored for float64");
             }
@@ -783,7 +783,7 @@ public class FormatTest {
         public ArrayWithUniqueItemsList arrayWithUniqueItems() throws UnsetPropertyException {
             String key = "arrayWithUniqueItems";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayWithUniqueItemsList)) {
                 throw new InvalidTypeException("Invalid value stored for arrayWithUniqueItems");
             }
@@ -793,7 +793,7 @@ public class FormatTest {
         public String binary() throws UnsetPropertyException {
             String key = "binary";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for binary");
             }
@@ -803,7 +803,7 @@ public class FormatTest {
         public String dateTime() throws UnsetPropertyException {
             String key = "dateTime";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for dateTime");
             }
@@ -813,7 +813,7 @@ public class FormatTest {
         public String uuidNoExample() throws UnsetPropertyException {
             String key = "uuidNoExample";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for uuidNoExample");
             }
@@ -823,7 +823,7 @@ public class FormatTest {
         public String pattern_with_digits() throws UnsetPropertyException {
             String key = "pattern_with_digits";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for pattern_with_digits");
             }
@@ -833,7 +833,7 @@ public class FormatTest {
         public String pattern_with_digits_and_delimiter() throws UnsetPropertyException {
             String key = "pattern_with_digits_and_delimiter";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for pattern_with_digits_and_delimiter");
             }
@@ -843,7 +843,7 @@ public class FormatTest {
         public Void noneProp() throws UnsetPropertyException {
             String key = "noneProp";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Void)) {
                 throw new InvalidTypeException("Invalid value stored for noneProp");
             }

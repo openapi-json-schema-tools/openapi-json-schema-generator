@@ -1695,27 +1695,19 @@ public class AnyTypeAndFormat {
         }
         
         public @Nullable Object date() throws UnsetPropertyException {
-            String key = "date";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("date");
         }
         
         public @Nullable Object binary() throws UnsetPropertyException {
-            String key = "binary";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("binary");
         }
         
         public @Nullable Object int32() throws UnsetPropertyException {
-            String key = "int32";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("int32");
         }
         
         public @Nullable Object int64() throws UnsetPropertyException {
-            String key = "int64";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("int64");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

@@ -54,9 +54,7 @@ public class HeaderParameters {
         }
         
         public String someHeader() throws UnsetPropertyException {
-            String key = "someHeader";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("someHeader");
         }
     }
     public static class HeaderParametersMapInput {

@@ -205,7 +205,7 @@ public class Schema {
         public EnumFormStringArrayList enum_form_string_array() throws UnsetPropertyException {
             String key = "enum_form_string_array";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof EnumFormStringArrayList)) {
                 throw new InvalidTypeException("Invalid value stored for enum_form_string_array");
             }
@@ -215,7 +215,7 @@ public class Schema {
         public String enum_form_string() throws UnsetPropertyException {
             String key = "enum_form_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for enum_form_string");
             }

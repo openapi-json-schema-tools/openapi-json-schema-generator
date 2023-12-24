@@ -54,9 +54,7 @@ public class QueryParameters {
         }
         
         public String searchStr() throws UnsetPropertyException {
-            String key = "searchStr";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("searchStr");
         }
     }
     public static class QueryParametersMapInput {

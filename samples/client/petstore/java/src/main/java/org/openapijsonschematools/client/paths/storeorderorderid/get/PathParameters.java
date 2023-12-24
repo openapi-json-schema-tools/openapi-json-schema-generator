@@ -54,7 +54,7 @@ public class PathParameters {
         }
         
         public long order_id() {
-            return get("order_id");
+            return getOrThrow("order_id");
         }
     }
     public static class PathParametersMapInput {

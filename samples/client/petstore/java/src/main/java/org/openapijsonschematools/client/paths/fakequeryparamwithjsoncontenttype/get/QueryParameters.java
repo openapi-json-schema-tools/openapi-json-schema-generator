@@ -54,7 +54,7 @@ public class QueryParameters {
         }
         
         public @Nullable Object someParam() {
-            return get("someParam");
+            return getOrThrow("someParam");
         }
     }
     public static class QueryParametersMapInput {

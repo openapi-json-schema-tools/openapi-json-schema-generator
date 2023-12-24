@@ -63,7 +63,7 @@ public class Dog {
         public String breed() throws UnsetPropertyException {
             String key = "breed";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for breed");
             }

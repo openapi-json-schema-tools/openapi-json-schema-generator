@@ -93,7 +93,7 @@ public class ComplexQuadrilateral {
         public String quadrilateralType() throws UnsetPropertyException {
             String key = "quadrilateralType";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for quadrilateralType");
             }

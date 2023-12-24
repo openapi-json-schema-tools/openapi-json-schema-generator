@@ -55,7 +55,7 @@ public class QueryParameters {
         }
         
         public Schema0.SchemaList0 status() {
-            return get("status");
+            return getOrThrow("status");
         }
     }
     public static class QueryParametersMapInput {

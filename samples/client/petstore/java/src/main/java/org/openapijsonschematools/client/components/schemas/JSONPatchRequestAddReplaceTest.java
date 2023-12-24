@@ -139,7 +139,7 @@ public class JSONPatchRequestAddReplaceTest {
         }
         
         public @Nullable Object value() {
-            return get("value");
+            return getOrThrow("value");
         }
     }
     public static class JSONPatchRequestAddReplaceTestMapInput {

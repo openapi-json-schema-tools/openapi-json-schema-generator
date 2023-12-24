@@ -89,7 +89,7 @@ public class BananaReq {
         public boolean sweet() throws UnsetPropertyException {
             String key = "sweet";
             throwIfKeyNotPresent(key);
-                        Object value = get(key);
+            Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for sweet");
             }

@@ -118,7 +118,7 @@ public class FileSchemaTestClass {
         public File.FileMap file() throws UnsetPropertyException {
             String key = "file";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof File.FileMap)) {
                 throw new InvalidTypeException("Invalid value stored for file");
             }
@@ -128,7 +128,7 @@ public class FileSchemaTestClass {
         public FilesList files() throws UnsetPropertyException {
             String key = "files";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof FilesList)) {
                 throw new InvalidTypeException("Invalid value stored for files");
             }

@@ -58,7 +58,7 @@ public class HeaderParameters {
         public String enum_header_string() throws UnsetPropertyException {
             String key = "enum_header_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for enum_header_string");
             }
@@ -68,7 +68,7 @@ public class HeaderParameters {
         public Schema0.SchemaList0 enum_header_string_array() throws UnsetPropertyException {
             String key = "enum_header_string_array";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Schema0.SchemaList0)) {
                 throw new InvalidTypeException("Invalid value stored for enum_header_string_array");
             }

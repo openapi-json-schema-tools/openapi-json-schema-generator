@@ -40,7 +40,7 @@ public class ReqPropsFromUnsetAddProps {
         }
         
         public @Nullable Object validName() {
-            return get("validName");
+            return getOrThrow("validName");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

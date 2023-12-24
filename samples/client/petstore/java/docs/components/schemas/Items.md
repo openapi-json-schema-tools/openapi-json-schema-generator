@@ -74,7 +74,7 @@ Map<String, ? extends @Nullable Object> |  |
 
 ## ItemsList
 public class ItemsList<br>
-extends `FrozenList<FrozenMap<@Nullable Object>>`
+extends `FrozenList<FrozenMap<?>>`
 
 A class to store validated List payloads
 

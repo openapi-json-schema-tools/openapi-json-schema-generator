@@ -67,7 +67,7 @@ public class Tag {
         public long id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
@@ -77,7 +77,7 @@ public class Tag {
         public String name() throws UnsetPropertyException {
             String key = "name";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for name");
             }

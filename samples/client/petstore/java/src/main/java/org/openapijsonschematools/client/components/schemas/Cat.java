@@ -63,7 +63,7 @@ public class Cat {
         public boolean declawed() throws UnsetPropertyException {
             String key = "declawed";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for declawed");
             }

@@ -129,7 +129,7 @@ public class ArrayOfNumberOnly {
         public ArrayNumberList ArrayNumber() throws UnsetPropertyException {
             String key = "ArrayNumber";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayNumberList)) {
                 throw new InvalidTypeException("Invalid value stored for ArrayNumber");
             }

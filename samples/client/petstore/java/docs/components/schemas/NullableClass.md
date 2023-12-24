@@ -185,7 +185,7 @@ A class to store validated Map payloads
 | [ObjectNullablePropMap](#objectnullablepropmap) | object_nullable_prop()<br>[optional] |
 | [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | object_and_items_nullable_prop()<br>[optional] |
 | [ObjectItemsNullableMap](#objectitemsnullablemap) | object_items_nullable()<br>[optional] |
-| @Nullable FrozenMap<@Nullable Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ObjectItemsNullable
 public static class ObjectItemsNullable<br>
@@ -241,7 +241,7 @@ A class that builds the Map input type
 
 ## ObjectItemsNullableMap
 public static class ObjectItemsNullableMap<br>
-extends FrozenMap<String, @Nullable FrozenMap<@Nullable Object>>
+extends FrozenMap<String, @Nullable FrozenMap<?>>
 
 A class to store validated Map payloads
 
@@ -249,7 +249,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ObjectItemsNullableMap](#objectitemsnullablemap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
-| @Nullable FrozenMap<@Nullable Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties2
 public static class AdditionalProperties2<br>
@@ -351,7 +351,7 @@ A class that builds the Map input type
 
 ## ObjectAndItemsNullablePropMap
 public static class ObjectAndItemsNullablePropMap<br>
-extends FrozenMap<String, @Nullable FrozenMap<@Nullable Object>>
+extends FrozenMap<String, @Nullable FrozenMap<?>>
 
 A class to store validated Map payloads
 
@@ -359,7 +359,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | of([Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
-| @Nullable FrozenMap<@Nullable Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| @Nullable FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties1
 public static class AdditionalProperties1<br>
@@ -461,7 +461,7 @@ A class that builds the Map input type
 
 ## ObjectNullablePropMap
 public static class ObjectNullablePropMap<br>
-extends FrozenMap<String, FrozenMap<@Nullable Object>>
+extends FrozenMap<String, FrozenMap<?>>
 
 A class to store validated Map payloads
 
@@ -469,7 +469,7 @@ A class to store validated Map payloads
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ObjectNullablePropMap](#objectnullablepropmap) | of([Map<String, Map<String, ? extends @Nullable Object>>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
-| FrozenMap<@Nullable Object> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| FrozenMap<?> | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>
@@ -536,7 +536,7 @@ List Item Type | Description | Notes
 
 ## ArrayItemsNullableList
 public class ArrayItemsNullableList<br>
-extends `FrozenList<@Nullable FrozenMap<@Nullable Object>>`
+extends `FrozenList<@Nullable FrozenMap<?>>`
 
 A class to store validated List payloads
 
@@ -646,7 +646,7 @@ List Item Type | Description | Notes
 
 ## ArrayAndItemsNullablePropList
 public class ArrayAndItemsNullablePropList<br>
-extends `FrozenList<@Nullable FrozenMap<@Nullable Object>>`
+extends `FrozenList<@Nullable FrozenMap<?>>`
 
 A class to store validated List payloads
 
@@ -755,7 +755,7 @@ Map<String, ? extends @Nullable Object> |  |
 
 ## ArrayNullablePropList
 public class ArrayNullablePropList<br>
-extends `FrozenList<FrozenMap<@Nullable Object>>`
+extends `FrozenList<FrozenMap<?>>`
 
 A class to store validated List payloads
 

@@ -54,7 +54,7 @@ public class PathParameters {
         }
         
         public String subDir() {
-            return get("subDir");
+            return getOrThrow("subDir");
         }
     }
     public static class PathParametersMapInput {

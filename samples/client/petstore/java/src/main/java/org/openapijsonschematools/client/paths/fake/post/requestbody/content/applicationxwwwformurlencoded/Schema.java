@@ -552,7 +552,7 @@ public class Schema {
         public int int32() throws UnsetPropertyException {
             String key = "int32";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for int32");
             }
@@ -562,7 +562,7 @@ public class Schema {
         public long int64() throws UnsetPropertyException {
             String key = "int64";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for int64");
             }
@@ -572,7 +572,7 @@ public class Schema {
         public String binary() throws UnsetPropertyException {
             String key = "binary";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for binary");
             }
@@ -582,7 +582,7 @@ public class Schema {
         public String date() throws UnsetPropertyException {
             String key = "date";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for date");
             }
@@ -592,7 +592,7 @@ public class Schema {
         public String dateTime() throws UnsetPropertyException {
             String key = "dateTime";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for dateTime");
             }
@@ -602,7 +602,7 @@ public class Schema {
         public String password() throws UnsetPropertyException {
             String key = "password";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for password");
             }
@@ -612,7 +612,7 @@ public class Schema {
         public String callback() throws UnsetPropertyException {
             String key = "callback";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for callback");
             }

@@ -55,7 +55,7 @@ public class Player {
         public String name() throws UnsetPropertyException {
             String key = "name";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for name");
             }
@@ -65,7 +65,7 @@ public class Player {
         public PlayerMap enemyPlayer() throws UnsetPropertyException {
             String key = "enemyPlayer";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof PlayerMap)) {
                 throw new InvalidTypeException("Invalid value stored for enemyPlayer");
             }

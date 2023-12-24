@@ -65,9 +65,7 @@ public class MyObjectDto {
         }
         
         public String id() throws UnsetPropertyException {
-            String key = "id";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("id");
         }
     }
     public static class MyObjectDtoMapInput {

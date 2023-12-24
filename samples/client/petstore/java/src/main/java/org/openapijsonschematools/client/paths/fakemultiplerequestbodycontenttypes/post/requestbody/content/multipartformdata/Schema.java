@@ -54,7 +54,7 @@ public class Schema {
         public String b() throws UnsetPropertyException {
             String key = "b";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for b");
             }

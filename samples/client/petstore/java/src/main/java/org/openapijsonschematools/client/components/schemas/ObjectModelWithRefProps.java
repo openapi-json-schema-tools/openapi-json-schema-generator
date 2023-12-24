@@ -44,7 +44,7 @@ public class ObjectModelWithRefProps {
         public Number myNumber() throws UnsetPropertyException {
             String key = "myNumber";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for myNumber");
             }
@@ -54,7 +54,7 @@ public class ObjectModelWithRefProps {
         public String myString() throws UnsetPropertyException {
             String key = "myString";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for myString");
             }
@@ -64,7 +64,7 @@ public class ObjectModelWithRefProps {
         public boolean myBoolean() throws UnsetPropertyException {
             String key = "myBoolean";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for myBoolean");
             }

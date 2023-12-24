@@ -42,7 +42,7 @@ public class SelfReferencingObjectModel {
         public SelfReferencingObjectModelMap selfRef() throws UnsetPropertyException {
             String key = "selfRef";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof SelfReferencingObjectModelMap)) {
                 throw new InvalidTypeException("Invalid value stored for selfRef");
             }

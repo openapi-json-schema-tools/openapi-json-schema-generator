@@ -62,7 +62,7 @@ public class HeaderParameters {
         public String aB() throws UnsetPropertyException {
             String key = "aB";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for aB");
             }
@@ -72,7 +72,7 @@ public class HeaderParameters {
         public String self() throws UnsetPropertyException {
             String key = "self";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for self");
             }

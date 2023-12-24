@@ -54,7 +54,7 @@ public class QueryParameters {
         }
         
         public String query() {
-            return get("query");
+            return getOrThrow("query");
         }
     }
     public static class QueryParametersMapInput {

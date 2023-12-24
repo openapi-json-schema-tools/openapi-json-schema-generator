@@ -79,7 +79,7 @@ public class ApiResponseSchema {
         public int code() throws UnsetPropertyException {
             String key = "code";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for code");
             }
@@ -89,7 +89,7 @@ public class ApiResponseSchema {
         public String type() throws UnsetPropertyException {
             String key = "type";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for type");
             }
@@ -99,7 +99,7 @@ public class ApiResponseSchema {
         public String message() throws UnsetPropertyException {
             String key = "message";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for message");
             }

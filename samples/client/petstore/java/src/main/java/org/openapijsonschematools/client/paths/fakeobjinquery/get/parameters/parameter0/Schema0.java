@@ -54,7 +54,7 @@ public class Schema0 {
         public String keyword() throws UnsetPropertyException {
             String key = "keyword";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for keyword");
             }

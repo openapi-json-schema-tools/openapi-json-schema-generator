@@ -54,7 +54,7 @@ public class PathParameters {
         }
         
         public String username() {
-            return get("username");
+            return getOrThrow("username");
         }
     }
     public static class PathParametersMapInput {

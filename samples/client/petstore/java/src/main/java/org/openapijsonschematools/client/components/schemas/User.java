@@ -458,7 +458,7 @@ public class User {
         public long id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }
@@ -468,7 +468,7 @@ public class User {
         public String username() throws UnsetPropertyException {
             String key = "username";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for username");
             }
@@ -478,7 +478,7 @@ public class User {
         public String firstName() throws UnsetPropertyException {
             String key = "firstName";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for firstName");
             }
@@ -488,7 +488,7 @@ public class User {
         public String lastName() throws UnsetPropertyException {
             String key = "lastName";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for lastName");
             }
@@ -498,7 +498,7 @@ public class User {
         public String email() throws UnsetPropertyException {
             String key = "email";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for email");
             }
@@ -508,7 +508,7 @@ public class User {
         public String password() throws UnsetPropertyException {
             String key = "password";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for password");
             }
@@ -518,7 +518,7 @@ public class User {
         public String phone() throws UnsetPropertyException {
             String key = "phone";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for phone");
             }
@@ -528,49 +528,43 @@ public class User {
         public int userStatus() throws UnsetPropertyException {
             String key = "userStatus";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Integer)) {
                 throw new InvalidTypeException("Invalid value stored for userStatus");
             }
             return (int) value;
         }
         
-        public FrozenMap<@Nullable Object> objectWithNoDeclaredProps() throws UnsetPropertyException {
+        public FrozenMap<?> objectWithNoDeclaredProps() throws UnsetPropertyException {
             String key = "objectWithNoDeclaredProps";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
-            if (!(value instanceof FrozenMap<@Nullable Object>)) {
+            @Nullable Object value = get(key);
+            if (!(value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for objectWithNoDeclaredProps");
             }
-            return (FrozenMap<@Nullable Object>) value;
+            return (FrozenMap<?>) value;
         }
         
-        public @Nullable FrozenMap<@Nullable Object> objectWithNoDeclaredPropsNullable() throws UnsetPropertyException {
+        public @Nullable FrozenMap<?> objectWithNoDeclaredPropsNullable() throws UnsetPropertyException {
             String key = "objectWithNoDeclaredPropsNullable";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
-            if (!(value instanceof FrozenMap<@Nullable Object>)) {
+            @Nullable Object value = get(key);
+            if (!(value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for objectWithNoDeclaredPropsNullable");
             }
-            return (@Nullable FrozenMap<@Nullable Object>) value;
+            return (@Nullable FrozenMap<?>) value;
         }
         
         public @Nullable Object anyTypeProp() throws UnsetPropertyException {
-            String key = "anyTypeProp";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("anyTypeProp");
         }
         
         public @Nullable Object anyTypeExceptNullProp() throws UnsetPropertyException {
-            String key = "anyTypeExceptNullProp";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("anyTypeExceptNullProp");
         }
         
         public @Nullable Object anyTypePropNullable() throws UnsetPropertyException {
-            String key = "anyTypePropNullable";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("anyTypePropNullable");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

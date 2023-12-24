@@ -97,7 +97,7 @@ public class HealthCheckResult {
         public @Nullable String NullableMessage() throws UnsetPropertyException {
             String key = "NullableMessage";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for NullableMessage");
             }

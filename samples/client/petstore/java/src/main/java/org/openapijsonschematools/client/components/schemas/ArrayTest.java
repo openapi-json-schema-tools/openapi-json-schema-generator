@@ -435,7 +435,7 @@ public class ArrayTest {
         public ArrayOfStringList array_of_string() throws UnsetPropertyException {
             String key = "array_of_string";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayOfStringList)) {
                 throw new InvalidTypeException("Invalid value stored for array_of_string");
             }
@@ -445,7 +445,7 @@ public class ArrayTest {
         public ArrayArrayOfIntegerList array_array_of_integer() throws UnsetPropertyException {
             String key = "array_array_of_integer";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayArrayOfIntegerList)) {
                 throw new InvalidTypeException("Invalid value stored for array_array_of_integer");
             }
@@ -455,7 +455,7 @@ public class ArrayTest {
         public ArrayArrayOfModelList array_array_of_model() throws UnsetPropertyException {
             String key = "array_array_of_model";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayArrayOfModelList)) {
                 throw new InvalidTypeException("Invalid value stored for array_array_of_model");
             }

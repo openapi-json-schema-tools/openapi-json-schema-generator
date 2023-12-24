@@ -78,13 +78,11 @@ public class NoAdditionalProperties {
         }
         
         public long id() {
-            return get("id");
+            return getOrThrow("id");
         }
         
         public long petId() throws UnsetPropertyException {
-            String key = "petId";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("petId");
         }
     }
     public static class NoAdditionalPropertiesMapInput {

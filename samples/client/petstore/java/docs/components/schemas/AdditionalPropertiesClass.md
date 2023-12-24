@@ -140,8 +140,8 @@ A class to store validated Map payloads
 | [MapPropertyMap](#mappropertymap) | map_property()<br>[optional] |
 | [MapOfMapPropertyMap](#mapofmappropertymap) | map_of_map_property()<br>[optional] |
 | @Nullable Object | anytype_1()<br>[optional] |
-| FrozenMap<@Nullable Object> | map_with_undeclared_properties_anytype_1()<br>[optional] |
-| FrozenMap<@Nullable Object> | map_with_undeclared_properties_anytype_2()<br>[optional] |
+| FrozenMap<?> | map_with_undeclared_properties_anytype_1()<br>[optional] |
+| FrozenMap<?> | map_with_undeclared_properties_anytype_2()<br>[optional] |
 | [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | map_with_undeclared_properties_anytype_3()<br>[optional] |
 | [EmptyMapMap](#emptymapmap) | empty_map()<br>[optional] |
 | [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | map_with_undeclared_properties_string()<br>[optional] |

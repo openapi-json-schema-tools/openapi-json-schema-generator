@@ -54,7 +54,7 @@ public class NumberOnly {
         public Number JustNumber() throws UnsetPropertyException {
             String key = "JustNumber";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for JustNumber");
             }

@@ -54,7 +54,7 @@ public class PublicKey {
         public String key() throws UnsetPropertyException {
             String key = "key";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for key");
             }

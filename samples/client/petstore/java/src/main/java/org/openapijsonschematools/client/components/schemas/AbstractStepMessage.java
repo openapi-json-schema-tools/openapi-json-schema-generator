@@ -54,7 +54,7 @@ public class AbstractStepMessage {
         }
         
         public @Nullable Object description() {
-            return get("description");
+            return getOrThrow("description");
         }
         
         public String discriminator() {
@@ -66,7 +66,7 @@ public class AbstractStepMessage {
         }
         
         public @Nullable Object sequenceNumber() {
-            return get("sequenceNumber");
+            return getOrThrow("sequenceNumber");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

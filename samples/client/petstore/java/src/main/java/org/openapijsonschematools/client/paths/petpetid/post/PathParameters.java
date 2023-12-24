@@ -54,7 +54,7 @@ public class PathParameters {
         }
         
         public long petId() {
-            return get("petId");
+            return getOrThrow("petId");
         }
     }
     public static class PathParametersMapInput {

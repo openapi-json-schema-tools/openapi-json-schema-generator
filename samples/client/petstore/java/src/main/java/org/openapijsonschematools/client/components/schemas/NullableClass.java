@@ -474,8 +474,8 @@ public class NullableClass {
     }
     
     
-    public static class ArrayNullablePropList extends FrozenList<FrozenMap<@Nullable Object>> {
-        protected ArrayNullablePropList(FrozenList<FrozenMap<@Nullable Object>> m) {
+    public static class ArrayNullablePropList extends FrozenList<FrozenMap<?>> {
+        protected ArrayNullablePropList(FrozenList<FrozenMap<?>> m) {
             super(m);
         }
         public static ArrayNullablePropList of(List<Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -521,7 +521,7 @@ public class NullableClass {
         
         @Override
         public ArrayNullablePropList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<FrozenMap<@Nullable Object>> items = new ArrayList<>();
+            List<FrozenMap<?>> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -532,13 +532,13 @@ public class NullableClass {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(itemInstance instanceof FrozenMap<?>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((FrozenMap<@Nullable Object>) itemInstance);
+                items.add((FrozenMap<?>) itemInstance);
                 i += 1;
             }
-            FrozenList<FrozenMap<@Nullable Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<FrozenMap<?>> newInstanceItems = new FrozenList<>(items);
             return new ArrayNullablePropList(newInstanceItems);
         }
         
@@ -638,8 +638,8 @@ public class NullableClass {
         }
     }    
     
-    public static class ArrayAndItemsNullablePropList extends FrozenList<@Nullable FrozenMap<@Nullable Object>> {
-        protected ArrayAndItemsNullablePropList(FrozenList<@Nullable FrozenMap<@Nullable Object>> m) {
+    public static class ArrayAndItemsNullablePropList extends FrozenList<@Nullable FrozenMap<?>> {
+        protected ArrayAndItemsNullablePropList(FrozenList<@Nullable FrozenMap<?>> m) {
             super(m);
         }
         public static ArrayAndItemsNullablePropList of(List<? extends @Nullable Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -685,7 +685,7 @@ public class NullableClass {
         
         @Override
         public ArrayAndItemsNullablePropList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<@Nullable FrozenMap<@Nullable Object>> items = new ArrayList<>();
+            List<@Nullable FrozenMap<?>> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -696,13 +696,13 @@ public class NullableClass {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance == null || itemInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(itemInstance == null || itemInstance instanceof FrozenMap<?>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((@Nullable FrozenMap<@Nullable Object>) itemInstance);
+                items.add((@Nullable FrozenMap<?>) itemInstance);
                 i += 1;
             }
-            FrozenList<@Nullable FrozenMap<@Nullable Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@Nullable FrozenMap<?>> newInstanceItems = new FrozenList<>(items);
             return new ArrayAndItemsNullablePropList(newInstanceItems);
         }
         
@@ -802,8 +802,8 @@ public class NullableClass {
         }
     }    
     
-    public static class ArrayItemsNullableList extends FrozenList<@Nullable FrozenMap<@Nullable Object>> {
-        protected ArrayItemsNullableList(FrozenList<@Nullable FrozenMap<@Nullable Object>> m) {
+    public static class ArrayItemsNullableList extends FrozenList<@Nullable FrozenMap<?>> {
+        protected ArrayItemsNullableList(FrozenList<@Nullable FrozenMap<?>> m) {
             super(m);
         }
         public static ArrayItemsNullableList of(List<? extends @Nullable Map<String, ? extends @Nullable Object>> arg, SchemaConfiguration configuration) throws ValidationException {
@@ -835,7 +835,7 @@ public class NullableClass {
         
         @Override
         public ArrayItemsNullableList getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<@Nullable FrozenMap<@Nullable Object>> items = new ArrayList<>();
+            List<@Nullable FrozenMap<?>> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
@@ -846,13 +846,13 @@ public class NullableClass {
                 }
                 JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                if (!(itemInstance == null || itemInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(itemInstance == null || itemInstance instanceof FrozenMap<?>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                items.add((@Nullable FrozenMap<@Nullable Object>) itemInstance);
+                items.add((@Nullable FrozenMap<?>) itemInstance);
                 i += 1;
             }
-            FrozenList<@Nullable FrozenMap<@Nullable Object>> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@Nullable FrozenMap<?>> newInstanceItems = new FrozenList<>(items);
             return new ArrayItemsNullableList(newInstanceItems);
         }
         
@@ -886,8 +886,8 @@ public class NullableClass {
     }
     
     
-    public static class ObjectNullablePropMap extends FrozenMap<FrozenMap<@Nullable Object>> {
-        protected ObjectNullablePropMap(FrozenMap<FrozenMap<@Nullable Object>> m) {
+    public static class ObjectNullablePropMap extends FrozenMap<FrozenMap<?>> {
+        protected ObjectNullablePropMap(FrozenMap<FrozenMap<?>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -896,7 +896,7 @@ public class NullableClass {
             return ObjectNullableProp.getInstance().validate(arg, configuration);
         }
         
-        public FrozenMap<@Nullable Object> getAdditionalProperty(String name) throws UnsetPropertyException {
+        public FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -938,7 +938,7 @@ public class NullableClass {
         }
         
         public ObjectNullablePropMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, FrozenMap<@Nullable Object>> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, FrozenMap<?>> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -954,12 +954,12 @@ public class NullableClass {
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(propertyInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(propertyInstance instanceof FrozenMap<?>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                properties.put(propertyName, (FrozenMap<@Nullable Object>) propertyInstance);
+                properties.put(propertyName, (FrozenMap<?>) propertyInstance);
             }
-            FrozenMap<FrozenMap<@Nullable Object>> castProperties = new FrozenMap<>(properties);
+            FrozenMap<FrozenMap<?>> castProperties = new FrozenMap<>(properties);
             return new ObjectNullablePropMap(castProperties);
         }
         
@@ -1060,8 +1060,8 @@ public class NullableClass {
         }
     }    
     
-    public static class ObjectAndItemsNullablePropMap extends FrozenMap<@Nullable FrozenMap<@Nullable Object>> {
-        protected ObjectAndItemsNullablePropMap(FrozenMap<@Nullable FrozenMap<@Nullable Object>> m) {
+    public static class ObjectAndItemsNullablePropMap extends FrozenMap<@Nullable FrozenMap<?>> {
+        protected ObjectAndItemsNullablePropMap(FrozenMap<@Nullable FrozenMap<?>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -1070,7 +1070,7 @@ public class NullableClass {
             return ObjectAndItemsNullableProp.getInstance().validate(arg, configuration);
         }
         
-        public @Nullable FrozenMap<@Nullable Object> getAdditionalProperty(String name) throws UnsetPropertyException {
+        public @Nullable FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -1112,7 +1112,7 @@ public class NullableClass {
         }
         
         public ObjectAndItemsNullablePropMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, @Nullable FrozenMap<@Nullable Object>> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable FrozenMap<?>> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -1128,12 +1128,12 @@ public class NullableClass {
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(propertyInstance == null || propertyInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(propertyInstance == null || propertyInstance instanceof FrozenMap<?>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                properties.put(propertyName, (@Nullable FrozenMap<@Nullable Object>) propertyInstance);
+                properties.put(propertyName, (@Nullable FrozenMap<?>) propertyInstance);
             }
-            FrozenMap<@Nullable FrozenMap<@Nullable Object>> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable FrozenMap<?>> castProperties = new FrozenMap<>(properties);
             return new ObjectAndItemsNullablePropMap(castProperties);
         }
         
@@ -1234,8 +1234,8 @@ public class NullableClass {
         }
     }    
     
-    public static class ObjectItemsNullableMap extends FrozenMap<@Nullable FrozenMap<@Nullable Object>> {
-        protected ObjectItemsNullableMap(FrozenMap<@Nullable FrozenMap<@Nullable Object>> m) {
+    public static class ObjectItemsNullableMap extends FrozenMap<@Nullable FrozenMap<?>> {
+        protected ObjectItemsNullableMap(FrozenMap<@Nullable FrozenMap<?>> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -1244,7 +1244,7 @@ public class NullableClass {
             return ObjectItemsNullable.getInstance().validate(arg, configuration);
         }
         
-        public @Nullable FrozenMap<@Nullable Object> getAdditionalProperty(String name) throws UnsetPropertyException {
+        public @Nullable FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException {
             throwIfKeyNotPresent(name);
             return get(name);
         }
@@ -1272,7 +1272,7 @@ public class NullableClass {
         }
         
         public ObjectItemsNullableMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, @Nullable FrozenMap<@Nullable Object>> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable FrozenMap<?>> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
                 @Nullable Object entryKey = entry.getKey();
                 if (!(entryKey instanceof String)) {
@@ -1288,12 +1288,12 @@ public class NullableClass {
                 }
                 JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
                 @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                if (!(propertyInstance == null || propertyInstance instanceof FrozenMap<@Nullable Object>)) {
+                if (!(propertyInstance == null || propertyInstance instanceof FrozenMap<?>)) {
                     throw new InvalidTypeException("Invalid instantiated value");
                 }
-                properties.put(propertyName, (@Nullable FrozenMap<@Nullable Object>) propertyInstance);
+                properties.put(propertyName, (@Nullable FrozenMap<?>) propertyInstance);
             }
-            FrozenMap<@Nullable FrozenMap<@Nullable Object>> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable FrozenMap<?>> castProperties = new FrozenMap<>(properties);
             return new ObjectItemsNullableMap(castProperties);
         }
         
@@ -1344,7 +1344,7 @@ public class NullableClass {
         public @Nullable Long integer_prop() throws UnsetPropertyException {
             String key = "integer_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for integer_prop");
             }
@@ -1354,7 +1354,7 @@ public class NullableClass {
         public @Nullable Number number_prop() throws UnsetPropertyException {
             String key = "number_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for number_prop");
             }
@@ -1364,7 +1364,7 @@ public class NullableClass {
         public @Nullable Boolean boolean_prop() throws UnsetPropertyException {
             String key = "boolean_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for boolean_prop");
             }
@@ -1374,7 +1374,7 @@ public class NullableClass {
         public @Nullable String string_prop() throws UnsetPropertyException {
             String key = "string_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for string_prop");
             }
@@ -1384,7 +1384,7 @@ public class NullableClass {
         public @Nullable String date_prop() throws UnsetPropertyException {
             String key = "date_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for date_prop");
             }
@@ -1394,7 +1394,7 @@ public class NullableClass {
         public @Nullable String datetime_prop() throws UnsetPropertyException {
             String key = "datetime_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for datetime_prop");
             }
@@ -1404,7 +1404,7 @@ public class NullableClass {
         public @Nullable ArrayNullablePropList array_nullable_prop() throws UnsetPropertyException {
             String key = "array_nullable_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayNullablePropList)) {
                 throw new InvalidTypeException("Invalid value stored for array_nullable_prop");
             }
@@ -1414,7 +1414,7 @@ public class NullableClass {
         public @Nullable ArrayAndItemsNullablePropList array_and_items_nullable_prop() throws UnsetPropertyException {
             String key = "array_and_items_nullable_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayAndItemsNullablePropList)) {
                 throw new InvalidTypeException("Invalid value stored for array_and_items_nullable_prop");
             }
@@ -1424,7 +1424,7 @@ public class NullableClass {
         public ArrayItemsNullableList array_items_nullable() throws UnsetPropertyException {
             String key = "array_items_nullable";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ArrayItemsNullableList)) {
                 throw new InvalidTypeException("Invalid value stored for array_items_nullable");
             }
@@ -1434,7 +1434,7 @@ public class NullableClass {
         public @Nullable ObjectNullablePropMap object_nullable_prop() throws UnsetPropertyException {
             String key = "object_nullable_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ObjectNullablePropMap)) {
                 throw new InvalidTypeException("Invalid value stored for object_nullable_prop");
             }
@@ -1444,7 +1444,7 @@ public class NullableClass {
         public @Nullable ObjectAndItemsNullablePropMap object_and_items_nullable_prop() throws UnsetPropertyException {
             String key = "object_and_items_nullable_prop";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ObjectAndItemsNullablePropMap)) {
                 throw new InvalidTypeException("Invalid value stored for object_and_items_nullable_prop");
             }
@@ -1454,21 +1454,21 @@ public class NullableClass {
         public ObjectItemsNullableMap object_items_nullable() throws UnsetPropertyException {
             String key = "object_items_nullable";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof ObjectItemsNullableMap)) {
                 throw new InvalidTypeException("Invalid value stored for object_items_nullable");
             }
             return (ObjectItemsNullableMap) value;
         }
         
-        public @Nullable FrozenMap<@Nullable Object> getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
+        public @Nullable FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
                         @Nullable Object value = get(name);
-            if (!(value instanceof FrozenMap<@Nullable Object>)) {
+            if (!(value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }
-            return (@Nullable FrozenMap<@Nullable Object>) value;
+            return (@Nullable FrozenMap<?>) value;
         }
     }
     public static class NullableClassMapInput {

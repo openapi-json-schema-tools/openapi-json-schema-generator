@@ -54,9 +54,7 @@ public class Headers {
         }
         
         public String location() throws UnsetPropertyException {
-            String key = "location";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("location");
         }
     }
     public static class HeadersMapInput {

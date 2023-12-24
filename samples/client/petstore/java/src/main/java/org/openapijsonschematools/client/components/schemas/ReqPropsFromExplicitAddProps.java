@@ -52,7 +52,7 @@ public class ReqPropsFromExplicitAddProps {
         }
         
         public String validName() {
-            return get("validName");
+            return getOrThrow("validName");
         }
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

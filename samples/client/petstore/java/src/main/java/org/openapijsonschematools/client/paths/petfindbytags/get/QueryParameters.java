@@ -55,7 +55,7 @@ public class QueryParameters {
         }
         
         public Schema0.SchemaList0 tags() {
-            return get("tags");
+            return getOrThrow("tags");
         }
     }
     public static class QueryParametersMapInput {

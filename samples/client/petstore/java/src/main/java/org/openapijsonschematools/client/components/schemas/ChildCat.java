@@ -63,7 +63,7 @@ public class ChildCat {
         public String name() throws UnsetPropertyException {
             String key = "name";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for name");
             }

@@ -114,7 +114,7 @@ public class Capitalization {
         public String smallCamel() throws UnsetPropertyException {
             String key = "smallCamel";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for smallCamel");
             }
@@ -124,7 +124,7 @@ public class Capitalization {
         public String CapitalCamel() throws UnsetPropertyException {
             String key = "CapitalCamel";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for CapitalCamel");
             }
@@ -134,7 +134,7 @@ public class Capitalization {
         public String small_Snake() throws UnsetPropertyException {
             String key = "small_Snake";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for small_Snake");
             }
@@ -144,7 +144,7 @@ public class Capitalization {
         public String Capital_Snake() throws UnsetPropertyException {
             String key = "Capital_Snake";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for Capital_Snake");
             }
@@ -154,7 +154,7 @@ public class Capitalization {
         public String SCA_ETH_Flow_Points() throws UnsetPropertyException {
             String key = "SCA_ETH_Flow_Points";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for SCA_ETH_Flow_Points");
             }
@@ -164,7 +164,7 @@ public class Capitalization {
         public String ATT_NAME() throws UnsetPropertyException {
             String key = "ATT_NAME";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for ATT_NAME");
             }

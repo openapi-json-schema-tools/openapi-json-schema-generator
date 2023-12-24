@@ -76,7 +76,7 @@ public class Schema {
         public String additionalMetadata() throws UnsetPropertyException {
             String key = "additionalMetadata";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for additionalMetadata");
             }

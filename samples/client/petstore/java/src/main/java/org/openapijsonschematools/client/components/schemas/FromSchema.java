@@ -67,7 +67,7 @@ public class FromSchema {
         public String data() throws UnsetPropertyException {
             String key = "data";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for data");
             }
@@ -77,7 +77,7 @@ public class FromSchema {
         public long id() throws UnsetPropertyException {
             String key = "id";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for id");
             }

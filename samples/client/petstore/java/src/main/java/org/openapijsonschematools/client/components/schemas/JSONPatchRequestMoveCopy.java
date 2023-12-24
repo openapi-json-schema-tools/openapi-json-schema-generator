@@ -122,7 +122,7 @@ public class JSONPatchRequestMoveCopy {
         }
         
         public String from() {
-            return get("from");
+            return getOrThrow("from");
         }
         
         public String op() {
@@ -134,7 +134,7 @@ public class JSONPatchRequestMoveCopy {
         }
         
         public String path() {
-            return get("path");
+            return getOrThrow("path");
         }
     }
     public static class JSONPatchRequestMoveCopyMapInput {
