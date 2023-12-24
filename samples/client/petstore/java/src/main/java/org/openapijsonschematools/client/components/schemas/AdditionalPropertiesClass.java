@@ -53,8 +53,7 @@ public class AdditionalPropertiesClass {
         }
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class MapPropertyMapInput {
@@ -148,8 +147,7 @@ public class AdditionalPropertiesClass {
         }
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class AdditionalPropertiesMapInput {
@@ -232,8 +230,7 @@ public class AdditionalPropertiesClass {
         }
         
         public AdditionalPropertiesMap getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class MapOfMapPropertyMapInput {
@@ -360,8 +357,7 @@ public class AdditionalPropertiesClass {
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class MapWithUndeclaredPropertiesAnytype3MapInput {
@@ -541,8 +537,7 @@ public class AdditionalPropertiesClass {
         }
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class MapWithUndeclaredPropertiesStringMapInput {

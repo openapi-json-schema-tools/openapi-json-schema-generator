@@ -53,8 +53,7 @@ public class MapTest {
         }
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class AdditionalPropertiesMapInput {
@@ -137,8 +136,7 @@ public class MapTest {
         }
         
         public AdditionalPropertiesMap getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class MapMapOfStringMapInput {
@@ -263,8 +261,7 @@ public class MapTest {
         }
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class MapOfEnumStringMapInput {

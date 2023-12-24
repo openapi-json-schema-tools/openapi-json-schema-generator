@@ -49,8 +49,7 @@ public class Address {
         }
         
         public long getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class AddressMapInput {

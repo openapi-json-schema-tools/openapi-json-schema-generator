@@ -58,8 +58,7 @@ public class AdditionalPropertiesSchema {
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class Schema0MapInput {
@@ -321,8 +320,7 @@ public class AdditionalPropertiesSchema {
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class Schema1MapInput {
@@ -584,8 +582,7 @@ public class AdditionalPropertiesSchema {
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class Schema2MapInput {

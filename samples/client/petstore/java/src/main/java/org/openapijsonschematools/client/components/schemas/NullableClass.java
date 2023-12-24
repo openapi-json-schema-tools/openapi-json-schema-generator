@@ -897,8 +897,7 @@ public class NullableClass {
         }
         
         public FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class ObjectNullablePropMapInput {
@@ -1071,8 +1070,7 @@ public class NullableClass {
         }
         
         public @Nullable FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class ObjectAndItemsNullablePropMapInput {
@@ -1245,8 +1243,7 @@ public class NullableClass {
         }
         
         public @Nullable FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class ObjectItemsNullableMapInput {

@@ -57,8 +57,7 @@ public class ReqPropsFromExplicitAddProps {
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class ReqPropsFromExplicitAddPropsMapInput {

@@ -62,8 +62,7 @@ public class MixedPropertiesAndAdditionalPropertiesClass {
         }
         
         public Animal.AnimalMap getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-            return get(name);
+            return getOrThrow(name);
         }
     }
     public static class MapMapInput {
