@@ -112,8 +112,7 @@ public class AdditionalPropertiesWithArrayOfEnums {
         }
         
         public AdditionalPropertiesList getAdditionalProperty(String name) throws UnsetPropertyException {
-            throwIfKeyNotPresent(name);
-                        AdditionalPropertiesList value = get(name);
+            var value = getOrThrow(name);
             if (!(value instanceof AdditionalPropertiesList)) {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }

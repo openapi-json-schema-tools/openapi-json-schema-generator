@@ -1460,9 +1460,8 @@ public class NullableClass {
         
         public @Nullable FrozenMap<?> getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
-            throwIfKeyNotPresent(name);
-                        @Nullable Object value = get(name);
-            if (!(value instanceof FrozenMap<?>)) {
+            var value = getOrThrow(name);
+            if (!(value == null || value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }
             return (@Nullable FrozenMap<?>) value;

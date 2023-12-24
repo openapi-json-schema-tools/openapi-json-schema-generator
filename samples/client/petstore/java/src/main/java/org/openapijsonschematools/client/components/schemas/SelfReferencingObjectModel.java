@@ -51,8 +51,7 @@ public class SelfReferencingObjectModel {
         
         public SelfReferencingObjectModelMap getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
-            throwIfKeyNotPresent(name);
-                        @Nullable Object value = get(name);
+            var value = getOrThrow(name);
             if (!(value instanceof SelfReferencingObjectModelMap)) {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }

@@ -66,9 +66,8 @@ public {{> src/main/java/packagename/components/schemas/types/schema_output_type
     return getOrThrow(name);
                 {{/and}}
             {{else}}
-    throwIfKeyNotPresent(name);
-    {{#with ../../mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}{{/with}} value = get(name);
-    if (!(value instanceof {{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
+    var value = getOrThrow(name);
+    if (!({{#contains types "null" }}value == null || {{/contains}}value instanceof {{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" forceNull=true noAnnotations=true }})) {
         throw new InvalidTypeException("Invalid value stored for " + name);
     }
     return ({{> src/main/java/packagename/components/schemas/types/schema_output_type fullRefModule="" }}) value;

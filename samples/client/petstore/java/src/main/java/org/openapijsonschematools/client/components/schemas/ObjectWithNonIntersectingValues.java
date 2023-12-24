@@ -75,8 +75,7 @@ public class ObjectWithNonIntersectingValues {
         
         public String getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
-            throwIfKeyNotPresent(name);
-                        Object value = get(name);
+            var value = getOrThrow(name);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }

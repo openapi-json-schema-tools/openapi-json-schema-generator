@@ -159,8 +159,7 @@ public class Drawing {
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
-            throwIfKeyNotPresent(name);
-                        @Nullable Object value = get(name);
+            var value = getOrThrow(name);
             if (!(value instanceof Object)) {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }
