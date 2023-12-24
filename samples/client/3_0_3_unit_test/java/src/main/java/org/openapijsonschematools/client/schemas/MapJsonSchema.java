@@ -60,7 +60,7 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Froz
         return new FrozenMap<>(properties);
     }
 
-    public FrozenMap<@Nullable Object> validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
         Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -76,6 +76,14 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Froz
             return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+    }
+
+    @Override
+    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        if (arg instanceof Map) {
+            return validate((Map<?, ?>) arg, configuration);
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
     }
 }
 
