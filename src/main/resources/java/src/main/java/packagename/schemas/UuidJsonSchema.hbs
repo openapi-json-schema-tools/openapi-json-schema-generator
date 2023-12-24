@@ -36,11 +36,6 @@ public class UuidJsonSchema extends JsonSchema implements StringSchemaValidator 
     }
 
     @Override
-    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
-    }
-
-    @Override
     public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
