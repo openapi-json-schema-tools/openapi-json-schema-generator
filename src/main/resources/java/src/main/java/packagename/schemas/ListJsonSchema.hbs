@@ -55,7 +55,7 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Fr
         return new FrozenList<>(items);
     }
 
-    public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -71,6 +71,14 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Fr
     public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof List) {
             return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+    }
+
+    @Override
+    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        if (arg instanceof List) {
+            return validate((List<?>) arg, configuration);
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }

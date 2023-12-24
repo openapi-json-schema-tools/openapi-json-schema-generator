@@ -56,8 +56,8 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate([Map<String, Boolean>](#additionalpropertiescanexistbyitselfmapinput) arg, SchemaConfiguration configuration) |
-
+| static [AdditionalpropertiesCanExistByItselfMap](#additionalpropertiescanexistbyitselfmap) | validate([Map<?, ?>](#additionalpropertiescanexistbyitselfmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalpropertiesCanExistByItselfMapInput
 public class AdditionalpropertiesCanExistByItselfMapInput<br>
 builder for `Map<String, Boolean>`

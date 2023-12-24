@@ -52,3 +52,4 @@ String validatedPayload = Schema1.Schema11.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

@@ -56,8 +56,8 @@ SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map<String, ? extends @Nullable Object>](#selfreferencingobjectmodelmapinput) arg, SchemaConfiguration configuration) |
-
+| static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map<?, ?>](#selfreferencingobjectmodelmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingObjectModelMapInput
 public class SelfReferencingObjectModelMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

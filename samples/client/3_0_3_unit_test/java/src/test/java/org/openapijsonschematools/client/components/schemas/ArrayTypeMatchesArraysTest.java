@@ -5,49 +5,46 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.MapMaker;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
-import java.util.LinkedHashSet;
 
 public class ArrayTypeMatchesArraysTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
-            configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
 
     @Test
     public void testABooleanIsNotAnArrayFails() {
         // a boolean is not an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            true,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                true,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAFloatIsNotAnArrayFails() {
         // a float is not an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            1.1d,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                1.1d,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -65,44 +62,60 @@ public class ArrayTypeMatchesArraysTest {
     public void testNullIsNotAnArrayFails() {
         // null is not an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            (Void) null,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                (Void) null,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAStringIsNotAnArrayFails() {
         // a string is not an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            "foo",
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                "foo",
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnIntegerIsNotAnArrayFails() {
         // an integer is not an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            1L,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                1L,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnObjectIsNotAnArrayFails() {
         // an object is not an array
         final var schema = ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            MapMaker.makeMap(
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                MapMaker.makeMap(
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 }

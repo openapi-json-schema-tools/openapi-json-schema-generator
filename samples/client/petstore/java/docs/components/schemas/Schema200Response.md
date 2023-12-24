@@ -42,9 +42,9 @@ model with an invalid class name for python, starts with a number
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema200ResponseMap](#schema200responsemap) | validate([Map<String, ? extends @Nullable Object>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static [Schema200ResponseMap](#schema200responsemap) | validate([Map<?, ?>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema200ResponseMapInput
 public class Schema200ResponseMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

@@ -66,8 +66,8 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
-
+| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<?, ?>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumsInPropertiesMapInput
 public class EnumsInPropertiesMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -133,7 +133,7 @@ String validatedPayload = EnumsInProperties.Bar.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Foo
 public static class Foo<br>
 extends JsonSchema
@@ -172,5 +172,5 @@ String validatedPayload = EnumsInProperties.Foo.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

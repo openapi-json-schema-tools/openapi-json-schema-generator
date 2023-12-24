@@ -60,8 +60,8 @@ TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.TheDefaultKeywordDoesNo
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate([Map<String, ? extends @Nullable Object>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput) arg, SchemaConfiguration configuration) |
-
+| static [TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMap](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmap) | validate([Map<?, ?>](#thedefaultkeyworddoesnotdoanythingifthepropertyismissingmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput
 public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -125,5 +125,5 @@ int validatedPayload = TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing.
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

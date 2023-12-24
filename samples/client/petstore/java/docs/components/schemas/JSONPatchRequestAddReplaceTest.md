@@ -69,8 +69,8 @@ JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<String, ? extends @Nullable Object>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
-
+| static [JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap) | validate([Map<?, ?>](#jsonpatchrequestaddreplacetestmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestAddReplaceTestMapInput
 public class JSONPatchRequestAddReplaceTestMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -139,7 +139,7 @@ String validatedPayload = JSONPatchRequestAddReplaceTest.Op.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Value
 public static class Value<br>
 extends AnyTypeJsonSchema

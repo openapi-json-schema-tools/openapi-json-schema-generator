@@ -76,8 +76,8 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | validate([Map<String, ? extends @Nullable Object>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
-
+| static [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumTestMapInput
 public class EnumTestMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -158,7 +158,7 @@ double validatedPayload = EnumTest.EnumNumber.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static double | validate(double arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumInteger
 public static class EnumInteger<br>
 extends JsonSchema
@@ -198,7 +198,7 @@ int validatedPayload = EnumTest.EnumInteger.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumStringRequired
 public static class EnumStringRequired<br>
 extends JsonSchema
@@ -237,7 +237,7 @@ String validatedPayload = EnumTest.EnumStringRequired.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumString
 public static class EnumString<br>
 extends JsonSchema
@@ -276,5 +276,5 @@ String validatedPayload = EnumTest.EnumString.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

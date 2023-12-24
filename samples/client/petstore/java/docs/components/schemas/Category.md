@@ -66,8 +66,8 @@ Category.CategoryMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CategoryMap](#categorymap) | validate([Map<String, ? extends @Nullable Object>](#categorymapinput) arg, SchemaConfiguration configuration) |
-
+| static [CategoryMap](#categorymap) | validate([Map<?, ?>](#categorymapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## CategoryMapInput
 public class CategoryMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -132,7 +132,7 @@ String validatedPayload = Category.Name.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Id
 public static class Id<br>
 extends Int64JsonSchema

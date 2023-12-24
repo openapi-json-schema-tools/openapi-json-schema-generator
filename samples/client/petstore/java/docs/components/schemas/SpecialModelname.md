@@ -63,8 +63,8 @@ SpecialModelname.SpecialModelnameMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SpecialModelnameMap](#specialmodelnamemap) | validate([Map<String, ? extends @Nullable Object>](#specialmodelnamemapinput) arg, SchemaConfiguration configuration) |
-
+| static [SpecialModelnameMap](#specialmodelnamemap) | validate([Map<?, ?>](#specialmodelnamemapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SpecialModelnameMapInput
 public class SpecialModelnameMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

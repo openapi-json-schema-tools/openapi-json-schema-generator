@@ -70,8 +70,8 @@ EnumArrays.EnumArraysMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | validate([Map<String, ? extends @Nullable Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
-
+| static [EnumArraysMap](#enumarraysmap) | validate([Map<?, ?>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumArraysMapInput
 public class EnumArraysMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -139,8 +139,8 @@ EnumArrays.ArrayEnumList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayEnumList](#arrayenumlist) | validate([List<String>](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
-
+| static [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayEnumListInput
 public class ArrayEnumListInput<br>
 builder for `List<String>`
@@ -201,7 +201,7 @@ String validatedPayload = EnumArrays.Items.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JustSymbol
 public static class JustSymbol<br>
 extends JsonSchema
@@ -240,5 +240,5 @@ String validatedPayload = EnumArrays.JustSymbol.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

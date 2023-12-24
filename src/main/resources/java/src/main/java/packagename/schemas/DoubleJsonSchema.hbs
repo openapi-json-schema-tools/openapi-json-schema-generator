@@ -6,19 +6,14 @@ import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
-import {{{packageName}}}.schemas.validation.TypeValidator;
-import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -37,11 +32,6 @@ public class DoubleJsonSchema extends JsonSchema implements NumberSchemaValidato
             instance = new DoubleJsonSchema();
         }
         return instance;
-    }
-
-    @Override
-    public Number getNewInstance(Number arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
     }
 
     @Override
@@ -65,5 +55,13 @@ public class DoubleJsonSchema extends JsonSchema implements NumberSchemaValidato
             return getNewInstance((Number) arg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+    }
+
+    @Override
+    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        if (arg instanceof Number) {
+            return validate((Number) arg, configuration);
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
     }
 }

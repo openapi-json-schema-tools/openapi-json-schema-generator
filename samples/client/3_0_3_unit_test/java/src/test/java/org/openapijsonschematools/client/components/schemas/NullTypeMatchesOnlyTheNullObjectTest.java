@@ -5,84 +5,93 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.MapMaker;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
-import java.util.LinkedHashSet;
 
 public class NullTypeMatchesOnlyTheNullObjectTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
-            configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
 
     @Test
     public void testZeroIsNotNullFails() {
         // zero is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            0L,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                0L,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnArrayIsNotNullFails() {
         // an array is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                Arrays.asList(
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnObjectIsNotNullFails() {
         // an object is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            MapMaker.makeMap(
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                MapMaker.makeMap(
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testTrueIsNotNullFails() {
         // true is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            true,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                true,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testFalseIsNotNullFails() {
         // false is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            false,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                false,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -99,43 +108,59 @@ public class NullTypeMatchesOnlyTheNullObjectTest {
     public void testAStringIsNotNullFails() {
         // a string is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            "foo",
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                "foo",
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnIntegerIsNotNullFails() {
         // an integer is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            1L,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                1L,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnEmptyStringIsNotNullFails() {
         // an empty string is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            "",
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                "",
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAFloatIsNotNullFails() {
         // a float is not null
         final var schema = NullTypeMatchesOnlyTheNullObject.NullTypeMatchesOnlyTheNullObject1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            1.1d,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                1.1d,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 }

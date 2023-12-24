@@ -64,8 +64,8 @@ Drawing.DrawingMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DrawingMap](#drawingmap) | validate([Map<String, ? extends @Nullable Object>](#drawingmapinput) arg, SchemaConfiguration configuration) |
-
+| static [DrawingMap](#drawingmap) | validate([Map<?, ?>](#drawingmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DrawingMapInput
 public class DrawingMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -136,8 +136,8 @@ Drawing.ShapesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ShapesList](#shapeslist) | validate([List<? extends @Nullable Object>](#shapeslistinput) arg, SchemaConfiguration configuration) |
-
+| static [ShapesList](#shapeslist) | validate([List<?>](#shapeslistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ShapesListInput
 public class ShapesListInput<br>
 builder for `List<? extends @Nullable Object>`

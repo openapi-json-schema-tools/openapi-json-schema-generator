@@ -55,8 +55,8 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<String, ? extends @Nullable Object>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
-
+| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<?, ?>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromUnsetAddPropsMapInput
 public class ReqPropsFromUnsetAddPropsMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

@@ -44,9 +44,9 @@ Model for testing model name same as property name
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [NameMap](#namemap) | validate([Map<String, ? extends @Nullable Object>](#namemapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static [NameMap](#namemap) | validate([Map<?, ?>](#namemapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NameMapInput
 public class NameMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

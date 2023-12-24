@@ -61,8 +61,8 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<String, ? extends @Nullable Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
-
+| static [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<?, ?>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## GrandparentAnimalMapInput
 public class GrandparentAnimalMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

@@ -57,8 +57,8 @@ Schema1.SchemaMap1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap1](#schemamap1) | validate([Map<String, ? extends @Nullable Object>](#schemamapinput1) arg, SchemaConfiguration configuration) |
-
+| static [SchemaMap1](#schemamap1) | validate([Map<?, ?>](#schemamapinput1) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapInput1
 public class SchemaMapInput1<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -105,9 +105,9 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema01
 public static class Schema01<br>
 extends JsonSchema
@@ -146,3 +146,4 @@ String validatedPayload = Schema1.Schema01.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

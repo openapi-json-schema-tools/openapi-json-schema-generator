@@ -5,66 +5,63 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.MapMaker;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
-import java.util.LinkedHashSet;
 
 public class UniqueitemsValidationTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
-            configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
 
     @Test
     public void testNonUniqueArrayOfMoreThanTwoIntegersIsInvalidFails() {
         // non-unique array of more than two integers is invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                1L,
-                2L,
-                1L
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                Arrays.asList(
+                    1L,
+                    2L,
+                    1L
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testNonUniqueArrayOfObjectsIsInvalidFails() {
         // non-unique array of objects is invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
-                        "foo",
-                        "bar"
+        try {
+            schema.validate(
+                Arrays.asList(
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "foo",
+                            "bar"
+                        )
+                    ),
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "foo",
+                            "bar"
+                        )
                     )
                 ),
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
-                        "foo",
-                        "bar"
-                    )
-                )
-            ),
-            validationMetadata
-        ));
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -111,14 +108,18 @@ public class UniqueitemsValidationTest {
     public void testNonUniqueArrayOfIntegersIsInvalidFails() {
         // non-unique array of integers is invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                1L,
-                1L
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                Arrays.asList(
+                    1L,
+                    1L
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -148,50 +149,58 @@ public class UniqueitemsValidationTest {
     public void testObjectsAreNonUniqueDespiteKeyOrderFails() {
         // objects are non-unique despite key order
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
-                        "a",
-                        1L
+        try {
+            schema.validate(
+                Arrays.asList(
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<String, Long>(
+                            "a",
+                            1L
+                        ),
+                        new AbstractMap.SimpleEntry<String, Long>(
+                            "b",
+                            2L
+                        )
                     ),
-                    new AbstractMap.SimpleEntry<String, Long>(
-                        "b",
-                        2L
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<String, Long>(
+                            "b",
+                            2L
+                        ),
+                        new AbstractMap.SimpleEntry<String, Long>(
+                            "a",
+                            1L
+                        )
                     )
                 ),
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<String, Long>(
-                        "b",
-                        2L
-                    ),
-                    new AbstractMap.SimpleEntry<String, Long>(
-                        "a",
-                        1L
-                    )
-                )
-            ),
-            validationMetadata
-        ));
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testNonUniqueArrayOfArraysIsInvalidFails() {
         // non-unique array of arrays is invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
+        try {
+            schema.validate(
                 Arrays.asList(
-                    "foo"
+                    Arrays.asList(
+                        "foo"
+                    ),
+                    Arrays.asList(
+                        "foo"
+                    )
                 ),
-                Arrays.asList(
-                    "foo"
-                )
-            ),
-            validationMetadata
-        ));
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -221,21 +230,25 @@ public class UniqueitemsValidationTest {
     public void testNonUniqueArrayOfMoreThanTwoArraysIsInvalidFails() {
         // non-unique array of more than two arrays is invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
+        try {
+            schema.validate(
                 Arrays.asList(
-                    "foo"
+                    Arrays.asList(
+                        "foo"
+                    ),
+                    Arrays.asList(
+                        "bar"
+                    ),
+                    Arrays.asList(
+                        "foo"
+                    )
                 ),
-                Arrays.asList(
-                    "bar"
-                ),
-                Arrays.asList(
-                    "foo"
-                )
-            ),
-            validationMetadata
-        ));
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -259,74 +272,86 @@ public class UniqueitemsValidationTest {
     public void testNonUniqueArrayOfNestedObjectsIsInvalidFails() {
         // non-unique array of nested objects is invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
-                        "foo",
-                        MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
-                                "bar",
-                                MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
-                                        "baz",
-                                        true
+        try {
+            schema.validate(
+                Arrays.asList(
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "foo",
+                            MapMaker.makeMap(
+                                new AbstractMap.SimpleEntry<>(
+                                    "bar",
+                                    MapMaker.makeMap(
+                                        new AbstractMap.SimpleEntry<>(
+                                            "baz",
+                                            true
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    ),
+                    MapMaker.makeMap(
+                        new AbstractMap.SimpleEntry<>(
+                            "foo",
+                            MapMaker.makeMap(
+                                new AbstractMap.SimpleEntry<>(
+                                    "bar",
+                                    MapMaker.makeMap(
+                                        new AbstractMap.SimpleEntry<>(
+                                            "baz",
+                                            true
+                                        )
                                     )
                                 )
                             )
                         )
                     )
                 ),
-                MapMaker.makeMap(
-                    new AbstractMap.SimpleEntry<>(
-                        "foo",
-                        MapMaker.makeMap(
-                            new AbstractMap.SimpleEntry<>(
-                                "bar",
-                                MapMaker.makeMap(
-                                    new AbstractMap.SimpleEntry<>(
-                                        "baz",
-                                        true
-                                    )
-                                )
-                            )
-                        )
-                    )
-                )
-            ),
-            validationMetadata
-        ));
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testNumbersAreUniqueIfMathematicallyUnequalFails() {
         // numbers are unique if mathematically unequal
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                1.0d,
-                1.0d,
-                1L
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                Arrays.asList(
+                    1.0d,
+                    1.0d,
+                    1L
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testNonUniqueArrayOfStringsIsInvalidFails() {
         // non-unique array of strings is invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                "foo",
-                "bar",
-                "foo"
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                Arrays.asList(
+                    "foo",
+                    "bar",
+                    "foo"
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -543,21 +568,25 @@ public class UniqueitemsValidationTest {
     public void testNonUniqueHeterogeneousTypesAreInvalidFails() {
         // non-unique heterogeneous types are invalid
         final var schema = UniqueitemsValidation.UniqueitemsValidation1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-                MapMaker.makeMap(
-                ),
+        try {
+            schema.validate(
                 Arrays.asList(
+                    MapMaker.makeMap(
+                    ),
+                    Arrays.asList(
+                        1L
+                    ),
+                    true,
+                    null,
+                    MapMaker.makeMap(
+                    ),
                     1L
                 ),
-                true,
-                null,
-                MapMaker.makeMap(
-                ),
-                1L
-            ),
-            validationMetadata
-        ));
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 }

@@ -39,9 +39,9 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [FruitMap](#fruitmap) | validate([Map<String, ? extends @Nullable Object>](#fruitmapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static [FruitMap](#fruitmap) | validate([Map<?, ?>](#fruitmapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FruitMapInput
 public class FruitMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

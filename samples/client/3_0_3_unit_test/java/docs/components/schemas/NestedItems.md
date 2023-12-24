@@ -72,8 +72,8 @@ NestedItems.NestedItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NestedItemsList](#nesteditemslist) | validate([List<List<List<List<Number>>>>](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
-
+| static [NestedItemsList](#nesteditemslist) | validate([List<?>](#nesteditemslistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NestedItemsListInput
 public class NestedItemsListInput<br>
 builder for `List<List<List<List<Number>>>>`
@@ -140,8 +140,8 @@ NestedItems.ItemsList2 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList2](#itemslist2) | validate([List<List<List<Number>>>](#itemslistinput2) arg, SchemaConfiguration configuration) |
-
+| static [ItemsList2](#itemslist2) | validate([List<?>](#itemslistinput2) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListInput2
 public class ItemsListInput2<br>
 builder for `List<List<List<Number>>>`
@@ -206,8 +206,8 @@ NestedItems.ItemsList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | validate([List<List<Number>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
-
+| static [ItemsList1](#itemslist1) | validate([List<?>](#itemslistinput1) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListInput1
 public class ItemsListInput1<br>
 builder for `List<List<Number>>`
@@ -270,8 +270,8 @@ NestedItems.ItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList](#itemslist) | validate([List<Number>](#itemslistinput) arg, SchemaConfiguration configuration) |
-
+| static [ItemsList](#itemslist) | validate([List<?>](#itemslistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ItemsListInput
 public class ItemsListInput<br>
 builder for `List<Number>`

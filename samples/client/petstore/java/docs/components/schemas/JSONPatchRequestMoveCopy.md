@@ -73,8 +73,8 @@ JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<String, String>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
-
+| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<?, ?>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestMoveCopyMapInput
 public class JSONPatchRequestMoveCopyMapInput<br>
 builder for `Map<String, String>`
@@ -143,7 +143,7 @@ String validatedPayload = JSONPatchRequestMoveCopy.Op.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Path
 public static class Path<br>
 extends StringJsonSchema

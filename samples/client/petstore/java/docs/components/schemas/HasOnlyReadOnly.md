@@ -65,8 +65,8 @@ HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map<String, ? extends @Nullable Object>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
-
+| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map<?, ?>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HasOnlyReadOnlyMapInput
 public class HasOnlyReadOnlyMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

@@ -53,7 +53,7 @@ Void validatedPayload = ComposedNone.ComposedNone1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0
 public static class Schema0<br>
 extends AnyTypeJsonSchema
