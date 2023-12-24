@@ -186,7 +186,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        public FrozenMap<@Nullable Object> validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -198,6 +198,24 @@ public class AllofCombinedWithAnyofOneof {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                return validate((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return validate(boolArg, configuration);
+            } else if (arg instanceof Number) {
+                return validate((Number) arg, configuration);
+            } else if (arg instanceof String) {
+                return validate((String) arg, configuration);
+            } else if (arg instanceof List) {
+                return validate((List<?>) arg, configuration);
+            } else if (arg instanceof Map) {
+                return validate((Map<?, ?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
@@ -368,7 +386,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        public FrozenMap<@Nullable Object> validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -380,6 +398,24 @@ public class AllofCombinedWithAnyofOneof {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                return validate((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return validate(boolArg, configuration);
+            } else if (arg instanceof Number) {
+                return validate((Number) arg, configuration);
+            } else if (arg instanceof String) {
+                return validate((String) arg, configuration);
+            } else if (arg instanceof List) {
+                return validate((List<?>) arg, configuration);
+            } else if (arg instanceof Map) {
+                return validate((Map<?, ?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
@@ -550,7 +586,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        public FrozenMap<@Nullable Object> validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -562,6 +598,24 @@ public class AllofCombinedWithAnyofOneof {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                return validate((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return validate(boolArg, configuration);
+            } else if (arg instanceof Number) {
+                return validate((Number) arg, configuration);
+            } else if (arg instanceof String) {
+                return validate((String) arg, configuration);
+            } else if (arg instanceof List) {
+                return validate((List<?>) arg, configuration);
+            } else if (arg instanceof Map) {
+                return validate((Map<?, ?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
@@ -746,7 +800,7 @@ public class AllofCombinedWithAnyofOneof {
             return castProperties;
         }
         
-        public FrozenMap<@Nullable Object> validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenMap<@Nullable Object> validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -758,6 +812,24 @@ public class AllofCombinedWithAnyofOneof {
             return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
         }
         
+        @Override
+        public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+            if (arg == null) {
+                return validate((Void) null, pathToItem, pathToSchemas);
+            } else if (arg instanceof Boolean) {
+                boolean boolArg = (Boolean) arg;
+                return validate(boolArg, configuration);
+            } else if (arg instanceof Number) {
+                return validate((Number) arg, configuration);
+            } else if (arg instanceof String) {
+                return validate((String) arg, configuration);
+            } else if (arg instanceof List) {
+                return validate((List<?>) arg, configuration);
+            } else if (arg instanceof Map) {
+                return validate((Map<?, ?>) arg, configuration);
+            }
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
+        }        
         @Override
         public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) throws InvalidTypeException {
             if (arg == null) {
