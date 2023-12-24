@@ -105,8 +105,8 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserMap](#usermap) | validate([Map<String, ? extends @Nullable Object>](#usermapinput) arg, SchemaConfiguration configuration) |
-
+| static [UserMap](#usermap) | validate([Map<String, ?>](#usermapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UserMapInput
 public class UserMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -193,9 +193,9 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | Map<String, Object> arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Not
 public static class Not<br>
 extends NullJsonSchema
@@ -259,8 +259,8 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, Object> | validate(Map<String, Object> arg, SchemaConfiguration configuration) |
-
+| static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
 extends MapJsonSchema

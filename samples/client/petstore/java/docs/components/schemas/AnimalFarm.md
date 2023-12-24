@@ -65,8 +65,8 @@ AnimalFarm.AnimalFarmList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnimalFarmList](#animalfarmlist) | validate([List<Map<String, ? extends @Nullable Object>>](#animalfarmlistinput) arg, SchemaConfiguration configuration) |
-
+| static [AnimalFarmList](#animalfarmlist) | validate([List<?>](#animalfarmlistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AnimalFarmListInput
 public class AnimalFarmListInput<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`

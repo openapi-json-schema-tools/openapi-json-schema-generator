@@ -9,5 +9,5 @@ import java.util.Set;
 
 public interface ListSchemaValidator <OutType> {
     OutType getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
-    // OutType validate(List<InType> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+    OutType validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

@@ -61,8 +61,8 @@ DanishPig.DanishPigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DanishPigMap](#danishpigmap) | validate([Map<String, ? extends @Nullable Object>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
-
+| static [DanishPigMap](#danishpigmap) | validate([Map<String, ?>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DanishPigMapInput
 public class DanishPigMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -126,5 +126,5 @@ String validatedPayload = DanishPig.ClassName.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

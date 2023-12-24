@@ -41,9 +41,9 @@ Model for testing model with &quot;_class&quot; property
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ClassModelMap](#classmodelmap) | validate([Map<String, ? extends @Nullable Object>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static [ClassModelMap](#classmodelmap) | validate([Map<String, ?>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClassModelMapInput
 public class ClassModelMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

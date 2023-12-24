@@ -40,9 +40,9 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map<String, ? extends @Nullable Object>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static [TriangleInterfaceMap](#triangleinterfacemap) | validate([Map<String, ?>](#triangleinterfacemapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TriangleInterfaceMapInput
 public class TriangleInterfaceMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -118,5 +118,5 @@ String validatedPayload = TriangleInterface.ShapeType.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -68,8 +68,8 @@ Zebra.ZebraMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ZebraMap](#zebramap) | validate([Map<String, ? extends @Nullable Object>](#zebramapinput) arg, SchemaConfiguration configuration) |
-
+| static [ZebraMap](#zebramap) | validate([Map<String, ?>](#zebramapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ZebraMapInput
 public class ZebraMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -135,7 +135,7 @@ String validatedPayload = Zebra.ClassName.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Type
 public static class Type<br>
 extends JsonSchema
@@ -174,7 +174,7 @@ String validatedPayload = Zebra.Type.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends AnyTypeJsonSchema

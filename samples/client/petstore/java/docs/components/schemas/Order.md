@@ -85,8 +85,8 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | validate([Map<String, ? extends @Nullable Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
-
+| static [OrderMap](#ordermap) | validate([Map<String, ?>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## OrderMapInput
 public class OrderMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -173,7 +173,7 @@ String validatedPayload = Order.Status.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ShipDate
 public static class ShipDate<br>
 extends DateTimeJsonSchema

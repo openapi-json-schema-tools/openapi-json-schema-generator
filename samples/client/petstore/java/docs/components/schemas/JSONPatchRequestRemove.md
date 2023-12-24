@@ -68,8 +68,8 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<String, String>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
-
+| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<String, ?>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestRemoveMapInput
 public class JSONPatchRequestRemoveMapInput<br>
 builder for `Map<String, String>`
@@ -136,7 +136,7 @@ String validatedPayload = JSONPatchRequestRemove.Op.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Path
 public static class Path<br>
 extends StringJsonSchema

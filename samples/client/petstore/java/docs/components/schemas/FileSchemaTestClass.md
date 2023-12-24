@@ -63,8 +63,8 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<String, ? extends @Nullable Object>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
-
+| static [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<String, ?>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileSchemaTestClassMapInput
 public class FileSchemaTestClassMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -131,8 +131,8 @@ FileSchemaTestClass.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | validate([List<Map<String, ? extends @Nullable Object>>](#fileslistinput) arg, SchemaConfiguration configuration) |
-
+| static [FilesList](#fileslist) | validate([List<?>](#fileslistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FilesListInput
 public class FilesListInput<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`

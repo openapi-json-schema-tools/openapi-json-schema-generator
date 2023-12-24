@@ -57,8 +57,8 @@ Schema3.SchemaList3 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList3](#schemalist3) | validate([List<String>](#schemalistinput3) arg, SchemaConfiguration configuration) |
-
+| static [SchemaList3](#schemalist3) | validate([List<?>](#schemalistinput3) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListInput3
 public class SchemaListInput3<br>
 builder for `List<String>`

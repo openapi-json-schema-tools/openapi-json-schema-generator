@@ -74,8 +74,8 @@ ObjectWithDifficultlyNamedProps.ObjectWithDifficultlyNamedPropsMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<String, ? extends @Nullable Object>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
-
+| static [ObjectWithDifficultlyNamedPropsMap](#objectwithdifficultlynamedpropsmap) | validate([Map<String, ?>](#objectwithdifficultlynamedpropsmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithDifficultlyNamedPropsMapInput
 public class ObjectWithDifficultlyNamedPropsMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

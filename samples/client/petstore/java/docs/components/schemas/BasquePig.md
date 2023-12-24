@@ -61,8 +61,8 @@ BasquePig.BasquePigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BasquePigMap](#basquepigmap) | validate([Map<String, ? extends @Nullable Object>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
-
+| static [BasquePigMap](#basquepigmap) | validate([Map<String, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BasquePigMapInput
 public class BasquePigMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -126,5 +126,5 @@ String validatedPayload = BasquePig.ClassName.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

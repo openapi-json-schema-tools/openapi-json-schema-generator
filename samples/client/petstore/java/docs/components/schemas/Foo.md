@@ -55,8 +55,8 @@ Foo.FooMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FooMap](#foomap) | validate([Map<String, ? extends @Nullable Object>](#foomapinput) arg, SchemaConfiguration configuration) |
-
+| static [FooMap](#foomap) | validate([Map<String, ?>](#foomapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FooMapInput
 public class FooMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

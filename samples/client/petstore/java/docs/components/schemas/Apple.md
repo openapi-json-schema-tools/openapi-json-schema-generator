@@ -73,8 +73,8 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [AppleMap](#applemap) | validate([Map<String, ? extends @Nullable Object>](#applemapinput) arg, SchemaConfiguration configuration) |
-
+| static [AppleMap](#applemap) | validate([Map<String, ?>](#applemapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AppleMapInput
 public class AppleMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -140,7 +140,7 @@ String validatedPayload = Apple.Origin.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Cultivar
 public static class Cultivar<br>
 extends JsonSchema
@@ -179,5 +179,5 @@ String validatedPayload = Apple.Cultivar.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -63,8 +63,8 @@ HealthCheckResult.HealthCheckResultMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<String, ? extends @Nullable Object>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
-
+| static [HealthCheckResultMap](#healthcheckresultmap) | validate([Map<String, ?>](#healthcheckresultmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HealthCheckResultMapInput
 public class HealthCheckResultMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -134,5 +134,5 @@ String validatedPayload = HealthCheckResult.NullableMessage.validate(
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

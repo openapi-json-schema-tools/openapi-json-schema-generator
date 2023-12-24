@@ -13,10 +13,8 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -35,11 +33,6 @@ public class DateJsonSchema extends JsonSchema implements StringSchemaValidator 
             instance = new DateJsonSchema();
         }
         return instance;
-    }
-
-    @Override
-    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
     }
 
     @Override
@@ -63,5 +56,15 @@ public class DateJsonSchema extends JsonSchema implements StringSchemaValidator 
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+    }
+
+    @Override
+    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        if (arg instanceof String) {
+            return validate((String) arg, configuration);
+        } else if (arg instanceof LocalDate) {
+            return validate((LocalDate) arg, configuration);
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
     }
 }

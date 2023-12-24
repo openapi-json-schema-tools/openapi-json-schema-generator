@@ -57,8 +57,8 @@ Schema2.SchemaList2 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList2](#schemalist2) | validate([List<String>](#schemalistinput2) arg, SchemaConfiguration configuration) |
-
+| static [SchemaList2](#schemalist2) | validate([List<?>](#schemalistinput2) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListInput2
 public class SchemaListInput2<br>
 builder for `List<String>`

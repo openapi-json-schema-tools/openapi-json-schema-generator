@@ -61,8 +61,8 @@ ReqPropsFromExplicitAddProps.ReqPropsFromExplicitAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map<String, String>](#reqpropsfromexplicitaddpropsmapinput) arg, SchemaConfiguration configuration) |
-
+| static [ReqPropsFromExplicitAddPropsMap](#reqpropsfromexplicitaddpropsmap) | validate([Map<String, ?>](#reqpropsfromexplicitaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromExplicitAddPropsMapInput
 public class ReqPropsFromExplicitAddPropsMapInput<br>
 builder for `Map<String, String>`

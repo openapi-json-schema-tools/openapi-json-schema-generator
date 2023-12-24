@@ -41,9 +41,9 @@ Model for testing reserved words
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ReturnMap](#returnmap) | validate([Map<String, ? extends @Nullable Object>](#returnmapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
-
+| static [ReturnMap](#returnmap) | validate([Map<String, ?>](#returnmapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReturnMapInput
 public class ReturnMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

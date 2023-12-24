@@ -71,8 +71,8 @@ Whale.WhaleMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [WhaleMap](#whalemap) | validate([Map<String, ? extends @Nullable Object>](#whalemapinput) arg, SchemaConfiguration configuration) |
-
+| static [WhaleMap](#whalemap) | validate([Map<String, ?>](#whalemapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## WhaleMapInput
 public class WhaleMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -140,7 +140,7 @@ String validatedPayload = Whale.ClassName.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## HasTeeth
 public static class HasTeeth<br>
 extends BooleanJsonSchema

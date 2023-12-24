@@ -111,8 +111,8 @@ Pet.PetMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PetMap](#petmap) | validate([Map<String, ? extends @Nullable Object>](#petmapinput) arg, SchemaConfiguration configuration) |
-
+| static [PetMap](#petmap) | validate([Map<String, ?>](#petmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PetMapInput
 public class PetMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -197,8 +197,8 @@ Pet.TagsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | validate([List<Map<String, ? extends @Nullable Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
-
+| static [TagsList](#tagslist) | validate([List<?>](#tagslistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TagsListInput
 public class TagsListInput<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`
@@ -262,7 +262,7 @@ String validatedPayload = Pet.Status.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PhotoUrls
 public static class PhotoUrls<br>
 extends JsonSchema
@@ -303,8 +303,8 @@ Pet.PhotoUrlsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PhotoUrlsList](#photourlslist) | validate([List<String>](#photourlslistinput) arg, SchemaConfiguration configuration) |
-
+| static [PhotoUrlsList](#photourlslist) | validate([List<?>](#photourlslistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PhotoUrlsListInput
 public class PhotoUrlsListInput<br>
 builder for `List<String>`

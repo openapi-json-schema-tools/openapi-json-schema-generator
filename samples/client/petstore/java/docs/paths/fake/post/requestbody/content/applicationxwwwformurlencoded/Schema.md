@@ -126,8 +126,8 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | validate([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
-
+| static [SchemaMap](#schemamap) | validate([Map<String, ?>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapInput
 public class SchemaMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -230,7 +230,7 @@ String validatedPayload = Schema.Password.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateTime
 public static class DateTime<br>
 extends JsonSchema
@@ -272,7 +272,7 @@ String validatedPayload = Schema.DateTime.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Date
 public static class Date<br>
 extends DateJsonSchema
@@ -345,7 +345,7 @@ String validatedPayload = Schema.PatternWithoutDelimiter.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringSchema
 public static class StringSchema<br>
 extends JsonSchema
@@ -387,7 +387,7 @@ String validatedPayload = Schema.StringSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DoubleSchema
 public static class DoubleSchema<br>
 extends JsonSchema
@@ -431,7 +431,7 @@ double validatedPayload = Schema.DoubleSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static double | validate(double arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FloatSchema
 public static class FloatSchema<br>
 extends JsonSchema
@@ -474,7 +474,7 @@ float validatedPayload = Schema.FloatSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static float | validate(float arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberSchema
 public static class NumberSchema<br>
 extends JsonSchema
@@ -517,7 +517,7 @@ int validatedPayload = Schema.NumberSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Number | validate(Number arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Int64
 public static class Int64<br>
 extends Int64JsonSchema
@@ -574,7 +574,7 @@ int validatedPayload = Schema.Int32.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerSchema
 public static class IntegerSchema<br>
 extends JsonSchema
@@ -617,3 +617,4 @@ long validatedPayload = Schema.IntegerSchema.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |

@@ -60,8 +60,8 @@ Client.ClientMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ClientMap](#clientmap) | validate([Map<String, ? extends @Nullable Object>](#clientmapinput) arg, SchemaConfiguration configuration) |
-
+| static [ClientMap](#clientmap) | validate([Map<String, ?>](#clientmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ClientMapInput
 public class ClientMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

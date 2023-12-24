@@ -57,8 +57,8 @@ ReqPropsFromTrueAddProps.ReqPropsFromTrueAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate([Map<String, ? extends @Nullable Object>](#reqpropsfromtrueaddpropsmapinput) arg, SchemaConfiguration configuration) |
-
+| static [ReqPropsFromTrueAddPropsMap](#reqpropsfromtrueaddpropsmap) | validate([Map<String, ?>](#reqpropsfromtrueaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromTrueAddPropsMapInput
 public class ReqPropsFromTrueAddPropsMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

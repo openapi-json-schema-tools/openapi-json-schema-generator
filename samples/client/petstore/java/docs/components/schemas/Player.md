@@ -63,8 +63,8 @@ Player.PlayerMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PlayerMap](#playermap) | validate([Map<String, ? extends @Nullable Object>](#playermapinput) arg, SchemaConfiguration configuration) |
-
+| static [PlayerMap](#playermap) | validate([Map<String, ?>](#playermapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PlayerMapInput
 public class PlayerMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

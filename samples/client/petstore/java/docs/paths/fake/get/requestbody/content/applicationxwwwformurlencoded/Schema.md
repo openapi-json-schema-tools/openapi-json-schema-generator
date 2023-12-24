@@ -70,8 +70,8 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | validate([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
-
+| static [SchemaMap](#schemamap) | validate([Map<String, ?>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapInput
 public class SchemaMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -140,7 +140,7 @@ String validatedPayload = Schema.EnumFormString.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumFormStringArray
 public static class EnumFormStringArray<br>
 extends JsonSchema
@@ -184,8 +184,8 @@ Schema.EnumFormStringArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumFormStringArrayList](#enumformstringarraylist) | validate([List<String>](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
-
+| static [EnumFormStringArrayList](#enumformstringarraylist) | validate([List<?>](#enumformstringarraylistinput) arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumFormStringArrayListInput
 public class EnumFormStringArrayListInput<br>
 builder for `List<String>`
@@ -246,3 +246,4 @@ String validatedPayload = Schema.Items.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
