@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +14,7 @@ public record ValidationMetadata(
 ) {
 
     public boolean validationRanEarlier(JsonSchema schema) {
-        Map<JsonSchema, Void> validatedSchemas = validatedPathToSchemas.getOrDefault(pathToItem, null);
+        @Nullable Map<JsonSchema, Void> validatedSchemas = validatedPathToSchemas.get(pathToItem);
         if (validatedSchemas != null && validatedSchemas.containsKey(schema)) {
             return true;
         }

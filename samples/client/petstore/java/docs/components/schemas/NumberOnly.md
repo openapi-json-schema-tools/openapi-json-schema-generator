@@ -60,11 +60,11 @@ NumberOnly.NumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NumberOnlyMap](#numberonlymap) | validate([Map<String, Object>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
+| static [NumberOnlyMap](#numberonlymap) | validate([Map<String, ? extends @Nullable Object>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
 
 ## NumberOnlyMapInput
 public class NumberOnlyMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -76,14 +76,14 @@ A class that builds the Map input type
 
 ## NumberOnlyMap
 public static class NumberOnlyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NumberOnlyMap](#numberonlymap) | of([Map<String, Object>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
+| static [NumberOnlyMap](#numberonlymap) | of([Map<String, ? extends @Nullable Object>](#numberonlymapinput) arg, SchemaConfiguration configuration) |
 | Number | JustNumber()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

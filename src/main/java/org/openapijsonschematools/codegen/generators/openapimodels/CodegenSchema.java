@@ -353,6 +353,7 @@ public class CodegenSchema {
         types
         enumInfo
         refInfo
+        items needed for schema test EnumValue schema, so Java can write payload types
          */
         CodegenSchema newSchema = new CodegenSchema();
         if (other == null) {
@@ -384,6 +385,15 @@ public class CodegenSchema {
                 newSchema.enumInfo = enumInfo;
             } else {
                 newSchema.enumInfo = null;
+            }
+        }
+        if (items == null || other.items == null) {
+            newSchema.items = null;
+        } else {
+            if (items == other.items) {
+                newSchema.items = items;
+            } else {
+                newSchema.items = items.add(other.items);
             }
         }
         return newSchema;
@@ -445,6 +455,37 @@ public class CodegenSchema {
             }
         }
         return false;
+    }
+
+    /**
+     *
+     * @return if the schema's type in java is @Nullable Object
+     */
+    public boolean isNullableObject() {
+        if (refInfo != null) {
+            return false;
+        }
+        if (types == null) {
+            return true;
+        }
+        int numberOfTypes = types.size();
+        switch (numberOfTypes) {
+            case 3:
+                if (types.contains("null") && !(types.contains("integer") && types.contains("number"))) {
+                    return true;
+                }
+                return false;
+            case 4:
+            case 6:
+            case 5:
+                if (types.contains("null")) {
+                    return true;
+                } else {
+                    return false;
+                }
+            default:
+                return false;
+        }
     }
 
     /**

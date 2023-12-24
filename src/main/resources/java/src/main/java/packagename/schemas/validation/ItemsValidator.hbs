@@ -1,5 +1,7 @@
 package {{{packageName}}}.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,20 +13,14 @@ public class ItemsValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return items;
-    }
-
-    @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof List)) {
             return null;
         }
-        List<Object> castArg = (List<Object>) arg;
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for prefixItems
         int i = 0;
-        for(Object itemValue: castArg) {
+        for(Object itemValue: (List<?>) arg) {
             List<Object> itemPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             itemPathToItem.add(i);
             ValidationMetadata itemValidationMetadata = new ValidationMetadata(

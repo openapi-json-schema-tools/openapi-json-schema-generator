@@ -1,11 +1,11 @@
 package {{{packageName}}}.schemas;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.schemas.validation.JsonSchema;
-import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
@@ -38,7 +38,7 @@ public class ListSchemaTest {
     public void testValidateList() {
         List<Object> inList = new ArrayList<>();
         inList.add("today");
-        FrozenList<Object> validatedValue = listJsonSchema.validate(inList, configuration);
+        FrozenList<@Nullable Object> validatedValue = listJsonSchema.validate(inList, configuration);
         ArrayList<String> outList = new ArrayList<>();
         outList.add("today");
         Assert.assertEquals(validatedValue, outList);

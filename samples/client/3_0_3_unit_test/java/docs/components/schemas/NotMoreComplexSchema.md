@@ -85,11 +85,11 @@ NotMoreComplexSchema.NotMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NotMap](#notmap) | validate([Map<String, Object>](#notmapinput) arg, SchemaConfiguration configuration) |
+| static [NotMap](#notmap) | validate([Map<String, ? extends @Nullable Object>](#notmapinput) arg, SchemaConfiguration configuration) |
 
 ## NotMapInput
 public class NotMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -101,14 +101,14 @@ A class that builds the Map input type
 
 ## NotMap
 public static class NotMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NotMap](#notmap) | of([Map<String, Object>](#notmapinput) arg, SchemaConfiguration configuration) |
+| static [NotMap](#notmap) | of([Map<String, ? extends @Nullable Object>](#notmapinput) arg, SchemaConfiguration configuration) |
 | String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

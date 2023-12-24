@@ -11,6 +11,7 @@ import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidato
 import org.openapijsonschematools.client.schemas.validation.TypeValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -21,7 +22,7 @@ import java.util.Set;
 import java.util.Map;
 
 public class NumberJsonSchema extends JsonSchema implements NumberSchemaValidator {
-    private static NumberJsonSchema instance;
+    private static @Nullable NumberJsonSchema instance = null;
 
     protected NumberJsonSchema() {
         super(new JsonSchemaInfo()
@@ -74,10 +75,10 @@ public class NumberJsonSchema extends JsonSchema implements NumberSchemaValidato
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof Number) {
             return getNewInstance((Number) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

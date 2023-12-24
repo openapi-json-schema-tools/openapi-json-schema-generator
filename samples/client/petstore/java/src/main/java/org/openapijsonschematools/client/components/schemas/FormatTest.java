@@ -9,9 +9,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Pattern;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.DateJsonSchema;
 import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
@@ -40,7 +44,7 @@ public class FormatTest {
     
     
     public static class IntegerSchema extends JsonSchema implements NumberSchemaValidator {
-        private static IntegerSchema instance;
+        private static @Nullable IntegerSchema instance = null;
     
         protected IntegerSchema() {
             super(new JsonSchemaInfo()
@@ -91,19 +95,27 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class Int32 extends Int32JsonSchema {}
+    public static class Int32 extends Int32JsonSchema {
+        private static @Nullable Int32 instance = null;
+        public static Int32 getInstance() {
+            if (instance == null) {
+                instance = new Int32();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Int32withValidations extends JsonSchema implements NumberSchemaValidator {
-        private static Int32withValidations instance;
+        private static @Nullable Int32withValidations instance = null;
     
         protected Int32withValidations() {
             super(new JsonSchemaInfo()
@@ -146,19 +158,27 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class Int64 extends Int64JsonSchema {}
+    public static class Int64 extends Int64JsonSchema {
+        private static @Nullable Int64 instance = null;
+        public static Int64 getInstance() {
+            if (instance == null) {
+                instance = new Int64();
+            }
+            return instance;
+        }
+    }
     
     
     public static class NumberSchema extends JsonSchema implements NumberSchemaValidator {
-        private static NumberSchema instance;
+        private static @Nullable NumberSchema instance = null;
     
         protected NumberSchema() {
             super(new JsonSchemaInfo()
@@ -208,16 +228,16 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
     public static class FloatSchema extends JsonSchema implements NumberSchemaValidator {
-        private static FloatSchema instance;
+        private static @Nullable FloatSchema instance = null;
     
         protected FloatSchema() {
             super(new JsonSchemaInfo()
@@ -255,19 +275,27 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class Float32 extends FloatJsonSchema {}
+    public static class Float32 extends FloatJsonSchema {
+        private static @Nullable Float32 instance = null;
+        public static Float32 getInstance() {
+            if (instance == null) {
+                instance = new Float32();
+            }
+            return instance;
+        }
+    }
     
     
     public static class DoubleSchema extends JsonSchema implements NumberSchemaValidator {
-        private static DoubleSchema instance;
+        private static @Nullable DoubleSchema instance = null;
     
         protected DoubleSchema() {
             super(new JsonSchemaInfo()
@@ -305,18 +333,34 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class Float64 extends DoubleJsonSchema {}
+    public static class Float64 extends DoubleJsonSchema {
+        private static @Nullable Float64 instance = null;
+        public static Float64 getInstance() {
+            if (instance == null) {
+                instance = new Float64();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Items extends NumberJsonSchema {}
+    public static class Items extends NumberJsonSchema {
+        private static @Nullable Items instance = null;
+        public static Items getInstance() {
+            if (instance == null) {
+                instance = new Items();
+            }
+            return instance;
+        }
+    }
     
     
     public static class ArrayWithUniqueItemsList extends FrozenList<Number> {
@@ -333,8 +377,8 @@ public class FormatTest {
     }
     
     
-    public static class ArrayWithUniqueItems extends JsonSchema implements ListSchemaValidator<Number, ArrayWithUniqueItemsList> {
-        private static ArrayWithUniqueItems instance;
+    public static class ArrayWithUniqueItems extends JsonSchema implements ListSchemaValidator<ArrayWithUniqueItemsList> {
+        private static @Nullable ArrayWithUniqueItems instance = null;
     
         protected ArrayWithUniqueItems() {
             super(new JsonSchemaInfo()
@@ -358,16 +402,22 @@ public class FormatTest {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                Number castItem = (Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof Number)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((Number) itemInstance);
                 i += 1;
             }
             FrozenList<Number> newInstanceItems = new FrozenList<>(items);
             return new ArrayWithUniqueItemsList(newInstanceItems);
         }
         
-        @Override
         public ArrayWithUniqueItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -379,16 +429,16 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
     public static class StringSchema extends JsonSchema implements StringSchemaValidator {
-        private static StringSchema instance;
+        private static @Nullable StringSchema instance = null;
     
         protected StringSchema() {
             super(new JsonSchemaInfo()
@@ -421,36 +471,83 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class ByteSchema extends StringJsonSchema {}
+    public static class ByteSchema extends StringJsonSchema {
+        private static @Nullable ByteSchema instance = null;
+        public static ByteSchema getInstance() {
+            if (instance == null) {
+                instance = new ByteSchema();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Binary extends StringJsonSchema {
         // BinarySchema
+        private static @Nullable Binary instance = null;
+        public static Binary getInstance() {
+            if (instance == null) {
+                instance = new Binary();
+            }
+            return instance;
+        }
     }
     
     
-    public static class Date extends DateJsonSchema {}
+    public static class Date extends DateJsonSchema {
+        private static @Nullable Date instance = null;
+        public static Date getInstance() {
+            if (instance == null) {
+                instance = new Date();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class DateTime extends DateTimeJsonSchema {}
+    public static class DateTime extends DateTimeJsonSchema {
+        private static @Nullable DateTime instance = null;
+        public static DateTime getInstance() {
+            if (instance == null) {
+                instance = new DateTime();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class UuidSchema extends UuidJsonSchema {}
+    public static class UuidSchema extends UuidJsonSchema {
+        private static @Nullable UuidSchema instance = null;
+        public static UuidSchema getInstance() {
+            if (instance == null) {
+                instance = new UuidSchema();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class UuidNoExample extends UuidJsonSchema {}
+    public static class UuidNoExample extends UuidJsonSchema {
+        private static @Nullable UuidNoExample instance = null;
+        public static UuidNoExample getInstance() {
+            if (instance == null) {
+                instance = new UuidNoExample();
+            }
+            return instance;
+        }
+    }
     
     
     public static class Password extends JsonSchema implements StringSchemaValidator {
-        private static Password instance;
+        private static @Nullable Password instance = null;
     
         protected Password() {
             super(new JsonSchemaInfo()
@@ -482,16 +579,16 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
     public static class PatternWithDigits extends JsonSchema implements StringSchemaValidator {
-        private static PatternWithDigits instance;
+        private static @Nullable PatternWithDigits instance = null;
     
         protected PatternWithDigits() {
             super(new JsonSchemaInfo()
@@ -523,16 +620,16 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
     public static class PatternWithDigitsAndDelimiter extends JsonSchema implements StringSchemaValidator {
-        private static PatternWithDigitsAndDelimiter instance;
+        private static @Nullable PatternWithDigitsAndDelimiter instance = null;
     
         protected PatternWithDigitsAndDelimiter() {
             super(new JsonSchemaInfo()
@@ -565,19 +662,27 @@ public class FormatTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class NoneProp extends NullJsonSchema {}
+    public static class NoneProp extends NullJsonSchema {
+        private static @Nullable NoneProp instance = null;
+        public static NoneProp getInstance() {
+            if (instance == null) {
+                instance = new NoneProp();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class FormatTestMap extends FrozenMap<Object> {
-        protected FormatTestMap(FrozenMap<Object> m) {
+    public static class FormatTestMap extends FrozenMap<@Nullable Object> {
+        protected FormatTestMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -605,91 +710,147 @@ public class FormatTest {
             "pattern_with_digits_and_delimiter",
             "noneProp"
         );
-        public static FormatTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static FormatTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return FormatTest1.getInstance().validate(arg, configuration);
         }
         
         public String date() {
-            return (String) get("date");
+                        @Nullable Object value = get("date");
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for date");
+            }
+            return (String) value;
         }
         
         public String password() {
-            return (String) get("password");
+                        @Nullable Object value = get("password");
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for password");
+            }
+            return (String) value;
         }
         
-        public int int32() {
+        public int int32() throws UnsetPropertyException {
             String key = "int32";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Integer)) {
+                throw new InvalidTypeException("Invalid value stored for int32");
+            }
+            return (int) value;
         }
         
-        public int int32withValidations() {
+        public int int32withValidations() throws UnsetPropertyException {
             String key = "int32withValidations";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Integer)) {
+                throw new InvalidTypeException("Invalid value stored for int32withValidations");
+            }
+            return (int) value;
         }
         
-        public long int64() {
+        public long int64() throws UnsetPropertyException {
             String key = "int64";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Long)) {
+                throw new InvalidTypeException("Invalid value stored for int64");
+            }
+            return (long) value;
         }
         
-        public float float32() {
+        public float float32() throws UnsetPropertyException {
             String key = "float32";
             throwIfKeyNotPresent(key);
-            return (float) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Float)) {
+                throw new InvalidTypeException("Invalid value stored for float32");
+            }
+            return (float) value;
         }
         
-        public double float64() {
+        public double float64() throws UnsetPropertyException {
             String key = "float64";
             throwIfKeyNotPresent(key);
-            return (double) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Double)) {
+                throw new InvalidTypeException("Invalid value stored for float64");
+            }
+            return (double) value;
         }
         
-        public ArrayWithUniqueItemsList arrayWithUniqueItems() {
+        public ArrayWithUniqueItemsList arrayWithUniqueItems() throws UnsetPropertyException {
             String key = "arrayWithUniqueItems";
             throwIfKeyNotPresent(key);
-            return (ArrayWithUniqueItemsList) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof ArrayWithUniqueItemsList)) {
+                throw new InvalidTypeException("Invalid value stored for arrayWithUniqueItems");
+            }
+            return (ArrayWithUniqueItemsList) value;
         }
         
-        public String binary() {
+        public String binary() throws UnsetPropertyException {
             String key = "binary";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for binary");
+            }
+            return (String) value;
         }
         
-        public String dateTime() {
+        public String dateTime() throws UnsetPropertyException {
             String key = "dateTime";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for dateTime");
+            }
+            return (String) value;
         }
         
-        public String uuidNoExample() {
+        public String uuidNoExample() throws UnsetPropertyException {
             String key = "uuidNoExample";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for uuidNoExample");
+            }
+            return (String) value;
         }
         
-        public String pattern_with_digits() {
+        public String pattern_with_digits() throws UnsetPropertyException {
             String key = "pattern_with_digits";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for pattern_with_digits");
+            }
+            return (String) value;
         }
         
-        public String pattern_with_digits_and_delimiter() {
+        public String pattern_with_digits_and_delimiter() throws UnsetPropertyException {
             String key = "pattern_with_digits_and_delimiter";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for pattern_with_digits_and_delimiter");
+            }
+            return (String) value;
         }
         
-        public Void noneProp() {
+        public Void noneProp() throws UnsetPropertyException {
             String key = "noneProp";
             throwIfKeyNotPresent(key);
-            return (Void) get(key);
+            @Nullable Object value = get(key);
+            if (!(value == null || value instanceof Void)) {
+                throw new InvalidTypeException("Invalid value stored for noneProp");
+            }
+            return (Void) value;
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -700,14 +861,14 @@ public class FormatTest {
     }
     
     
-    public static class FormatTest1 extends JsonSchema implements MapSchemaValidator<Object, FormatTestMap> {
+    public static class FormatTest1 extends JsonSchema implements MapSchemaValidator<FormatTestMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static FormatTest1 instance;
+        private static @Nullable FormatTest1 instance = null;
     
         protected FormatTest1() {
             super(new JsonSchemaInfo()
@@ -752,22 +913,29 @@ public class FormatTest {
         }
         
         public FormatTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new FormatTestMap(castProperties);
         }
         
-        @Override
-        public FormatTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FormatTestMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -779,11 +947,11 @@ public class FormatTest {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

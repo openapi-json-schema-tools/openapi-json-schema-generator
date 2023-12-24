@@ -37,7 +37,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
-    0,
+    0L,
     configuration
 );
 ```

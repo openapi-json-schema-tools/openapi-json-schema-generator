@@ -37,7 +37,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
-    1,
+    1L,
     configuration
 );
 ```

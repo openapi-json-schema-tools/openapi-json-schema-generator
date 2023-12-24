@@ -5,13 +5,11 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -23,7 +21,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DateJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static DateJsonSchema instance;
+    private static @Nullable DateJsonSchema instance = null;
 
     protected DateJsonSchema() {
         super(new JsonSchemaInfo()
@@ -60,10 +58,10 @@ public class DateJsonSchema extends JsonSchema implements StringSchemaValidator 
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof String) {
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

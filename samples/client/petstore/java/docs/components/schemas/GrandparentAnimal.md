@@ -61,11 +61,11 @@ GrandparentAnimal.GrandparentAnimalMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<String, Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
+| static [GrandparentAnimalMap](#grandparentanimalmap) | validate([Map<String, ? extends @Nullable Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
 
 ## GrandparentAnimalMapInput
 public class GrandparentAnimalMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -77,14 +77,14 @@ A class that builds the Map input type
 
 ## GrandparentAnimalMap
 public static class GrandparentAnimalMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
+| static [GrandparentAnimalMap](#grandparentanimalmap) | of([Map<String, ? extends @Nullable Object>](#grandparentanimalmapinput) arg, SchemaConfiguration configuration) |
 | String | pet_type()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

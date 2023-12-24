@@ -41,20 +41,20 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap validatedPayload =
     ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedProperties1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "!reference",
             Arrays.asList(
                 1L
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "from",
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "data",
                     "a"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "id",
                     1L
                 )
@@ -75,11 +75,11 @@ ObjectWithInvalidNamedRefedProperties.ObjectWithInvalidNamedRefedPropertiesMap v
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map<String, Object>](#objectwithinvalidnamedrefedpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#objectwithinvalidnamedrefedpropertiesmapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectWithInvalidNamedRefedPropertiesMapInput
 public class ObjectWithInvalidNamedRefedPropertiesMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -87,21 +87,21 @@ A class that builds the Map input type
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **!reference** | List<long> |  | |
-| **from** | Map<String, Object> |  | |
+| **from** | Map<String, ? extends @Nullable Object> |  | |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectWithInvalidNamedRefedPropertiesMap
 public static class ObjectWithInvalidNamedRefedPropertiesMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | of([Map<String, Object>](#objectwithinvalidnamedrefedpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithInvalidNamedRefedPropertiesMap](#objectwithinvalidnamedrefedpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithinvalidnamedrefedpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | [FromSchema.FromSchemaMap](../../components/schemas/FromSchema.md#fromschemamap) | from()<br> |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["!reference"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["!reference"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

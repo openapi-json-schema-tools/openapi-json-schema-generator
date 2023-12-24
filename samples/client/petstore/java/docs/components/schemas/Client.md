@@ -60,11 +60,11 @@ Client.ClientMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ClientMap](#clientmap) | validate([Map<String, Object>](#clientmapinput) arg, SchemaConfiguration configuration) |
+| static [ClientMap](#clientmap) | validate([Map<String, ? extends @Nullable Object>](#clientmapinput) arg, SchemaConfiguration configuration) |
 
 ## ClientMapInput
 public class ClientMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -76,14 +76,14 @@ A class that builds the Map input type
 
 ## ClientMap
 public static class ClientMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ClientMap](#clientmap) | of([Map<String, Object>](#clientmapinput) arg, SchemaConfiguration configuration) |
+| static [ClientMap](#clientmap) | of([Map<String, ? extends @Nullable Object>](#clientmapinput) arg, SchemaConfiguration configuration) |
 | String | client()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

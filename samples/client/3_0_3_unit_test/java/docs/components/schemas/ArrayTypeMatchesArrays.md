@@ -56,29 +56,29 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([List<Object>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([List<? extends @Nullable Object>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayTypeMatchesArraysListInput
 public class ArrayTypeMatchesArraysListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object |  |
+? extends @Nullable Object |  |
 
 ## ArrayTypeMatchesArraysList
 public class ArrayTypeMatchesArraysList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([List<Object>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([List<? extends @Nullable Object>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

@@ -56,17 +56,17 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 MapTest.MapTestMap validatedPayload =
     MapTest.MapTest1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "map_map_of_string",
             MapMaker.makeMap(
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "map_of_enum_string",
             MapMaker.makeMap(
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Map<String, ?>>(
             "direct_map",
             MapMaker.makeMap(
             )
@@ -85,11 +85,11 @@ MapTest.MapTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapTestMap](#maptestmap) | validate([Map<String, Object>](#maptestmapinput) arg, SchemaConfiguration configuration) |
+| static [MapTestMap](#maptestmap) | validate([Map<String, ? extends @Nullable Object>](#maptestmapinput) arg, SchemaConfiguration configuration) |
 
 ## MapTestMapInput
 public class MapTestMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -104,14 +104,14 @@ A class that builds the Map input type
 
 ## MapTestMap
 public static class MapTestMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapTestMap](#maptestmap) | of([Map<String, Object>](#maptestmapinput) arg, SchemaConfiguration configuration) |
+| static [MapTestMap](#maptestmap) | of([Map<String, ? extends @Nullable Object>](#maptestmapinput) arg, SchemaConfiguration configuration) |
 | [MapMapOfStringMap](#mapmapofstringmap) | map_map_of_string()<br>[optional] |
 | [MapOfEnumStringMap](#mapofenumstringmap) | map_of_enum_string()<br>[optional] |
 | [DirectMapMap](#directmapmap) | direct_map()<br>[optional] |

@@ -2,6 +2,7 @@ package org.openapijsonschematools.client.schemas.validation;
 
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -16,30 +17,30 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 public abstract class JsonSchema {
-    public final Set<Class<?>> type;
-    public final String format;
-    public final Class<? extends JsonSchema> items;
-    public final Map<String, Class<? extends JsonSchema>> properties;
-    public final Set<String> required;
-    public final Number exclusiveMaximum;
-    public final Number exclusiveMinimum;
-    public final Integer maxItems;
-    public final Integer minItems;
-    public final Integer maxLength;
-    public final Integer minLength;
-    public final Integer maxProperties;
-    public final Integer minProperties;
-    public final Number maximum;
-    public final Number minimum;
-    public final BigDecimal multipleOf;
-    public final Class<? extends JsonSchema> additionalProperties;
-    public final List<Class<? extends JsonSchema>> allOf;
-    public final List<Class<? extends JsonSchema>> anyOf;
-    public final List<Class<? extends JsonSchema>> oneOf;
-    public final Class<? extends JsonSchema> not;
-    public final Boolean uniqueItems;
-    public final Set<Object> enumValues;
-    public final Pattern pattern;
+    public final @Nullable Set<Class<?>> type;
+    public final @Nullable String format;
+    public final @Nullable Class<? extends JsonSchema> items;
+    public final @Nullable Map<String, Class<? extends JsonSchema>> properties;
+    public final @Nullable Set<String> required;
+    public final @Nullable Number exclusiveMaximum;
+    public final @Nullable Number exclusiveMinimum;
+    public final @Nullable Integer maxItems;
+    public final @Nullable Integer minItems;
+    public final @Nullable Integer maxLength;
+    public final @Nullable Integer minLength;
+    public final @Nullable Integer maxProperties;
+    public final @Nullable Integer minProperties;
+    public final @Nullable Number maximum;
+    public final @Nullable Number minimum;
+    public final @Nullable BigDecimal multipleOf;
+    public final @Nullable Class<? extends JsonSchema> additionalProperties;
+    public final @Nullable List<Class<? extends JsonSchema>> allOf;
+    public final @Nullable List<Class<? extends JsonSchema>> anyOf;
+    public final @Nullable List<Class<? extends JsonSchema>> oneOf;
+    public final @Nullable Class<? extends JsonSchema> not;
+    public final @Nullable Boolean uniqueItems;
+    public final @Nullable Set<@Nullable Object> enumValues;
+    public final @Nullable Pattern pattern;
     private final LinkedHashMap<String, KeywordValidator> keywordToValidator;
 
     protected JsonSchema(JsonSchemaInfo jsonSchemaInfo) {
@@ -215,40 +216,40 @@ public abstract class JsonSchema {
         this.keywordToValidator = keywordToValidator;
     }
 
-    public abstract Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
+    public abstract @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
 
     public static PathToSchemasMap validate(
             JsonSchema jsonSchema,
-            Object arg,
+            @Nullable Object arg,
             ValidationMetadata validationMetadata
     ) throws ValidationException {
         LinkedHashSet<String> disabledKeywords = validationMetadata.configuration().disabledKeywordFlags().getKeywords();
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         LinkedHashMap<String, KeywordValidator> thisKeywordToValidator = jsonSchema.keywordToValidator;
-        if (thisKeywordToValidator != null) {
-            for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
-                String jsonKeyword = entry.getKey();
-                if (disabledKeywords.contains(jsonKeyword)) {
-                   continue;
-                }
-                KeywordValidator validator = entry.getValue();
-                PathToSchemasMap otherPathToSchemas = validator.validate(
-                        jsonSchema,
-                        arg,
-                        validationMetadata
-                );
-                if (otherPathToSchemas == null) {
-                    continue;
-                }
-                pathToSchemas.update(otherPathToSchemas);
+        for (Map.Entry<String, KeywordValidator> entry: thisKeywordToValidator.entrySet()) {
+            String jsonKeyword = entry.getKey();
+            if (disabledKeywords.contains(jsonKeyword)) {
+               continue;
             }
+            KeywordValidator validator = entry.getValue();
+            @Nullable PathToSchemasMap otherPathToSchemas = validator.validate(
+                    jsonSchema,
+                    arg,
+                    validationMetadata
+            );
+            if (otherPathToSchemas == null) {
+                continue;
+            }
+            pathToSchemas.update(otherPathToSchemas);
         }
         List<Object> pathToItem = validationMetadata.pathToItem();
         if (!pathToSchemas.containsKey(pathToItem)) {
             pathToSchemas.put(validationMetadata.pathToItem(), new LinkedHashMap<>());
         }
-        pathToSchemas.get(pathToItem).put(jsonSchema, null);
-
+        @Nullable LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(pathToItem);
+        if (schemas != null) {
+            schemas.put(jsonSchema, null);
+        }
         return pathToSchemas;
     }
 
@@ -274,7 +275,7 @@ public abstract class JsonSchema {
 
     protected List<?> castToAllowedTypes(List<?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
-        List<Object> argFixed = new ArrayList<>();
+        List<@Nullable Object> argFixed = new ArrayList<>();
         int i =0;
         for (Object item: arg) {
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
@@ -288,10 +289,14 @@ public abstract class JsonSchema {
 
     protected Map<?, ?> castToAllowedTypes(Map<?, ?> arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         pathSet.add(pathToItem);
-        LinkedHashMap<String, Object> argFixed = new LinkedHashMap<>();
+        LinkedHashMap<String, @Nullable Object> argFixed = new LinkedHashMap<>();
         for (Map.Entry<?, ?> entry:  arg.entrySet()) {
-            String key = (String) entry.getKey();
-            Object val = arg.get(entry.getKey());
+            @Nullable Object entryKey = entry.getKey();
+            if (!(entryKey instanceof String)) {
+                throw new InvalidTypeException("Invalid non-string key value");
+            }
+            String key = (String) entryKey;
+            Object val = entry.getValue();
             List<Object> newPathToItem = new ArrayList<>(pathToItem);
             newPathToItem.add(key);
             Object fixedVal = castToAllowedObjectTypes(val, newPathToItem, pathSet);
@@ -300,7 +305,7 @@ public abstract class JsonSchema {
         return argFixed;
     }
 
-    protected Object castToAllowedObjectTypes(Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
+    private @Nullable Object castToAllowedObjectTypes(@Nullable Object arg, List<Object> pathToItem, Set<List<Object>> pathSet) {
         if (arg == null) {
             return castToAllowedTypes((Void) null, pathToItem, pathSet);
         } else if (arg instanceof String) {
@@ -348,7 +353,7 @@ public abstract class JsonSchema {
         return arg;
     }
 
-    protected static PathToSchemasMap getPathToSchemas(JsonSchema jsonSchema,  Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
+    protected static PathToSchemasMap getPathToSchemas(JsonSchema jsonSchema, @Nullable Object arg, ValidationMetadata validationMetadata, Set<List<Object>> pathSet) {
         PathToSchemasMap pathToSchemasMap = new PathToSchemasMap();
         // todo add check of validationMetadata.validationRanEarlier(this)
         PathToSchemasMap otherPathToSchemas = validate(jsonSchema, arg, validationMetadata);
@@ -369,35 +374,12 @@ public abstract class JsonSchema {
         return pathToSchemasMap;
     }
 
-   /*
-   protected <MapValueCastType, MapValueOutType> FrozenMap<String, MapValueOutType> getProperties(Map<String, MapValueCastType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      LinkedHashMap<String, MapValueOutType> properties = new LinkedHashMap<>();
-      for(Map.Entry<String, MapValueCastType> entry: arg.entrySet()) {
-         String propertyName = entry.getKey();
-         List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
-         propertyPathToItem.add(propertyName);
-         MapValueCastType value = entry.getValue();
-         JsonSchema<?, MapValueCastType, MapValueOutType> propertySchema = (JsonSchema<?, MapValueCastType, MapValueOutType>) pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-         MapValueOutType castValue = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-         properties.put(propertyName, castValue);
-      }
-      return new FrozenMap<>(properties);
-   }
-
-   private <ListItemCastType, ListItemOutType> FrozenList<ListItemOutType> getItems(List<ListItemCastType> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-      ArrayList<ListItemOutType> items = new ArrayList<>();
-      int i = 0;
-      for (ListItemCastType item: arg) {
-         List<Object> itemPathToItem = new ArrayList<>(pathToItem);
-         itemPathToItem.add(i);
-         JsonSchema<?, ListItemCastType, ListItemOutType> itemSchema = (JsonSchema<?, ListItemCastType, ListItemOutType>) pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-         ListItemOutType castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-         items.add(castItem);
-         i += 1;
-      }
-      return new FrozenList<>(items);
-   }
-   */
-
-   // todo add bytes and FileIO
+    public static String getClass(@Nullable Object arg) {
+        if (arg == null) {
+            return Void.class.getSimpleName();
+        } else {
+            return arg.getClass().getSimpleName();
+        }
+    }
+    // todo add bytes and FileIO
 }

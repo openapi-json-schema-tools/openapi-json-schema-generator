@@ -44,15 +44,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ApiResponseSchema.ApiResponseMap validatedPayload =
     ApiResponseSchema.ApiResponseSchema1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "code",
-            1
+            1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "type",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "message",
             "a"
         )
@@ -70,11 +70,11 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ApiResponseMap](#apiresponsemap) | validate([Map<String, Object>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
+| static [ApiResponseMap](#apiresponsemap) | validate([Map<String, ? extends @Nullable Object>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
 
 ## ApiResponseMapInput
 public class ApiResponseMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -88,14 +88,14 @@ A class that builds the Map input type
 
 ## ApiResponseMap
 public static class ApiResponseMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ApiResponseMap](#apiresponsemap) | of([Map<String, Object>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
+| static [ApiResponseMap](#apiresponsemap) | of([Map<String, ? extends @Nullable Object>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
 | int | code()<br>[optional] value must be a 32 bit integer |
 | String | type()<br>[optional] |
 | String | message()<br>[optional] |

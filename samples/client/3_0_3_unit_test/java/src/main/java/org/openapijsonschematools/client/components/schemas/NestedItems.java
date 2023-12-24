@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
@@ -23,7 +25,15 @@ public class NestedItems {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items3 extends NumberJsonSchema {}
+    public static class Items3 extends NumberJsonSchema {
+        private static @Nullable Items3 instance = null;
+        public static Items3 getInstance() {
+            if (instance == null) {
+                instance = new Items3();
+            }
+            return instance;
+        }
+    }
     
     
     public static class ItemsList extends FrozenList<Number> {
@@ -40,8 +50,8 @@ public class NestedItems {
     }
     
     
-    public static class Items2 extends JsonSchema implements ListSchemaValidator<Number, ItemsList> {
-        private static Items2 instance;
+    public static class Items2 extends JsonSchema implements ListSchemaValidator<ItemsList> {
+        private static @Nullable Items2 instance = null;
     
         protected Items2() {
             super(new JsonSchemaInfo()
@@ -64,16 +74,22 @@ public class NestedItems {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                Number castItem = (Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof Number)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((Number) itemInstance);
                 i += 1;
             }
             FrozenList<Number> newInstanceItems = new FrozenList<>(items);
             return new ItemsList(newInstanceItems);
         }
         
-        @Override
         public ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -85,11 +101,11 @@ public class NestedItems {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
@@ -107,8 +123,8 @@ public class NestedItems {
     }
     
     
-    public static class Items1 extends JsonSchema implements ListSchemaValidator<List<Number>, ItemsList1> {
-        private static Items1 instance;
+    public static class Items1 extends JsonSchema implements ListSchemaValidator<ItemsList1> {
+        private static @Nullable Items1 instance = null;
     
         protected Items1() {
             super(new JsonSchemaInfo()
@@ -131,16 +147,22 @@ public class NestedItems {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                ItemsList castItem = (ItemsList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof ItemsList)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((ItemsList) itemInstance);
                 i += 1;
             }
             FrozenList<ItemsList> newInstanceItems = new FrozenList<>(items);
             return new ItemsList1(newInstanceItems);
         }
         
-        @Override
         public ItemsList1 validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -152,11 +174,11 @@ public class NestedItems {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
@@ -174,8 +196,8 @@ public class NestedItems {
     }
     
     
-    public static class Items extends JsonSchema implements ListSchemaValidator<List<List<Number>>, ItemsList2> {
-        private static Items instance;
+    public static class Items extends JsonSchema implements ListSchemaValidator<ItemsList2> {
+        private static @Nullable Items instance = null;
     
         protected Items() {
             super(new JsonSchemaInfo()
@@ -198,16 +220,22 @@ public class NestedItems {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                ItemsList1 castItem = (ItemsList1) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof ItemsList1)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((ItemsList1) itemInstance);
                 i += 1;
             }
             FrozenList<ItemsList1> newInstanceItems = new FrozenList<>(items);
             return new ItemsList2(newInstanceItems);
         }
         
-        @Override
         public ItemsList2 validate(List<List<List<Number>>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -219,11 +247,11 @@ public class NestedItems {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
@@ -241,14 +269,14 @@ public class NestedItems {
     }
     
     
-    public static class NestedItems1 extends JsonSchema implements ListSchemaValidator<List<List<List<Number>>>, NestedItemsList> {
+    public static class NestedItems1 extends JsonSchema implements ListSchemaValidator<NestedItemsList> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static NestedItems1 instance;
+        private static @Nullable NestedItems1 instance = null;
     
         protected NestedItems1() {
             super(new JsonSchemaInfo()
@@ -271,16 +299,22 @@ public class NestedItems {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                ItemsList2 castItem = (ItemsList2) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof ItemsList2)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((ItemsList2) itemInstance);
                 i += 1;
             }
             FrozenList<ItemsList2> newInstanceItems = new FrozenList<>(items);
             return new NestedItemsList(newInstanceItems);
         }
         
-        @Override
         public NestedItemsList validate(List<List<List<List<Number>>>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -292,11 +326,11 @@ public class NestedItems {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 }

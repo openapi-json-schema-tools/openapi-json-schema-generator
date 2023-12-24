@@ -1,6 +1,7 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -14,20 +15,15 @@ public class UniqueItemsValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return uniqueItems;
-    }
-
-    @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof List)) {
             return null;
         }
         if (!uniqueItems) {
             return null;
         }
-        Set<Object> seenItems = new HashSet<>();
-        for (Object item: (List<?>) arg) {
+        Set<@Nullable Object> seenItems = new HashSet<>();
+        for (@Nullable Object item: (List<?>) arg) {
             int startingSeenItemsSize = seenItems.size();
             seenItems.add(item);
             if (seenItems.size() == startingSeenItemsSize) {

@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -47,13 +49,13 @@ public class AnyofComplexTypesTest {
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         schema.validate(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
                     "baz"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
-                    2
+                    2L
                 )
             ),
             configuration
@@ -68,7 +70,7 @@ public class AnyofComplexTypesTest {
             MapMaker.makeMap(
                 new AbstractMap.SimpleEntry<>(
                     "bar",
-                    2
+                    2L
                 )
             ),
             configuration
@@ -81,16 +83,16 @@ public class AnyofComplexTypesTest {
         final var schema = AnyofComplexTypes.AnyofComplexTypes1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenMap<>(MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+            MapMaker.makeMap(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "foo",
-                    2
+                    2L
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "bar",
                     "quux"
                 )
-            )),
+            ),
             validationMetadata
         ));
     }

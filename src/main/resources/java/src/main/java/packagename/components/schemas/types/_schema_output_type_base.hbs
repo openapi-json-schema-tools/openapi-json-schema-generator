@@ -97,7 +97,7 @@ long
                                             {{~/if}}
                                         {{/if}}
                                     {{else}}
-FrozenList<Object>
+FrozenList<?>
                                     {{~/if}}
                                 {{else}}
                                     {{#eq this "object"}}
@@ -116,7 +116,7 @@ FrozenList<Object>
                                                 {{~/if}}
                                             {{/if}}
                                         {{~else}}
-FrozenMap<Object>
+FrozenMap<?>
                                         {{~/if}}
                                     {{/eq}}
                                 {{/eq}}
@@ -132,31 +132,31 @@ FrozenMap<Object>
                 {{! nullable types }}
                 {{#each types}}
                     {{#eq this "boolean"}}
-Boolean
+{{#unless noAnnotations}}@Nullable {{/unless}}Boolean
                     {{~else}}
                         {{#eq this "string"}}
                             {{#eq format "binary"}}
 {{! todo binary types}}
-String
+{{#unless noAnnotations}}@Nullable {{/unless}}String
                             {{~else}}
-String
+{{#unless noAnnotations}}@Nullable {{/unless}}String
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
                                 {{#eq ../format null}}
-Number
+{{#unless noAnnotations}}@Nullable {{/unless}}Number
                                 {{~else}}
                                     {{#eq ../format "float"}}
-Float
+{{#unless noAnnotations}}@Nullable {{/unless}}Float
                                     {{~else}}
                                         {{#eq ../format "double"}}
-Double
+{{#unless noAnnotations}}@Nullable {{/unless}}Double
                                         {{~else}}
                                             {{#eq ../format "int32"}}
-Integer
+{{#unless noAnnotations}}@Nullable {{/unless}}Integer
                                             {{~else}}
                                                 {{#eq ../format "int64"}}
-Long
+{{#unless noAnnotations}}@Nullable {{/unless}}Long
                                                 {{~/eq}}
                                             {{/eq}}
                                         {{/eq}}
@@ -165,13 +165,13 @@ Long
                             {{else}}
                                 {{#eq this "integer"}}
                                     {{#eq ../format null}}
-Long
+{{#unless noAnnotations}}@Nullable {{/unless}}Long
                                     {{~else}}
                                         {{#eq ../format "int32"}}
-Integer
+{{#unless noAnnotations}}@Nullable {{/unless}}Integer
                                         {{~else}}
                                             {{#eq ../format "int64"}}
-Long
+{{#unless noAnnotations}}@Nullable {{/unless}}Long
                                             {{~/eq}}
                                         {{/eq}}
                                     {{/eq}}
@@ -186,13 +186,13 @@ Long
                                                 {{~/if}}
                                             {{else}}
                                                 {{#if fullRefModule}}
-{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{arrayOutputJsonPathPiece.camelCase}}
                                                 {{~else}}
-{{arrayOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{arrayOutputJsonPathPiece.camelCase}}
                                                 {{~/if}}
                                             {{/if}}
                                         {{else}}
-FrozenList<Object>
+{{#unless noAnnotations}}@Nullable {{/unless}}FrozenList<?>
                                         {{~/if}}
                                     {{else}}
                                         {{#eq this "object"}}
@@ -205,13 +205,13 @@ FrozenList<Object>
                                                     {{~/if}}
                                                 {{else}}
                                                     {{#if fullRefModule}}
-{{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{fullRefModule}}.{{mapOutputJsonPathPiece.camelCase}}
                                                     {{~else}}
-{{mapOutputJsonPathPiece.camelCase}}
+{{#unless noAnnotations}}@Nullable {{/unless}}{{mapOutputJsonPathPiece.camelCase}}
                                                     {{~/if}}
                                                 {{/if}}
                                             {{~else}}
-FrozenMap<Object>
+{{#unless noAnnotations}}@Nullable {{/unless}}FrozenMap<?>
                                             {{~/if}}
                                         {{/eq}}
                                     {{/eq}}
@@ -230,9 +230,13 @@ Object
             {{/contains}}
         {{else}}
             {{! 3 or more types }}
+            {{#contains types "null"}}
+{{#unless noAnnotations}}@Nullable {{/unless}}Object
+            {{~else}}
 Object
-        {{~/eq}}
+            {{~/contains}}
+        {{/eq}}
     {{/eq}}
 {{else}}
-Object
+{{#unless noAnnotations}}@Nullable {{/unless}}Object
 {{~/if}}

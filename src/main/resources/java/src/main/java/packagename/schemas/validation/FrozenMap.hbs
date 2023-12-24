@@ -1,5 +1,6 @@
 package {{{packageName}}}.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.KeyFor;
 import {{{packageName}}}.exceptions.UnsetPropertyException;
 import {{{packageName}}}.exceptions.InvalidAdditionalPropertyException;
 
@@ -7,6 +8,7 @@ import java.util.AbstractMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FrozenMap<V> extends AbstractMap<String, V> {
     /*
@@ -21,21 +23,30 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
         map = new HashMap<>(m);
     }
 
+    protected V getOrThrow(String key) throws UnsetPropertyException {
+        if (containsKey(key)) {
+            return get(key);
+        }
+        throw new UnsetPropertyException(key+" is unset");
+    }
+
     protected void throwIfKeyNotPresent(String key) throws UnsetPropertyException {
         if (!containsKey(key)) {
             throw new UnsetPropertyException(key+" is unset");
         }
     }
 
-    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws IllegalArgumentException {
+    protected void throwIfKeyKnown(String key, Set<String> requiredKeys, Set<String> optionalKeys) throws InvalidAdditionalPropertyException {
         if (requiredKeys.contains(key) || optionalKeys.contains(key)) {
             throw new InvalidAdditionalPropertyException ("The known key " + key + " may not be passed in when getting an additional property");
         }
     }
 
     @Override
-    public Set<Entry<String, V>> entrySet() {
-        return map.entrySet();
+    public Set<Entry<@KeyFor("this") String, V>> entrySet() {
+        return  map.entrySet().stream()
+                .map(x -> new AbstractMap.SimpleEntry<>(x.getKey(), x.getValue()))
+                .collect(Collectors.toSet());
     }
 }
 

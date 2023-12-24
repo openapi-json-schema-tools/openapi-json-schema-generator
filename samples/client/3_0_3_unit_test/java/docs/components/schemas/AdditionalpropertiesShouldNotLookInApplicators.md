@@ -90,32 +90,32 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema0Map](#schema0map) | validate([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | validate([Map<String, ? extends @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema0MapInput
 public class Schema0MapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **foo** | Object |  | [optional] |
+| **foo** | ? extends @Nullable Object |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## Schema0Map
 public static class Schema0Map<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema0Map](#schema0map) | of([Map<String, Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
-| Object | foo()<br>[optional] |
+| static [Schema0Map](#schema0map) | of([Map<String, ? extends @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo

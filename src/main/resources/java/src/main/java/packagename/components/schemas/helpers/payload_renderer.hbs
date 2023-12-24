@@ -1,10 +1,14 @@
 {{#eq type "object"}}
 MapMaker.makeMap(
     {{#each value}}
+        {{#eq ../value.size 1}}
     new AbstractMap.SimpleEntry<>(
+        {{else}}
+    new AbstractMap.SimpleEntry<String, {{#with ../schema.mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type forceNull=true noExtends=true }}{{/with}}>(
+        {{/eq}}
         "{{{@key}}}",
         {{#with this}}
-        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
+        {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true }}
         {{/with}}
     ){{#unless @last}},{{/unless}}
     {{/each}}
@@ -14,9 +18,9 @@ MapMaker.makeMap(
 Arrays.asList(
     {{#each value}}
         {{#unless @last}}
-    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," }}
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="," noVoid=true }}
         {{else}}
-    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" }}
+    {{> src/main/java/packagename/components/schemas/helpers/payload_renderer endChar="" noVoid=true }}
         {{/unless}}
     {{/each}}
 ){{endChar}}
@@ -43,7 +47,7 @@ Arrays.asList(
 {{value}}{{endChar}}
 {{/eq}}
 {{#eq type "null"}}
-(Void) null{{endChar}}
+{{#unless noVoid}}(Void) {{/unless}}null{{endChar}}
 {{/eq}}
 {{#eq type "string"}}
 "{{{value}}}"{{endChar}}

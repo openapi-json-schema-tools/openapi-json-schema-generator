@@ -64,29 +64,29 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | validate([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | validate([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
 
 ## SchemaMapInput
 public class SchemaMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **string** | Map<String, Object> |  | [optional] |
+| **string** | Map<String, ? extends @Nullable Object> |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## SchemaMap
 public static class SchemaMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["string"],  |
+| static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["string"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -27,7 +31,7 @@ public class EnumTest {
     
     
     public static class EnumString extends JsonSchema implements StringSchemaValidator {
-        private static EnumString instance;
+        private static @Nullable EnumString instance = null;
     
         protected EnumString() {
             super(new JsonSchemaInfo()
@@ -61,16 +65,16 @@ public class EnumTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
     public static class EnumStringRequired extends JsonSchema implements StringSchemaValidator {
-        private static EnumStringRequired instance;
+        private static @Nullable EnumStringRequired instance = null;
     
         protected EnumStringRequired() {
             super(new JsonSchemaInfo()
@@ -104,16 +108,16 @@ public class EnumTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof String) {
                 return getNewInstance((String) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
     public static class EnumInteger extends JsonSchema implements NumberSchemaValidator {
-        private static EnumInteger instance;
+        private static @Nullable EnumInteger instance = null;
     
         protected EnumInteger() {
             super(new JsonSchemaInfo()
@@ -158,16 +162,16 @@ public class EnumTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
     public static class EnumNumber extends JsonSchema implements NumberSchemaValidator {
-        private static EnumNumber instance;
+        private static @Nullable EnumNumber instance = null;
     
         protected EnumNumber() {
             super(new JsonSchemaInfo()
@@ -207,16 +211,16 @@ public class EnumTest {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Number) {
                 return getNewInstance((Number) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class EnumTestMap extends FrozenMap<Object> {
-        protected EnumTestMap(FrozenMap<Object> m) {
+    public static class EnumTestMap extends FrozenMap<@Nullable Object> {
+        protected EnumTestMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -232,63 +236,99 @@ public class EnumTest {
             "IntegerEnumWithDefaultValue",
             "IntegerEnumOneValue"
         );
-        public static EnumTestMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static EnumTestMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return EnumTest1.getInstance().validate(arg, configuration);
         }
         
         public String enum_string_required() {
-            return (String) get("enum_string_required");
+                        @Nullable Object value = get("enum_string_required");
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for enum_string_required");
+            }
+            return (String) value;
         }
         
-        public String enum_string() {
+        public String enum_string() throws UnsetPropertyException {
             String key = "enum_string";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for enum_string");
+            }
+            return (String) value;
         }
         
-        public int enum_integer() {
+        public int enum_integer() throws UnsetPropertyException {
             String key = "enum_integer";
             throwIfKeyNotPresent(key);
-            return (int) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Integer)) {
+                throw new InvalidTypeException("Invalid value stored for enum_integer");
+            }
+            return (int) value;
         }
         
-        public double enum_number() {
+        public double enum_number() throws UnsetPropertyException {
             String key = "enum_number";
             throwIfKeyNotPresent(key);
-            return (double) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Double)) {
+                throw new InvalidTypeException("Invalid value stored for enum_number");
+            }
+            return (double) value;
         }
         
-        public String stringEnum() {
+        public @Nullable String stringEnum() throws UnsetPropertyException {
             String key = "stringEnum";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for stringEnum");
+            }
+            return (@Nullable String) value;
         }
         
-        public long IntegerEnum() {
+        public long IntegerEnum() throws UnsetPropertyException {
             String key = "IntegerEnum";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Long)) {
+                throw new InvalidTypeException("Invalid value stored for IntegerEnum");
+            }
+            return (long) value;
         }
         
-        public String StringEnumWithDefaultValue() {
+        public String StringEnumWithDefaultValue() throws UnsetPropertyException {
             String key = "StringEnumWithDefaultValue";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for StringEnumWithDefaultValue");
+            }
+            return (String) value;
         }
         
-        public long IntegerEnumWithDefaultValue() {
+        public long IntegerEnumWithDefaultValue() throws UnsetPropertyException {
             String key = "IntegerEnumWithDefaultValue";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Long)) {
+                throw new InvalidTypeException("Invalid value stored for IntegerEnumWithDefaultValue");
+            }
+            return (long) value;
         }
         
-        public long IntegerEnumOneValue() {
+        public long IntegerEnumOneValue() throws UnsetPropertyException {
             String key = "IntegerEnumOneValue";
             throwIfKeyNotPresent(key);
-            return (long) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof Long)) {
+                throw new InvalidTypeException("Invalid value stored for IntegerEnumOneValue");
+            }
+            return (long) value;
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -299,14 +339,14 @@ public class EnumTest {
     }
     
     
-    public static class EnumTest1 extends JsonSchema implements MapSchemaValidator<Object, EnumTestMap> {
+    public static class EnumTest1 extends JsonSchema implements MapSchemaValidator<EnumTestMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static EnumTest1 instance;
+        private static @Nullable EnumTest1 instance = null;
     
         protected EnumTest1() {
             super(new JsonSchemaInfo()
@@ -336,22 +376,29 @@ public class EnumTest {
         }
         
         public EnumTestMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new EnumTestMap(castProperties);
         }
         
-        @Override
-        public EnumTestMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public EnumTestMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -363,11 +410,11 @@ public class EnumTest {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

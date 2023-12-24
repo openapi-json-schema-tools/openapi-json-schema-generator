@@ -41,12 +41,12 @@ Model for testing model with &quot;_class&quot; property
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ClassModelMap](#classmodelmap) | validate([Map<String, Object>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
+| static [ClassModelMap](#classmodelmap) | validate([Map<String, ? extends @Nullable Object>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ClassModelMapInput
 public class ClassModelMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -58,15 +58,15 @@ A class that builds the Map input type
 
 ## ClassModelMap
 public static class ClassModelMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ClassModelMap](#classmodelmap) | of([Map<String, Object>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["_class"],  |
+| static [ClassModelMap](#classmodelmap) | of([Map<String, ? extends @Nullable Object>](#classmodelmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["_class"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassSchema

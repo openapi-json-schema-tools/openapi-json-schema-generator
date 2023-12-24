@@ -61,11 +61,11 @@ BasquePig.BasquePigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BasquePigMap](#basquepigmap) | validate([Map<String, Object>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| static [BasquePigMap](#basquepigmap) | validate([Map<String, ? extends @Nullable Object>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
 
 ## BasquePigMapInput
 public class BasquePigMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -77,14 +77,14 @@ A class that builds the Map input type
 
 ## BasquePigMap
 public static class BasquePigMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BasquePigMap](#basquepigmap) | of([Map<String, Object>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| static [BasquePigMap](#basquepigmap) | of([Map<String, ? extends @Nullable Object>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["BasquePig"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

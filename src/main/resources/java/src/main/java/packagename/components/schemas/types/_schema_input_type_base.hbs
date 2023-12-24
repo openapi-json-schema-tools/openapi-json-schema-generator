@@ -83,23 +83,23 @@ long
                             {{else}}
                                 {{#eq this "array"}}
                                     {{#eq ../jsonPath sourceJsonPath}}
-List
+List<?>
                                     {{~else}}
                                         {{#with items}}
 List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                         {{~else}}
-List<Object>
+List<{{#unless noExtends}}? extends {{/unless}}@Nullable Object>
                                         {{~/with}}
                                     {{/eq}}
                                 {{else}}
                                     {{#eq this "object"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
-Map
+Map<String, ?>
                                         {{~else}}
                                             {{#with mapValueSchema}}
 Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                             {{~else}}
-Map<String, Object>
+Map<String, {{#unless noExtends}}? extends {{/unless}}@Nullable Object>
                                             {{~/with}}
                                         {{/eq}}
                                     {{/eq}}
@@ -116,31 +116,31 @@ Map<String, Object>
                 {{! nullable types }}
                 {{#each types}}
                     {{#eq this "boolean"}}
-Boolean
+{{#unless noExtends}}? extends {{/unless}}@Nullable Boolean
                     {{~else}}
                         {{#eq this "string"}}
                             {{#eq format "binary"}}
 {{! todo binary types}}
-String
+{{#unless noExtends}}? extends {{/unless}}@Nullable String
                             {{~else}}
-String
+{{#unless noExtends}}? extends {{/unless}}@Nullable String
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
                                 {{#eq ../format null}}
-Number
+{{#unless noExtends}}? extends {{/unless}}@Nullable Number
                                 {{~else}}
                                     {{#eq ../format "float"}}
-Float
+{{#unless noExtends}}? extends {{/unless}}@Nullable Float
                                     {{~else}}
                                         {{#eq ../format "double"}}
-Double
+{{#unless noExtends}}? extends {{/unless}}@Nullable Double
                                         {{~else}}
                                             {{#eq ../format "int32"}}
-Integer
+{{#unless noExtends}}? extends {{/unless}}@Nullable Integer
                                             {{~else}}
                                                 {{#eq ../format "int64"}}
-Long
+{{#unless noExtends}}? extends {{/unless}}@Nullable Long
                                                 {{~/eq}}
                                             {{/eq}}
                                         {{/eq}}
@@ -149,36 +149,36 @@ Long
                             {{else}}
                                 {{#eq this "integer"}}
                                     {{#eq ../format null}}
-Long
+{{#unless noExtends}}? extends {{/unless}}@Nullable Long
                                     {{~else}}
                                         {{#eq ../format "int32"}}
-Integer
+{{#unless noExtends}}? extends {{/unless}}@Nullable Integer
                                         {{~else}}
                                             {{#eq ../format "int64"}}
-Long
+{{#unless noExtends}}? extends {{/unless}}@Nullable Long
                                             {{~/eq}}
                                         {{/eq}}
                                     {{/eq}}
                                 {{else}}
                                     {{#eq this "array"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
-List
+{{#unless noExtends}}? extends {{/unless}}@Nullable List
                                         {{~else}}
                                             {{#with items}}
-List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
+{{#unless noExtends}}? extends {{/unless}}@Nullable List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                             {{~else}}
-List<Object>
+{{#unless noExtends}}? extends {{/unless}}@Nullable List<@Nullable Object>
                                             {{~/with}}
                                         {{/eq}}
                                     {{else}}
                                         {{#eq this "object"}}
                                             {{#eq ../jsonPath sourceJsonPath}}
-Map
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map
                                             {{~else}}
                                                 {{#with mapValueSchema}}
-Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
                                                 {{~else}}
-Map<String, Object>
+{{#unless noExtends}}? extends {{/unless}}@Nullable Map<String, @Nullable Object>
                                                 {{~/with}}
                                             {{/eq}}
                                         {{/eq}}
@@ -198,9 +198,13 @@ Object
             {{/contains}}
         {{else}}
             {{! 3 or more types }}
+            {{#contains types "null"}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Object
+            {{~else}}
 Object
-        {{~/eq}}
+            {{~/contains}}
+        {{/eq}}
     {{/eq}}
 {{else}}
-Object
+{{#unless noExtends}}? extends {{/unless}}@Nullable Object
 {{~/if}}

@@ -37,7 +37,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = Schema4.Schema41.validate(
-    1,
+    1L,
     configuration
 );
 ```

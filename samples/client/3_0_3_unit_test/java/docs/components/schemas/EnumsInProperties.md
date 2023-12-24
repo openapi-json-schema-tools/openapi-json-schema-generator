@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 EnumsInProperties.EnumsInPropertiesMap validatedPayload =
     EnumsInProperties.EnumsInProperties1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "bar",
             "bar"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "foo",
             "foo"
         )
@@ -66,11 +66,11 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<String, Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
 
 ## EnumsInPropertiesMapInput
 public class EnumsInPropertiesMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -83,14 +83,14 @@ A class that builds the Map input type
 
 ## EnumsInPropertiesMap
 public static class EnumsInPropertiesMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | of([Map<String, Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br> must be one of ["bar"] |
 | String | foo()<br>[optional] must be one of ["foo"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -42,22 +42,22 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
     ObjectWithDecimalProperties.ObjectWithDecimalProperties1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "length",
             "3.14"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "width",
             "3.14"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "cost",
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "amount",
                     "3.14"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "currency",
                     "eur"
                 )
@@ -77,11 +77,11 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map<String, Object>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjectWithDecimalPropertiesMapInput
 public class ObjectWithDecimalPropertiesMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -90,19 +90,19 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **length** | String |  | [optional] |
 | **width** | String |  | [optional] value must be int or float numeric |
-| **cost** | Map<String, Object> |  | [optional] |
+| **cost** | Map<String, ? extends @Nullable Object> |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ObjectWithDecimalPropertiesMap
 public static class ObjectWithDecimalPropertiesMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | of([Map<String, Object>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
 | String | length()<br>[optional] |
 | String | width()<br>[optional] value must be int or float numeric |
 | [Money.MoneyMap](../../components/schemas/Money.md#moneymap) | cost()<br>[optional] |

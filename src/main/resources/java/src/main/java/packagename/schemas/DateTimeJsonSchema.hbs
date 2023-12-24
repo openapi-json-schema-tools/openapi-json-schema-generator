@@ -12,6 +12,7 @@ import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.ZonedDateTime;
 import java.util.HashSet;
@@ -23,7 +24,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class DateTimeJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static DateTimeJsonSchema instance;
+    private static @Nullable DateTimeJsonSchema instance = null;
 
     protected DateTimeJsonSchema() {
         super(new JsonSchemaInfo()
@@ -60,10 +61,10 @@ public class DateTimeJsonSchema extends JsonSchema implements StringSchemaValida
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof String) {
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

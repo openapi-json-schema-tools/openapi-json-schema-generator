@@ -46,15 +46,15 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClassMap validatedPayload =
     MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalPropertiesClass1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "uuid",
             "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "dateTime",
             "1970-01-01T00:00:00.00Z"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "map",
             MapMaker.makeMap(
             )
@@ -73,11 +73,11 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate([Map<String, Object>](#mixedpropertiesandadditionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
+| static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate([Map<String, ? extends @Nullable Object>](#mixedpropertiesandadditionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
 
 ## MixedPropertiesAndAdditionalPropertiesClassMapInput
 public class MixedPropertiesAndAdditionalPropertiesClassMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -86,21 +86,21 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **uuid** | String |  | [optional] value must be a uuid |
 | **dateTime** | String |  | [optional] value must conform to RFC-3339 date-time |
-| **map** | Map<String, Map<String, Object>> |  | [optional] |
+| **map** | Map<String, Map<String, ? extends @Nullable Object>> |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## MixedPropertiesAndAdditionalPropertiesClassMap
 public static class MixedPropertiesAndAdditionalPropertiesClassMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | of([Map<String, Object>](#mixedpropertiesandadditionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
+| static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | of([Map<String, ? extends @Nullable Object>](#mixedpropertiesandadditionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
 | String | dateTime()<br>[optional] value must conform to RFC-3339 date-time |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["map"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["map"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## MapSchema
@@ -142,18 +142,18 @@ MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapMap](#mapmap) | validate([Map<String, Map<String, Object>>](#mapmapinput) arg, SchemaConfiguration configuration) |
+| static [MapMap](#mapmap) | validate([Map<String, Map<String, ? extends @Nullable Object>>](#mapmapinput) arg, SchemaConfiguration configuration) |
 
 ## MapMapInput
 public class MapMapInput<br>
-builder for `Map<String, Map<String, Object>>`
+builder for `Map<String, Map<String, ? extends @Nullable Object>>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | Map<String, Object> | any string name can be used but the value must be the correct type | [optional] |
+| **anyStringName** | Map<String, ? extends @Nullable Object> | any string name can be used but the value must be the correct type | [optional] |
 
 ## MapMap
 public static class MapMap<br>
@@ -164,7 +164,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapMap](#mapmap) | of([Map<String, Map<String, Object>>](#mapmapinput) arg, SchemaConfiguration configuration) |
+| static [MapMap](#mapmap) | of([Map<String, Map<String, ? extends @Nullable Object>>](#mapmapinput) arg, SchemaConfiguration configuration) |
 | [Animal.AnimalMap](../../components/schemas/Animal.md#animalmap) | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## DateTime

@@ -1,5 +1,6 @@
 package {{{packageName}}}.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
@@ -17,15 +18,14 @@ import java.util.Map;
 import java.util.Set;
 
 public class AdditionalPropertiesValidatorTest {
-
     public static class ObjectWithPropsSchema extends JsonSchema {
-        private static ObjectWithPropsSchema instance;
+        private static @Nullable ObjectWithPropsSchema instance = null;
         private ObjectWithPropsSchema() {
             super(new JsonSchemaInfo()
-                .type(Set.of(FrozenMap.class))
-                .properties(Map.ofEntries(
-                    new PropertyEntry("someString", StringJsonSchema.class)
-                ))
+                    .type(Set.of(FrozenMap.class))
+                    .properties(Map.ofEntries(
+                            new PropertyEntry("someString", StringJsonSchema.class)
+                    ))
             );
 
         }
@@ -38,13 +38,19 @@ public class AdditionalPropertiesValidatorTest {
         }
 
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof FrozenMap) {
                 @SuppressWarnings("unchecked") FrozenMap<Object> castArg = (FrozenMap<Object>) arg;
                 return castArg;
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
+    }
+
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
     }
 
     @Test
@@ -67,6 +73,9 @@ public class AdditionalPropertiesValidatorTest {
                 arg,
                 validationMetadata
         );
+        if (pathToSchemas == null) {
+            throw new RuntimeException("Invalid null value for pathToSchemas for this test case");
+        }
         List<Object> expectedPathToItem = new ArrayList<>();
         expectedPathToItem.add("args[0]");
         expectedPathToItem.add("someAddProp");
@@ -94,7 +103,7 @@ public class AdditionalPropertiesValidatorTest {
                 1,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemas);
+        assertNull(pathToSchemas);
     }
 
     @Test

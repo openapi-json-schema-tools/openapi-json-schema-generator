@@ -56,29 +56,29 @@ ArrayHoldingAnyType.ArrayHoldingAnyTypeList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([List<Object>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | validate([List<? extends @Nullable Object>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayHoldingAnyTypeListInput
 public class ArrayHoldingAnyTypeListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object | any type can be stored here |
+? extends @Nullable Object | any type can be stored here |
 
 ## ArrayHoldingAnyTypeList
 public class ArrayHoldingAnyTypeList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([List<Object>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayHoldingAnyTypeList](#arrayholdinganytypelist) | of([List<? extends @Nullable Object>](#arrayholdinganytypelistinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

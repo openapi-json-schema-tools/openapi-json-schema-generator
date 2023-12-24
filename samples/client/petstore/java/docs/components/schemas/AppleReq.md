@@ -44,11 +44,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 AppleReq.AppleReqMap validatedPayload =
     AppleReq.AppleReq1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "cultivar",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "mealy",
             true
         )

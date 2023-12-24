@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
@@ -24,26 +28,74 @@ public class Capitalization {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class SmallCamel extends StringJsonSchema {}
+    public static class SmallCamel extends StringJsonSchema {
+        private static @Nullable SmallCamel instance = null;
+        public static SmallCamel getInstance() {
+            if (instance == null) {
+                instance = new SmallCamel();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class CapitalCamel extends StringJsonSchema {}
+    public static class CapitalCamel extends StringJsonSchema {
+        private static @Nullable CapitalCamel instance = null;
+        public static CapitalCamel getInstance() {
+            if (instance == null) {
+                instance = new CapitalCamel();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class SmallSnake extends StringJsonSchema {}
+    public static class SmallSnake extends StringJsonSchema {
+        private static @Nullable SmallSnake instance = null;
+        public static SmallSnake getInstance() {
+            if (instance == null) {
+                instance = new SmallSnake();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class CapitalSnake extends StringJsonSchema {}
+    public static class CapitalSnake extends StringJsonSchema {
+        private static @Nullable CapitalSnake instance = null;
+        public static CapitalSnake getInstance() {
+            if (instance == null) {
+                instance = new CapitalSnake();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class SCAETHFlowPoints extends StringJsonSchema {}
+    public static class SCAETHFlowPoints extends StringJsonSchema {
+        private static @Nullable SCAETHFlowPoints instance = null;
+        public static SCAETHFlowPoints getInstance() {
+            if (instance == null) {
+                instance = new SCAETHFlowPoints();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class ATTNAME extends StringJsonSchema {}
+    public static class ATTNAME extends StringJsonSchema {
+        private static @Nullable ATTNAME instance = null;
+        public static ATTNAME getInstance() {
+            if (instance == null) {
+                instance = new ATTNAME();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class CapitalizationMap extends FrozenMap<Object> {
-        protected CapitalizationMap(FrozenMap<Object> m) {
+    public static class CapitalizationMap extends FrozenMap<@Nullable Object> {
+        protected CapitalizationMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -55,47 +107,71 @@ public class Capitalization {
             "SCA_ETH_Flow_Points",
             "ATT_NAME"
         );
-        public static CapitalizationMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static CapitalizationMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return Capitalization1.getInstance().validate(arg, configuration);
         }
         
-        public String smallCamel() {
+        public String smallCamel() throws UnsetPropertyException {
             String key = "smallCamel";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for smallCamel");
+            }
+            return (String) value;
         }
         
-        public String CapitalCamel() {
+        public String CapitalCamel() throws UnsetPropertyException {
             String key = "CapitalCamel";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for CapitalCamel");
+            }
+            return (String) value;
         }
         
-        public String small_Snake() {
+        public String small_Snake() throws UnsetPropertyException {
             String key = "small_Snake";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for small_Snake");
+            }
+            return (String) value;
         }
         
-        public String Capital_Snake() {
+        public String Capital_Snake() throws UnsetPropertyException {
             String key = "Capital_Snake";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for Capital_Snake");
+            }
+            return (String) value;
         }
         
-        public String SCA_ETH_Flow_Points() {
+        public String SCA_ETH_Flow_Points() throws UnsetPropertyException {
             String key = "SCA_ETH_Flow_Points";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for SCA_ETH_Flow_Points");
+            }
+            return (String) value;
         }
         
-        public String ATT_NAME() {
+        public String ATT_NAME() throws UnsetPropertyException {
             String key = "ATT_NAME";
             throwIfKeyNotPresent(key);
-            return (String) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for ATT_NAME");
+            }
+            return (String) value;
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -106,14 +182,14 @@ public class Capitalization {
     }
     
     
-    public static class Capitalization1 extends JsonSchema implements MapSchemaValidator<Object, CapitalizationMap> {
+    public static class Capitalization1 extends JsonSchema implements MapSchemaValidator<CapitalizationMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static Capitalization1 instance;
+        private static @Nullable Capitalization1 instance = null;
     
         protected Capitalization1() {
             super(new JsonSchemaInfo()
@@ -137,22 +213,29 @@ public class Capitalization {
         }
         
         public CapitalizationMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new CapitalizationMap(castProperties);
         }
         
-        @Override
-        public CapitalizationMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public CapitalizationMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -164,11 +247,11 @@ public class Capitalization {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

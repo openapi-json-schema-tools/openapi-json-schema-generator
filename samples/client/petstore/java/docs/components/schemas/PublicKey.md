@@ -63,11 +63,11 @@ PublicKey.PublicKeyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PublicKeyMap](#publickeymap) | validate([Map<String, Object>](#publickeymapinput) arg, SchemaConfiguration configuration) |
+| static [PublicKeyMap](#publickeymap) | validate([Map<String, ? extends @Nullable Object>](#publickeymapinput) arg, SchemaConfiguration configuration) |
 
 ## PublicKeyMapInput
 public class PublicKeyMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -79,14 +79,14 @@ A class that builds the Map input type
 
 ## PublicKeyMap
 public static class PublicKeyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PublicKeyMap](#publickeymap) | of([Map<String, Object>](#publickeymapinput) arg, SchemaConfiguration configuration) |
+| static [PublicKeyMap](#publickeymap) | of([Map<String, ? extends @Nullable Object>](#publickeymapinput) arg, SchemaConfiguration configuration) |
 | String | key()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

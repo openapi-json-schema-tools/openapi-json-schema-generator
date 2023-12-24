@@ -11,6 +11,7 @@ import {{{packageName}}}.schemas.validation.StringSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.LocalDate;
 import java.time.ZonedDateTime;
@@ -24,7 +25,7 @@ import java.util.Map;
 import java.util.UUID;
 
 public class StringJsonSchema extends JsonSchema implements StringSchemaValidator {
-    private static StringJsonSchema instance;
+    private static @Nullable StringJsonSchema instance = null;
 
     protected StringJsonSchema() {
         super(new JsonSchemaInfo()
@@ -68,10 +69,10 @@ public class StringJsonSchema extends JsonSchema implements StringSchemaValidato
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof String) {
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

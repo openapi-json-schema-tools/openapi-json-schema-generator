@@ -55,33 +55,33 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<String, Object>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<String, ? extends @Nullable Object>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
 
 ## ReqPropsFromUnsetAddPropsMapInput
 public class ReqPropsFromUnsetAddPropsMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **invalid-name** | Object |  | |
-| **validName** | Object |  | |
+| **invalid-name** | ? extends @Nullable Object |  | |
+| **validName** | ? extends @Nullable Object |  | |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ReqPropsFromUnsetAddPropsMap
 public static class ReqPropsFromUnsetAddPropsMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | of([Map<String, Object>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
-| Object | validName()<br> |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
+| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | of([Map<String, ? extends @Nullable Object>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validName()<br> |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["invalid-name"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

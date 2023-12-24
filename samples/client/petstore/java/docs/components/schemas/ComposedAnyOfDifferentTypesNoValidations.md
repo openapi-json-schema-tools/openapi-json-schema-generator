@@ -156,29 +156,29 @@ ComposedAnyOfDifferentTypesNoValidations.Schema9List validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | validate([List<Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | validate([List<? extends @Nullable Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
 
 ## Schema9ListInput
 public class Schema9ListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object |  |
+? extends @Nullable Object |  |
 
 ## Schema9List
 public class Schema9List<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema9List](#schema9list) | of([List<Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
+| static [Schema9List](#schema9list) | of([List<? extends @Nullable Object>](#schema9listinput) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

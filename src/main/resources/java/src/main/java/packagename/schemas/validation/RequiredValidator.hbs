@@ -1,6 +1,7 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.List;
@@ -15,18 +16,16 @@ public class RequiredValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return required;
-    }
-
-    @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Map)) {
             return null;
         }
-        Map<String, Object> castArg = (Map<String, Object>) arg;
         Set<String> missingRequiredProperties = new HashSet<>(required);
-        missingRequiredProperties.removeAll(castArg.keySet());
+        for (Object key: ((Map<?, ?>) arg).keySet()) {
+            if (key instanceof String) {
+                missingRequiredProperties.remove(key);
+            }
+        }
         if (!missingRequiredProperties.isEmpty()) {
             List<String> missingReqProps = missingRequiredProperties.stream().sorted().toList();
             String pluralChar = "";

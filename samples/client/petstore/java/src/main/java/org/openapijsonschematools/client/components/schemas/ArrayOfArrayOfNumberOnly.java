@@ -7,9 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
@@ -26,7 +30,15 @@ public class ArrayOfArrayOfNumberOnly {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Items1 extends NumberJsonSchema {}
+    public static class Items1 extends NumberJsonSchema {
+        private static @Nullable Items1 instance = null;
+        public static Items1 getInstance() {
+            if (instance == null) {
+                instance = new Items1();
+            }
+            return instance;
+        }
+    }
     
     
     public static class ItemsList extends FrozenList<Number> {
@@ -43,8 +55,8 @@ public class ArrayOfArrayOfNumberOnly {
     }
     
     
-    public static class Items extends JsonSchema implements ListSchemaValidator<Number, ItemsList> {
-        private static Items instance;
+    public static class Items extends JsonSchema implements ListSchemaValidator<ItemsList> {
+        private static @Nullable Items instance = null;
     
         protected Items() {
             super(new JsonSchemaInfo()
@@ -67,16 +79,22 @@ public class ArrayOfArrayOfNumberOnly {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                Number castItem = (Number) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof Number)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((Number) itemInstance);
                 i += 1;
             }
             FrozenList<Number> newInstanceItems = new FrozenList<>(items);
             return new ItemsList(newInstanceItems);
         }
         
-        @Override
         public ItemsList validate(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -88,11 +106,11 @@ public class ArrayOfArrayOfNumberOnly {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
@@ -110,8 +128,8 @@ public class ArrayOfArrayOfNumberOnly {
     }
     
     
-    public static class ArrayArrayNumber extends JsonSchema implements ListSchemaValidator<List<Number>, ArrayArrayNumberList> {
-        private static ArrayArrayNumber instance;
+    public static class ArrayArrayNumber extends JsonSchema implements ListSchemaValidator<ArrayArrayNumberList> {
+        private static @Nullable ArrayArrayNumber instance = null;
     
         protected ArrayArrayNumber() {
             super(new JsonSchemaInfo()
@@ -134,16 +152,22 @@ public class ArrayOfArrayOfNumberOnly {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                ItemsList castItem = (ItemsList) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof ItemsList)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((ItemsList) itemInstance);
                 i += 1;
             }
             FrozenList<ItemsList> newInstanceItems = new FrozenList<>(items);
             return new ArrayArrayNumberList(newInstanceItems);
         }
         
-        @Override
         public ArrayArrayNumberList validate(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -155,33 +179,37 @@ public class ArrayOfArrayOfNumberOnly {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
-    public static class ArrayOfArrayOfNumberOnlyMap extends FrozenMap<Object> {
-        protected ArrayOfArrayOfNumberOnlyMap(FrozenMap<Object> m) {
+    public static class ArrayOfArrayOfNumberOnlyMap extends FrozenMap<@Nullable Object> {
+        protected ArrayOfArrayOfNumberOnlyMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of(
             "ArrayArrayNumber"
         );
-        public static ArrayOfArrayOfNumberOnlyMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayOfArrayOfNumberOnlyMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayOfArrayOfNumberOnly1.getInstance().validate(arg, configuration);
         }
         
-        public ArrayArrayNumberList ArrayArrayNumber() {
+        public ArrayArrayNumberList ArrayArrayNumber() throws UnsetPropertyException {
             String key = "ArrayArrayNumber";
             throwIfKeyNotPresent(key);
-            return (ArrayArrayNumberList) get(key);
+            @Nullable Object value = get(key);
+            if (!(value instanceof ArrayArrayNumberList)) {
+                throw new InvalidTypeException("Invalid value stored for ArrayArrayNumber");
+            }
+            return (ArrayArrayNumberList) value;
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -192,14 +220,14 @@ public class ArrayOfArrayOfNumberOnly {
     }
     
     
-    public static class ArrayOfArrayOfNumberOnly1 extends JsonSchema implements MapSchemaValidator<Object, ArrayOfArrayOfNumberOnlyMap> {
+    public static class ArrayOfArrayOfNumberOnly1 extends JsonSchema implements MapSchemaValidator<ArrayOfArrayOfNumberOnlyMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static ArrayOfArrayOfNumberOnly1 instance;
+        private static @Nullable ArrayOfArrayOfNumberOnly1 instance = null;
     
         protected ArrayOfArrayOfNumberOnly1() {
             super(new JsonSchemaInfo()
@@ -218,22 +246,29 @@ public class ArrayOfArrayOfNumberOnly {
         }
         
         public ArrayOfArrayOfNumberOnlyMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new ArrayOfArrayOfNumberOnlyMap(castProperties);
         }
         
-        @Override
-        public ArrayOfArrayOfNumberOnlyMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ArrayOfArrayOfNumberOnlyMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -245,11 +280,11 @@ public class ArrayOfArrayOfNumberOnly {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

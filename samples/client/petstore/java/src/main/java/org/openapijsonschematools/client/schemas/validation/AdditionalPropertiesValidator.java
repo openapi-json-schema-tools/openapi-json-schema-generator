@@ -1,7 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -15,24 +15,23 @@ public class AdditionalPropertiesValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return additionalProperties;
-    }
-
-    @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
-        if (!(arg instanceof Map)) {
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
+        if (!(arg instanceof Map<?, ?> mapArg)) {
             return null;
         }
-        Map<String, Object> castArg = (Map<String, Object>) arg;
-        Set<String> presentAdditionalProperties = new LinkedHashSet<>(castArg.keySet());
+        Set<String> presentAdditionalProperties = new LinkedHashSet<>();
+        for (Object key: mapArg.keySet()) {
+            if (key instanceof String) {
+                presentAdditionalProperties.add((String) key);
+            }
+        }
         if (schema.properties != null) {
             presentAdditionalProperties.removeAll(schema.properties.keySet());
         }
         PathToSchemasMap pathToSchemas = new PathToSchemasMap();
         // todo add handling for validatedPatternProperties
         for(String addPropName: presentAdditionalProperties) {
-            Object propValue = castArg.get(addPropName);
+            @Nullable Object propValue = mapArg.get(addPropName);
             List<Object> propPathToItem = new ArrayList<>(validationMetadata.pathToItem());
             propPathToItem.add(addPropName);
             ValidationMetadata propValidationMetadata = new ValidationMetadata(

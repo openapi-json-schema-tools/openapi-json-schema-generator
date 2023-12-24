@@ -41,12 +41,12 @@ Model for testing reserved words
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ReturnMap](#returnmap) | validate([Map<String, Object>](#returnmapinput) arg, SchemaConfiguration configuration) |
+| static [ReturnMap](#returnmap) | validate([Map<String, ? extends @Nullable Object>](#returnmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ReturnMapInput
 public class ReturnMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -58,15 +58,15 @@ A class that builds the Map input type
 
 ## ReturnMap
 public static class ReturnMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReturnMap](#returnmap) | of([Map<String, Object>](#returnmapinput) arg, SchemaConfiguration configuration) |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["return"],  |
+| static [ReturnMap](#returnmap) | of([Map<String, ? extends @Nullable Object>](#returnmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["return"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ReturnSchema2

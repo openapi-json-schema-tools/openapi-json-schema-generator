@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -11,6 +12,11 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 
 public class TypeValidatorTest {
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
+    }
 
     @Test
     public void testValidateSucceeds() {
@@ -23,12 +29,12 @@ public class TypeValidatorTest {
                 new PathToSchemasMap(),
                 new LinkedHashSet<>()
         );
-        PathToSchemasMap pathToSchemasMap = validator.validate(
+        @Nullable PathToSchemasMap pathToSchemasMap = validator.validate(
                 StringJsonSchema.getInstance(),
                 "hi",
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test

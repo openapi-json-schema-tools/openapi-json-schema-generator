@@ -1,6 +1,7 @@
 package {{{packageName}}}.schemas.validation;
 
 import {{{packageName}}}.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 public class MaximumValidator implements KeywordValidator {
@@ -11,12 +12,7 @@ public class MaximumValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return maximum;
-    }
-
-    @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Number)) {
             return null;
         }

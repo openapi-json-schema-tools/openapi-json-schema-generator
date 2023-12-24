@@ -55,59 +55,59 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Schema.SchemaMap validatedPayload =
     Schema.Schema1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "byte",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "double",
             3.14d
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "number",
             1
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "pattern_without_delimiter",
             "AUR,rZ#UM/?R,Fp^l6$ARjbhJk C>"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "integer",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "int32",
-            1
+            1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "int64",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "float",
             3.14f
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "string",
             "A"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "binary",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "date",
             "2020-12-13"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "dateTime",
             "1970-01-01T00:00:00.00Z"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "password",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "callback",
             "a"
         )
@@ -126,11 +126,11 @@ Schema.SchemaMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | validate([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | validate([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
 
 ## SchemaMapInput
 public class SchemaMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -155,14 +155,14 @@ A class that builds the Map input type
 
 ## SchemaMap
 public static class SchemaMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of([Map<String, Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | of([Map<String, ? extends @Nullable Object>](#schemamapinput) arg, SchemaConfiguration configuration) |
 | String | pattern_without_delimiter()<br> |
 | int | int32()<br>[optional] value must be a 32 bit integer |
 | long | int64()<br>[optional] value must be a 64 bit integer |
@@ -171,7 +171,7 @@ A class to store validated Map payloads
 | String | dateTime()<br>[optional] if omitted the server will use the default value of 2010-02-01T10:20:10.111110+01:00 value must conform to RFC-3339 date-time |
 | String | password()<br>[optional] |
 | String | callback()<br>[optional] |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["double"], instance["number"], instance["integer"], instance["float"], instance["string"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Callback
@@ -557,7 +557,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = Schema.Int32.validate(
-    1,
+    1L,
     configuration
 );
 ```

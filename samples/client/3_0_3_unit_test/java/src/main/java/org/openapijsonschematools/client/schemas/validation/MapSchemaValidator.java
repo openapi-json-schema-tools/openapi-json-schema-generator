@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public interface MapSchemaValidator <InType, OutType> {
+public interface MapSchemaValidator <OutType> {
     OutType getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas);
-    OutType validate(Map<String, InType> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+    // OutType validate(Map<String, InType> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

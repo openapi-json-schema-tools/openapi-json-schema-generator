@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
     HasOnlyReadOnly.HasOnlyReadOnly1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "bar",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "foo",
             "a"
         )
@@ -65,11 +65,11 @@ HasOnlyReadOnly.HasOnlyReadOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map<String, Object>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
+| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | validate([Map<String, ? extends @Nullable Object>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
 
 ## HasOnlyReadOnlyMapInput
 public class HasOnlyReadOnlyMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -82,14 +82,14 @@ A class that builds the Map input type
 
 ## HasOnlyReadOnlyMap
 public static class HasOnlyReadOnlyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | of([Map<String, Object>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
+| static [HasOnlyReadOnlyMap](#hasonlyreadonlymap) | of([Map<String, ? extends @Nullable Object>](#hasonlyreadonlymapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

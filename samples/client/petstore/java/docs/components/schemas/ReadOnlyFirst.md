@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
     ReadOnlyFirst.ReadOnlyFirst1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "bar",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "baz",
             "a"
         )
@@ -65,11 +65,11 @@ ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map<String, Object>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
+| static [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map<String, ? extends @Nullable Object>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
 
 ## ReadOnlyFirstMapInput
 public class ReadOnlyFirstMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -82,14 +82,14 @@ A class that builds the Map input type
 
 ## ReadOnlyFirstMap
 public static class ReadOnlyFirstMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReadOnlyFirstMap](#readonlyfirstmap) | of([Map<String, Object>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
+| static [ReadOnlyFirstMap](#readonlyfirstmap) | of([Map<String, ? extends @Nullable Object>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] |
 | String | baz()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

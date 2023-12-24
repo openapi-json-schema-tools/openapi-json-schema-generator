@@ -46,11 +46,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 EnumArrays.EnumArraysMap validatedPayload =
     EnumArrays.EnumArrays1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "just_symbol",
             ">="
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "array_enum",
             Arrays.asList(
                 "fish"
@@ -70,11 +70,11 @@ EnumArrays.EnumArraysMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | validate([Map<String, Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumArraysMap](#enumarraysmap) | validate([Map<String, ? extends @Nullable Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
 
 ## EnumArraysMapInput
 public class EnumArraysMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -87,14 +87,14 @@ A class that builds the Map input type
 
 ## EnumArraysMap
 public static class EnumArraysMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | of([Map<String, Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+| static [EnumArraysMap](#enumarraysmap) | of([Map<String, ? extends @Nullable Object>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
 | String | just_symbol()<br>[optional] must be one of [">=", "$"] |
 | [ArrayEnumList](#arrayenumlist) | array_enum()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

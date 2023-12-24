@@ -54,34 +54,34 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Pet.PetMap validatedPayload =
     Pet.Pet1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "name",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "photoUrls",
             Arrays.asList(
                 "a"
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "id",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "category",
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "name",
                     "a"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, Object>(
                     "id",
                     1L
                 )
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "tags",
             Arrays.asList(
                 MapMaker.makeMap(
@@ -92,7 +92,7 @@ Pet.PetMap validatedPayload =
                 )
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "status",
             "available"
         )
@@ -111,11 +111,11 @@ Pet.PetMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PetMap](#petmap) | validate([Map<String, Object>](#petmapinput) arg, SchemaConfiguration configuration) |
+| static [PetMap](#petmap) | validate([Map<String, ? extends @Nullable Object>](#petmapinput) arg, SchemaConfiguration configuration) |
 
 ## PetMapInput
 public class PetMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -125,21 +125,21 @@ A class that builds the Map input type
 | **name** | String |  | |
 | **photoUrls** | List<String> |  | |
 | **id** | long |  | [optional] value must be a 64 bit integer |
-| **category** | Map<String, Object> |  | [optional] |
-| **tags** | List<Map<String, Object>> |  | [optional] |
+| **category** | Map<String, ? extends @Nullable Object> |  | [optional] |
+| **tags** | List<Map<String, ? extends @Nullable Object>> |  | [optional] |
 | **status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## PetMap
 public static class PetMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PetMap](#petmap) | of([Map<String, Object>](#petmapinput) arg, SchemaConfiguration configuration) |
+| static [PetMap](#petmap) | of([Map<String, ? extends @Nullable Object>](#petmapinput) arg, SchemaConfiguration configuration) |
 | String | name()<br> |
 | [PhotoUrlsList](#photourlslist) | photoUrls()<br> |
 | long | id()<br>[optional] value must be a 64 bit integer |
@@ -174,11 +174,11 @@ Pet.TagsList validatedPayload =
     Pet.Tags.validate(
     Arrays.asList(
         MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "id",
                 1L
             ),
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, Object>(
                 "name",
                 "a"
             )
@@ -197,18 +197,18 @@ Pet.TagsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | validate([List<Map<String, Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | validate([List<Map<String, ? extends @Nullable Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
 
 ## TagsListInput
 public class TagsListInput<br>
-builder for `List<Map<String, Object>>`
+builder for `List<Map<String, ? extends @Nullable Object>>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Map<String, Object> |  |
+Map<String, ? extends @Nullable Object> |  |
 
 ## TagsList
 public class TagsList<br>
@@ -219,7 +219,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagsList](#tagslist) | of([List<Map<String, Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
+| static [TagsList](#tagslist) | of([List<Map<String, ? extends @Nullable Object>>](#tagslistinput) arg, SchemaConfiguration configuration) |
 
 ## Status
 public static class Status<br>

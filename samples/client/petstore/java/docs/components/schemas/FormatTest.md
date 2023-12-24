@@ -65,91 +65,91 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 FormatTest.FormatTestMap validatedPayload =
     FormatTest.FormatTest1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "byte",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "date",
             "2020-12-13"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "number",
             1
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "password",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "integer",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "int32",
-            1
+            1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "int32withValidations",
-            1
+            1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "int64",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "float",
             3.14f
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "float32",
             3.14f
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "double",
             3.14d
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "float64",
             3.14d
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "arrayWithUniqueItems",
             Arrays.asList(
                 1
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "string",
             "A"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "binary",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "dateTime",
             "1970-01-01T00:00:00.00Z"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "uuid",
             "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "uuidNoExample",
             "046b6c7f-0b8a-43b9-b35d-6489e6daee91"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "pattern_with_digits",
             "0480728880"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "pattern_with_digits_and_delimiter",
             "IMage_88"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "noneProp",
-            (Void) null
+            null
         )
     ),
     configuration
@@ -166,11 +166,11 @@ FormatTest.FormatTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FormatTestMap](#formattestmap) | validate([Map<String, Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| static [FormatTestMap](#formattestmap) | validate([Map<String, ? extends @Nullable Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
 
 ## FormatTestMapInput
 public class FormatTestMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -202,14 +202,14 @@ A class that builds the Map input type
 
 ## FormatTestMap
 public static class FormatTestMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FormatTestMap](#formattestmap) | of([Map<String, Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
+| static [FormatTestMap](#formattestmap) | of([Map<String, ? extends @Nullable Object>](#formattestmapinput) arg, SchemaConfiguration configuration) |
 | String | date()<br> value must conform to RFC-3339 full-date YYYY-MM-DD |
 | String | password()<br> |
 | int | int32()<br>[optional] value must be a 32 bit integer |
@@ -224,7 +224,7 @@ A class to store validated Map payloads
 | String | pattern_with_digits()<br>[optional] |
 | String | pattern_with_digits_and_delimiter()<br>[optional] |
 | Void | noneProp()<br>[optional] |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["byte"], instance["number"], instance["integer"], instance["float"], instance["double"], instance["string"], instance["uuid"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## NoneProp
@@ -707,7 +707,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = FormatTest.Int32withValidations.validate(
-    1,
+    1L,
     configuration
 );
 ```

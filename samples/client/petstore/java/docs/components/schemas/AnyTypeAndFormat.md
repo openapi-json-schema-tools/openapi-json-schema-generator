@@ -64,43 +64,43 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map<String, Object>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
+| static [AnyTypeAndFormatMap](#anytypeandformatmap) | validate([Map<String, ? extends @Nullable Object>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
 
 ## AnyTypeAndFormatMapInput
 public class AnyTypeAndFormatMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **uuid** | Object |  | [optional] value must be a uuid |
-| **date** | Object |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
-| **date-time** | Object |  | [optional] value must conform to RFC-3339 date-time |
-| **number** | Object |  | [optional] value must be int or float numeric |
-| **binary** | Object |  | [optional] |
-| **int32** | Object |  | [optional] value must be a 32 bit integer |
-| **int64** | Object |  | [optional] value must be a 64 bit integer |
-| **double** | Object |  | [optional] value must be a 64 bit float |
-| **float** | Object |  | [optional] value must be a 32 bit float |
+| **uuid** | ? extends @Nullable Object |  | [optional] value must be a uuid |
+| **date** | ? extends @Nullable Object |  | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| **date-time** | ? extends @Nullable Object |  | [optional] value must conform to RFC-3339 date-time |
+| **number** | ? extends @Nullable Object |  | [optional] value must be int or float numeric |
+| **binary** | ? extends @Nullable Object |  | [optional] |
+| **int32** | ? extends @Nullable Object |  | [optional] value must be a 32 bit integer |
+| **int64** | ? extends @Nullable Object |  | [optional] value must be a 64 bit integer |
+| **double** | ? extends @Nullable Object |  | [optional] value must be a 64 bit float |
+| **float** | ? extends @Nullable Object |  | [optional] value must be a 32 bit float |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AnyTypeAndFormatMap
 public static class AnyTypeAndFormatMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AnyTypeAndFormatMap](#anytypeandformatmap) | of([Map<String, Object>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
-| Object | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
-| Object | binary()<br>[optional] |
-| Object | int32()<br>[optional] value must be a 32 bit integer |
-| Object | int64()<br>[optional] value must be a 64 bit integer |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
+| static [AnyTypeAndFormatMap](#anytypeandformatmap) | of([Map<String, ? extends @Nullable Object>](#anytypeandformatmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | date()<br>[optional] value must conform to RFC-3339 full-date YYYY-MM-DD |
+| @Nullable Object | binary()<br>[optional] |
+| @Nullable Object | int32()<br>[optional] value must be a 32 bit integer |
+| @Nullable Object | int64()<br>[optional] value must be a 64 bit integer |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["uuid"], instance["date-time"], instance["number"], instance["double"], instance["float"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## FloatSchema

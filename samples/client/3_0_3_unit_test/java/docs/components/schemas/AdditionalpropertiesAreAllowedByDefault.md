@@ -39,34 +39,34 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | validate([Map<String, Object>](#additionalpropertiesareallowedbydefaultmapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | validate([Map<String, ? extends @Nullable Object>](#additionalpropertiesareallowedbydefaultmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## AdditionalpropertiesAreAllowedByDefaultMapInput
 public class AdditionalpropertiesAreAllowedByDefaultMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **foo** | Object |  | [optional] |
-| **bar** | Object |  | [optional] |
+| **foo** | ? extends @Nullable Object |  | [optional] |
+| **bar** | ? extends @Nullable Object |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AdditionalpropertiesAreAllowedByDefaultMap
 public static class AdditionalpropertiesAreAllowedByDefaultMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | of([Map<String, Object>](#additionalpropertiesareallowedbydefaultmapinput) arg, SchemaConfiguration configuration) |
-| Object | foo()<br>[optional] |
-| Object | bar()<br>[optional] |
+| static [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | of([Map<String, ? extends @Nullable Object>](#additionalpropertiesareallowedbydefaultmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | foo()<br>[optional] |
+| @Nullable Object | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Bar

@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -14,6 +15,11 @@ import java.util.List;
 import java.util.Set;
 
 public class RequiredValidatorTest {
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
+    }
 
     @Test
     public void testCorrectPropertySucceeds() {
@@ -37,7 +43,7 @@ public class RequiredValidatorTest {
                 arg,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemas);
+        assertNull(pathToSchemas);
     }
 
     @Test
@@ -59,7 +65,7 @@ public class RequiredValidatorTest {
                 1,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemas);
+        assertNull(pathToSchemas);
     }
 
     @Test

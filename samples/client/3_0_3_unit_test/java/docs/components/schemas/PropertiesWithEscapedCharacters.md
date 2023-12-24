@@ -43,12 +43,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | validate([Map<String, Object>](#propertieswithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
+| static [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | validate([Map<String, ? extends @Nullable Object>](#propertieswithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## PropertiesWithEscapedCharactersMapInput
 public class PropertiesWithEscapedCharactersMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -65,15 +65,15 @@ A class that builds the Map input type
 
 ## PropertiesWithEscapedCharactersMap
 public static class PropertiesWithEscapedCharactersMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | of([Map<String, Object>](#propertieswithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["foo\nbar"], instance["foo\&quot;bar"], instance["foo\\bar"], instance["foo\rbar"], instance["foo\tbar"], instance["foo\fbar"],  |
+| static [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | of([Map<String, ? extends @Nullable Object>](#propertieswithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["foo\nbar"], instance["foo\&quot;bar"], instance["foo\\bar"], instance["foo\rbar"], instance["foo\tbar"], instance["foo\fbar"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foofbar

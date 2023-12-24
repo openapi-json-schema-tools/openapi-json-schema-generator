@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Tag.TagMap validatedPayload =
     Tag.Tag1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "id",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "name",
             "a"
         )
@@ -65,11 +65,11 @@ Tag.TagMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagMap](#tagmap) | validate([Map<String, Object>](#tagmapinput) arg, SchemaConfiguration configuration) |
+| static [TagMap](#tagmap) | validate([Map<String, ? extends @Nullable Object>](#tagmapinput) arg, SchemaConfiguration configuration) |
 
 ## TagMapInput
 public class TagMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -82,14 +82,14 @@ A class that builds the Map input type
 
 ## TagMap
 public static class TagMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagMap](#tagmap) | of([Map<String, Object>](#tagmapinput) arg, SchemaConfiguration configuration) |
+| static [TagMap](#tagmap) | of([Map<String, ? extends @Nullable Object>](#tagmapinput) arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | String | name()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

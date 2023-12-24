@@ -49,11 +49,11 @@ Void validatedPayload = Apple.Apple1.validate(
 Apple.AppleMap validatedPayload =
     Apple.Apple1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "cultivar",
             "IaQnEaqioxT	oASzjxaSH"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, String>(
             "origin",
             "IaQnEaqioxT	oASzjxaSH"
         )
@@ -73,11 +73,11 @@ Apple.AppleMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [AppleMap](#applemap) | validate([Map<String, Object>](#applemapinput) arg, SchemaConfiguration configuration) |
+| static [AppleMap](#applemap) | validate([Map<String, ? extends @Nullable Object>](#applemapinput) arg, SchemaConfiguration configuration) |
 
 ## AppleMapInput
 public class AppleMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -90,14 +90,14 @@ A class that builds the Map input type
 
 ## AppleMap
 public static class AppleMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AppleMap](#applemap) | of([Map<String, Object>](#applemapinput) arg, SchemaConfiguration configuration) |
+| static [AppleMap](#applemap) | of([Map<String, ? extends @Nullable Object>](#applemapinput) arg, SchemaConfiguration configuration) |
 | String | cultivar()<br> |
 | String | origin()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -1,6 +1,7 @@
 package org.openapijsonschematools.client.schemas.validation;
 
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 
 public class ExclusiveMinimumValidator implements KeywordValidator {
@@ -11,12 +12,7 @@ public class ExclusiveMinimumValidator implements KeywordValidator {
     }
 
     @Override
-    public Object getConstraint() {
-        return exclusiveMinimum;
-    }
-
-    @Override
-    public PathToSchemasMap validate(JsonSchema schema, Object arg, ValidationMetadata validationMetadata) {
+    public @Nullable PathToSchemasMap validate(JsonSchema schema, @Nullable Object arg, ValidationMetadata validationMetadata) {
         if (!(arg instanceof Number)) {
             return null;
         }

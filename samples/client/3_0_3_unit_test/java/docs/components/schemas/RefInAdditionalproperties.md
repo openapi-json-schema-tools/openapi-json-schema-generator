@@ -55,29 +55,29 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<String, Object>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
 
 ## RefInAdditionalpropertiesMapInput
 public class RefInAdditionalpropertiesMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
+| **anyStringName** | ? extends @Nullable Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## RefInAdditionalpropertiesMap
 public static class RefInAdditionalpropertiesMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | of([Map<String, Object>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
+| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | of([Map<String, ? extends @Nullable Object>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -12,6 +12,7 @@ import {{{packageName}}}.schemas.validation.NumberSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -22,7 +23,7 @@ import java.util.Set;
 import java.util.Map;
 
 public class Int64JsonSchema extends JsonSchema implements NumberSchemaValidator {
-    private static Int64JsonSchema instance;
+    private static @Nullable Int64JsonSchema instance = null;
 
     protected Int64JsonSchema() {
         super(new JsonSchemaInfo()
@@ -76,10 +77,10 @@ public class Int64JsonSchema extends JsonSchema implements NumberSchemaValidator
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof Number) {
             return getNewInstance((Number) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

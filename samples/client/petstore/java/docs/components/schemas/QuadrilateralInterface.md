@@ -40,12 +40,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | validate([Map<String, Object>](#quadrilateralinterfacemapinput) arg, SchemaConfiguration configuration) |
+| static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | validate([Map<String, ? extends @Nullable Object>](#quadrilateralinterfacemapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## QuadrilateralInterfaceMapInput
 public class QuadrilateralInterfaceMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -58,14 +58,14 @@ A class that builds the Map input type
 
 ## QuadrilateralInterfaceMap
 public static class QuadrilateralInterfaceMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | of([Map<String, Object>](#quadrilateralinterfacemapinput) arg, SchemaConfiguration configuration) |
+| static [QuadrilateralInterfaceMap](#quadrilateralinterfacemap) | of([Map<String, ? extends @Nullable Object>](#quadrilateralinterfacemapinput) arg, SchemaConfiguration configuration) |
 | String | quadrilateralType()<br> |
 | String | shapeType()<br> must be one of ["Quadrilateral"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

@@ -1,5 +1,6 @@
 package org.openapijsonschematools.client.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
@@ -21,6 +22,12 @@ public class FormatValidatorTest {
             new LinkedHashSet<>()
     );
 
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
+    }
+
     @Test
     public void testIntFormatSucceedsWithFloat() {
         final FormatValidator validator = new FormatValidator("int");
@@ -29,7 +36,7 @@ public class FormatValidatorTest {
                 1.0f,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -50,7 +57,7 @@ public class FormatValidatorTest {
                 1,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -71,7 +78,7 @@ public class FormatValidatorTest {
                 -2147483648,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -82,7 +89,7 @@ public class FormatValidatorTest {
                 2147483647,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -114,7 +121,7 @@ public class FormatValidatorTest {
                 -9223372036854775808L,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -125,7 +132,7 @@ public class FormatValidatorTest {
                 9223372036854775807L,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -157,7 +164,7 @@ public class FormatValidatorTest {
                 -3.4028234663852886e+38f,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -168,7 +175,7 @@ public class FormatValidatorTest {
                 3.4028234663852886e+38f,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -199,7 +206,7 @@ public class FormatValidatorTest {
                 -1.7976931348623157E+308d,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -210,7 +217,7 @@ public class FormatValidatorTest {
                 1.7976931348623157E+308d,
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -241,7 +248,7 @@ public class FormatValidatorTest {
                 "3.14",
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -252,7 +259,7 @@ public class FormatValidatorTest {
                 "1",
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -273,7 +280,7 @@ public class FormatValidatorTest {
                 "2017-01-20",
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 
     @Test
@@ -294,6 +301,6 @@ public class FormatValidatorTest {
                 "2017-07-21T17:32:28Z",
                 validationMetadata
         );
-        Assert.assertNull(pathToSchemasMap);
+        assertNull(pathToSchemasMap);
     }
 }

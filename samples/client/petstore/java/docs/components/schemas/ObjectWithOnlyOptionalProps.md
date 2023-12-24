@@ -44,11 +44,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalPropsMap validatedPayload =
     ObjectWithOnlyOptionalProps.ObjectWithOnlyOptionalProps1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "a",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "b",
             1
         )

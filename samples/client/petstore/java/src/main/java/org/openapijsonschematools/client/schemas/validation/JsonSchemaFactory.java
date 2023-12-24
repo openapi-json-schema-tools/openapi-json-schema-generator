@@ -1,5 +1,8 @@
 package org.openapijsonschematools.client.schemas.validation;
 
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
@@ -10,12 +13,16 @@ public class JsonSchemaFactory {
     static Map<Class<? extends JsonSchema>, JsonSchema> classToInstance = new HashMap<>();
 
     public static <V extends JsonSchema> V getInstance(Class<V> schemaCls) {
-        if (classToInstance.containsKey(schemaCls)) {
-            return (V) classToInstance.get(schemaCls);
+        @Nullable JsonSchema cacheInst = classToInstance.get(schemaCls);
+        if (cacheInst != null) {
+            assert schemaCls.isInstance(cacheInst);
+            return schemaCls.cast(cacheInst);
         }
         try {
             Method method = schemaCls.getMethod("getInstance");
-            V inst = (V) method.invoke(null);
+            @SuppressWarnings("nullness") @NonNull Object obj = method.invoke(null);
+            assert schemaCls.isInstance(obj);
+            V inst = schemaCls.cast(obj);
             classToInstance.put(schemaCls, inst);
             return inst;
         } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {

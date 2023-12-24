@@ -38,12 +38,12 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate([Map<String, Object>](#invalidstringvaluefordefaultmapinput) arg, SchemaConfiguration configuration) |
+| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate([Map<String, ? extends @Nullable Object>](#invalidstringvaluefordefaultmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## InvalidStringValueForDefaultMapInput
 public class InvalidStringValueForDefaultMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -55,14 +55,14 @@ A class that builds the Map input type
 
 ## InvalidStringValueForDefaultMap
 public static class InvalidStringValueForDefaultMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of([Map<String, Object>](#invalidstringvaluefordefaultmapinput) arg, SchemaConfiguration configuration) |
+| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of([Map<String, ? extends @Nullable Object>](#invalidstringvaluefordefaultmapinput) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] if omitted the server will use the default value of bad |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

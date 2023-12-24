@@ -47,27 +47,27 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Order.OrderMap validatedPayload =
     Order.Order1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "id",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "petId",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "quantity",
-            1
+            1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "shipDate",
             "1970-01-01T00:00:00.00Z"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "status",
             "placed"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "complete",
             true
         )
@@ -85,11 +85,11 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | validate([Map<String, Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| static [OrderMap](#ordermap) | validate([Map<String, ? extends @Nullable Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
 
 ## OrderMapInput
 public class OrderMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -106,14 +106,14 @@ A class that builds the Map input type
 
 ## OrderMap
 public static class OrderMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | of([Map<String, Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| static [OrderMap](#ordermap) | of([Map<String, ? extends @Nullable Object>](#ordermapinput) arg, SchemaConfiguration configuration) |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | long | petId()<br>[optional] value must be a 64 bit integer |
 | int | quantity()<br>[optional] value must be a 32 bit integer |

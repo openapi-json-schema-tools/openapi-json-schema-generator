@@ -55,28 +55,28 @@ RefInItems.RefInItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInItemsList](#refinitemslist) | validate([List<Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
+| static [RefInItemsList](#refinitemslist) | validate([List<? extends @Nullable Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
 
 ## RefInItemsListInput
 public class RefInItemsListInput<br>
-builder for `List<Object>`
+builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Object |  |
+? extends @Nullable Object |  |
 
 ## RefInItemsList
 public class RefInItemsList<br>
-extends `FrozenList<Object>`
+extends `FrozenList<@Nullable Object>`
 
 A class to store validated List payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInItemsList](#refinitemslist) | of([List<Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
+| static [RefInItemsList](#refinitemslist) | of([List<? extends @Nullable Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

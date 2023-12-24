@@ -55,18 +55,18 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<List>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
+| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<List<?>>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
 
 ## SelfReferencingArrayModelListInput
 public class SelfReferencingArrayModelListInput<br>
-builder for `List<List>`
+builder for `List<List<?>>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-List |  |
+List<?> |  |
 
 ## SelfReferencingArrayModelList
 public class SelfReferencingArrayModelList<br>
@@ -77,6 +77,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of([List<List>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
+| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | of([List<List<?>>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

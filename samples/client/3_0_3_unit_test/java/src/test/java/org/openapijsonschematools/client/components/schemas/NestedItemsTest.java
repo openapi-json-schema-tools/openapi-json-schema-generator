@@ -11,9 +11,11 @@ import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.AbstractMap;
 import java.util.LinkedHashSet;
 
@@ -32,7 +34,7 @@ public class NestedItemsTest {
         final var schema = NestedItems.NestedItems1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
+            Arrays.asList(
                 Arrays.asList(
                     Arrays.asList(
                         Arrays.asList(
@@ -41,27 +43,27 @@ public class NestedItemsTest {
                     ),
                     Arrays.asList(
                         Arrays.asList(
-                            2
+                            2L
                         ),
                         Arrays.asList(
-                            3
+                            3L
                         )
                     )
                 ),
                 Arrays.asList(
                     Arrays.asList(
                         Arrays.asList(
-                            4
+                            4L
                         ),
                         Arrays.asList(
-                            5
+                            5L
                         ),
                         Arrays.asList(
-                            6
+                            6L
                         )
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -72,30 +74,30 @@ public class NestedItemsTest {
         final var schema = NestedItems.NestedItems1.getInstance();
         Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
             schema,
-            new FrozenList<>(Arrays.asList(
+            Arrays.asList(
                 Arrays.asList(
                     Arrays.asList(
-                        1
+                        1L
                     ),
                     Arrays.asList(
-                        2
+                        2L
                     ),
                     Arrays.asList(
-                        3
+                        3L
                     )
                 ),
                 Arrays.asList(
                     Arrays.asList(
-                        4
+                        4L
                     ),
                     Arrays.asList(
-                        5
+                        5L
                     ),
                     Arrays.asList(
-                        6
+                        6L
                     )
                 )
-            )),
+            ),
             validationMetadata
         ));
     }
@@ -109,28 +111,28 @@ public class NestedItemsTest {
                 Arrays.asList(
                     Arrays.asList(
                         Arrays.asList(
-                            1
+                            1L
                         )
                     ),
                     Arrays.asList(
                         Arrays.asList(
-                            2
+                            2L
                         ),
                         Arrays.asList(
-                            3
+                            3L
                         )
                     )
                 ),
                 Arrays.asList(
                     Arrays.asList(
                         Arrays.asList(
-                            4
+                            4L
                         ),
                         Arrays.asList(
-                            5
+                            5L
                         ),
                         Arrays.asList(
-                            6
+                            6L
                         )
                     )
                 )

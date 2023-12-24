@@ -37,7 +37,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // long validation
 long validatedPayload = IntegerEnum.IntegerEnum1.validate(
-    0,
+    0L,
     configuration
 );
 ```

@@ -58,13 +58,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayTest.ArrayTestMap validatedPayload =
     ArrayTest.ArrayTest1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, List<?>>(
             "array_of_string",
             Arrays.asList(
                 "a"
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, List<?>>(
             "array_array_of_integer",
             Arrays.asList(
                 Arrays.asList(
@@ -72,16 +72,16 @@ ArrayTest.ArrayTestMap validatedPayload =
                 )
             )
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, List<?>>(
             "array_array_of_model",
             Arrays.asList(
                 Arrays.asList(
                     MapMaker.makeMap(
-                        new AbstractMap.SimpleEntry<>(
+                        new AbstractMap.SimpleEntry<String, String>(
                             "bar",
                             "a"
                         ),
-                        new AbstractMap.SimpleEntry<>(
+                        new AbstractMap.SimpleEntry<String, String>(
                             "baz",
                             "a"
                         )
@@ -103,11 +103,11 @@ ArrayTest.ArrayTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTestMap](#arraytestmap) | validate([Map<String, Object>](#arraytestmapinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTestMap](#arraytestmap) | validate([Map<String, ? extends @Nullable Object>](#arraytestmapinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayTestMapInput
 public class ArrayTestMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -116,19 +116,19 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **array_of_string** | List<String> |  | [optional] |
 | **array_array_of_integer** | List<List<long>> |  | [optional] |
-| **array_array_of_model** | List<List<Map<String, Object>>> |  | [optional] |
+| **array_array_of_model** | List<List<Map<String, ? extends @Nullable Object>>> |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ArrayTestMap
 public static class ArrayTestMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTestMap](#arraytestmap) | of([Map<String, Object>](#arraytestmapinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTestMap](#arraytestmap) | of([Map<String, ? extends @Nullable Object>](#arraytestmapinput) arg, SchemaConfiguration configuration) |
 | [ArrayOfStringList](#arrayofstringlist) | array_of_string()<br>[optional] |
 | [ArrayArrayOfIntegerList](#arrayarrayofintegerlist) | array_array_of_integer()<br>[optional] |
 | [ArrayArrayOfModelList](#arrayarrayofmodellist) | array_array_of_model()<br>[optional] |
@@ -161,11 +161,11 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
     Arrays.asList(
         Arrays.asList(
             MapMaker.makeMap(
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "bar",
                     "a"
                 ),
-                new AbstractMap.SimpleEntry<>(
+                new AbstractMap.SimpleEntry<String, String>(
                     "baz",
                     "a"
                 )
@@ -185,18 +185,18 @@ ArrayTest.ArrayArrayOfModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<List<Map<String, Object>>>](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | validate([List<List<Map<String, ? extends @Nullable Object>>>](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfModelListInput
 public class ArrayArrayOfModelListInput<br>
-builder for `List<List<Map<String, Object>>>`
+builder for `List<List<Map<String, ? extends @Nullable Object>>>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-List<Map<String, Object>> |  |
+List<Map<String, ? extends @Nullable Object>> |  |
 
 ## ArrayArrayOfModelList
 public class ArrayArrayOfModelList<br>
@@ -207,7 +207,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of([List<List<Map<String, Object>>>](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayArrayOfModelList](#arrayarrayofmodellist) | of([List<List<Map<String, ? extends @Nullable Object>>>](#arrayarrayofmodellistinput) arg, SchemaConfiguration configuration) |
 
 ## Items3
 public static class Items3<br>
@@ -235,11 +235,11 @@ ArrayTest.ItemsList1 validatedPayload =
     ArrayTest.Items3.validate(
     Arrays.asList(
         MapMaker.makeMap(
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, String>(
                 "bar",
                 "a"
             ),
-            new AbstractMap.SimpleEntry<>(
+            new AbstractMap.SimpleEntry<String, String>(
                 "baz",
                 "a"
             )
@@ -258,18 +258,18 @@ ArrayTest.ItemsList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | validate([List<Map<String, Object>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | validate([List<Map<String, ? extends @Nullable Object>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## ItemsListInput1
 public class ItemsListInput1<br>
-builder for `List<Map<String, Object>>`
+builder for `List<Map<String, ? extends @Nullable Object>>`
 
 A class that builds the List input type
 
 ## Input List Items
 List Item Type | Description | Notes
 -------------------- | ------------- | -------------
-Map<String, Object> |  |
+Map<String, ? extends @Nullable Object> |  |
 
 ## ItemsList1
 public class ItemsList1<br>
@@ -280,7 +280,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ItemsList1](#itemslist1) | of([List<Map<String, Object>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
+| static [ItemsList1](#itemslist1) | of([List<Map<String, ? extends @Nullable Object>>](#itemslistinput1) arg, SchemaConfiguration configuration) |
 
 ## ArrayArrayOfInteger
 public static class ArrayArrayOfInteger<br>

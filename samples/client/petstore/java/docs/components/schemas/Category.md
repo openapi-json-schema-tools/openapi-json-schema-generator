@@ -43,11 +43,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 Category.CategoryMap validatedPayload =
     Category.Category1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "name",
             "a"
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "id",
             1L
         )
@@ -66,11 +66,11 @@ Category.CategoryMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CategoryMap](#categorymap) | validate([Map<String, Object>](#categorymapinput) arg, SchemaConfiguration configuration) |
+| static [CategoryMap](#categorymap) | validate([Map<String, ? extends @Nullable Object>](#categorymapinput) arg, SchemaConfiguration configuration) |
 
 ## CategoryMapInput
 public class CategoryMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -83,14 +83,14 @@ A class that builds the Map input type
 
 ## CategoryMap
 public static class CategoryMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [CategoryMap](#categorymap) | of([Map<String, Object>](#categorymapinput) arg, SchemaConfiguration configuration) |
+| static [CategoryMap](#categorymap) | of([Map<String, ? extends @Nullable Object>](#categorymapinput) arg, SchemaConfiguration configuration) |
 | String | name()<br> if omitted the server will use the default value of default-name |
 | long | id()<br>[optional] value must be a 64 bit integer |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

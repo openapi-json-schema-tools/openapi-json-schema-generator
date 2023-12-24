@@ -65,35 +65,35 @@ AbstractStepMessage.AbstractStepMessageMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AbstractStepMessageMap](#abstractstepmessagemap) | validate([Map<String, Object>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
+| static [AbstractStepMessageMap](#abstractstepmessagemap) | validate([Map<String, ? extends @Nullable Object>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
 
 ## AbstractStepMessageMapInput
 public class AbstractStepMessageMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **description** | Object |  | |
+| **description** | ? extends @Nullable Object |  | |
 | **discriminator** | String |  | |
-| **sequenceNumber** | Object |  | |
+| **sequenceNumber** | ? extends @Nullable Object |  | |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## AbstractStepMessageMap
 public static class AbstractStepMessageMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AbstractStepMessageMap](#abstractstepmessagemap) | of([Map<String, Object>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
-| Object | description()<br> |
+| static [AbstractStepMessageMap](#abstractstepmessagemap) | of([Map<String, ? extends @Nullable Object>](#abstractstepmessagemapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | description()<br> |
 | String | discriminator()<br> |
-| Object | sequenceNumber()<br> |
+| @Nullable Object | sequenceNumber()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Discriminator

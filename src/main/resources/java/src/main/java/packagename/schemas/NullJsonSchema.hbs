@@ -11,6 +11,7 @@ import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.NullSchemaValidator;
 import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -21,7 +22,7 @@ import java.util.Objects;
 import java.util.Set;
 
 public class NullJsonSchema extends JsonSchema implements NullSchemaValidator {
-    private static NullJsonSchema instance;
+    private static @Nullable NullJsonSchema instance = null;
 
     protected NullJsonSchema() {
         super(new JsonSchemaInfo()
@@ -53,11 +54,11 @@ public class NullJsonSchema extends JsonSchema implements NullSchemaValidator {
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg == null) {
             return getNewInstance((Void) null, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }
 

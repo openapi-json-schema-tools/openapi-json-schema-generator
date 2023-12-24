@@ -10,16 +10,18 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
+import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
-public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Object, FrozenList<Object>> {
-    private static ListJsonSchema instance;
+public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<FrozenList<@Nullable Object>> {
+    private static @Nullable ListJsonSchema instance = null;
 
     protected ListJsonSchema() {
         super(new JsonSchemaInfo()
@@ -35,22 +37,25 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Ob
     }
 
     @Override
-    public FrozenList<Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        List<Object> items = new ArrayList<>();
+    public FrozenList<@Nullable Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        List<@Nullable Object> items = new ArrayList<>();
         int i = 0;
         for (Object item: arg) {
             List<Object> itemPathToItem = new ArrayList<>(pathToItem);
             itemPathToItem.add(i);
-            JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-            Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+            LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+            if (schemas == null) {
+                throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+            }
+            JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+            @Nullable Object castItem = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
             items.add(castItem);
             i += 1;
         }
         return new FrozenList<>(items);
     }
 
-    @Override
-    public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -63,10 +68,10 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Ob
     }
 
     @Override
-    public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+    public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
         if (arg instanceof List) {
             return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
         }
-        throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
     }
 }

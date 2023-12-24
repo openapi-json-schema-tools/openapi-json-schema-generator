@@ -7,9 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.IntJsonSchema;
@@ -28,11 +31,27 @@ public class PaginatedResultMyObjectDto {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
         // NotAnyTypeSchema
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
+            if (instance == null) {
+                instance = new AdditionalProperties();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Count extends IntJsonSchema {}
+    public static class Count extends IntJsonSchema {
+        private static @Nullable Count instance = null;
+        public static Count getInstance() {
+            if (instance == null) {
+                instance = new Count();
+            }
+            return instance;
+        }
+    }
     
     
     public static class ResultsList extends FrozenList<MyObjectDto.MyObjectDtoMap> {
@@ -49,8 +68,8 @@ public class PaginatedResultMyObjectDto {
     }
     
     
-    public static class Results extends JsonSchema implements ListSchemaValidator<Map<String, String>, ResultsList> {
-        private static Results instance;
+    public static class Results extends JsonSchema implements ListSchemaValidator<ResultsList> {
+        private static @Nullable Results instance = null;
     
         protected Results() {
             super(new JsonSchemaInfo()
@@ -73,16 +92,22 @@ public class PaginatedResultMyObjectDto {
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                MyObjectDto.MyObjectDtoMap castItem = (MyObjectDto.MyObjectDtoMap) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                if (!(itemInstance instanceof MyObjectDto.MyObjectDtoMap)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                items.add((MyObjectDto.MyObjectDtoMap) itemInstance);
                 i += 1;
             }
             FrozenList<MyObjectDto.MyObjectDtoMap> newInstanceItems = new FrozenList<>(items);
             return new ResultsList(newInstanceItems);
         }
         
-        @Override
         public ResultsList validate(List<Map<String, String>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -94,11 +119,11 @@ public class PaginatedResultMyObjectDto {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof List) {
                 return getNewInstance((List<?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
     
@@ -116,11 +141,19 @@ public class PaginatedResultMyObjectDto {
         }
         
         public long count() {
-            return (long) get("count");
+                        Object value = get("count");
+            if (!(value instanceof Long)) {
+                throw new InvalidTypeException("Invalid value stored for count");
+            }
+            return (long) value;
         }
         
         public ResultsList results() {
-            return (ResultsList) get("results");
+                        Object value = get("results");
+            if (!(value instanceof ResultsList)) {
+                throw new InvalidTypeException("Invalid value stored for results");
+            }
+            return (ResultsList) value;
         }
     }
     public static class PaginatedResultMyObjectDtoMapInput {
@@ -128,14 +161,14 @@ public class PaginatedResultMyObjectDto {
     }
     
     
-    public static class PaginatedResultMyObjectDto1 extends JsonSchema implements MapSchemaValidator<Object, PaginatedResultMyObjectDtoMap> {
+    public static class PaginatedResultMyObjectDto1 extends JsonSchema implements MapSchemaValidator<PaginatedResultMyObjectDtoMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static PaginatedResultMyObjectDto1 instance;
+        private static @Nullable PaginatedResultMyObjectDto1 instance = null;
     
         protected PaginatedResultMyObjectDto1() {
             super(new JsonSchemaInfo()
@@ -162,19 +195,29 @@ public class PaginatedResultMyObjectDto {
         public PaginatedResultMyObjectDtoMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                if (!(propertyInstance instanceof Object)) {
+                    throw new InvalidTypeException("Invalid instantiated value");
+                }
+                properties.put(propertyName, (Object) propertyInstance);
             }
             FrozenMap<Object> castProperties = new FrozenMap<>(properties);
             return new PaginatedResultMyObjectDtoMap(castProperties);
         }
         
-        @Override
         public PaginatedResultMyObjectDtoMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -187,11 +230,11 @@ public class PaginatedResultMyObjectDto {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

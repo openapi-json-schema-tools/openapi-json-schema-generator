@@ -7,10 +7,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.components.schemas.StringWithValidation;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.parameter0.Schema0;
 import org.openapijsonschematools.client.paths.faketestqueryparamters.put.parameters.parameter1.Schema1;
@@ -31,12 +34,20 @@ public class QueryParameters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class AdditionalProperties extends NotAnyTypeJsonSchema {}
+    public static class AdditionalProperties extends NotAnyTypeJsonSchema {
         // NotAnyTypeSchema
+        private static @Nullable AdditionalProperties instance = null;
+        public static AdditionalProperties getInstance() {
+            if (instance == null) {
+                instance = new AdditionalProperties();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class QueryParametersMap extends FrozenMap<Object> {
-        protected QueryParametersMap(FrozenMap<Object> m) {
+    public static class QueryParametersMap extends FrozenMap<@Nullable Object> {
+        protected QueryParametersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of(
@@ -48,32 +59,56 @@ public class QueryParameters {
             "url"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static QueryParametersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static QueryParametersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return QueryParameters1.getInstance().validate(arg, configuration);
         }
         
         public Schema4.SchemaList4 context() {
-            return (Schema4.SchemaList4) get("context");
+                        @Nullable Object value = get("context");
+            if (!(value instanceof Schema4.SchemaList4)) {
+                throw new InvalidTypeException("Invalid value stored for context");
+            }
+            return (Schema4.SchemaList4) value;
         }
         
         public Schema2.SchemaList2 http() {
-            return (Schema2.SchemaList2) get("http");
+                        @Nullable Object value = get("http");
+            if (!(value instanceof Schema2.SchemaList2)) {
+                throw new InvalidTypeException("Invalid value stored for http");
+            }
+            return (Schema2.SchemaList2) value;
         }
         
         public Schema1.SchemaList1 ioutil() {
-            return (Schema1.SchemaList1) get("ioutil");
+                        @Nullable Object value = get("ioutil");
+            if (!(value instanceof Schema1.SchemaList1)) {
+                throw new InvalidTypeException("Invalid value stored for ioutil");
+            }
+            return (Schema1.SchemaList1) value;
         }
         
         public Schema0.SchemaList0 pipe() {
-            return (Schema0.SchemaList0) get("pipe");
+                        @Nullable Object value = get("pipe");
+            if (!(value instanceof Schema0.SchemaList0)) {
+                throw new InvalidTypeException("Invalid value stored for pipe");
+            }
+            return (Schema0.SchemaList0) value;
         }
         
         public String refParam() {
-            return (String) get("refParam");
+                        @Nullable Object value = get("refParam");
+            if (!(value instanceof String)) {
+                throw new InvalidTypeException("Invalid value stored for refParam");
+            }
+            return (String) value;
         }
         
         public Schema3.SchemaList3 url() {
-            return (Schema3.SchemaList3) get("url");
+                        @Nullable Object value = get("url");
+            if (!(value instanceof Schema3.SchemaList3)) {
+                throw new InvalidTypeException("Invalid value stored for url");
+            }
+            return (Schema3.SchemaList3) value;
         }
     }
     public static class QueryParametersMapInput {
@@ -81,8 +116,8 @@ public class QueryParameters {
     }
     
     
-    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<Object, QueryParametersMap> {
-        private static QueryParameters1 instance;
+    public static class QueryParameters1 extends JsonSchema implements MapSchemaValidator<QueryParametersMap> {
+        private static @Nullable QueryParameters1 instance = null;
     
         protected QueryParameters1() {
             super(new JsonSchemaInfo()
@@ -115,22 +150,29 @@ public class QueryParameters {
         }
         
         public QueryParametersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new QueryParametersMap(castProperties);
         }
         
-        @Override
-        public QueryParametersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public QueryParametersMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -142,11 +184,11 @@ public class QueryParameters {
         
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 

@@ -38,32 +38,32 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<String, Object>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
+| static [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<String, ? extends @Nullable Object>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## ForbiddenPropertyMapInput
 public class ForbiddenPropertyMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **foo** | Object |  | [optional] |
+| **foo** | ? extends @Nullable Object |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ForbiddenPropertyMap
 public static class ForbiddenPropertyMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ForbiddenPropertyMap](#forbiddenpropertymap) | of([Map<String, Object>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
-| Object | foo()<br>[optional] |
+| static [ForbiddenPropertyMap](#forbiddenpropertymap) | of([Map<String, ? extends @Nullable Object>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## Foo

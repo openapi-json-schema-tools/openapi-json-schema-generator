@@ -42,12 +42,12 @@ model with an invalid class name for python, starts with a number
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema200ResponseMap](#schema200responsemap) | validate([Map<String, Object>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
+| static [Schema200ResponseMap](#schema200responsemap) | validate([Map<String, ? extends @Nullable Object>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
 
 ## Schema200ResponseMapInput
 public class Schema200ResponseMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -60,16 +60,16 @@ A class that builds the Map input type
 
 ## Schema200ResponseMap
 public static class Schema200ResponseMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema200ResponseMap](#schema200responsemap) | of([Map<String, Object>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
+| static [Schema200ResponseMap](#schema200responsemap) | of([Map<String, ? extends @Nullable Object>](#schema200responsemapinput) arg, SchemaConfiguration configuration) |
 | int | name()<br>[optional] value must be a 32 bit integer |
-| Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["class"],  |
+| @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["class"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## ClassSchema

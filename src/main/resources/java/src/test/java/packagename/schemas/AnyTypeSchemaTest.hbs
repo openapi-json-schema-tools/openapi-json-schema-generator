@@ -1,10 +1,10 @@
 package {{{packageName}}}.schemas;
 
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.junit.Assert;
 import org.junit.Test;
 import {{{packageName}}}.configurations.JsonSchemaKeywordFlags;
 import {{{packageName}}}.configurations.SchemaConfiguration;
-import {{{packageName}}}.schemas.validation.JsonSchemaFactory;
 import {{{packageName}}}.schemas.validation.FrozenList;
 import {{{packageName}}}.schemas.validation.FrozenMap;
 
@@ -19,10 +19,16 @@ public class AnyTypeSchemaTest {
     static final AnyTypeJsonSchema schema = AnyTypeJsonSchema.getInstance();
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
 
+    @SuppressWarnings("nullness")
+    private Void assertNull(@Nullable Object object) {
+        Assert.assertNull(object);
+        return null;
+    }
+
     @Test
     public void testValidateNull() {
         Void validatedValue = schema.validate((Void) null, configuration);
-        Assert.assertNull(validatedValue);
+        assertNull(validatedValue);
     }
 
     @Test

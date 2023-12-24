@@ -46,11 +46,11 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
     PaginatedResultMyObjectDto.PaginatedResultMyObjectDto1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "count",
             1L
         ),
-        new AbstractMap.SimpleEntry<>(
+        new AbstractMap.SimpleEntry<String, Object>(
             "results",
             Arrays.asList(
             )

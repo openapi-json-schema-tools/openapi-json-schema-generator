@@ -61,11 +61,11 @@ ObjWithRequiredPropsBase.ObjWithRequiredPropsBaseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<String, Object>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
+| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | validate([Map<String, ? extends @Nullable Object>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
 
 ## ObjWithRequiredPropsBaseMapInput
 public class ObjWithRequiredPropsBaseMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -77,14 +77,14 @@ A class that builds the Map input type
 
 ## ObjWithRequiredPropsBaseMap
 public static class ObjWithRequiredPropsBaseMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of([Map<String, Object>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
+| static [ObjWithRequiredPropsBaseMap](#objwithrequiredpropsbasemap) | of([Map<String, ? extends @Nullable Object>](#objwithrequiredpropsbasemapinput) arg, SchemaConfiguration configuration) |
 | String | b()<br> |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

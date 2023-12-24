@@ -50,13 +50,34 @@
                     <fork>true</fork>
                     <meminitial>128m</meminitial>
                     <maxmem>512m</maxmem>
-                    <compilerArgs>
-                        <arg>-Xlint:all</arg>
+                    <compilerArgument>-Xlint:all</compilerArgument>
+                    <compilerArgs combine.children="append">
+                        <arg>-Awarns</arg>
                         <arg>-J-Xss4m</arg><!-- Compiling the generated JSON.java file may require larger stack size. -->
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.main=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.model=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.processing=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED</arg>
+                        <arg>-J--add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED</arg>
+                        <arg>-J--add-opens=jdk.compiler/com.sun.tools.javac.comp=ALL-UNNAMED</arg>
                     </compilerArgs>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.checkerframework</groupId>
+                            <artifactId>checker</artifactId>
+                            <version>${checker-version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    <annotationProcessors>
+                        <annotationProcessor>
+                            org.checkerframework.checker.nullness.NullnessChecker
+                        </annotationProcessor>
+                    </annotationProcessors>
                 </configuration>
             </plugin>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
@@ -220,13 +241,17 @@
             <version>${swagger-annotations-version}</version>
         </dependency>
 
-        <!-- @Nullable annotation -->
+        <!-- @Nullable annotations -->
         <dependency>
-            <groupId>com.google.code.findbugs</groupId>
-            <artifactId>jsr305</artifactId>
-            <version>3.0.2</version>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker-qual</artifactId>
+            <version>${checker-version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker</artifactId>
+            <version>${checker-version}</version>
+        </dependency>
 
         <!-- HTTP client: jersey-client -->
         <dependency>
@@ -317,6 +342,7 @@
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger-annotations-version>1.6.3</swagger-annotations-version>
+        <checker-version>3.34.0</checker-version>
         <jersey-version>1.19.4</jersey-version>
         <jackson-version>2.12.6</jackson-version>
         <jackson-databind-version>2.12.6.1</jackson-databind-version>

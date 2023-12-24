@@ -61,11 +61,11 @@ DanishPig.DanishPigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DanishPigMap](#danishpigmap) | validate([Map<String, Object>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
+| static [DanishPigMap](#danishpigmap) | validate([Map<String, ? extends @Nullable Object>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
 
 ## DanishPigMapInput
 public class DanishPigMapInput<br>
-builder for `Map<String, Object>`
+builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
 
@@ -77,14 +77,14 @@ A class that builds the Map input type
 
 ## DanishPigMap
 public static class DanishPigMap<br>
-extends FrozenMap<String, Object>
+extends FrozenMap<String, @Nullable Object>
 
 A class to store validated Map payloads
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DanishPigMap](#danishpigmap) | of([Map<String, Object>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
+| static [DanishPigMap](#danishpigmap) | of([Map<String, ? extends @Nullable Object>](#danishpigmapinput) arg, SchemaConfiguration configuration) |
 | String | className()<br> must be one of ["DanishPig"] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

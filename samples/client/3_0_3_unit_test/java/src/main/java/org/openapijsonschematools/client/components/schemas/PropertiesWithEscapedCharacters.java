@@ -10,9 +10,13 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
+import org.openapijsonschematools.client.exceptions.InvalidAdditionalPropertyException;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
+import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.NumberJsonSchema;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
@@ -33,26 +37,74 @@ public class PropertiesWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     
-    public static class Foonbar extends NumberJsonSchema {}
+    public static class Foonbar extends NumberJsonSchema {
+        private static @Nullable Foonbar instance = null;
+        public static Foonbar getInstance() {
+            if (instance == null) {
+                instance = new Foonbar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foobar extends NumberJsonSchema {}
+    public static class Foobar extends NumberJsonSchema {
+        private static @Nullable Foobar instance = null;
+        public static Foobar getInstance() {
+            if (instance == null) {
+                instance = new Foobar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foobar1 extends NumberJsonSchema {}
+    public static class Foobar1 extends NumberJsonSchema {
+        private static @Nullable Foobar1 instance = null;
+        public static Foobar1 getInstance() {
+            if (instance == null) {
+                instance = new Foobar1();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foorbar extends NumberJsonSchema {}
+    public static class Foorbar extends NumberJsonSchema {
+        private static @Nullable Foorbar instance = null;
+        public static Foorbar getInstance() {
+            if (instance == null) {
+                instance = new Foorbar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Footbar extends NumberJsonSchema {}
+    public static class Footbar extends NumberJsonSchema {
+        private static @Nullable Footbar instance = null;
+        public static Footbar getInstance() {
+            if (instance == null) {
+                instance = new Footbar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class Foofbar extends NumberJsonSchema {}
+    public static class Foofbar extends NumberJsonSchema {
+        private static @Nullable Foofbar instance = null;
+        public static Foofbar getInstance() {
+            if (instance == null) {
+                instance = new Foofbar();
+            }
+            return instance;
+        }
+    }
     
     
-    public static class PropertiesWithEscapedCharactersMap extends FrozenMap<Object> {
-        protected PropertiesWithEscapedCharactersMap(FrozenMap<Object> m) {
+    public static class PropertiesWithEscapedCharactersMap extends FrozenMap<@Nullable Object> {
+        protected PropertiesWithEscapedCharactersMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
@@ -64,11 +116,11 @@ public class PropertiesWithEscapedCharacters {
             "foo\tbar",
             "foo\fbar"
         );
-        public static PropertiesWithEscapedCharactersMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PropertiesWithEscapedCharactersMap of(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return PropertiesWithEscapedCharacters1.getInstance().validate(arg, configuration);
         }
         
-        public Object getAdditionalProperty(String name) {
+        public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
             throwIfKeyNotPresent(name);
             return get(name);
@@ -79,14 +131,14 @@ public class PropertiesWithEscapedCharacters {
     }
     
     
-    public static class PropertiesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<Object, FrozenList<Object>>, MapSchemaValidator<Object, PropertiesWithEscapedCharactersMap> {
+    public static class PropertiesWithEscapedCharacters1 extends JsonSchema implements NullSchemaValidator, BooleanSchemaValidator, NumberSchemaValidator, StringSchemaValidator, ListSchemaValidator<FrozenList<@Nullable Object>>, MapSchemaValidator<PropertiesWithEscapedCharactersMap> {
         /*
         NOTE: This class is auto generated by OpenAPI JSON Schema Generator.
         Ref: https://github.com/openapi-json-schema-tools/openapi-json-schema-generator
     
         Do not edit the class manually.
         */
-        private static PropertiesWithEscapedCharacters1 instance;
+        private static @Nullable PropertiesWithEscapedCharacters1 instance = null;
     
         protected PropertiesWithEscapedCharacters1() {
             super(new JsonSchemaInfo()
@@ -189,23 +241,26 @@ public class PropertiesWithEscapedCharacters {
         }
         
         @Override
-        public FrozenList<Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            List<Object> items = new ArrayList<>();
+        public FrozenList<@Nullable Object> getNewInstance(List<?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+            List<@Nullable Object> items = new ArrayList<>();
             int i = 0;
             for (Object item: arg) {
                 List<Object> itemPathToItem = new ArrayList<>(pathToItem);
                 itemPathToItem.add(i);
-                JsonSchema itemSchema = pathToSchemas.get(itemPathToItem).entrySet().iterator().next().getKey();
-                Object castItem = (Object) itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
-                items.add(castItem);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(itemPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema itemSchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object itemInstance = itemSchema.getNewInstance(item, itemPathToItem, pathToSchemas);
+                items.add(itemInstance);
                 i += 1;
             }
-            FrozenList<Object> newInstanceItems = new FrozenList<>(items);
+            FrozenList<@Nullable Object> newInstanceItems = new FrozenList<>(items);
             return newInstanceItems;
         }
         
-        @Override
-        public FrozenList<Object> validate(List<Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -217,22 +272,29 @@ public class PropertiesWithEscapedCharacters {
         
         @Override
         public PropertiesWithEscapedCharactersMap getNewInstance(Map<?, ?> arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-            LinkedHashMap<String, Object> properties = new LinkedHashMap<>();
+            LinkedHashMap<String, @Nullable Object> properties = new LinkedHashMap<>();
             for(Map.Entry<?, ?> entry: arg.entrySet()) {
-                String propertyName = (String) entry.getKey();
+                @Nullable Object entryKey = entry.getKey();
+                if (!(entryKey instanceof String)) {
+                    throw new InvalidTypeException("Invalid non-string key value");
+                }
+                String propertyName = (String) entryKey;
                 List<Object> propertyPathToItem = new ArrayList<>(pathToItem);
                 propertyPathToItem.add(propertyName);
                 Object value = entry.getValue();
-                JsonSchema propertySchema = pathToSchemas.get(propertyPathToItem).entrySet().iterator().next().getKey();
-                Object castValue = (Object) propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
-                properties.put(propertyName, castValue);
+                LinkedHashMap<JsonSchema, Void> schemas = pathToSchemas.get(propertyPathToItem);
+                if (schemas == null) {
+                    throw new InvalidTypeException("Validation result is invalid, schemas must exist for a pathToItem");
+                }
+                JsonSchema propertySchema = schemas.entrySet().iterator().next().getKey();
+                @Nullable Object propertyInstance = propertySchema.getNewInstance(value, propertyPathToItem, pathToSchemas);
+                properties.put(propertyName, propertyInstance);
             }
-            FrozenMap<Object> castProperties = new FrozenMap<>(properties);
+            FrozenMap<@Nullable Object> castProperties = new FrozenMap<>(properties);
             return new PropertiesWithEscapedCharactersMap(castProperties);
         }
         
-        @Override
-        public PropertiesWithEscapedCharactersMap validate(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PropertiesWithEscapedCharactersMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
@@ -245,7 +307,7 @@ public class PropertiesWithEscapedCharacters {
         }
         
         @Override
-        public Object getNewInstance(Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
+        public @Nullable Object getNewInstance(@Nullable Object arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
             if (arg == null) {
                 return getNewInstance((Void) null, pathToItem, pathToSchemas);
             } else if (arg instanceof Boolean) {
@@ -260,7 +322,7 @@ public class PropertiesWithEscapedCharacters {
             } else if (arg instanceof Map) {
                 return getNewInstance((Map<?, ?>) arg, pathToItem, pathToSchemas);
             }
-            throw new InvalidTypeException("Invalid input type="+arg.getClass()+". It can't be instantiated by this schema");
+            throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }
 }
