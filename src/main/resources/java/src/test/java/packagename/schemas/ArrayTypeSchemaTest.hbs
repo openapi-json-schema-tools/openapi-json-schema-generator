@@ -61,7 +61,7 @@ public class ArrayTypeSchemaTest {
             return new FrozenList<>(items);
         }
 
-        public FrozenList<String> validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public FrozenList<String> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -122,7 +122,7 @@ public class ArrayTypeSchemaTest {
             return new ArrayWithOutputClsSchemaList(newInstanceItems);
         }
 
-        public ArrayWithOutputClsSchemaList validate(List<String> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public ArrayWithOutputClsSchemaList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

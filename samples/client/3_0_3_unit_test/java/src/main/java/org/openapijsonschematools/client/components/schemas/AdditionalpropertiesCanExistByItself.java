@@ -111,7 +111,7 @@ public class AdditionalpropertiesCanExistByItself {
             return new AdditionalpropertiesCanExistByItselfMap(castProperties);
         }
         
-        public AdditionalpropertiesCanExistByItselfMap validate(Map<String, Boolean> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public AdditionalpropertiesCanExistByItselfMap validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

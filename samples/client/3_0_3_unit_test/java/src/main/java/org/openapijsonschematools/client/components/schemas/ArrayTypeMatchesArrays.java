@@ -93,7 +93,7 @@ public class ArrayTypeMatchesArrays {
             return new ArrayTypeMatchesArraysList(newInstanceItems);
         }
         
-        public ArrayTypeMatchesArraysList validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public ArrayTypeMatchesArraysList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

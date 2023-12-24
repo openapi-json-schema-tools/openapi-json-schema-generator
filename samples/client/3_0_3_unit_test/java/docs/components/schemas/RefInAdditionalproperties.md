@@ -55,7 +55,7 @@ RefInAdditionalproperties.RefInAdditionalpropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<String, ? extends @Nullable Object>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| static [RefInAdditionalpropertiesMap](#refinadditionalpropertiesmap) | validate([Map<String, ?>](#refinadditionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
 
 ## RefInAdditionalpropertiesMapInput
 public class RefInAdditionalpropertiesMapInput<br>

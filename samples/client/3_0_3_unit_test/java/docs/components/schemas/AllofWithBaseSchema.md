@@ -48,8 +48,8 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | validate([Map<String, ? extends @Nullable Object>](#allofwithbaseschemamapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [AllofWithBaseSchemaMap](#allofwithbaseschemamap) | validate([Map<String, ?>](#allofwithbaseschemamapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 
 ## AllofWithBaseSchemaMapInput
 public class AllofWithBaseSchemaMapInput<br>
@@ -108,8 +108,8 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema1Map](#schema1map) | validate([Map<String, ? extends @Nullable Object>](#schema1mapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema1Map](#schema1map) | validate([Map<String, ?>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 
 ## Schema1MapInput
 public class Schema1MapInput<br>
@@ -168,8 +168,8 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [Schema0Map](#schema0map) | validate([Map<String, ? extends @Nullable Object>](#schema0mapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [Schema0Map](#schema0map) | validate([Map<String, ?>](#schema0mapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 
 ## Schema0MapInput
 public class Schema0MapInput<br>

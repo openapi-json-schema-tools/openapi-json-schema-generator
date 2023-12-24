@@ -59,7 +59,7 @@ AdditionalpropertiesAllowsASchemaWhichShouldValidate.AdditionalpropertiesAllowsA
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<String, ? extends @Nullable Object>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
+| static [AdditionalpropertiesAllowsASchemaWhichShouldValidateMap](#additionalpropertiesallowsaschemawhichshouldvalidatemap) | validate([Map<String, ?>](#additionalpropertiesallowsaschemawhichshouldvalidatemapinput) arg, SchemaConfiguration configuration) |
 
 ## AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput
 public class AdditionalpropertiesAllowsASchemaWhichShouldValidateMapInput<br>

@@ -94,7 +94,7 @@ public class RefInAdditionalproperties {
             return new RefInAdditionalpropertiesMap(castProperties);
         }
         
-        public RefInAdditionalpropertiesMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public RefInAdditionalpropertiesMap validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

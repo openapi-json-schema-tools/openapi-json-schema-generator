@@ -84,7 +84,7 @@ public class RefInItems {
             return new RefInItemsList(newInstanceItems);
         }
         
-        public RefInItemsList validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public RefInItemsList validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

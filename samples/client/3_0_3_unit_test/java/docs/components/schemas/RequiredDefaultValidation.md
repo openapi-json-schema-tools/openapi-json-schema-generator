@@ -38,8 +38,8 @@ A schema class that validates payloads
 | static float | validate(float arg, SchemaConfiguration configuration) |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate([Map<String, ? extends @Nullable Object>](#requireddefaultvalidationmapinput) arg, SchemaConfiguration configuration) |
-| FrozenList<Object> | validate(List<Object> arg, SchemaConfiguration configuration) |
+| static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate([Map<String, ?>](#requireddefaultvalidationmapinput) arg, SchemaConfiguration configuration) |
+| FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 
 ## RequiredDefaultValidationMapInput
 public class RequiredDefaultValidationMapInput<br>

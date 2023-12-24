@@ -195,7 +195,7 @@ public class PropertyNamedRefThatIsNotAReference {
             return newInstanceItems;
         }
         
-        public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
@@ -229,7 +229,7 @@ public class PropertyNamedRefThatIsNotAReference {
             return new PropertyNamedRefThatIsNotAReferenceMap(castProperties);
         }
         
-        public PropertyNamedRefThatIsNotAReferenceMap validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+        public PropertyNamedRefThatIsNotAReferenceMap validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = new ArrayList<>();
             pathToItem.add("args[0]");
