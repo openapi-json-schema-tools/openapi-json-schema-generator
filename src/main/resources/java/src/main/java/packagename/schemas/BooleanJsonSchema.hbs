@@ -6,18 +6,14 @@ import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.BooleanSchemaValidator;
-import {{{packageName}}}.schemas.validation.TypeValidator;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -38,11 +34,6 @@ public class BooleanJsonSchema extends JsonSchema implements BooleanSchemaValida
     }
 
     @Override
-    public boolean getNewInstance(boolean arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
-    }
-
-    @Override
     public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
@@ -60,5 +51,14 @@ public class BooleanJsonSchema extends JsonSchema implements BooleanSchemaValida
             return getNewInstance(boolArg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+    }
+
+    @Override
+    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        if (arg instanceof Boolean) {
+            boolean boolArg = (Boolean) arg;
+            return validate(boolArg, configuration);
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
     }
 }
