@@ -98,7 +98,7 @@ public class HealthCheckResult {
             String key = "NullableMessage";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
+            if (!(value == null || value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for NullableMessage");
             }
             return (@Nullable String) value;

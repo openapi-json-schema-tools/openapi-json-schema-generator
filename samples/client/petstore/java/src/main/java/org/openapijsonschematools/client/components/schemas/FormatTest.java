@@ -844,7 +844,7 @@ public class FormatTest {
             String key = "noneProp";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Void)) {
+            if (!(value == null || value instanceof Void)) {
                 throw new InvalidTypeException("Invalid value stored for noneProp");
             }
             return (Void) value;

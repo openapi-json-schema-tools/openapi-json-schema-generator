@@ -549,7 +549,7 @@ public class User {
             String key = "objectWithNoDeclaredPropsNullable";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof FrozenMap<?>)) {
+            if (!(value == null || value instanceof FrozenMap<?>)) {
                 throw new InvalidTypeException("Invalid value stored for objectWithNoDeclaredPropsNullable");
             }
             return (@Nullable FrozenMap<?>) value;

@@ -1342,7 +1342,7 @@ public class NullableClass {
             String key = "integer_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Long)) {
+            if (!(value == null || value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for integer_prop");
             }
             return (@Nullable Long) value;
@@ -1352,7 +1352,7 @@ public class NullableClass {
             String key = "number_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Number)) {
+            if (!(value == null || value instanceof Number)) {
                 throw new InvalidTypeException("Invalid value stored for number_prop");
             }
             return (@Nullable Number) value;
@@ -1362,7 +1362,7 @@ public class NullableClass {
             String key = "boolean_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof Boolean)) {
+            if (!(value == null || value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for boolean_prop");
             }
             return (@Nullable Boolean) value;
@@ -1372,7 +1372,7 @@ public class NullableClass {
             String key = "string_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
+            if (!(value == null || value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for string_prop");
             }
             return (@Nullable String) value;
@@ -1382,7 +1382,7 @@ public class NullableClass {
             String key = "date_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
+            if (!(value == null || value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for date_prop");
             }
             return (@Nullable String) value;
@@ -1392,7 +1392,7 @@ public class NullableClass {
             String key = "datetime_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof String)) {
+            if (!(value == null || value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for datetime_prop");
             }
             return (@Nullable String) value;
@@ -1402,7 +1402,7 @@ public class NullableClass {
             String key = "array_nullable_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof ArrayNullablePropList)) {
+            if (!(value == null || value instanceof ArrayNullablePropList)) {
                 throw new InvalidTypeException("Invalid value stored for array_nullable_prop");
             }
             return (@Nullable ArrayNullablePropList) value;
@@ -1412,7 +1412,7 @@ public class NullableClass {
             String key = "array_and_items_nullable_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof ArrayAndItemsNullablePropList)) {
+            if (!(value == null || value instanceof ArrayAndItemsNullablePropList)) {
                 throw new InvalidTypeException("Invalid value stored for array_and_items_nullable_prop");
             }
             return (@Nullable ArrayAndItemsNullablePropList) value;
@@ -1432,7 +1432,7 @@ public class NullableClass {
             String key = "object_nullable_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof ObjectNullablePropMap)) {
+            if (!(value == null || value instanceof ObjectNullablePropMap)) {
                 throw new InvalidTypeException("Invalid value stored for object_nullable_prop");
             }
             return (@Nullable ObjectNullablePropMap) value;
@@ -1442,7 +1442,7 @@ public class NullableClass {
             String key = "object_and_items_nullable_prop";
             throwIfKeyNotPresent(key);
             @Nullable Object value = get(key);
-            if (!(value instanceof ObjectAndItemsNullablePropMap)) {
+            if (!(value == null || value instanceof ObjectAndItemsNullablePropMap)) {
                 throw new InvalidTypeException("Invalid value stored for object_and_items_nullable_prop");
             }
             return (@Nullable ObjectAndItemsNullablePropMap) value;
