@@ -5,62 +5,63 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.MapMaker;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
-import java.util.LinkedHashSet;
 
 public class IntegerTypeMatchesIntegersTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
-            configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
 
     @Test
     public void testAnObjectIsNotAnIntegerFails() {
         // an object is not an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            MapMaker.makeMap(
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                MapMaker.makeMap(
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnArrayIsNotAnIntegerFails() {
         // an array is not an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                Arrays.asList(
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testNullIsNotAnIntegerFails() {
         // null is not an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            (Void) null,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                (Void) null,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -77,33 +78,45 @@ public class IntegerTypeMatchesIntegersTest {
     public void testABooleanIsNotAnIntegerFails() {
         // a boolean is not an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            true,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                true,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAStringIsStillNotAnIntegerEvenIfItLooksLikeOneFails() {
         // a string is still not an integer, even if it looks like one
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            "1",
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                "1",
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAStringIsNotAnIntegerFails() {
         // a string is not an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            "foo",
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                "foo",
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -120,10 +133,14 @@ public class IntegerTypeMatchesIntegersTest {
     public void testAFloatIsNotAnIntegerFails() {
         // a float is not an integer
         final var schema = IntegerTypeMatchesIntegers.IntegerTypeMatchesIntegers1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            1.1d,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                1.1d,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 }

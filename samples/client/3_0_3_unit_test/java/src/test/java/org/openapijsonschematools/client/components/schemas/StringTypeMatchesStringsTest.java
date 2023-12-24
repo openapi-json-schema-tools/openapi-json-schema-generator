@@ -5,28 +5,17 @@ import org.junit.Test;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.ValidationException;
+import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.MapMaker;
-import org.openapijsonschematools.client.schemas.validation.JsonSchema;
-import org.openapijsonschematools.client.schemas.validation.FrozenMap;
-import org.openapijsonschematools.client.schemas.validation.FrozenList;
-import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
-import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.AbstractMap;
-import java.util.LinkedHashSet;
 
 public class StringTypeMatchesStringsTest {
     static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone());
-    static final ValidationMetadata validationMetadata = new ValidationMetadata(
-            List.of("args[0"),
-            configuration,
-            new PathToSchemasMap(),
-            new LinkedHashSet<>()
-    );
 
     @Test
     public void testAStringIsStillAStringEvenIfItLooksLikeANumberPasses() {
@@ -42,22 +31,30 @@ public class StringTypeMatchesStringsTest {
     public void test1IsNotAStringFails() {
         // 1 is not a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            1L,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                1L,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testABooleanIsNotAStringFails() {
         // a boolean is not a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            true,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                true,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -74,35 +71,47 @@ public class StringTypeMatchesStringsTest {
     public void testAnArrayIsNotAStringFails() {
         // an array is not a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            Arrays.asList(
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                Arrays.asList(
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testAnObjectIsNotAStringFails() {
         // an object is not a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            MapMaker.makeMap(
-            ),
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                MapMaker.makeMap(
+                ),
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
     public void testNullIsNotAStringFails() {
         // null is not a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            (Void) null,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                (Void) null,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 
     @Test
@@ -119,10 +128,14 @@ public class StringTypeMatchesStringsTest {
     public void testAFloatIsNotAStringFails() {
         // a float is not a string
         final var schema = StringTypeMatchesStrings.StringTypeMatchesStrings1.getInstance();
-        Assert.assertThrows(ValidationException.class, () -> JsonSchema.validate(
-            schema,
-            1.1d,
-            validationMetadata
-        ));
+        try {
+            schema.validate(
+                1.1d,
+                configuration
+            );
+            throw new RuntimeException("A different exception must be thrown");
+        } catch (ValidationException | InvalidTypeException ignored) {
+            ;
+        }
     }
 }
