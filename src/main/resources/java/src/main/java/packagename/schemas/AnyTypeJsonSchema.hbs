@@ -143,7 +143,7 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
         return new FrozenList<>(items);
     }
 
-    public FrozenList<@Nullable Object> validate(List<? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");
@@ -178,7 +178,7 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
         return new FrozenMap<>(properties);
     }
 
-    public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenMap<@Nullable Object> validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = new ArrayList<>();
         pathToItem.add("args[0]");

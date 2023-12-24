@@ -60,7 +60,7 @@ public class MapJsonSchema extends JsonSchema implements MapSchemaValidator<Froz
         return new FrozenMap<>(properties);
     }
 
-    public FrozenMap<@Nullable Object> validate(Map<String, ? extends @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
+    public FrozenMap<@Nullable Object> validate(Map<String, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0");
         Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
