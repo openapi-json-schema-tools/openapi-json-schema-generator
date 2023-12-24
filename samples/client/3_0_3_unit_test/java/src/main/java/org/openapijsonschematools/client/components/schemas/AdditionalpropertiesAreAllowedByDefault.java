@@ -73,15 +73,11 @@ public class AdditionalpropertiesAreAllowedByDefault {
         }
         
         public @Nullable Object foo() throws UnsetPropertyException {
-            String key = "foo";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("foo");
         }
         
         public @Nullable Object bar() throws UnsetPropertyException {
-            String key = "bar";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("bar");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

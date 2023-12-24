@@ -76,21 +76,16 @@ public class AdditionalpropertiesAllowsASchemaWhichShouldValidate {
         }
         
         public @Nullable Object foo() throws UnsetPropertyException {
-            String key = "foo";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("foo");
         }
         
         public @Nullable Object bar() throws UnsetPropertyException {
-            String key = "bar";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("bar");
         }
         
         public boolean getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
             throwIfKeyKnown(name, requiredKeys, optionalKeys);
-            throwIfKeyNotPresent(name);
-                        @Nullable Object value = get(name);
+            var value = getOrThrow(name);
             if (!(value instanceof Boolean)) {
                 throw new InvalidTypeException("Invalid value stored for " + name);
             }

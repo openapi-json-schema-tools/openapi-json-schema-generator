@@ -49,11 +49,11 @@ public class OneofWithRequired {
         }
         
         public @Nullable Object bar() {
-            return get("bar");
+            return getOrThrow("bar");
         }
         
         public @Nullable Object foo() {
-            return get("foo");
+            return getOrThrow("foo");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {
@@ -266,11 +266,11 @@ public class OneofWithRequired {
         }
         
         public @Nullable Object baz() {
-            return get("baz");
+            return getOrThrow("baz");
         }
         
         public @Nullable Object foo() {
-            return get("foo");
+            return getOrThrow("foo");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

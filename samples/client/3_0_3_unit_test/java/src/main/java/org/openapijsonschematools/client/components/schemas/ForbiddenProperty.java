@@ -63,9 +63,7 @@ public class ForbiddenProperty {
         }
         
         public @Nullable Object foo() throws UnsetPropertyException {
-            String key = "foo";
-            throwIfKeyNotPresent(key);
-            return get(key);
+            return getOrThrow("foo");
         }
         
         public @Nullable Object getAdditionalProperty(String name) throws UnsetPropertyException, InvalidAdditionalPropertyException {

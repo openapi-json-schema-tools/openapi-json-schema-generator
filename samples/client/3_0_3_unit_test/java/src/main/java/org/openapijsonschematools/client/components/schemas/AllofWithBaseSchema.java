@@ -293,7 +293,7 @@ public class AllofWithBaseSchema {
         
         public Void baz() {
                         @Nullable Object value = get("baz");
-            if (!(value instanceof Void)) {
+            if (!(value == null || value instanceof Void)) {
                 throw new InvalidTypeException("Invalid value stored for baz");
             }
             return (Void) value;

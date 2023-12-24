@@ -76,7 +76,7 @@ public class ObjectPropertiesValidation {
         public long foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof Long)) {
                 throw new InvalidTypeException("Invalid value stored for foo");
             }
@@ -86,7 +86,7 @@ public class ObjectPropertiesValidation {
         public String bar() throws UnsetPropertyException {
             String key = "bar";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for bar");
             }

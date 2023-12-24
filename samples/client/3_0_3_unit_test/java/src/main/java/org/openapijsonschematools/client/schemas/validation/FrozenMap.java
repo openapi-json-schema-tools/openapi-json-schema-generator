@@ -23,6 +23,13 @@ public class FrozenMap<V> extends AbstractMap<String, V> {
         map = new HashMap<>(m);
     }
 
+    protected V getOrThrow(String key) throws UnsetPropertyException {
+        if (containsKey(key)) {
+            return get(key);
+        }
+        throw new UnsetPropertyException(key+" is unset");
+    }
+
     protected void throwIfKeyNotPresent(String key) throws UnsetPropertyException {
         if (!containsKey(key)) {
             throw new UnsetPropertyException(key+" is unset");

@@ -63,7 +63,7 @@ public class NotMoreComplexSchema {
         public String foo() throws UnsetPropertyException {
             String key = "foo";
             throwIfKeyNotPresent(key);
-                        @Nullable Object value = get(key);
+            @Nullable Object value = get(key);
             if (!(value instanceof String)) {
                 throw new InvalidTypeException("Invalid value stored for foo");
             }
