@@ -5,21 +5,16 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.schemas.validation.JsonSchema;
 import {{{packageName}}}.schemas.validation.JsonSchemaInfo;
-import {{{packageName}}}.schemas.validation.KeywordEntry;
 import {{{packageName}}}.schemas.validation.PathToSchemasMap;
 import {{{packageName}}}.schemas.validation.StringSchemaValidator;
-import {{{packageName}}}.schemas.validation.TypeValidator;
-import {{{packageName}}}.schemas.validation.FormatValidator;
 import {{{packageName}}}.exceptions.ValidationException;
 import {{{packageName}}}.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.time.ZonedDateTime;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 
@@ -38,11 +33,6 @@ public class DateTimeJsonSchema extends JsonSchema implements StringSchemaValida
             instance = new DateTimeJsonSchema();
         }
         return instance;
-    }
-
-    @Override
-    public String getNewInstance(String arg, List<Object> pathToItem, PathToSchemasMap pathToSchemas) {
-        return arg;
     }
 
     @Override
@@ -66,5 +56,15 @@ public class DateTimeJsonSchema extends JsonSchema implements StringSchemaValida
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+    }
+
+    @Override
+    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        if (arg instanceof String) {
+            return validate((String) arg, configuration);
+        } else if (arg instanceof ZonedDateTime) {
+            return validate((ZonedDateTime) arg, configuration);
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
     }
 }
