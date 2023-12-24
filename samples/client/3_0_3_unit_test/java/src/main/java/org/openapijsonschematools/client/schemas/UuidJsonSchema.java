@@ -5,20 +5,15 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
-import org.openapijsonschematools.client.schemas.validation.KeywordEntry;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
-import org.openapijsonschematools.client.schemas.validation.TypeValidator;
-import org.openapijsonschematools.client.schemas.validation.FormatValidator;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.UUID;
@@ -66,5 +61,15 @@ public class UuidJsonSchema extends JsonSchema implements StringSchemaValidator 
             return getNewInstance((String) arg, pathToItem, pathToSchemas);
         }
         throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
+    }
+
+    @Override
+    public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws InvalidTypeException, ValidationException {
+        if (arg instanceof UUID) {
+            return validate((UUID) arg, configuration);
+        } else if (arg instanceof String) {
+            return validate((String) arg, configuration);
+        }
+        throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be validated by this schema");
     }
 }
