@@ -466,14 +466,14 @@ public class AdditionalPropertiesClass {
     }
     
     
-    public static class EmptyMapMap extends FrozenMap<Object> {
-        protected EmptyMapMap(FrozenMap<Object> m) {
+    public static class EmptyMapMap extends FrozenMap<@Nullable Object> {
+        protected EmptyMapMap(FrozenMap<@Nullable Object> m) {
             super(m);
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
         // map with no key value pairs
-        public static EmptyMapMap of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static EmptyMapMap of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
             return EmptyMap.getInstance().validate(arg, configuration);
         }
     }

@@ -6,8 +6,8 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<{{#wi
         super(m);
     }
 {{else}}
-public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Object> {
-    protected {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<Object> m) {
+public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<@Nullable Object> {
+    protected {{mapOutputJsonPathPiece.camelCase}}(FrozenMap<@Nullable Object> m) {
         super(m);
     }
 {{/if}}
@@ -43,7 +43,7 @@ public static class {{mapOutputJsonPathPiece.camelCase}} extends FrozenMap<Objec
         return {{jsonPathPiece.camelCase}}.getInstance().validate(arg, configuration);
     }
         {{else}}
-    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, Object> arg, SchemaConfiguration configuration) throws ValidationException {
+    public static {{mapOutputJsonPathPiece.camelCase}} of(Map<String, @Nullable Object> arg, SchemaConfiguration configuration) throws ValidationException {
         return {{jsonPathPiece.camelCase}}.getInstance().validate(arg, configuration);
     }
         {{/if}}
