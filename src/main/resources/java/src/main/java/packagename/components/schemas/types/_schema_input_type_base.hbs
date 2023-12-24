@@ -83,7 +83,7 @@ long
                             {{else}}
                                 {{#eq this "array"}}
                                     {{#eq ../jsonPath sourceJsonPath}}
-List
+List<?>
                                     {{~else}}
                                         {{#with items}}
 List<{{> src/main/java/packagename/components/schemas/types/schema_input_type }}>
@@ -94,7 +94,7 @@ List<{{#unless noExtends}}? extends {{/unless}}@Nullable Object>
                                 {{else}}
                                     {{#eq this "object"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
-Map
+Map<String, ?>
                                         {{~else}}
                                             {{#with mapValueSchema}}
 Map<String, {{> src/main/java/packagename/components/schemas/types/schema_input_type }}>

@@ -28,13 +28,13 @@ public class SelfReferencingArrayModel {
         protected SelfReferencingArrayModelList(FrozenList<SelfReferencingArrayModelList> m) {
             super(m);
         }
-        public static SelfReferencingArrayModelList of(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SelfReferencingArrayModelList of(List<List<?>> arg, SchemaConfiguration configuration) throws ValidationException {
             return SelfReferencingArrayModel1.getInstance().validate(arg, configuration);
         }
     }
     
     public static class SelfReferencingArrayModelListInput {
-        // class to build List<List>
+        // class to build List<List<?>>
     }
     
     
@@ -84,7 +84,7 @@ public class SelfReferencingArrayModel {
             return new SelfReferencingArrayModelList(newInstanceItems);
         }
         
-        public SelfReferencingArrayModelList validate(List<List> arg, SchemaConfiguration configuration) throws ValidationException {
+        public SelfReferencingArrayModelList validate(List<List<?>> arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
             List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);

@@ -58,13 +58,13 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 ArrayTest.ArrayTestMap validatedPayload =
     ArrayTest.ArrayTest1.validate(
     MapMaker.makeMap(
-        new AbstractMap.SimpleEntry<String, List>(
+        new AbstractMap.SimpleEntry<String, List<?>>(
             "array_of_string",
             Arrays.asList(
                 "a"
             )
         ),
-        new AbstractMap.SimpleEntry<String, List>(
+        new AbstractMap.SimpleEntry<String, List<?>>(
             "array_array_of_integer",
             Arrays.asList(
                 Arrays.asList(
@@ -72,7 +72,7 @@ ArrayTest.ArrayTestMap validatedPayload =
                 )
             )
         ),
-        new AbstractMap.SimpleEntry<String, List>(
+        new AbstractMap.SimpleEntry<String, List<?>>(
             "array_array_of_model",
             Arrays.asList(
                 Arrays.asList(
