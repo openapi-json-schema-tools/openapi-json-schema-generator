@@ -45,7 +45,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static [PropertiesWithEscapedCharactersMap](#propertieswithescapedcharactersmap) | validate([Map<String, ?>](#propertieswithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PropertiesWithEscapedCharactersMapInput
 public class PropertiesWithEscapedCharactersMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

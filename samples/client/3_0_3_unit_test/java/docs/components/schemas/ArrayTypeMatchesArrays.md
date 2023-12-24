@@ -57,7 +57,7 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([List<?>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayTypeMatchesArraysListInput
 public class ArrayTypeMatchesArraysListInput<br>
 builder for `List<? extends @Nullable Object>`

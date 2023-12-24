@@ -41,7 +41,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Not
 public static class Not<br>
 extends JsonSchema
@@ -86,7 +86,7 @@ NotMoreComplexSchema.NotMap validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [NotMap](#notmap) | validate([Map<String, ?>](#notmapinput) arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NotMapInput
 public class NotMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

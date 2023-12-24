@@ -56,7 +56,7 @@ RefInItems.RefInItemsList validatedPayload =
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static [RefInItemsList](#refinitemslist) | validate([List<?>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInItemsListInput
 public class RefInItemsListInput<br>
 builder for `List<? extends @Nullable Object>`

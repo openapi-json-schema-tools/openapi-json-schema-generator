@@ -40,7 +40,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static [RequiredDefaultValidationMap](#requireddefaultvalidationmap) | validate([Map<String, ?>](#requireddefaultvalidationmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RequiredDefaultValidationMapInput
 public class RequiredDefaultValidationMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

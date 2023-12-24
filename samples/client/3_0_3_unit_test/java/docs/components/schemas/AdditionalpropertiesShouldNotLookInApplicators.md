@@ -45,7 +45,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static [AdditionalpropertiesShouldNotLookInApplicatorsMap](#additionalpropertiesshouldnotlookinapplicatorsmap) | validate([Map<String, ?>](#additionalpropertiesshouldnotlookinapplicatorsmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalpropertiesShouldNotLookInApplicatorsMapInput
 public class AdditionalpropertiesShouldNotLookInApplicatorsMapInput<br>
 builder for `Map<String, Boolean>`
@@ -92,7 +92,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static [Schema0Map](#schema0map) | validate([Map<String, ?>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0MapInput
 public class Schema0MapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

@@ -40,7 +40,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate([Map<String, ?>](#invalidstringvaluefordefaultmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## InvalidStringValueForDefaultMapInput
 public class InvalidStringValueForDefaultMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -104,5 +104,5 @@ String validatedPayload = InvalidStringValueForDefault.Bar.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

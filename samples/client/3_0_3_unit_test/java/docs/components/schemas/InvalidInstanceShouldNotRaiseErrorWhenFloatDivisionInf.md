@@ -52,5 +52,5 @@ long validatedPayload = InvalidInstanceShouldNotRaiseErrorWhenFloatDivisionInf.I
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -45,7 +45,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static FrozenMap<String, Object> | validate(Map<String, ?> arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -70,7 +70,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static [Schema1Map](#schema1map) | validate([Map<String, ?>](#schema1mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapInput
 public class Schema1MapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -130,7 +130,7 @@ A schema class that validates payloads
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
 | static [Schema0Map](#schema0map) | validate([Map<String, ?>](#schema0mapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-
+| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema0MapInput
 public class Schema0MapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
