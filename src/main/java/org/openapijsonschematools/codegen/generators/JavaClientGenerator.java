@@ -1457,8 +1457,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             } else if (schema.types.size() > 1) {
                 addCustomSchemaImports(imports, schema);
                 imports.add("import java.util.Set;");
-                imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for JsonSchema generic
-                imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for JsonSchema generic
                 if (schema.types.contains("string")) {
                     addStringSchemaImports(imports, schema);
                 }
