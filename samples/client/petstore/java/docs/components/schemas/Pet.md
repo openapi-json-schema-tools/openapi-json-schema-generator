@@ -272,6 +272,13 @@ extends `Enum<StringStatusEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| AVAILABLE | value = "available" |
+| PENDING | value = "pending" |
+| SOLD | value = "sold" |
+
 ## PhotoUrls
 public static class PhotoUrls<br>
 extends JsonSchema

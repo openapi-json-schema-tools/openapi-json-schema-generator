@@ -58,11 +58,21 @@ extends `Enum<IntegerIntegerEnumOneValueEnums>`
 
 A class that stores Integer enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
+
 
 ## NumberIntegerEnumOneValueEnums
 public enum NumberIntegerEnumOneValueEnums<br>
 extends `Enum<NumberIntegerEnumOneValueEnums>`
 
 A class that stores Number enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

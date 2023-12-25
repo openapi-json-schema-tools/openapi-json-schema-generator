@@ -134,4 +134,9 @@ extends `Enum<StringClassNameEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| BASQUE_PIG | value = "BasquePig" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

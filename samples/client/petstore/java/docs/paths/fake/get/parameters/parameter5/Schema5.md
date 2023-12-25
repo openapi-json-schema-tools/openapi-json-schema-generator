@@ -58,3 +58,9 @@ public enum NumberSchemaEnums5<br>
 extends `Enum<NumberSchemaEnums5>`
 
 A class that stores Number enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1 |
+| NEGATIVE_1_PT_2 | value = -1.2 |

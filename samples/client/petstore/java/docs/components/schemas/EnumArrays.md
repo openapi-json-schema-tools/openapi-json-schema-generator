@@ -212,6 +212,12 @@ extends `Enum<StringItemsEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| FISH | value = "fish" |
+| CRAB | value = "crab" |
+
 ## JustSymbol
 public static class JustSymbol<br>
 extends JsonSchema
@@ -257,5 +263,11 @@ public enum StringJustSymbolEnums<br>
 extends `Enum<StringJustSymbolEnums>`
 
 A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| GREATER_THAN_SIGN_EQUALS_SIGN | value = ">=" |
+| DOLLAR_SIGN | value = "$" |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

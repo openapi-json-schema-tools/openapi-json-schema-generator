@@ -148,6 +148,11 @@ extends `Enum<StringClassNameEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| WHALE | value = "whale" |
+
 ## HasTeeth
 public static class HasTeeth<br>
 extends BooleanJsonSchema

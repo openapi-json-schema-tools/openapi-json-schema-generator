@@ -59,9 +59,21 @@ extends `Enum<IntegerSchemaEnums4>`
 
 A class that stores Integer enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| NEGATIVE_2 | value = -2 |
+
 
 ## NumberSchemaEnums4
 public enum NumberSchemaEnums4<br>
 extends `Enum<NumberSchemaEnums4>`
 
 A class that stores Number enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| NEGATIVE_2 | value = -2 |

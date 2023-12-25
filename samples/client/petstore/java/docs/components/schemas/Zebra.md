@@ -144,6 +144,11 @@ extends `Enum<StringClassNameEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| ZEBRA | value = "zebra" |
+
 ## Type
 public static class Type<br>
 extends JsonSchema
@@ -189,6 +194,13 @@ public enum StringTypeEnums<br>
 extends `Enum<StringTypeEnums>`
 
 A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| PLAINS | value = "plains" |
+| MOUNTAIN | value = "mountain" |
+| GREVYS | value = "grevys" |
 
 ## AdditionalProperties
 public static class AdditionalProperties<br>

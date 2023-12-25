@@ -147,6 +147,13 @@ extends `Enum<StringOpEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| ADD | value = "add" |
+| REPLACE | value = "replace" |
+| TEST | value = "test" |
+
 ## Value
 public static class Value<br>
 extends AnyTypeJsonSchema

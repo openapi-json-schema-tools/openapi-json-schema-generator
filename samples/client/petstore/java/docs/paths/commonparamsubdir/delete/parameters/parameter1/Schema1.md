@@ -57,3 +57,9 @@ public enum StringSchemaEnums1<br>
 extends `Enum<StringSchemaEnums1>`
 
 A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| C | value = "c" |
+| D | value = "d" |

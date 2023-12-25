@@ -158,4 +158,9 @@ extends `Enum<StringQuadrilateralTypeEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| SIMPLE_QUADRILATERAL | value = "SimpleQuadrilateral" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

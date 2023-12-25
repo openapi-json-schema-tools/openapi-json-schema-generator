@@ -302,6 +302,12 @@ extends `Enum<StringAdditionalPropertiesEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| UPPER | value = "UPPER" |
+| LOWER | value = "lower" |
+
 ## MapMapOfString
 public static class MapMapOfString<br>
 extends JsonSchema

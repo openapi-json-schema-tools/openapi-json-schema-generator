@@ -58,11 +58,25 @@ extends `Enum<IntegerIntegerEnumEnums>`
 
 A class that stores Integer enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
+| POSITIVE_1 | value = 1 |
+| POSITIVE_2 | value = 2 |
+
 
 ## NumberIntegerEnumEnums
 public enum NumberIntegerEnumEnums<br>
 extends `Enum<NumberIntegerEnumEnums>`
 
 A class that stores Number enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
+| POSITIVE_1 | value = 1 |
+| POSITIVE_2 | value = 2 |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

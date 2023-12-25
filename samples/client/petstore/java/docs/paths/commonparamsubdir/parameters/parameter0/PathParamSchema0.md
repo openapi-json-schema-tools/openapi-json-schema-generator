@@ -57,3 +57,9 @@ public enum StringPathParamSchemaEnums0<br>
 extends `Enum<StringPathParamSchemaEnums0>`
 
 A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| A | value = "a" |
+| B | value = "b" |

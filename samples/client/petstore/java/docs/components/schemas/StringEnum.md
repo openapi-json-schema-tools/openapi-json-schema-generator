@@ -66,10 +66,25 @@ extends `Enum<StringStringEnumEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| PLACED | value = "placed" |
+| APPROVED | value = "approved" |
+| DELIVERED | value = "delivered" |
+| SINGLE_QUOTED | value = "single quoted" |
+| MULTIPLE_LINE_FEED_LF_LINES | value = "multiple\nlines" |
+| DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE | value = "double quote \n with newline" |
+
 ## NullStringEnumEnums
 public enum NullStringEnumEnums<br>
 extends `Enum<NullStringEnumEnums>`
 
 A class that stores null enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| NONE | value = null |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

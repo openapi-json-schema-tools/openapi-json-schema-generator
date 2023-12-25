@@ -181,6 +181,13 @@ extends `Enum<StringStatusEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| PLACED | value = "placed" |
+| APPROVED | value = "approved" |
+| DELIVERED | value = "delivered" |
+
 ## ShipDate
 public static class ShipDate<br>
 extends DateTimeJsonSchema

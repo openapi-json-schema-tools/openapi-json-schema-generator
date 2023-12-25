@@ -252,6 +252,31 @@ A class that stores Number enum values
                                             {{/eq}}
                                         {{/eq}}
                                     {{/eq}}
+
+{{headerSize}}## Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+                                    {{#each this}}
+                                        {{#eq ../@key "null"}}
+| {{name}} | value = null |
+                                        {{else}}
+                                            {{#eq ../@key "boolean"}}
+| {{name}} | value = {{value}} |
+                                            {{else}}
+                                                {{#eq ../@key "string"}}
+| {{name}} | value = "{{{value}}}" |
+                                                {{else}}
+                                                    {{#eq ../@key "integer"}}
+| {{name}} | value = {{value}} |
+                                                    {{else}}
+                                                        {{#eq ../@key "number"}}
+| {{name}} | value = {{value}} |
+                                                        {{/eq}}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/each}}
                                 {{/each}}
                             {{/with}}
                         {{/eq}}

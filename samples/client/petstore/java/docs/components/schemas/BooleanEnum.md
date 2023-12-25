@@ -57,4 +57,9 @@ extends `Enum<BooleanBooleanEnumEnums>`
 
 A class that stores boolean enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| TRUE | value = true |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

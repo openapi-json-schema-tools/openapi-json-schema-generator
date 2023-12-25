@@ -158,4 +158,9 @@ extends `Enum<StringTriangleTypeEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| SCALENE_TRIANGLE | value = "ScaleneTriangle" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

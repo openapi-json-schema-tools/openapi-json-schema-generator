@@ -126,3 +126,9 @@ public enum StringItemsEnums2<br>
 extends `Enum<StringItemsEnums2>`
 
 A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| GREATER_THAN_SIGN | value = ">" |
+| DOLLAR_SIGN | value = "$" |

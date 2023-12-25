@@ -58,4 +58,11 @@ extends `Enum<StringStringEnumWithDefaultValueEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| PLACED | value = "placed" |
+| APPROVED | value = "approved" |
+| DELIVERED | value = "delivered" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

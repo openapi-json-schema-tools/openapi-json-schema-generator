@@ -58,4 +58,13 @@ extends `Enum<StringEnumClassEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| _ABC | value = "_abc" |
+| HYPHEN_MINUS_EFG | value = "-efg" |
+| LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |
+| COUNT_1M | value = "COUNT_1M" |
+| COUNT_50M | value = "COUNT_50M" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

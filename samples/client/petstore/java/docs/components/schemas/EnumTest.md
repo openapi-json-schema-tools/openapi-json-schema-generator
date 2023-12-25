@@ -170,6 +170,12 @@ extends `Enum<NumberEnumNumberEnums>`
 
 A class that stores Number enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1 |
+| NEGATIVE_1_PT_2 | value = -1.2 |
+
 ## EnumInteger
 public static class EnumInteger<br>
 extends JsonSchema
@@ -216,12 +222,24 @@ extends `Enum<IntegerEnumIntegerEnums>`
 
 A class that stores Integer enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| NEGATIVE_1 | value = -1 |
+
 
 ## NumberEnumIntegerEnums
 public enum NumberEnumIntegerEnums<br>
 extends `Enum<NumberEnumIntegerEnums>`
 
 A class that stores Number enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| NEGATIVE_1 | value = -1 |
 
 ## EnumStringRequired
 public static class EnumStringRequired<br>
@@ -269,6 +287,13 @@ extends `Enum<StringEnumStringRequiredEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| UPPER | value = "UPPER" |
+| LOWER | value = "lower" |
+| EMPTY | value = "" |
+
 ## EnumString
 public static class EnumString<br>
 extends JsonSchema
@@ -314,5 +339,12 @@ public enum StringEnumStringEnums<br>
 extends `Enum<StringEnumStringEnums>`
 
 A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| UPPER | value = "UPPER" |
+| LOWER | value = "lower" |
+| EMPTY | value = "" |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

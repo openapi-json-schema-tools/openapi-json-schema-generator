@@ -151,6 +151,13 @@ extends `Enum<StringEnumFormStringEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| _ABC | value = "_abc" |
+| HYPHEN_MINUS_EFG | value = "-efg" |
+| LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |
+
 ## EnumFormStringArray
 public static class EnumFormStringArray<br>
 extends JsonSchema
@@ -263,3 +270,9 @@ public enum StringItemsEnums<br>
 extends `Enum<StringItemsEnums>`
 
 A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| GREATER_THAN_SIGN | value = ">" |
+| DOLLAR_SIGN | value = "$" |

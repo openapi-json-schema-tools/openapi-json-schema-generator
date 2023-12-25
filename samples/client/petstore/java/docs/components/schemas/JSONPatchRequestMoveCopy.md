@@ -151,6 +151,12 @@ extends `Enum<StringOpEnums>`
 
 A class that stores String enum values
 
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| MOVE | value = "move" |
+| COPY | value = "copy" |
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema
