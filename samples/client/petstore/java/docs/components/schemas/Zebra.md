@@ -15,9 +15,9 @@ A class that contains necessary nested
 | static class | [Zebra.ZebraMapInput](#zebramapinput)<br> builder for Map payloads |
 | static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
 | static class | [Zebra.ClassName](#classname)<br> schema class |
-| enum | [Zebra.StringClassNameEnums]() |
+| enum | [Zebra.StringClassNameEnums]()<br>String enum |
 | static class | [Zebra.Type](#type)<br> schema class |
-| enum | [Zebra.StringTypeEnums]() |
+| enum | [Zebra.StringTypeEnums]()<br>String enum |
 | static class | [Zebra.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Zebra1

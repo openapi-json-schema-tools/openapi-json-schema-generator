@@ -16,7 +16,7 @@ A class that contains necessary nested
 | static class | [QuadrilateralInterface.QuadrilateralInterfaceMap](#quadrilateralinterfacemap)<br> output class for Map payloads |
 | static class | [QuadrilateralInterface.QuadrilateralType](#quadrilateraltype)<br> schema class |
 | static class | [QuadrilateralInterface.ShapeType](#shapetype)<br> schema class |
-| enum | [QuadrilateralInterface.StringShapeTypeEnums]() |
+| enum | [QuadrilateralInterface.StringShapeTypeEnums]()<br>String enum |
 
 ## QuadrilateralInterface1
 public static class QuadrilateralInterface1<br>

@@ -16,7 +16,7 @@ A class that contains necessary nested
 | static class | [ComplexQuadrilateral.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
 | static class | [ComplexQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [ComplexQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
-| enum | [ComplexQuadrilateral.StringQuadrilateralTypeEnums]() |
+| enum | [ComplexQuadrilateral.StringQuadrilateralTypeEnums]()<br>String enum |
 
 ## ComplexQuadrilateral1
 public static class ComplexQuadrilateral1<br>

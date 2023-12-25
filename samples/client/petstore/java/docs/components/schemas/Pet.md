@@ -20,7 +20,7 @@ A class that contains necessary nested
 | static class | [Pet.TagsListInput](#tagslistinput)<br> builder for List payloads |
 | static class | [Pet.TagsList](#tagslist)<br> output class for List payloads |
 | static class | [Pet.Status](#status)<br> schema class |
-| enum | [Pet.StringStatusEnums]() |
+| enum | [Pet.StringStatusEnums]()<br>String enum |
 | static class | [Pet.PhotoUrls](#photourls)<br> schema class |
 | static class | [Pet.PhotoUrlsListInput](#photourlslistinput)<br> builder for List payloads |
 | static class | [Pet.PhotoUrlsList](#photourlslist)<br> output class for List payloads |

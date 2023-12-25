@@ -10,8 +10,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
-| enum | [Schema4.IntegerSchemaEnums4]() |
-| enum | [Schema4.NumberSchemaEnums4]() |
+| enum | [Schema4.IntegerSchemaEnums4]()<br>integer enum |
+| enum | [Schema4.NumberSchemaEnums4]()<br>number enum |
 
 ## Schema41
 public static class Schema41<br>

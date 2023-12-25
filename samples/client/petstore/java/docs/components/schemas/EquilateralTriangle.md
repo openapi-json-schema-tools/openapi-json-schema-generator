@@ -16,7 +16,7 @@ A class that contains necessary nested
 | static class | [EquilateralTriangle.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
 | static class | [EquilateralTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [EquilateralTriangle.TriangleType](#triangletype)<br> schema class |
-| enum | [EquilateralTriangle.StringTriangleTypeEnums]() |
+| enum | [EquilateralTriangle.StringTriangleTypeEnums]()<br>String enum |
 
 ## EquilateralTriangle1
 public static class EquilateralTriangle1<br>

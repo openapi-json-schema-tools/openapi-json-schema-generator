@@ -22,7 +22,7 @@ A class that contains necessary nested
 | static class | [MapTest.MapOfEnumStringMapInput](#mapofenumstringmapinput)<br> builder for Map payloads |
 | static class | [MapTest.MapOfEnumStringMap](#mapofenumstringmap)<br> output class for Map payloads |
 | static class | [MapTest.AdditionalProperties2](#additionalproperties2)<br> schema class |
-| enum | [MapTest.StringAdditionalPropertiesEnums]() |
+| enum | [MapTest.StringAdditionalPropertiesEnums]()<br>String enum |
 | static class | [MapTest.MapMapOfString](#mapmapofstring)<br> schema class |
 | static class | [MapTest.MapMapOfStringMapInput](#mapmapofstringmapinput)<br> builder for Map payloads |
 | static class | [MapTest.MapMapOfStringMap](#mapmapofstringmap)<br> output class for Map payloads |

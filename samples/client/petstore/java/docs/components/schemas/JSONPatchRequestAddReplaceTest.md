@@ -15,7 +15,7 @@ A class that contains necessary nested
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMapInput](#jsonpatchrequestaddreplacetestmapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.JSONPatchRequestAddReplaceTestMap](#jsonpatchrequestaddreplacetestmap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestAddReplaceTest.Op](#op)<br> schema class |
-| enum | [JSONPatchRequestAddReplaceTest.StringOpEnums]() |
+| enum | [JSONPatchRequestAddReplaceTest.StringOpEnums]()<br>String enum |
 | static class | [JSONPatchRequestAddReplaceTest.Value](#value)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestAddReplaceTest.AdditionalProperties](#additionalproperties)<br> schema class |

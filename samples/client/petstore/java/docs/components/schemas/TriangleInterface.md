@@ -16,7 +16,7 @@ A class that contains necessary nested
 | static class | [TriangleInterface.TriangleInterfaceMap](#triangleinterfacemap)<br> output class for Map payloads |
 | static class | [TriangleInterface.TriangleType](#triangletype)<br> schema class |
 | static class | [TriangleInterface.ShapeType](#shapetype)<br> schema class |
-| enum | [TriangleInterface.StringShapeTypeEnums]() |
+| enum | [TriangleInterface.StringShapeTypeEnums]()<br>String enum |
 
 ## TriangleInterface1
 public static class TriangleInterface1<br>

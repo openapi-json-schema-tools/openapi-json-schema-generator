@@ -15,7 +15,7 @@ A class that contains necessary nested
 | static class | [Schema0.SchemaListInput0](#schemalistinput0)<br> builder for List payloads |
 | static class | [Schema0.SchemaList0](#schemalist0)<br> output class for List payloads |
 | static class | [Schema0.Items0](#items0)<br> schema class |
-| enum | [Schema0.StringItemsEnums0]() |
+| enum | [Schema0.StringItemsEnums0]()<br>String enum |
 
 ## Schema01
 public static class Schema01<br>

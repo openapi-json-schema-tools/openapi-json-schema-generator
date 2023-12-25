@@ -10,7 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema5.Schema51](#schema51)<br> schema class |
-| enum | [Schema5.NumberSchemaEnums5]() |
+| enum | [Schema5.NumberSchemaEnums5]()<br>number enum |
 
 ## Schema51
 public static class Schema51<br>
