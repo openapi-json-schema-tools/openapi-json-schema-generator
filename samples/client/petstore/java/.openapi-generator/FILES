@@ -669,6 +669,7 @@ src/main/java/org/openapijsonschematools/client/schemas/UuidJsonSchema.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/AdditionalPropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/AllOfValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/AnyOfValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/BooleanSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/CustomIsoparser.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/EnumValidator.java

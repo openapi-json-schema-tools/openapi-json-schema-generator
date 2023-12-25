@@ -392,6 +392,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
         keywordValidatorFiles.add("AllOfValidator");
         keywordValidatorFiles.add("AnyOfValidator");
+        keywordValidatorFiles.add("BooleanEnumValidator");
         keywordValidatorFiles.add("BooleanSchemaValidator");
         keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("EnumValidator");
@@ -1545,6 +1546,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             imports.add("import "+packageName + ".schemas.SetMaker;");
             if (schema.enumInfo.typeToValues.containsKey("null")) {
                 imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("boolean")) {
+                imports.add("import "+packageName + ".schemas.validation.BooleanEnumValidator;");
             }
         }
     }

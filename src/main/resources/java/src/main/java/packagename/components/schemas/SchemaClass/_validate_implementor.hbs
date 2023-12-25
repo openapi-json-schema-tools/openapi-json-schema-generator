@@ -249,6 +249,13 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
 }
+            {{#and ../enumInfo ../enumInfo.typeToValues.boolean}}
+
+@Override
+public boolean validate(Boolean{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value, configuration);
+}
+            {{/and}}
         {{/eq}}
     {{/each}}
 {{else}}
@@ -283,6 +290,13 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
 }
+    {{#and enumInfo enumInfo.typeToValues.boolean}}
+
+@Override
+public boolean validate(Boolean{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value, configuration);
+}
+    {{/and}}
 
 @Override
 public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
