@@ -1,5 +1,4 @@
 package org.openapijsonschematools.client.paths.fake.get.parameters.parameter3;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;

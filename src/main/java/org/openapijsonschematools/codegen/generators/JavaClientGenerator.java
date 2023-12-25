@@ -1519,6 +1519,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.validation.ListSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
                 imports.add("import java.util.LinkedHashMap;");
+                imports.add("import java.util.ArrayList;"); // for validate
                 addPropertiesValidator(schema, imports);
                 addRequiredValidator(schema, imports);
                 addAllOfValidator(schema, imports);
@@ -1603,7 +1604,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".exceptions.ValidationException;");
         imports.add("import "+packageName + ".exceptions.InvalidTypeException;"); // for castToAllowedTypes
         imports.add("import java.util.Set;"); // for validate
-        imports.add("import java.util.ArrayList;"); // for validate
         imports.add("import java.util.HashSet;"); // for validate
         imports.add("import java.util.Objects;"); // for validate
         imports.add("import java.util.LinkedHashSet;"); // for validate

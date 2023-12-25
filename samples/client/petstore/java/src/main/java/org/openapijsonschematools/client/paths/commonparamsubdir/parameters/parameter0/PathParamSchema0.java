@@ -1,5 +1,4 @@
 package org.openapijsonschematools.client.paths.commonparamsubdir.parameters.parameter0;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
