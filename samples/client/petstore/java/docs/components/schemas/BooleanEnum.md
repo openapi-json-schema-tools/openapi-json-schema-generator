@@ -50,6 +50,7 @@ boolean validatedPayload = BooleanEnum.BooleanEnum1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| static boolean | validate([BooleanBooleanEnumEnums](#booleanbooleanenumenums) arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BooleanBooleanEnumEnums
 public enum BooleanBooleanEnumEnums<br>

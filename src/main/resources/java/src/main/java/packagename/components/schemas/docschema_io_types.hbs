@@ -1,58 +1,64 @@
 {{#eq types null}}
-| static String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
     {{#and enumInfo enumInfo.typeToValues.null}}
-| static Void | validate([Null{{enumInfo.jsonPathPiece.camelCase}}](#null{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| Void | validate([Null{{enumInfo.jsonPathPiece.camelCase}}](#null{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
     {{/and}}
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| float | validate(float arg, SchemaConfiguration configuration) |
+| double | validate(double arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+    {{#and enumInfo enumInfo.typeToValues.boolean}}
+| boolean | validate([Boolean{{enumInfo.jsonPathPiece.camelCase}}](#boolean{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+    {{/and}}
     {{#if mapOutputJsonPathPiece }}
-| static [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
     {{/if}}
     {{#if arrayOutputJsonPathPiece}}
-| static [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
     {{else}}
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
     {{/if}}
 {{else}}
     {{#each types}}
         {{#eq this "boolean"}}
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+            {{#and ../enumInfo enumInfo.typeToValues.boolean}}
+| boolean | validate([Boolean{{../enumInfo.jsonPathPiece.camelCase}}](#boolean{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+            {{/and}}
         {{else}}
             {{#eq this "null"}}
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
                 {{#and ../enumInfo ../enumInfo.typeToValues.null}}
-| static Void | validate([Null{{../enumInfo.jsonPathPiece.camelCase}}](#null{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+| Void | validate([Null{{../enumInfo.jsonPathPiece.camelCase}}](#null{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
                 {{/and}}
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}
 {{! todo binary types}}
-| static BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
+| BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
                     {{else}}
-| static String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}
                         {{#eq ../format null}}
-| static Number | validate(Number arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
                         {{else}}
                             {{#eq ../format "float"}}
-| static float | validate(float arg, SchemaConfiguration configuration) |
+| float | validate(float arg, SchemaConfiguration configuration) |
                             {{else}}
                                 {{#eq ../format "double"}}
-| static double | validate(double arg, SchemaConfiguration configuration) |
+| double | validate(double arg, SchemaConfiguration configuration) |
                                 {{else}}
                                     {{#eq ../format "int32"}}
-| static int | validate(int arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
                                     {{else}}
                                         {{#eq ../format "int64"}}
-| static long | validate(long arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
                                         {{/eq}}
                                     {{/eq}}
                                 {{/eq}}
@@ -61,27 +67,27 @@
                     {{else}}
                         {{#eq this "integer"}}
                             {{#eq ../format null}}
-| static long | validate(long arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
                             {{else}}
                                 {{#eq ../format "int32"}}
-| static int | validate(int arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
                                 {{else}}
-| static long | validate(long arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
                                 {{/eq}}
                             {{/eq}}
                         {{else}}
                             {{#eq this "array"}}
                                 {{#if ../arrayOutputJsonPathPiece}}
-| static [{{../arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{../arrayOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../arrayOutputJsonPathPiece) }}) | validate([List<?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces arrayInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
                                 {{else}}
-| static FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
+| FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
                                 {{/if}}
                             {{else}}
                                 {{#eq this "object"}}
                                     {{#if ../mapOutputJsonPathPiece}}
-| static [{{../mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
+| [{{../mapOutputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapOutputJsonPathPiece) }}) | validate([Map<?, ?>](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces ../mapInputJsonPathPiece) }}) arg, SchemaConfiguration configuration) |
                                     {{else}}
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
                                     {{/if}}
                                 {{/eq}}
                             {{/eq}}
@@ -92,4 +98,4 @@
         {{/eq}}
     {{/each}}
 {{/eq}}
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
