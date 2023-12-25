@@ -75,6 +75,11 @@ public class EnumArrays {
         }
         
         @Override
+        public String validate(StringJustSymbolEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
@@ -131,6 +136,11 @@ public class EnumArrays {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringItemsEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
         }
         
         @Override

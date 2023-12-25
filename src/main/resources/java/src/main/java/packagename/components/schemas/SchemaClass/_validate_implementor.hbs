@@ -134,6 +134,13 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
 }
+                {{#and ../enumInfo ../enumInfo.typeToValues.string}}
+
+@Override
+public String validate(String{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value, configuration);
+}
+                {{/and}}
             {{/eq}}
         {{/eq}}
         {{#eq this "integer"}}
@@ -337,6 +344,13 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
 }
+    {{#and enumInfo enumInfo.typeToValues.string}}
+
+@Override
+public String validate(String{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value, configuration);
+}
+    {{/and}}
 
 public String validate(LocalDate arg, SchemaConfiguration configuration) throws ValidationException {
     return validate(arg.toString(), configuration);

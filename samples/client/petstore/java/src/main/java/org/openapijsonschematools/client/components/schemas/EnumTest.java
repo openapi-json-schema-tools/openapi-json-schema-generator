@@ -76,6 +76,11 @@ public class EnumTest {
         }
         
         @Override
+        public String validate(StringEnumStringEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
@@ -134,6 +139,11 @@ public class EnumTest {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringEnumStringRequiredEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
         }
         
         @Override

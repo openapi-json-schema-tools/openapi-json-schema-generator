@@ -69,6 +69,11 @@ public class Schema0 {
         }
         
         @Override
+        public String validate(StringItemsEnums0 arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);

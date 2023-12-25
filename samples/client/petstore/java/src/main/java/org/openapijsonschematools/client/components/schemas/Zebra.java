@@ -87,6 +87,11 @@ public class Zebra {
         }
         
         @Override
+        public String validate(StringTypeEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
@@ -141,6 +146,11 @@ public class Zebra {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
         }
         
         @Override

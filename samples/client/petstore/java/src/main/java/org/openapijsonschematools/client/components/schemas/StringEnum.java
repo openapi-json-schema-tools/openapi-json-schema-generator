@@ -108,6 +108,11 @@ public class StringEnum {
         }
         
         @Override
+        public String validate(StringStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg == null) {
                 return validate((Void) null, configuration);

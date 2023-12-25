@@ -111,6 +111,11 @@ public class JSONPatchRequestAddReplaceTest {
         }
         
         @Override
+        public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
