@@ -72,7 +72,6 @@ public class AnyTypeJsonSchema extends JsonSchema implements NullSchemaValidator
     public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
         List<Object> pathToItem = List.of("args[0]");
-        pathToItem.add("args[0]");
         Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
         SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
         PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
