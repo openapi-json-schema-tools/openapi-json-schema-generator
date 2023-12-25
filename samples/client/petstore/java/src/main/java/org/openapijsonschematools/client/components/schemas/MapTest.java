@@ -232,7 +232,7 @@ public class MapTest {
     }
     
     
-    public static class AdditionalProperties2 extends JsonSchema implements StringSchemaValidator {
+    public static class AdditionalProperties2 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringAdditionalPropertiesEnums> {
         private static @Nullable AdditionalProperties2 instance = null;
     
         protected AdditionalProperties2() {

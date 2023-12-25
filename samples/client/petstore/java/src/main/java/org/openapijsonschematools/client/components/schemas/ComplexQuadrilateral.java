@@ -46,7 +46,7 @@ public class ComplexQuadrilateral {
     }
     
     
-    public static class QuadrilateralType extends JsonSchema implements StringSchemaValidator {
+    public static class QuadrilateralType extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringQuadrilateralTypeEnums> {
         private static @Nullable QuadrilateralType instance = null;
     
         protected QuadrilateralType() {

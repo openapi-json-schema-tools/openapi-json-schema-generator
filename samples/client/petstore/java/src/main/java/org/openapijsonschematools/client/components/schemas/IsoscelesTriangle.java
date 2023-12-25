@@ -46,7 +46,7 @@ public class IsoscelesTriangle {
     }
     
     
-    public static class TriangleType extends JsonSchema implements StringSchemaValidator {
+    public static class TriangleType extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringTriangleTypeEnums> {
         private static @Nullable TriangleType instance = null;
     
         protected TriangleType() {

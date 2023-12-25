@@ -88,7 +88,7 @@ public class Order {
     }
     
     
-    public static class Status extends JsonSchema implements StringSchemaValidator {
+    public static class Status extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringStatusEnums> {
         private static @Nullable Status instance = null;
     
         protected Status() {

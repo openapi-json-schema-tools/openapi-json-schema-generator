@@ -38,7 +38,7 @@ public class BasquePig {
     }
     
     
-    public static class ClassName extends JsonSchema implements StringSchemaValidator {
+    public static class ClassName extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringClassNameEnums> {
         private static @Nullable ClassName instance = null;
     
         protected ClassName() {

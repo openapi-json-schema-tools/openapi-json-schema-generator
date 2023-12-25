@@ -75,7 +75,7 @@ public class JSONPatchRequestMoveCopy {
     }
     
     
-    public static class Op extends JsonSchema implements StringSchemaValidator {
+    public static class Op extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringOpEnums> {
         private static @Nullable Op instance = null;
     
         protected Op() {

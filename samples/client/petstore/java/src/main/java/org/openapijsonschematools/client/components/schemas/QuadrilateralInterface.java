@@ -47,7 +47,7 @@ public class QuadrilateralInterface {
     }
     
     
-    public static class ShapeType extends JsonSchema implements StringSchemaValidator {
+    public static class ShapeType extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringShapeTypeEnums> {
         private static @Nullable ShapeType instance = null;
     
         protected ShapeType() {

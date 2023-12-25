@@ -41,7 +41,7 @@ public class EnumTest {
     }
     
     
-    public static class EnumString extends JsonSchema implements StringSchemaValidator {
+    public static class EnumString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumStringEnums> {
         private static @Nullable EnumString instance = null;
     
         protected EnumString() {
@@ -102,7 +102,7 @@ public class EnumTest {
     }
     
     
-    public static class EnumStringRequired extends JsonSchema implements StringSchemaValidator {
+    public static class EnumStringRequired extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumStringRequiredEnums> {
         private static @Nullable EnumStringRequired instance = null;
     
         protected EnumStringRequired() {

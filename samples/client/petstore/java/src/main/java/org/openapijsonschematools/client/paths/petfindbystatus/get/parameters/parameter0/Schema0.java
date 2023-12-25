@@ -36,7 +36,7 @@ public class Schema0 {
     }
     
     
-    public static class Items0 extends JsonSchema implements StringSchemaValidator {
+    public static class Items0 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums0> {
         private static @Nullable Items0 instance = null;
     
         protected Items0() {

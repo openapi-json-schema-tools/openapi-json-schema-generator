@@ -31,7 +31,7 @@ public class PathParamSchema0 {
     }
     
     
-    public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator {
+    public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringPathParamSchemaEnums0> {
         private static @Nullable PathParamSchema01 instance = null;
     
         protected PathParamSchema01() {

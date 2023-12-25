@@ -157,7 +157,7 @@ public class Pet {
     }
     
     
-    public static class Status extends JsonSchema implements StringSchemaValidator {
+    public static class Status extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringStatusEnums> {
         private static @Nullable Status instance = null;
     
         protected Status() {

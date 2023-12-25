@@ -41,7 +41,7 @@ public class Schema {
     }
     
     
-    public static class Items extends JsonSchema implements StringSchemaValidator {
+    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -181,7 +181,7 @@ public class Schema {
     }
     
     
-    public static class EnumFormString extends JsonSchema implements StringSchemaValidator {
+    public static class EnumFormString extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringEnumFormStringEnums> {
         private static @Nullable EnumFormString instance = null;
     
         protected EnumFormString() {

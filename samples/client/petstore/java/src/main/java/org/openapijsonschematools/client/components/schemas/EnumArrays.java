@@ -41,7 +41,7 @@ public class EnumArrays {
     }
     
     
-    public static class JustSymbol extends JsonSchema implements StringSchemaValidator {
+    public static class JustSymbol extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringJustSymbolEnums> {
         private static @Nullable JustSymbol instance = null;
     
         protected JustSymbol() {
@@ -100,7 +100,7 @@ public class EnumArrays {
     }
     
     
-    public static class Items extends JsonSchema implements StringSchemaValidator {
+    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums> {
         private static @Nullable Items instance = null;
     
         protected Items() {

@@ -32,7 +32,7 @@ public class Schema3 {
     }
     
     
-    public static class Schema31 extends JsonSchema implements StringSchemaValidator {
+    public static class Schema31 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringSchemaEnums3> {
         private static @Nullable Schema31 instance = null;
     
         protected Schema31() {

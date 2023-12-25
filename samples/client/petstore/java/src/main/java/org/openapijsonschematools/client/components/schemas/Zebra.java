@@ -52,7 +52,7 @@ public class Zebra {
     }
     
     
-    public static class Type extends JsonSchema implements StringSchemaValidator {
+    public static class Type extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringTypeEnums> {
         private static @Nullable Type instance = null;
     
         protected Type() {
@@ -111,7 +111,7 @@ public class Zebra {
     }
     
     
-    public static class ClassName extends JsonSchema implements StringSchemaValidator {
+    public static class ClassName extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringClassNameEnums> {
         private static @Nullable ClassName instance = null;
     
         protected ClassName() {
