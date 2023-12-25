@@ -1232,6 +1232,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
+    public boolean containsEnums(CodegenSchema schema) {
+        for (CodegenSchema oneSchema: schema.getSchemas()) {
+            if ("enumClass".equals(oneSchema.instanceType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
     public String getRefModuleLocation(String ref) {
         // modules are always in a package one above them, so strip off the last jsonPath fragment
         String smallerRef = ref.substring(0, ref.lastIndexOf("/"));

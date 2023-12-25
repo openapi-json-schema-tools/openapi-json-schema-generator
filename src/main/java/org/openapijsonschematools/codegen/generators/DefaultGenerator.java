@@ -5823,4 +5823,9 @@ public class DefaultGenerator implements Generator {
         // remove parentheses
         return result.replaceAll("[()]", "");
     }
+
+    @Override
+    public boolean containsEnums(CodegenSchema schema) {
+        return false;
+    }
 }

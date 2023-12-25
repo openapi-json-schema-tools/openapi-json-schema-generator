@@ -344,4 +344,6 @@ public interface Generator {
     CodegenHeader fromHeader(Header parameter, String sourceJsonPath);
 
     CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath);
+
+    boolean containsEnums(CodegenSchema schema);
 }
