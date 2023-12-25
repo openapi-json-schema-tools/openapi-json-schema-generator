@@ -26,7 +26,7 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class StringEnum {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringStringEnum1 {
+    public static enum StringStringEnumEnums {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered"),
@@ -35,16 +35,16 @@ public class StringEnum {
         DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE("double quote \n with newline");
         public final String value;
     
-        private StringStringEnum1(String value) {
+        private StringStringEnumEnums(String value) {
             this.value = value;
         }
     }
     
-    public static enum NullStringEnum1 {
+    public static enum NullStringEnumEnums {
         NONE(null);
         public final Void value;
     
-        private NullStringEnum1(Void value) {
+        private NullStringEnumEnums(Void value) {
             this.value = value;
         }
     }

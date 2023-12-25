@@ -29,13 +29,13 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumTest {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringEnumString {
+    public static enum StringEnumStringEnums {
         UPPER("UPPER"),
         LOWER("lower"),
         EMPTY("");
         public final String value;
     
-        private StringEnumString(String value) {
+        private StringEnumStringEnums(String value) {
             this.value = value;
         }
     }
@@ -90,13 +90,13 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum StringEnumStringRequired {
+    public static enum StringEnumStringRequiredEnums {
         UPPER("UPPER"),
         LOWER("lower"),
         EMPTY("");
         public final String value;
     
-        private StringEnumStringRequired(String value) {
+        private StringEnumStringRequiredEnums(String value) {
             this.value = value;
         }
     }
@@ -151,22 +151,22 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum IntegerEnumInteger {
+    public static enum IntegerEnumIntegerEnums {
         POSITIVE_1(1),
         NEGATIVE_1(-1);
         public final Number value;
     
-        private IntegerEnumInteger(Number value) {
+        private IntegerEnumIntegerEnums(Number value) {
             this.value = value;
         }
     }
     
-    public static enum NumberEnumInteger {
+    public static enum NumberEnumIntegerEnums {
         POSITIVE_1(1),
         NEGATIVE_1(-1);
         public final Number value;
     
-        private NumberEnumInteger(Number value) {
+        private NumberEnumIntegerEnums(Number value) {
             this.value = value;
         }
     }
@@ -232,12 +232,12 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum NumberEnumNumber {
+    public static enum NumberEnumNumberEnums {
         POSITIVE_1_PT_1(1.1),
         NEGATIVE_1_PT_2(-1.2);
         public final Number value;
     
-        private NumberEnumNumber(Number value) {
+        private NumberEnumNumberEnums(Number value) {
             this.value = value;
         }
     }

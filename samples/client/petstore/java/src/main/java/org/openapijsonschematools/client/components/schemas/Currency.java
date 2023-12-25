@@ -23,12 +23,12 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Currency {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringCurrency1 {
+    public static enum StringCurrencyEnums {
         EUR("eur"),
         USD("usd");
         public final String value;
     
-        private StringCurrency1(String value) {
+        private StringCurrencyEnums(String value) {
             this.value = value;
         }
     }

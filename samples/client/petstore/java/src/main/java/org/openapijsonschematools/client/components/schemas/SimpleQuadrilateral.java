@@ -36,11 +36,11 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class SimpleQuadrilateral {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringQuadrilateralType {
+    public static enum StringQuadrilateralTypeEnums {
         SIMPLE_QUADRILATERAL("SimpleQuadrilateral");
         public final String value;
     
-        private StringQuadrilateralType(String value) {
+        private StringQuadrilateralTypeEnums(String value) {
             this.value = value;
         }
     }

@@ -25,13 +25,13 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema0 {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringItems0 {
+    public static enum StringItemsEnums0 {
         AVAILABLE("available"),
         PENDING("pending"),
         SOLD("sold");
         public final String value;
     
-        private StringItems0(String value) {
+        private StringItemsEnums0(String value) {
             this.value = value;
         }
     }

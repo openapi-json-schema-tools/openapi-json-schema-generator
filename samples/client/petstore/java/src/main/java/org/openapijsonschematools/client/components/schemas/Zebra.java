@@ -40,13 +40,13 @@ public class Zebra {
         }
     }
     
-    public static enum StringType {
+    public static enum StringTypeEnums {
         PLAINS("plains"),
         MOUNTAIN("mountain"),
         GREVYS("grevys");
         public final String value;
     
-        private StringType(String value) {
+        private StringTypeEnums(String value) {
             this.value = value;
         }
     }
@@ -101,11 +101,11 @@ public class Zebra {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum StringClassName {
+    public static enum StringClassNameEnums {
         ZEBRA("zebra");
         public final String value;
     
-        private StringClassName(String value) {
+        private StringClassNameEnums(String value) {
             this.value = value;
         }
     }

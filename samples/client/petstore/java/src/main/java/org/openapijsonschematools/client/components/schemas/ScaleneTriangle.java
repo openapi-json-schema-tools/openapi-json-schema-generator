@@ -36,11 +36,11 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class ScaleneTriangle {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringTriangleType {
+    public static enum StringTriangleTypeEnums {
         SCALENE_TRIANGLE("ScaleneTriangle");
         public final String value;
     
-        private StringTriangleType(String value) {
+        private StringTriangleTypeEnums(String value) {
             this.value = value;
         }
     }

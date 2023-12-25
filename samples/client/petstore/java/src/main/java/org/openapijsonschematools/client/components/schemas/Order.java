@@ -76,13 +76,13 @@ public class Order {
         }
     }
     
-    public static enum StringStatus {
+    public static enum StringStatusEnums {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered");
         public final String value;
     
-        private StringStatus(String value) {
+        private StringStatusEnums(String value) {
             this.value = value;
         }
     }

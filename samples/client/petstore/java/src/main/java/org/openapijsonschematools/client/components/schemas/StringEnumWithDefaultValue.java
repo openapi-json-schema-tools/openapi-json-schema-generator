@@ -23,13 +23,13 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class StringEnumWithDefaultValue {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringStringEnumWithDefaultValue1 {
+    public static enum StringStringEnumWithDefaultValueEnums {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered");
         public final String value;
     
-        private StringStringEnumWithDefaultValue1(String value) {
+        private StringStringEnumWithDefaultValueEnums(String value) {
             this.value = value;
         }
     }

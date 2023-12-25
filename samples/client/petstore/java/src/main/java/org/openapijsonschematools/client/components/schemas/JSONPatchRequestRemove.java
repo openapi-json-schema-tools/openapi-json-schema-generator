@@ -53,11 +53,11 @@ public class JSONPatchRequestRemove {
         }
     }
     
-    public static enum StringOp {
+    public static enum StringOpEnums {
         REMOVE("remove");
         public final String value;
     
-        private StringOp(String value) {
+        private StringOpEnums(String value) {
             this.value = value;
         }
     }

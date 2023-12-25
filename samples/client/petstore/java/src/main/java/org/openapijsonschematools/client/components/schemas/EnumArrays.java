@@ -30,12 +30,12 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumArrays {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringJustSymbol {
+    public static enum StringJustSymbolEnums {
         GREATER_THAN_SIGN_EQUALS_SIGN(">="),
         DOLLAR_SIGN("$");
         public final String value;
     
-        private StringJustSymbol(String value) {
+        private StringJustSymbolEnums(String value) {
             this.value = value;
         }
     }
@@ -89,12 +89,12 @@ public class EnumArrays {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum StringItems {
+    public static enum StringItemsEnums {
         FISH("fish"),
         CRAB("crab");
         public final String value;
     
-        private StringItems(String value) {
+        private StringItemsEnums(String value) {
             this.value = value;
         }
     }

@@ -23,12 +23,12 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringSchema11 {
+    public static enum StringSchemaEnums1 {
         C("c"),
         D("d");
         public final String value;
     
-        private StringSchema11(String value) {
+        private StringSchemaEnums1(String value) {
             this.value = value;
         }
     }

@@ -23,7 +23,7 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumClass {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringEnumClass1 {
+    public static enum StringEnumClassEnums {
         _ABC("_abc"),
         HYPHEN_MINUS_EFG("-efg"),
         LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS("(xyz)"),
@@ -31,7 +31,7 @@ public class EnumClass {
         COUNT_50M("COUNT_50M");
         public final String value;
     
-        private StringEnumClass1(String value) {
+        private StringEnumClassEnums(String value) {
             this.value = value;
         }
     }

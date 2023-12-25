@@ -145,13 +145,13 @@ public class Pet {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum StringStatus {
+    public static enum StringStatusEnums {
         AVAILABLE("available"),
         PENDING("pending"),
         SOLD("sold");
         public final String value;
     
-        private StringStatus(String value) {
+        private StringStatusEnums(String value) {
             this.value = value;
         }
     }

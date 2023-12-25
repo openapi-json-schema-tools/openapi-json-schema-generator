@@ -28,11 +28,11 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class DanishPig {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringClassName {
+    public static enum StringClassNameEnums {
         DANISH_PIG("DanishPig");
         public final String value;
     
-        private StringClassName(String value) {
+        private StringClassNameEnums(String value) {
             this.value = value;
         }
     }

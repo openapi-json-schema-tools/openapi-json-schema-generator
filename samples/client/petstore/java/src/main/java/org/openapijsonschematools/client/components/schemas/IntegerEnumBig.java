@@ -23,24 +23,24 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class IntegerEnumBig {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum IntegerIntegerEnumBig1 {
+    public static enum IntegerIntegerEnumBigEnums {
         POSITIVE_10(10),
         POSITIVE_11(11),
         POSITIVE_12(12);
         public final Number value;
     
-        private IntegerIntegerEnumBig1(Number value) {
+        private IntegerIntegerEnumBigEnums(Number value) {
             this.value = value;
         }
     }
     
-    public static enum NumberIntegerEnumBig1 {
+    public static enum NumberIntegerEnumBigEnums {
         POSITIVE_10(10),
         POSITIVE_11(11),
         POSITIVE_12(12);
         public final Number value;
     
-        private NumberIntegerEnumBig1(Number value) {
+        private NumberIntegerEnumBigEnums(Number value) {
             this.value = value;
         }
     }

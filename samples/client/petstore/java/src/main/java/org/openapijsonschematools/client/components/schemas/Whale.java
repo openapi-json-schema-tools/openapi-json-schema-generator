@@ -51,11 +51,11 @@ public class Whale {
         }
     }
     
-    public static enum StringClassName {
+    public static enum StringClassNameEnums {
         WHALE("whale");
         public final String value;
     
-        private StringClassName(String value) {
+        private StringClassNameEnums(String value) {
             this.value = value;
         }
     }

@@ -1,5 +1,5 @@
-{{#if enumInfo}}
-    {{#each enumInfo.typeToValues}}
+{{#with enumInfo}}
+    {{#each typeToValues}}
 
         {{#eq @key "null"}}
 public static enum Null{{../jsonPathPiece.camelCase}} {
@@ -82,4 +82,4 @@ public static enum Number{{../jsonPathPiece.camelCase}} {
         {{/eq}}
 }
     {{/each}}
-{{/if}}
+{{/with}}

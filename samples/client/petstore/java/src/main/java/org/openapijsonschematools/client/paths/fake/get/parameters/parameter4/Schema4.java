@@ -23,22 +23,22 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema4 {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum IntegerSchema41 {
+    public static enum IntegerSchemaEnums4 {
         POSITIVE_1(1),
         NEGATIVE_2(-2);
         public final Number value;
     
-        private IntegerSchema41(Number value) {
+        private IntegerSchemaEnums4(Number value) {
             this.value = value;
         }
     }
     
-    public static enum NumberSchema41 {
+    public static enum NumberSchemaEnums4 {
         POSITIVE_1(1),
         NEGATIVE_2(-2);
         public final Number value;
     
-        private NumberSchema41(Number value) {
+        private NumberSchemaEnums4(Number value) {
             this.value = value;
         }
     }

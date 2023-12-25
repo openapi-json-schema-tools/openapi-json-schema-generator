@@ -28,11 +28,11 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class BasquePig {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringClassName {
+    public static enum StringClassNameEnums {
         BASQUE_PIG("BasquePig");
         public final String value;
     
-        private StringClassName(String value) {
+        private StringClassNameEnums(String value) {
             this.value = value;
         }
     }

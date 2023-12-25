@@ -25,12 +25,12 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema2 {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringItems2 {
+    public static enum StringItemsEnums2 {
         GREATER_THAN_SIGN(">"),
         DOLLAR_SIGN("$");
         public final String value;
     
-        private StringItems2(String value) {
+        private StringItemsEnums2(String value) {
             this.value = value;
         }
     }

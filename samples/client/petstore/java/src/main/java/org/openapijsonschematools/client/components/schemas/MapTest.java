@@ -221,12 +221,12 @@ public class MapTest {
         }
     }
     
-    public static enum StringAdditionalProperties2 {
+    public static enum StringAdditionalPropertiesEnums {
         UPPER("UPPER"),
         LOWER("lower");
         public final String value;
     
-        private StringAdditionalProperties2(String value) {
+        private StringAdditionalPropertiesEnums(String value) {
             this.value = value;
         }
     }

@@ -64,13 +64,13 @@ public class JSONPatchRequestAddReplaceTest {
         }
     }
     
-    public static enum StringOp {
+    public static enum StringOpEnums {
         ADD("add"),
         REPLACE("replace"),
         TEST("test");
         public final String value;
     
-        private StringOp(String value) {
+        private StringOpEnums(String value) {
             this.value = value;
         }
     }

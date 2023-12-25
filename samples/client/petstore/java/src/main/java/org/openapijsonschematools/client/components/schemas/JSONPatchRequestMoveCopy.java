@@ -64,12 +64,12 @@ public class JSONPatchRequestMoveCopy {
         }
     }
     
-    public static enum StringOp {
+    public static enum StringOpEnums {
         MOVE("move"),
         COPY("copy");
         public final String value;
     
-        private StringOp(String value) {
+        private StringOpEnums(String value) {
             this.value = value;
         }
     }
