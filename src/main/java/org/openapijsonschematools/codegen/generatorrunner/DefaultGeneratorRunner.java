@@ -353,7 +353,6 @@ public class DefaultGeneratorRunner implements GeneratorRunner {
         Map<String, Object> schemaData = new HashMap<>();
         schemaData.put("packageName", generator.packageName());
         schemaData.put("schema", schema);
-        schemaData.put("containsEnums", generator.containsEnums(schema));
         schemaData.putAll(generator.additionalProperties());
         schemaData.put("docRoot", docRoot);
         schemaData.put("identifierPieces", Collections.unmodifiableList(new ArrayList<>()));

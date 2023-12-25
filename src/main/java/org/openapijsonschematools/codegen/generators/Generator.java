@@ -64,6 +64,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.function.Function;
 
 public interface Generator {
     String getFilesMetadataFilename();
@@ -345,5 +346,5 @@ public interface Generator {
 
     CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath);
 
-    boolean containsEnums(CodegenSchema schema);
+    Function<CodegenSchema, List<CodegenSchema>> getSchemasFn();
 }

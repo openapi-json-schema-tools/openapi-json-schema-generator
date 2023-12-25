@@ -47,6 +47,7 @@ import org.slf4j.LoggerFactory;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -1232,16 +1233,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     }
 
     @Override
-    public boolean containsEnums(CodegenSchema schema) {
-        for (CodegenSchema oneSchema: schema.getSchemas()) {
-            if ("enumClass".equals(oneSchema.instanceType)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
-    @Override
     public String getRefModuleLocation(String ref) {
         // modules are always in a package one above them, so strip off the last jsonPath fragment
         String smallerRef = ref.substring(0, ref.lastIndexOf("/"));
@@ -1839,5 +1830,17 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             usedValue = usedValue.replaceAll("_$", "");
         }
         return usedValue;
+    }
+
+    @Override
+    public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn() {
+        Function<CodegenSchema, List<CodegenSchema>> getSchemasFn = codegenSchema -> {
+            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
+            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
+            codegenSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, true);
+            schemasBeforeImports.addAll(schemasAfterImports);
+            return schemasBeforeImports;
+        };
+        return getSchemasFn;
     }
 }

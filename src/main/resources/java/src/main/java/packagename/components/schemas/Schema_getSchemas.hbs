@@ -1,4 +1,4 @@
-{{#each getJavaSchemas}}
+{{#each getSchemas}}
     {{! generate all schemas in post order traversal }}
     {{#eq instanceType "schema" }}
 {{> src/main/java/packagename/components/schemas/SchemaClass/SchemaClass identifierPieces=(append identifierPieces jsonPathPiece) }}

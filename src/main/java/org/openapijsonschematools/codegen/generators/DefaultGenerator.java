@@ -108,6 +108,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -2555,6 +2556,7 @@ public class DefaultGenerator implements Generator {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
+        property.getSchemasFn = getSchemasFn();
 
         String ref = p.get$ref();
         // put toExampleValue in a try-catch block to log the error as example values are not critical
@@ -3593,6 +3595,18 @@ public class DefaultGenerator implements Generator {
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
+    }
+
+    @Override
+    public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn() {
+        Function<CodegenSchema, List<CodegenSchema>> getSchemasFn = codegenSchema -> {
+            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
+            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
+            codegenSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, false);
+            schemasBeforeImports.addAll(schemasAfterImports);
+            return schemasBeforeImports;
+        };
+        return getSchemasFn;
     }
 
     @Override
@@ -5822,10 +5836,5 @@ public class DefaultGenerator implements Generator {
         String result = charName.replaceAll("[\\-\\s]", "_");
         // remove parentheses
         return result.replaceAll("[()]", "");
-    }
-
-    @Override
-    public boolean containsEnums(CodegenSchema schema) {
-        return false;
     }
 }
