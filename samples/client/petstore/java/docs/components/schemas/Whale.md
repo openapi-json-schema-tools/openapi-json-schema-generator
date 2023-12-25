@@ -15,6 +15,7 @@ A class that contains necessary nested
 | static class | [Whale.WhaleMapInput](#whalemapinput)<br> builder for Map payloads |
 | static class | [Whale.WhaleMap](#whalemap)<br> output class for Map payloads |
 | static class | [Whale.ClassName](#classname)<br> schema class |
+| enum | [Whale.StringClassNameEnums]() |
 | static class | [Whale.HasTeeth](#hasteeth)<br> schema class |
 | static class | [Whale.HasBaleen](#hasbaleen)<br> schema class |
 

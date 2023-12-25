@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BooleanEnum.BooleanEnum1](#booleanenum1)<br> schema class |
+| enum | [BooleanEnum.BooleanBooleanEnumEnums]() |
 
 ## BooleanEnum1
 public static class BooleanEnum1<br>

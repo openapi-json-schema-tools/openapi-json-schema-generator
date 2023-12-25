@@ -15,6 +15,7 @@ A class that contains necessary nested
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapInput](#jsonpatchrequestremovemapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestRemove.Op](#op)<br> schema class |
+| enum | [JSONPatchRequestRemove.StringOpEnums]() |
 | static class | [JSONPatchRequestRemove.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestRemove.AdditionalProperties](#additionalproperties)<br> schema class |
 

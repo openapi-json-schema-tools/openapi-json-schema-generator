@@ -16,6 +16,7 @@ A class that contains necessary nested
 | static class | [IsoscelesTriangle.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
 | static class | [IsoscelesTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [IsoscelesTriangle.TriangleType](#triangletype)<br> schema class |
+| enum | [IsoscelesTriangle.StringTriangleTypeEnums]() |
 
 ## IsoscelesTriangle1
 public static class IsoscelesTriangle1<br>

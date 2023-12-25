@@ -15,6 +15,7 @@ A class that contains necessary nested
 | static class | [DanishPig.DanishPigMapInput](#danishpigmapinput)<br> builder for Map payloads |
 | static class | [DanishPig.DanishPigMap](#danishpigmap)<br> output class for Map payloads |
 | static class | [DanishPig.ClassName](#classname)<br> schema class |
+| enum | [DanishPig.StringClassNameEnums]() |
 
 ## DanishPig1
 public static class DanishPig1<br>

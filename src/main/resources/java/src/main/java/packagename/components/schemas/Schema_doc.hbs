@@ -45,6 +45,32 @@ A class that contains necessary nested
                 {{else}}
                     {{#or (eq instanceType "propertiesInputType") (eq instanceType "requiredPropertiesInputType") (eq instanceType "optionalPropertiesInputType") }}
 | static class | [{{../containerJsonPathPiece.camelCase}}.{{mapInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }})<br> builder for Map payloads |
+                    {{else}}
+                        {{#eq instanceType "enumClass"}}
+                            {{#with enumInfo}}
+                                {{#each typeToValues}}
+                                    {{#eq @key "null"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}]() |
+                                    {{else}}
+                                        {{#eq @key "boolean"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}]() |
+                                        {{else}}
+                                            {{#eq @key "string"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}]() |
+                                            {{else}}
+                                                {{#eq @key "integer"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}]() |
+                                                {{else}}
+                                                    {{#eq @key "number"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Number{{../jsonPathPiece.camelCase}}]() |
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/each}}
+                            {{/with}}
+                        {{/eq}}
                     {{/or}}
                 {{/eq}}
             {{/eq}}

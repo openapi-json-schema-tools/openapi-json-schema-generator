@@ -15,6 +15,7 @@ A class that contains necessary nested
 | static class | [Schema2.SchemaListInput2](#schemalistinput2)<br> builder for List payloads |
 | static class | [Schema2.SchemaList2](#schemalist2)<br> output class for List payloads |
 | static class | [Schema2.Items2](#items2)<br> schema class |
+| enum | [Schema2.StringItemsEnums2]() |
 
 ## Schema21
 public static class Schema21<br>

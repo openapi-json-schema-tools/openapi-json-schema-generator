@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [PathParamSchema0.PathParamSchema01](#pathparamschema01)<br> schema class |
+| enum | [PathParamSchema0.StringPathParamSchemaEnums0]() |
 
 ## PathParamSchema01
 public static class PathParamSchema01<br>

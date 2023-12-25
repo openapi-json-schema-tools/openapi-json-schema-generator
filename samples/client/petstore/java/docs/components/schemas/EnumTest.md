@@ -15,9 +15,14 @@ A class that contains necessary nested
 | static class | [EnumTest.EnumTestMapInput](#enumtestmapinput)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
+| enum | [EnumTest.NumberEnumNumberEnums]() |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
+| enum | [EnumTest.IntegerEnumIntegerEnums]() |
+| enum | [EnumTest.NumberEnumIntegerEnums]() |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
+| enum | [EnumTest.StringEnumStringRequiredEnums]() |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
+| enum | [EnumTest.StringEnumStringEnums]() |
 
 ## EnumTest1
 public static class EnumTest1<br>

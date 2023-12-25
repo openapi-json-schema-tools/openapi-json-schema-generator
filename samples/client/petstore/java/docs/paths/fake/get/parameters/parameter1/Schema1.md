@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema1.Schema11](#schema11)<br> schema class |
+| enum | [Schema1.StringSchemaEnums1]() |
 
 ## Schema11
 public static class Schema11<br>

@@ -10,6 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [StringEnumWithDefaultValue.StringEnumWithDefaultValue1](#stringenumwithdefaultvalue1)<br> schema class |
+| enum | [StringEnumWithDefaultValue.StringStringEnumWithDefaultValueEnums]() |
 
 ## StringEnumWithDefaultValue1
 public static class StringEnumWithDefaultValue1<br>

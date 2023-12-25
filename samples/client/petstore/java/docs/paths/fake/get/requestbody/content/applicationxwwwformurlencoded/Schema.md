@@ -17,10 +17,12 @@ A class that contains necessary nested
 | static class | [Schema.SchemaMapInput](#schemamapinput)<br> builder for Map payloads |
 | static class | [Schema.SchemaMap](#schemamap)<br> output class for Map payloads |
 | static class | [Schema.EnumFormString](#enumformstring)<br> schema class |
+| enum | [Schema.StringEnumFormStringEnums]() |
 | static class | [Schema.EnumFormStringArray](#enumformstringarray)<br> schema class |
 | static class | [Schema.EnumFormStringArrayListInput](#enumformstringarraylistinput)<br> builder for List payloads |
 | static class | [Schema.EnumFormStringArrayList](#enumformstringarraylist)<br> output class for List payloads |
 | static class | [Schema.Items](#items)<br> schema class |
+| enum | [Schema.StringItemsEnums]() |
 
 ## Schema1
 public static class Schema1<br>

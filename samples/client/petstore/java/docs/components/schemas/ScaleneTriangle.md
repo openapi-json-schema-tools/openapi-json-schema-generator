@@ -16,6 +16,7 @@ A class that contains necessary nested
 | static class | [ScaleneTriangle.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
 | static class | [ScaleneTriangle.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [ScaleneTriangle.TriangleType](#triangletype)<br> schema class |
+| enum | [ScaleneTriangle.StringTriangleTypeEnums]() |
 
 ## ScaleneTriangle1
 public static class ScaleneTriangle1<br>
