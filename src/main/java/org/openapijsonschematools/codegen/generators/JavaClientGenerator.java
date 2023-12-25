@@ -1559,7 +1559,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
             imports.add("import "+packageName + ".schemas.SetMaker;");
-            imports.add("import "+packageName + ".schemas.validation.EnumValueMethod;");
             if (schema.enumInfo.typeToValues.containsKey("null")) {
                 imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
             }
@@ -1620,7 +1619,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
         imports.add("import "+packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
         imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
-        imports.add("import org.checkerframework.checker.nullness.qual.NonNull;");
         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
     }
 
