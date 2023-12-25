@@ -10,6 +10,7 @@ public class EnumValue {
     public final Object value;
     public final String description;
     public final CodegenSchema schema;
+    public final String name; // the name for this enum
 
     private CodegenSchema toSchema() {
         CodegenSchema schema = new CodegenSchema();
@@ -53,7 +54,7 @@ public class EnumValue {
         return schema;
     }
 
-    public EnumValue(Object value, String type, String description) {
+    public EnumValue(Object value, String type, String description, String name) {
         this.type = type;
         if ("integer".equals(type) && value instanceof Integer) {
             this.value = Long.parseLong(value.toString());
@@ -62,6 +63,7 @@ public class EnumValue {
         }
         this.description = description;
         this.schema = toSchema();
+        this.name = name;
     }
 
     public String javaType() {
@@ -76,12 +78,13 @@ public class EnumValue {
         EnumValue that = (EnumValue) o;
         return Objects.equals(value, that.value) &&
                 Objects.equals(type, that.type) &&
+                Objects.equals(name, that.name) &&
                 Objects.equals(description, that.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(value, type, description);
+        return Objects.hash(value, type, description, name);
     }
 }
 

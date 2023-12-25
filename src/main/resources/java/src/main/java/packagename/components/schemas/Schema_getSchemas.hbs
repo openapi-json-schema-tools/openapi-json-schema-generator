@@ -10,7 +10,7 @@
 {{!> components/schemas/_anyof_type }}
             {{else}}
                 {{#eq instanceType "enumClass" }}
-{{!> components/schemas/_enum_class }}
+{{> src/main/java/packagename/components/schemas/_enumTypes }}
                 {{else}}
                     {{#eq instanceType "oneOfType" }}
 {{!> components/schemas/_oneof_type }}

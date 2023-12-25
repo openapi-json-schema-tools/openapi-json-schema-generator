@@ -23,6 +23,16 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringEnumWithEscapedCharacters1 {
+        FOO_BAR("foo\nbar"),
+        FOO_BAR("foo\rbar");
+        public final String value;
+    
+        private StringEnumWithEscapedCharacters1(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class EnumWithEscapedCharacters1 extends JsonSchema implements StringSchemaValidator {
         /*

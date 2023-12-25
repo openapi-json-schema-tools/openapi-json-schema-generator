@@ -23,6 +23,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class NulCharactersInStrings {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringNulCharactersInStrings1 {
+        HELLO_THERE("hello\0there");
+        public final String value;
+    
+        private StringNulCharactersInStrings1(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class NulCharactersInStrings1 extends JsonSchema implements StringSchemaValidator {
         /*

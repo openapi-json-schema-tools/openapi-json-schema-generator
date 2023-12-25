@@ -28,6 +28,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumsInProperties {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringFoo {
+        FOO("foo");
+        public final String value;
+    
+        private StringFoo(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Foo extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Foo instance = null;
@@ -76,6 +85,15 @@ public class EnumsInProperties {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public static enum StringBar {
+        BAR("bar");
+        public final String value;
+    
+        private StringBar(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Bar extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Bar instance = null;

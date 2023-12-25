@@ -1505,7 +1505,7 @@ public class DefaultGenerator implements Generator {
     @SuppressWarnings("static-method")
     public EnumValue toDefaultValue(Schema schema) {
         if (schema.getDefault() != null) {
-            return getEnumValue(schema.getDefault(), null);
+            return getEnumValue(schema.getDefault(), null, null);
         }
 
         return null;
@@ -1634,7 +1634,7 @@ public class DefaultGenerator implements Generator {
         return specTestCaseName;
     }
 
-    protected EnumValue getEnumValue(Object value, String description) {
+    protected EnumValue getEnumValue(Object value, String description, String name) {
         Object usedValue = value;
         String type = null;
         if (value instanceof Integer || value instanceof Long){
@@ -1652,7 +1652,7 @@ public class DefaultGenerator implements Generator {
             for (Map.Entry entry: ((LinkedHashMap<?, ?>) value).entrySet()) {
                 String entryKey = escapeUnsafeCharacters((String) entry.getKey());
                 Object entryValue = entry.getValue();
-                EnumValue castValue = getEnumValue(entryValue, null);
+                EnumValue castValue = getEnumValue(entryValue, null, null);
                 castMap.put(entryKey, castValue);
             }
             type = "object";
@@ -1660,7 +1660,7 @@ public class DefaultGenerator implements Generator {
         } else if (value instanceof ArrayList) {
             ArrayList<EnumValue> castList = new ArrayList<>();
             for (Object item: (ArrayList<?>) value) {
-                EnumValue castItem = getEnumValue(item, null);
+                EnumValue castItem = getEnumValue(item, null, null);
                 castList.add(castItem);
             }
             type = "array";
@@ -1670,7 +1670,7 @@ public class DefaultGenerator implements Generator {
         } else if (value == null) {
             type = "null";
         }
-        return new EnumValue(usedValue, type, description);
+        return new EnumValue(usedValue, type, description, name);
     }
 
     /**
@@ -1724,7 +1724,7 @@ public class DefaultGenerator implements Generator {
             boolean valid = (boolean) castTestExample.get("valid");
             SchemaTestCase testCase = new SchemaTestCase(
                     description,
-                    getEnumValue(data, null),
+                    getEnumValue(data, null, null),
                     valid
             );
             schemaTestCases.put(nameInSnakeCase, testCase);
@@ -2481,42 +2481,42 @@ public class DefaultGenerator implements Generator {
             for (String type: usedSchema.types) {
                 switch(type) {
                     case "null":
-                        typeToExample.put("null", new EnumValue(null, "null", null));
+                        typeToExample.put("null", new EnumValue(null, "null", null, null));
                         break;
                     case "boolean":
                         Object boolVal = getBooleanFromSchema(usedSchema);
                         if (boolVal != null) {
-                            typeToExample.put("boolean", new EnumValue(boolVal, "boolean", null));
+                            typeToExample.put("boolean", new EnumValue(boolVal, "boolean", null, null));
                         }
                         break;
                     case "integer":
                         Object intVal = getIntegerFromSchema(usedSchema);
                         if (intVal != null) {
-                            typeToExample.put("integer", new EnumValue(intVal, "integer", null));
+                            typeToExample.put("integer", new EnumValue(intVal, "integer", null, null));
                         }
                         break;
                     case "number":
                         Object numberVal = getNumberFromSchema(usedSchema);
                         if (numberVal != null) {
-                            typeToExample.put("number", new EnumValue(numberVal, "number", null));
+                            typeToExample.put("number", new EnumValue(numberVal, "number", null, null));
                         }
                         break;
                     case "string":
                         Object stringVal = getStringFromSchema(usedSchema);
                         if (stringVal != null) {
-                            typeToExample.put("string", new EnumValue(stringVal, "string", null));
+                            typeToExample.put("string", new EnumValue(stringVal, "string", null, null));
                         }
                         break;
                     case "array":
                         Object listVal = getListFromSchema(usedSchema, seenSchemas);
                         if (listVal != null) {
-                            typeToExample.put("array", new EnumValue(listVal, "array", null));
+                            typeToExample.put("array", new EnumValue(listVal, "array", null, null));
                         }
                         break;
                     case "object":
                         Object mapVal = getMapFromSchema(usedSchema, seenSchemas);
                         if (mapVal != null) {
-                            typeToExample.put("object", new EnumValue(mapVal, "object", null));
+                            typeToExample.put("object", new EnumValue(mapVal, "object", null, null));
                         }
                         break;
                     default:
@@ -4702,7 +4702,7 @@ public class DefaultGenerator implements Generator {
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            EnumValue enumValue = getEnumValue(value, description);
+            EnumValue enumValue = getEnumValue(value, description, usedName);
             boolean typeIsInteger = enumValue.type.equals("integer");
             boolean intIsNumberUseCase = (typeIsInteger && types!=null && types.contains("number"));
             if (types!=null && !types.contains(enumValue.type) && !intIsNumberUseCase) {

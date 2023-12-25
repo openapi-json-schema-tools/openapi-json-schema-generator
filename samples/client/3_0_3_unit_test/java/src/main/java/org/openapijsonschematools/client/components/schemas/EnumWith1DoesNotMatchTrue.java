@@ -23,6 +23,24 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumWith1DoesNotMatchTrue {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum IntegerEnumWith1DoesNotMatchTrue1 {
+        _1(1);
+        public final Number value;
+    
+        private IntegerEnumWith1DoesNotMatchTrue1(Number value) {
+            this.value = value;
+        }
+    }
+    
+    public static enum NumberEnumWith1DoesNotMatchTrue1 {
+        _1(1);
+        public final Number value;
+    
+        private NumberEnumWith1DoesNotMatchTrue1(Number value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class EnumWith1DoesNotMatchTrue1 extends JsonSchema implements NumberSchemaValidator {
         /*

@@ -1,0 +1,85 @@
+{{#if enumInfo}}
+    {{#each enumInfo.typeToValues}}
+
+        {{#eq @key "null"}}
+public static enum Null{{../jsonPathPiece.camelCase}} {
+        {{else}}
+            {{#eq @key "boolean"}}
+public static enum Boolean{{../jsonPathPiece.camelCase}} {
+            {{else}}
+                {{#eq @key "string"}}
+public static enum String{{../jsonPathPiece.camelCase}} {
+                {{else}}
+                    {{#eq @key "integer"}}
+public static enum Integer{{../jsonPathPiece.camelCase}} {
+                    {{else}}
+                        {{#eq @key "number"}}
+public static enum Number{{../jsonPathPiece.camelCase}} {
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+        {{#each this}}
+            {{#eq ../@key "null"}}
+    {{name}}(null){{#unless @last}},{{else}};{{/unless}}
+            {{else}}
+                {{#eq ../@key "boolean"}}
+    {{name}}({{value}}){{#unless @last}},{{else}};{{/unless}}
+                {{else}}
+                    {{#eq ../@key "string"}}
+    {{name}}("{{{value}}}"){{#unless @last}},{{else}};{{/unless}}
+                    {{else}}
+                        {{#eq ../@key "integer"}}
+    {{name}}({{value}}){{#unless @last}},{{else}};{{/unless}}
+                        {{else}}
+                            {{#eq ../@key "number"}}
+    {{name}}({{value}}){{#unless @last}},{{else}};{{/unless}}
+                            {{/eq}}
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/each}}
+        {{#eq @key "null"}}
+    public final Void value;
+
+    private Null{{../jsonPathPiece.camelCase}}(Void value) {
+        this.value = value;
+    }
+        {{else}}
+            {{#eq @key "boolean"}}
+    public final boolean value;
+
+    private Boolean{{../jsonPathPiece.camelCase}}(boolean value) {
+        this.value = value;
+    }
+            {{else}}
+                {{#eq @key "string"}}
+    public final String value;
+
+    private String{{../jsonPathPiece.camelCase}}(String value) {
+        this.value = value;
+    }
+                {{else}}
+                    {{#eq @key "integer"}}
+    public final Number value;
+
+    private Integer{{../jsonPathPiece.camelCase}}(Number value) {
+        this.value = value;
+    }
+                    {{else}}
+                        {{#eq @key "number"}}
+    public final Number value;
+
+    private Number{{../jsonPathPiece.camelCase}}(Number value) {
+        this.value = value;
+    }
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{/eq}}
+        {{/eq}}
+}
+    {{/each}}
+{{/if}}
