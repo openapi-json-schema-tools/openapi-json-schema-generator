@@ -10,7 +10,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Currency.Currency1](#currency1)<br> schema class |
-| enum | [Currency.StringCurrencyEnums]()<br>String enum |
+| enum | [Currency.StringCurrencyEnums](#stringcurrencyenums)<br>String enum |
 
 ## Currency1
 public static class Currency1<br>

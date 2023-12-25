@@ -10,8 +10,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [StringEnum.StringEnum1](#stringenum1)<br> schema class |
-| enum | [StringEnum.StringStringEnumEnums]()<br>String enum |
-| enum | [StringEnum.NullStringEnumEnums]()<br>null enum |
+| enum | [StringEnum.StringStringEnumEnums](#stringstringenumenums)<br>String enum |
+| enum | [StringEnum.NullStringEnumEnums](#nullstringenumenums)<br>null enum |
 
 ## StringEnum1
 public static class StringEnum1<br>

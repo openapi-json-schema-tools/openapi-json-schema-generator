@@ -10,8 +10,8 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1](#integerenumwithdefaultvalue1)<br> schema class |
-| enum | [IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums]()<br>integer enum |
-| enum | [IntegerEnumWithDefaultValue.NumberIntegerEnumWithDefaultValueEnums]()<br>number enum |
+| enum | [IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums](#integerintegerenumwithdefaultvalueenums)<br>integer enum |
+| enum | [IntegerEnumWithDefaultValue.NumberIntegerEnumWithDefaultValueEnums](#numberintegerenumwithdefaultvalueenums)<br>number enum |
 
 ## IntegerEnumWithDefaultValue1
 public static class IntegerEnumWithDefaultValue1<br>

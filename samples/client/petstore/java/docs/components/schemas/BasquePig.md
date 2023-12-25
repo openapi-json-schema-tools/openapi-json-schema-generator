@@ -15,7 +15,7 @@ A class that contains necessary nested
 | static class | [BasquePig.BasquePigMapInput](#basquepigmapinput)<br> builder for Map payloads |
 | static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
 | static class | [BasquePig.ClassName](#classname)<br> schema class |
-| enum | [BasquePig.StringClassNameEnums]()<br>String enum |
+| enum | [BasquePig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 
 ## BasquePig1
 public static class BasquePig1<br>

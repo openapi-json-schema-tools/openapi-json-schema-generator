@@ -16,7 +16,7 @@ A class that contains necessary nested
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
 | static class | [Order.Status](#status)<br> schema class |
-| enum | [Order.StringStatusEnums]()<br>String enum |
+| enum | [Order.StringStatusEnums](#stringstatusenums)<br>String enum |
 | static class | [Order.ShipDate](#shipdate)<br> schema class |
 | static class | [Order.Quantity](#quantity)<br> schema class |
 | static class | [Order.PetId](#petid)<br> schema class |

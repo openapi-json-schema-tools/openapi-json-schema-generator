@@ -20,9 +20,9 @@ A class that contains necessary nested
 | static class | [EnumArrays.ArrayEnumListInput](#arrayenumlistinput)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
 | static class | [EnumArrays.Items](#items)<br> schema class |
-| enum | [EnumArrays.StringItemsEnums]()<br>String enum |
+| enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
-| enum | [EnumArrays.StringJustSymbolEnums]()<br>String enum |
+| enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |
 
 ## EnumArrays1
 public static class EnumArrays1<br>

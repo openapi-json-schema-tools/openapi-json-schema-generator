@@ -15,7 +15,7 @@ A class that contains necessary nested
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapInput](#jsonpatchrequestmovecopymapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.Op](#op)<br> schema class |
-| enum | [JSONPatchRequestMoveCopy.StringOpEnums]()<br>String enum |
+| enum | [JSONPatchRequestMoveCopy.StringOpEnums](#stringopenums)<br>String enum |
 | static class | [JSONPatchRequestMoveCopy.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.From](#from)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.AdditionalProperties](#additionalproperties)<br> schema class |

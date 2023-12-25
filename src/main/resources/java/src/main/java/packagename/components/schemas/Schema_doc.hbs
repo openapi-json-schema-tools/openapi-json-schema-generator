@@ -50,19 +50,19 @@ A class that contains necessary nested
                             {{#with enumInfo}}
                                 {{#each typeToValues}}
                                     {{#eq @key "null"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}]()<br>null enum |
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}](#null{{../jsonPathPiece.anchorPiece}})<br>null enum |
                                     {{else}}
                                         {{#eq @key "boolean"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}]()<br>boolean enum |
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}](#boolean{{../jsonPathPiece.anchorPiece}})<br>boolean enum |
                                         {{else}}
                                             {{#eq @key "string"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}]()<br>String enum |
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}})<br>String enum |
                                             {{else}}
                                                 {{#eq @key "integer"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}]()<br>integer enum |
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}})<br>integer enum |
                                                 {{else}}
                                                     {{#eq @key "number"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Number{{../jsonPathPiece.camelCase}}]()<br>number enum |
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Number{{../jsonPathPiece.camelCase}}](#number{{../jsonPathPiece.anchorPiece}})<br>number enum |
                                                     {{/eq}}
                                                 {{/eq}}
                                             {{/eq}}
