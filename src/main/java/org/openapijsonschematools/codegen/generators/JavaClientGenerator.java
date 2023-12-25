@@ -430,6 +430,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
+        keywordValidatorFiles.add("StringEnumValidator");
         keywordValidatorFiles.add("StringSchemaValidator");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
@@ -1549,6 +1550,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             }
             if (schema.enumInfo.typeToValues.containsKey("boolean")) {
                 imports.add("import "+packageName + ".schemas.validation.BooleanEnumValidator;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("string")) {
+                imports.add("import "+packageName + ".schemas.validation.StringEnumValidator;");
             }
         }
     }

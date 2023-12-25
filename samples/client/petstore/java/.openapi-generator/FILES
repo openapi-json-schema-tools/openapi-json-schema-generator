@@ -707,6 +707,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/PatternValida
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertiesValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/PropertyEntry.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/RequiredValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/StringEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/StringSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/TypeValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/UniqueItemsValidator.java
