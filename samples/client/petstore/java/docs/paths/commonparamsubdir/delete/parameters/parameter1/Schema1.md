@@ -51,3 +51,9 @@ String validatedPayload = Schema1.Schema11.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringSchemaEnums1
+public enum StringSchemaEnums1<br>
+extends `Enum<StringSchemaEnums1>`
+
+A class that stores String enum values

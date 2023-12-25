@@ -51,4 +51,11 @@ String validatedPayload = Currency.Currency1.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringCurrencyEnums
+public enum StringCurrencyEnums<br>
+extends `Enum<StringCurrencyEnums>`
+
+A class that stores String enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

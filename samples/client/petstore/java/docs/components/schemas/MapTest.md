@@ -295,6 +295,13 @@ String validatedPayload = MapTest.AdditionalProperties2.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringAdditionalPropertiesEnums
+public enum StringAdditionalPropertiesEnums<br>
+extends `Enum<StringAdditionalPropertiesEnums>`
+
+A class that stores String enum values
+
 ## MapMapOfString
 public static class MapMapOfString<br>
 extends JsonSchema

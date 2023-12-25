@@ -141,6 +141,13 @@ String validatedPayload = Whale.ClassName.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringClassNameEnums
+public enum StringClassNameEnums<br>
+extends `Enum<StringClassNameEnums>`
+
+A class that stores String enum values
+
 ## HasTeeth
 public static class HasTeeth<br>
 extends BooleanJsonSchema

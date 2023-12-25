@@ -52,4 +52,17 @@ long validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerIntegerEnumWithDefaultValueEnums
+public enum IntegerIntegerEnumWithDefaultValueEnums<br>
+extends `Enum<IntegerIntegerEnumWithDefaultValueEnums>`
+
+A class that stores Integer enum values
+
+
+## NumberIntegerEnumWithDefaultValueEnums
+public enum NumberIntegerEnumWithDefaultValueEnums<br>
+extends `Enum<NumberIntegerEnumWithDefaultValueEnums>`
+
+A class that stores Number enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

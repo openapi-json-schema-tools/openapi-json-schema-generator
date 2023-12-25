@@ -51,3 +51,9 @@ String validatedPayload = PathParamSchema0.PathParamSchema01.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringPathParamSchemaEnums0
+public enum StringPathParamSchemaEnums0<br>
+extends `Enum<StringPathParamSchemaEnums0>`
+
+A class that stores String enum values

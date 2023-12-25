@@ -52,3 +52,9 @@ double validatedPayload = Schema5.Schema51.validate(
 | ----------------- | ---------------------- |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## NumberSchemaEnums5
+public enum NumberSchemaEnums5<br>
+extends `Enum<NumberSchemaEnums5>`
+
+A class that stores Number enum values

@@ -163,6 +163,13 @@ double validatedPayload = EnumTest.EnumNumber.validate(
 | ----------------- | ---------------------- |
 | static double | validate(double arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## NumberEnumNumberEnums
+public enum NumberEnumNumberEnums<br>
+extends `Enum<NumberEnumNumberEnums>`
+
+A class that stores Number enum values
+
 ## EnumInteger
 public static class EnumInteger<br>
 extends JsonSchema
@@ -203,6 +210,19 @@ int validatedPayload = EnumTest.EnumInteger.validate(
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerEnumIntegerEnums
+public enum IntegerEnumIntegerEnums<br>
+extends `Enum<IntegerEnumIntegerEnums>`
+
+A class that stores Integer enum values
+
+
+## NumberEnumIntegerEnums
+public enum NumberEnumIntegerEnums<br>
+extends `Enum<NumberEnumIntegerEnums>`
+
+A class that stores Number enum values
+
 ## EnumStringRequired
 public static class EnumStringRequired<br>
 extends JsonSchema
@@ -242,6 +262,13 @@ String validatedPayload = EnumTest.EnumStringRequired.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringEnumStringRequiredEnums
+public enum StringEnumStringRequiredEnums<br>
+extends `Enum<StringEnumStringRequiredEnums>`
+
+A class that stores String enum values
+
 ## EnumString
 public static class EnumString<br>
 extends JsonSchema
@@ -281,4 +308,11 @@ String validatedPayload = EnumTest.EnumString.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringEnumStringEnums
+public enum StringEnumStringEnums<br>
+extends `Enum<StringEnumStringEnums>`
+
+A class that stores String enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

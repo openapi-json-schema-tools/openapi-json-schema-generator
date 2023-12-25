@@ -174,6 +174,13 @@ String validatedPayload = Order.Status.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringStatusEnums
+public enum StringStatusEnums<br>
+extends `Enum<StringStatusEnums>`
+
+A class that stores String enum values
+
 ## ShipDate
 public static class ShipDate<br>
 extends DateTimeJsonSchema

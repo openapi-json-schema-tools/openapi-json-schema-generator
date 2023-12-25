@@ -151,4 +151,11 @@ String validatedPayload = ScaleneTriangle.TriangleType.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringTriangleTypeEnums
+public enum StringTriangleTypeEnums<br>
+extends `Enum<StringTriangleTypeEnums>`
+
+A class that stores String enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

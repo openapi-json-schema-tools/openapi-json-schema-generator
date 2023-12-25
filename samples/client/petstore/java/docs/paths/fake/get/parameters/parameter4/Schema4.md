@@ -53,3 +53,15 @@ int validatedPayload = Schema4.Schema41.validate(
 | ----------------- | ---------------------- |
 | static int | validate(int arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerSchemaEnums4
+public enum IntegerSchemaEnums4<br>
+extends `Enum<IntegerSchemaEnums4>`
+
+A class that stores Integer enum values
+
+
+## NumberSchemaEnums4
+public enum NumberSchemaEnums4<br>
+extends `Enum<NumberSchemaEnums4>`
+
+A class that stores Number enum values

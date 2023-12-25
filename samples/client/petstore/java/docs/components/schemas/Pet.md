@@ -265,6 +265,13 @@ String validatedPayload = Pet.Status.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringStatusEnums
+public enum StringStatusEnums<br>
+extends `Enum<StringStatusEnums>`
+
+A class that stores String enum values
+
 ## PhotoUrls
 public static class PhotoUrls<br>
 extends JsonSchema

@@ -119,4 +119,11 @@ String validatedPayload = TriangleInterface.ShapeType.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringShapeTypeEnums
+public enum StringShapeTypeEnums<br>
+extends `Enum<StringShapeTypeEnums>`
+
+A class that stores String enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -120,3 +120,9 @@ String validatedPayload = Schema2.Items2.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringItemsEnums2
+public enum StringItemsEnums2<br>
+extends `Enum<StringItemsEnums2>`
+
+A class that stores String enum values

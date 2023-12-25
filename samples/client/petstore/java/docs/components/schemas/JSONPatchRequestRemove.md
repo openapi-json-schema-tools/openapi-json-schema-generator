@@ -137,6 +137,13 @@ String validatedPayload = JSONPatchRequestRemove.Op.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringOpEnums
+public enum StringOpEnums<br>
+extends `Enum<StringOpEnums>`
+
+A class that stores String enum values
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema

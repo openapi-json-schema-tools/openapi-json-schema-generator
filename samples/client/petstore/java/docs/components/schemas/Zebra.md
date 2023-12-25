@@ -137,6 +137,13 @@ String validatedPayload = Zebra.ClassName.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringClassNameEnums
+public enum StringClassNameEnums<br>
+extends `Enum<StringClassNameEnums>`
+
+A class that stores String enum values
+
 ## Type
 public static class Type<br>
 extends JsonSchema
@@ -176,6 +183,13 @@ String validatedPayload = Zebra.Type.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringTypeEnums
+public enum StringTypeEnums<br>
+extends `Enum<StringTypeEnums>`
+
+A class that stores String enum values
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends AnyTypeJsonSchema

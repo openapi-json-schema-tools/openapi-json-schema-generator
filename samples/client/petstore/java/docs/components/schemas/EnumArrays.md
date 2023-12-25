@@ -205,6 +205,13 @@ String validatedPayload = EnumArrays.Items.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringItemsEnums
+public enum StringItemsEnums<br>
+extends `Enum<StringItemsEnums>`
+
+A class that stores String enum values
+
 ## JustSymbol
 public static class JustSymbol<br>
 extends JsonSchema
@@ -244,4 +251,11 @@ String validatedPayload = EnumArrays.JustSymbol.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringJustSymbolEnums
+public enum StringJustSymbolEnums<br>
+extends `Enum<StringJustSymbolEnums>`
+
+A class that stores String enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

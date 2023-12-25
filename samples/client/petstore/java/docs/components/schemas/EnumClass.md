@@ -51,4 +51,11 @@ String validatedPayload = EnumClass.EnumClass1.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringEnumClassEnums
+public enum StringEnumClassEnums<br>
+extends `Enum<StringEnumClassEnums>`
+
+A class that stores String enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

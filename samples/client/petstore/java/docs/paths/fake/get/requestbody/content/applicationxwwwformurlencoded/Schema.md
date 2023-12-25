@@ -144,6 +144,13 @@ String validatedPayload = Schema.EnumFormString.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringEnumFormStringEnums
+public enum StringEnumFormStringEnums<br>
+extends `Enum<StringEnumFormStringEnums>`
+
+A class that stores String enum values
+
 ## EnumFormStringArray
 public static class EnumFormStringArray<br>
 extends JsonSchema
@@ -250,3 +257,9 @@ String validatedPayload = Schema.Items.validate(
 | ----------------- | ---------------------- |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringItemsEnums
+public enum StringItemsEnums<br>
+extends `Enum<StringItemsEnums>`
+
+A class that stores String enum values

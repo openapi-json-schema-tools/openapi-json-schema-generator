@@ -52,4 +52,17 @@ long validatedPayload = IntegerEnumOneValue.IntegerEnumOneValue1.validate(
 | ----------------- | ---------------------- |
 | static long | validate(long arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerIntegerEnumOneValueEnums
+public enum IntegerIntegerEnumOneValueEnums<br>
+extends `Enum<IntegerIntegerEnumOneValueEnums>`
+
+A class that stores Integer enum values
+
+
+## NumberIntegerEnumOneValueEnums
+public enum NumberIntegerEnumOneValueEnums<br>
+extends `Enum<NumberIntegerEnumOneValueEnums>`
+
+A class that stores Number enum values
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
