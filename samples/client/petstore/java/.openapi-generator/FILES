@@ -697,6 +697,7 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/MinProperties
 src/main/java/org/openapijsonschematools/client/schemas/validation/MinimumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MultipleOfValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/NotValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/NullEnumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/NullSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/NumberSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/OneOfValidator.java

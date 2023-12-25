@@ -40,6 +40,17 @@ public class Zebra {
         }
     }
     
+    public static enum StringType {
+        PLAINS("plains"),
+        MOUNTAIN("mountain"),
+        GREVYS("grevys");
+        public final String value;
+    
+        private StringType(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Type extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Type instance = null;
@@ -90,6 +101,15 @@ public class Zebra {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public static enum StringClassName {
+        ZEBRA("zebra");
+        public final String value;
+    
+        private StringClassName(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class ClassName extends JsonSchema implements StringSchemaValidator {
         private static @Nullable ClassName instance = null;

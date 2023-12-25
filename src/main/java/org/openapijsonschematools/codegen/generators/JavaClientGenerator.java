@@ -17,6 +17,7 @@
 
 package org.openapijsonschematools.codegen.generators;
 
+import io.swagger.v3.oas.models.media.Schema;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
@@ -46,6 +47,8 @@ import org.slf4j.LoggerFactory;
 import javax.validation.constraints.NotNull;
 import java.io.File;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -388,6 +391,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
         keywordValidatorFiles.add("AllOfValidator");
         keywordValidatorFiles.add("AnyOfValidator");
+        keywordValidatorFiles.add("BooleanSchemaValidator");
         keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("EnumValidator");
         keywordValidatorFiles.add("ExclusiveMaximumValidator");
@@ -403,6 +407,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
+        keywordValidatorFiles.add("ListSchemaValidator");
+        keywordValidatorFiles.add("MapSchemaValidator");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
@@ -413,18 +419,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("MinPropertiesValidator");
         keywordValidatorFiles.add("MultipleOfValidator");
         keywordValidatorFiles.add("NotValidator");
+        keywordValidatorFiles.add("NullEnumValidator");
+        keywordValidatorFiles.add("NullSchemaValidator");
+        keywordValidatorFiles.add("NumberSchemaValidator");
         keywordValidatorFiles.add("OneOfValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PatternValidator");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
-        keywordValidatorFiles.add("NullSchemaValidator");
-        keywordValidatorFiles.add("BooleanSchemaValidator");
-        keywordValidatorFiles.add("NumberSchemaValidator");
         keywordValidatorFiles.add("StringSchemaValidator");
-        keywordValidatorFiles.add("ListSchemaValidator");
-        keywordValidatorFiles.add("MapSchemaValidator");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
@@ -1733,5 +1737,112 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
+    }
+
+    /**
+     * Return the sanitized variable name for enum
+     *
+     * @param value    enum variable name
+     * @param prop property
+     * @return the sanitized variable name for enum
+     */
+    @Override
+    public String toEnumVarName(String value, Schema prop) {
+        // our enum var names are keys in a python dict, so change spaces to underscores
+        if (value.length() == 0) {
+            return "EMPTY";
+        }
+        if (value.equals("null")) {
+            return "NONE";
+        }
+
+        // value is int or float
+        String intPattern = "^[-+]?\\d+$";
+        String floatPattern = "^[-+]?\\d+\\.\\d+$";
+        Boolean intMatch = Pattern.matches(intPattern, value);
+        Boolean floatMatch = Pattern.matches(floatPattern, value);
+        if (intMatch || floatMatch) {
+            String plusSign = "^\\+.+";
+            String negSign = "^-.+";
+            String enumVarName;
+            if (Pattern.matches(plusSign, value)) {
+                enumVarName = value.replace("+", "POSITIVE_");
+            } else if (Pattern.matches(negSign, value)) {
+                enumVarName = value.replace("-", "NEGATIVE_");
+            } else {
+                enumVarName = "POSITIVE_" + value;
+            }
+            if (floatMatch) {
+                enumVarName = enumVarName.replace(".", "_PT_");
+            }
+            return enumVarName;
+        }
+
+        // every character in value is not allowed
+        String valueWithAllowedCharsOnly = value.replaceAll("^\\W+", "");
+        if (valueWithAllowedCharsOnly.isEmpty()) {
+            StringBuilder usedValueBuilder = new StringBuilder();
+            for (int i = 0; i < value.length(); i++){
+                char c = value.charAt(i);
+                String charName = Character.getName(Character.hashCode(c));
+                if (usedValueBuilder.length() > 0) {
+                    usedValueBuilder.append("_");
+                }
+                usedValueBuilder.append(charNameToVarName(charName));
+            }
+            return usedValueBuilder.toString();
+        }
+
+        String usedValue = value;
+        // Replace " " with _
+        usedValue = usedValue.replaceAll("[ ]+", "_");
+
+        // replace all invalid characters with their character name descriptions
+        Pattern nonWordCharPattern = Pattern.compile("\\W+");
+        Matcher matcher = nonWordCharPattern.matcher(usedValue);
+        Stack<AbstractMap.SimpleEntry<Integer, String>> matchStartToGroup = new Stack<>();
+        while (matcher.find()) {
+            matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
+        }
+        char underscore = "_".charAt(0);
+        while (!matchStartToGroup.isEmpty()) {
+            AbstractMap.SimpleEntry<Integer, String> entry = matchStartToGroup.pop();
+            Integer startIndex = entry.getKey();
+            String match = entry.getValue();
+            String prefix = "";
+            String suffix = "";
+            if (startIndex > 0 && usedValue.charAt(startIndex-1) != underscore) {
+                prefix = "_";
+            }
+            int indexAfter = startIndex + match.length();
+            if (startIndex + match.length() < usedValue.length() && usedValue.charAt(indexAfter) != underscore) {
+                suffix = "_";
+            }
+            StringBuilder convertedMatch = new StringBuilder();
+            for (int i = 0; i < match.length(); i++) {
+                String charName = charNameToVarName(Character.getName(Character.hashCode(match.charAt(i))));
+                // todo remove the parens portion of charName here
+                convertedMatch.append(charName);
+                if (i != match.length() - 1) {
+                    convertedMatch.append("_");
+                }
+            }
+            String replacement = prefix + convertedMatch + suffix;
+            usedValue = usedValue.substring(0, startIndex) + replacement + usedValue.substring(indexAfter);
+        }
+
+        // add camel case underscore
+        String regex = "([a-z])([A-Z]+)";
+        String regexReplacement = "$1_$2";
+        usedValue = usedValue.replaceAll(regex, regexReplacement);
+
+        // uppercase
+        usedValue = usedValue.toUpperCase(Locale.ROOT);
+
+        if (usedValue.length() > 1) {
+            // remove trailing _
+            usedValue = usedValue.replaceAll("_$", "");
+        }
+        return usedValue;
     }
 }

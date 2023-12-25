@@ -36,6 +36,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class ComplexQuadrilateral {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringQuadrilateralType {
+        COMPLEX_QUADRILATERAL("ComplexQuadrilateral");
+        public final String value;
+    
+        private StringQuadrilateralType(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class QuadrilateralType extends JsonSchema implements StringSchemaValidator {
         private static @Nullable QuadrilateralType instance = null;

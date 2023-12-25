@@ -24,7 +24,7 @@ public class NulCharactersInStrings {
     // nest classes so all schemas and input/output classes can be public
     
     public static enum StringNulCharactersInStrings1 {
-        HELLO_THERE("hello\0there");
+        HELLO_NULL_THERE("hello\0there");
         public final String value;
     
         private StringNulCharactersInStrings1(String value) {

@@ -23,6 +23,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class BooleanEnum {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum BooleanBooleanEnum1 {
+        TRUE(true);
+        public final boolean value;
+    
+        private BooleanBooleanEnum1(boolean value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class BooleanEnum1 extends JsonSchema implements BooleanSchemaValidator {
         /*

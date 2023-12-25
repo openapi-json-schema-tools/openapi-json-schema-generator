@@ -37,6 +37,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class TriangleInterface {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringShapeType {
+        TRIANGLE("Triangle");
+        public final String value;
+    
+        private StringShapeType(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class ShapeType extends JsonSchema implements StringSchemaValidator {
         private static @Nullable ShapeType instance = null;

@@ -1074,39 +1074,6 @@ public abstract class AbstractJavaGenerator extends DefaultGenerator implements 
         return super.needToImport(type) && !type.contains(".");
     }
 
-    @Override
-    public String toEnumVarName(String value, Schema prop) {
-        if (value.length() == 0) {
-            return "EMPTY";
-        }
-
-        // for symbol, e.g. $, #
-        if (getSymbolName(value) != null) {
-            return getSymbolName(value).toUpperCase(Locale.ROOT);
-        }
-
-        if (" ".equals(value)) {
-            return "SPACE";
-        }
-
-        // number
-        if (prop.getType().equals("integer") || prop.getType().equals("float")) {
-            String varName = "NUMBER_" + value;
-            varName = varName.replaceAll("-", "MINUS_");
-            varName = varName.replaceAll("\\+", "PLUS_");
-            varName = varName.replaceAll("\\.", "_DOT_");
-            return varName;
-        }
-
-        // string
-        String var = value.replaceAll("\\W+", "_").toUpperCase(Locale.ROOT);
-        if (var.matches("\\d.*")) {
-            return "_" + var;
-        } else {
-            return var;
-        }
-    }
-
     private static String sanitizePackageName(String packageName) {
         packageName = packageName.trim(); // FIXME: a parameter should not be assigned. Also declare the methods parameters as 'final'.
         packageName = packageName.replaceAll("[^a-zA-Z0-9_\\.]", "_");

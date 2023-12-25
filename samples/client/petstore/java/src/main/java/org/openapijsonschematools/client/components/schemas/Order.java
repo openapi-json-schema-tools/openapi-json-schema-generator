@@ -76,6 +76,17 @@ public class Order {
         }
     }
     
+    public static enum StringStatus {
+        PLACED("placed"),
+        APPROVED("approved"),
+        DELIVERED("delivered");
+        public final String value;
+    
+        private StringStatus(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Status extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Status instance = null;

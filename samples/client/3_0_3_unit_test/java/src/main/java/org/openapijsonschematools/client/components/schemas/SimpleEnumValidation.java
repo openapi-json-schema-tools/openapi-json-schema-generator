@@ -24,9 +24,9 @@ public class SimpleEnumValidation {
     // nest classes so all schemas and input/output classes can be public
     
     public static enum IntegerSimpleEnumValidation1 {
-        _1(1),
-        _2(2),
-        _3(3);
+        POSITIVE_1(1),
+        POSITIVE_2(2),
+        POSITIVE_3(3);
         public final Number value;
     
         private IntegerSimpleEnumValidation1(Number value) {
@@ -35,9 +35,9 @@ public class SimpleEnumValidation {
     }
     
     public static enum NumberSimpleEnumValidation1 {
-        _1(1),
-        _2(2),
-        _3(3);
+        POSITIVE_1(1),
+        POSITIVE_2(2),
+        POSITIVE_3(3);
         public final Number value;
     
         private NumberSimpleEnumValidation1(Number value) {

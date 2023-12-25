@@ -23,6 +23,16 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class PathParamSchema0 {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringPathParamSchema01 {
+        A("a"),
+        B("b");
+        public final String value;
+    
+        private StringPathParamSchema01(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class PathParamSchema01 extends JsonSchema implements StringSchemaValidator {
         private static @Nullable PathParamSchema01 instance = null;

@@ -36,6 +36,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class SimpleQuadrilateral {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringQuadrilateralType {
+        SIMPLE_QUADRILATERAL("SimpleQuadrilateral");
+        public final String value;
+    
+        private StringQuadrilateralType(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class QuadrilateralType extends JsonSchema implements StringSchemaValidator {
         private static @Nullable QuadrilateralType instance = null;

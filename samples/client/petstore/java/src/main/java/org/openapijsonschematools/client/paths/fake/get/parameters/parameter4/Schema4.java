@@ -23,6 +23,26 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema4 {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum IntegerSchema41 {
+        POSITIVE_1(1),
+        NEGATIVE_2(-2);
+        public final Number value;
+    
+        private IntegerSchema41(Number value) {
+            this.value = value;
+        }
+    }
+    
+    public static enum NumberSchema41 {
+        POSITIVE_1(1),
+        NEGATIVE_2(-2);
+        public final Number value;
+    
+        private NumberSchema41(Number value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Schema41 extends JsonSchema implements NumberSchemaValidator {
         private static @Nullable Schema41 instance = null;

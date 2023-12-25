@@ -28,6 +28,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class DanishPig {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringClassName {
+        DANISH_PIG("DanishPig");
+        public final String value;
+    
+        private StringClassName(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class ClassName extends JsonSchema implements StringSchemaValidator {
         private static @Nullable ClassName instance = null;

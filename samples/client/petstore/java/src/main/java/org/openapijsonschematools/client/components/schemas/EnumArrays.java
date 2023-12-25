@@ -30,6 +30,16 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumArrays {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringJustSymbol {
+        GREATER_THAN_SIGN_EQUALS_SIGN(">="),
+        DOLLAR_SIGN("$");
+        public final String value;
+    
+        private StringJustSymbol(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class JustSymbol extends JsonSchema implements StringSchemaValidator {
         private static @Nullable JustSymbol instance = null;
@@ -79,6 +89,16 @@ public class EnumArrays {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public static enum StringItems {
+        FISH("fish"),
+        CRAB("crab");
+        public final String value;
+    
+        private StringItems(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Items extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Items instance = null;

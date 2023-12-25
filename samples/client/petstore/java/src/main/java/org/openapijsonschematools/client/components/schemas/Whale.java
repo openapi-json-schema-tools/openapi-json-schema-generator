@@ -51,6 +51,15 @@ public class Whale {
         }
     }
     
+    public static enum StringClassName {
+        WHALE("whale");
+        public final String value;
+    
+        private StringClassName(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class ClassName extends JsonSchema implements StringSchemaValidator {
         private static @Nullable ClassName instance = null;

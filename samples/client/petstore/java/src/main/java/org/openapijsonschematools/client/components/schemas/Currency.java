@@ -23,6 +23,16 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Currency {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringCurrency1 {
+        EUR("eur"),
+        USD("usd");
+        public final String value;
+    
+        private StringCurrency1(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Currency1 extends JsonSchema implements StringSchemaValidator {
         /*

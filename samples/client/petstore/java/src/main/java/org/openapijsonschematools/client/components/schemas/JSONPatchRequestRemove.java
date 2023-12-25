@@ -53,6 +53,15 @@ public class JSONPatchRequestRemove {
         }
     }
     
+    public static enum StringOp {
+        REMOVE("remove");
+        public final String value;
+    
+        private StringOp(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Op extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Op instance = null;

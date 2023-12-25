@@ -24,7 +24,7 @@ public class EnumWith1DoesNotMatchTrue {
     // nest classes so all schemas and input/output classes can be public
     
     public static enum IntegerEnumWith1DoesNotMatchTrue1 {
-        _1(1);
+        POSITIVE_1(1);
         public final Number value;
     
         private IntegerEnumWith1DoesNotMatchTrue1(Number value) {
@@ -33,7 +33,7 @@ public class EnumWith1DoesNotMatchTrue {
     }
     
     public static enum NumberEnumWith1DoesNotMatchTrue1 {
-        _1(1);
+        POSITIVE_1(1);
         public final Number value;
     
         private NumberEnumWith1DoesNotMatchTrue1(Number value) {

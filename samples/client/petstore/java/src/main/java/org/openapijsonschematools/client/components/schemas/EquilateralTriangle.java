@@ -36,6 +36,15 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EquilateralTriangle {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringTriangleType {
+        EQUILATERAL_TRIANGLE("EquilateralTriangle");
+        public final String value;
+    
+        private StringTriangleType(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class TriangleType extends JsonSchema implements StringSchemaValidator {
         private static @Nullable TriangleType instance = null;

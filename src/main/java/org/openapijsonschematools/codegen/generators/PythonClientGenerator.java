@@ -1142,19 +1142,6 @@ public class PythonClientGenerator extends AbstractPythonGenerator {
         return usedValue;
     }
 
-    /**
-     * Replace - and " " with _
-     *
-     * @param charName the input
-     * @return the variable name
-     */
-    private String charNameToVarName(String charName) {
-        // - and " " -> _
-        String result = charName.replaceAll("[\\-\\s]", "_");
-        // remove parentheses
-        return result.replaceAll("[()]", "");
-    }
-
     protected String toTestCaseName(String specTestCaseName) {
         return CaseFormat.UPPER_CAMEL.to(CaseFormat.LOWER_UNDERSCORE, specTestCaseName);
     }

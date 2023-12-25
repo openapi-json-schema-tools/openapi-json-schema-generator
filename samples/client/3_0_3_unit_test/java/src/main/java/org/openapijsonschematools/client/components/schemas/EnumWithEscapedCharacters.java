@@ -24,8 +24,8 @@ public class EnumWithEscapedCharacters {
     // nest classes so all schemas and input/output classes can be public
     
     public static enum StringEnumWithEscapedCharacters1 {
-        FOO_BAR("foo\nbar"),
-        FOO_BAR("foo\rbar");
+        FOO_LINE_FEED_LF_BAR("foo\nbar"),
+        FOO_CARRIAGE_RETURN_CR_BAR("foo\rbar");
         public final String value;
     
         private StringEnumWithEscapedCharacters1(String value) {

@@ -23,6 +23,28 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class IntegerEnum {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum IntegerIntegerEnum1 {
+        POSITIVE_0(0),
+        POSITIVE_1(1),
+        POSITIVE_2(2);
+        public final Number value;
+    
+        private IntegerIntegerEnum1(Number value) {
+            this.value = value;
+        }
+    }
+    
+    public static enum NumberIntegerEnum1 {
+        POSITIVE_0(0),
+        POSITIVE_1(1),
+        POSITIVE_2(2);
+        public final Number value;
+    
+        private NumberIntegerEnum1(Number value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class IntegerEnum1 extends JsonSchema implements NumberSchemaValidator {
         /*

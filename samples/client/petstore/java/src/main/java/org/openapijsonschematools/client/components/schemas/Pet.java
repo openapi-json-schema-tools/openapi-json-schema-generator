@@ -145,6 +145,17 @@ public class Pet {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public static enum StringStatus {
+        AVAILABLE("available"),
+        PENDING("pending"),
+        SOLD("sold");
+        public final String value;
+    
+        private StringStatus(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Status extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Status instance = null;

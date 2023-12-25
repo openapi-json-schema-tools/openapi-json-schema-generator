@@ -29,6 +29,17 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumTest {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringEnumString {
+        UPPER("UPPER"),
+        LOWER("lower"),
+        EMPTY("");
+        public final String value;
+    
+        private StringEnumString(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class EnumString extends JsonSchema implements StringSchemaValidator {
         private static @Nullable EnumString instance = null;
@@ -79,6 +90,17 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public static enum StringEnumStringRequired {
+        UPPER("UPPER"),
+        LOWER("lower"),
+        EMPTY("");
+        public final String value;
+    
+        private StringEnumStringRequired(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class EnumStringRequired extends JsonSchema implements StringSchemaValidator {
         private static @Nullable EnumStringRequired instance = null;
@@ -129,6 +151,26 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public static enum IntegerEnumInteger {
+        POSITIVE_1(1),
+        NEGATIVE_1(-1);
+        public final Number value;
+    
+        private IntegerEnumInteger(Number value) {
+            this.value = value;
+        }
+    }
+    
+    public static enum NumberEnumInteger {
+        POSITIVE_1(1),
+        NEGATIVE_1(-1);
+        public final Number value;
+    
+        private NumberEnumInteger(Number value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class EnumInteger extends JsonSchema implements NumberSchemaValidator {
         private static @Nullable EnumInteger instance = null;
@@ -190,6 +232,16 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public static enum NumberEnumNumber {
+        POSITIVE_1_PT_1(1.1),
+        NEGATIVE_1_PT_2(-1.2);
+        public final Number value;
+    
+        private NumberEnumNumber(Number value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class EnumNumber extends JsonSchema implements NumberSchemaValidator {
         private static @Nullable EnumNumber instance = null;

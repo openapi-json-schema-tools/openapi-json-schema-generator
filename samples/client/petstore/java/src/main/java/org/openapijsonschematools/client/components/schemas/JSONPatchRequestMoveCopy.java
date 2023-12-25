@@ -64,6 +64,16 @@ public class JSONPatchRequestMoveCopy {
         }
     }
     
+    public static enum StringOp {
+        MOVE("move"),
+        COPY("copy");
+        public final String value;
+    
+        private StringOp(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Op extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Op instance = null;

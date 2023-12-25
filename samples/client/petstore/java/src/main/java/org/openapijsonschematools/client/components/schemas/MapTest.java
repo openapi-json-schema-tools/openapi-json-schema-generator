@@ -221,6 +221,16 @@ public class MapTest {
         }
     }
     
+    public static enum StringAdditionalProperties2 {
+        UPPER("UPPER"),
+        LOWER("lower");
+        public final String value;
+    
+        private StringAdditionalProperties2(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class AdditionalProperties2 extends JsonSchema implements StringSchemaValidator {
         private static @Nullable AdditionalProperties2 instance = null;

@@ -25,6 +25,16 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema2 {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringItems2 {
+        GREATER_THAN_SIGN(">"),
+        DOLLAR_SIGN("$");
+        public final String value;
+    
+        private StringItems2(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Items2 extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Items2 instance = null;

@@ -5810,4 +5810,17 @@ public class DefaultGenerator implements Generator {
         }
         throw new IllegalArgumentException("Invalid schema type; type must be Boolean or Schema");
     }
+
+    /**
+     * Replace - and " " with _
+     *
+     * @param charName the input
+     * @return the variable name
+     */
+    protected String charNameToVarName(String charName) {
+        // - and " " -> _
+        String result = charName.replaceAll("[\\-\\s]", "_");
+        // remove parentheses
+        return result.replaceAll("[()]", "");
+    }
 }

@@ -64,6 +64,17 @@ public class JSONPatchRequestAddReplaceTest {
         }
     }
     
+    public static enum StringOp {
+        ADD("add"),
+        REPLACE("replace"),
+        TEST("test");
+        public final String value;
+    
+        private StringOp(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Op extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Op instance = null;

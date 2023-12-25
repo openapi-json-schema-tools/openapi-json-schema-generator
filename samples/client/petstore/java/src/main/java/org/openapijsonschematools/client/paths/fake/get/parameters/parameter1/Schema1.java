@@ -23,6 +23,17 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringSchema11 {
+        _ABC("_abc"),
+        HYPHEN_MINUS_EFG("-efg"),
+        LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS("(xyz)");
+        public final String value;
+    
+        private StringSchema11(String value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class Schema11 extends JsonSchema implements StringSchemaValidator {
         private static @Nullable Schema11 instance = null;

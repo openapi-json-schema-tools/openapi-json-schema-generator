@@ -26,6 +26,29 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class StringEnum {
     // nest classes so all schemas and input/output classes can be public
     
+    public static enum StringStringEnum1 {
+        PLACED("placed"),
+        APPROVED("approved"),
+        DELIVERED("delivered"),
+        SINGLE_QUOTED("single quoted"),
+        MULTIPLE_LINE_FEED_LF_LINES("multiple\nlines"),
+        DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE("double quote \n with newline");
+        public final String value;
+    
+        private StringStringEnum1(String value) {
+            this.value = value;
+        }
+    }
+    
+    public static enum NullStringEnum1 {
+        NONE(null);
+        public final Void value;
+    
+        private NullStringEnum1(Void value) {
+            this.value = value;
+        }
+    }
+    
     
     public static class StringEnum1 extends JsonSchema implements NullSchemaValidator, StringSchemaValidator {
         /*
