@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -23,7 +24,7 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumClass {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringEnumClassEnums {
+    public enum StringEnumClassEnums {
         _ABC("_abc"),
         HYPHEN_MINUS_EFG("-efg"),
         LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS("(xyz)"),
@@ -31,7 +32,7 @@ public class EnumClass {
         COUNT_50M("COUNT_50M");
         public final String value;
     
-        private StringEnumClassEnums(String value) {
+        StringEnumClassEnums(String value) {
             this.value = value;
         }
     }

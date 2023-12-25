@@ -17,6 +17,7 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -40,13 +41,13 @@ public class Zebra {
         }
     }
     
-    public static enum StringTypeEnums {
+    public enum StringTypeEnums {
         PLAINS("plains"),
         MOUNTAIN("mountain"),
         GREVYS("grevys");
         public final String value;
     
-        private StringTypeEnums(String value) {
+        StringTypeEnums(String value) {
             this.value = value;
         }
     }
@@ -101,11 +102,11 @@ public class Zebra {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum StringClassNameEnums {
+    public enum StringClassNameEnums {
         ZEBRA("zebra");
         public final String value;
     
-        private StringClassNameEnums(String value) {
+        StringClassNameEnums(String value) {
             this.value = value;
         }
     }

@@ -18,6 +18,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -145,13 +146,13 @@ public class Pet {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum StringStatusEnums {
+    public enum StringStatusEnums {
         AVAILABLE("available"),
         PENDING("pending"),
         SOLD("sold");
         public final String value;
     
-        private StringStatusEnums(String value) {
+        StringStatusEnums(String value) {
             this.value = value;
         }
     }

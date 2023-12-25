@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
@@ -23,24 +24,24 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class IntegerEnumBig {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum IntegerIntegerEnumBigEnums {
+    public enum IntegerIntegerEnumBigEnums {
         POSITIVE_10(10),
         POSITIVE_11(11),
         POSITIVE_12(12);
         public final Number value;
     
-        private IntegerIntegerEnumBigEnums(Number value) {
+        IntegerIntegerEnumBigEnums(Number value) {
             this.value = value;
         }
     }
     
-    public static enum NumberIntegerEnumBigEnums {
+    public enum NumberIntegerEnumBigEnums {
         POSITIVE_10(10),
         POSITIVE_11(11),
         POSITIVE_12(12);
         public final Number value;
     
-        private NumberIntegerEnumBigEnums(Number value) {
+        NumberIntegerEnumBigEnums(Number value) {
             this.value = value;
         }
     }

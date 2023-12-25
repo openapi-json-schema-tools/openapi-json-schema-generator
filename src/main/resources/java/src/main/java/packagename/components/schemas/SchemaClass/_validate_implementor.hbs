@@ -12,6 +12,13 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
 }
+            {{#and ../enumInfo ../enumInfo.typeToValues.null}}
+
+@Override
+public Void validate(Null{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value, configuration);
+}
+            {{/and}}
         {{/eq}}
         {{#eq this "object"}}
 

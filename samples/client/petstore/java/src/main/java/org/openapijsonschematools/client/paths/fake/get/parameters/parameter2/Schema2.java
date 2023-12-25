@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -25,12 +26,12 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema2 {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringItemsEnums2 {
+    public enum StringItemsEnums2 {
         GREATER_THAN_SIGN(">"),
         DOLLAR_SIGN("$");
         public final String value;
     
-        private StringItemsEnums2(String value) {
+        StringItemsEnums2(String value) {
             this.value = value;
         }
     }

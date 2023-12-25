@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -23,12 +24,12 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Currency {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringCurrencyEnums {
+    public enum StringCurrencyEnums {
         EUR("eur"),
         USD("usd");
         public final String value;
     
-        private StringCurrencyEnums(String value) {
+        StringCurrencyEnums(String value) {
             this.value = value;
         }
     }

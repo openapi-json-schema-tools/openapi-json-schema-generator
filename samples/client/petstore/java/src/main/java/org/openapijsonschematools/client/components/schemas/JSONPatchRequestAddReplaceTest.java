@@ -18,6 +18,7 @@ import org.openapijsonschematools.client.schemas.AnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.NotAnyTypeJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -64,13 +65,13 @@ public class JSONPatchRequestAddReplaceTest {
         }
     }
     
-    public static enum StringOpEnums {
+    public enum StringOpEnums {
         ADD("add"),
         REPLACE("replace"),
         TEST("test");
         public final String value;
     
-        private StringOpEnums(String value) {
+        StringOpEnums(String value) {
             this.value = value;
         }
     }

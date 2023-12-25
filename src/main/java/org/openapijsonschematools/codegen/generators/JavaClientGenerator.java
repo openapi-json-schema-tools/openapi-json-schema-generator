@@ -1559,6 +1559,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
             imports.add("import "+packageName + ".schemas.SetMaker;");
+            imports.add("import "+packageName + ".schemas.validation.EnumValueMethod;");
             if (schema.enumInfo.typeToValues.containsKey("null")) {
                 imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
             }

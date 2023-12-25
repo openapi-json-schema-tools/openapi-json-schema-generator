@@ -15,6 +15,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -23,11 +24,11 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class BooleanEnum {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum BooleanBooleanEnumEnums {
+    public enum BooleanBooleanEnumEnums {
         TRUE(true);
         public final boolean value;
     
-        private BooleanBooleanEnumEnums(boolean value) {
+        BooleanBooleanEnumEnums(boolean value) {
             this.value = value;
         }
     }

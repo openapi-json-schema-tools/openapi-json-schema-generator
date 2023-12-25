@@ -20,6 +20,7 @@ import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.BooleanSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -36,11 +37,11 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class SimpleQuadrilateral {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringQuadrilateralTypeEnums {
+    public enum StringQuadrilateralTypeEnums {
         SIMPLE_QUADRILATERAL("SimpleQuadrilateral");
         public final String value;
     
-        private StringQuadrilateralTypeEnums(String value) {
+        StringQuadrilateralTypeEnums(String value) {
             this.value = value;
         }
     }

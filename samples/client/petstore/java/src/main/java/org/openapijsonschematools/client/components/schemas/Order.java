@@ -20,6 +20,7 @@ import org.openapijsonschematools.client.schemas.DateTimeJsonSchema;
 import org.openapijsonschematools.client.schemas.Int32JsonSchema;
 import org.openapijsonschematools.client.schemas.Int64JsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -76,13 +77,13 @@ public class Order {
         }
     }
     
-    public static enum StringStatusEnums {
+    public enum StringStatusEnums {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered");
         public final String value;
     
-        private StringStatusEnums(String value) {
+        StringStatusEnums(String value) {
             this.value = value;
         }
     }

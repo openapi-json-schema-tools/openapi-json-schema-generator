@@ -16,6 +16,7 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -30,12 +31,12 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringItemsEnums {
+    public enum StringItemsEnums {
         GREATER_THAN_SIGN(">"),
         DOLLAR_SIGN("$");
         public final String value;
     
-        private StringItemsEnums(String value) {
+        StringItemsEnums(String value) {
             this.value = value;
         }
     }
@@ -169,13 +170,13 @@ public class Schema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public static enum StringEnumFormStringEnums {
+    public enum StringEnumFormStringEnums {
         _ABC("_abc"),
         HYPHEN_MINUS_EFG("-efg"),
         LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS("(xyz)");
         public final String value;
     
-        private StringEnumFormStringEnums(String value) {
+        StringEnumFormStringEnums(String value) {
             this.value = value;
         }
     }

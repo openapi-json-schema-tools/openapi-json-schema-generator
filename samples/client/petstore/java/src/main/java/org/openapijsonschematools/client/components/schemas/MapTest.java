@@ -18,6 +18,7 @@ import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.BooleanJsonSchema;
 import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.StringJsonSchema;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
@@ -221,12 +222,12 @@ public class MapTest {
         }
     }
     
-    public static enum StringAdditionalPropertiesEnums {
+    public enum StringAdditionalPropertiesEnums {
         UPPER("UPPER"),
         LOWER("lower");
         public final String value;
     
-        private StringAdditionalPropertiesEnums(String value) {
+        StringAdditionalPropertiesEnums(String value) {
             this.value = value;
         }
     }

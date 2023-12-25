@@ -2,19 +2,19 @@
     {{#each typeToValues}}
 
         {{#eq @key "null"}}
-public static enum Null{{../jsonPathPiece.camelCase}} {
+public enum Null{{../jsonPathPiece.camelCase}} {
         {{else}}
             {{#eq @key "boolean"}}
-public static enum Boolean{{../jsonPathPiece.camelCase}} {
+public enum Boolean{{../jsonPathPiece.camelCase}} {
             {{else}}
                 {{#eq @key "string"}}
-public static enum String{{../jsonPathPiece.camelCase}} {
+public enum String{{../jsonPathPiece.camelCase}} {
                 {{else}}
                     {{#eq @key "integer"}}
-public static enum Integer{{../jsonPathPiece.camelCase}} {
+public enum Integer{{../jsonPathPiece.camelCase}} {
                     {{else}}
                         {{#eq @key "number"}}
-public static enum Number{{../jsonPathPiece.camelCase}} {
+public enum Number{{../jsonPathPiece.camelCase}} {
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
@@ -44,35 +44,35 @@ public static enum Number{{../jsonPathPiece.camelCase}} {
         {{#eq @key "null"}}
     public final Void value;
 
-    private Null{{../jsonPathPiece.camelCase}}(Void value) {
+    Null{{../jsonPathPiece.camelCase}}(Void value) {
         this.value = value;
     }
         {{else}}
             {{#eq @key "boolean"}}
     public final boolean value;
 
-    private Boolean{{../jsonPathPiece.camelCase}}(boolean value) {
+    Boolean{{../jsonPathPiece.camelCase}}(boolean value) {
         this.value = value;
     }
             {{else}}
                 {{#eq @key "string"}}
     public final String value;
 
-    private String{{../jsonPathPiece.camelCase}}(String value) {
+    String{{../jsonPathPiece.camelCase}}(String value) {
         this.value = value;
     }
                 {{else}}
                     {{#eq @key "integer"}}
     public final Number value;
 
-    private Integer{{../jsonPathPiece.camelCase}}(Number value) {
+    Integer{{../jsonPathPiece.camelCase}}(Number value) {
         this.value = value;
     }
                     {{else}}
                         {{#eq @key "number"}}
     public final Number value;
 
-    private Number{{../jsonPathPiece.camelCase}}(Number value) {
+    Number{{../jsonPathPiece.camelCase}}(Number value) {
         this.value = value;
     }
                         {{/eq}}

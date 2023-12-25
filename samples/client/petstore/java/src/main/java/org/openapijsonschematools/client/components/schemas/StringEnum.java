@@ -14,6 +14,7 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.EnumValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenList;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
@@ -27,7 +28,7 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class StringEnum {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum StringStringEnumEnums {
+    public enum StringStringEnumEnums {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered"),
@@ -36,16 +37,16 @@ public class StringEnum {
         DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE("double quote \n with newline");
         public final String value;
     
-        private StringStringEnumEnums(String value) {
+        StringStringEnumEnums(String value) {
             this.value = value;
         }
     }
     
-    public static enum NullStringEnumEnums {
+    public enum NullStringEnumEnums {
         NONE(null);
         public final Void value;
     
-        private NullStringEnumEnums(Void value) {
+        NullStringEnumEnums(Void value) {
             this.value = value;
         }
     }
@@ -94,6 +95,11 @@ public class StringEnum {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public Void validate(NullStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value, configuration);
         }
         
         @Override
