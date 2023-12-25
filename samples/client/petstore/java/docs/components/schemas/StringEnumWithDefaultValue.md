@@ -50,6 +50,7 @@ String validatedPayload = StringEnumWithDefaultValue.StringEnumWithDefaultValue1
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringStringEnumWithDefaultValueEnums](#stringstringenumwithdefaultvalueenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringStringEnumWithDefaultValueEnums

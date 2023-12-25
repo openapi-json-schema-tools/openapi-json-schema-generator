@@ -1,5 +1,8 @@
 {{#eq types null}}
 | String | validate(String arg, SchemaConfiguration configuration) |
+    {{#and enumInfo enumInfo.typeToValues.string}}
+| String | validate([String{{enumInfo.jsonPathPiece.camelCase}}](#string{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+    {{/and}}
 | Void | validate(Void arg, SchemaConfiguration configuration) |
     {{#and enumInfo enumInfo.typeToValues.null}}
 | Void | validate([Null{{enumInfo.jsonPathPiece.camelCase}}](#null{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
@@ -42,6 +45,9 @@
 | BinaryString | validate(BinaryString arg, SchemaConfiguration configuration) |
                     {{else}}
 | String | validate(String arg, SchemaConfiguration configuration) |
+                        {{#and ../enumInfo ../enumInfo.typeToValues.string}}
+| String | validate([String{{../enumInfo.jsonPathPiece.camelCase}}](#string{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+                        {{/and}}
                     {{/eq}}
                 {{else}}
                     {{#eq this "number"}}

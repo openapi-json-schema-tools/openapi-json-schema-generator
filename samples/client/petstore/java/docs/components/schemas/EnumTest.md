@@ -279,6 +279,7 @@ String validatedPayload = EnumTest.EnumStringRequired.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringEnumStringRequiredEnums](#stringenumstringrequiredenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringEnumStringRequiredEnums
@@ -332,6 +333,7 @@ String validatedPayload = EnumTest.EnumString.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringEnumStringEnums](#stringenumstringenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringEnumStringEnums

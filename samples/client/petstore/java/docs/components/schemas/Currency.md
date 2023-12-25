@@ -50,6 +50,7 @@ String validatedPayload = Currency.Currency1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringCurrencyEnums](#stringcurrencyenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringCurrencyEnums

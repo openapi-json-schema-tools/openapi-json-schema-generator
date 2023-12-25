@@ -50,6 +50,7 @@ String validatedPayload = PathParamSchema0.PathParamSchema01.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringPathParamSchemaEnums0](#stringpathparamschemaenums0) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringPathParamSchemaEnums0

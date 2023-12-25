@@ -50,6 +50,7 @@ String validatedPayload = Schema1.Schema11.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringSchemaEnums1](#stringschemaenums1) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringSchemaEnums1

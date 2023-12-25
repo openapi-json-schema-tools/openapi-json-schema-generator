@@ -204,6 +204,7 @@ String validatedPayload = EnumArrays.Items.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringItemsEnums
@@ -256,6 +257,7 @@ String validatedPayload = EnumArrays.JustSymbol.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringJustSymbolEnums](#stringjustsymbolenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringJustSymbolEnums
