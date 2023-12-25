@@ -1559,6 +1559,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
             imports.add("import "+packageName + ".schemas.SetMaker;");
+            if (schema.enumInfo.typeToValues.containsKey("null")) {
+                imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
+            }
         }
     }
 
@@ -1600,7 +1603,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             imports.add("import java.math.BigDecimal;");
         }
     }
-
 
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
