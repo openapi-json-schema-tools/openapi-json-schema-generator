@@ -317,6 +317,24 @@ public class CodegenSchema {
         return schema;
     }
 
+    public boolean containsArrayOutputClass() {
+        for (CodegenSchema oneSchema: getSchemas()) {
+            if ("arrayOutputType".equals(oneSchema.instanceType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsObjectOutputClass() {
+        for (CodegenSchema oneSchema: getSchemas()) {
+            if ("propertiesOutputType".equals(oneSchema.instanceType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean containsEnums() {
         for (CodegenSchema oneSchema: getSchemas()) {
             if ("enumClass".equals(oneSchema.instanceType)) {

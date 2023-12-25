@@ -15,10 +15,14 @@ public class {{containerJsonPathPiece.camelCase}}
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+{{#if containsArrayOutputClass}}
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+{{/if}}
+{{#if containsObjectOutputClass}}
+- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
+{{/if}}
 {{#if containsEnums}}
 - enum classes
 {{/if}}
