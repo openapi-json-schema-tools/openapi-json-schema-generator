@@ -1,5 +1,8 @@
 {{#eq types null}}
 | static String | validate(String arg, SchemaConfiguration configuration) |
+    {{#and enumInfo enumInfo.typeToValues.null}}
+| static Void | validate([Null{{enumInfo.jsonPathPiece.camelCase}}](#null{{enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+    {{/and}}
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
 | static int | validate(int arg, SchemaConfiguration configuration) |
 | static long | validate(long arg, SchemaConfiguration configuration) |
@@ -23,6 +26,9 @@
         {{else}}
             {{#eq this "null"}}
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
+                {{#and ../enumInfo ../enumInfo.typeToValues.null}}
+| static Void | validate([Null{{../enumInfo.jsonPathPiece.camelCase}}](#null{{../enumInfo.jsonPathPiece.anchorPiece}}) arg, SchemaConfiguration configuration) |
+                {{/and}}
             {{else}}
                 {{#eq this "string"}}
                     {{#eq format "binary"}}

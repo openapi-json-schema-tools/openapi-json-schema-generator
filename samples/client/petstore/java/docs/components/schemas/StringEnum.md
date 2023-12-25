@@ -57,6 +57,7 @@ String validatedPayload = StringEnum.StringEnum1.validate(
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
 | static Void | validate(Void arg, SchemaConfiguration configuration) |
+| static Void | validate([NullStringEnumEnums](#nullstringenumenums) arg, SchemaConfiguration configuration) |
 | static String | validate(String arg, SchemaConfiguration configuration) |
 | static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
