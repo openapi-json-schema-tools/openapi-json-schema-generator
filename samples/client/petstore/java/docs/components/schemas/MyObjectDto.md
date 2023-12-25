@@ -60,8 +60,8 @@ MyObjectDto.MyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MyObjectDtoMap](#myobjectdtomap) | validate([Map<?, ?>](#myobjectdtomapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MyObjectDtoMap](#myobjectdtomap) | validate([Map<?, ?>](#myobjectdtomapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MyObjectDtoMapInput
 public class MyObjectDtoMapInput<br>
 builder for `Map<String, String>`

@@ -49,8 +49,8 @@ String validatedPayload = StringEnumWithDefaultValue.StringEnumWithDefaultValue1
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringStringEnumWithDefaultValueEnums
 public enum StringStringEnumWithDefaultValueEnums<br>

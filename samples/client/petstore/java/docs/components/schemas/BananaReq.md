@@ -66,8 +66,8 @@ BananaReq.BananaReqMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BananaReqMap](#bananareqmap) | validate([Map<?, ?>](#bananareqmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [BananaReqMap](#bananareqmap) | validate([Map<?, ?>](#bananareqmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BananaReqMapInput
 public class BananaReqMapInput<br>
 builder for `Map<String, Object>`

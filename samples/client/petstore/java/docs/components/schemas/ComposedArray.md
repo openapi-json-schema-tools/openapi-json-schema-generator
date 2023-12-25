@@ -54,8 +54,8 @@ ComposedArray.ComposedArrayList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ComposedArrayList](#composedarraylist) | validate([List<?>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ComposedArrayList](#composedarraylist) | validate([List<?>](#composedarraylistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ComposedArrayListInput
 public class ComposedArrayListInput<br>
 builder for `List<? extends @Nullable Object>`

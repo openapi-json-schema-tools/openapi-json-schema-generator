@@ -65,8 +65,8 @@ ArrayOfNumberOnly.ArrayOfNumberOnlyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate([Map<?, ?>](#arrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ArrayOfNumberOnlyMap](#arrayofnumberonlymap) | validate([Map<?, ?>](#arrayofnumberonlymapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayOfNumberOnlyMapInput
 public class ArrayOfNumberOnlyMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -132,8 +132,8 @@ ArrayOfNumberOnly.ArrayNumberList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayNumberList](#arraynumberlist) | validate([List<?>](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ArrayNumberList](#arraynumberlist) | validate([List<?>](#arraynumberlistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNumberListInput
 public class ArrayNumberListInput<br>
 builder for `List<Number>`

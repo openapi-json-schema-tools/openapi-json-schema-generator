@@ -55,8 +55,8 @@ Schema1.SchemaList1 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList1](#schemalist1) | validate([List<?>](#schemalistinput1) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [SchemaList1](#schemalist1) | validate([List<?>](#schemalistinput1) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListInput1
 public class SchemaListInput1<br>
 builder for `List<String>`

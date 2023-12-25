@@ -50,8 +50,8 @@ long validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerIntegerEnumWithDefaultValueEnums
 public enum IntegerIntegerEnumWithDefaultValueEnums<br>
 extends `Enum<IntegerIntegerEnumWithDefaultValueEnums>`

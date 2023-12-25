@@ -50,8 +50,8 @@ long validatedPayload = IntegerEnum.IntegerEnum1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerIntegerEnumEnums
 public enum IntegerIntegerEnumEnums<br>
 extends `Enum<IntegerIntegerEnumEnums>`

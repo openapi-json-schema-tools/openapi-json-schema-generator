@@ -71,8 +71,8 @@ MixedPropertiesAndAdditionalPropertiesClass.MixedPropertiesAndAdditionalProperti
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate([Map<?, ?>](#mixedpropertiesandadditionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MixedPropertiesAndAdditionalPropertiesClassMap](#mixedpropertiesandadditionalpropertiesclassmap) | validate([Map<?, ?>](#mixedpropertiesandadditionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MixedPropertiesAndAdditionalPropertiesClassMapInput
 public class MixedPropertiesAndAdditionalPropertiesClassMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -140,8 +140,8 @@ MixedPropertiesAndAdditionalPropertiesClass.MapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapMap](#mapmap) | validate([Map<?, ?>](#mapmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapMap](#mapmap) | validate([Map<?, ?>](#mapmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapMapInput
 public class MapMapInput<br>
 builder for `Map<String, Map<String, ? extends @Nullable Object>>`

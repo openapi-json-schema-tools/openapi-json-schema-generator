@@ -57,8 +57,8 @@ Schema0.SchemaList0 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList0](#schemalist0) | validate([List<?>](#schemalistinput0) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [SchemaList0](#schemalist0) | validate([List<?>](#schemalistinput0) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListInput0
 public class SchemaListInput0<br>
 builder for `List<String>`
@@ -118,8 +118,8 @@ String validatedPayload = Schema0.Items0.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringItemsEnums0
 public enum StringItemsEnums0<br>

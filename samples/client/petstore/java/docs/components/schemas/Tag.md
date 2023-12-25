@@ -63,8 +63,8 @@ Tag.TagMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [TagMap](#tagmap) | validate([Map<?, ?>](#tagmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [TagMap](#tagmap) | validate([Map<?, ?>](#tagmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## TagMapInput
 public class TagMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

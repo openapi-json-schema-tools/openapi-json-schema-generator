@@ -61,8 +61,8 @@ BasquePig.BasquePigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BasquePigMap](#basquepigmap) | validate([Map<?, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [BasquePigMap](#basquepigmap) | validate([Map<?, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BasquePigMapInput
 public class BasquePigMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -125,8 +125,8 @@ String validatedPayload = BasquePig.ClassName.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>

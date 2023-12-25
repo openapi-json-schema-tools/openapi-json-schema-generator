@@ -49,9 +49,9 @@ boolean validatedPayload = BooleanEnum.BooleanEnum1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static boolean | validate([BooleanBooleanEnumEnums](#booleanbooleanenumenums) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| boolean | validate([BooleanBooleanEnumEnums](#booleanbooleanenumenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BooleanBooleanEnumEnums
 public enum BooleanBooleanEnumEnums<br>
 extends `Enum<BooleanBooleanEnumEnums>`

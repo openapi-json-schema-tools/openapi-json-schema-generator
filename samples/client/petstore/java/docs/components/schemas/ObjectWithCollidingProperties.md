@@ -58,8 +58,8 @@ ObjectWithCollidingProperties.ObjectWithCollidingPropertiesMap validatedPayload 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map<?, ?>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ObjectWithCollidingPropertiesMap](#objectwithcollidingpropertiesmap) | validate([Map<?, ?>](#objectwithcollidingpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithCollidingPropertiesMapInput
 public class ObjectWithCollidingPropertiesMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
