@@ -1,7 +1,6 @@
 package org.openapijsonschematools.client.paths.fake.get.parameters.parameter1;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;

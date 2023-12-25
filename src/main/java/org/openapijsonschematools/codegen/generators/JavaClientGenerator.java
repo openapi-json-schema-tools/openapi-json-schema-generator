@@ -1354,7 +1354,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addBooleanSchemaImports(imports, schema);
@@ -1365,7 +1364,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addNullSchemaImports(imports, schema);
@@ -1382,7 +1380,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addNumberSchemaImports(imports, schema);
@@ -1403,7 +1400,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addNumberSchemaImports(imports, schema);
@@ -1430,7 +1426,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addStringSchemaImports(imports, schema);
@@ -1443,7 +1438,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addMapSchemaImports(imports, schema);
@@ -1459,7 +1453,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
                         imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addListSchemaImports(imports, schema);
@@ -1470,7 +1463,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 }
             } else if (schema.types.size() > 1) {
                 addCustomSchemaImports(imports, schema);
-                imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.util.Map;");
                 imports.add("import java.util.Set;");
                 imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for JsonSchema generic
@@ -1513,7 +1505,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
             } else {
                 addCustomSchemaImports(imports, schema);
-                imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.time.LocalDate;");
                 imports.add("import java.time.ZonedDateTime;");
                 imports.add("import java.util.UUID;");
@@ -1527,6 +1518,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.validation.StringSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.ListSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
+                imports.add("import java.util.LinkedHashMap;");
                 addPropertiesValidator(schema, imports);
                 addRequiredValidator(schema, imports);
                 addAllOfValidator(schema, imports);
@@ -1643,6 +1635,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
         imports.add("import java.util.Map;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
+        imports.add("import java.util.LinkedHashMap;");
         addRequiredValidator(schema, imports);
         addPropertiesValidator(schema, imports);
         addAllOfValidator(schema, imports);
@@ -1659,6 +1652,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
         imports.add("import java.util.List;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
+        imports.add("import java.util.LinkedHashMap;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
