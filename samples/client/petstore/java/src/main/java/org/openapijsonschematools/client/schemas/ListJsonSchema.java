@@ -57,8 +57,7 @@ public class ListJsonSchema extends JsonSchema implements ListSchemaValidator<Fr
 
     public FrozenList<@Nullable Object> validate(List<?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
         Set<List<Object>> pathSet = new HashSet<>();
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0]");
         List<?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
         SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
         PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
