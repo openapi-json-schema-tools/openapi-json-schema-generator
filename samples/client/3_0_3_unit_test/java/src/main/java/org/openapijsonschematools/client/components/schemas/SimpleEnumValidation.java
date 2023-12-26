@@ -28,26 +28,26 @@ public class SimpleEnumValidation {
         POSITIVE_1(1),
         POSITIVE_2(2),
         POSITIVE_3(3);
-        private final Integer value;
+        private final int value;
     
-        IntegerSimpleEnumValidationEnums(Integer value) {
+        IntegerSimpleEnumValidationEnums(int value) {
             this.value = value;
         }
-        public Integer value() {
+        public int value() {
             return this.value;
         }
     }
     
-    public enum LongSimpleEnumValidationEnums {
+    public enum LongSimpleEnumValidationEnums implements LongValueMethod {
         POSITIVE_1(1L),
         POSITIVE_2(2L),
         POSITIVE_3(3L);
-        private final Long value;
+        private final long value;
     
-        LongSimpleEnumValidationEnums(Long value) {
+        LongSimpleEnumValidationEnums(long value) {
             this.value = value;
         }
-        public Long value() {
+        public long value() {
             return this.value;
         }
     }
@@ -56,12 +56,12 @@ public class SimpleEnumValidation {
         POSITIVE_1(1.0f),
         POSITIVE_2(2.0f),
         POSITIVE_3(3.0f);
-        private final Float value;
+        private final float value;
     
-        FloatSimpleEnumValidationEnums(Float value) {
+        FloatSimpleEnumValidationEnums(float value) {
             this.value = value;
         }
-        public Float value() {
+        public float value() {
             return this.value;
         }
     }
@@ -70,12 +70,12 @@ public class SimpleEnumValidation {
         POSITIVE_1(1.0d),
         POSITIVE_2(2.0d),
         POSITIVE_3(3.0d);
-        private final Double value;
+        private final double value;
     
-        DoubleSimpleEnumValidationEnums(Double value) {
+        DoubleSimpleEnumValidationEnums(double value) {
             this.value = value;
         }
-        public Double value() {
+        public double value() {
             return this.value;
         }
     }

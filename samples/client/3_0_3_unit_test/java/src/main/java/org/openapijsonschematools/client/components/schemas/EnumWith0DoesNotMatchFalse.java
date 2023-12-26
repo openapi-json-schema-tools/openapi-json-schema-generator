@@ -26,48 +26,48 @@ public class EnumWith0DoesNotMatchFalse {
     
     public enum IntegerEnumWith0DoesNotMatchFalseEnums implements IntegerValueMethod {
         POSITIVE_0(0);
-        private final Integer value;
+        private final int value;
     
-        IntegerEnumWith0DoesNotMatchFalseEnums(Integer value) {
+        IntegerEnumWith0DoesNotMatchFalseEnums(int value) {
             this.value = value;
         }
-        public Integer value() {
+        public int value() {
             return this.value;
         }
     }
     
-    public enum LongEnumWith0DoesNotMatchFalseEnums {
+    public enum LongEnumWith0DoesNotMatchFalseEnums implements LongValueMethod {
         POSITIVE_0(0L);
-        private final Long value;
+        private final long value;
     
-        LongEnumWith0DoesNotMatchFalseEnums(Long value) {
+        LongEnumWith0DoesNotMatchFalseEnums(long value) {
             this.value = value;
         }
-        public Long value() {
+        public long value() {
             return this.value;
         }
     }
     
     public enum FloatEnumWith0DoesNotMatchFalseEnums {
         POSITIVE_0(0.0f);
-        private final Float value;
+        private final float value;
     
-        FloatEnumWith0DoesNotMatchFalseEnums(Float value) {
+        FloatEnumWith0DoesNotMatchFalseEnums(float value) {
             this.value = value;
         }
-        public Float value() {
+        public float value() {
             return this.value;
         }
     }
     
     public enum DoubleEnumWith0DoesNotMatchFalseEnums {
         POSITIVE_0(0.0d);
-        private final Double value;
+        private final double value;
     
-        DoubleEnumWith0DoesNotMatchFalseEnums(Double value) {
+        DoubleEnumWith0DoesNotMatchFalseEnums(double value) {
             this.value = value;
         }
-        public Double value() {
+        public double value() {
             return this.value;
         }
     }

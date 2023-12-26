@@ -14,7 +14,7 @@ public enum String{{../jsonPathPiece.camelCase}} implements StringValueMethod {
 public enum Integer{{../jsonPathPiece.camelCase}} implements IntegerValueMethod {
                     {{else}}
                         {{#eq @key "Long"}}
-public enum Long{{../jsonPathPiece.camelCase}} {
+public enum Long{{../jsonPathPiece.camelCase}} implements LongValueMethod {
                         {{else}}
                             {{#eq @key "Float"}}
 public enum Float{{../jsonPathPiece.camelCase}} {
@@ -88,42 +88,42 @@ public enum Double{{../jsonPathPiece.camelCase}} {
     }
                 {{else}}
                     {{#eq @key "Integer"}}
-    private final Integer value;
+    private final int value;
 
-    Integer{{../jsonPathPiece.camelCase}}(Integer value) {
+    Integer{{../jsonPathPiece.camelCase}}(int value) {
         this.value = value;
     }
-    public Integer value() {
+    public int value() {
         return this.value;
     }
                     {{else}}
                         {{#eq @key "Long"}}
-    private final Long value;
+    private final long value;
 
-    Long{{../jsonPathPiece.camelCase}}(Long value) {
+    Long{{../jsonPathPiece.camelCase}}(long value) {
         this.value = value;
     }
-    public Long value() {
+    public long value() {
         return this.value;
     }
                         {{else}}
                             {{#eq @key "Float"}}
-    private final Float value;
+    private final float value;
 
-    Float{{../jsonPathPiece.camelCase}}(Float value) {
+    Float{{../jsonPathPiece.camelCase}}(float value) {
         this.value = value;
     }
-    public Float value() {
+    public float value() {
         return this.value;
     }
                             {{else}}
                                 {{#eq @key "Double"}}
-    private final Double value;
+    private final double value;
 
-    Double{{../jsonPathPiece.camelCase}}(Double value) {
+    Double{{../jsonPathPiece.camelCase}}(double value) {
         this.value = value;
     }
-    public Double value() {
+    public double value() {
         return this.value;
     }
                                 {{/eq}}

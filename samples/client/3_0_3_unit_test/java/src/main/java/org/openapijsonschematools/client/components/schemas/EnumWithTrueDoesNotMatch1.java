@@ -72,7 +72,7 @@ public class EnumWithTrueDoesNotMatch1 {
         
         @Override
         public boolean validate(BooleanEnumWithTrueDoesNotMatch1Enums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate((boolean) arg.value(), configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

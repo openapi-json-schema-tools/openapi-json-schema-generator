@@ -275,7 +275,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 
 @Override
 public boolean validate(Boolean{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate((boolean) arg.value(), configuration);
+    return validate(arg.value(), configuration);
 }
             {{/and}}
         {{/eq}}
@@ -316,7 +316,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 
 @Override
 public boolean validate(Boolean{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate((boolean) arg.value(), configuration);
+    return validate(arg.value(), configuration);
 }
     {{/and}}
 
