@@ -22,19 +22,49 @@ public class EnumWith1DoesNotMatchTrue {
     
     public enum IntegerEnumWith1DoesNotMatchTrueEnums {
         POSITIVE_1(1);
-        public final Number value;
+        private final Integer value;
     
-        IntegerEnumWith1DoesNotMatchTrueEnums(Number value) {
+        IntegerEnumWith1DoesNotMatchTrueEnums(Integer value) {
             this.value = value;
+        }
+        public Integer value() {
+            return this.value;
         }
     }
     
-    public enum NumberEnumWith1DoesNotMatchTrueEnums {
-        POSITIVE_1(1);
-        public final Number value;
+    public enum LongEnumWith1DoesNotMatchTrueEnums {
+        POSITIVE_1(1L);
+        private final Long value;
     
-        NumberEnumWith1DoesNotMatchTrueEnums(Number value) {
+        LongEnumWith1DoesNotMatchTrueEnums(Long value) {
             this.value = value;
+        }
+        public Long value() {
+            return this.value;
+        }
+    }
+    
+    public enum FloatEnumWith1DoesNotMatchTrueEnums {
+        POSITIVE_1(1.0f);
+        private final Float value;
+    
+        FloatEnumWith1DoesNotMatchTrueEnums(Float value) {
+            this.value = value;
+        }
+        public Float value() {
+            return this.value;
+        }
+    }
+    
+    public enum DoubleEnumWith1DoesNotMatchTrueEnums {
+        POSITIVE_1(1.0d);
+        private final Double value;
+    
+        DoubleEnumWith1DoesNotMatchTrueEnums(Double value) {
+            this.value = value;
+        }
+        public Double value() {
+            return this.value;
         }
     }
     

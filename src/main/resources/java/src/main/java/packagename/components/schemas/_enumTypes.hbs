@@ -10,11 +10,19 @@ public enum Boolean{{../jsonPathPiece.camelCase}} implements BooleanValueMethod 
                 {{#eq @key "string"}}
 public enum String{{../jsonPathPiece.camelCase}} implements StringValueMethod {
                 {{else}}
-                    {{#eq @key "integer"}}
+                    {{#eq @key "Integer"}}
 public enum Integer{{../jsonPathPiece.camelCase}} {
                     {{else}}
-                        {{#eq @key "number"}}
-public enum Number{{../jsonPathPiece.camelCase}} {
+                        {{#eq @key "Long"}}
+public enum Long{{../jsonPathPiece.camelCase}} {
+                        {{else}}
+                            {{#eq @key "Float"}}
+public enum Float{{../jsonPathPiece.camelCase}} {
+                            {{else}}
+                                {{#eq @key "Double"}}
+public enum Double{{../jsonPathPiece.camelCase}} {
+                                {{/eq}}
+                            {{/eq}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
@@ -30,11 +38,19 @@ public enum Number{{../jsonPathPiece.camelCase}} {
                     {{#eq ../@key "string"}}
     {{name}}("{{{value}}}"){{#unless @last}},{{else}};{{/unless}}
                     {{else}}
-                        {{#eq ../@key "integer"}}
+                        {{#eq ../@key "Integer"}}
     {{name}}({{value}}){{#unless @last}},{{else}};{{/unless}}
                         {{else}}
-                            {{#eq ../@key "number"}}
-    {{name}}({{value}}){{#unless @last}},{{else}};{{/unless}}
+                            {{#eq ../@key "Long"}}
+    {{name}}({{value}}L){{#unless @last}},{{else}};{{/unless}}
+                            {{else}}
+                                {{#eq ../@key "Float"}}
+    {{name}}({{value}}f){{#unless @last}},{{else}};{{/unless}}
+                                {{else}}
+                                    {{#eq ../@key "Double"}}
+    {{name}}({{value}}d){{#unless @last}},{{else}};{{/unless}}
+                                    {{/eq}}
+                                {{/eq}}
                             {{/eq}}
                         {{/eq}}
                     {{/eq}}
@@ -71,19 +87,47 @@ public enum Number{{../jsonPathPiece.camelCase}} {
         return this.value;
     }
                 {{else}}
-                    {{#eq @key "integer"}}
-    public final Number value;
+                    {{#eq @key "Integer"}}
+    private final Integer value;
 
-    Integer{{../jsonPathPiece.camelCase}}(Number value) {
+    Integer{{../jsonPathPiece.camelCase}}(Integer value) {
         this.value = value;
+    }
+    public Integer value() {
+        return this.value;
     }
                     {{else}}
-                        {{#eq @key "number"}}
-    public final Number value;
+                        {{#eq @key "Long"}}
+    private final Long value;
 
-    Number{{../jsonPathPiece.camelCase}}(Number value) {
+    Long{{../jsonPathPiece.camelCase}}(Long value) {
         this.value = value;
     }
+    public Long value() {
+        return this.value;
+    }
+                        {{else}}
+                            {{#eq @key "Float"}}
+    private final Float value;
+
+    Float{{../jsonPathPiece.camelCase}}(Float value) {
+        this.value = value;
+    }
+    public Float value() {
+        return this.value;
+    }
+                            {{else}}
+                                {{#eq @key "Double"}}
+    private final Double value;
+
+    Double{{../jsonPathPiece.camelCase}}(Double value) {
+        this.value = value;
+    }
+    public Double value() {
+        return this.value;
+    }
+                                {{/eq}}
+                            {{/eq}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}

@@ -52,7 +52,6 @@ String validatedPayload = EnumWithEscapedCharacters.EnumWithEscapedCharacters1.v
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumWithEscapedCharactersEnums](#stringenumwithescapedcharactersenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringEnumWithEscapedCharactersEnums
 public enum StringEnumWithEscapedCharactersEnums<br>
 extends `Enum<StringEnumWithEscapedCharactersEnums>`

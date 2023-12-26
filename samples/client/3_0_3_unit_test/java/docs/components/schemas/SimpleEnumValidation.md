@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SimpleEnumValidation.SimpleEnumValidation1](#simpleenumvalidation1)<br> schema class |
-| enum | [SimpleEnumValidation.IntegerSimpleEnumValidationEnums](#integersimpleenumvalidationenums)<br>integer enum |
-| enum | [SimpleEnumValidation.NumberSimpleEnumValidationEnums](#numbersimpleenumvalidationenums)<br>number enum |
+| enum | [SimpleEnumValidation.IntegerSimpleEnumValidationEnums](#integersimpleenumvalidationenums)<br>Integer enum |
+| enum | [SimpleEnumValidation.LongSimpleEnumValidationEnums](#longsimpleenumvalidationenums)<br>Long enum |
+| enum | [SimpleEnumValidation.FloatSimpleEnumValidationEnums](#floatsimpleenumvalidationenums)<br>Float enum |
+| enum | [SimpleEnumValidation.DoubleSimpleEnumValidationEnums](#doublesimpleenumvalidationenums)<br>Double enum |
 
 ## SimpleEnumValidation1
 public static class SimpleEnumValidation1<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
-    1L,
+    1,
     configuration
 );
 ```
@@ -65,18 +67,43 @@ A class that stores Integer enum values
 | POSITIVE_2 | value = 2 |
 | POSITIVE_3 | value = 3 |
 
+## LongSimpleEnumValidationEnums
+public enum LongSimpleEnumValidationEnums<br>
+extends `Enum<LongSimpleEnumValidationEnums>`
 
-## NumberSimpleEnumValidationEnums
-public enum NumberSimpleEnumValidationEnums<br>
-extends `Enum<NumberSimpleEnumValidationEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_1 | value = 1 |
-| POSITIVE_2 | value = 2 |
-| POSITIVE_3 | value = 3 |
+| POSITIVE_1 | value = 1L |
+| POSITIVE_2 | value = 2L |
+| POSITIVE_3 | value = 3L |
+
+## FloatSimpleEnumValidationEnums
+public enum FloatSimpleEnumValidationEnums<br>
+extends `Enum<FloatSimpleEnumValidationEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0f |
+| POSITIVE_2 | value = 2.0f |
+| POSITIVE_3 | value = 3.0f |
+
+## DoubleSimpleEnumValidationEnums
+public enum DoubleSimpleEnumValidationEnums<br>
+extends `Enum<DoubleSimpleEnumValidationEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0d |
+| POSITIVE_2 | value = 2.0d |
+| POSITIVE_3 | value = 3.0d |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

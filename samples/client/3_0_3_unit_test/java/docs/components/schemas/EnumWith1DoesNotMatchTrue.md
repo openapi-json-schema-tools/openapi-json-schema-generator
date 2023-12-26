@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1](#enumwith1doesnotmatchtrue1)<br> schema class |
-| enum | [EnumWith1DoesNotMatchTrue.IntegerEnumWith1DoesNotMatchTrueEnums](#integerenumwith1doesnotmatchtrueenums)<br>integer enum |
-| enum | [EnumWith1DoesNotMatchTrue.NumberEnumWith1DoesNotMatchTrueEnums](#numberenumwith1doesnotmatchtrueenums)<br>number enum |
+| enum | [EnumWith1DoesNotMatchTrue.IntegerEnumWith1DoesNotMatchTrueEnums](#integerenumwith1doesnotmatchtrueenums)<br>Integer enum |
+| enum | [EnumWith1DoesNotMatchTrue.LongEnumWith1DoesNotMatchTrueEnums](#longenumwith1doesnotmatchtrueenums)<br>Long enum |
+| enum | [EnumWith1DoesNotMatchTrue.FloatEnumWith1DoesNotMatchTrueEnums](#floatenumwith1doesnotmatchtrueenums)<br>Float enum |
+| enum | [EnumWith1DoesNotMatchTrue.DoubleEnumWith1DoesNotMatchTrueEnums](#doubleenumwith1doesnotmatchtrueenums)<br>Double enum |
 
 ## EnumWith1DoesNotMatchTrue1
 public static class EnumWith1DoesNotMatchTrue1<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = EnumWith1DoesNotMatchTrue.EnumWith1DoesNotMatchTrue1.validate(
-    1L,
+    1,
     configuration
 );
 ```
@@ -63,16 +65,37 @@ A class that stores Integer enum values
 | ------------- | ----------- |
 | POSITIVE_1 | value = 1 |
 
+## LongEnumWith1DoesNotMatchTrueEnums
+public enum LongEnumWith1DoesNotMatchTrueEnums<br>
+extends `Enum<LongEnumWith1DoesNotMatchTrueEnums>`
 
-## NumberEnumWith1DoesNotMatchTrueEnums
-public enum NumberEnumWith1DoesNotMatchTrueEnums<br>
-extends `Enum<NumberEnumWith1DoesNotMatchTrueEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_1 | value = 1 |
+| POSITIVE_1 | value = 1L |
+
+## FloatEnumWith1DoesNotMatchTrueEnums
+public enum FloatEnumWith1DoesNotMatchTrueEnums<br>
+extends `Enum<FloatEnumWith1DoesNotMatchTrueEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0f |
+
+## DoubleEnumWith1DoesNotMatchTrueEnums
+public enum DoubleEnumWith1DoesNotMatchTrueEnums<br>
+extends `Enum<DoubleEnumWith1DoesNotMatchTrueEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0d |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -52,7 +52,6 @@ String validatedPayload = NulCharactersInStrings.NulCharactersInStrings1.validat
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringNulCharactersInStringsEnums](#stringnulcharactersinstringsenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringNulCharactersInStringsEnums
 public enum StringNulCharactersInStringsEnums<br>
 extends `Enum<StringNulCharactersInStringsEnums>`

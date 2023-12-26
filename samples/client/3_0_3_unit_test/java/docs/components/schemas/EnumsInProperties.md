@@ -136,7 +136,6 @@ String validatedPayload = EnumsInProperties.Bar.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringBarEnums](#stringbarenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringBarEnums
 public enum StringBarEnums<br>
 extends `Enum<StringBarEnums>`
@@ -188,7 +187,6 @@ String validatedPayload = EnumsInProperties.Foo.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringFooEnums](#stringfooenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringFooEnums
 public enum StringFooEnums<br>
 extends `Enum<StringFooEnums>`

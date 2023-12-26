@@ -22,19 +22,49 @@ public class EnumWith0DoesNotMatchFalse {
     
     public enum IntegerEnumWith0DoesNotMatchFalseEnums {
         POSITIVE_0(0);
-        public final Number value;
+        private final Integer value;
     
-        IntegerEnumWith0DoesNotMatchFalseEnums(Number value) {
+        IntegerEnumWith0DoesNotMatchFalseEnums(Integer value) {
             this.value = value;
+        }
+        public Integer value() {
+            return this.value;
         }
     }
     
-    public enum NumberEnumWith0DoesNotMatchFalseEnums {
-        POSITIVE_0(0);
-        public final Number value;
+    public enum LongEnumWith0DoesNotMatchFalseEnums {
+        POSITIVE_0(0L);
+        private final Long value;
     
-        NumberEnumWith0DoesNotMatchFalseEnums(Number value) {
+        LongEnumWith0DoesNotMatchFalseEnums(Long value) {
             this.value = value;
+        }
+        public Long value() {
+            return this.value;
+        }
+    }
+    
+    public enum FloatEnumWith0DoesNotMatchFalseEnums {
+        POSITIVE_0(0.0f);
+        private final Float value;
+    
+        FloatEnumWith0DoesNotMatchFalseEnums(Float value) {
+            this.value = value;
+        }
+        public Float value() {
+            return this.value;
+        }
+    }
+    
+    public enum DoubleEnumWith0DoesNotMatchFalseEnums {
+        POSITIVE_0(0.0d);
+        private final Double value;
+    
+        DoubleEnumWith0DoesNotMatchFalseEnums(Double value) {
+            this.value = value;
+        }
+        public Double value() {
+            return this.value;
         }
     }
     

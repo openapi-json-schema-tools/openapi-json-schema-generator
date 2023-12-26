@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1](#enumwith0doesnotmatchfalse1)<br> schema class |
-| enum | [EnumWith0DoesNotMatchFalse.IntegerEnumWith0DoesNotMatchFalseEnums](#integerenumwith0doesnotmatchfalseenums)<br>integer enum |
-| enum | [EnumWith0DoesNotMatchFalse.NumberEnumWith0DoesNotMatchFalseEnums](#numberenumwith0doesnotmatchfalseenums)<br>number enum |
+| enum | [EnumWith0DoesNotMatchFalse.IntegerEnumWith0DoesNotMatchFalseEnums](#integerenumwith0doesnotmatchfalseenums)<br>Integer enum |
+| enum | [EnumWith0DoesNotMatchFalse.LongEnumWith0DoesNotMatchFalseEnums](#longenumwith0doesnotmatchfalseenums)<br>Long enum |
+| enum | [EnumWith0DoesNotMatchFalse.FloatEnumWith0DoesNotMatchFalseEnums](#floatenumwith0doesnotmatchfalseenums)<br>Float enum |
+| enum | [EnumWith0DoesNotMatchFalse.DoubleEnumWith0DoesNotMatchFalseEnums](#doubleenumwith0doesnotmatchfalseenums)<br>Double enum |
 
 ## EnumWith0DoesNotMatchFalse1
 public static class EnumWith0DoesNotMatchFalse1<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
-    0L,
+    1,
     configuration
 );
 ```
@@ -63,16 +65,37 @@ A class that stores Integer enum values
 | ------------- | ----------- |
 | POSITIVE_0 | value = 0 |
 
+## LongEnumWith0DoesNotMatchFalseEnums
+public enum LongEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<LongEnumWith0DoesNotMatchFalseEnums>`
 
-## NumberEnumWith0DoesNotMatchFalseEnums
-public enum NumberEnumWith0DoesNotMatchFalseEnums<br>
-extends `Enum<NumberEnumWith0DoesNotMatchFalseEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_0 | value = 0 |
+| POSITIVE_0 | value = 0L |
+
+## FloatEnumWith0DoesNotMatchFalseEnums
+public enum FloatEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<FloatEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0f |
+
+## DoubleEnumWith0DoesNotMatchFalseEnums
+public enum DoubleEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<DoubleEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0d |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

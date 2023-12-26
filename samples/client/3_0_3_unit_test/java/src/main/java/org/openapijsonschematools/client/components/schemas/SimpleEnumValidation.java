@@ -24,21 +24,55 @@ public class SimpleEnumValidation {
         POSITIVE_1(1),
         POSITIVE_2(2),
         POSITIVE_3(3);
-        public final Number value;
+        private final Integer value;
     
-        IntegerSimpleEnumValidationEnums(Number value) {
+        IntegerSimpleEnumValidationEnums(Integer value) {
             this.value = value;
+        }
+        public Integer value() {
+            return this.value;
         }
     }
     
-    public enum NumberSimpleEnumValidationEnums {
-        POSITIVE_1(1),
-        POSITIVE_2(2),
-        POSITIVE_3(3);
-        public final Number value;
+    public enum LongSimpleEnumValidationEnums {
+        POSITIVE_1(1L),
+        POSITIVE_2(2L),
+        POSITIVE_3(3L);
+        private final Long value;
     
-        NumberSimpleEnumValidationEnums(Number value) {
+        LongSimpleEnumValidationEnums(Long value) {
             this.value = value;
+        }
+        public Long value() {
+            return this.value;
+        }
+    }
+    
+    public enum FloatSimpleEnumValidationEnums {
+        POSITIVE_1(1.0f),
+        POSITIVE_2(2.0f),
+        POSITIVE_3(3.0f);
+        private final Float value;
+    
+        FloatSimpleEnumValidationEnums(Float value) {
+            this.value = value;
+        }
+        public Float value() {
+            return this.value;
+        }
+    }
+    
+    public enum DoubleSimpleEnumValidationEnums {
+        POSITIVE_1(1.0d),
+        POSITIVE_2(2.0d),
+        POSITIVE_3(3.0d);
+        private final Double value;
+    
+        DoubleSimpleEnumValidationEnums(Double value) {
+            this.value = value;
+        }
+        public Double value() {
+            return this.value;
         }
     }
     

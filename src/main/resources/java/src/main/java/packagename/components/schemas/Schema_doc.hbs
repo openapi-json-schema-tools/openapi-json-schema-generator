@@ -58,11 +58,19 @@ A class that contains necessary nested
                                             {{#eq @key "string"}}
 | enum | [{{../../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}})<br>String enum |
                                             {{else}}
-                                                {{#eq @key "integer"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}})<br>integer enum |
+                                                {{#eq @key "Integer"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}})<br>Integer enum |
                                                 {{else}}
-                                                    {{#eq @key "number"}}
-| enum | [{{../../../containerJsonPathPiece.camelCase}}.Number{{../jsonPathPiece.camelCase}}](#number{{../jsonPathPiece.anchorPiece}})<br>number enum |
+                                                    {{#eq @key "Long"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Long{{../jsonPathPiece.camelCase}}](#long{{../jsonPathPiece.anchorPiece}})<br>Long enum |
+                                                    {{else}}
+                                                        {{#eq @key "Float"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Float{{../jsonPathPiece.camelCase}}](#float{{../jsonPathPiece.anchorPiece}})<br>Float enum |
+                                                        {{else}}
+                                                            {{#eq @key "Double"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Double{{../jsonPathPiece.camelCase}}](#double{{../jsonPathPiece.anchorPiece}})<br>Double enum |
+                                                            {{/eq}}
+                                                        {{/eq}}
                                                     {{/eq}}
                                                 {{/eq}}
                                             {{/eq}}
@@ -226,27 +234,41 @@ extends `Enum<Boolean{{../jsonPathPiece.camelCase}}>`
 A class that stores boolean enum values
                                         {{else}}
                                             {{#eq @key "string"}}
-
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "String" ../jsonPathPiece.camelCase "") ) }}
 public enum String{{../jsonPathPiece.camelCase}}<br>
 extends `Enum<String{{../jsonPathPiece.camelCase}}>`
 
 A class that stores String enum values
                                             {{else}}
-                                                {{#eq @key "integer"}}
+                                                {{#eq @key "Integer"}}
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Integer" ../jsonPathPiece.camelCase "") ) }}
 public enum Integer{{../jsonPathPiece.camelCase}}<br>
 extends `Enum<Integer{{../jsonPathPiece.camelCase}}>`
 
 A class that stores Integer enum values
                                                 {{else}}
-                                                    {{#eq @key "number"}}
+                                                    {{#eq @key "Long"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Long" ../jsonPathPiece.camelCase "") ) }}
+public enum Long{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Long{{../jsonPathPiece.camelCase}}>`
 
-{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Number" ../jsonPathPiece.camelCase "") ) }}
-public enum Number{{../jsonPathPiece.camelCase}}<br>
-extends `Enum<Number{{../jsonPathPiece.camelCase}}>`
+A class that stores Long enum values
+                                                    {{else}}
+                                                        {{#eq @key "Float"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Float" ../jsonPathPiece.camelCase "") ) }}
+public enum Float{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Float{{../jsonPathPiece.camelCase}}>`
 
-A class that stores Number enum values
+A class that stores Float enum values
+                                                        {{else}}
+                                                            {{#eq @key "Double"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Double" ../jsonPathPiece.camelCase "") ) }}
+public enum Double{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Double{{../jsonPathPiece.camelCase}}>`
+
+A class that stores Double enum values
+                                                            {{/eq}}
+                                                        {{/eq}}
                                                     {{/eq}}
                                                 {{/eq}}
                                             {{/eq}}
@@ -266,11 +288,19 @@ A class that stores Number enum values
                                                 {{#eq ../@key "string"}}
 | {{name}} | value = "{{{value}}}" |
                                                 {{else}}
-                                                    {{#eq ../@key "integer"}}
+                                                    {{#eq ../@key "Integer"}}
 | {{name}} | value = {{value}} |
                                                     {{else}}
-                                                        {{#eq ../@key "number"}}
-| {{name}} | value = {{value}} |
+                                                        {{#eq ../@key "Long"}}
+| {{name}} | value = {{value}}L |
+                                                        {{else}}
+                                                            {{#eq ../@key "Float"}}
+| {{name}} | value = {{value}}f |
+                                                            {{else}}
+                                                                {{#eq ../@key "Double"}}
+| {{name}} | value = {{value}}d |
+                                                                {{/eq}}
+                                                            {{/eq}}
                                                         {{/eq}}
                                                     {{/eq}}
                                                 {{/eq}}
