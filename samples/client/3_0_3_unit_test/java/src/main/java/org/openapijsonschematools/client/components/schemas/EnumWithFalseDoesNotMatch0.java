@@ -28,7 +28,7 @@ public class EnumWithFalseDoesNotMatch0 {
         BooleanEnumWithFalseDoesNotMatch0Enums(boolean value) {
             this.value = value;
         }
-        public Boolean value() {
+        public boolean value() {
             return this.value;
         }
     }
