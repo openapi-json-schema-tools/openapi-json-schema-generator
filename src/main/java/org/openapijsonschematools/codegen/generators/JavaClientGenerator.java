@@ -34,6 +34,8 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenReques
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
+import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
@@ -1864,5 +1866,133 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             return schemasBeforeImports;
         };
         return getSchemasFn;
+    }
+
+    private void addToTypeToValue(HashMap<String, List<EnumValue>> typeToValues, EnumValue enumValue, String type) {
+        if (!typeToValues.containsKey(type)) {
+            typeToValues.put(type, new ArrayList<>());
+        }
+        typeToValues.get(type).add(enumValue);
+    }
+
+    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
+        LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
+        HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();
+        LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
+        int truncateIdx = 0;
+
+        if (isRemoveEnumValuePrefix()) {
+            String commonPrefix = findCommonPrefixOfVars(values);
+            truncateIdx = commonPrefix.length();
+        }
+
+        List<String> xEnumVariableNames = null;
+        List<String> xEnumDescriptions = null;
+        // noinspection SpellCheckingInspection
+        String xEnumVariablenamesKey = "x-enum-varnames";
+        String xEnumDescriptionsKey = "x-enum-descriptions";
+        if (schema.getExtensions() != null) {
+            if (schema.getExtensions().containsKey(xEnumVariablenamesKey)) {
+                xEnumVariableNames = new ArrayList<>();
+                Object result = schema.getExtensions().get(xEnumVariablenamesKey);
+                if (result instanceof List) {
+                    for (Object item: (List) result) {
+                        if (item instanceof String) {
+                            xEnumVariableNames.add((String) item);
+                        }
+                    }
+                }
+            }
+            if (schema.getExtensions().containsKey(xEnumDescriptionsKey)) {
+                xEnumDescriptions = new ArrayList<>();
+                Object result = schema.getExtensions().get(xEnumDescriptionsKey);
+                if (result instanceof List) {
+                    for (Object item: (List) result) {
+                        if (item instanceof String) {
+                            xEnumDescriptions.add((String) item);
+                        }
+                    }
+                }
+            }
+        }
+
+        int i = 0;
+        for (Object value : values) {
+            String description = null;
+            if (xEnumDescriptions != null && xEnumDescriptions.size() > i) {
+                description = xEnumDescriptions.get(i);
+            }
+
+            String enumName;
+            if (xEnumVariableNames != null && xEnumVariableNames.size() > i) {
+                enumName = xEnumVariableNames.get(i);
+            } else {
+                if (truncateIdx == 0) {
+                    enumName = String.valueOf(value);
+                } else {
+                    enumName = value.toString().substring(truncateIdx);
+                    if (enumName.isEmpty()) {
+                        enumName = value.toString();
+                    }
+                }
+            }
+
+            String usedName = toEnumVarName(enumName, schema);
+            EnumValue enumValue = getEnumValue(value, description, usedName);
+            boolean typeIsInteger = enumValue.type.equals("integer");
+            boolean intIsNumberUseCase = (typeIsInteger && types!=null && types.contains("number"));
+            if (types!=null && !types.contains(enumValue.type) && !intIsNumberUseCase) {
+                throw new RuntimeException("Enum value's type is not allowed by schema types for value="+enumValue.value+" types="+types + " jsonPath="+currentJsonPath);
+            }
+            enumValueToName.put(enumValue, usedName);
+            if (!enumNameToValue.containsKey(usedName)) {
+                enumNameToValue.put(usedName, enumValue);
+            } else {
+                LOGGER.error(
+                        "Enum error: two generated enum variable names collide. The values {} and {} generate variable name {} . Please file an issue at https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues",
+                        enumNameToValue.get(usedName).value,
+                        enumValue.value,
+                        usedName);
+            }
+            // typeToValues code
+            if ("null".equals(enumValue.type) || "boolean".equals(enumValue.type) || "string".equals(enumValue.type)) {
+                addToTypeToValue(typeToValues, enumValue, enumValue.type);
+            } else if (value instanceof Integer) {
+                addToTypeToValue(typeToValues, enumValue, "Integer");
+                EnumValue longEnumValue = getEnumValue(Long.parseLong(value.toString()), description, usedName);
+                addToTypeToValue(typeToValues, longEnumValue, "Long");
+                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description, usedName);
+                addToTypeToValue(typeToValues, floatEnumValue, "Float");
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description, usedName);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double");
+            } else if (value instanceof Long) {
+                addToTypeToValue(typeToValues, enumValue, "Long");
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description, usedName);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double");
+                if ((Long) value >= -2147483648L && (Long) value <= 2147483647L) {
+                    EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), description, usedName);
+                    addToTypeToValue(typeToValues, integerEnumValue, "Integer");
+                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description, usedName);
+                    addToTypeToValue(typeToValues, floatEnumValue, "Float");
+                }
+            } else if (value instanceof Float) {
+                addToTypeToValue(typeToValues, enumValue, "Float");
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()), description, usedName);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double");
+            } else if (value instanceof Double) {
+                if ((Double) value >= -3.4028234663852886e+38d && (Double) value <= 3.4028234663852886e+38d) {
+                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), description, usedName);
+                    addToTypeToValue(typeToValues, floatEnumValue, "Float");
+                }
+            }
+            i += 1;
+        }
+        CodegenKey jsonPathPiece = null;
+        if (currentJsonPath != null) {
+            String currentName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+            jsonPathPiece = getKey(currentName + classSuffix, "schemaProperty", sourceJsonPath);
+        }
+
+        return new EnumInfo(enumValueToName, typeToValues, jsonPathPiece);
     }
 }
