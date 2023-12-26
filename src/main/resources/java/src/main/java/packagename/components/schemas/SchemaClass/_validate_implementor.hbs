@@ -155,10 +155,6 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
 }
-
-public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-    return (int) validate((Number) arg, configuration);
-}
             {{#and ../enumInfo ../enumInfo.typeToValues.Integer}}
 
 @Override
@@ -166,6 +162,17 @@ public int validate(Integer{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaCon
     return (int) validate((Number) arg.value(), configuration);
 }
             {{/and}}
+            {{#and ../enumInfo ../enumInfo.typeToValues.Long}}
+
+@Override
+public long validate(Long{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return (long) validate((Number) arg.value(), configuration);
+}
+            {{/and}}
+
+public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+    return (int) validate((Number) arg, configuration);
+}
 
 public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
     return (float) validate((Number) arg, configuration);
@@ -198,6 +205,13 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
 @Override
 public int validate(Integer{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg.value(), configuration);
+}
+            {{/and}}
+            {{#and ../enumInfo ../enumInfo.typeToValues.Long}}
+
+@Override
+public long validate(Long{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return (long) validate((Number) arg.value(), configuration);
 }
             {{/and}}
             {{#eq ../format null}}
@@ -331,10 +345,6 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     getPathToSchemas(this, castArg, validationMetadata, pathSet);
     return castArg;
 }
-
-public int validate(int arg, SchemaConfiguration configuration) {
-    return (int) validate((Number) arg, configuration);
-}
     {{#and enumInfo enumInfo.typeToValues.Integer}}
 
 @Override
@@ -342,6 +352,17 @@ public int validate(Integer{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfig
     return (int) validate((Number) arg.value(), configuration);
 }
     {{/and}}
+    {{#and enumInfo enumInfo.typeToValues.Long}}
+
+@Override
+public long validate(Long{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return (long) validate((Number) arg.value(), configuration);
+}
+    {{/and}}
+
+public int validate(int arg, SchemaConfiguration configuration) {
+    return (int) validate((Number) arg, configuration);
+}
 
 public long validate(long arg, SchemaConfiguration configuration) {
     return (long) validate((Number) arg, configuration);
