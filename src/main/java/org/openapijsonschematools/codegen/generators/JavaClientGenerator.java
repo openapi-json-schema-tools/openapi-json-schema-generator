@@ -1554,6 +1554,13 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             if (schema.enumInfo.typeToValues.containsKey("string")) {
                 imports.add("import "+packageName + ".schemas.validation.StringEnumValidator;");
             }
+            Set<String> numberKeys = Set.of("integer", "number");
+            for (String numberKey: numberKeys) {
+                if (schema.enumInfo.typeToValues.containsKey(numberKey)) {
+                    imports.add("import java.math.BigDecimal;");
+                    break;
+                }
+            }
         }
     }
 

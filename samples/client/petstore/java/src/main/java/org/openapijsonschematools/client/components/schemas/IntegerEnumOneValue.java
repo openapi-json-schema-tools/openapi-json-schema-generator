@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -56,7 +57,7 @@ public class IntegerEnumOneValue {
                     Double.class
                 ))
                 .enumValues(SetMaker.makeSet(
-                    0
+                    new BigDecimal("0")
                 ))
             );
         }

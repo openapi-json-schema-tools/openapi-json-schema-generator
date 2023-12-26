@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.components.schemas;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
@@ -195,8 +196,8 @@ public class EnumTest {
                 ))
                 .format("int32")
                 .enumValues(SetMaker.makeSet(
-                    1,
-                    -1
+                    new BigDecimal("1"),
+                    new BigDecimal("-1")
                 ))
             );
         }
@@ -266,8 +267,8 @@ public class EnumTest {
                 ))
                 .format("double")
                 .enumValues(SetMaker.makeSet(
-                    1.1,
-                    -1.2
+                    new BigDecimal("1.1"),
+                    new BigDecimal("-1.2")
                 ))
             );
         }

@@ -1,4 +1,5 @@
 package org.openapijsonschematools.client.paths.fake.get.parameters.parameter5;
+import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -43,8 +44,8 @@ public class Schema5 {
                 ))
                 .format("double")
                 .enumValues(SetMaker.makeSet(
-                    1.1,
-                    -1.2
+                    new BigDecimal("1.1"),
+                    new BigDecimal("-1.2")
                 ))
             );
         }

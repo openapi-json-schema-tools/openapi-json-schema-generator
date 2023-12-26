@@ -24,7 +24,11 @@
             {{#eq type "null"}}
     null{{#unless @last}},{{/unless}}
             {{else}}
+                {{#eq type "boolean"}}
     {{value}}{{#unless @last}},{{/unless}}
+                {{else}}
+    new BigDecimal("{{value.toString}}"){{#unless @last}},{{/unless}}
+                {{/eq}}
             {{/eq}}
         {{/eq}}
     {{/with}}
