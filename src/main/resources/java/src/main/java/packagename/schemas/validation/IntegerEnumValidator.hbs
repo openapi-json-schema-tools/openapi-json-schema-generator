@@ -1,0 +1,9 @@
+package {{{packageName}}}.schemas.validation;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.ValidationException;
+
+public interface IntegerEnumValidator <EnumType extends IntegerValueMethod> {
+    int validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+}
