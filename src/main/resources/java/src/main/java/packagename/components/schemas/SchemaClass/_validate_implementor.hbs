@@ -16,7 +16,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
 
 @Override
 public Void validate(Null{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value, configuration);
+    return validate(arg.value(), configuration);
 }
             {{/and}}
         {{/eq}}
@@ -138,7 +138,7 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
 
 @Override
 public String validate(String{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value, configuration);
+    return validate(arg.value(), configuration);
 }
                 {{/and}}
             {{/eq}}
@@ -260,7 +260,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 
 @Override
 public boolean validate(Boolean{{../enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value, configuration);
+    return validate((boolean) arg.value(), configuration);
 }
             {{/and}}
         {{/eq}}
@@ -282,7 +282,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
 
 @Override
 public Void validate(Null{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value, configuration);
+    return validate(arg.value(), configuration);
 }
     {{/and}}
 
@@ -301,7 +301,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 
 @Override
 public boolean validate(Boolean{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value, configuration);
+    return validate((boolean) arg.value(), configuration);
 }
     {{/and}}
 
@@ -348,7 +348,7 @@ public String validate(String arg, SchemaConfiguration configuration) throws Val
 
 @Override
 public String validate(String{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
-    return validate(arg.value, configuration);
+    return validate(arg.value(), configuration);
 }
     {{/and}}
 

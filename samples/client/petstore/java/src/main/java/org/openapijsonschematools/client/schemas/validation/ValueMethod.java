@@ -4,6 +4,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
-public interface StringEnumValidator <EnumType extends StringValueMethod> {
-    String validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+public interface ValueMethod<T> {
+    T value();
 }

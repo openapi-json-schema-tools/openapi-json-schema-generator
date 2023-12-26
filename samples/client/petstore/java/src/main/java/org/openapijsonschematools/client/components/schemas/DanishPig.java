@@ -23,17 +23,21 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class DanishPig {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringClassNameEnums {
+    public enum StringClassNameEnums implements StringValueMethod {
         DANISH_PIG("DanishPig");
-        public final String value;
+        private final String value;
     
         StringClassNameEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -72,7 +76,7 @@ public class DanishPig {
         
         @Override
         public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

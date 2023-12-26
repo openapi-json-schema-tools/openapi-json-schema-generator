@@ -25,18 +25,22 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class EnumArrays {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringJustSymbolEnums {
+    public enum StringJustSymbolEnums implements StringValueMethod {
         GREATER_THAN_SIGN_EQUALS_SIGN(">="),
         DOLLAR_SIGN("$");
-        public final String value;
+        private final String value;
     
         StringJustSymbolEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -76,7 +80,7 @@ public class EnumArrays {
         
         @Override
         public String validate(StringJustSymbolEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override
@@ -94,13 +98,16 @@ public class EnumArrays {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public enum StringItemsEnums {
+    public enum StringItemsEnums implements StringValueMethod {
         FISH("fish"),
         CRAB("crab");
-        public final String value;
+        private final String value;
     
         StringItemsEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -140,7 +147,7 @@ public class EnumArrays {
         
         @Override
         public String validate(StringItemsEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

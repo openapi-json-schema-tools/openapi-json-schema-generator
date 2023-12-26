@@ -2,13 +2,13 @@
     {{#each typeToValues}}
 
         {{#eq @key "null"}}
-public enum Null{{../jsonPathPiece.camelCase}} {
+public enum Null{{../jsonPathPiece.camelCase}} implements NullValueMethod {
         {{else}}
             {{#eq @key "boolean"}}
-public enum Boolean{{../jsonPathPiece.camelCase}} {
+public enum Boolean{{../jsonPathPiece.camelCase}} implements BooleanValueMethod {
             {{else}}
                 {{#eq @key "string"}}
-public enum String{{../jsonPathPiece.camelCase}} {
+public enum String{{../jsonPathPiece.camelCase}} implements StringValueMethod {
                 {{else}}
                     {{#eq @key "integer"}}
 public enum Integer{{../jsonPathPiece.camelCase}} {
@@ -42,24 +42,33 @@ public enum Number{{../jsonPathPiece.camelCase}} {
             {{/eq}}
         {{/each}}
         {{#eq @key "null"}}
-    public final Void value;
+    private final Void value;
 
     Null{{../jsonPathPiece.camelCase}}(Void value) {
         this.value = value;
     }
+    public Void value() {
+        return this.value;
+    }
         {{else}}
             {{#eq @key "boolean"}}
-    public final boolean value;
+    private final boolean value;
 
     Boolean{{../jsonPathPiece.camelCase}}(boolean value) {
         this.value = value;
     }
+    public Boolean value() {
+        return this.value;
+    }
             {{else}}
                 {{#eq @key "string"}}
-    public final String value;
+    private final String value;
 
     String{{../jsonPathPiece.camelCase}}(String value) {
         this.value = value;
+    }
+    public String value() {
+        return this.value;
     }
                 {{else}}
                     {{#eq @key "integer"}}

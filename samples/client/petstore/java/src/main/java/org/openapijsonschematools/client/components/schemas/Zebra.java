@@ -24,6 +24,7 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Zebra {
@@ -40,14 +41,17 @@ public class Zebra {
         }
     }
     
-    public enum StringTypeEnums {
+    public enum StringTypeEnums implements StringValueMethod {
         PLAINS("plains"),
         MOUNTAIN("mountain"),
         GREVYS("grevys");
-        public final String value;
+        private final String value;
     
         StringTypeEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -88,7 +92,7 @@ public class Zebra {
         
         @Override
         public String validate(StringTypeEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override
@@ -106,12 +110,15 @@ public class Zebra {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public enum StringClassNameEnums {
+    public enum StringClassNameEnums implements StringValueMethod {
         ZEBRA("zebra");
-        public final String value;
+        private final String value;
     
         StringClassNameEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -150,7 +157,7 @@ public class Zebra {
         
         @Override
         public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

@@ -15,19 +15,23 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class StringEnumWithDefaultValue {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringStringEnumWithDefaultValueEnums {
+    public enum StringStringEnumWithDefaultValueEnums implements StringValueMethod {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered");
-        public final String value;
+        private final String value;
     
         StringStringEnumWithDefaultValueEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -74,7 +78,7 @@ public class StringEnumWithDefaultValue {
         
         @Override
         public String validate(StringStringEnumWithDefaultValueEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

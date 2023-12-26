@@ -27,6 +27,7 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Pet {
@@ -145,14 +146,17 @@ public class Pet {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public enum StringStatusEnums {
+    public enum StringStatusEnums implements StringValueMethod {
         AVAILABLE("available"),
         PENDING("pending"),
         SOLD("sold");
-        public final String value;
+        private final String value;
     
         StringStatusEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -193,7 +197,7 @@ public class Pet {
         
         @Override
         public String validate(StringStatusEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

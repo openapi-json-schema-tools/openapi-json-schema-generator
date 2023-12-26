@@ -14,34 +14,42 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.NullEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.NullSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.NullValueMethod;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class StringEnum {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringStringEnumEnums {
+    public enum StringStringEnumEnums implements StringValueMethod {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered"),
         SINGLE_QUOTED("single quoted"),
         MULTIPLE_LINE_FEED_LF_LINES("multiple\nlines"),
         DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE("double quote \n with newline");
-        public final String value;
+        private final String value;
     
         StringStringEnumEnums(String value) {
             this.value = value;
         }
+        public String value() {
+            return this.value;
+        }
     }
     
-    public enum NullStringEnumEnums {
+    public enum NullStringEnumEnums implements NullValueMethod {
         NONE(null);
-        public final Void value;
+        private final Void value;
     
         NullStringEnumEnums(Void value) {
             this.value = value;
+        }
+        public Void value() {
+            return this.value;
         }
     }
     
@@ -93,7 +101,7 @@ public class StringEnum {
         
         @Override
         public Void validate(NullStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override
@@ -109,7 +117,7 @@ public class StringEnum {
         
         @Override
         public String validate(StringStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

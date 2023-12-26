@@ -4,6 +4,6 @@ import {{{packageName}}}.configurations.SchemaConfiguration;
 import {{{packageName}}}.exceptions.InvalidTypeException;
 import {{{packageName}}}.exceptions.ValidationException;
 
-public interface StringEnumValidator <EnumType extends Enum<?>> {
+public interface StringEnumValidator <EnumType extends StringValueMethod> {
     String validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

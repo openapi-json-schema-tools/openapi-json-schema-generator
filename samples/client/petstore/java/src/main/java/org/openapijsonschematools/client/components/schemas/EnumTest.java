@@ -25,19 +25,23 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class EnumTest {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringEnumStringEnums {
+    public enum StringEnumStringEnums implements StringValueMethod {
         UPPER("UPPER"),
         LOWER("lower"),
         EMPTY("");
-        public final String value;
+        private final String value;
     
         StringEnumStringEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -78,7 +82,7 @@ public class EnumTest {
         
         @Override
         public String validate(StringEnumStringEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override
@@ -96,14 +100,17 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public enum StringEnumStringRequiredEnums {
+    public enum StringEnumStringRequiredEnums implements StringValueMethod {
         UPPER("UPPER"),
         LOWER("lower"),
         EMPTY("");
-        public final String value;
+        private final String value;
     
         StringEnumStringRequiredEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -144,7 +151,7 @@ public class EnumTest {
         
         @Override
         public String validate(StringEnumStringRequiredEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

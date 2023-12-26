@@ -25,6 +25,7 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class JSONPatchRequestAddReplaceTest {
@@ -64,14 +65,17 @@ public class JSONPatchRequestAddReplaceTest {
         }
     }
     
-    public enum StringOpEnums {
+    public enum StringOpEnums implements StringValueMethod {
         ADD("add"),
         REPLACE("replace"),
         TEST("test");
-        public final String value;
+        private final String value;
     
         StringOpEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -112,7 +116,7 @@ public class JSONPatchRequestAddReplaceTest {
         
         @Override
         public String validate(StringOpEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

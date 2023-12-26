@@ -31,17 +31,21 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class ScaleneTriangle {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringTriangleTypeEnums {
+    public enum StringTriangleTypeEnums implements StringValueMethod {
         SCALENE_TRIANGLE("ScaleneTriangle");
-        public final String value;
+        private final String value;
     
         StringTriangleTypeEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -80,7 +84,7 @@ public class ScaleneTriangle {
         
         @Override
         public String validate(StringTriangleTypeEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

@@ -27,6 +27,7 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Order {
@@ -76,14 +77,17 @@ public class Order {
         }
     }
     
-    public enum StringStatusEnums {
+    public enum StringStatusEnums implements StringValueMethod {
         PLACED("placed"),
         APPROVED("approved"),
         DELIVERED("delivered");
-        public final String value;
+        private final String value;
     
         StringStatusEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -124,7 +128,7 @@ public class Order {
         
         @Override
         public String validate(StringStatusEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

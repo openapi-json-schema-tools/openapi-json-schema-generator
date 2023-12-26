@@ -394,6 +394,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("AnyOfValidator");
         keywordValidatorFiles.add("BooleanEnumValidator");
         keywordValidatorFiles.add("BooleanSchemaValidator");
+        keywordValidatorFiles.add("BooleanValueMethod");
+        keywordValidatorFiles.add("BigDecimalValidator");
         keywordValidatorFiles.add("CustomIsoparser");
         keywordValidatorFiles.add("EnumValidator");
         keywordValidatorFiles.add("ExclusiveMaximumValidator");
@@ -423,6 +425,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("NotValidator");
         keywordValidatorFiles.add("NullEnumValidator");
         keywordValidatorFiles.add("NullSchemaValidator");
+        keywordValidatorFiles.add("NullValueMethod");
         keywordValidatorFiles.add("NumberSchemaValidator");
         keywordValidatorFiles.add("OneOfValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
@@ -432,6 +435,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("RequiredValidator");
         keywordValidatorFiles.add("StringEnumValidator");
         keywordValidatorFiles.add("StringSchemaValidator");
+        keywordValidatorFiles.add("StringValueMethod");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
@@ -1547,12 +1551,15 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             imports.add("import "+packageName + ".schemas.SetMaker;");
             if (schema.enumInfo.typeToValues.containsKey("null")) {
                 imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.NullValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("boolean")) {
                 imports.add("import "+packageName + ".schemas.validation.BooleanEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.BooleanValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("string")) {
                 imports.add("import "+packageName + ".schemas.validation.StringEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.StringValueMethod;");
             }
             Set<String> numberKeys = Set.of("integer", "number");
             for (String numberKey: numberKeys) {

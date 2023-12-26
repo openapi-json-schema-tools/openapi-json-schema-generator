@@ -19,18 +19,22 @@ import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema2 {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringItemsEnums2 {
+    public enum StringItemsEnums2 implements StringValueMethod {
         GREATER_THAN_SIGN(">"),
         DOLLAR_SIGN("$");
-        public final String value;
+        private final String value;
     
         StringItemsEnums2(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -70,7 +74,7 @@ public class Schema2 {
         
         @Override
         public String validate(StringItemsEnums2 arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

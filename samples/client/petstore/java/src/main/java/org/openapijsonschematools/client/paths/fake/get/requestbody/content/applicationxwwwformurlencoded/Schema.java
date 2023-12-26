@@ -25,18 +25,22 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum StringItemsEnums {
+    public enum StringItemsEnums implements StringValueMethod {
         GREATER_THAN_SIGN(">"),
         DOLLAR_SIGN("$");
-        public final String value;
+        private final String value;
     
         StringItemsEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -76,7 +80,7 @@ public class Schema {
         
         @Override
         public String validate(StringItemsEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override
@@ -174,14 +178,17 @@ public class Schema {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public enum StringEnumFormStringEnums {
+    public enum StringEnumFormStringEnums implements StringValueMethod {
         _ABC("_abc"),
         HYPHEN_MINUS_EFG("-efg"),
         LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS("(xyz)");
-        public final String value;
+        private final String value;
     
         StringEnumFormStringEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -222,7 +229,7 @@ public class Schema {
         
         @Override
         public String validate(StringEnumFormStringEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

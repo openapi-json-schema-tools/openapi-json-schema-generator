@@ -25,6 +25,7 @@ import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
 import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class MapTest {
@@ -221,13 +222,16 @@ public class MapTest {
         }
     }
     
-    public enum StringAdditionalPropertiesEnums {
+    public enum StringAdditionalPropertiesEnums implements StringValueMethod {
         UPPER("UPPER"),
         LOWER("lower");
-        public final String value;
+        private final String value;
     
         StringAdditionalPropertiesEnums(String value) {
             this.value = value;
+        }
+        public String value() {
+            return this.value;
         }
     }
     
@@ -267,7 +271,7 @@ public class MapTest {
         
         @Override
         public String validate(StringAdditionalPropertiesEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value, configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override
