@@ -22,7 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumWith0DoesNotMatchFalse {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum IntegerEnumWith0DoesNotMatchFalseEnums {
+    public enum IntegerEnumWith0DoesNotMatchFalseEnums implements IntegerValueMethod {
         POSITIVE_0(0);
         private final Integer value;
     

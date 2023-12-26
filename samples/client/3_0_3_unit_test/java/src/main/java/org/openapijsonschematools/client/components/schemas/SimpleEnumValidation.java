@@ -22,7 +22,7 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class SimpleEnumValidation {
     // nest classes so all schemas and input/output classes can be public
     
-    public enum IntegerSimpleEnumValidationEnums {
+    public enum IntegerSimpleEnumValidationEnums implements IntegerValueMethod {
         POSITIVE_1(1),
         POSITIVE_2(2),
         POSITIVE_3(3);

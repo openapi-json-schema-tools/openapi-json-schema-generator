@@ -11,7 +11,7 @@ public enum Boolean{{../jsonPathPiece.camelCase}} implements BooleanValueMethod 
 public enum String{{../jsonPathPiece.camelCase}} implements StringValueMethod {
                 {{else}}
                     {{#eq @key "Integer"}}
-public enum Integer{{../jsonPathPiece.camelCase}} {
+public enum Integer{{../jsonPathPiece.camelCase}} implements IntegerValueMethod {
                     {{else}}
                         {{#eq @key "Long"}}
 public enum Long{{../jsonPathPiece.camelCase}} {
