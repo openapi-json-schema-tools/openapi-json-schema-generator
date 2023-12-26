@@ -15,6 +15,8 @@ import org.openapijsonschematools.client.schemas.validation.IntegerEnumValidator
 import org.openapijsonschematools.client.schemas.validation.IntegerValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.LongEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.LongValueMethod;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;

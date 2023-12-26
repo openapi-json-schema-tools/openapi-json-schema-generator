@@ -225,6 +225,8 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/KeywordEntry.
 src/main/java/org/openapijsonschematools/client/schemas/validation/KeywordValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/LengthValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ListSchemaValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/LongEnumValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/LongValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MapSchemaValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxItemsValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/MaxLengthValidator.java

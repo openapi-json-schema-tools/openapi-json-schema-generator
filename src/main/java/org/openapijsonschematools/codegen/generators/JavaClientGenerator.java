@@ -416,6 +416,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
         keywordValidatorFiles.add("ListSchemaValidator");
+        keywordValidatorFiles.add("LongEnumValidator");
+        keywordValidatorFiles.add("LongValueMethod");
         keywordValidatorFiles.add("MapSchemaValidator");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
@@ -1568,6 +1570,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             if (schema.enumInfo.typeToValues.containsKey("Integer")) {
                 imports.add("import "+packageName + ".schemas.validation.IntegerEnumValidator;");
                 imports.add("import "+packageName + ".schemas.validation.IntegerValueMethod;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("Long")) {
+                imports.add("import "+packageName + ".schemas.validation.LongEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.LongValueMethod;");
             }
             Set<String> numberKeys = Set.of("Integer", "Long", "Float", "Double");
             for (String numberKey: numberKeys) {
