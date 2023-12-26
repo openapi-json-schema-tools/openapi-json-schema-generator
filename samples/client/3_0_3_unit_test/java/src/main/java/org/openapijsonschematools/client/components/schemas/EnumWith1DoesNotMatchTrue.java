@@ -1,13 +1,10 @@
 package org.openapijsonschematools.client.components.schemas;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -23,20 +20,20 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class EnumWith1DoesNotMatchTrue {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum IntegerEnumWith1DoesNotMatchTrue1 {
+    public enum IntegerEnumWith1DoesNotMatchTrueEnums {
         POSITIVE_1(1);
         public final Number value;
     
-        private IntegerEnumWith1DoesNotMatchTrue1(Number value) {
+        IntegerEnumWith1DoesNotMatchTrueEnums(Number value) {
             this.value = value;
         }
     }
     
-    public static enum NumberEnumWith1DoesNotMatchTrue1 {
+    public enum NumberEnumWith1DoesNotMatchTrueEnums {
         POSITIVE_1(1);
         public final Number value;
     
-        private NumberEnumWith1DoesNotMatchTrue1(Number value) {
+        NumberEnumWith1DoesNotMatchTrueEnums(Number value) {
             this.value = value;
         }
     }
@@ -60,7 +57,7 @@ public class EnumWith1DoesNotMatchTrue {
                     Double.class
                 ))
                 .enumValues(SetMaker.makeSet(
-                    1
+                    new BigDecimal("1")
                 ))
             );
         }

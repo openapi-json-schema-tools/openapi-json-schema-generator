@@ -4,15 +4,14 @@ public class EnumWith0DoesNotMatchFalse
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1](#enumwith0doesnotmatchfalse1)<br> schema class |
+| enum | [EnumWith0DoesNotMatchFalse.IntegerEnumWith0DoesNotMatchFalseEnums](#integerenumwith0doesnotmatchfalseenums)<br>integer enum |
+| enum | [EnumWith0DoesNotMatchFalse.NumberEnumWith0DoesNotMatchFalseEnums](#numberenumwith0doesnotmatchfalseenums)<br>number enum |
 
 ## EnumWith0DoesNotMatchFalse1
 public static class EnumWith0DoesNotMatchFalse1<br>
@@ -51,6 +50,29 @@ int validatedPayload = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.va
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Number | validate(Number arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerEnumWith0DoesNotMatchFalseEnums
+public enum IntegerEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<IntegerEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
+
+
+## NumberEnumWith0DoesNotMatchFalseEnums
+public enum NumberEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<NumberEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Number enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

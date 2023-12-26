@@ -1,13 +1,10 @@
 package org.openapijsonschematools.client.components.schemas;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -23,24 +20,24 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class SimpleEnumValidation {
     // nest classes so all schemas and input/output classes can be public
     
-    public static enum IntegerSimpleEnumValidation1 {
+    public enum IntegerSimpleEnumValidationEnums {
         POSITIVE_1(1),
         POSITIVE_2(2),
         POSITIVE_3(3);
         public final Number value;
     
-        private IntegerSimpleEnumValidation1(Number value) {
+        IntegerSimpleEnumValidationEnums(Number value) {
             this.value = value;
         }
     }
     
-    public static enum NumberSimpleEnumValidation1 {
+    public enum NumberSimpleEnumValidationEnums {
         POSITIVE_1(1),
         POSITIVE_2(2),
         POSITIVE_3(3);
         public final Number value;
     
-        private NumberSimpleEnumValidation1(Number value) {
+        NumberSimpleEnumValidationEnums(Number value) {
             this.value = value;
         }
     }
@@ -64,9 +61,9 @@ public class SimpleEnumValidation {
                     Double.class
                 ))
                 .enumValues(SetMaker.makeSet(
-                    1,
-                    2,
-                    3
+                    new BigDecimal("1"),
+                    new BigDecimal("2"),
+                    new BigDecimal("3")
                 ))
             );
         }

@@ -4,10 +4,9 @@ public class EnumsInProperties
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -16,7 +15,9 @@ A class that contains necessary nested
 | static class | [EnumsInProperties.EnumsInPropertiesMapInput](#enumsinpropertiesmapinput)<br> builder for Map payloads |
 | static class | [EnumsInProperties.EnumsInPropertiesMap](#enumsinpropertiesmap)<br> output class for Map payloads |
 | static class | [EnumsInProperties.Bar](#bar)<br> schema class |
+| enum | [EnumsInProperties.StringBarEnums](#stringbarenums)<br>String enum |
 | static class | [EnumsInProperties.Foo](#foo)<br> schema class |
+| enum | [EnumsInProperties.StringFooEnums](#stringfooenums)<br>String enum |
 
 ## EnumsInProperties1
 public static class EnumsInProperties1<br>
@@ -66,8 +67,8 @@ EnumsInProperties.EnumsInPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<?, ?>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [EnumsInPropertiesMap](#enumsinpropertiesmap) | validate([Map<?, ?>](#enumsinpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumsInPropertiesMapInput
 public class EnumsInPropertiesMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -132,8 +133,21 @@ String validatedPayload = EnumsInProperties.Bar.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringBarEnums](#stringbarenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringBarEnums
+public enum StringBarEnums<br>
+extends `Enum<StringBarEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| BAR | value = "bar" |
+
 ## Foo
 public static class Foo<br>
 extends JsonSchema
@@ -171,6 +185,19 @@ String validatedPayload = EnumsInProperties.Foo.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringFooEnums](#stringfooenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+
+## StringFooEnums
+public enum StringFooEnums<br>
+extends `Enum<StringFooEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| FOO | value = "foo" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

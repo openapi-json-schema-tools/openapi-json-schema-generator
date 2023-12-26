@@ -4,15 +4,14 @@ public class SimpleEnumValidation
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SimpleEnumValidation.SimpleEnumValidation1](#simpleenumvalidation1)<br> schema class |
+| enum | [SimpleEnumValidation.IntegerSimpleEnumValidationEnums](#integersimpleenumvalidationenums)<br>integer enum |
+| enum | [SimpleEnumValidation.NumberSimpleEnumValidationEnums](#numbersimpleenumvalidationenums)<br>number enum |
 
 ## SimpleEnumValidation1
 public static class SimpleEnumValidation1<br>
@@ -51,6 +50,33 @@ int validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Number | validate(Number arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerSimpleEnumValidationEnums
+public enum IntegerSimpleEnumValidationEnums<br>
+extends `Enum<IntegerSimpleEnumValidationEnums>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| POSITIVE_2 | value = 2 |
+| POSITIVE_3 | value = 3 |
+
+
+## NumberSimpleEnumValidationEnums
+public enum NumberSimpleEnumValidationEnums<br>
+extends `Enum<NumberSimpleEnumValidationEnums>`
+
+A class that stores Number enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| POSITIVE_2 | value = 2 |
+| POSITIVE_3 | value = 3 |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
