@@ -1572,27 +1572,24 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.validation.StringValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Integer")) {
+                imports.add("import java.math.BigDecimal;");
                 imports.add("import "+packageName + ".schemas.validation.IntegerEnumValidator;");
                 imports.add("import "+packageName + ".schemas.validation.IntegerValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Long")) {
+                imports.add("import java.math.BigDecimal;");
                 imports.add("import "+packageName + ".schemas.validation.LongEnumValidator;");
                 imports.add("import "+packageName + ".schemas.validation.LongValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Float")) {
+                imports.add("import java.math.BigDecimal;");
                 imports.add("import "+packageName + ".schemas.validation.FloatEnumValidator;");
                 imports.add("import "+packageName + ".schemas.validation.FloatValueMethod;");
             }
             if (schema.enumInfo.typeToValues.containsKey("Double")) {
+                imports.add("import java.math.BigDecimal;");
                 imports.add("import "+packageName + ".schemas.validation.DoubleEnumValidator;");
                 imports.add("import "+packageName + ".schemas.validation.DoubleValueMethod;");
-            }
-            Set<String> numberKeys = Set.of("Integer", "Long", "Float", "Double");
-            for (String numberKey: numberKeys) {
-                if (schema.enumInfo.typeToValues.containsKey(numberKey)) {
-                    imports.add("import java.math.BigDecimal;");
-                    break;
-                }
             }
         }
     }
