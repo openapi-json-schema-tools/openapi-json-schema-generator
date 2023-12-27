@@ -70,7 +70,7 @@ public class SimpleEnumValidation {
         }
     }
     
-    public enum DoubleSimpleEnumValidationEnums {
+    public enum DoubleSimpleEnumValidationEnums implements DoubleValueMethod {
         POSITIVE_1(1.0d),
         POSITIVE_2(2.0d),
         POSITIVE_3(3.0d);

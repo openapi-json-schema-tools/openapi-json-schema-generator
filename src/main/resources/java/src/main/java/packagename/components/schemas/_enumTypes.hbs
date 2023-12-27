@@ -20,7 +20,7 @@ public enum Long{{../jsonPathPiece.camelCase}} implements LongValueMethod {
 public enum Float{{../jsonPathPiece.camelCase}} implements FloatValueMethod {
                             {{else}}
                                 {{#eq @key "Double"}}
-public enum Double{{../jsonPathPiece.camelCase}} {
+public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
                                 {{/eq}}
                             {{/eq}}
                         {{/eq}}

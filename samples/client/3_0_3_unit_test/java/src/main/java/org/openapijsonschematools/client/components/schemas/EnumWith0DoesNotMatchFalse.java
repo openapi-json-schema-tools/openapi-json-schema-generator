@@ -64,7 +64,7 @@ public class EnumWith0DoesNotMatchFalse {
         }
     }
     
-    public enum DoubleEnumWith0DoesNotMatchFalseEnums {
+    public enum DoubleEnumWith0DoesNotMatchFalseEnums implements DoubleValueMethod {
         POSITIVE_0(0.0d);
         private final double value;
     
