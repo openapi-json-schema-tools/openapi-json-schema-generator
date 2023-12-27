@@ -11,6 +11,8 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.FloatEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.FloatValueMethod;
 import org.openapijsonschematools.client.schemas.validation.IntegerEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.IntegerValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;

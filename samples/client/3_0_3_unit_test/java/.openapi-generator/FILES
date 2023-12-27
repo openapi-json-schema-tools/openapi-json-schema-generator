@@ -212,6 +212,8 @@ src/main/java/org/openapijsonschematools/client/schemas/validation/EnumValidator
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMaximumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/ExclusiveMinimumValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FakeValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/FloatEnumValidator.java
+src/main/java/org/openapijsonschematools/client/schemas/validation/FloatValueMethod.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FormatValidator.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenList.java
 src/main/java/org/openapijsonschematools/client/schemas/validation/FrozenMap.java
