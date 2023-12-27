@@ -128,16 +128,6 @@ public class IntegerEnumWithDefaultValue {
             return castArg;
         }
         
-        @Override
-        public int validate(IntegerIntegerEnumWithDefaultValueEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return (int) validate((Number) arg.value(), configuration);
-        }
-        
-        @Override
-        public long validate(LongIntegerEnumWithDefaultValueEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return (long) validate((Number) arg.value(), configuration);
-        }
-        
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
@@ -152,6 +142,26 @@ public class IntegerEnumWithDefaultValue {
         
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
+        }
+        
+        @Override
+        public int validate(IntegerIntegerEnumWithDefaultValueEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (int) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public long validate(LongIntegerEnumWithDefaultValueEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (long) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public float validate(FloatIntegerEnumWithDefaultValueEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public double validate(DoubleIntegerEnumWithDefaultValueEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override

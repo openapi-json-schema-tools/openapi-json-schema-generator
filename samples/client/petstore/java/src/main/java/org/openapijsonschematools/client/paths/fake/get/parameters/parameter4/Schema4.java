@@ -118,6 +118,14 @@ public class Schema4 {
             return castArg;
         }
         
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return (int) validate((Number) arg, configuration);
+        }
+        
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg, configuration);
+        }
+        
         @Override
         public int validate(IntegerSchemaEnums4 arg,SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg.value(), configuration);
@@ -128,12 +136,14 @@ public class Schema4 {
             return (long) validate((Number) arg.value(), configuration);
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return (int) validate((Number) arg, configuration);
+        @Override
+        public float validate(FloatSchemaEnums4 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return (float) validate((Number) arg, configuration);
+        @Override
+        public double validate(DoubleSchemaEnums4 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override

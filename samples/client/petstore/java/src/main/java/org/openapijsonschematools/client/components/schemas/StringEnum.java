@@ -100,11 +100,6 @@ public class StringEnum {
         }
         
         @Override
-        public Void validate(NullStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate(arg.value(), configuration);
-        }
-        
-        @Override
         public String validate(String arg, SchemaConfiguration configuration) throws ValidationException {
             Set<List<Object>> pathSet = new HashSet<>();
             List<Object> pathToItem = List.of("args[0");
@@ -113,6 +108,11 @@ public class StringEnum {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public Void validate(NullStringEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
         }
         
         @Override

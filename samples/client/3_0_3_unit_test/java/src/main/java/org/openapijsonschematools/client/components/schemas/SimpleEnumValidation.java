@@ -128,6 +128,22 @@ public class SimpleEnumValidation {
             return castArg;
         }
         
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return (int) validate((Number) arg, configuration);
+        }
+        
+        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
+            return (long) validate((Number) arg, configuration);
+        }
+        
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg, configuration);
+        }
+        
+        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg, configuration);
+        }
+        
         @Override
         public int validate(IntegerSimpleEnumValidationEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg.value(), configuration);
@@ -146,22 +162,6 @@ public class SimpleEnumValidation {
         @Override
         public double validate(DoubleSimpleEnumValidationEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg.value(), configuration);
-        }
-        
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return (int) validate((Number) arg, configuration);
-        }
-        
-        public long validate(long arg, SchemaConfiguration configuration) throws ValidationException {
-            return (long) validate((Number) arg, configuration);
-        }
-        
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return (float) validate((Number) arg, configuration);
-        }
-        
-        public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
-            return (double) validate((Number) arg, configuration);
         }
         
         @Override

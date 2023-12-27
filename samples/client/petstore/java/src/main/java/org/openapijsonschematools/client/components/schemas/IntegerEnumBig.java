@@ -128,16 +128,6 @@ public class IntegerEnumBig {
             return castArg;
         }
         
-        @Override
-        public int validate(IntegerIntegerEnumBigEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return (int) validate((Number) arg.value(), configuration);
-        }
-        
-        @Override
-        public long validate(LongIntegerEnumBigEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return (long) validate((Number) arg.value(), configuration);
-        }
-        
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
@@ -152,6 +142,26 @@ public class IntegerEnumBig {
         
         public double validate(double arg, SchemaConfiguration configuration) throws ValidationException {
             return (double) validate((Number) arg, configuration);
+        }
+        
+        @Override
+        public int validate(IntegerIntegerEnumBigEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (int) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public long validate(LongIntegerEnumBigEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (long) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public float validate(FloatIntegerEnumBigEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public double validate(DoubleIntegerEnumBigEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override

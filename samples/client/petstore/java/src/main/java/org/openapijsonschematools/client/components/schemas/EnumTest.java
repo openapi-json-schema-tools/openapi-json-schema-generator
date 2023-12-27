@@ -267,6 +267,14 @@ public class EnumTest {
             return castArg;
         }
         
+        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
+            return (int) validate((Number) arg, configuration);
+        }
+        
+        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg, configuration);
+        }
+        
         @Override
         public int validate(IntegerEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg.value(), configuration);
@@ -277,12 +285,14 @@ public class EnumTest {
             return (long) validate((Number) arg.value(), configuration);
         }
         
-        public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
-            return (int) validate((Number) arg, configuration);
+        @Override
+        public float validate(FloatEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
         }
         
-        public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
-            return (float) validate((Number) arg, configuration);
+        @Override
+        public double validate(DoubleEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override
