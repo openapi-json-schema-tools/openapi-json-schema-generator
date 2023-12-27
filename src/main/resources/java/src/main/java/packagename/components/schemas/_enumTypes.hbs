@@ -30,25 +30,25 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
         {{/eq}}
         {{#each this}}
             {{#eq ../@key "null"}}
-    {{name}}(null){{#unless @last}},{{else}};{{/unless}}
+    {{this}}(null){{#unless @last}},{{else}};{{/unless}}
             {{else}}
                 {{#eq ../@key "boolean"}}
-    {{name}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
                 {{else}}
                     {{#eq ../@key "string"}}
-    {{name}}("{{{@key.value}}}"){{#unless @last}},{{else}};{{/unless}}
+    {{this}}("{{{@key.value}}}"){{#unless @last}},{{else}};{{/unless}}
                     {{else}}
                         {{#eq ../@key "Integer"}}
-    {{name}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
+    {{this}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
                         {{else}}
                             {{#eq ../@key "Long"}}
-    {{name}}({{@key.value}}L){{#unless @last}},{{else}};{{/unless}}
+    {{this}}({{@key.value}}L){{#unless @last}},{{else}};{{/unless}}
                             {{else}}
                                 {{#eq ../@key "Float"}}
-    {{name}}({{@key.value}}f){{#unless @last}},{{else}};{{/unless}}
+    {{this}}({{@key.value}}f){{#unless @last}},{{else}};{{/unless}}
                                 {{else}}
                                     {{#eq ../@key "Double"}}
-    {{name}}({{@key.value}}d){{#unless @last}},{{else}};{{/unless}}
+    {{this}}({{@key.value}}d){{#unless @last}},{{else}};{{/unless}}
                                     {{/eq}}
                                 {{/eq}}
                             {{/eq}}

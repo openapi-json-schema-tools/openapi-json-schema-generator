@@ -280,25 +280,25 @@ A class that stores Double enum values
 | ------------- | ----------- |
                                     {{#each this}}
                                         {{#eq ../@key "null"}}
-| {{name}} | value = null |
+| {{this}} | value = null |
                                         {{else}}
                                             {{#eq ../@key "boolean"}}
-| {{name}} | value = {{@key.value}} |
+| {{this}} | value = {{@key.value}} |
                                             {{else}}
                                                 {{#eq ../@key "string"}}
-| {{name}} | value = "{{{@key.value}}}" |
+| {{this}} | value = "{{{@key.value}}}" |
                                                 {{else}}
                                                     {{#eq ../@key "Integer"}}
-| {{name}} | value = {{@key.value}} |
+| {{this}} | value = {{@key.value}} |
                                                     {{else}}
                                                         {{#eq ../@key "Long"}}
-| {{name}} | value = {{@key.value}}L |
+| {{this}} | value = {{@key.value}}L |
                                                         {{else}}
                                                             {{#eq ../@key "Float"}}
-| {{name}} | value = {{@key.value}}f |
+| {{this}} | value = {{@key.value}}f |
                                                             {{else}}
                                                                 {{#eq ../@key "Double"}}
-| {{name}} | value = {{@key.value}}d |
+| {{this}} | value = {{@key.value}}d |
                                                                 {{/eq}}
                                                             {{/eq}}
                                                         {{/eq}}
