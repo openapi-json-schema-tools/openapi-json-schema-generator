@@ -152,7 +152,6 @@ String validatedPayload = ComplexQuadrilateral.QuadrilateralType.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringQuadrilateralTypeEnums
 public enum StringQuadrilateralTypeEnums<br>
 extends `Enum<StringQuadrilateralTypeEnums>`

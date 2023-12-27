@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnumOneValue.IntegerEnumOneValue1](#integerenumonevalue1)<br> schema class |
-| enum | [IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](#integerintegerenumonevalueenums)<br>integer enum |
-| enum | [IntegerEnumOneValue.NumberIntegerEnumOneValueEnums](#numberintegerenumonevalueenums)<br>number enum |
+| enum | [IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](#integerintegerenumonevalueenums)<br>Integer enum |
+| enum | [IntegerEnumOneValue.LongIntegerEnumOneValueEnums](#longintegerenumonevalueenums)<br>Long enum |
+| enum | [IntegerEnumOneValue.FloatIntegerEnumOneValueEnums](#floatintegerenumonevalueenums)<br>Float enum |
+| enum | [IntegerEnumOneValue.DoubleIntegerEnumOneValueEnums](#doubleintegerenumonevalueenums)<br>Double enum |
 
 ## IntegerEnumOneValue1
 public static class IntegerEnumOneValue1<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // long validation
 long validatedPayload = IntegerEnumOneValue.IntegerEnumOneValue1.validate(
-    0L,
+    1L,
     configuration
 );
 ```
@@ -63,16 +65,37 @@ A class that stores Integer enum values
 | ------------- | ----------- |
 | POSITIVE_0 | value = 0 |
 
+## LongIntegerEnumOneValueEnums
+public enum LongIntegerEnumOneValueEnums<br>
+extends `Enum<LongIntegerEnumOneValueEnums>`
 
-## NumberIntegerEnumOneValueEnums
-public enum NumberIntegerEnumOneValueEnums<br>
-extends `Enum<NumberIntegerEnumOneValueEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_0 | value = 0 |
+| POSITIVE_0 | value = 0L |
+
+## FloatIntegerEnumOneValueEnums
+public enum FloatIntegerEnumOneValueEnums<br>
+extends `Enum<FloatIntegerEnumOneValueEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0f |
+
+## DoubleIntegerEnumOneValueEnums
+public enum DoubleIntegerEnumOneValueEnums<br>
+extends `Enum<DoubleIntegerEnumOneValueEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0d |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

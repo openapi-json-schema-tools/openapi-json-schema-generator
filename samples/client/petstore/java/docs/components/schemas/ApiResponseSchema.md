@@ -44,7 +44,7 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "code",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "type",

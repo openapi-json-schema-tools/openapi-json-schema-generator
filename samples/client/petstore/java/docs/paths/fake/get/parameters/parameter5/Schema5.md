@@ -10,7 +10,6 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema5.Schema51](#schema51)<br> schema class |
-| enum | [Schema5.NumberSchemaEnums5](#numberschemaenums5)<br>number enum |
 
 ## Schema51
 public static class Schema51<br>
@@ -35,7 +34,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // double validation
 double validatedPayload = Schema5.Schema51.validate(
-    1.1d,
+    3.14d,
     configuration
 );
 ```
@@ -52,15 +51,3 @@ double validatedPayload = Schema5.Schema51.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
-## NumberSchemaEnums5
-public enum NumberSchemaEnums5<br>
-extends `Enum<NumberSchemaEnums5>`
-
-A class that stores Number enum values
-
-### Enum Constant Summary
-| Enum Constant | Description |
-| ------------- | ----------- |
-| POSITIVE_1_PT_1 | value = 1.1 |
-| NEGATIVE_1_PT_2 | value = -1.2 |

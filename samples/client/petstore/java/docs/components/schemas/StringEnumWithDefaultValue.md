@@ -52,7 +52,6 @@ String validatedPayload = StringEnumWithDefaultValue.StringEnumWithDefaultValue1
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStringEnumWithDefaultValueEnums](#stringstringenumwithdefaultvalueenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringStringEnumWithDefaultValueEnums
 public enum StringStringEnumWithDefaultValueEnums<br>
 extends `Enum<StringStringEnumWithDefaultValueEnums>`

@@ -1,5 +1,5 @@
 package org.openapijsonschematools.client.schemas.validation;
 
-public interface BooleanValueMethod {
-    boolean value();
+public interface IntegerValueMethod {
+    int value();
 }

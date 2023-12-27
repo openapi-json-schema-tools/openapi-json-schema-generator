@@ -145,7 +145,6 @@ String validatedPayload = Schema.EnumFormString.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumFormStringEnums](#stringenumformstringenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringEnumFormStringEnums
 public enum StringEnumFormStringEnums<br>
 extends `Enum<StringEnumFormStringEnums>`
@@ -266,7 +265,6 @@ String validatedPayload = Schema.Items.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringItemsEnums
 public enum StringItemsEnums<br>
 extends `Enum<StringItemsEnums>`

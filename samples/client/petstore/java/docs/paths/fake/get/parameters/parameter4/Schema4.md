@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
-| enum | [Schema4.IntegerSchemaEnums4](#integerschemaenums4)<br>integer enum |
-| enum | [Schema4.NumberSchemaEnums4](#numberschemaenums4)<br>number enum |
+| enum | [Schema4.IntegerSchemaEnums4](#integerschemaenums4)<br>Integer enum |
+| enum | [Schema4.LongSchemaEnums4](#longschemaenums4)<br>Long enum |
+| enum | [Schema4.FloatSchemaEnums4](#floatschemaenums4)<br>Float enum |
+| enum | [Schema4.DoubleSchemaEnums4](#doubleschemaenums4)<br>Double enum |
 
 ## Schema41
 public static class Schema41<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = Schema4.Schema41.validate(
-    1L,
+    1,
     configuration
 );
 ```
@@ -65,15 +67,38 @@ A class that stores Integer enum values
 | POSITIVE_1 | value = 1 |
 | NEGATIVE_2 | value = -2 |
 
+## LongSchemaEnums4
+public enum LongSchemaEnums4<br>
+extends `Enum<LongSchemaEnums4>`
 
-## NumberSchemaEnums4
-public enum NumberSchemaEnums4<br>
-extends `Enum<NumberSchemaEnums4>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_1 | value = 1 |
-| NEGATIVE_2 | value = -2 |
+| POSITIVE_1 | value = 1L |
+| NEGATIVE_2 | value = -2L |
+
+## FloatSchemaEnums4
+public enum FloatSchemaEnums4<br>
+extends `Enum<FloatSchemaEnums4>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0f |
+| NEGATIVE_2 | value = -2.0f |
+
+## DoubleSchemaEnums4
+public enum DoubleSchemaEnums4<br>
+extends `Enum<DoubleSchemaEnums4>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0d |
+| NEGATIVE_2 | value = -2.0d |

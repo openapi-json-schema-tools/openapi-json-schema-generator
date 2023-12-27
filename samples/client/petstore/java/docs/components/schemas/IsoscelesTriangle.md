@@ -152,7 +152,6 @@ String validatedPayload = IsoscelesTriangle.TriangleType.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringTriangleTypeEnums](#stringtriangletypeenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringTriangleTypeEnums
 public enum StringTriangleTypeEnums<br>
 extends `Enum<StringTriangleTypeEnums>`

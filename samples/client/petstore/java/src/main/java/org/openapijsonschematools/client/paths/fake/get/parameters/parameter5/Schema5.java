@@ -1,5 +1,4 @@
 package org.openapijsonschematools.client.paths.fake.get.parameters.parameter5;
-import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -19,16 +18,6 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema5 {
     // nest classes so all schemas and input/output classes can be public
-    
-    public enum NumberSchemaEnums5 {
-        POSITIVE_1_PT_1(1.1),
-        NEGATIVE_1_PT_2(-1.2);
-        public final Number value;
-    
-        NumberSchemaEnums5(Number value) {
-            this.value = value;
-        }
-    }
     
     
     public static class Schema51 extends JsonSchema implements NumberSchemaValidator {

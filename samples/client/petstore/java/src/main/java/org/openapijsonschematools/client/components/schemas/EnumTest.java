@@ -16,9 +16,17 @@ import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.UnsetPropertyException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.DoubleEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.DoubleValueMethod;
+import org.openapijsonschematools.client.schemas.validation.FloatEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.FloatValueMethod;
 import org.openapijsonschematools.client.schemas.validation.FrozenMap;
+import org.openapijsonschematools.client.schemas.validation.IntegerEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.IntegerValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.LongEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.LongValueMethod;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
@@ -169,28 +177,60 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public enum IntegerEnumIntegerEnums {
+    public enum IntegerEnumIntegerEnums implements IntegerValueMethod {
         POSITIVE_1(1),
         NEGATIVE_1(-1);
-        public final Number value;
+        private final int value;
     
-        IntegerEnumIntegerEnums(Number value) {
+        IntegerEnumIntegerEnums(int value) {
             this.value = value;
+        }
+        public int value() {
+            return this.value;
         }
     }
     
-    public enum NumberEnumIntegerEnums {
-        POSITIVE_1(1),
-        NEGATIVE_1(-1);
-        public final Number value;
+    public enum LongEnumIntegerEnums implements LongValueMethod {
+        POSITIVE_1(1L),
+        NEGATIVE_1(-1L);
+        private final long value;
     
-        NumberEnumIntegerEnums(Number value) {
+        LongEnumIntegerEnums(long value) {
             this.value = value;
+        }
+        public long value() {
+            return this.value;
+        }
+    }
+    
+    public enum FloatEnumIntegerEnums implements FloatValueMethod {
+        POSITIVE_1(1.0f),
+        NEGATIVE_1(-1.0f);
+        private final float value;
+    
+        FloatEnumIntegerEnums(float value) {
+            this.value = value;
+        }
+        public float value() {
+            return this.value;
+        }
+    }
+    
+    public enum DoubleEnumIntegerEnums implements DoubleValueMethod {
+        POSITIVE_1(1.0d),
+        NEGATIVE_1(-1.0d);
+        private final double value;
+    
+        DoubleEnumIntegerEnums(double value) {
+            this.value = value;
+        }
+        public double value() {
+            return this.value;
         }
     }
     
     
-    public static class EnumInteger extends JsonSchema implements NumberSchemaValidator {
+    public static class EnumInteger extends JsonSchema implements IntegerEnumValidator<IntegerEnumIntegerEnums>, LongEnumValidator<LongEnumIntegerEnums>, FloatEnumValidator<FloatEnumIntegerEnums>, DoubleEnumValidator<DoubleEnumIntegerEnums>, NumberSchemaValidator {
         private static @Nullable EnumInteger instance = null;
     
         protected EnumInteger() {
@@ -227,6 +267,16 @@ public class EnumTest {
             return castArg;
         }
         
+        @Override
+        public int validate(IntegerEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (int) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public long validate(LongEnumIntegerEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (long) validate((Number) arg.value(), configuration);
+        }
+        
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
@@ -250,16 +300,6 @@ public class EnumTest {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
-    public enum NumberEnumNumberEnums {
-        POSITIVE_1_PT_1(1.1),
-        NEGATIVE_1_PT_2(-1.2);
-        public final Number value;
-    
-        NumberEnumNumberEnums(Number value) {
-            this.value = value;
-        }
-    }
-    
     
     public static class EnumNumber extends JsonSchema implements NumberSchemaValidator {
         private static @Nullable EnumNumber instance = null;

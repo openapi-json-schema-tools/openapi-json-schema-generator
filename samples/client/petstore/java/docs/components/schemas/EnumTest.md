@@ -15,10 +15,11 @@ A class that contains necessary nested
 | static class | [EnumTest.EnumTestMapInput](#enumtestmapinput)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
-| enum | [EnumTest.NumberEnumNumberEnums](#numberenumnumberenums)<br>number enum |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
-| enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>integer enum |
-| enum | [EnumTest.NumberEnumIntegerEnums](#numberenumintegerenums)<br>number enum |
+| enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
+| enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
+| enum | [EnumTest.FloatEnumIntegerEnums](#floatenumintegerenums)<br>Float enum |
+| enum | [EnumTest.DoubleEnumIntegerEnums](#doubleenumintegerenums)<br>Double enum |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
 | enum | [EnumTest.StringEnumStringRequiredEnums](#stringenumstringrequiredenums)<br>String enum |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
@@ -59,11 +60,11 @@ EnumTest.EnumTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "enum_integer",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "enum_number",
-            1.1d
+            3.14d
         )
     ),
     configuration
@@ -146,7 +147,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // double validation
 double validatedPayload = EnumTest.EnumNumber.validate(
-    1.1d,
+    3.14d,
     configuration
 );
 ```
@@ -163,19 +164,6 @@ double validatedPayload = EnumTest.EnumNumber.validate(
 | ----------------- | ---------------------- |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
-## NumberEnumNumberEnums
-public enum NumberEnumNumberEnums<br>
-extends `Enum<NumberEnumNumberEnums>`
-
-A class that stores Number enum values
-
-### Enum Constant Summary
-| Enum Constant | Description |
-| ------------- | ----------- |
-| POSITIVE_1_PT_1 | value = 1.1 |
-| NEGATIVE_1_PT_2 | value = -1.2 |
-
 ## EnumInteger
 public static class EnumInteger<br>
 extends JsonSchema
@@ -199,7 +187,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = EnumTest.EnumInteger.validate(
-    1L,
+    1,
     configuration
 );
 ```
@@ -228,18 +216,41 @@ A class that stores Integer enum values
 | POSITIVE_1 | value = 1 |
 | NEGATIVE_1 | value = -1 |
 
+## LongEnumIntegerEnums
+public enum LongEnumIntegerEnums<br>
+extends `Enum<LongEnumIntegerEnums>`
 
-## NumberEnumIntegerEnums
-public enum NumberEnumIntegerEnums<br>
-extends `Enum<NumberEnumIntegerEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_1 | value = 1 |
-| NEGATIVE_1 | value = -1 |
+| POSITIVE_1 | value = 1L |
+| NEGATIVE_1 | value = -1L |
+
+## FloatEnumIntegerEnums
+public enum FloatEnumIntegerEnums<br>
+extends `Enum<FloatEnumIntegerEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0f |
+| NEGATIVE_1 | value = -1.0f |
+
+## DoubleEnumIntegerEnums
+public enum DoubleEnumIntegerEnums<br>
+extends `Enum<DoubleEnumIntegerEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0d |
+| NEGATIVE_1 | value = -1.0d |
 
 ## EnumStringRequired
 public static class EnumStringRequired<br>
@@ -281,7 +292,6 @@ String validatedPayload = EnumTest.EnumStringRequired.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumStringRequiredEnums](#stringenumstringrequiredenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringEnumStringRequiredEnums
 public enum StringEnumStringRequiredEnums<br>
 extends `Enum<StringEnumStringRequiredEnums>`
@@ -335,7 +345,6 @@ String validatedPayload = EnumTest.EnumString.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringEnumStringEnums](#stringenumstringenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringEnumStringEnums
 public enum StringEnumStringEnums<br>
 extends `Enum<StringEnumStringEnums>`

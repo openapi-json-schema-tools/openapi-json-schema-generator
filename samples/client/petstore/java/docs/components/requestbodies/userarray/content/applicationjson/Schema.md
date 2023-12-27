@@ -70,7 +70,7 @@ Schema.SchemaList validatedPayload =
             ),
             new AbstractMap.SimpleEntry<String, @Nullable Object>(
                 "userStatus",
-                1L
+                1
             ),
             new AbstractMap.SimpleEntry<String, @Nullable Object>(
                 "objectWithNoDeclaredPropsNullable",

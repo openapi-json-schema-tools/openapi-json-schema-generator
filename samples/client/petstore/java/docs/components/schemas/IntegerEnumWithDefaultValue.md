@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1](#integerenumwithdefaultvalue1)<br> schema class |
-| enum | [IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums](#integerintegerenumwithdefaultvalueenums)<br>integer enum |
-| enum | [IntegerEnumWithDefaultValue.NumberIntegerEnumWithDefaultValueEnums](#numberintegerenumwithdefaultvalueenums)<br>number enum |
+| enum | [IntegerEnumWithDefaultValue.IntegerIntegerEnumWithDefaultValueEnums](#integerintegerenumwithdefaultvalueenums)<br>Integer enum |
+| enum | [IntegerEnumWithDefaultValue.LongIntegerEnumWithDefaultValueEnums](#longintegerenumwithdefaultvalueenums)<br>Long enum |
+| enum | [IntegerEnumWithDefaultValue.FloatIntegerEnumWithDefaultValueEnums](#floatintegerenumwithdefaultvalueenums)<br>Float enum |
+| enum | [IntegerEnumWithDefaultValue.DoubleIntegerEnumWithDefaultValueEnums](#doubleintegerenumwithdefaultvalueenums)<br>Double enum |
 
 ## IntegerEnumWithDefaultValue1
 public static class IntegerEnumWithDefaultValue1<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // long validation
 long validatedPayload = IntegerEnumWithDefaultValue.IntegerEnumWithDefaultValue1.validate(
-    0L,
+    1L,
     configuration
 );
 ```
@@ -65,18 +67,43 @@ A class that stores Integer enum values
 | POSITIVE_1 | value = 1 |
 | POSITIVE_2 | value = 2 |
 
+## LongIntegerEnumWithDefaultValueEnums
+public enum LongIntegerEnumWithDefaultValueEnums<br>
+extends `Enum<LongIntegerEnumWithDefaultValueEnums>`
 
-## NumberIntegerEnumWithDefaultValueEnums
-public enum NumberIntegerEnumWithDefaultValueEnums<br>
-extends `Enum<NumberIntegerEnumWithDefaultValueEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_0 | value = 0 |
-| POSITIVE_1 | value = 1 |
-| POSITIVE_2 | value = 2 |
+| POSITIVE_0 | value = 0L |
+| POSITIVE_1 | value = 1L |
+| POSITIVE_2 | value = 2L |
+
+## FloatIntegerEnumWithDefaultValueEnums
+public enum FloatIntegerEnumWithDefaultValueEnums<br>
+extends `Enum<FloatIntegerEnumWithDefaultValueEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0f |
+| POSITIVE_1 | value = 1.0f |
+| POSITIVE_2 | value = 2.0f |
+
+## DoubleIntegerEnumWithDefaultValueEnums
+public enum DoubleIntegerEnumWithDefaultValueEnums<br>
+extends `Enum<DoubleIntegerEnumWithDefaultValueEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0d |
+| POSITIVE_1 | value = 1.0d |
+| POSITIVE_2 | value = 2.0d |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

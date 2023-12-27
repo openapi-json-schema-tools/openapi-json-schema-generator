@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnum.IntegerEnum1](#integerenum1)<br> schema class |
-| enum | [IntegerEnum.IntegerIntegerEnumEnums](#integerintegerenumenums)<br>integer enum |
-| enum | [IntegerEnum.NumberIntegerEnumEnums](#numberintegerenumenums)<br>number enum |
+| enum | [IntegerEnum.IntegerIntegerEnumEnums](#integerintegerenumenums)<br>Integer enum |
+| enum | [IntegerEnum.LongIntegerEnumEnums](#longintegerenumenums)<br>Long enum |
+| enum | [IntegerEnum.FloatIntegerEnumEnums](#floatintegerenumenums)<br>Float enum |
+| enum | [IntegerEnum.DoubleIntegerEnumEnums](#doubleintegerenumenums)<br>Double enum |
 
 ## IntegerEnum1
 public static class IntegerEnum1<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // long validation
 long validatedPayload = IntegerEnum.IntegerEnum1.validate(
-    0L,
+    1L,
     configuration
 );
 ```
@@ -65,18 +67,43 @@ A class that stores Integer enum values
 | POSITIVE_1 | value = 1 |
 | POSITIVE_2 | value = 2 |
 
+## LongIntegerEnumEnums
+public enum LongIntegerEnumEnums<br>
+extends `Enum<LongIntegerEnumEnums>`
 
-## NumberIntegerEnumEnums
-public enum NumberIntegerEnumEnums<br>
-extends `Enum<NumberIntegerEnumEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_0 | value = 0 |
-| POSITIVE_1 | value = 1 |
-| POSITIVE_2 | value = 2 |
+| POSITIVE_0 | value = 0L |
+| POSITIVE_1 | value = 1L |
+| POSITIVE_2 | value = 2L |
+
+## FloatIntegerEnumEnums
+public enum FloatIntegerEnumEnums<br>
+extends `Enum<FloatIntegerEnumEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0f |
+| POSITIVE_1 | value = 1.0f |
+| POSITIVE_2 | value = 2.0f |
+
+## DoubleIntegerEnumEnums
+public enum DoubleIntegerEnumEnums<br>
+extends `Enum<DoubleIntegerEnumEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0d |
+| POSITIVE_1 | value = 1.0d |
+| POSITIVE_2 | value = 2.0d |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

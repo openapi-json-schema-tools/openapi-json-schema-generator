@@ -120,7 +120,6 @@ String validatedPayload = QuadrilateralInterface.ShapeType.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringShapeTypeEnums](#stringshapetypeenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringShapeTypeEnums
 public enum StringShapeTypeEnums<br>
 extends `Enum<StringShapeTypeEnums>`

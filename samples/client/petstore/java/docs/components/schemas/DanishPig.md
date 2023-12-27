@@ -128,7 +128,6 @@ String validatedPayload = DanishPig.ClassName.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>
 extends `Enum<StringClassNameEnums>`

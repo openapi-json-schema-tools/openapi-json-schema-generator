@@ -10,8 +10,10 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnumBig.IntegerEnumBig1](#integerenumbig1)<br> schema class |
-| enum | [IntegerEnumBig.IntegerIntegerEnumBigEnums](#integerintegerenumbigenums)<br>integer enum |
-| enum | [IntegerEnumBig.NumberIntegerEnumBigEnums](#numberintegerenumbigenums)<br>number enum |
+| enum | [IntegerEnumBig.IntegerIntegerEnumBigEnums](#integerintegerenumbigenums)<br>Integer enum |
+| enum | [IntegerEnumBig.LongIntegerEnumBigEnums](#longintegerenumbigenums)<br>Long enum |
+| enum | [IntegerEnumBig.FloatIntegerEnumBigEnums](#floatintegerenumbigenums)<br>Float enum |
+| enum | [IntegerEnumBig.DoubleIntegerEnumBigEnums](#doubleintegerenumbigenums)<br>Double enum |
 
 ## IntegerEnumBig1
 public static class IntegerEnumBig1<br>
@@ -36,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // long validation
 long validatedPayload = IntegerEnumBig.IntegerEnumBig1.validate(
-    10L,
+    1L,
     configuration
 );
 ```
@@ -65,18 +67,43 @@ A class that stores Integer enum values
 | POSITIVE_11 | value = 11 |
 | POSITIVE_12 | value = 12 |
 
+## LongIntegerEnumBigEnums
+public enum LongIntegerEnumBigEnums<br>
+extends `Enum<LongIntegerEnumBigEnums>`
 
-## NumberIntegerEnumBigEnums
-public enum NumberIntegerEnumBigEnums<br>
-extends `Enum<NumberIntegerEnumBigEnums>`
-
-A class that stores Number enum values
+A class that stores Long enum values
 
 ### Enum Constant Summary
 | Enum Constant | Description |
 | ------------- | ----------- |
-| POSITIVE_10 | value = 10 |
-| POSITIVE_11 | value = 11 |
-| POSITIVE_12 | value = 12 |
+| POSITIVE_10 | value = 10L |
+| POSITIVE_11 | value = 11L |
+| POSITIVE_12 | value = 12L |
+
+## FloatIntegerEnumBigEnums
+public enum FloatIntegerEnumBigEnums<br>
+extends `Enum<FloatIntegerEnumBigEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_10 | value = 10.0f |
+| POSITIVE_11 | value = 11.0f |
+| POSITIVE_12 | value = 12.0f |
+
+## DoubleIntegerEnumBigEnums
+public enum DoubleIntegerEnumBigEnums<br>
+extends `Enum<DoubleIntegerEnumBigEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_10 | value = 10.0d |
+| POSITIVE_11 | value = 11.0d |
+| POSITIVE_12 | value = 12.0d |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

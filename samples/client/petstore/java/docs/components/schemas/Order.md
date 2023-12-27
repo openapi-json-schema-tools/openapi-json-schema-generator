@@ -57,7 +57,7 @@ Order.OrderMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "quantity",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "shipDate",
@@ -175,7 +175,6 @@ String validatedPayload = Order.Status.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStatusEnums](#stringstatusenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringStatusEnums
 public enum StringStatusEnums<br>
 extends `Enum<StringStatusEnums>`

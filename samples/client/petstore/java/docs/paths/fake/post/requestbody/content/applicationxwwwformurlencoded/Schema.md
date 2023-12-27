@@ -75,7 +75,7 @@ Schema.SchemaMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "int32",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "int64",
@@ -555,7 +555,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = Schema.Int32.validate(
-    1L,
+    1,
     configuration
 );
 ```

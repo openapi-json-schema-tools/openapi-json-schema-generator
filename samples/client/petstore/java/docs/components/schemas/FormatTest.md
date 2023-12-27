@@ -87,11 +87,11 @@ FormatTest.FormatTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "int32",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "int32withValidations",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "int64",
@@ -707,7 +707,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = FormatTest.Int32withValidations.validate(
-    1L,
+    1,
     configuration
 );
 ```

@@ -28,6 +28,11 @@ public class EnumValidator extends BigDecimalValidator implements KeywordValidat
             if (enumContainsArg(castArg)) {
                 return null;
             }
+            for (Object enumValue: enumValues) {
+                if (enumValue instanceof BigDecimal && ((BigDecimal) enumValue).compareTo(castArg) == 0) {
+                    return null;
+                }
+            }
         } else {
             if (enumContainsArg(arg)) {
                 return null;

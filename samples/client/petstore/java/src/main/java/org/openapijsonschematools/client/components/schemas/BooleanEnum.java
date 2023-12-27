@@ -28,7 +28,7 @@ public class BooleanEnum {
         BooleanBooleanEnumEnums(boolean value) {
             this.value = value;
         }
-        public Boolean value() {
+        public boolean value() {
             return this.value;
         }
     }
@@ -72,7 +72,7 @@ public class BooleanEnum {
         
         @Override
         public boolean validate(BooleanBooleanEnumEnums arg,SchemaConfiguration configuration) throws ValidationException {
-            return validate((boolean) arg.value(), configuration);
+            return validate(arg.value(), configuration);
         }
         
         @Override

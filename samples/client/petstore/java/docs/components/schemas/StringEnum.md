@@ -61,7 +61,6 @@ String validatedPayload = StringEnum.StringEnum1.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringStringEnumEnums](#stringstringenumenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringStringEnumEnums
 public enum StringStringEnumEnums<br>
 extends `Enum<StringStringEnumEnums>`

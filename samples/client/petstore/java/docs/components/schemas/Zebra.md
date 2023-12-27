@@ -138,7 +138,6 @@ String validatedPayload = Zebra.ClassName.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringClassNameEnums
 public enum StringClassNameEnums<br>
 extends `Enum<StringClassNameEnums>`
@@ -190,7 +189,6 @@ String validatedPayload = Zebra.Type.validate(
 | String | validate(String arg, SchemaConfiguration configuration) |
 | String | validate([StringTypeEnums](#stringtypeenums) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-
 ## StringTypeEnums
 public enum StringTypeEnums<br>
 extends `Enum<StringTypeEnums>`
