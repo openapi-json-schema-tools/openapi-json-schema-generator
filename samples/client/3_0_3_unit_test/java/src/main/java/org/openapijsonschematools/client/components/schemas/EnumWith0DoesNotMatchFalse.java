@@ -133,6 +133,11 @@ public class EnumWith0DoesNotMatchFalse {
             return (float) validate((Number) arg.value(), configuration);
         }
         
+        @Override
+        public double validate(DoubleEnumWith0DoesNotMatchFalseEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
+        }
+        
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
             return (int) validate((Number) arg, configuration);
         }
