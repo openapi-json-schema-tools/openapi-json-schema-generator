@@ -33,22 +33,22 @@ public enum Double{{../jsonPathPiece.camelCase}} implements DoubleValueMethod {
     {{name}}(null){{#unless @last}},{{else}};{{/unless}}
             {{else}}
                 {{#eq ../@key "boolean"}}
-    {{name}}({{value}}){{#unless @last}},{{else}};{{/unless}}
+    {{name}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
                 {{else}}
                     {{#eq ../@key "string"}}
-    {{name}}("{{{value}}}"){{#unless @last}},{{else}};{{/unless}}
+    {{name}}("{{{@key.value}}}"){{#unless @last}},{{else}};{{/unless}}
                     {{else}}
                         {{#eq ../@key "Integer"}}
-    {{name}}({{value}}){{#unless @last}},{{else}};{{/unless}}
+    {{name}}({{@key.value}}){{#unless @last}},{{else}};{{/unless}}
                         {{else}}
                             {{#eq ../@key "Long"}}
-    {{name}}({{value}}L){{#unless @last}},{{else}};{{/unless}}
+    {{name}}({{@key.value}}L){{#unless @last}},{{else}};{{/unless}}
                             {{else}}
                                 {{#eq ../@key "Float"}}
-    {{name}}({{value}}f){{#unless @last}},{{else}};{{/unless}}
+    {{name}}({{@key.value}}f){{#unless @last}},{{else}};{{/unless}}
                                 {{else}}
                                     {{#eq ../@key "Double"}}
-    {{name}}({{value}}d){{#unless @last}},{{else}};{{/unless}}
+    {{name}}({{@key.value}}d){{#unless @last}},{{else}};{{/unless}}
                                     {{/eq}}
                                 {{/eq}}
                             {{/eq}}
