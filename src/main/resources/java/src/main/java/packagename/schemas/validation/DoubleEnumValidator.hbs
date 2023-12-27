@@ -1,0 +1,9 @@
+package {{{packageName}}}.schemas.validation;
+
+import {{{packageName}}}.configurations.SchemaConfiguration;
+import {{{packageName}}}.exceptions.InvalidTypeException;
+import {{{packageName}}}.exceptions.ValidationException;
+
+public interface DoubleEnumValidator <EnumType extends DoubleValueMethod> {
+    double validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
+}
