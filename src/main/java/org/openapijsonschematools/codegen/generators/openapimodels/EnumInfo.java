@@ -8,9 +8,9 @@ import java.util.Objects;
 public class EnumInfo {
     public LinkedHashMap<EnumValue, String> valueToName; // enum info
     public CodegenKey jsonPathPiece;
-    public HashMap<String, List<EnumValue>> typeToValues;
+    public HashMap<String, LinkedHashMap<EnumValue, String>> typeToValues;
 
-    public EnumInfo(LinkedHashMap<EnumValue, String> valueToName, HashMap<String, List<EnumValue>> typeToValues, CodegenKey jsonPathPiece) {
+    public EnumInfo(LinkedHashMap<EnumValue, String> valueToName, HashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, CodegenKey jsonPathPiece) {
         this.valueToName = valueToName;
         this.typeToValues = typeToValues;
         this.jsonPathPiece = jsonPathPiece;

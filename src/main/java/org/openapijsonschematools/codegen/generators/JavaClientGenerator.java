@@ -1892,16 +1892,16 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         return getSchemasFn;
     }
 
-    private void addToTypeToValue(HashMap<String, List<EnumValue>> typeToValues, EnumValue enumValue, String type) {
+    private void addToTypeToValue(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, String type, String name) {
         if (!typeToValues.containsKey(type)) {
-            typeToValues.put(type, new ArrayList<>());
+            typeToValues.put(type, new LinkedHashMap<>());
         }
-        typeToValues.get(type).add(enumValue);
+        typeToValues.get(type).put(enumValue, name);
     }
 
     protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
         LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
-        HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();
+        LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
@@ -1962,7 +1962,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             }
 
             String usedName = toEnumVarName(enumName, schema);
-            EnumValue enumValue = getEnumValue(value, description, usedName);
+            EnumValue enumValue = getEnumValue(value, description);
             boolean typeIsInteger = enumValue.type.equals("integer");
             boolean intIsNumberUseCase = (typeIsInteger && types!=null && types.contains("number"));
             if (types!=null && !types.contains(enumValue.type) && !intIsNumberUseCase) {
@@ -1980,33 +1980,33 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             }
             // typeToValues code
             if ("null".equals(enumValue.type) || "boolean".equals(enumValue.type) || "string".equals(enumValue.type)) {
-                addToTypeToValue(typeToValues, enumValue, enumValue.type);
+                addToTypeToValue(typeToValues, enumValue, enumValue.type, usedName);
             } else if (value instanceof Integer) {
-                addToTypeToValue(typeToValues, enumValue, "Integer");
-                EnumValue longEnumValue = getEnumValue(Long.parseLong(value.toString()), description, usedName);
-                addToTypeToValue(typeToValues, longEnumValue, "Long");
-                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description, usedName);
-                addToTypeToValue(typeToValues, floatEnumValue, "Float");
-                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description, usedName);
-                addToTypeToValue(typeToValues, doubleEnumValue, "Double");
+                addToTypeToValue(typeToValues, enumValue, "Integer", usedName);
+                EnumValue longEnumValue = getEnumValue(Long.parseLong(value.toString()), description);
+                addToTypeToValue(typeToValues, longEnumValue, "Long", usedName);
+                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description);
+                addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
             } else if (value instanceof Long) {
-                addToTypeToValue(typeToValues, enumValue, "Long");
-                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description, usedName);
-                addToTypeToValue(typeToValues, doubleEnumValue, "Double");
+                addToTypeToValue(typeToValues, enumValue, "Long", usedName);
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
                 if ((Long) value >= -2147483648L && (Long) value <= 2147483647L) {
-                    EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), description, usedName);
-                    addToTypeToValue(typeToValues, integerEnumValue, "Integer");
-                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description, usedName);
-                    addToTypeToValue(typeToValues, floatEnumValue, "Float");
+                    EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), description);
+                    addToTypeToValue(typeToValues, integerEnumValue, "Integer", usedName);
+                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description);
+                    addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
                 }
             } else if (value instanceof Float) {
-                addToTypeToValue(typeToValues, enumValue, "Float");
-                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()), description, usedName);
-                addToTypeToValue(typeToValues, doubleEnumValue, "Double");
+                addToTypeToValue(typeToValues, enumValue, "Float", usedName);
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()), description);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
             } else if (value instanceof Double) {
                 if ((Double) value >= -3.4028234663852886e+38d && (Double) value <= 3.4028234663852886e+38d) {
-                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), description, usedName);
-                    addToTypeToValue(typeToValues, floatEnumValue, "Float");
+                    EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), description);
+                    addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
                 }
             }
             i += 1;

@@ -119,7 +119,7 @@ def validate(
                         {{#if ../enumInfo}}
 ) -> typing.Literal[
                             {{#each ../enumInfo.typeToValues.boolean}}
-    {{#if value}}True{{else}}False{{/if}},
+    {{#if @key.value}}True{{else}}False{{/if}},
                             {{/each}}
 ]:
                         {{else}}
@@ -141,7 +141,7 @@ def validate(
                                 {{#if ../enumInfo}}
 ) -> typing.Literal[
                                     {{#each ../enumInfo.typeToValues.string}}
-    "{{{value}}}",
+    "{{{@key.value}}}",
                                     {{/each}}
 ]:
                                 {{else}}
@@ -163,7 +163,7 @@ def validate(
                                         {{#if ../enumInfo}}
 ) -> typing.Literal[
                                             {{#each ../enumInfo.typeToValues.integer}}
-    {{{value}}},
+    {{{@key.value}}},
                                             {{/each}}
 ]:
                                         {{else}}
@@ -242,7 +242,7 @@ def validate(
                     {{#eq this "string"}}
     return typing.cast(typing.Literal[
                         {{#each ../enumInfo.typeToValues.string}}
-            "{{{value}}}",
+            "{{{@key.value}}}",
                         {{/each}}
         ],
         validated_arg
@@ -251,7 +251,7 @@ def validate(
                         {{#eq this "integer"}}
     return typing.cast(typing.Literal[
                         {{#each ../enumInfo.typeToValues.integer}}
-            {{value}},
+            {{@key.value}},
                         {{/each}}
         ],
         validated_arg
@@ -260,7 +260,7 @@ def validate(
                             {{#eq this "boolean"}}
     return typing.cast(typing.Literal[
                                 {{#each ../enumInfo.typeToValues.boolean}}
-            {{#if value}}True{{else}}False{{/if}},
+            {{#if @key.value}}True{{else}}False{{/if}},
                                 {{/each}}
         ],
         validated_arg
