@@ -50,7 +50,7 @@ public class EnumWith0DoesNotMatchFalse {
         }
     }
     
-    public enum FloatEnumWith0DoesNotMatchFalseEnums {
+    public enum FloatEnumWith0DoesNotMatchFalseEnums implements FloatValueMethod {
         POSITIVE_0(0.0f);
         private final float value;
     
@@ -124,6 +124,11 @@ public class EnumWith0DoesNotMatchFalse {
         @Override
         public long validate(LongEnumWith0DoesNotMatchFalseEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public float validate(FloatEnumWith0DoesNotMatchFalseEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
         }
         
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {

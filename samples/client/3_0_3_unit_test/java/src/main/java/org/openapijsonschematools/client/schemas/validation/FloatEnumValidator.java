@@ -4,6 +4,6 @@ import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 
-public interface LongEnumValidator <EnumType extends FloatValueMethod> {
+public interface FloatEnumValidator <EnumType extends FloatValueMethod> {
     float validate(EnumType arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException;
 }

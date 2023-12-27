@@ -54,7 +54,7 @@ public class SimpleEnumValidation {
         }
     }
     
-    public enum FloatSimpleEnumValidationEnums {
+    public enum FloatSimpleEnumValidationEnums implements FloatValueMethod {
         POSITIVE_1(1.0f),
         POSITIVE_2(2.0f),
         POSITIVE_3(3.0f);
@@ -134,6 +134,11 @@ public class SimpleEnumValidation {
         @Override
         public long validate(LongSimpleEnumValidationEnums arg,SchemaConfiguration configuration) throws ValidationException {
             return (long) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public float validate(FloatSimpleEnumValidationEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
         }
         
         public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {

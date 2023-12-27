@@ -17,7 +17,7 @@ public enum Integer{{../jsonPathPiece.camelCase}} implements IntegerValueMethod 
 public enum Long{{../jsonPathPiece.camelCase}} implements LongValueMethod {
                         {{else}}
                             {{#eq @key "Float"}}
-public enum Float{{../jsonPathPiece.camelCase}} {
+public enum Float{{../jsonPathPiece.camelCase}} implements FloatValueMethod {
                             {{else}}
                                 {{#eq @key "Double"}}
 public enum Double{{../jsonPathPiece.camelCase}} {
