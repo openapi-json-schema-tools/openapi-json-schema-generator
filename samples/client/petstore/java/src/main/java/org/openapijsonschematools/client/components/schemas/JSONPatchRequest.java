@@ -243,7 +243,7 @@ public class JSONPatchRequest {
     }
     
     public static class JSONPatchRequestListBuilder {
-        // class to build List<? extends @Nullable Object>
+        // class to build List<@Nullable Object>
         private final List<@Nullable Object> list;
     
         public JSONPatchRequestListBuilder() {
@@ -255,7 +255,7 @@ public class JSONPatchRequest {
         }
     
         public JSONPatchRequestListBuilder add(Void item) {
-            list.add(item);
+            list.add(null);
             return this;
         }
     

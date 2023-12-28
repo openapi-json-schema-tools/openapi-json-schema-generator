@@ -136,13 +136,13 @@ A class that builds the Map input type
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **byte** | String | None | |
-| **double** | double | None | value must be a 64 bit float |
+| **double** | Number | None | value must be a 64 bit float |
 | **number** | Number | None | |
 | **pattern_without_delimiter** | String | None | |
-| **integer** | long | None | [optional] |
-| **int32** | int | None | [optional] value must be a 32 bit integer |
-| **int64** | long | None | [optional] value must be a 64 bit integer |
-| **float** | float | None | [optional] value must be a 32 bit float |
+| **integer** | Number | None | [optional] |
+| **int32** | Number | None | [optional] value must be a 32 bit integer |
+| **int64** | Number | None | [optional] value must be a 64 bit integer |
+| **float** | Number | None | [optional] value must be a 32 bit float |
 | **string** | String | None | [optional] |
 | **binary** | String | None | [optional] |
 | **date** | String | None | [optional] value must conform to RFC-3339 full-date YYYY-MM-DD |

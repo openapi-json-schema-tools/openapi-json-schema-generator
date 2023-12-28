@@ -126,7 +126,7 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **name** | String |  | |
 | **photoUrls** | List<String> |  | |
-| **id** | long |  | [optional] value must be a 64 bit integer |
+| **id** | Number |  | [optional] value must be a 64 bit integer |
 | **category** | Map<String, ? extends @Nullable Object> |  | [optional] |
 | **tags** | List<Map<String, ? extends @Nullable Object>> |  | [optional] |
 | **status** | String | pet status in the store | [optional] must be one of ["available", "pending", "sold"] |

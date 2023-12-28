@@ -32,7 +32,7 @@ public class ArrayOfEnums {
     }
     
     public static class ArrayOfEnumsListBuilder {
-        // class to build List<? extends @Nullable String>
+        // class to build List<@Nullable String>
         private final List<@Nullable String> list;
     
         public ArrayOfEnumsListBuilder() {

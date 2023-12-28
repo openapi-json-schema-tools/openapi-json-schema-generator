@@ -74,7 +74,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **id** | long |  | [optional] value must be a 64 bit integer |
+| **id** | Number |  | [optional] value must be a 64 bit integer |
 | **name** | String |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 

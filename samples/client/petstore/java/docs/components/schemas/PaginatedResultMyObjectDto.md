@@ -82,7 +82,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **count** | long |  | |
+| **count** | Number |  | |
 | **results** | List<Map<String, String>> |  | |
 
 ## PaginatedResultMyObjectDtoMap

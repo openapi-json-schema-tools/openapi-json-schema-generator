@@ -174,6 +174,11 @@ public class ArrayOfArrayOfNumberOnly {
             this.list = list;
         }
     
+        public ArrayArrayNumberListBuilder add(List<Number> item) {
+            list.add(item);
+            return this;
+        }
+    
         public List<List<Number>> build() {
             return list;
         }

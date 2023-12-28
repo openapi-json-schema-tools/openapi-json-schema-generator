@@ -35,7 +35,7 @@ public class Schema {
     }
     
     public static class SchemaListBuilder {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+        // class to build List<Map<String, @Nullable Object>>
         private final List<Map<String, @Nullable Object>> list;
     
         public SchemaListBuilder() {

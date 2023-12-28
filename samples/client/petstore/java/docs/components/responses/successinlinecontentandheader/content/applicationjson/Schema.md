@@ -58,14 +58,14 @@ Schema.SchemaMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaMapBuilder
 public class SchemaMapBuilder<br>
-builder for `Map<String, Integer>`
+builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | int | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer |
+| **anyStringName** | Number | any string name can be used but the value must be the correct type | [optional] value must be a 32 bit integer |
 
 ## SchemaMap
 public static class SchemaMap<br>
@@ -76,7 +76,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaMap](#schemamap) | of([Map<String, Integer>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
+| static [SchemaMap](#schemamap) | of([Map<String, Number>](#schemamapbuilder) arg, SchemaConfiguration configuration) |
 | int | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties

@@ -181,14 +181,14 @@ A class that builds the Map input type
 | **date** | String |  | value must conform to RFC-3339 full-date YYYY-MM-DD |
 | **number** | Number |  | |
 | **password** | String |  | |
-| **integer** | long |  | [optional] |
-| **int32** | int |  | [optional] value must be a 32 bit integer |
-| **int32withValidations** | int |  | [optional] value must be a 32 bit integer |
-| **int64** | long |  | [optional] value must be a 64 bit integer |
-| **float** | float | this is a reserved python keyword | [optional] value must be a 32 bit float |
-| **float32** | float |  | [optional] value must be a 32 bit float |
-| **double** | double |  | [optional] value must be a 64 bit float |
-| **float64** | double |  | [optional] value must be a 64 bit float |
+| **integer** | Number |  | [optional] |
+| **int32** | Number |  | [optional] value must be a 32 bit integer |
+| **int32withValidations** | Number |  | [optional] value must be a 32 bit integer |
+| **int64** | Number |  | [optional] value must be a 64 bit integer |
+| **float** | Number | this is a reserved python keyword | [optional] value must be a 32 bit float |
+| **float32** | Number |  | [optional] value must be a 32 bit float |
+| **double** | Number |  | [optional] value must be a 64 bit float |
+| **float64** | Number |  | [optional] value must be a 64 bit float |
 | **arrayWithUniqueItems** | List<Number> |  | [optional] |
 | **string** | String |  | [optional] |
 | **binary** | String |  | [optional] |

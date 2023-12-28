@@ -48,7 +48,7 @@ public class PathParameters {
             "petId"
         );
         public static final Set<String> optionalKeys = Set.of();
-        public static PathParametersMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static PathParametersMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return PathParameters1.getInstance().validate(arg, configuration);
         }
         

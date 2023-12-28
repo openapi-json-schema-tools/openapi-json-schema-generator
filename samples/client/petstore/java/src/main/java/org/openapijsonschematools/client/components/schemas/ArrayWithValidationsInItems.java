@@ -93,20 +93,20 @@ public class ArrayWithValidationsInItems {
         protected ArrayWithValidationsInItemsList(FrozenList<Long> m) {
             super(m);
         }
-        public static ArrayWithValidationsInItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayWithValidationsInItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayWithValidationsInItems1.getInstance().validate(arg, configuration);
         }
     }
     
     public static class ArrayWithValidationsInItemsListBuilder {
-        // class to build List<Long>
-        private final List<Long> list;
+        // class to build List<Number>
+        private final List<Number> list;
     
         public ArrayWithValidationsInItemsListBuilder() {
             list = new ArrayList<>();
         }
     
-        public ArrayWithValidationsInItemsListBuilder(List<Long> list) {
+        public ArrayWithValidationsInItemsListBuilder(List<Number> list) {
             this.list = list;
         }
     
@@ -130,7 +130,7 @@ public class ArrayWithValidationsInItems {
             return this;
         }
     
-        public List<Long> build() {
+        public List<Number> build() {
             return list;
         }
     }

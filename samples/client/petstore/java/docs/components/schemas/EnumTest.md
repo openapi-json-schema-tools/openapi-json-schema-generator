@@ -96,13 +96,13 @@ A class that builds the Map input type
 | --- | ---- | ------------ | ----- |
 | **enum_string_required** | String |  | must be one of ["UPPER", "lower", ""] |
 | **enum_string** | String |  | [optional] must be one of ["UPPER", "lower", ""] |
-| **enum_integer** | int |  | [optional] must be one of [1, -1] value must be a 32 bit integer |
-| **enum_number** | double |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float |
+| **enum_integer** | Number |  | [optional] must be one of [1, -1] value must be a 32 bit integer |
+| **enum_number** | Number |  | [optional] must be one of [1.1, -1.2] value must be a 64 bit float |
 | **stringEnum** | ? extends @Nullable String |  | [optional] |
-| **IntegerEnum** | long |  | [optional] |
+| **IntegerEnum** | Number |  | [optional] |
 | **StringEnumWithDefaultValue** | String |  | [optional] |
-| **IntegerEnumWithDefaultValue** | long |  | [optional] |
-| **IntegerEnumOneValue** | long |  | [optional] |
+| **IntegerEnumWithDefaultValue** | Number |  | [optional] |
+| **IntegerEnumOneValue** | Number |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## EnumTestMap

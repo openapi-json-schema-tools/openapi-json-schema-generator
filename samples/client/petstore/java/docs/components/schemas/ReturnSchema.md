@@ -51,7 +51,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **return** | int | this is a reserved python keyword | [optional] value must be a 32 bit integer |
+| **return** | Number | this is a reserved python keyword | [optional] value must be a 32 bit integer |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## ReturnMap

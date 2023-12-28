@@ -34,7 +34,7 @@ public class AnimalFarm {
     }
     
     public static class AnimalFarmListBuilder {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+        // class to build List<Map<String, @Nullable Object>>
         private final List<Map<String, @Nullable Object>> list;
     
         public AnimalFarmListBuilder() {

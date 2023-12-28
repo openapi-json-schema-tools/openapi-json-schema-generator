@@ -150,7 +150,7 @@ public class ComposedOneOfDifferentTypes {
     }
     
     public static class Schema5ListBuilder {
-        // class to build List<? extends @Nullable Object>
+        // class to build List<@Nullable Object>
         private final List<@Nullable Object> list;
     
         public Schema5ListBuilder() {
@@ -162,7 +162,7 @@ public class ComposedOneOfDifferentTypes {
         }
     
         public Schema5ListBuilder add(Void item) {
-            list.add(item);
+            list.add(null);
             return this;
         }
     

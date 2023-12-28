@@ -244,7 +244,7 @@ public class Pet {
     }
     
     public static class TagsListBuilder {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+        // class to build List<Map<String, @Nullable Object>>
         private final List<Map<String, @Nullable Object>> list;
     
         public TagsListBuilder() {

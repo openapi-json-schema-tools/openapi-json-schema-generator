@@ -52,7 +52,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **name** | int |  | [optional] value must be a 32 bit integer |
+| **name** | Number |  | [optional] value must be a 32 bit integer |
 | **class** | String | this is a reserved python keyword | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 

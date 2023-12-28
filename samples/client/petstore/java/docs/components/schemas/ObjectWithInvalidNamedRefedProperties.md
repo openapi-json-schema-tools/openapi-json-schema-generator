@@ -84,7 +84,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **!reference** | List<long> |  | |
+| **!reference** | List<Number> |  | |
 | **from** | Map<String, ? extends @Nullable Object> |  | |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 

@@ -58,14 +58,14 @@ Address.AddressMap validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AddressMapBuilder
 public class AddressMapBuilder<br>
-builder for `Map<String, Long>`
+builder for `Map<String, Number>`
 
 A class that builds the Map input type
 
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **anyStringName** | long | any string name can be used but the value must be the correct type | [optional] |
+| **anyStringName** | Number | any string name can be used but the value must be the correct type | [optional] |
 
 ## AddressMap
 public static class AddressMap<br>
@@ -76,7 +76,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AddressMap](#addressmap) | of([Map<String, Long>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
+| static [AddressMap](#addressmap) | of([Map<String, Number>](#addressmapbuilder) arg, SchemaConfiguration configuration) |
 | long | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 
 ## AdditionalProperties

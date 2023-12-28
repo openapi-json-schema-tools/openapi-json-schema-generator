@@ -20,67 +20,11 @@ String
                         {{~/eq}}
                     {{else}}
                         {{#eq this "number"}}
-                            {{#eq ../format null}}
+Number
+                        {{~else}}
+                            {{#eq this "integer"}}
 Number
                             {{~else}}
-                                {{#eq ../format "float"}}
-                                    {{#if forceNull}}
-Float
-                                    {{~else}}
-float
-                                    {{~/if}}
-                                {{else}}
-                                    {{#eq ../format "double"}}
-                                        {{#if forceNull}}
-Double
-                                        {{~else}}
-double
-                                        {{~/if}}
-                                    {{else}}
-                                        {{#eq ../format "int32"}}
-                                            {{#if forceNull}}
-Integer
-                                            {{~else}}
-int
-                                            {{~/if}}
-                                        {{else}}
-                                            {{#eq ../format "int64"}}
-                                                {{#if forceNull}}
-Long
-                                                {{~else}}
-long
-                                                {{~/if}}
-                                            {{/eq}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{/eq}}
-                            {{/eq}}
-                        {{else}}
-                            {{#eq this "integer"}}
-                                {{#eq ../format null}}
-                                    {{#if forceNull}}
-Long
-                                    {{~else}}
-long
-                                    {{~/if}}
-                                {{else}}
-                                    {{#eq ../format "int32"}}
-                                        {{#if forceNull}}
-Integer
-                                        {{~else}}
-int
-                                        {{~/if}}
-                                    {{else}}
-                                        {{#eq ../format "int64"}}
-                                            {{#if forceNull}}
-Long
-                                            {{~else}}
-long
-                                            {{~/if}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{/eq}}
-                            {{else}}
                                 {{#eq this "array"}}
                                     {{#eq ../jsonPath sourceJsonPath}}
 List<?>
@@ -127,39 +71,11 @@ Map<String, {{#unless noExtends}}? extends {{/unless}}@Nullable Object>
                             {{~/eq}}
                         {{else}}
                             {{#eq this "number"}}
-                                {{#eq ../format null}}
+{{#unless noExtends}}? extends {{/unless}}@Nullable Number
+                            {{~else}}
+                                {{#eq this "integer"}}
 {{#unless noExtends}}? extends {{/unless}}@Nullable Number
                                 {{~else}}
-                                    {{#eq ../format "float"}}
-{{#unless noExtends}}? extends {{/unless}}@Nullable Float
-                                    {{~else}}
-                                        {{#eq ../format "double"}}
-{{#unless noExtends}}? extends {{/unless}}@Nullable Double
-                                        {{~else}}
-                                            {{#eq ../format "int32"}}
-{{#unless noExtends}}? extends {{/unless}}@Nullable Integer
-                                            {{~else}}
-                                                {{#eq ../format "int64"}}
-{{#unless noExtends}}? extends {{/unless}}@Nullable Long
-                                                {{~/eq}}
-                                            {{/eq}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{/eq}}
-                            {{else}}
-                                {{#eq this "integer"}}
-                                    {{#eq ../format null}}
-{{#unless noExtends}}? extends {{/unless}}@Nullable Long
-                                    {{~else}}
-                                        {{#eq ../format "int32"}}
-{{#unless noExtends}}? extends {{/unless}}@Nullable Integer
-                                        {{~else}}
-                                            {{#eq ../format "int64"}}
-{{#unless noExtends}}? extends {{/unless}}@Nullable Long
-                                            {{~/eq}}
-                                        {{/eq}}
-                                    {{/eq}}
-                                {{else}}
                                     {{#eq this "array"}}
                                         {{#eq ../jsonPath sourceJsonPath}}
 {{#unless noExtends}}? extends {{/unless}}@Nullable List

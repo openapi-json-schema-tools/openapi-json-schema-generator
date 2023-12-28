@@ -168,7 +168,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
     }
     
     public static class Schema9ListBuilder {
-        // class to build List<? extends @Nullable Object>
+        // class to build List<@Nullable Object>
         private final List<@Nullable Object> list;
     
         public Schema9ListBuilder() {
@@ -180,7 +180,7 @@ public class ComposedAnyOfDifferentTypesNoValidations {
         }
     
         public Schema9ListBuilder add(Void item) {
-            list.add(item);
+            list.add(null);
             return this;
         }
     

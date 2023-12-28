@@ -1,7 +1,7 @@
 {{#if items}}
 
 public static class {{arrayInputJsonPathPiece.camelCase}} {
-    // class to build List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
+    // class to build List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}>
     private final List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list;
 
     public {{arrayInputJsonPathPiece.camelCase}}() {
@@ -19,7 +19,7 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
                 {{#eq this "null"}}
 
     public {{../../arrayInputJsonPathPiece.camelCase}} add(Void item) {
-        list.add(item);
+        list.add(null);
         return this;
     }
                 {{else}}
@@ -60,6 +60,14 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
         return this;
     }
                                 {{/neq}}
+                            {{else}}
+                                {{#eq this "array"}}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
+        list.add(item);
+        return this;
+    }
+                                {{/eq}}
                             {{/or}}
                         {{/eq}}
                     {{/eq}}
@@ -68,7 +76,7 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
                 {{! no type defined }}
 
     public {{../../arrayInputJsonPathPiece.camelCase}} add(Void item) {
-        list.add(item);
+        list.add(null);
         return this;
     }
 

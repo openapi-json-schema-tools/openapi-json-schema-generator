@@ -72,7 +72,7 @@ public class NoAdditionalProperties {
         public static final Set<String> optionalKeys = Set.of(
             "petId"
         );
-        public static NoAdditionalPropertiesMap of(Map<String, Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static NoAdditionalPropertiesMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return NoAdditionalProperties1.getInstance().validate(arg, configuration);
         }
         

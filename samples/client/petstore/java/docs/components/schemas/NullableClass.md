@@ -149,7 +149,7 @@ A class that builds the Map input type
 ## Input Map Keys
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
-| **integer_prop** | ? extends @Nullable Long |  | [optional] |
+| **integer_prop** | ? extends @Nullable Number |  | [optional] |
 | **number_prop** | ? extends @Nullable Number |  | [optional] |
 | **boolean_prop** | ? extends @Nullable Boolean |  | [optional] |
 | **string_prop** | ? extends @Nullable String |  | [optional] |

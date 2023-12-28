@@ -75,7 +75,7 @@ A class that builds the Map input type
 | Key | Type |  Description | Notes |
 | --- | ---- | ------------ | ----- |
 | **data** | String |  | [optional] |
-| **id** | long |  | [optional] |
+| **id** | Number |  | [optional] |
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
 
 ## FromSchemaMap

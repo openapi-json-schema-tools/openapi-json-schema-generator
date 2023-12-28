@@ -154,20 +154,20 @@ public class ArrayTest {
         protected ItemsList(FrozenList<Long> m) {
             super(m);
         }
-        public static ItemsList of(List<Long> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ItemsList of(List<Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return Items1.getInstance().validate(arg, configuration);
         }
     }
     
     public static class ItemsListBuilder {
-        // class to build List<Long>
-        private final List<Long> list;
+        // class to build List<Number>
+        private final List<Number> list;
     
         public ItemsListBuilder() {
             list = new ArrayList<>();
         }
     
-        public ItemsListBuilder(List<Long> list) {
+        public ItemsListBuilder(List<Number> list) {
             this.list = list;
         }
     
@@ -191,7 +191,7 @@ public class ArrayTest {
             return this;
         }
     
-        public List<Long> build() {
+        public List<Number> build() {
             return list;
         }
     }
@@ -267,24 +267,29 @@ public class ArrayTest {
         protected ArrayArrayOfIntegerList(FrozenList<ItemsList> m) {
             super(m);
         }
-        public static ArrayArrayOfIntegerList of(List<List<Long>> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static ArrayArrayOfIntegerList of(List<List<Number>> arg, SchemaConfiguration configuration) throws ValidationException {
             return ArrayArrayOfInteger.getInstance().validate(arg, configuration);
         }
     }
     
     public static class ArrayArrayOfIntegerListBuilder {
-        // class to build List<List<Long>>
-        private final List<List<Long>> list;
+        // class to build List<List<Number>>
+        private final List<List<Number>> list;
     
         public ArrayArrayOfIntegerListBuilder() {
             list = new ArrayList<>();
         }
     
-        public ArrayArrayOfIntegerListBuilder(List<List<Long>> list) {
+        public ArrayArrayOfIntegerListBuilder(List<List<Number>> list) {
             this.list = list;
         }
     
-        public List<List<Long>> build() {
+        public ArrayArrayOfIntegerListBuilder add(List<Number> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<List<Number>> build() {
             return list;
         }
     }
@@ -366,7 +371,7 @@ public class ArrayTest {
     }
     
     public static class ItemsListBuilder1 {
-        // class to build List<Map<String, ? extends @Nullable Object>>
+        // class to build List<Map<String, @Nullable Object>>
         private final List<Map<String, @Nullable Object>> list;
     
         public ItemsListBuilder1() {
@@ -460,7 +465,7 @@ public class ArrayTest {
     }
     
     public static class ArrayArrayOfModelListBuilder {
-        // class to build List<List<Map<String, ? extends @Nullable Object>>>
+        // class to build List<List<Map<String, @Nullable Object>>>
         private final List<List<Map<String, @Nullable Object>>> list;
     
         public ArrayArrayOfModelListBuilder() {
@@ -469,6 +474,11 @@ public class ArrayTest {
     
         public ArrayArrayOfModelListBuilder(List<List<Map<String, @Nullable Object>>> list) {
             this.list = list;
+        }
+    
+        public ArrayArrayOfModelListBuilder add(List<Map<String, @Nullable Object>> item) {
+            list.add(item);
+            return this;
         }
     
         public List<List<Map<String, @Nullable Object>>> build() {

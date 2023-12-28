@@ -45,7 +45,7 @@ public class ComposedArray {
     }
     
     public static class ComposedArrayListBuilder {
-        // class to build List<? extends @Nullable Object>
+        // class to build List<@Nullable Object>
         private final List<@Nullable Object> list;
     
         public ComposedArrayListBuilder() {
@@ -57,7 +57,7 @@ public class ComposedArray {
         }
     
         public ComposedArrayListBuilder add(Void item) {
-            list.add(item);
+            list.add(null);
             return this;
         }
     

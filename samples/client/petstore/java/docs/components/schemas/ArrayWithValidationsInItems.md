@@ -60,7 +60,7 @@ ArrayWithValidationsInItems.ArrayWithValidationsInItemsList validatedPayload =
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayWithValidationsInItemsListBuilder
 public class ArrayWithValidationsInItemsListBuilder<br>
-builder for `List<Long>`
+builder for `List<Number>`
 
 A class that builds the List input type
 
@@ -68,17 +68,17 @@ A class that builds the List input type
 | Constructor and Description |
 | --------------------------- |
 | ArrayWithValidationsInItemsListBuilder()<br>Creates an empty list |
-| ArrayWithValidationsInItemsListBuilder(List<Long> items)<br>Stores the items in a list |
+| ArrayWithValidationsInItemsListBuilder(List<Number> items)<br>Stores the items in a list |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| List<Long> | build()<br>Returns list input that should be used with Schema.validate |
+| List<Number> | build()<br>Returns list input that should be used with Schema.validate |
 
 ## Input List Items
 | List Item Type | Description | Notes |
 | -------------- | ----------- | ----- |
-| Long |  | value must be a 64 bit integer |
+| Number |  | value must be a 64 bit integer |
 
 ## ArrayWithValidationsInItemsList
 public class ArrayWithValidationsInItemsList<br>
@@ -89,7 +89,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of([List<Long>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
+| static [ArrayWithValidationsInItemsList](#arraywithvalidationsinitemslist) | of([List<Number>](#arraywithvalidationsinitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

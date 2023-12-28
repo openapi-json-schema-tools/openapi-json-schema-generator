@@ -43,7 +43,7 @@ public class Schema {
         }
         public static final Set<String> requiredKeys = Set.of();
         public static final Set<String> optionalKeys = Set.of();
-        public static SchemaMap of(Map<String, Integer> arg, SchemaConfiguration configuration) throws ValidationException {
+        public static SchemaMap of(Map<String, Number> arg, SchemaConfiguration configuration) throws ValidationException {
             return Schema1.getInstance().validate(arg, configuration);
         }
         
