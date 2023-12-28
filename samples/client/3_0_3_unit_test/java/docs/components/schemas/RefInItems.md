@@ -65,7 +65,7 @@ A class that builds the List input type
 | Constructor and Description |
 | --------------------------- |
 | RefInItemsListBuilder()<br>Creates an empty list |
-| RefInItemsListBuilder(List<? extends @Nullable Object> items)<br>Stores the items in a list |
+| RefInItemsListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -66,7 +66,7 @@ A class that builds the List input type
 | Constructor and Description |
 | --------------------------- |
 | ArrayTypeMatchesArraysListBuilder()<br>Creates an empty list |
-| ArrayTypeMatchesArraysListBuilder(List<? extends @Nullable Object> items)<br>Stores the items in a list |
+| ArrayTypeMatchesArraysListBuilder(List<@Nullable Object> items)<br>Stores the items in a list |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

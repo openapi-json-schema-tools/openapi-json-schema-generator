@@ -45,10 +45,10 @@ public class NestedItems {
     
     public static class ItemsListBuilder {
         // class to build List<Number>
-        private List<Number> list;
+        private final List<Number> list;
     
         public ItemsListBuilder() {
-            list = new ArrayList();
+            list = new ArrayList<>();
         }
     
         public ItemsListBuilder(List<Number> list) {
@@ -138,10 +138,10 @@ public class NestedItems {
     
     public static class ItemsListBuilder1 {
         // class to build List<List<Number>>
-        private List<List<Number>> list;
+        private final List<List<Number>> list;
     
         public ItemsListBuilder1() {
-            list = new ArrayList();
+            list = new ArrayList<>();
         }
     
         public ItemsListBuilder1(List<List<Number>> list) {
@@ -231,10 +231,10 @@ public class NestedItems {
     
     public static class ItemsListBuilder2 {
         // class to build List<List<List<Number>>>
-        private List<List<List<Number>>> list;
+        private final List<List<List<Number>>> list;
     
         public ItemsListBuilder2() {
-            list = new ArrayList();
+            list = new ArrayList<>();
         }
     
         public ItemsListBuilder2(List<List<List<Number>>> list) {
@@ -324,10 +324,10 @@ public class NestedItems {
     
     public static class NestedItemsListBuilder {
         // class to build List<List<List<List<Number>>>>
-        private List<List<List<List<Number>>>> list;
+        private final List<List<List<List<Number>>>> list;
     
         public NestedItemsListBuilder() {
-            list = new ArrayList();
+            list = new ArrayList<>();
         }
     
         public NestedItemsListBuilder(List<List<List<List<Number>>>> list) {

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -33,17 +34,18 @@ public class RefInItems {
     
     public static class RefInItemsListBuilder {
         // class to build List<? extends @Nullable Object>
-        private List<? extends @Nullable Object> list;
+        private final List<@Nullable Object> list;
     
         public RefInItemsListBuilder() {
-            list = new ArrayList();
+            list = new ArrayList<>();
         }
     
-        public RefInItemsListBuilder(List<? extends @Nullable Object> list) {
+        public RefInItemsListBuilder(List<@Nullable Object> list) {
             this.list = list;
         }
+        // items refed
     
-        public List<? extends @Nullable Object> build() {
+        public List<@Nullable Object> build() {
             return list;
         }
     }

@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import org.checkerframework.checker.nullness.qual.Nullable;
@@ -45,17 +46,62 @@ public class ArrayTypeMatchesArrays {
     
     public static class ArrayTypeMatchesArraysListBuilder {
         // class to build List<? extends @Nullable Object>
-        private List<? extends @Nullable Object> list;
+        private final List<@Nullable Object> list;
     
         public ArrayTypeMatchesArraysListBuilder() {
-            list = new ArrayList();
+            list = new ArrayList<>();
         }
     
-        public ArrayTypeMatchesArraysListBuilder(List<? extends @Nullable Object> list) {
+        public ArrayTypeMatchesArraysListBuilder(List<@Nullable Object> list) {
             this.list = list;
         }
     
-        public List<? extends @Nullable Object> build() {
+        public ArrayTypeMatchesArraysListBuilder add(Void item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(boolean item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder add(Map<String, ?> item) {
+            list.add(item);
+            return this;
+        }
+    
+        public List<@Nullable Object> build() {
             return list;
         }
     }

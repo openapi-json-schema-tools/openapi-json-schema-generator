@@ -9,7 +9,7 @@ A class that builds the List input type
 | Constructor and Description |
 | --------------------------- |
 | {{arrayInputJsonPathPiece.camelCase}}()<br>Creates an empty list |
-| {{arrayInputJsonPathPiece.camelCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}@Nullable Object{{/with}}> items)<br>Stores the items in a list |
+| {{arrayInputJsonPathPiece.camelCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> items)<br>Stores the items in a list |
 
 {{headerSize}}## Method Summary
 | Modifier and Type | Method and Description |

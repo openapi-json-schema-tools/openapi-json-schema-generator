@@ -2,17 +2,97 @@
 
 public static class {{arrayInputJsonPathPiece.camelCase}} {
     // class to build List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
-    private List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> list;
+    private final List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list;
 
     public {{arrayInputJsonPathPiece.camelCase}}() {
-        list = new ArrayList();
+        list = new ArrayList<>();
     }
 
-    public {{arrayInputJsonPathPiece.camelCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> list) {
+    public {{arrayInputJsonPathPiece.camelCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> list) {
         this.list = list;
     }
+    {{#with items}}
+        {{#if refInfo }}
+    // items refed
+        {{else}}
+            {{#each types}}
+                {{#eq this "null"}}
 
-    public List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> build() {
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(Void item) {
+        list.add(item);
+        return this;
+    }
+                {{else}}
+                    {{#eq this "boolean"}}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(boolean item) {
+        list.add(item);
+        return this;
+    }
+                    {{else}}
+                        {{#eq this "string"}}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(String item) {
+        list.add(item);
+        return this;
+    }
+                        {{/eq}}
+                    {{/eq}}
+                {{/eq}}
+            {{else}}
+                {{! no type defined }}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(Void item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(boolean item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(String item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(int item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(long item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(double item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(float item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(List<?> item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(Map<String, ?> item) {
+        list.add(item);
+        return this;
+    }
+            {{/each}}
+        {{/if}}
+    {{else}}
+    {{! todo handle this, 3.1.0 document use-case }}
+    {{/with}}
+
+    public List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{/with}}> build() {
         return list;
     }
 }

@@ -1286,6 +1286,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             } else {
                 imports.addAll(getDeeperImports(sourceJsonPath, ref));
             }
+            // todo remove this when 3.1.0 ref + types is supported
+            return imports;
         }
         if (schema.types != null) {
             if (schema.types.contains("array")) {
@@ -1302,6 +1304,9 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                     imports.addAll(getDeeperImports(sourceJsonPath, schema.mapValueSchema));
                 }
             }
+        } else {
+            imports.add("import java.util.List;");
+            imports.add("import java.util.Map;");
         }
         return imports;
     }
@@ -1512,6 +1517,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
             } else if (schema.isSimpleAnyType()) {
                 imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
+                // in case higher schema is ListBuilder add List + Map
             } else {
                 addCustomSchemaImports(imports, schema);
                 imports.add("import java.time.LocalDate;");
