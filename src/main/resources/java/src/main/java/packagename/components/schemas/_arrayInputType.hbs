@@ -67,6 +67,14 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
         list.add(item);
         return this;
     }
+                                {{else}}
+                                    {{#eq this "object"}}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
+        list.add(item);
+        return this;
+    }
+                                    {{/eq}}
                                 {{/eq}}
                             {{/or}}
                         {{/eq}}

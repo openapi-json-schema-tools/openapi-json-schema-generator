@@ -559,6 +559,11 @@ public class NullableClass {
             this.list = list;
         }
     
+        public ArrayNullablePropListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
         public List<Map<String, @Nullable Object>> build() {
             return list;
         }
@@ -759,6 +764,11 @@ public class NullableClass {
             return this;
         }
     
+        public ArrayAndItemsNullablePropListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
+    
         public List<@Nullable Map<String, @Nullable Object>> build() {
             return list;
         }
@@ -956,6 +966,11 @@ public class NullableClass {
     
         public ArrayItemsNullableListBuilder add(Void item) {
             list.add(null);
+            return this;
+        }
+    
+        public ArrayItemsNullableListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
             return this;
         }
     
