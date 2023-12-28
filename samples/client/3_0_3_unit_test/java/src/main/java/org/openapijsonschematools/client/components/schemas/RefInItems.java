@@ -33,7 +33,7 @@ public class RefInItems {
     }
     
     public static class RefInItemsListBuilder {
-        // class to build List<? extends @Nullable Object>
+        // class to build List<@Nullable Object>
         private final List<@Nullable Object> list;
     
         public RefInItemsListBuilder() {
@@ -43,7 +43,51 @@ public class RefInItems {
         public RefInItemsListBuilder(List<@Nullable Object> list) {
             this.list = list;
         }
-        // items refed
+        
+        public RefInItemsListBuilder add(Void item) {
+            list.add(null);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(boolean item) {
+            list.add(item);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+        
+        public RefInItemsListBuilder add(Map<String, ?> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<@Nullable Object> build() {
             return list;

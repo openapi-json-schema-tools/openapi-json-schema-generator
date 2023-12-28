@@ -54,22 +54,22 @@ public class NestedItems {
         public ItemsListBuilder(List<Number> list) {
             this.list = list;
         }
-    
+        
         public ItemsListBuilder add(int item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(float item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(long item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(double item) {
             list.add(item);
             return this;
@@ -167,6 +167,11 @@ public class NestedItems {
         public ItemsListBuilder1(List<List<Number>> list) {
             this.list = list;
         }
+        
+        public ItemsListBuilder1 add(List<Number> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<List<Number>> build() {
             return list;
@@ -260,6 +265,11 @@ public class NestedItems {
         public ItemsListBuilder2(List<List<List<Number>>> list) {
             this.list = list;
         }
+        
+        public ItemsListBuilder2 add(List<List<Number>> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<List<List<Number>>> build() {
             return list;
@@ -352,6 +362,11 @@ public class NestedItems {
     
         public NestedItemsListBuilder(List<List<List<List<Number>>>> list) {
             this.list = list;
+        }
+        
+        public NestedItemsListBuilder add(List<List<List<Number>>> item) {
+            list.add(item);
+            return this;
         }
     
         public List<List<List<List<Number>>>> build() {
