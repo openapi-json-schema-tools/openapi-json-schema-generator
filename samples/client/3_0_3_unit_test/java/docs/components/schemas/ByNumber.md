@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| BigDecimal | &nbsp;&nbsp;&nbsp;&nbsp;multipleOf = new BigDecimal("1.5")<br> |
+| BigDecimal | multipleOf = new BigDecimal("1.5") |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

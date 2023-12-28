@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| List<Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;oneOf = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[EquilateralTriangle.EquilateralTriangle1.class](../../components/schemas/EquilateralTriangle.md#equilateraltriangle1),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IsoscelesTriangle.IsoscelesTriangle1.class](../../components/schemas/IsoscelesTriangle.md#isoscelestriangle1),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[ScaleneTriangle.ScaleneTriangle1.class](../../components/schemas/ScaleneTriangle.md#scalenetriangle1)<br>&nbsp;&nbsp;&nbsp;&nbsp;))<br> |
+| List<Class<? extends JsonSchema>> | oneOf = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;[EquilateralTriangle.EquilateralTriangle1.class](../../components/schemas/EquilateralTriangle.md#equilateraltriangle1),<br>&nbsp;&nbsp;&nbsp;&nbsp;[IsoscelesTriangle.IsoscelesTriangle1.class](../../components/schemas/IsoscelesTriangle.md#isoscelestriangle1),<br>&nbsp;&nbsp;&nbsp;&nbsp;[ScaleneTriangle.ScaleneTriangle1.class](../../components/schemas/ScaleneTriangle.md#scalenetriangle1)<br>))<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

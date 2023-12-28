@@ -19,8 +19,8 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| Integer | &nbsp;&nbsp;&nbsp;&nbsp;minProperties = 2<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| Integer | minProperties = 2 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

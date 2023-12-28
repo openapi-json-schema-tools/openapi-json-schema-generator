@@ -52,8 +52,8 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesWithArrayOfEnumsMap val
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;additionalProperties = [AdditionalProperties.class](#additionalproperties)<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -117,8 +117,8 @@ AdditionalPropertiesWithArrayOfEnums.AdditionalPropertiesList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [EnumClass.EnumClass1.class](../../components/schemas/EnumClass.md#enumclass1)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [EnumClass.EnumClass1.class](../../components/schemas/EnumClass.md#enumclass1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

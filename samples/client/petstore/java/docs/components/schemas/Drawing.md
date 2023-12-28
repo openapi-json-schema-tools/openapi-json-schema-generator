@@ -57,9 +57,9 @@ Drawing.DrawingMap validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| Map<String, Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("mainShape", [Shape.Shape1.class](../../components/schemas/Shape.md#shape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapeOrNull", [ShapeOrNull.ShapeOrNull1.class](../../components/schemas/ShapeOrNull.md#shapeornull1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("nullableShape", [NullableShape.NullableShape1.class](../../components/schemas/NullableShape.md#nullableshape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapes", [Shapes.class](#shapes)))<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;additionalProperties = [Fruit.Fruit1.class](../../components/schemas/Fruit.md#fruit1)<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("mainShape", [Shape.Shape1.class](../../components/schemas/Shape.md#shape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapeOrNull", [ShapeOrNull.ShapeOrNull1.class](../../components/schemas/ShapeOrNull.md#shapeornull1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("nullableShape", [NullableShape.NullableShape1.class](../../components/schemas/NullableShape.md#nullableshape1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("shapes", [Shapes.class](#shapes)))<br>)<br> |
+| Class<? extends JsonSchema> | additionalProperties = [Fruit.Fruit1.class](../../components/schemas/Fruit.md#fruit1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -130,8 +130,8 @@ Drawing.ShapesList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Shape.Shape1.class](../../components/schemas/Shape.md#shape1)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [Shape.Shape1.class](../../components/schemas/Shape.md#shape1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Number | &nbsp;&nbsp;&nbsp;&nbsp;minimum = 1.1<br> |
+| Number | minimum = 1.1 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

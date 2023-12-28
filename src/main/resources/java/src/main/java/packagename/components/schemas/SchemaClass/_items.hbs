@@ -2,12 +2,12 @@
     {{#with items}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-&nbsp;&nbsp;&nbsp;&nbsp;items = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})<br>
+items = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})
             {{~else}}
-&nbsp;&nbsp;&nbsp;&nbsp;items = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}})<br>
+items = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}})
             {{~/if}}
         {{else}}
-&nbsp;&nbsp;&nbsp;&nbsp;items = [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}})<br>
+items = [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}})
         {{~/if}}
     {{/with}}
 {{else}}

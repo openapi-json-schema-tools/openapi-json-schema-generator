@@ -2,12 +2,12 @@
     {{#with not}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-&nbsp;&nbsp;&nbsp;&nbsp;not = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})<br>
+not = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})
             {{~else}}
-&nbsp;&nbsp;&nbsp;&nbsp;not = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}})<br>
+not = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}})
             {{~/if}}
         {{else}}
-&nbsp;&nbsp;&nbsp;&nbsp;not = [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}})<br>
+not = [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}})
         {{~/if}}
     {{~/with}}
 {{else}}

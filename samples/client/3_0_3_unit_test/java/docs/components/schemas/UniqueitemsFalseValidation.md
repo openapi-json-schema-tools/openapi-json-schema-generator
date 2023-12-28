@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Boolean | &nbsp;&nbsp;&nbsp;&nbsp;uniqueItems = false<br> |
+| Boolean | uniqueItems = false |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

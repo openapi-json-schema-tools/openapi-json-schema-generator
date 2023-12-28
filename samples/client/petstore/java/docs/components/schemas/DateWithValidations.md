@@ -41,9 +41,9 @@ String validatedPayload = DateWithValidations.DateWithValidations1.validate(
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>&nbsp;&nbsp;&nbsp;&nbsp;)<br/> |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "date";<br> |
-| Pattern | &nbsp;&nbsp;&nbsp;&nbsp;pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"^2020.*"<br>&nbsp;&nbsp;&nbsp;&nbsp;)))<br> |
+| Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
+| String | type = "date"; |
+| Pattern | pattern =<br>&nbsp;&nbsp;&nbsp;&nbsp;"^2020.*"<br>)))<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
