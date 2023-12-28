@@ -1,21 +1,26 @@
 package org.openapijsonschematools.client.paths.fake.get.parameters.parameter4;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
 import org.openapijsonschematools.client.exceptions.InvalidTypeException;
 import org.openapijsonschematools.client.exceptions.ValidationException;
 import org.openapijsonschematools.client.schemas.SetMaker;
+import org.openapijsonschematools.client.schemas.validation.DoubleEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.DoubleValueMethod;
+import org.openapijsonschematools.client.schemas.validation.FloatEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.FloatValueMethod;
+import org.openapijsonschematools.client.schemas.validation.IntegerEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.IntegerValueMethod;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
+import org.openapijsonschematools.client.schemas.validation.LongEnumValidator;
+import org.openapijsonschematools.client.schemas.validation.LongValueMethod;
 import org.openapijsonschematools.client.schemas.validation.NumberSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
@@ -23,8 +28,60 @@ import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 public class Schema4 {
     // nest classes so all schemas and input/output classes can be public
     
+    public enum IntegerSchemaEnums4 implements IntegerValueMethod {
+        POSITIVE_1(1),
+        NEGATIVE_2(-2);
+        private final int value;
     
-    public static class Schema41 extends JsonSchema implements NumberSchemaValidator {
+        IntegerSchemaEnums4(int value) {
+            this.value = value;
+        }
+        public int value() {
+            return this.value;
+        }
+    }
+    
+    public enum LongSchemaEnums4 implements LongValueMethod {
+        POSITIVE_1(1L),
+        NEGATIVE_2(-2L);
+        private final long value;
+    
+        LongSchemaEnums4(long value) {
+            this.value = value;
+        }
+        public long value() {
+            return this.value;
+        }
+    }
+    
+    public enum FloatSchemaEnums4 implements FloatValueMethod {
+        POSITIVE_1(1.0f),
+        NEGATIVE_2(-2.0f);
+        private final float value;
+    
+        FloatSchemaEnums4(float value) {
+            this.value = value;
+        }
+        public float value() {
+            return this.value;
+        }
+    }
+    
+    public enum DoubleSchemaEnums4 implements DoubleValueMethod {
+        POSITIVE_1(1.0d),
+        NEGATIVE_2(-2.0d);
+        private final double value;
+    
+        DoubleSchemaEnums4(double value) {
+            this.value = value;
+        }
+        public double value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class Schema41 extends JsonSchema implements IntegerEnumValidator<IntegerSchemaEnums4>, LongEnumValidator<LongSchemaEnums4>, FloatEnumValidator<FloatSchemaEnums4>, DoubleEnumValidator<DoubleSchemaEnums4>, NumberSchemaValidator {
         private static @Nullable Schema41 instance = null;
     
         protected Schema41() {
@@ -37,8 +94,8 @@ public class Schema4 {
                 ))
                 .format("int32")
                 .enumValues(SetMaker.makeSet(
-                    1,
-                    -2
+                    new BigDecimal("1"),
+                    new BigDecimal("-2")
                 ))
             );
         }
@@ -67,6 +124,26 @@ public class Schema4 {
         
         public float validate(float arg, SchemaConfiguration configuration) throws ValidationException {
             return (float) validate((Number) arg, configuration);
+        }
+        
+        @Override
+        public int validate(IntegerSchemaEnums4 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (int) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public long validate(LongSchemaEnums4 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (long) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public float validate(FloatSchemaEnums4 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (float) validate((Number) arg.value(), configuration);
+        }
+        
+        @Override
+        public double validate(DoubleSchemaEnums4 arg,SchemaConfiguration configuration) throws ValidationException {
+            return (double) validate((Number) arg.value(), configuration);
         }
         
         @Override

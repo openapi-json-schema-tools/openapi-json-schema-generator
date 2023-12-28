@@ -5,25 +5,11 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 
 import java.math.BigDecimal;
 
-public class MultipleOfValidator implements KeywordValidator {
+public class MultipleOfValidator extends BigDecimalValidator implements KeywordValidator {
     public final BigDecimal multipleOf;
 
     public MultipleOfValidator(BigDecimal multipleOf) {
         this.multipleOf = multipleOf;
-    }
-
-    private BigDecimal getBigDecimal(Number arg) {
-        if (arg instanceof Integer) {
-            return new BigDecimal((Integer) arg);
-        } else if (arg instanceof Long) {
-            return new BigDecimal((Long) arg);
-        } else if (arg instanceof Float) {
-            return new BigDecimal(Float.toString((Float) arg));
-        } else if (arg instanceof  Double) {
-            return new BigDecimal(Double.toString((Double) arg));
-        } else {
-            throw new ValidationException("Invalid type input for arg");
-        }
     }
 
     @Override

@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeSet;
+import java.util.function.Function;
 
 public class CodegenSchema {
     // 3.0.0
@@ -111,8 +112,9 @@ public class CodegenSchema {
      * used in getAllSchemas to write type definitions for allOfType/anyOfType/oneOfType/propertiesType
      */
     public String instanceType;
+    public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn;
     // used to store the expanded schemas that define a codegenschema in code file
-    private ArrayList<CodegenSchema> allSchemas = null;
+    private List<CodegenSchema> allSchemas = null;
     // converts sourceJsonPath into code file moduleLocation for docs
     public String moduleLocation = null;
     // stores the location of the documentation file
@@ -315,6 +317,33 @@ public class CodegenSchema {
         return schema;
     }
 
+    public boolean containsArrayOutputClass() {
+        for (CodegenSchema oneSchema: getSchemas()) {
+            if ("arrayOutputType".equals(oneSchema.instanceType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsObjectOutputClass() {
+        for (CodegenSchema oneSchema: getSchemas()) {
+            if ("propertiesOutputType".equals(oneSchema.instanceType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean containsEnums() {
+        for (CodegenSchema oneSchema: getSchemas()) {
+            if ("enumClass".equals(oneSchema.instanceType)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public boolean hasDiscriminatorWithNonEmptyMapping() {
         if (discriminator == null) {
             return false;
@@ -492,7 +521,7 @@ public class CodegenSchema {
      * Returns all schemas in post order traversal, used by templates to write schema classes
      * @param schemasBeforeImports the input list that stores this and all required schemas
      */
-    private void getAllSchemas(ArrayList<CodegenSchema> schemasBeforeImports, ArrayList<CodegenSchema> schemasAfterImports, int level, boolean propertyInputTypesUnique) {
+    public void getAllSchemas(ArrayList<CodegenSchema> schemasBeforeImports, ArrayList<CodegenSchema> schemasAfterImports, int level, boolean propertyInputTypesUnique) {
         /*
         post order traversal using alphabetic json schema keywords as the order
         keywords with schemas:
@@ -834,27 +863,9 @@ public class CodegenSchema {
         }
     }
 
-    public ArrayList<CodegenSchema> getSchemas() {
+    public List<CodegenSchema> getSchemas() {
         if (allSchemas == null) {
-            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
-            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
-            getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, false);
-            schemasBeforeImports.addAll(schemasAfterImports);
-            allSchemas = schemasBeforeImports;
-        }
-        return allSchemas;
-    }
-
-    public ArrayList<CodegenSchema> getJavaSchemas() {
-        // for Java, requiredProperties, optionalProperties, and propertiesInput must
-        // each be returned only once for a schema
-        // for python, they can be returned multiple times
-        if (allSchemas == null) {
-            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
-            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
-            getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, true);
-            schemasBeforeImports.addAll(schemasAfterImports);
-            allSchemas = schemasBeforeImports;
+            allSchemas = getSchemasFn.apply(this);
         }
         return allSchemas;
     }

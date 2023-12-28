@@ -17,6 +17,7 @@
 
 package org.openapijsonschematools.codegen.generators;
 
+import io.swagger.v3.oas.models.media.Schema;
 import org.openapijsonschematools.codegen.common.ModelUtils;
 import org.openapijsonschematools.codegen.generators.generatormetadata.FeatureSet;
 import org.openapijsonschematools.codegen.generators.generatormetadata.Stability;
@@ -33,6 +34,8 @@ import org.openapijsonschematools.codegen.generators.openapimodels.CodegenReques
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenResponse;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSchema;
 import org.openapijsonschematools.codegen.generators.openapimodels.CodegenSecurityScheme;
+import org.openapijsonschematools.codegen.generators.openapimodels.EnumInfo;
+import org.openapijsonschematools.codegen.generators.openapimodels.EnumValue;
 import org.openapijsonschematools.codegen.templating.HandlebarsEngineAdapter;
 import org.openapijsonschematools.codegen.templating.SupportingFile;
 import org.openapijsonschematools.codegen.generators.features.BeanValidationFeatures;
@@ -45,7 +48,11 @@ import org.slf4j.LoggerFactory;
 
 import javax.validation.constraints.NotNull;
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.*;
+import java.util.function.Function;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -388,14 +395,24 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("AdditionalPropertiesValidator");
         keywordValidatorFiles.add("AllOfValidator");
         keywordValidatorFiles.add("AnyOfValidator");
+        keywordValidatorFiles.add("BooleanEnumValidator");
+        keywordValidatorFiles.add("BooleanSchemaValidator");
+        keywordValidatorFiles.add("BooleanValueMethod");
+        keywordValidatorFiles.add("BigDecimalValidator");
         keywordValidatorFiles.add("CustomIsoparser");
+        keywordValidatorFiles.add("DoubleEnumValidator");
+        keywordValidatorFiles.add("DoubleValueMethod");
         keywordValidatorFiles.add("EnumValidator");
         keywordValidatorFiles.add("ExclusiveMaximumValidator");
         keywordValidatorFiles.add("ExclusiveMinimumValidator");
         keywordValidatorFiles.add("FakeValidator");
+        keywordValidatorFiles.add("FloatEnumValidator");
+        keywordValidatorFiles.add("FloatValueMethod");
         keywordValidatorFiles.add("FormatValidator");
         keywordValidatorFiles.add("FrozenList");
         keywordValidatorFiles.add("FrozenMap");
+        keywordValidatorFiles.add("IntegerEnumValidator");
+        keywordValidatorFiles.add("IntegerValueMethod");
         keywordValidatorFiles.add("ItemsValidator");
         keywordValidatorFiles.add("JsonSchema");
         keywordValidatorFiles.add("JsonSchemaFactory");
@@ -403,6 +420,10 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("KeywordEntry");
         keywordValidatorFiles.add("KeywordValidator");
         keywordValidatorFiles.add("LengthValidator");
+        keywordValidatorFiles.add("ListSchemaValidator");
+        keywordValidatorFiles.add("LongEnumValidator");
+        keywordValidatorFiles.add("LongValueMethod");
+        keywordValidatorFiles.add("MapSchemaValidator");
         keywordValidatorFiles.add("MaximumValidator");
         keywordValidatorFiles.add("MaxItemsValidator");
         keywordValidatorFiles.add("MaxLengthValidator");
@@ -413,18 +434,19 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         keywordValidatorFiles.add("MinPropertiesValidator");
         keywordValidatorFiles.add("MultipleOfValidator");
         keywordValidatorFiles.add("NotValidator");
+        keywordValidatorFiles.add("NullEnumValidator");
+        keywordValidatorFiles.add("NullSchemaValidator");
+        keywordValidatorFiles.add("NullValueMethod");
+        keywordValidatorFiles.add("NumberSchemaValidator");
         keywordValidatorFiles.add("OneOfValidator");
         keywordValidatorFiles.add("PathToSchemasMap");
         keywordValidatorFiles.add("PatternValidator");
         keywordValidatorFiles.add("PropertiesValidator");
         keywordValidatorFiles.add("PropertyEntry");
         keywordValidatorFiles.add("RequiredValidator");
-        keywordValidatorFiles.add("NullSchemaValidator");
-        keywordValidatorFiles.add("BooleanSchemaValidator");
-        keywordValidatorFiles.add("NumberSchemaValidator");
+        keywordValidatorFiles.add("StringEnumValidator");
         keywordValidatorFiles.add("StringSchemaValidator");
-        keywordValidatorFiles.add("ListSchemaValidator");
-        keywordValidatorFiles.add("MapSchemaValidator");
+        keywordValidatorFiles.add("StringValueMethod");
         keywordValidatorFiles.add("TypeValidator");
         keywordValidatorFiles.add("UniqueItemsValidator");
         keywordValidatorFiles.add("UnsetAnyTypeJsonSchema");
@@ -1350,8 +1372,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addBooleanSchemaImports(imports, schema);
                     }
@@ -1361,8 +1381,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addNullSchemaImports(imports, schema);
                     }
@@ -1378,8 +1396,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addNumberSchemaImports(imports, schema);
                     }
@@ -1399,8 +1415,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addNumberSchemaImports(imports, schema);
                     }
@@ -1426,8 +1440,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         }
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addStringSchemaImports(imports, schema);
                     }
@@ -1439,8 +1451,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addMapSchemaImports(imports, schema);
                         if (schema.mapValueSchema != null) {
@@ -1455,8 +1465,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
                     } else {
                         addCustomSchemaImports(imports, schema);
-                        imports.add("import java.util.LinkedHashMap;");
-                        imports.add("import java.util.Map;");
                         imports.add("import java.util.Set;");
                         addListSchemaImports(imports, schema);
                         if (schema.items != null) {
@@ -1466,11 +1474,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 }
             } else if (schema.types.size() > 1) {
                 addCustomSchemaImports(imports, schema);
-                imports.add("import java.util.LinkedHashMap;");
-                imports.add("import java.util.Map;");
                 imports.add("import java.util.Set;");
-                imports.add("import "+packageName + ".schemas.validation.FrozenList;"); // for JsonSchema generic
-                imports.add("import "+packageName + ".schemas.validation.FrozenMap;"); // for JsonSchema generic
                 if (schema.types.contains("string")) {
                     addStringSchemaImports(imports, schema);
                 }
@@ -1509,7 +1513,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.AnyTypeJsonSchema;");
             } else {
                 addCustomSchemaImports(imports, schema);
-                imports.add("import java.util.LinkedHashMap;");
                 imports.add("import java.time.LocalDate;");
                 imports.add("import java.time.ZonedDateTime;");
                 imports.add("import java.util.UUID;");
@@ -1523,6 +1526,8 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 imports.add("import "+packageName + ".schemas.validation.StringSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.ListSchemaValidator;");
                 imports.add("import "+packageName + ".schemas.validation.MapSchemaValidator;");
+                imports.add("import java.util.LinkedHashMap;");
+                imports.add("import java.util.ArrayList;"); // for validate
                 addPropertiesValidator(schema, imports);
                 addRequiredValidator(schema, imports);
                 addAllOfValidator(schema, imports);
@@ -1555,6 +1560,38 @@ public class JavaClientGenerator extends AbstractJavaGenerator
     private void addEnumValidator(CodegenSchema schema, Set<String> imports) {
         if (schema.enumInfo != null) {
             imports.add("import "+packageName + ".schemas.SetMaker;");
+            if (schema.enumInfo.typeToValues.containsKey("null")) {
+                imports.add("import "+packageName + ".schemas.validation.NullEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.NullValueMethod;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("boolean")) {
+                imports.add("import "+packageName + ".schemas.validation.BooleanEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.BooleanValueMethod;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("string")) {
+                imports.add("import "+packageName + ".schemas.validation.StringEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.StringValueMethod;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("Integer")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.IntegerEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.IntegerValueMethod;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("Long")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.LongEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.LongValueMethod;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("Float")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.FloatEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.FloatValueMethod;");
+            }
+            if (schema.enumInfo.typeToValues.containsKey("Double")) {
+                imports.add("import java.math.BigDecimal;");
+                imports.add("import "+packageName + ".schemas.validation.DoubleEnumValidator;");
+                imports.add("import "+packageName + ".schemas.validation.DoubleValueMethod;");
+            }
         }
     }
 
@@ -1597,7 +1634,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         }
     }
 
-
     private void addCustomSchemaImports(Set<String> imports, CodegenSchema schema) {
         imports.add("import " + packageName + ".schemas.validation.JsonSchema;");
         imports.add("import " + packageName + ".schemas.validation.JsonSchemaInfo;");
@@ -1605,7 +1641,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".exceptions.ValidationException;");
         imports.add("import "+packageName + ".exceptions.InvalidTypeException;"); // for castToAllowedTypes
         imports.add("import java.util.Set;"); // for validate
-        imports.add("import java.util.ArrayList;"); // for validate
         imports.add("import java.util.HashSet;"); // for validate
         imports.add("import java.util.Objects;"); // for validate
         imports.add("import java.util.LinkedHashSet;"); // for validate
@@ -1613,7 +1648,6 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.PathToSchemasMap;"); // for getNewInstance
         imports.add("import "+packageName + ".schemas.validation.ValidationMetadata;"); // for getNewInstance
         imports.add("import "+packageName + ".configurations.JsonSchemaKeywordFlags;"); // for getNewInstance
-        imports.add("import org.checkerframework.checker.nullness.qual.NonNull;");
         imports.add("import org.checkerframework.checker.nullness.qual.Nullable;");
     }
 
@@ -1638,6 +1672,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.FrozenMap;");
         imports.add("import java.util.Map;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
+        imports.add("import java.util.LinkedHashMap;");
         addRequiredValidator(schema, imports);
         addPropertiesValidator(schema, imports);
         addAllOfValidator(schema, imports);
@@ -1654,6 +1689,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         imports.add("import "+packageName + ".schemas.validation.FrozenList;");
         imports.add("import java.util.List;");
         imports.add("import java.util.ArrayList;"); // for castToAllowedTypes
+        imports.add("import java.util.LinkedHashMap;");
         addAllOfValidator(schema, imports);
         addAnyOfValidator(schema, imports);
         addOneOfValidator(schema, imports);
@@ -1733,5 +1769,269 @@ public class JavaClientGenerator extends AbstractJavaGenerator
                 .filter(Objects::nonNull)
                 .collect(Collectors.toList());
         return String.join(File.separator, finalPathPieces);
+    }
+
+    /**
+     * Return the sanitized variable name for enum
+     *
+     * @param value    enum variable name
+     * @param prop property
+     * @return the sanitized variable name for enum
+     */
+    @Override
+    public String toEnumVarName(String value, Schema prop) {
+        // our enum var names are keys in a python dict, so change spaces to underscores
+        if (value.length() == 0) {
+            return "EMPTY";
+        }
+        if (value.equals("null")) {
+            return "NONE";
+        }
+
+        // value is int or float
+        String intPattern = "^[-+]?\\d+$";
+        String floatPattern = "^[-+]?\\d+\\.\\d+$";
+        Boolean intMatch = Pattern.matches(intPattern, value);
+        Boolean floatMatch = Pattern.matches(floatPattern, value);
+        if (intMatch || floatMatch) {
+            String plusSign = "^\\+.+";
+            String negSign = "^-.+";
+            String enumVarName;
+            if (Pattern.matches(plusSign, value)) {
+                enumVarName = value.replace("+", "POSITIVE_");
+            } else if (Pattern.matches(negSign, value)) {
+                enumVarName = value.replace("-", "NEGATIVE_");
+            } else {
+                enumVarName = "POSITIVE_" + value;
+            }
+            if (floatMatch) {
+                enumVarName = enumVarName.replace(".", "_PT_");
+            }
+            return enumVarName;
+        }
+
+        // every character in value is not allowed
+        String valueWithAllowedCharsOnly = value.replaceAll("^\\W+", "");
+        if (valueWithAllowedCharsOnly.isEmpty()) {
+            StringBuilder usedValueBuilder = new StringBuilder();
+            for (int i = 0; i < value.length(); i++){
+                char c = value.charAt(i);
+                String charName = Character.getName(Character.hashCode(c));
+                if (usedValueBuilder.length() > 0) {
+                    usedValueBuilder.append("_");
+                }
+                usedValueBuilder.append(charNameToVarName(charName));
+            }
+            return usedValueBuilder.toString();
+        }
+
+        String usedValue = value;
+        // Replace " " with _
+        usedValue = usedValue.replaceAll("[ ]+", "_");
+
+        // replace all invalid characters with their character name descriptions
+        Pattern nonWordCharPattern = Pattern.compile("\\W+");
+        Matcher matcher = nonWordCharPattern.matcher(usedValue);
+        Stack<AbstractMap.SimpleEntry<Integer, String>> matchStartToGroup = new Stack<>();
+        while (matcher.find()) {
+            matchStartToGroup.add(new AbstractMap.SimpleEntry<>(matcher.start(), matcher.group()));
+        }
+        char underscore = "_".charAt(0);
+        while (!matchStartToGroup.isEmpty()) {
+            AbstractMap.SimpleEntry<Integer, String> entry = matchStartToGroup.pop();
+            Integer startIndex = entry.getKey();
+            String match = entry.getValue();
+            String prefix = "";
+            String suffix = "";
+            if (startIndex > 0 && usedValue.charAt(startIndex-1) != underscore) {
+                prefix = "_";
+            }
+            int indexAfter = startIndex + match.length();
+            if (startIndex + match.length() < usedValue.length() && usedValue.charAt(indexAfter) != underscore) {
+                suffix = "_";
+            }
+            StringBuilder convertedMatch = new StringBuilder();
+            for (int i = 0; i < match.length(); i++) {
+                String charName = charNameToVarName(Character.getName(Character.hashCode(match.charAt(i))));
+                // todo remove the parens portion of charName here
+                convertedMatch.append(charName);
+                if (i != match.length() - 1) {
+                    convertedMatch.append("_");
+                }
+            }
+            String replacement = prefix + convertedMatch + suffix;
+            usedValue = usedValue.substring(0, startIndex) + replacement + usedValue.substring(indexAfter);
+        }
+
+        // add camel case underscore
+        String regex = "([a-z])([A-Z]+)";
+        String regexReplacement = "$1_$2";
+        usedValue = usedValue.replaceAll(regex, regexReplacement);
+
+        // uppercase
+        usedValue = usedValue.toUpperCase(Locale.ROOT);
+
+        if (usedValue.length() > 1) {
+            // remove trailing _
+            usedValue = usedValue.replaceAll("_$", "");
+        }
+        return usedValue;
+    }
+
+    @Override
+    public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn() {
+        Function<CodegenSchema, List<CodegenSchema>> getSchemasFn = codegenSchema -> {
+            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
+            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
+            codegenSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, true);
+            schemasBeforeImports.addAll(schemasAfterImports);
+            return schemasBeforeImports;
+        };
+        return getSchemasFn;
+    }
+
+    private void addToTypeToValue(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, String type, String name) {
+        if (!typeToValues.containsKey(type)) {
+            typeToValues.put(type, new LinkedHashMap<>());
+        }
+        typeToValues.get(type).put(enumValue, name);
+    }
+
+    protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
+        LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
+        LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues = new LinkedHashMap<>();
+        LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
+        int truncateIdx = 0;
+
+        if (isRemoveEnumValuePrefix()) {
+            String commonPrefix = findCommonPrefixOfVars(values);
+            truncateIdx = commonPrefix.length();
+        }
+
+        List<String> xEnumVariableNames = null;
+        List<String> xEnumDescriptions = null;
+        // noinspection SpellCheckingInspection
+        String xEnumVariablenamesKey = "x-enum-varnames";
+        String xEnumDescriptionsKey = "x-enum-descriptions";
+        if (schema.getExtensions() != null) {
+            if (schema.getExtensions().containsKey(xEnumVariablenamesKey)) {
+                xEnumVariableNames = new ArrayList<>();
+                Object result = schema.getExtensions().get(xEnumVariablenamesKey);
+                if (result instanceof List) {
+                    for (Object item: (List) result) {
+                        if (item instanceof String) {
+                            xEnumVariableNames.add((String) item);
+                        }
+                    }
+                }
+            }
+            if (schema.getExtensions().containsKey(xEnumDescriptionsKey)) {
+                xEnumDescriptions = new ArrayList<>();
+                Object result = schema.getExtensions().get(xEnumDescriptionsKey);
+                if (result instanceof List) {
+                    for (Object item: (List) result) {
+                        if (item instanceof String) {
+                            xEnumDescriptions.add((String) item);
+                        }
+                    }
+                }
+            }
+        }
+
+        int i = 0;
+        for (Object value : values) {
+            String description = null;
+            if (xEnumDescriptions != null && xEnumDescriptions.size() > i) {
+                description = xEnumDescriptions.get(i);
+            }
+
+            String enumName;
+            if (xEnumVariableNames != null && xEnumVariableNames.size() > i) {
+                enumName = xEnumVariableNames.get(i);
+            } else {
+                if (truncateIdx == 0) {
+                    enumName = String.valueOf(value);
+                } else {
+                    enumName = value.toString().substring(truncateIdx);
+                    if (enumName.isEmpty()) {
+                        enumName = value.toString();
+                    }
+                }
+            }
+
+            String usedName = toEnumVarName(enumName, schema);
+            EnumValue enumValue = getEnumValue(value, description);
+            boolean typeIsInteger = enumValue.type.equals("integer");
+            boolean intIsNumberUseCase = (typeIsInteger && types!=null && types.contains("number"));
+            if (types!=null && !types.contains(enumValue.type) && !intIsNumberUseCase) {
+                throw new RuntimeException("Enum value's type is not allowed by schema types for value="+enumValue.value+" types="+types + " jsonPath="+currentJsonPath);
+            }
+            enumValueToName.put(enumValue, usedName);
+            if (!enumNameToValue.containsKey(usedName)) {
+                enumNameToValue.put(usedName, enumValue);
+            } else {
+                LOGGER.error(
+                        "Enum error: two generated enum variable names collide. The values {} and {} generate variable name {} . Please file an issue at https://github.com/openapi-json-schema-tools/openapi-json-schema-generator/issues",
+                        enumNameToValue.get(usedName).value,
+                        enumValue.value,
+                        usedName);
+            }
+            // typeToValues code
+            if ("null".equals(enumValue.type) || "boolean".equals(enumValue.type) || "string".equals(enumValue.type)) {
+                addToTypeToValue(typeToValues, enumValue, enumValue.type, usedName);
+            } else if (value instanceof Integer) {
+                addToTypeToValue(typeToValues, enumValue, "Integer", usedName);
+                EnumValue longEnumValue = getEnumValue(Long.parseLong(value.toString()), description);
+                addToTypeToValue(typeToValues, longEnumValue, "Long", usedName);
+                EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), description);
+                addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), description);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
+            } else if (value instanceof Long) {
+                addLongEnum(typeToValues, enumValue, (Long) value, usedName);
+            } else if (value instanceof Float) {
+                addToTypeToValue(typeToValues, enumValue, "Float", usedName);
+                EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()), description);
+                addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
+            } else if (value instanceof Double) {
+                addDoubleEnum(typeToValues, enumValue, (Double) value, usedName);
+            } else if (value instanceof BigDecimal) {
+                BigDecimal casValue = (BigDecimal) value;
+                boolean isInteger = casValue.signum() == 0 || casValue.scale() <= 0 || casValue.stripTrailingZeros().scale() <= 0;
+                if (isInteger) {
+                    addLongEnum(typeToValues, enumValue, casValue.longValue(), usedName);
+                } else {
+                    addDoubleEnum(typeToValues, enumValue, casValue.doubleValue(), usedName);
+                }
+            }
+            i += 1;
+        }
+        CodegenKey jsonPathPiece = null;
+        if (currentJsonPath != null) {
+            String currentName = currentJsonPath.substring(currentJsonPath.lastIndexOf("/") + 1);
+            jsonPathPiece = getKey(currentName + classSuffix, "schemaProperty", sourceJsonPath);
+        }
+
+        return new EnumInfo(enumValueToName, typeToValues, jsonPathPiece);
+    }
+
+    private void addLongEnum(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, Long value, String usedName) {
+        addToTypeToValue(typeToValues, enumValue, "Long", usedName);
+        EnumValue doubleEnumValue = getEnumValue(Double.valueOf(value.toString()+".0"), enumValue.description);
+        addToTypeToValue(typeToValues, doubleEnumValue, "Double", usedName);
+        if (value >= -2147483648L && value <= 2147483647L) {
+            EnumValue integerEnumValue = getEnumValue(Integer.valueOf(value.toString()), enumValue.description);
+            addToTypeToValue(typeToValues, integerEnumValue, "Integer", usedName);
+            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()+".0"), enumValue.description);
+            addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
+        }
+    }
+
+    private void addDoubleEnum(LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues, EnumValue enumValue, Double value, String usedName) {
+        addToTypeToValue(typeToValues, enumValue, "Double", usedName);
+        if (value >= -3.4028234663852886e+38d && value <= 3.4028234663852886e+38d) {
+            EnumValue floatEnumValue = getEnumValue(Float.valueOf(value.toString()), enumValue.description);
+            addToTypeToValue(typeToValues, floatEnumValue, "Float", usedName);
+        }
     }
 }

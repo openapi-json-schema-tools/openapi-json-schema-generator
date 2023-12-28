@@ -5,8 +5,8 @@ public class FileSchemaTestClass
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -63,8 +63,8 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<?, ?>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [FileSchemaTestClassMap](#fileschematestclassmap) | validate([Map<?, ?>](#fileschematestclassmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FileSchemaTestClassMapInput
 public class FileSchemaTestClassMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -131,8 +131,8 @@ FileSchemaTestClass.FilesList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [FilesList](#fileslist) | validate([List<?>](#fileslistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [FilesList](#fileslist) | validate([List<?>](#fileslistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## FilesListInput
 public class FilesListInput<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`

@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -26,7 +25,9 @@ import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Pet {
@@ -145,8 +146,22 @@ public class Pet {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public enum StringStatusEnums implements StringValueMethod {
+        AVAILABLE("available"),
+        PENDING("pending"),
+        SOLD("sold");
+        private final String value;
     
-    public static class Status extends JsonSchema implements StringSchemaValidator {
+        StringStatusEnums(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class Status extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringStatusEnums> {
         private static @Nullable Status instance = null;
     
         protected Status() {
@@ -178,6 +193,11 @@ public class Pet {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringStatusEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
         }
         
         @Override

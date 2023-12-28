@@ -4,10 +4,9 @@ public class JSONPatchRequestRemove
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -16,6 +15,7 @@ A class that contains necessary nested
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMapInput](#jsonpatchrequestremovemapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestRemove.JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestRemove.Op](#op)<br> schema class |
+| enum | [JSONPatchRequestRemove.StringOpEnums](#stringopenums)<br>String enum |
 | static class | [JSONPatchRequestRemove.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestRemove.AdditionalProperties](#additionalproperties)<br> schema class |
 
@@ -68,8 +68,8 @@ JSONPatchRequestRemove.JSONPatchRequestRemoveMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<?, ?>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestRemoveMap](#jsonpatchrequestremovemap) | validate([Map<?, ?>](#jsonpatchrequestremovemapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestRemoveMapInput
 public class JSONPatchRequestRemoveMapInput<br>
 builder for `Map<String, String>`
@@ -135,8 +135,20 @@ String validatedPayload = JSONPatchRequestRemove.Op.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringOpEnums](#stringopenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringOpEnums
+public enum StringOpEnums<br>
+extends `Enum<StringOpEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| REMOVE | value = "remove" |
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema

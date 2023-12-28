@@ -6,7 +6,7 @@
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing.Literal[
         {{#each ../enumInfo.typeToValues.boolean}}
-        {{#if value}}True{{else}}False{{/if}}{{#unless @last}},{{/unless}}
+        {{#if @key.value}}True{{else}}False{{/if}}{{#unless @last}},{{/unless}}
         {{/each}}
     ],
     schemas.Unset
@@ -14,7 +14,7 @@
                 {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Literal[
     {{#each ../enumInfo.typeToValues.boolean}}
-    {{#if value}}True{{else}}False{{/if}}{{#unless @last}},{{/unless}}
+    {{#if @key.value}}True{{else}}False{{/if}}{{#unless @last}},{{/unless}}
     {{/each}}
 ]{{endChar}}
                 {{/if}}
@@ -56,7 +56,7 @@
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing.Literal[
         {{#each ../enumInfo.typeToValues.string}}
-        "{{{value}}}"{{#unless @last}},{{/unless}}
+        "{{{@key.value}}}"{{#unless @last}},{{/unless}}
         {{/each}}
     ],
     schemas.Unset
@@ -64,7 +64,7 @@
                             {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Literal[
     {{#each ../enumInfo.typeToValues.string}}
-    "{{{value}}}"{{#unless @last}},{{/unless}}
+    "{{{@key.value}}}"{{#unless @last}},{{/unless}}
     {{/each}}
 ]{{endChar}}
                             {{/if}}
@@ -126,7 +126,7 @@
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Union[
     typing.Literal[
         {{#each ../enumInfo.typeToValues.integer}}
-        {{value}}{{#unless @last}},{{/unless}}
+        {{@key.value}}{{#unless @last}},{{/unless}}
         {{/each}}
     ],
     schemas.Unset
@@ -134,7 +134,7 @@
                                 {{else}}
 {{#if paramName}}{{#if quote}}"{{/if}}{{paramName}}{{#if quote}}"{{/if}}: {{/if}}typing.Literal[
     {{#each ../enumInfo.typeToValues.integer}}
-    {{value}}{{#unless @last}},{{/unless}}
+    {{@key.value}}{{#unless @last}},{{/unless}}
     {{/each}}
 ]{{endChar}}
                                 {{/if}}

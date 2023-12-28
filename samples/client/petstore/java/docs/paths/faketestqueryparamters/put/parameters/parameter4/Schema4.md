@@ -5,9 +5,7 @@ public class Schema4
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
-- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -57,8 +55,8 @@ Schema4.SchemaList4 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList4](#schemalist4) | validate([List<?>](#schemalistinput4) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [SchemaList4](#schemalist4) | validate([List<?>](#schemalistinput4) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListInput4
 public class SchemaListInput4<br>
 builder for `List<String>`

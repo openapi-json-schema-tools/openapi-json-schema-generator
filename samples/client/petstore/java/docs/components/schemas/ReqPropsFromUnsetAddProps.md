@@ -4,9 +4,7 @@ public class ReqPropsFromUnsetAddProps
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -55,8 +53,8 @@ ReqPropsFromUnsetAddProps.ReqPropsFromUnsetAddPropsMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<?, ?>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ReqPropsFromUnsetAddPropsMap](#reqpropsfromunsetaddpropsmap) | validate([Map<?, ?>](#reqpropsfromunsetaddpropsmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReqPropsFromUnsetAddPropsMapInput
 public class ReqPropsFromUnsetAddPropsMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

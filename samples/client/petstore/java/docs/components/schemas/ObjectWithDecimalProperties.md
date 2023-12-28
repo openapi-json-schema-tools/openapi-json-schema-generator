@@ -4,9 +4,7 @@ public class ObjectWithDecimalProperties
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -77,8 +75,8 @@ ObjectWithDecimalProperties.ObjectWithDecimalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map<?, ?>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ObjectWithDecimalPropertiesMap](#objectwithdecimalpropertiesmap) | validate([Map<?, ?>](#objectwithdecimalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithDecimalPropertiesMapInput
 public class ObjectWithDecimalPropertiesMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

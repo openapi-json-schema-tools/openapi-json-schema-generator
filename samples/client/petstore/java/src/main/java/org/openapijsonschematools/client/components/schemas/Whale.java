@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -23,7 +22,9 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Whale {
@@ -51,8 +52,20 @@ public class Whale {
         }
     }
     
+    public enum StringClassNameEnums implements StringValueMethod {
+        WHALE("whale");
+        private final String value;
     
-    public static class ClassName extends JsonSchema implements StringSchemaValidator {
+        StringClassNameEnums(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class ClassName extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringClassNameEnums> {
         private static @Nullable ClassName instance = null;
     
         protected ClassName() {
@@ -82,6 +95,11 @@ public class Whale {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
         }
         
         @Override

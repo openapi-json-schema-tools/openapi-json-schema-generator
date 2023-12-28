@@ -4,15 +4,13 @@ public class EnumClass
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumClass.EnumClass1](#enumclass1)<br> schema class |
+| enum | [EnumClass.StringEnumClassEnums](#stringenumclassenums)<br>String enum |
 
 ## EnumClass1
 public static class EnumClass1<br>
@@ -51,6 +49,22 @@ String validatedPayload = EnumClass.EnumClass1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringEnumClassEnums](#stringenumclassenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringEnumClassEnums
+public enum StringEnumClassEnums<br>
+extends `Enum<StringEnumClassEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| _ABC | value = "_abc" |
+| HYPHEN_MINUS_EFG | value = "-efg" |
+| LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |
+| COUNT_1M | value = "COUNT_1M" |
+| COUNT_50M | value = "COUNT_50M" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

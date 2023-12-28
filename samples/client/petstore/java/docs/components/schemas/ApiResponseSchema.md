@@ -4,9 +4,7 @@ public class ApiResponseSchema
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -46,7 +44,7 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
     MapMaker.makeMap(
         new AbstractMap.SimpleEntry<String, Object>(
             "code",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "type",
@@ -70,8 +68,8 @@ ApiResponseSchema.ApiResponseMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ApiResponseMap](#apiresponsemap) | validate([Map<?, ?>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ApiResponseMap](#apiresponsemap) | validate([Map<?, ?>](#apiresponsemapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ApiResponseMapInput
 public class ApiResponseMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

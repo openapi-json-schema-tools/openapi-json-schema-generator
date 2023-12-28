@@ -4,10 +4,9 @@ public class MapTest
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -23,6 +22,7 @@ A class that contains necessary nested
 | static class | [MapTest.MapOfEnumStringMapInput](#mapofenumstringmapinput)<br> builder for Map payloads |
 | static class | [MapTest.MapOfEnumStringMap](#mapofenumstringmap)<br> output class for Map payloads |
 | static class | [MapTest.AdditionalProperties2](#additionalproperties2)<br> schema class |
+| enum | [MapTest.StringAdditionalPropertiesEnums](#stringadditionalpropertiesenums)<br>String enum |
 | static class | [MapTest.MapMapOfString](#mapmapofstring)<br> schema class |
 | static class | [MapTest.MapMapOfStringMapInput](#mapmapofstringmapinput)<br> builder for Map payloads |
 | static class | [MapTest.MapMapOfStringMap](#mapmapofstringmap)<br> output class for Map payloads |
@@ -85,8 +85,8 @@ MapTest.MapTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapTestMap](#maptestmap) | validate([Map<?, ?>](#maptestmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapTestMap](#maptestmap) | validate([Map<?, ?>](#maptestmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapTestMapInput
 public class MapTestMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -157,8 +157,8 @@ MapTest.DirectMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [DirectMapMap](#directmapmap) | validate([Map<?, ?>](#directmapmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [DirectMapMap](#directmapmap) | validate([Map<?, ?>](#directmapmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DirectMapMapInput
 public class DirectMapMapInput<br>
 builder for `Map<String, Boolean>`
@@ -231,8 +231,8 @@ MapTest.MapOfEnumStringMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapOfEnumStringMap](#mapofenumstringmap) | validate([Map<?, ?>](#mapofenumstringmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapOfEnumStringMap](#mapofenumstringmap) | validate([Map<?, ?>](#mapofenumstringmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapOfEnumStringMapInput
 public class MapOfEnumStringMapInput<br>
 builder for `Map<String, String>`
@@ -293,8 +293,21 @@ String validatedPayload = MapTest.AdditionalProperties2.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringAdditionalPropertiesEnums](#stringadditionalpropertiesenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringAdditionalPropertiesEnums
+public enum StringAdditionalPropertiesEnums<br>
+extends `Enum<StringAdditionalPropertiesEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| UPPER | value = "UPPER" |
+| LOWER | value = "lower" |
+
 ## MapMapOfString
 public static class MapMapOfString<br>
 extends JsonSchema
@@ -334,8 +347,8 @@ MapTest.MapMapOfStringMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapMapOfStringMap](#mapmapofstringmap) | validate([Map<?, ?>](#mapmapofstringmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapMapOfStringMap](#mapmapofstringmap) | validate([Map<?, ?>](#mapmapofstringmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapMapOfStringMapInput
 public class MapMapOfStringMapInput<br>
 builder for `Map<String, Map<String, String>>`
@@ -398,8 +411,8 @@ MapTest.AdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesMapInput
 public class AdditionalPropertiesMapInput<br>
 builder for `Map<String, String>`

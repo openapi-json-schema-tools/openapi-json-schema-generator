@@ -4,15 +4,14 @@ public class StringEnum
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [StringEnum.StringEnum1](#stringenum1)<br> schema class |
+| enum | [StringEnum.StringStringEnumEnums](#stringstringenumenums)<br>String enum |
+| enum | [StringEnum.NullStringEnumEnums](#nullstringenumenums)<br>null enum |
 
 ## StringEnum1
 public static class StringEnum1<br>
@@ -57,7 +56,36 @@ String validatedPayload = StringEnum.StringEnum1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| Void | validate([NullStringEnumEnums](#nullstringenumenums) arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringStringEnumEnums](#stringstringenumenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringStringEnumEnums
+public enum StringStringEnumEnums<br>
+extends `Enum<StringStringEnumEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| PLACED | value = "placed" |
+| APPROVED | value = "approved" |
+| DELIVERED | value = "delivered" |
+| SINGLE_QUOTED | value = "single quoted" |
+| MULTIPLE_LINE_FEED_LF_LINES | value = "multiple\nlines" |
+| DOUBLE_QUOTE_LINE_FEED_LF_WITH_NEWLINE | value = "double quote \n with newline" |
+
+## NullStringEnumEnums
+public enum NullStringEnumEnums<br>
+extends `Enum<NullStringEnumEnums>`
+
+A class that stores null enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| NONE | value = null |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

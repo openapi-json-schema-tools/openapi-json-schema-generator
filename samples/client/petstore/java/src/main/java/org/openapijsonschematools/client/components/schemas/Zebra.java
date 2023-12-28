@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -23,7 +22,9 @@ import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Zebra {
@@ -40,8 +41,22 @@ public class Zebra {
         }
     }
     
+    public enum StringTypeEnums implements StringValueMethod {
+        PLAINS("plains"),
+        MOUNTAIN("mountain"),
+        GREVYS("grevys");
+        private final String value;
     
-    public static class Type extends JsonSchema implements StringSchemaValidator {
+        StringTypeEnums(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class Type extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringTypeEnums> {
         private static @Nullable Type instance = null;
     
         protected Type() {
@@ -76,6 +91,11 @@ public class Zebra {
         }
         
         @Override
+        public String validate(StringTypeEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
@@ -90,8 +110,20 @@ public class Zebra {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public enum StringClassNameEnums implements StringValueMethod {
+        ZEBRA("zebra");
+        private final String value;
     
-    public static class ClassName extends JsonSchema implements StringSchemaValidator {
+        StringClassNameEnums(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class ClassName extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringClassNameEnums> {
         private static @Nullable ClassName instance = null;
     
         protected ClassName() {
@@ -121,6 +153,11 @@ public class Zebra {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringClassNameEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
         }
         
         @Override

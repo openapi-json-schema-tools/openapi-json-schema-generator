@@ -4,10 +4,9 @@ public class BasquePig
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -16,6 +15,7 @@ A class that contains necessary nested
 | static class | [BasquePig.BasquePigMapInput](#basquepigmapinput)<br> builder for Map payloads |
 | static class | [BasquePig.BasquePigMap](#basquepigmap)<br> output class for Map payloads |
 | static class | [BasquePig.ClassName](#classname)<br> schema class |
+| enum | [BasquePig.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 
 ## BasquePig1
 public static class BasquePig1<br>
@@ -61,8 +61,8 @@ BasquePig.BasquePigMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [BasquePigMap](#basquepigmap) | validate([Map<?, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [BasquePigMap](#basquepigmap) | validate([Map<?, ?>](#basquepigmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BasquePigMapInput
 public class BasquePigMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -125,6 +125,18 @@ String validatedPayload = BasquePig.ClassName.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringClassNameEnums
+public enum StringClassNameEnums<br>
+extends `Enum<StringClassNameEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| BASQUE_PIG | value = "BasquePig" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -1,13 +1,9 @@
 package org.openapijsonschematools.client.paths.fake.delete.parameters.parameter1;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -17,14 +13,29 @@ import org.openapijsonschematools.client.schemas.SetMaker;
 import org.openapijsonschematools.client.schemas.validation.JsonSchema;
 import org.openapijsonschematools.client.schemas.validation.JsonSchemaInfo;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
+import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class Schema1 {
     // nest classes so all schemas and input/output classes can be public
     
+    public enum StringSchemaEnums1 implements StringValueMethod {
+        TRUE("true"),
+        FALSE("false");
+        private final String value;
     
-    public static class Schema11 extends JsonSchema implements StringSchemaValidator {
+        StringSchemaEnums1(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class Schema11 extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringSchemaEnums1> {
         private static @Nullable Schema11 instance = null;
     
         protected Schema11() {
@@ -55,6 +66,11 @@ public class Schema1 {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringSchemaEnums1 arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
         }
         
         @Override

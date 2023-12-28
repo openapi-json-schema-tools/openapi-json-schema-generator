@@ -4,9 +4,7 @@ public class AdditionalpropertiesAreAllowedByDefault
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -32,16 +30,16 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | validate([Map<?, ?>](#additionalpropertiesareallowedbydefaultmapinput) arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| float | validate(float arg, SchemaConfiguration configuration) |
+| double | validate(double arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| [AdditionalpropertiesAreAllowedByDefaultMap](#additionalpropertiesareallowedbydefaultmap) | validate([Map<?, ?>](#additionalpropertiesareallowedbydefaultmapinput) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalpropertiesAreAllowedByDefaultMapInput
 public class AdditionalpropertiesAreAllowedByDefaultMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

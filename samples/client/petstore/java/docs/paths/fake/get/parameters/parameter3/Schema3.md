@@ -4,15 +4,13 @@ public class Schema3
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema3.Schema31](#schema31)<br> schema class |
+| enum | [Schema3.StringSchemaEnums3](#stringschemaenums3)<br>String enum |
 
 ## Schema31
 public static class Schema31<br>
@@ -51,5 +49,18 @@ String validatedPayload = Schema3.Schema31.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringSchemaEnums3](#stringschemaenums3) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringSchemaEnums3
+public enum StringSchemaEnums3<br>
+extends `Enum<StringSchemaEnums3>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| _ABC | value = "_abc" |
+| HYPHEN_MINUS_EFG | value = "-efg" |
+| LEFT_PARENTHESIS_XYZ_RIGHT_PARENTHESIS | value = "(xyz)" |

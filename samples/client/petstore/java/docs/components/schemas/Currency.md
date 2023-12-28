@@ -4,15 +4,13 @@ public class Currency
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Currency.Currency1](#currency1)<br> schema class |
+| enum | [Currency.StringCurrencyEnums](#stringcurrencyenums)<br>String enum |
 
 ## Currency1
 public static class Currency1<br>
@@ -51,6 +49,19 @@ String validatedPayload = Currency.Currency1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringCurrencyEnums](#stringcurrencyenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringCurrencyEnums
+public enum StringCurrencyEnums<br>
+extends `Enum<StringCurrencyEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| EUR | value = "eur" |
+| USD | value = "usd" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

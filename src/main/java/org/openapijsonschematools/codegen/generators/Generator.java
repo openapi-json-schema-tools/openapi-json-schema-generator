@@ -64,6 +64,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
+import java.util.function.Function;
 
 public interface Generator {
     String getFilesMetadataFilename();
@@ -344,4 +345,6 @@ public interface Generator {
     CodegenHeader fromHeader(Header parameter, String sourceJsonPath);
 
     CodegenParameter fromParameter(Parameter parameter, String sourceJsonPath);
+
+    Function<CodegenSchema, List<CodegenSchema>> getSchemasFn();
 }

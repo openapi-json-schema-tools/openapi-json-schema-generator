@@ -5,9 +5,10 @@ public class EnumArrays
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -19,7 +20,9 @@ A class that contains necessary nested
 | static class | [EnumArrays.ArrayEnumListInput](#arrayenumlistinput)<br> builder for List payloads |
 | static class | [EnumArrays.ArrayEnumList](#arrayenumlist)<br> output class for List payloads |
 | static class | [EnumArrays.Items](#items)<br> schema class |
+| enum | [EnumArrays.StringItemsEnums](#stringitemsenums)<br>String enum |
 | static class | [EnumArrays.JustSymbol](#justsymbol)<br> schema class |
+| enum | [EnumArrays.StringJustSymbolEnums](#stringjustsymbolenums)<br>String enum |
 
 ## EnumArrays1
 public static class EnumArrays1<br>
@@ -70,8 +73,8 @@ EnumArrays.EnumArraysMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumArraysMap](#enumarraysmap) | validate([Map<?, ?>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [EnumArraysMap](#enumarraysmap) | validate([Map<?, ?>](#enumarraysmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumArraysMapInput
 public class EnumArraysMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -139,8 +142,8 @@ EnumArrays.ArrayEnumList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ArrayEnumList](#arrayenumlist) | validate([List<?>](#arrayenumlistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayEnumListInput
 public class ArrayEnumListInput<br>
 builder for `List<String>`
@@ -200,8 +203,21 @@ String validatedPayload = EnumArrays.Items.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringItemsEnums](#stringitemsenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringItemsEnums
+public enum StringItemsEnums<br>
+extends `Enum<StringItemsEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| FISH | value = "fish" |
+| CRAB | value = "crab" |
+
 ## JustSymbol
 public static class JustSymbol<br>
 extends JsonSchema
@@ -239,6 +255,19 @@ String validatedPayload = EnumArrays.JustSymbol.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringJustSymbolEnums](#stringjustsymbolenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringJustSymbolEnums
+public enum StringJustSymbolEnums<br>
+extends `Enum<StringJustSymbolEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| GREATER_THAN_SIGN_EQUALS_SIGN | value = ">=" |
+| DOLLAR_SIGN | value = "$" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

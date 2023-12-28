@@ -4,10 +4,9 @@ public class Zebra
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -16,7 +15,9 @@ A class that contains necessary nested
 | static class | [Zebra.ZebraMapInput](#zebramapinput)<br> builder for Map payloads |
 | static class | [Zebra.ZebraMap](#zebramap)<br> output class for Map payloads |
 | static class | [Zebra.ClassName](#classname)<br> schema class |
+| enum | [Zebra.StringClassNameEnums](#stringclassnameenums)<br>String enum |
 | static class | [Zebra.Type](#type)<br> schema class |
+| enum | [Zebra.StringTypeEnums](#stringtypeenums)<br>String enum |
 | static class | [Zebra.AdditionalProperties](#additionalproperties)<br> schema class |
 
 ## Zebra1
@@ -68,8 +69,8 @@ Zebra.ZebraMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ZebraMap](#zebramap) | validate([Map<?, ?>](#zebramapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ZebraMap](#zebramap) | validate([Map<?, ?>](#zebramapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ZebraMapInput
 public class ZebraMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -134,8 +135,20 @@ String validatedPayload = Zebra.ClassName.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringClassNameEnums](#stringclassnameenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringClassNameEnums
+public enum StringClassNameEnums<br>
+extends `Enum<StringClassNameEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| ZEBRA | value = "zebra" |
+
 ## Type
 public static class Type<br>
 extends JsonSchema
@@ -173,8 +186,22 @@ String validatedPayload = Zebra.Type.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringTypeEnums](#stringtypeenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringTypeEnums
+public enum StringTypeEnums<br>
+extends `Enum<StringTypeEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| PLAINS | value = "plains" |
+| MOUNTAIN | value = "mountain" |
+| GREVYS | value = "grevys" |
+
 ## AdditionalProperties
 public static class AdditionalProperties<br>
 extends AnyTypeJsonSchema

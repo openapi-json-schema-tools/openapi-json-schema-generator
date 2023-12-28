@@ -4,15 +4,16 @@ public class IntegerEnumBig
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnumBig.IntegerEnumBig1](#integerenumbig1)<br> schema class |
+| enum | [IntegerEnumBig.IntegerIntegerEnumBigEnums](#integerintegerenumbigenums)<br>Integer enum |
+| enum | [IntegerEnumBig.LongIntegerEnumBigEnums](#longintegerenumbigenums)<br>Long enum |
+| enum | [IntegerEnumBig.FloatIntegerEnumBigEnums](#floatintegerenumbigenums)<br>Float enum |
+| enum | [IntegerEnumBig.DoubleIntegerEnumBigEnums](#doubleintegerenumbigenums)<br>Double enum |
 
 ## IntegerEnumBig1
 public static class IntegerEnumBig1<br>
@@ -37,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // long validation
 long validatedPayload = IntegerEnumBig.IntegerEnumBig1.validate(
-    10L,
+    1L,
     configuration
 );
 ```
@@ -51,6 +52,58 @@ long validatedPayload = IntegerEnumBig.IntegerEnumBig1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerIntegerEnumBigEnums
+public enum IntegerIntegerEnumBigEnums<br>
+extends `Enum<IntegerIntegerEnumBigEnums>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_10 | value = 10 |
+| POSITIVE_11 | value = 11 |
+| POSITIVE_12 | value = 12 |
+
+## LongIntegerEnumBigEnums
+public enum LongIntegerEnumBigEnums<br>
+extends `Enum<LongIntegerEnumBigEnums>`
+
+A class that stores Long enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_10 | value = 10L |
+| POSITIVE_11 | value = 11L |
+| POSITIVE_12 | value = 12L |
+
+## FloatIntegerEnumBigEnums
+public enum FloatIntegerEnumBigEnums<br>
+extends `Enum<FloatIntegerEnumBigEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_10 | value = 10.0f |
+| POSITIVE_11 | value = 11.0f |
+| POSITIVE_12 | value = 12.0f |
+
+## DoubleIntegerEnumBigEnums
+public enum DoubleIntegerEnumBigEnums<br>
+extends `Enum<DoubleIntegerEnumBigEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_10 | value = 10.0d |
+| POSITIVE_11 | value = 11.0d |
+| POSITIVE_12 | value = 12.0d |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

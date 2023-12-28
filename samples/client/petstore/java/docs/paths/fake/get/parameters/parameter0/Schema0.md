@@ -5,9 +5,8 @@ public class Schema0
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -16,6 +15,7 @@ A class that contains necessary nested
 | static class | [Schema0.SchemaListInput0](#schemalistinput0)<br> builder for List payloads |
 | static class | [Schema0.SchemaList0](#schemalist0)<br> output class for List payloads |
 | static class | [Schema0.Items0](#items0)<br> schema class |
+| enum | [Schema0.StringItemsEnums0](#stringitemsenums0)<br>String enum |
 
 ## Schema01
 public static class Schema01<br>
@@ -57,8 +57,8 @@ Schema0.SchemaList0 validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SchemaList0](#schemalist0) | validate([List<?>](#schemalistinput0) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [SchemaList0](#schemalist0) | validate([List<?>](#schemalistinput0) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SchemaListInput0
 public class SchemaListInput0<br>
 builder for `List<String>`
@@ -118,5 +118,17 @@ String validatedPayload = Schema0.Items0.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringItemsEnums0](#stringitemsenums0) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringItemsEnums0
+public enum StringItemsEnums0<br>
+extends `Enum<StringItemsEnums0>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| GREATER_THAN_SIGN | value = ">" |
+| DOLLAR_SIGN | value = "$" |

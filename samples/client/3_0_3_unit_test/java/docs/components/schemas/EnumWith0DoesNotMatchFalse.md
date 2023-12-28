@@ -4,15 +4,16 @@ public class EnumWith0DoesNotMatchFalse
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1](#enumwith0doesnotmatchfalse1)<br> schema class |
+| enum | [EnumWith0DoesNotMatchFalse.IntegerEnumWith0DoesNotMatchFalseEnums](#integerenumwith0doesnotmatchfalseenums)<br>Integer enum |
+| enum | [EnumWith0DoesNotMatchFalse.LongEnumWith0DoesNotMatchFalseEnums](#longenumwith0doesnotmatchfalseenums)<br>Long enum |
+| enum | [EnumWith0DoesNotMatchFalse.FloatEnumWith0DoesNotMatchFalseEnums](#floatenumwith0doesnotmatchfalseenums)<br>Float enum |
+| enum | [EnumWith0DoesNotMatchFalse.DoubleEnumWith0DoesNotMatchFalseEnums](#doubleenumwith0doesnotmatchfalseenums)<br>Double enum |
 
 ## EnumWith0DoesNotMatchFalse1
 public static class EnumWith0DoesNotMatchFalse1<br>
@@ -37,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.validate(
-    0L,
+    1,
     configuration
 );
 ```
@@ -51,6 +52,50 @@ int validatedPayload = EnumWith0DoesNotMatchFalse.EnumWith0DoesNotMatchFalse1.va
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Number | validate(Number arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerEnumWith0DoesNotMatchFalseEnums
+public enum IntegerEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<IntegerEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
+
+## LongEnumWith0DoesNotMatchFalseEnums
+public enum LongEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<LongEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Long enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0L |
+
+## FloatEnumWith0DoesNotMatchFalseEnums
+public enum FloatEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<FloatEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0f |
+
+## DoubleEnumWith0DoesNotMatchFalseEnums
+public enum DoubleEnumWith0DoesNotMatchFalseEnums<br>
+extends `Enum<DoubleEnumWith0DoesNotMatchFalseEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0d |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

@@ -173,6 +173,7 @@ public Number validate(Number arg, SchemaConfiguration configuration) throws Val
     return castArg;
 }
             {{#eq ../format null}}
+
 public int validate(int arg, SchemaConfiguration configuration) throws ValidationException {
     return (int) validate((Number) arg, configuration);
 }
@@ -249,8 +250,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 @Override
 public Void validate(Void arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = new ArrayList<>();
-    pathToItem.add("args[0]");
+    List<Object> pathToItem = List.of("args[0]");
     Void castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
@@ -262,8 +262,7 @@ public Void validate(Void arg, SchemaConfiguration configuration) throws Validat
 @Override
 public boolean validate(boolean arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = new ArrayList<>();
-    pathToItem.add("args[0]");
+    List<Object> pathToItem = List.of("args[0]");
     boolean castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
@@ -275,8 +274,7 @@ public boolean validate(boolean arg, SchemaConfiguration configuration) throws V
 @Override
 public Number validate(Number arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = new ArrayList<>();
-    pathToItem.add("args[0]");
+    List<Object> pathToItem = List.of("args[0]");
     Number castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
@@ -304,8 +302,7 @@ public double validate(double arg, SchemaConfiguration configuration) {
 @Override
 public String validate(String arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = new ArrayList<>();
-    pathToItem.add("args[0]");
+    List<Object> pathToItem = List.of("args[0]");
     String castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
@@ -412,8 +409,7 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
 
 public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}}FrozenMap<{{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_output_type sourceJsonPath=../jsonPath forceNull=true }}{{else}}? extends @Nullable Object{{/with}}>{{/if}} validate(Map<?, ?> arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
     Set<List<Object>> pathSet = new HashSet<>();
-    List<Object> pathToItem = new ArrayList<>();
-    pathToItem.add("args[0]");
+    List<Object> pathToItem = List.of("args[0]");
     Map<?, ?> castArg = castToAllowedTypes(arg, pathToItem, pathSet);
     SchemaConfiguration usedConfiguration = Objects.requireNonNullElseGet(configuration, () -> new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()));
     PathToSchemasMap validatedPathToSchemas = new PathToSchemasMap();
@@ -422,6 +418,55 @@ public {{#if mapOutputJsonPathPiece}}{{mapOutputJsonPathPiece.camelCase}}{{else}
     return getNewInstance(castArg, validationMetadata.pathToItem(), pathToSchemasMap);
 }
 {{/if}}
+    {{#and enumInfo enumInfo.typeToValues.null}}
+
+@Override
+public Void validate(Null{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value(), configuration);
+}
+    {{/and}}
+    {{#and enumInfo enumInfo.typeToValues.boolean}}
+
+@Override
+public boolean validate(Boolean{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value(), configuration);
+}
+    {{/and}}
+    {{#and enumInfo enumInfo.typeToValues.string}}
+
+@Override
+public String validate(String{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return validate(arg.value(), configuration);
+}
+    {{/and}}
+    {{#and enumInfo enumInfo.typeToValues.Integer}}
+
+@Override
+public int validate(Integer{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return (int) validate((Number) arg.value(), configuration);
+}
+    {{/and}}
+    {{#and enumInfo enumInfo.typeToValues.Long}}
+
+@Override
+public long validate(Long{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return (long) validate((Number) arg.value(), configuration);
+}
+    {{/and}}
+    {{#and enumInfo enumInfo.typeToValues.Float}}
+
+@Override
+public float validate(Float{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return (float) validate((Number) arg.value(), configuration);
+}
+    {{/and}}
+    {{#and enumInfo enumInfo.typeToValues.Double}}
+
+@Override
+public double validate(Double{{enumInfo.jsonPathPiece.camelCase}} arg,SchemaConfiguration configuration) throws ValidationException {
+    return (double) validate((Number) arg.value(), configuration);
+}
+    {{/and}}
 
 @Override
 public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {

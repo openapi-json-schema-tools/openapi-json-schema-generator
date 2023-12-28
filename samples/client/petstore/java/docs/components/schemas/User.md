@@ -4,9 +4,7 @@ public class User
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -85,7 +83,7 @@ User.UserMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "userStatus",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, @Nullable Object>(
             "objectWithNoDeclaredPropsNullable",
@@ -105,8 +103,8 @@ User.UserMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [UserMap](#usermap) | validate([Map<?, ?>](#usermapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [UserMap](#usermap) | validate([Map<?, ?>](#usermapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## UserMapInput
 public class UserMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -186,16 +184,16 @@ any type except &#x27;null&#x27; Here the &#x27;type&#x27; attribute is not spec
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| float | validate(float arg, SchemaConfiguration configuration) |
+| double | validate(double arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Not
 public static class Not<br>
 extends NullJsonSchema
@@ -258,9 +256,9 @@ Void validatedPayload = User.ObjectWithNoDeclaredPropsNullable.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNoDeclaredProps
 public static class ObjectWithNoDeclaredProps<br>
 extends MapJsonSchema

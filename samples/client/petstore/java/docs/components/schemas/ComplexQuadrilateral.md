@@ -4,10 +4,9 @@ public class ComplexQuadrilateral
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -17,6 +16,7 @@ A class that contains necessary nested
 | static class | [ComplexQuadrilateral.Schema1MapInput](#schema1mapinput)<br> builder for Map payloads |
 | static class | [ComplexQuadrilateral.Schema1Map](#schema1map)<br> output class for Map payloads |
 | static class | [ComplexQuadrilateral.QuadrilateralType](#quadrilateraltype)<br> schema class |
+| enum | [ComplexQuadrilateral.StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums)<br>String enum |
 
 ## ComplexQuadrilateral1
 public static class ComplexQuadrilateral1<br>
@@ -32,16 +32,16 @@ A schema class that validates payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static float | validate(float arg, SchemaConfiguration configuration) |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| float | validate(float arg, SchemaConfiguration configuration) |
+| double | validate(double arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1
 public static class Schema1<br>
 extends JsonSchema
@@ -85,8 +85,8 @@ ComplexQuadrilateral.Schema1Map validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [Schema1Map](#schema1map) | validate([Map<?, ?>](#schema1mapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## Schema1MapInput
 public class Schema1MapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -149,6 +149,18 @@ String validatedPayload = ComplexQuadrilateral.QuadrilateralType.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringQuadrilateralTypeEnums](#stringquadrilateraltypeenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringQuadrilateralTypeEnums
+public enum StringQuadrilateralTypeEnums<br>
+extends `Enum<StringQuadrilateralTypeEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| COMPLEX_QUADRILATERAL | value = "ComplexQuadrilateral" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

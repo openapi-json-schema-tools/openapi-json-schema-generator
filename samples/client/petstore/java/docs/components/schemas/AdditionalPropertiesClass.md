@@ -4,9 +4,7 @@ public class AdditionalPropertiesClass
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -106,8 +104,8 @@ AdditionalPropertiesClass.AdditionalPropertiesClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map<?, ?>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesClassMap](#additionalpropertiesclassmap) | validate([Map<?, ?>](#additionalpropertiesclassmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesClassMapInput
 public class AdditionalPropertiesClassMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -186,8 +184,8 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesStringMap validatedPayload 
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate([Map<?, ?>](#mapwithundeclaredpropertiesstringmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapWithUndeclaredPropertiesStringMap](#mapwithundeclaredpropertiesstringmap) | validate([Map<?, ?>](#mapwithundeclaredpropertiesstringmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapWithUndeclaredPropertiesStringMapInput
 public class MapWithUndeclaredPropertiesStringMapInput<br>
 builder for `Map<String, String>`
@@ -263,8 +261,8 @@ AdditionalPropertiesClass.EmptyMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EmptyMapMap](#emptymapmap) | validate([Map<?, ?>](#emptymapmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [EmptyMapMap](#emptymapmap) | validate([Map<?, ?>](#emptymapmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EmptyMapMapInput
 public class EmptyMapMapInput<br>
 builder for `Map<String, Object>`
@@ -335,8 +333,8 @@ AdditionalPropertiesClass.MapWithUndeclaredPropertiesAnytype3Map validatedPayloa
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map<?, ?>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapWithUndeclaredPropertiesAnytype3Map](#mapwithundeclaredpropertiesanytype3map) | validate([Map<?, ?>](#mapwithundeclaredpropertiesanytype3mapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapWithUndeclaredPropertiesAnytype3MapInput
 public class MapWithUndeclaredPropertiesAnytype3MapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -439,8 +437,8 @@ AdditionalPropertiesClass.MapOfMapPropertyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapOfMapPropertyMap](#mapofmappropertymap) | validate([Map<?, ?>](#mapofmappropertymapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapOfMapPropertyMap](#mapofmappropertymap) | validate([Map<?, ?>](#mapofmappropertymapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapOfMapPropertyMapInput
 public class MapOfMapPropertyMapInput<br>
 builder for `Map<String, Map<String, String>>`
@@ -503,8 +501,8 @@ AdditionalPropertiesClass.AdditionalPropertiesMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [AdditionalPropertiesMap](#additionalpropertiesmap) | validate([Map<?, ?>](#additionalpropertiesmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalPropertiesMapInput
 public class AdditionalPropertiesMapInput<br>
 builder for `Map<String, String>`
@@ -577,8 +575,8 @@ AdditionalPropertiesClass.MapPropertyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [MapPropertyMap](#mappropertymap) | validate([Map<?, ?>](#mappropertymapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [MapPropertyMap](#mappropertymap) | validate([Map<?, ?>](#mappropertymapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## MapPropertyMapInput
 public class MapPropertyMapInput<br>
 builder for `Map<String, String>`

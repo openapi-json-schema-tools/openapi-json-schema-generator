@@ -4,10 +4,9 @@ public class JSONPatchRequestMoveCopy
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -16,6 +15,7 @@ A class that contains necessary nested
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMapInput](#jsonpatchrequestmovecopymapinput)<br> builder for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap)<br> output class for Map payloads |
 | static class | [JSONPatchRequestMoveCopy.Op](#op)<br> schema class |
+| enum | [JSONPatchRequestMoveCopy.StringOpEnums](#stringopenums)<br>String enum |
 | static class | [JSONPatchRequestMoveCopy.Path](#path)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.From](#from)<br> schema class |
 | static class | [JSONPatchRequestMoveCopy.AdditionalProperties](#additionalproperties)<br> schema class |
@@ -73,8 +73,8 @@ JSONPatchRequestMoveCopy.JSONPatchRequestMoveCopyMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<?, ?>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [JSONPatchRequestMoveCopyMap](#jsonpatchrequestmovecopymap) | validate([Map<?, ?>](#jsonpatchrequestmovecopymapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## JSONPatchRequestMoveCopyMapInput
 public class JSONPatchRequestMoveCopyMapInput<br>
 builder for `Map<String, String>`
@@ -142,8 +142,21 @@ String validatedPayload = JSONPatchRequestMoveCopy.Op.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringOpEnums](#stringopenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringOpEnums
+public enum StringOpEnums<br>
+extends `Enum<StringOpEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| MOVE | value = "move" |
+| COPY | value = "copy" |
+
 ## Path
 public static class Path<br>
 extends StringJsonSchema

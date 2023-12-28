@@ -4,15 +4,16 @@ public class IntegerEnumOneValue
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [IntegerEnumOneValue.IntegerEnumOneValue1](#integerenumonevalue1)<br> schema class |
+| enum | [IntegerEnumOneValue.IntegerIntegerEnumOneValueEnums](#integerintegerenumonevalueenums)<br>Integer enum |
+| enum | [IntegerEnumOneValue.LongIntegerEnumOneValueEnums](#longintegerenumonevalueenums)<br>Long enum |
+| enum | [IntegerEnumOneValue.FloatIntegerEnumOneValueEnums](#floatintegerenumonevalueenums)<br>Float enum |
+| enum | [IntegerEnumOneValue.DoubleIntegerEnumOneValueEnums](#doubleintegerenumonevalueenums)<br>Double enum |
 
 ## IntegerEnumOneValue1
 public static class IntegerEnumOneValue1<br>
@@ -37,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // long validation
 long validatedPayload = IntegerEnumOneValue.IntegerEnumOneValue1.validate(
-    0L,
+    1L,
     configuration
 );
 ```
@@ -51,6 +52,50 @@ long validatedPayload = IntegerEnumOneValue.IntegerEnumOneValue1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerIntegerEnumOneValueEnums
+public enum IntegerIntegerEnumOneValueEnums<br>
+extends `Enum<IntegerIntegerEnumOneValueEnums>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0 |
+
+## LongIntegerEnumOneValueEnums
+public enum LongIntegerEnumOneValueEnums<br>
+extends `Enum<LongIntegerEnumOneValueEnums>`
+
+A class that stores Long enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0L |
+
+## FloatIntegerEnumOneValueEnums
+public enum FloatIntegerEnumOneValueEnums<br>
+extends `Enum<FloatIntegerEnumOneValueEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0f |
+
+## DoubleIntegerEnumOneValueEnums
+public enum DoubleIntegerEnumOneValueEnums<br>
+extends `Enum<DoubleIntegerEnumOneValueEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_0 | value = 0.0d |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

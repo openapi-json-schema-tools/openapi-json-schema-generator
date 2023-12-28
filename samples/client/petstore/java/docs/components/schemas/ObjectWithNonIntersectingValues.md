@@ -4,9 +4,7 @@ public class ObjectWithNonIntersectingValues
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -62,8 +60,8 @@ ObjectWithNonIntersectingValues.ObjectWithNonIntersectingValuesMap validatedPayl
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map<?, ?>](#objectwithnonintersectingvaluesmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ObjectWithNonIntersectingValuesMap](#objectwithnonintersectingvaluesmap) | validate([Map<?, ?>](#objectwithnonintersectingvaluesmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectWithNonIntersectingValuesMapInput
 public class ObjectWithNonIntersectingValuesMapInput<br>
 builder for `Map<String, Object>`

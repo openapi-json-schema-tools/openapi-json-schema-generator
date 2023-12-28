@@ -50,8 +50,7 @@ public class JsonSchemaTest {
 
     @Test
     public void testValidateSucceeds() {
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0");
+        List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),

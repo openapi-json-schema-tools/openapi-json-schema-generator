@@ -4,15 +4,13 @@ public class BooleanEnum
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [BooleanEnum.BooleanEnum1](#booleanenum1)<br> schema class |
+| enum | [BooleanEnum.BooleanBooleanEnumEnums](#booleanbooleanenumenums)<br>boolean enum |
 
 ## BooleanEnum1
 public static class BooleanEnum1<br>
@@ -51,6 +49,18 @@ boolean validatedPayload = BooleanEnum.BooleanEnum1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| boolean | validate([BooleanBooleanEnumEnums](#booleanbooleanenumenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## BooleanBooleanEnumEnums
+public enum BooleanBooleanEnumEnums<br>
+extends `Enum<BooleanBooleanEnumEnums>`
+
+A class that stores boolean enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| TRUE | value = true |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

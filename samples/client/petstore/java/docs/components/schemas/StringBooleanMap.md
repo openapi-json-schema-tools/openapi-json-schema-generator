@@ -4,9 +4,7 @@ public class StringBooleanMap
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -56,8 +54,8 @@ StringBooleanMap.StringBooleanMapMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [StringBooleanMapMap](#stringbooleanmapmap) | validate([Map<?, ?>](#stringbooleanmapmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [StringBooleanMapMap](#stringbooleanmapmap) | validate([Map<?, ?>](#stringbooleanmapmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringBooleanMapMapInput
 public class StringBooleanMapMapInput<br>
 builder for `Map<String, Boolean>`

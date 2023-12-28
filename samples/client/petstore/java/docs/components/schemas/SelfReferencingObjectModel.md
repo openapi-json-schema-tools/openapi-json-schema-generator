@@ -4,9 +4,7 @@ public class SelfReferencingObjectModel
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -56,8 +54,8 @@ SelfReferencingObjectModel.SelfReferencingObjectModelMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map<?, ?>](#selfreferencingobjectmodelmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [SelfReferencingObjectModelMap](#selfreferencingobjectmodelmap) | validate([Map<?, ?>](#selfreferencingobjectmodelmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingObjectModelMapInput
 public class SelfReferencingObjectModelMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

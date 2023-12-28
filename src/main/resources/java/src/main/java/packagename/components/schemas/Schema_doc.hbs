@@ -15,15 +15,22 @@ public class {{containerJsonPathPiece.camelCase}}
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
+{{#if containsArrayOutputClass}}
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+{{/if}}
+{{#if containsObjectOutputClass}}
+- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
+{{/if}}
+{{#if containsEnums}}
+- enum classes
+{{/if}}
 
 {{headerSize}}# Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
-{{#each (reverse getJavaSchemas)}}
+{{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
 | static class | [{{../containerJsonPathPiece.camelCase}}.{{jsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces jsonPathPiece) }})<br> schema class |
         {{else}}
@@ -38,13 +45,47 @@ A class that contains necessary nested
                 {{else}}
                     {{#or (eq instanceType "propertiesInputType") (eq instanceType "requiredPropertiesInputType") (eq instanceType "optionalPropertiesInputType") }}
 | static class | [{{../containerJsonPathPiece.camelCase}}.{{mapInputJsonPathPiece.camelCase}}](#{{> src/main/java/packagename/components/_helper_anchor_id identifierPieces=(append identifierPieces mapInputJsonPathPiece) }})<br> builder for Map payloads |
+                    {{else}}
+                        {{#eq instanceType "enumClass"}}
+                            {{#with enumInfo}}
+                                {{#each typeToValues}}
+                                    {{#eq @key "null"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Null{{../jsonPathPiece.camelCase}}](#null{{../jsonPathPiece.anchorPiece}})<br>null enum |
+                                    {{else}}
+                                        {{#eq @key "boolean"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Boolean{{../jsonPathPiece.camelCase}}](#boolean{{../jsonPathPiece.anchorPiece}})<br>boolean enum |
+                                        {{else}}
+                                            {{#eq @key "string"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.String{{../jsonPathPiece.camelCase}}](#string{{../jsonPathPiece.anchorPiece}})<br>String enum |
+                                            {{else}}
+                                                {{#eq @key "Integer"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Integer{{../jsonPathPiece.camelCase}}](#integer{{../jsonPathPiece.anchorPiece}})<br>Integer enum |
+                                                {{else}}
+                                                    {{#eq @key "Long"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Long{{../jsonPathPiece.camelCase}}](#long{{../jsonPathPiece.anchorPiece}})<br>Long enum |
+                                                    {{else}}
+                                                        {{#eq @key "Float"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Float{{../jsonPathPiece.camelCase}}](#float{{../jsonPathPiece.anchorPiece}})<br>Float enum |
+                                                        {{else}}
+                                                            {{#eq @key "Double"}}
+| enum | [{{../../../containerJsonPathPiece.camelCase}}.Double{{../jsonPathPiece.camelCase}}](#double{{../jsonPathPiece.anchorPiece}})<br>Double enum |
+                                                            {{/eq}}
+                                                        {{/eq}}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+                                {{/each}}
+                            {{/with}}
+                        {{/eq}}
                     {{/or}}
                 {{/eq}}
             {{/eq}}
         {{/eq}}
     {{/eq}}
 {{/each}}
-{{#each (reverse getJavaSchemas)}}
+{{#each (reverse getSchemas)}}
     {{#eq instanceType "schema"}}
 
 {{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces jsonPathPiece) }}
@@ -173,6 +214,102 @@ A class that builds the Map input type
                         {{else}}
 | **anyStringName** | Object | any string name can be used but the value must be the correct type | [optional] |
                         {{/with}}
+                    {{else}}
+                        {{#eq instanceType "enumClass"}}
+                            {{#with enumInfo}}
+                                {{#each typeToValues}}
+
+                                    {{#eq @key "null"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Null" ../jsonPathPiece.camelCase "") ) }}
+public enum Null{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Null{{../jsonPathPiece.camelCase}}>`
+
+A class that stores null enum values
+                                    {{else}}
+                                        {{#eq @key "boolean"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Boolean" ../jsonPathPiece.camelCase "") ) }}
+public enum Boolean{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Boolean{{../jsonPathPiece.camelCase}}>`
+
+A class that stores boolean enum values
+                                        {{else}}
+                                            {{#eq @key "string"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "String" ../jsonPathPiece.camelCase "") ) }}
+public enum String{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<String{{../jsonPathPiece.camelCase}}>`
+
+A class that stores String enum values
+                                            {{else}}
+                                                {{#eq @key "Integer"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Integer" ../jsonPathPiece.camelCase "") ) }}
+public enum Integer{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Integer{{../jsonPathPiece.camelCase}}>`
+
+A class that stores Integer enum values
+                                                {{else}}
+                                                    {{#eq @key "Long"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Long" ../jsonPathPiece.camelCase "") ) }}
+public enum Long{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Long{{../jsonPathPiece.camelCase}}>`
+
+A class that stores Long enum values
+                                                    {{else}}
+                                                        {{#eq @key "Float"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Float" ../jsonPathPiece.camelCase "") ) }}
+public enum Float{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Float{{../jsonPathPiece.camelCase}}>`
+
+A class that stores Float enum values
+                                                        {{else}}
+                                                            {{#eq @key "Double"}}
+{{> src/main/java/packagename/components/_helper_header_from_identifier_pieces headerSize=(join headerSize "#" "") identifierPieces=(append identifierPieces (join "Double" ../jsonPathPiece.camelCase "") ) }}
+public enum Double{{../jsonPathPiece.camelCase}}<br>
+extends `Enum<Double{{../jsonPathPiece.camelCase}}>`
+
+A class that stores Double enum values
+                                                            {{/eq}}
+                                                        {{/eq}}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/eq}}
+
+{{headerSize}}## Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+                                    {{#each this}}
+                                        {{#eq ../@key "null"}}
+| {{this}} | value = null |
+                                        {{else}}
+                                            {{#eq ../@key "boolean"}}
+| {{this}} | value = {{@key.value}} |
+                                            {{else}}
+                                                {{#eq ../@key "string"}}
+| {{this}} | value = "{{{@key.value}}}" |
+                                                {{else}}
+                                                    {{#eq ../@key "Integer"}}
+| {{this}} | value = {{@key.value}} |
+                                                    {{else}}
+                                                        {{#eq ../@key "Long"}}
+| {{this}} | value = {{@key.value}}L |
+                                                        {{else}}
+                                                            {{#eq ../@key "Float"}}
+| {{this}} | value = {{@key.value}}f |
+                                                            {{else}}
+                                                                {{#eq ../@key "Double"}}
+| {{this}} | value = {{@key.value}}d |
+                                                                {{/eq}}
+                                                            {{/eq}}
+                                                        {{/eq}}
+                                                    {{/eq}}
+                                                {{/eq}}
+                                            {{/eq}}
+                                        {{/eq}}
+                                    {{/each}}
+                                {{/each}}
+                            {{/with}}
+                        {{/eq}}
                     {{/or}}
                 {{/eq}}
             {{/eq}}

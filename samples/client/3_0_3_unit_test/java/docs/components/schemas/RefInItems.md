@@ -5,9 +5,7 @@ public class RefInItems
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
-- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -55,8 +53,8 @@ RefInItems.RefInItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInItemsList](#refinitemslist) | validate([List<?>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [RefInItemsList](#refinitemslist) | validate([List<?>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## RefInItemsListInput
 public class RefInItemsListInput<br>
 builder for `List<? extends @Nullable Object>`

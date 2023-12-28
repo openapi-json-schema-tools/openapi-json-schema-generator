@@ -4,10 +4,9 @@ public class EnumTest
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -16,9 +15,17 @@ A class that contains necessary nested
 | static class | [EnumTest.EnumTestMapInput](#enumtestmapinput)<br> builder for Map payloads |
 | static class | [EnumTest.EnumTestMap](#enumtestmap)<br> output class for Map payloads |
 | static class | [EnumTest.EnumNumber](#enumnumber)<br> schema class |
+| enum | [EnumTest.DoubleEnumNumberEnums](#doubleenumnumberenums)<br>Double enum |
+| enum | [EnumTest.FloatEnumNumberEnums](#floatenumnumberenums)<br>Float enum |
 | static class | [EnumTest.EnumInteger](#enuminteger)<br> schema class |
+| enum | [EnumTest.IntegerEnumIntegerEnums](#integerenumintegerenums)<br>Integer enum |
+| enum | [EnumTest.LongEnumIntegerEnums](#longenumintegerenums)<br>Long enum |
+| enum | [EnumTest.FloatEnumIntegerEnums](#floatenumintegerenums)<br>Float enum |
+| enum | [EnumTest.DoubleEnumIntegerEnums](#doubleenumintegerenums)<br>Double enum |
 | static class | [EnumTest.EnumStringRequired](#enumstringrequired)<br> schema class |
+| enum | [EnumTest.StringEnumStringRequiredEnums](#stringenumstringrequiredenums)<br>String enum |
 | static class | [EnumTest.EnumString](#enumstring)<br> schema class |
+| enum | [EnumTest.StringEnumStringEnums](#stringenumstringenums)<br>String enum |
 
 ## EnumTest1
 public static class EnumTest1<br>
@@ -55,11 +62,11 @@ EnumTest.EnumTestMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "enum_integer",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "enum_number",
-            1.1d
+            3.14d
         )
     ),
     configuration
@@ -76,8 +83,8 @@ EnumTest.EnumTestMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [EnumTestMap](#enumtestmap) | validate([Map<?, ?>](#enumtestmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## EnumTestMapInput
 public class EnumTestMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -142,7 +149,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // double validation
 double validatedPayload = EnumTest.EnumNumber.validate(
-    1.1d,
+    3.14d,
     configuration
 );
 ```
@@ -157,8 +164,32 @@ double validatedPayload = EnumTest.EnumNumber.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| double | validate(double arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DoubleEnumNumberEnums
+public enum DoubleEnumNumberEnums<br>
+extends `Enum<DoubleEnumNumberEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1d |
+| NEGATIVE_1_PT_2 | value = -1.2d |
+
+## FloatEnumNumberEnums
+public enum FloatEnumNumberEnums<br>
+extends `Enum<FloatEnumNumberEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1f |
+| NEGATIVE_1_PT_2 | value = -1.2f |
+
 ## EnumInteger
 public static class EnumInteger<br>
 extends JsonSchema
@@ -182,7 +213,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = EnumTest.EnumInteger.validate(
-    1L,
+    1,
     configuration
 );
 ```
@@ -197,8 +228,56 @@ int validatedPayload = EnumTest.EnumInteger.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerEnumIntegerEnums
+public enum IntegerEnumIntegerEnums<br>
+extends `Enum<IntegerEnumIntegerEnums>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| NEGATIVE_1 | value = -1 |
+
+## LongEnumIntegerEnums
+public enum LongEnumIntegerEnums<br>
+extends `Enum<LongEnumIntegerEnums>`
+
+A class that stores Long enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1L |
+| NEGATIVE_1 | value = -1L |
+
+## FloatEnumIntegerEnums
+public enum FloatEnumIntegerEnums<br>
+extends `Enum<FloatEnumIntegerEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0f |
+| NEGATIVE_1 | value = -1.0f |
+
+## DoubleEnumIntegerEnums
+public enum DoubleEnumIntegerEnums<br>
+extends `Enum<DoubleEnumIntegerEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0d |
+| NEGATIVE_1 | value = -1.0d |
+
 ## EnumStringRequired
 public static class EnumStringRequired<br>
 extends JsonSchema
@@ -236,8 +315,22 @@ String validatedPayload = EnumTest.EnumStringRequired.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringEnumStringRequiredEnums](#stringenumstringrequiredenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringEnumStringRequiredEnums
+public enum StringEnumStringRequiredEnums<br>
+extends `Enum<StringEnumStringRequiredEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| UPPER | value = "UPPER" |
+| LOWER | value = "lower" |
+| EMPTY | value = "" |
+
 ## EnumString
 public static class EnumString<br>
 extends JsonSchema
@@ -275,6 +368,20 @@ String validatedPayload = EnumTest.EnumString.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringEnumStringEnums](#stringenumstringenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringEnumStringEnums
+public enum StringEnumStringEnums<br>
+extends `Enum<StringEnumStringEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| UPPER | value = "UPPER" |
+| LOWER | value = "lower" |
+| EMPTY | value = "" |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

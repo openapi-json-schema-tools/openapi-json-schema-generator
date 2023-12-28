@@ -5,9 +5,7 @@ public class SelfReferencingArrayModel
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
-- classes to build inputs for map payloads
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -55,8 +53,8 @@ SelfReferencingArrayModel.SelfReferencingArrayModelList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<?>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [SelfReferencingArrayModelList](#selfreferencingarraymodellist) | validate([List<?>](#selfreferencingarraymodellistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## SelfReferencingArrayModelListInput
 public class SelfReferencingArrayModelListInput<br>
 builder for `List<List<?>>`

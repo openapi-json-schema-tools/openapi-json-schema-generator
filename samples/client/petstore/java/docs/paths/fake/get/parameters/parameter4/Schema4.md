@@ -4,15 +4,16 @@ public class Schema4
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
+| enum | [Schema4.IntegerSchemaEnums4](#integerschemaenums4)<br>Integer enum |
+| enum | [Schema4.LongSchemaEnums4](#longschemaenums4)<br>Long enum |
+| enum | [Schema4.FloatSchemaEnums4](#floatschemaenums4)<br>Float enum |
+| enum | [Schema4.DoubleSchemaEnums4](#doubleschemaenums4)<br>Double enum |
 
 ## Schema41
 public static class Schema41<br>
@@ -37,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = Schema4.Schema41.validate(
-    1L,
+    1,
     configuration
 );
 ```
@@ -52,5 +53,52 @@ int validatedPayload = Schema4.Schema41.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static int | validate(int arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| int | validate(int arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerSchemaEnums4
+public enum IntegerSchemaEnums4<br>
+extends `Enum<IntegerSchemaEnums4>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| NEGATIVE_2 | value = -2 |
+
+## LongSchemaEnums4
+public enum LongSchemaEnums4<br>
+extends `Enum<LongSchemaEnums4>`
+
+A class that stores Long enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1L |
+| NEGATIVE_2 | value = -2L |
+
+## FloatSchemaEnums4
+public enum FloatSchemaEnums4<br>
+extends `Enum<FloatSchemaEnums4>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0f |
+| NEGATIVE_2 | value = -2.0f |
+
+## DoubleSchemaEnums4
+public enum DoubleSchemaEnums4<br>
+extends `Enum<DoubleSchemaEnums4>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0d |
+| NEGATIVE_2 | value = -2.0d |

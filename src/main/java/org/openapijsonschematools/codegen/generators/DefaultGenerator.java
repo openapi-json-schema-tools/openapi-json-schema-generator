@@ -108,6 +108,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentSkipListSet;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -2295,13 +2296,13 @@ public class DefaultGenerator implements Generator {
 
     private Object getBooleanFromSchema(CodegenSchema schema) {
         if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("boolean")) {
-            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("boolean")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("boolean").keySet()) {
                 return enumValue.value;
             }
             return null;
         }
         if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("boolean")) {
-            for(EnumValue enumValue: schema.constInfo.typeToValues.get("boolean")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("boolean").keySet()) {
                 return enumValue.value;
             }
         }
@@ -2311,13 +2312,13 @@ public class DefaultGenerator implements Generator {
 
     private Object getIntegerFromSchema(CodegenSchema schema) {
         if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("integer")) {
-            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("integer")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("integer").keySet()) {
                 return enumValue.value;
             }
             return null;
         }
         if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("integer")) {
-            for(EnumValue enumValue: schema.constInfo.typeToValues.get("integer")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("integer").keySet()) {
                 return enumValue.value;
             }
         }
@@ -2333,13 +2334,13 @@ public class DefaultGenerator implements Generator {
 
     private Object getNumberFromSchema(CodegenSchema schema) {
         if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("number")) {
-            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("number")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("number").keySet()) {
                 return enumValue.value;
             }
             return null;
         }
         if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("number")) {
-            for(EnumValue enumValue: schema.constInfo.typeToValues.get("number")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("number").keySet()) {
                 return enumValue.value;
             }
         }
@@ -2384,13 +2385,13 @@ public class DefaultGenerator implements Generator {
 
     private Object getStringFromSchema(CodegenSchema schema) {
         if (schema.enumInfo != null && schema.enumInfo.typeToValues.containsKey("string")) {
-            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("string")) {
+            for(EnumValue enumValue: schema.enumInfo.typeToValues.get("string").keySet()) {
                 return enumValue.value;
             }
             return null;
         }
         if (schema.constInfo != null && schema.constInfo.typeToValues.containsKey("string")) {
-            for(EnumValue enumValue: schema.constInfo.typeToValues.get("string")) {
+            for(EnumValue enumValue: schema.constInfo.typeToValues.get("string").keySet()) {
                 return enumValue.value;
             }
         }
@@ -2555,6 +2556,7 @@ public class DefaultGenerator implements Generator {
         CodegenSchema property = codegenSchemaCache.computeIfAbsent(ck, s -> new CodegenSchema());
         property.instanceType = "schema";
         property.jsonPath = currentJsonPath;
+        property.getSchemasFn = getSchemasFn();
 
         String ref = p.get$ref();
         // put toExampleValue in a try-catch block to log the error as example values are not critical
@@ -3593,6 +3595,18 @@ public class DefaultGenerator implements Generator {
         codegenParameterCache.put(sourceJsonPath, codegenParameter);
         LOGGER.debug("debugging codegenParameter return: {}", codegenParameter);
         return codegenParameter;
+    }
+
+    @Override
+    public Function<CodegenSchema, List<CodegenSchema>> getSchemasFn() {
+        Function<CodegenSchema, List<CodegenSchema>> getSchemasFn = codegenSchema -> {
+            ArrayList<CodegenSchema> schemasBeforeImports = new ArrayList<>();
+            ArrayList<CodegenSchema> schemasAfterImports = new ArrayList<>();
+            codegenSchema.getAllSchemas(schemasBeforeImports, schemasAfterImports, 0, false);
+            schemasBeforeImports.addAll(schemasAfterImports);
+            return schemasBeforeImports;
+        };
+        return getSchemasFn;
     }
 
     @Override
@@ -4641,7 +4655,7 @@ public class DefaultGenerator implements Generator {
 
     protected EnumInfo getEnumInfo(ArrayList<Object> values, Schema schema, String currentJsonPath, String sourceJsonPath, LinkedHashSet<String> types, String classSuffix) {
         LinkedHashMap<EnumValue, String> enumValueToName = new LinkedHashMap<>();
-        HashMap<String, List<EnumValue>> typeToValues = new LinkedHashMap<>();
+        LinkedHashMap<String, LinkedHashMap<EnumValue, String>> typeToValues = new LinkedHashMap<>();
         LinkedHashMap<String, EnumValue> enumNameToValue = new LinkedHashMap<>();
         int truncateIdx = 0;
 
@@ -4710,14 +4724,14 @@ public class DefaultGenerator implements Generator {
             }
             enumValueToName.put(enumValue, usedName);
             if (!typeToValues.containsKey(enumValue.type)) {
-                typeToValues.put(enumValue.type, new ArrayList<>());
+                typeToValues.put(enumValue.type, new LinkedHashMap<>());
             }
             if (typeIsInteger && !typeToValues.containsKey("number")) {
-                typeToValues.put("number", new ArrayList<>());
+                typeToValues.put("number", new LinkedHashMap<>());
             }
-            typeToValues.get(enumValue.type).add(enumValue);
+            typeToValues.get(enumValue.type).put(enumValue, usedName);
             if (typeIsInteger) {
-                typeToValues.get("number").add(enumValue);
+                typeToValues.get("number").put(enumValue, usedName);
             }
 
             if (!enumNameToValue.containsKey(usedName)) {
@@ -5809,5 +5823,18 @@ public class DefaultGenerator implements Generator {
             return null;
         }
         throw new IllegalArgumentException("Invalid schema type; type must be Boolean or Schema");
+    }
+
+    /**
+     * Replace - and " " with _
+     *
+     * @param charName the input
+     * @return the variable name
+     */
+    protected String charNameToVarName(String charName) {
+        // - and " " -> _
+        String result = charName.replaceAll("[\\-\\s]", "_");
+        // remove parentheses
+        return result.replaceAll("[()]", "");
     }
 }

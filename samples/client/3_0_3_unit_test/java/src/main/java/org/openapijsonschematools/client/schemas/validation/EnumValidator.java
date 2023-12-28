@@ -6,7 +6,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
 import java.math.BigDecimal;
 import java.util.Set;
 
-public class EnumValidator implements KeywordValidator {
+public class EnumValidator extends BigDecimalValidator implements KeywordValidator {
     public final Set<@Nullable Object> enumValues;
 
     public EnumValidator(Set<@Nullable Object> enumValues) {
@@ -23,24 +23,18 @@ public class EnumValidator implements KeywordValidator {
         if (enumValues.isEmpty()) {
             throw new ValidationException("No value can match enum because enum is empty");
         }
-        if (enumContainsArg(arg)) {
-            return null;
-        }
-        if (arg instanceof Float) {
-            BigDecimal castArg = BigDecimal.valueOf((Float) arg);
-            boolean hasIntValue = castArg.stripTrailingZeros().scale() <= 0;
-            if (hasIntValue && enumValues.contains(castArg.intValue())) {
+        if (arg instanceof Number) {
+            BigDecimal castArg = getBigDecimal((Number) arg);
+            if (enumContainsArg(castArg)) {
                 return null;
             }
-        } else if (arg instanceof Double) {
-            BigDecimal castArg = new BigDecimal(String.valueOf(arg));
-            boolean hasIntValue = castArg.stripTrailingZeros().scale() <= 0;
-            if (hasIntValue && enumValues.contains(castArg.intValue())) {
-                return null;
+            for (Object enumValue: enumValues) {
+                if (enumValue instanceof BigDecimal && ((BigDecimal) enumValue).compareTo(castArg) == 0) {
+                    return null;
+                }
             }
-        } else if (arg instanceof Long && (Long) arg <= 2147483647L && (Long) arg >= -2147483648L) {
-            int castArg = Integer.valueOf(arg.toString());
-            if (enumValues.contains(castArg)) {
+        } else {
+            if (enumContainsArg(arg)) {
                 return null;
             }
         }

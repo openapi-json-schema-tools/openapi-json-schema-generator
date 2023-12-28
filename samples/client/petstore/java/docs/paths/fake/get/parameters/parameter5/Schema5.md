@@ -4,15 +4,14 @@ public class Schema5
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema5.Schema51](#schema51)<br> schema class |
+| enum | [Schema5.DoubleSchemaEnums5](#doubleschemaenums5)<br>Double enum |
+| enum | [Schema5.FloatSchemaEnums5](#floatschemaenums5)<br>Float enum |
 
 ## Schema51
 public static class Schema51<br>
@@ -37,7 +36,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // double validation
 double validatedPayload = Schema5.Schema51.validate(
-    1.1d,
+    3.14d,
     configuration
 );
 ```
@@ -52,5 +51,28 @@ double validatedPayload = Schema5.Schema51.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static double | validate(double arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| double | validate(double arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## DoubleSchemaEnums5
+public enum DoubleSchemaEnums5<br>
+extends `Enum<DoubleSchemaEnums5>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1d |
+| NEGATIVE_1_PT_2 | value = -1.2d |
+
+## FloatSchemaEnums5
+public enum FloatSchemaEnums5<br>
+extends `Enum<FloatSchemaEnums5>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1_PT_1 | value = 1.1f |
+| NEGATIVE_1_PT_2 | value = -1.2f |

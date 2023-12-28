@@ -4,15 +4,13 @@ public class EnumWithTrueDoesNotMatch1
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11](#enumwithtruedoesnotmatch11)<br> schema class |
+| enum | [EnumWithTrueDoesNotMatch1.BooleanEnumWithTrueDoesNotMatch1Enums](#booleanenumwithtruedoesnotmatch1enums)<br>boolean enum |
 
 ## EnumWithTrueDoesNotMatch11
 public static class EnumWithTrueDoesNotMatch11<br>
@@ -51,6 +49,18 @@ boolean validatedPayload = EnumWithTrueDoesNotMatch1.EnumWithTrueDoesNotMatch11.
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| boolean | validate([BooleanEnumWithTrueDoesNotMatch1Enums](#booleanenumwithtruedoesnotmatch1enums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## BooleanEnumWithTrueDoesNotMatch1Enums
+public enum BooleanEnumWithTrueDoesNotMatch1Enums<br>
+extends `Enum<BooleanEnumWithTrueDoesNotMatch1Enums>`
+
+A class that stores boolean enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| TRUE | value = true |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

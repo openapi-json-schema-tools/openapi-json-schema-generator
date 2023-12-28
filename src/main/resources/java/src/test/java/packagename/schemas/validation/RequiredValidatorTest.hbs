@@ -26,8 +26,7 @@ public class RequiredValidatorTest {
         Set<String> requiredProperties = new LinkedHashSet<>();
         requiredProperties.add("someString");
 
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -51,8 +50,7 @@ public class RequiredValidatorTest {
         Set<String> requiredProperties = new LinkedHashSet<>();
         requiredProperties.add("someString");
 
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -73,8 +71,7 @@ public class RequiredValidatorTest {
         Set<String> requiredProperties = new LinkedHashSet<>();
         requiredProperties.add("someString");
 
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),

@@ -5,9 +5,9 @@
 @classmethod
 def validate(
     cls,
-    arg: typing.Literal["{{{value}}}"],
+    arg: typing.Literal["{{{@key.value}}}"],
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal["{{{value}}}"]: ...
+) -> typing.Literal["{{{@key.value}}}"]: ...
         {{/each}}
 @typing.overload
 @classmethod
@@ -15,7 +15,7 @@ def validate(
     cls,
     arg: str,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{#each constInfo.typeToValues.string}}"{{{value}}}",{{/each}}]: ...
+) -> typing.Literal[{{#each constInfo.typeToValues.string}}"{{{@key.value}}}",{{/each}}]: ...
     {{else}}
         {{! enum is not string type }}
         {{#if includeNonEnum}}
@@ -36,9 +36,9 @@ def validate(
 @classmethod
 def validate(
     cls,
-    arg: typing.Literal["{{{value}}}"],
+    arg: typing.Literal["{{{@key.value}}}"],
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal["{{{value}}}"]: ...
+) -> typing.Literal["{{{@key.value}}}"]: ...
             {{/each}}
 @typing.overload
 @classmethod
@@ -46,7 +46,7 @@ def validate(
     cls,
     arg: str,
     configuration: typing.Optional[schema_configuration.SchemaConfiguration] = None
-) -> typing.Literal[{{#each enumInfo.typeToValues.string}}"{{{value}}}",{{/each}}]: ...
+) -> typing.Literal[{{#each enumInfo.typeToValues.string}}"{{{@key.value}}}",{{/each}}]: ...
         {{else}}
             {{! enum is not string type }}
             {{#if includeNonEnum}}

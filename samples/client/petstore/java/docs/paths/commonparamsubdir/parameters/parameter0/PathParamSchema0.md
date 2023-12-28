@@ -4,15 +4,13 @@ public class PathParamSchema0
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [PathParamSchema0.PathParamSchema01](#pathparamschema01)<br> schema class |
+| enum | [PathParamSchema0.StringPathParamSchemaEnums0](#stringpathparamschemaenums0)<br>String enum |
 
 ## PathParamSchema01
 public static class PathParamSchema01<br>
@@ -51,5 +49,17 @@ String validatedPayload = PathParamSchema0.PathParamSchema01.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringPathParamSchemaEnums0](#stringpathparamschemaenums0) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringPathParamSchemaEnums0
+public enum StringPathParamSchemaEnums0<br>
+extends `Enum<StringPathParamSchemaEnums0>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| A | value = "a" |
+| B | value = "b" |

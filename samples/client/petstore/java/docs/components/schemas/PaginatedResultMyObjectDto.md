@@ -5,8 +5,8 @@ public class PaginatedResultMyObjectDto
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -71,8 +71,8 @@ PaginatedResultMyObjectDto.PaginatedResultMyObjectDtoMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map<?, ?>](#paginatedresultmyobjectdtomapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [PaginatedResultMyObjectDtoMap](#paginatedresultmyobjectdtomap) | validate([Map<?, ?>](#paginatedresultmyobjectdtomapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## PaginatedResultMyObjectDtoMapInput
 public class PaginatedResultMyObjectDtoMapInput<br>
 builder for `Map<String, Object>`
@@ -137,8 +137,8 @@ PaginatedResultMyObjectDto.ResultsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ResultsList](#resultslist) | validate([List<?>](#resultslistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ResultsList](#resultslist) | validate([List<?>](#resultslistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ResultsListInput
 public class ResultsListInput<br>
 builder for `List<Map<String, String>>`

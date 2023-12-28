@@ -4,15 +4,16 @@ public class SimpleEnumValidation
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [SimpleEnumValidation.SimpleEnumValidation1](#simpleenumvalidation1)<br> schema class |
+| enum | [SimpleEnumValidation.IntegerSimpleEnumValidationEnums](#integersimpleenumvalidationenums)<br>Integer enum |
+| enum | [SimpleEnumValidation.LongSimpleEnumValidationEnums](#longsimpleenumvalidationenums)<br>Long enum |
+| enum | [SimpleEnumValidation.FloatSimpleEnumValidationEnums](#floatsimpleenumvalidationenums)<br>Float enum |
+| enum | [SimpleEnumValidation.DoubleSimpleEnumValidationEnums](#doublesimpleenumvalidationenums)<br>Double enum |
 
 ## SimpleEnumValidation1
 public static class SimpleEnumValidation1<br>
@@ -37,7 +38,7 @@ static final SchemaConfiguration configuration = new SchemaConfiguration(JsonSch
 
 // int validation
 int validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
-    1L,
+    1,
     configuration
 );
 ```
@@ -51,6 +52,58 @@ int validatedPayload = SimpleEnumValidation.SimpleEnumValidation1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Number | validate(Number arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## IntegerSimpleEnumValidationEnums
+public enum IntegerSimpleEnumValidationEnums<br>
+extends `Enum<IntegerSimpleEnumValidationEnums>`
+
+A class that stores Integer enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1 |
+| POSITIVE_2 | value = 2 |
+| POSITIVE_3 | value = 3 |
+
+## LongSimpleEnumValidationEnums
+public enum LongSimpleEnumValidationEnums<br>
+extends `Enum<LongSimpleEnumValidationEnums>`
+
+A class that stores Long enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1L |
+| POSITIVE_2 | value = 2L |
+| POSITIVE_3 | value = 3L |
+
+## FloatSimpleEnumValidationEnums
+public enum FloatSimpleEnumValidationEnums<br>
+extends `Enum<FloatSimpleEnumValidationEnums>`
+
+A class that stores Float enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0f |
+| POSITIVE_2 | value = 2.0f |
+| POSITIVE_3 | value = 3.0f |
+
+## DoubleSimpleEnumValidationEnums
+public enum DoubleSimpleEnumValidationEnums<br>
+extends `Enum<DoubleSimpleEnumValidationEnums>`
+
+A class that stores Double enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| POSITIVE_1 | value = 1.0d |
+| POSITIVE_2 | value = 2.0d |
+| POSITIVE_3 | value = 3.0d |
+
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)

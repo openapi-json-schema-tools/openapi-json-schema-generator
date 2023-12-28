@@ -4,9 +4,7 @@ public class ReadOnlyFirst
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -65,8 +63,8 @@ ReadOnlyFirst.ReadOnlyFirstMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map<?, ?>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ReadOnlyFirstMap](#readonlyfirstmap) | validate([Map<?, ?>](#readonlyfirstmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ReadOnlyFirstMapInput
 public class ReadOnlyFirstMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`

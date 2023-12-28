@@ -4,15 +4,13 @@ public class Schema4
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
-- classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [Schema4.Schema41](#schema41)<br> schema class |
+| enum | [Schema4.StringSchemaEnums4](#stringschemaenums4)<br>String enum |
 
 ## Schema41
 public static class Schema41<br>
@@ -51,5 +49,17 @@ String validatedPayload = Schema4.Schema41.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringSchemaEnums4](#stringschemaenums4) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringSchemaEnums4
+public enum StringSchemaEnums4<br>
+extends `Enum<StringSchemaEnums4>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| TRUE | value = "true" |
+| FALSE | value = "false" |

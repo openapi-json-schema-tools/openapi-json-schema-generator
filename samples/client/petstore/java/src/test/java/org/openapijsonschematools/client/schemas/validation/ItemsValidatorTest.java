@@ -23,8 +23,7 @@ public class ItemsValidatorTest {
 
     @Test
     public void testCorrectItemsSucceeds() {
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -56,8 +55,7 @@ public class ItemsValidatorTest {
 
     @Test
     public void testNotApplicableTypeReturnsNull() {
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),
@@ -75,8 +73,7 @@ public class ItemsValidatorTest {
 
     @Test
     public void testIncorrectItemFails() {
-        List<Object> pathToItem = new ArrayList<>();
-        pathToItem.add("args[0]");
+        List<Object> pathToItem = List.of("args[0]");
         ValidationMetadata validationMetadata = new ValidationMetadata(
                 pathToItem,
                 new SchemaConfiguration(JsonSchemaKeywordFlags.ofNone()),

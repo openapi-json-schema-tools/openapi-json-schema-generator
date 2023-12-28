@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
-import org.checkerframework.checker.nullness.qual.NonNull;
 import org.checkerframework.checker.nullness.qual.Nullable;
 import org.openapijsonschematools.client.configurations.JsonSchemaKeywordFlags;
 import org.openapijsonschematools.client.configurations.SchemaConfiguration;
@@ -24,14 +23,29 @@ import org.openapijsonschematools.client.schemas.validation.ListSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.MapSchemaValidator;
 import org.openapijsonschematools.client.schemas.validation.PathToSchemasMap;
 import org.openapijsonschematools.client.schemas.validation.PropertyEntry;
+import org.openapijsonschematools.client.schemas.validation.StringEnumValidator;
 import org.openapijsonschematools.client.schemas.validation.StringSchemaValidator;
+import org.openapijsonschematools.client.schemas.validation.StringValueMethod;
 import org.openapijsonschematools.client.schemas.validation.ValidationMetadata;
 
 public class EnumArrays {
     // nest classes so all schemas and input/output classes can be public
     
+    public enum StringJustSymbolEnums implements StringValueMethod {
+        GREATER_THAN_SIGN_EQUALS_SIGN(">="),
+        DOLLAR_SIGN("$");
+        private final String value;
     
-    public static class JustSymbol extends JsonSchema implements StringSchemaValidator {
+        StringJustSymbolEnums(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class JustSymbol extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringJustSymbolEnums> {
         private static @Nullable JustSymbol instance = null;
     
         protected JustSymbol() {
@@ -65,6 +79,11 @@ public class EnumArrays {
         }
         
         @Override
+        public String validate(StringJustSymbolEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
+        }
+        
+        @Override
         public @Nullable Object validate(@Nullable Object arg, SchemaConfiguration configuration) throws ValidationException, InvalidTypeException {
             if (arg instanceof String) {
                 return validate((String) arg, configuration);
@@ -79,8 +98,21 @@ public class EnumArrays {
             throw new InvalidTypeException("Invalid input type="+getClass(arg)+". It can't be instantiated by this schema");
         }
     }    
+    public enum StringItemsEnums implements StringValueMethod {
+        FISH("fish"),
+        CRAB("crab");
+        private final String value;
     
-    public static class Items extends JsonSchema implements StringSchemaValidator {
+        StringItemsEnums(String value) {
+            this.value = value;
+        }
+        public String value() {
+            return this.value;
+        }
+    }
+    
+    
+    public static class Items extends JsonSchema implements StringSchemaValidator, StringEnumValidator<StringItemsEnums> {
         private static @Nullable Items instance = null;
     
         protected Items() {
@@ -111,6 +143,11 @@ public class EnumArrays {
             ValidationMetadata validationMetadata = new ValidationMetadata(pathToItem, usedConfiguration, new PathToSchemasMap(), new LinkedHashSet<>());
             getPathToSchemas(this, castArg, validationMetadata, pathSet);
             return castArg;
+        }
+        
+        @Override
+        public String validate(StringItemsEnums arg,SchemaConfiguration configuration) throws ValidationException {
+            return validate(arg.value(), configuration);
         }
         
         @Override

@@ -4,10 +4,9 @@ public class Order
 
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
-- classes to store validated list payloads, extends FrozenList
 - classes to store validated map payloads, extends FrozenMap
-- classes to build inputs for list payloads
 - classes to build inputs for map payloads
+- enum classes
 
 ## Nested Class Summary
 | Modifier and Type | Class and Description |
@@ -17,6 +16,7 @@ A class that contains necessary nested
 | static class | [Order.OrderMap](#ordermap)<br> output class for Map payloads |
 | static class | [Order.Complete](#complete)<br> schema class |
 | static class | [Order.Status](#status)<br> schema class |
+| enum | [Order.StringStatusEnums](#stringstatusenums)<br>String enum |
 | static class | [Order.ShipDate](#shipdate)<br> schema class |
 | static class | [Order.Quantity](#quantity)<br> schema class |
 | static class | [Order.PetId](#petid)<br> schema class |
@@ -57,7 +57,7 @@ Order.OrderMap validatedPayload =
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "quantity",
-            1L
+            1
         ),
         new AbstractMap.SimpleEntry<String, Object>(
             "shipDate",
@@ -85,8 +85,8 @@ Order.OrderMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [OrderMap](#ordermap) | validate([Map<?, ?>](#ordermapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## OrderMapInput
 public class OrderMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -172,8 +172,22 @@ String validatedPayload = Order.Status.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| String | validate([StringStatusEnums](#stringstatusenums) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+## StringStatusEnums
+public enum StringStatusEnums<br>
+extends `Enum<StringStatusEnums>`
+
+A class that stores String enum values
+
+### Enum Constant Summary
+| Enum Constant | Description |
+| ------------- | ----------- |
+| PLACED | value = "placed" |
+| APPROVED | value = "approved" |
+| DELIVERED | value = "delivered" |
+
 ## ShipDate
 public static class ShipDate<br>
 extends DateTimeJsonSchema

@@ -5,8 +5,8 @@ public class NullableClass
 A class that contains necessary nested
 - schema classes (which validate payloads), extends JsonSchema
 - classes to store validated list payloads, extends FrozenList
-- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for list payloads
+- classes to store validated map payloads, extends FrozenMap
 - classes to build inputs for map payloads
 
 ## Nested Class Summary
@@ -138,8 +138,8 @@ NullableClass.NullableClassMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [NullableClassMap](#nullableclassmap) | validate([Map<?, ?>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [NullableClassMap](#nullableclassmap) | validate([Map<?, ?>](#nullableclassmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NullableClassMapInput
 public class NullableClassMapInput<br>
 builder for `Map<String, ? extends @Nullable Object>`
@@ -226,8 +226,8 @@ NullableClass.ObjectItemsNullableMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map<?, ?>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ObjectItemsNullableMap](#objectitemsnullablemap) | validate([Map<?, ?>](#objectitemsnullablemapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectItemsNullableMapInput
 public class ObjectItemsNullableMapInput<br>
 builder for `Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>`
@@ -287,9 +287,9 @@ Void validatedPayload = NullableClass.AdditionalProperties2.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullableProp
 public static class ObjectAndItemsNullableProp<br>
 extends JsonSchema
@@ -335,9 +335,9 @@ NullableClass.ObjectAndItemsNullablePropMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map<?, ?>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ObjectAndItemsNullablePropMap](#objectanditemsnullablepropmap) | validate([Map<?, ?>](#objectanditemsnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectAndItemsNullablePropMapInput
 public class ObjectAndItemsNullablePropMapInput<br>
 builder for `Map<String, ? extends @Nullable Map<String, ? extends @Nullable Object>>`
@@ -397,9 +397,9 @@ Void validatedPayload = NullableClass.AdditionalProperties1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullableProp
 public static class ObjectNullableProp<br>
 extends JsonSchema
@@ -445,9 +445,9 @@ NullableClass.ObjectNullablePropMap validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map<?, ?>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ObjectNullablePropMap](#objectnullablepropmap) | validate([Map<?, ?>](#objectnullablepropmapinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ObjectNullablePropMapInput
 public class ObjectNullablePropMapInput<br>
 builder for `Map<String, Map<String, ? extends @Nullable Object>>`
@@ -521,8 +521,8 @@ NullableClass.ArrayItemsNullableList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayItemsNullableList](#arrayitemsnullablelist) | validate([List<?>](#arrayitemsnullablelistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| [ArrayItemsNullableList](#arrayitemsnullablelist) | validate([List<?>](#arrayitemsnullablelistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayItemsNullableListInput
 public class ArrayItemsNullableListInput<br>
 builder for `List<? extends @Nullable Map<String, ? extends @Nullable Object>>`
@@ -581,9 +581,9 @@ Void validatedPayload = NullableClass.Items2.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayAndItemsNullableProp
 public static class ArrayAndItemsNullableProp<br>
 extends JsonSchema
@@ -630,9 +630,9 @@ NullableClass.ArrayAndItemsNullablePropList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate([List<?>](#arrayanditemsnullableproplistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ArrayAndItemsNullablePropList](#arrayanditemsnullableproplist) | validate([List<?>](#arrayanditemsnullableproplistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayAndItemsNullablePropListInput
 public class ArrayAndItemsNullablePropListInput<br>
 builder for `List<? extends @Nullable Map<String, ? extends @Nullable Object>>`
@@ -691,9 +691,9 @@ Void validatedPayload = NullableClass.Items1.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNullableProp
 public static class ArrayNullableProp<br>
 extends JsonSchema
@@ -739,9 +739,9 @@ NullableClass.ArrayNullablePropList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static [ArrayNullablePropList](#arraynullableproplist) | validate([List<?>](#arraynullableproplistinput) arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| [ArrayNullablePropList](#arraynullableproplist) | validate([List<?>](#arraynullableproplistinput) arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## ArrayNullablePropListInput
 public class ArrayNullablePropListInput<br>
 builder for `List<Map<String, ? extends @Nullable Object>>`
@@ -817,9 +817,9 @@ String validatedPayload = NullableClass.DatetimeProp.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## DateProp
 public static class DateProp<br>
 extends JsonSchema
@@ -863,9 +863,9 @@ String validatedPayload = NullableClass.DateProp.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## StringProp
 public static class StringProp<br>
 extends JsonSchema
@@ -908,9 +908,9 @@ String validatedPayload = NullableClass.StringProp.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static String | validate(String arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| String | validate(String arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## BooleanProp
 public static class BooleanProp<br>
 extends JsonSchema
@@ -953,9 +953,9 @@ boolean validatedPayload = NullableClass.BooleanProp.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| boolean | validate(boolean arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## NumberProp
 public static class NumberProp<br>
 extends JsonSchema
@@ -998,9 +998,9 @@ int validatedPayload = NullableClass.NumberProp.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static Number | validate(Number arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| Number | validate(Number arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## IntegerProp
 public static class IntegerProp<br>
 extends JsonSchema
@@ -1043,9 +1043,9 @@ long validatedPayload = NullableClass.IntegerProp.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static long | validate(long arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| long | validate(long arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 ## AdditionalProperties3
 public static class AdditionalProperties3<br>
 extends JsonSchema
@@ -1082,7 +1082,7 @@ Void validatedPayload = NullableClass.AdditionalProperties3.validate(
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static Void | validate(Void arg, SchemaConfiguration configuration) |
-| static FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
-| static @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
+| Void | validate(Void arg, SchemaConfiguration configuration) |
+| FrozenMap<String, @Nullable Object> | validate(Map<?, ?> arg, SchemaConfiguration configuration) |
+| @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
