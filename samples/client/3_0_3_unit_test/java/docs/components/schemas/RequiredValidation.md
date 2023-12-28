@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RequiredValidation.RequiredValidation1](#requiredvalidation1)<br> schema class |
-| static class | [RequiredValidation.RequiredValidationMapInput](#requiredvalidationmapinput)<br> builder for Map payloads |
+| static class | [RequiredValidation.RequiredValidationMapBuilder](#requiredvalidationmapbuilder)<br> builder for Map payloads |
 | static class | [RequiredValidation.RequiredValidationMap](#requiredvalidationmap)<br> output class for Map payloads |
 | static class | [RequiredValidation.Bar](#bar)<br> schema class |
 | static class | [RequiredValidation.Foo](#foo)<br> schema class |
@@ -38,11 +38,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RequiredValidationMap](#requiredvalidationmap) | validate([Map<?, ?>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
+| [RequiredValidationMap](#requiredvalidationmap) | validate([Map<?, ?>](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RequiredValidationMapInput
-public class RequiredValidationMapInput<br>
+## RequiredValidationMapBuilder
+public class RequiredValidationMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -63,7 +63,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RequiredValidationMap](#requiredvalidationmap) | of([Map<String, ? extends @Nullable Object>](#requiredvalidationmapinput) arg, SchemaConfiguration configuration) |
+| static [RequiredValidationMap](#requiredvalidationmap) | of([Map<String, ? extends @Nullable Object>](#requiredvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br> |
 | @Nullable Object | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

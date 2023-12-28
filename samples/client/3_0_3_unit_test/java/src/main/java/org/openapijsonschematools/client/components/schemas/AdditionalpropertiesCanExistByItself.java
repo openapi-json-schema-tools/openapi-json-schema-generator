@@ -56,7 +56,7 @@ public class AdditionalpropertiesCanExistByItself {
             return (boolean) value;
         }
     }
-    public static class AdditionalpropertiesCanExistByItselfMapInput {
+    public static class AdditionalpropertiesCanExistByItselfMapBuilder {
         // Map<String, additionalProperties>
     }
     

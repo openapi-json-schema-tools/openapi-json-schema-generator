@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharacters1](#requiredwithescapedcharacters1)<br> schema class |
-| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMapInput](#requiredwithescapedcharactersmapinput)<br> builder for Map payloads |
+| static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMapBuilder](#requiredwithescapedcharactersmapbuilder)<br> builder for Map payloads |
 | static class | [RequiredWithEscapedCharacters.RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap)<br> output class for Map payloads |
 
 ## RequiredWithEscapedCharacters1
@@ -35,11 +35,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate([Map<?, ?>](#requiredwithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
+| [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | validate([Map<?, ?>](#requiredwithescapedcharactersmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RequiredWithEscapedCharactersMapInput
-public class RequiredWithEscapedCharactersMapInput<br>
+## RequiredWithEscapedCharactersMapBuilder
+public class RequiredWithEscapedCharactersMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -64,7 +64,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | of([Map<String, ? extends @Nullable Object>](#requiredwithescapedcharactersmapinput) arg, SchemaConfiguration configuration) |
+| static [RequiredWithEscapedCharactersMap](#requiredwithescapedcharactersmap) | of([Map<String, ? extends @Nullable Object>](#requiredwithescapedcharactersmapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | get(String key)<br>This schema has invalid Java names so this method must be used when you access instance["foo\tbar"], instance["foo\nbar"], instance["foo\fbar"], instance["foo\rbar"], instance["foo\&quot;bar"], instance["foo\\bar"],  |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

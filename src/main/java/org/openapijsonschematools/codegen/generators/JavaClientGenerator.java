@@ -180,6 +180,7 @@ public class JavaClientGenerator extends AbstractJavaGenerator
         sortParamsByRequiredFlag = Boolean.FALSE;
         objectIOClassNamePiece = "Map";
         arrayIOClassNamePiece = "List";
+        arrayObjectInputClassNameSuffix = "Builder";
 
 
         // TODO: Move GlobalFeature.ParameterizedServer to library: jersey after moving featureSet to generatorMetadata

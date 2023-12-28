@@ -43,8 +43,21 @@ public class NestedItems {
         }
     }
     
-    public static class ItemsListInput {
+    public static class ItemsListBuilder {
         // class to build List<Number>
+        private List<Number> list;
+    
+        public ItemsListBuilder() {
+            list = new ArrayList();
+        }
+    
+        public ItemsListBuilder(List<Number> list) {
+            this.list = list;
+        }
+    
+        public List<Number> build() {
+            return list;
+        }
     }
     
     
@@ -123,8 +136,21 @@ public class NestedItems {
         }
     }
     
-    public static class ItemsListInput1 {
+    public static class ItemsListBuilder1 {
         // class to build List<List<Number>>
+        private List<List<Number>> list;
+    
+        public ItemsListBuilder1() {
+            list = new ArrayList();
+        }
+    
+        public ItemsListBuilder1(List<List<Number>> list) {
+            this.list = list;
+        }
+    
+        public List<List<Number>> build() {
+            return list;
+        }
     }
     
     
@@ -203,8 +229,21 @@ public class NestedItems {
         }
     }
     
-    public static class ItemsListInput2 {
+    public static class ItemsListBuilder2 {
         // class to build List<List<List<Number>>>
+        private List<List<List<Number>>> list;
+    
+        public ItemsListBuilder2() {
+            list = new ArrayList();
+        }
+    
+        public ItemsListBuilder2(List<List<List<Number>>> list) {
+            this.list = list;
+        }
+    
+        public List<List<List<Number>>> build() {
+            return list;
+        }
     }
     
     
@@ -283,8 +322,21 @@ public class NestedItems {
         }
     }
     
-    public static class NestedItemsListInput {
+    public static class NestedItemsListBuilder {
         // class to build List<List<List<List<Number>>>>
+        private List<List<List<List<Number>>>> list;
+    
+        public NestedItemsListBuilder() {
+            list = new ArrayList();
+        }
+    
+        public NestedItemsListBuilder(List<List<List<List<Number>>>> list) {
+            this.list = list;
+        }
+    
+        public List<List<List<List<Number>>>> build() {
+            return list;
+        }
     }
     
     

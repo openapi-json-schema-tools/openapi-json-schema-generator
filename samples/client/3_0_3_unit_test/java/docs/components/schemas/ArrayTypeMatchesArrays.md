@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArrays1](#arraytypematchesarrays1)<br> schema class |
-| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListInput](#arraytypematchesarrayslistinput)<br> builder for List payloads |
+| static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysListBuilder](#arraytypematchesarrayslistbuilder)<br> builder for List payloads |
 | static class | [ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList](#arraytypematchesarrayslist)<br> output class for List payloads |
 | static class | [ArrayTypeMatchesArrays.Items](#items)<br> schema class |
 
@@ -54,10 +54,10 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([List<?>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
+| [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | validate([List<?>](#arraytypematchesarrayslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ArrayTypeMatchesArraysListInput
-public class ArrayTypeMatchesArraysListInput<br>
+## ArrayTypeMatchesArraysListBuilder
+public class ArrayTypeMatchesArraysListBuilder<br>
 builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
@@ -76,7 +76,7 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([List<? extends @Nullable Object>](#arraytypematchesarrayslistinput) arg, SchemaConfiguration configuration) |
+| static [ArrayTypeMatchesArraysList](#arraytypematchesarrayslist) | of([List<? extends @Nullable Object>](#arraytypematchesarrayslistbuilder) arg, SchemaConfiguration configuration) |
 
 ## Items
 public static class Items<br>

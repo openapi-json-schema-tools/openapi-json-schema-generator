@@ -69,7 +69,7 @@ public class RequiredWithEmptyArray {
             return get(name);
         }
     }
-    public static class RequiredWithEmptyArrayMapInput {
+    public static class RequiredWithEmptyArrayMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

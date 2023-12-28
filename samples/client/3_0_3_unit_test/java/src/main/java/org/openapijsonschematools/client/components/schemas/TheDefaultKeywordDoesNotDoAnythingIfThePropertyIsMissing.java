@@ -120,7 +120,7 @@ public class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissing {
             return get(name);
         }
     }
-    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapInput {
+    public static class TheDefaultKeywordDoesNotDoAnythingIfThePropertyIsMissingMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

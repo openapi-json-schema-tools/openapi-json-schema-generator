@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ForbiddenProperty.ForbiddenProperty1](#forbiddenproperty1)<br> schema class |
-| static class | [ForbiddenProperty.ForbiddenPropertyMapInput](#forbiddenpropertymapinput)<br> builder for Map payloads |
+| static class | [ForbiddenProperty.ForbiddenPropertyMapBuilder](#forbiddenpropertymapbuilder)<br> builder for Map payloads |
 | static class | [ForbiddenProperty.ForbiddenPropertyMap](#forbiddenpropertymap)<br> output class for Map payloads |
 | static class | [ForbiddenProperty.Foo](#foo)<br> schema class |
 
@@ -36,11 +36,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<?, ?>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
+| [ForbiddenPropertyMap](#forbiddenpropertymap) | validate([Map<?, ?>](#forbiddenpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ForbiddenPropertyMapInput
-public class ForbiddenPropertyMapInput<br>
+## ForbiddenPropertyMapBuilder
+public class ForbiddenPropertyMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -60,7 +60,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ForbiddenPropertyMap](#forbiddenpropertymap) | of([Map<String, ? extends @Nullable Object>](#forbiddenpropertymapinput) arg, SchemaConfiguration configuration) |
+| static [ForbiddenPropertyMap](#forbiddenpropertymap) | of([Map<String, ? extends @Nullable Object>](#forbiddenpropertymapbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | foo()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

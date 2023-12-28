@@ -31,8 +31,21 @@ public class RefInItems {
         }
     }
     
-    public static class RefInItemsListInput {
+    public static class RefInItemsListBuilder {
         // class to build List<? extends @Nullable Object>
+        private List<? extends @Nullable Object> list;
+    
+        public RefInItemsListBuilder() {
+            list = new ArrayList();
+        }
+    
+        public RefInItemsListBuilder(List<? extends @Nullable Object> list) {
+            this.list = list;
+        }
+    
+        public List<? extends @Nullable Object> build() {
+            return list;
+        }
     }
     
     

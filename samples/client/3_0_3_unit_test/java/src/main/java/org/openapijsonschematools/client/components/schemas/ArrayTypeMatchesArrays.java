@@ -43,8 +43,21 @@ public class ArrayTypeMatchesArrays {
         }
     }
     
-    public static class ArrayTypeMatchesArraysListInput {
+    public static class ArrayTypeMatchesArraysListBuilder {
         // class to build List<? extends @Nullable Object>
+        private List<? extends @Nullable Object> list;
+    
+        public ArrayTypeMatchesArraysListBuilder() {
+            list = new ArrayList();
+        }
+    
+        public ArrayTypeMatchesArraysListBuilder(List<? extends @Nullable Object> list) {
+            this.list = list;
+        }
+    
+        public List<? extends @Nullable Object> build() {
+            return list;
+        }
     }
     
     

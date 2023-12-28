@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [ObjectPropertiesValidation.ObjectPropertiesValidation1](#objectpropertiesvalidation1)<br> schema class |
-| static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMapInput](#objectpropertiesvalidationmapinput)<br> builder for Map payloads |
+| static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMapBuilder](#objectpropertiesvalidationmapbuilder)<br> builder for Map payloads |
 | static class | [ObjectPropertiesValidation.ObjectPropertiesValidationMap](#objectpropertiesvalidationmap)<br> output class for Map payloads |
 | static class | [ObjectPropertiesValidation.Bar](#bar)<br> schema class |
 | static class | [ObjectPropertiesValidation.Foo](#foo)<br> schema class |
@@ -37,11 +37,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<?, ?>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
+| [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | validate([Map<?, ?>](#objectpropertiesvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## ObjectPropertiesValidationMapInput
-public class ObjectPropertiesValidationMapInput<br>
+## ObjectPropertiesValidationMapBuilder
+public class ObjectPropertiesValidationMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -62,7 +62,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, ? extends @Nullable Object>](#objectpropertiesvalidationmapinput) arg, SchemaConfiguration configuration) |
+| static [ObjectPropertiesValidationMap](#objectpropertiesvalidationmap) | of([Map<String, ? extends @Nullable Object>](#objectpropertiesvalidationmapbuilder) arg, SchemaConfiguration configuration) |
 | long | foo()<br>[optional] |
 | String | bar()<br>[optional] |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |

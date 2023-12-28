@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [InvalidStringValueForDefault.InvalidStringValueForDefault1](#invalidstringvaluefordefault1)<br> schema class |
-| static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMapInput](#invalidstringvaluefordefaultmapinput)<br> builder for Map payloads |
+| static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMapBuilder](#invalidstringvaluefordefaultmapbuilder)<br> builder for Map payloads |
 | static class | [InvalidStringValueForDefault.InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap)<br> output class for Map payloads |
 | static class | [InvalidStringValueForDefault.Bar](#bar)<br> schema class |
 
@@ -36,11 +36,11 @@ A schema class that validates payloads
 | float | validate(float arg, SchemaConfiguration configuration) |
 | double | validate(double arg, SchemaConfiguration configuration) |
 | boolean | validate(boolean arg, SchemaConfiguration configuration) |
-| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate([Map<?, ?>](#invalidstringvaluefordefaultmapinput) arg, SchemaConfiguration configuration) |
+| [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | validate([Map<?, ?>](#invalidstringvaluefordefaultmapbuilder) arg, SchemaConfiguration configuration) |
 | FrozenList<@Nullable Object> | validate(List<?> arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## InvalidStringValueForDefaultMapInput
-public class InvalidStringValueForDefaultMapInput<br>
+## InvalidStringValueForDefaultMapBuilder
+public class InvalidStringValueForDefaultMapBuilder<br>
 builder for `Map<String, ? extends @Nullable Object>`
 
 A class that builds the Map input type
@@ -60,7 +60,7 @@ A class to store validated Map payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of([Map<String, ? extends @Nullable Object>](#invalidstringvaluefordefaultmapinput) arg, SchemaConfiguration configuration) |
+| static [InvalidStringValueForDefaultMap](#invalidstringvaluefordefaultmap) | of([Map<String, ? extends @Nullable Object>](#invalidstringvaluefordefaultmapbuilder) arg, SchemaConfiguration configuration) |
 | String | bar()<br>[optional] if omitted the server will use the default value of bad |
 | Object | getAdditionalProperty(String name)<br>provides type safety for additional properties |
 

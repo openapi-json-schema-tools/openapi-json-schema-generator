@@ -2,5 +2,18 @@
 
 public static class {{arrayInputJsonPathPiece.camelCase}} {
     // class to build List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}>
+    private List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> list;
+
+    public {{arrayInputJsonPathPiece.camelCase}}() {
+        list = new ArrayList();
+    }
+
+    public {{arrayInputJsonPathPiece.camelCase}}(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> list) {
+        this.list = list;
+    }
+
+    public List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true }}{{/with}}> build() {
+        return list;
+    }
 }
 {{/if}}

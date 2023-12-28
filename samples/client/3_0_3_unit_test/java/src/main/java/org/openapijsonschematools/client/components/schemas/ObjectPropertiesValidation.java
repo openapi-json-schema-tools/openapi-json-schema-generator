@@ -98,7 +98,7 @@ public class ObjectPropertiesValidation {
             return get(name);
         }
     }
-    public static class ObjectPropertiesValidationMapInput {
+    public static class ObjectPropertiesValidationMapBuilder {
         // Map<String, Object> because addProps is unset
     }
     

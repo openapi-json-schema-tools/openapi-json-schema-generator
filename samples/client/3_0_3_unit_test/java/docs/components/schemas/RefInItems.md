@@ -11,7 +11,7 @@ A class that contains necessary nested
 | Modifier and Type | Class and Description |
 | ----------------- | ---------------------- |
 | static class | [RefInItems.RefInItems1](#refinitems1)<br> schema class |
-| static class | [RefInItems.RefInItemsListInput](#refinitemslistinput)<br> builder for List payloads |
+| static class | [RefInItems.RefInItemsListBuilder](#refinitemslistbuilder)<br> builder for List payloads |
 | static class | [RefInItems.RefInItemsList](#refinitemslist)<br> output class for List payloads |
 
 ## RefInItems1
@@ -53,10 +53,10 @@ RefInItems.RefInItemsList validatedPayload =
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| [RefInItemsList](#refinitemslist) | validate([List<?>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
+| [RefInItemsList](#refinitemslist) | validate([List<?>](#refinitemslistbuilder) arg, SchemaConfiguration configuration) |
 | @Nullable Object | validate(@Nullable Object arg, SchemaConfiguration configuration) |
-## RefInItemsListInput
-public class RefInItemsListInput<br>
+## RefInItemsListBuilder
+public class RefInItemsListBuilder<br>
 builder for `List<? extends @Nullable Object>`
 
 A class that builds the List input type
@@ -75,6 +75,6 @@ A class to store validated List payloads
 ### Method Summary
 | Modifier and Type | Method and Description |
 | ----------------- | ---------------------- |
-| static [RefInItemsList](#refinitemslist) | of([List<? extends @Nullable Object>](#refinitemslistinput) arg, SchemaConfiguration configuration) |
+| static [RefInItemsList](#refinitemslist) | of([List<? extends @Nullable Object>](#refinitemslistbuilder) arg, SchemaConfiguration configuration) |
 
 [[Back to top]](#top) [[Back to Component Schemas]](../../../README.md#Component-Schemas) [[Back to README]](../../../README.md)
