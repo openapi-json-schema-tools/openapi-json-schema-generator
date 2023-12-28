@@ -1,14 +1,14 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;enumValues = SetMaker.makeSet(<br>
+enumValues = SetMaker.makeSet(<br>
     {{~#each enumInfo.valueToName}}
     {{#with @key}}
         {{#eq type "string"}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{value}}}"{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"{{{value}}}"{{#unless @last}},{{/unless}}<br>
         {{~else}}
             {{#eq type "null"}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;null{{#unless @last}},{{/unless}}
+&nbsp;&nbsp;&nbsp;&nbsp;null{{#unless @last}},{{/unless}}<br>
             {{~else}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{value}}{{#unless @last}},{{/unless}}
+&nbsp;&nbsp;&nbsp;&nbsp;{{value}}{{#unless @last}},{{/unless}}<br>
             {{~/eq}}
         {{~/eq}}
     {{/with}}

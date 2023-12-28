@@ -48,8 +48,8 @@ ArrayTypeMatchesArrays.ArrayTypeMatchesArraysList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Items.class](#items)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [Items.class](#items) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

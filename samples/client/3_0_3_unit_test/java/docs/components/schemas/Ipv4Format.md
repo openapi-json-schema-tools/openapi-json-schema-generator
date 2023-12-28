@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "ipv4";<br> |
+| String | type = "ipv4"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -20,7 +20,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;not = [Not.class](#not)<br> |
+| Class<? extends JsonSchema> | not = [Not.class](#not) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

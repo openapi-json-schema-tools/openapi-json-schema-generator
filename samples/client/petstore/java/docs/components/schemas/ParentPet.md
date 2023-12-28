@@ -19,8 +19,8 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| List<Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;allOf = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[GrandparentAnimal.GrandparentAnimal1.class](../../components/schemas/GrandparentAnimal.md#grandparentanimal1)<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| List<Class<? extends JsonSchema>> | allOf = List.of(<br>&nbsp;&nbsp;&nbsp;&nbsp;[GrandparentAnimal.GrandparentAnimal1.class](../../components/schemas/GrandparentAnimal.md#grandparentanimal1)<br>;)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

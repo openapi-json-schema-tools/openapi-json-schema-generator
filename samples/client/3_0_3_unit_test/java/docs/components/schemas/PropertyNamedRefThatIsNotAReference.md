@@ -24,7 +24,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Map<String, Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("$ref", [Ref.class](#ref)))<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("$ref", [Ref.class](#ref)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

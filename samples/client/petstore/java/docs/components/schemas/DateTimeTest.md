@@ -41,8 +41,8 @@ String validatedPayload = DateTimeTest.DateTimeTest1.validate(
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>&nbsp;&nbsp;&nbsp;&nbsp;)<br/> |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "date-time";<br> |
+| Set<Class<?>> | type = Set.of(<br/>&nbsp;&nbsp;&nbsp;&nbsp;String.class<br/>)<br/> |
+| String | type = "date-time"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -56,8 +56,8 @@ AnyTypeAndFormat.AnyTypeAndFormatMap validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| Map<String, Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [UuidSchema.class](#uuidschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date", [Date.class](#date))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date-time", [Datetime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number", [NumberSchema.class](#numberschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("binary", [Binary.class](#binary))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32.class](#int32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64", [Int64.class](#int64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("double", [DoubleSchema.class](#doubleschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float", [FloatSchema.class](#floatschema)))<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("uuid", [UuidSchema.class](#uuidschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date", [Date.class](#date))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("date-time", [Datetime.class](#datetime))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("number", [NumberSchema.class](#numberschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("binary", [Binary.class](#binary))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int32", [Int32.class](#int32))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("int64", [Int64.class](#int64))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("double", [DoubleSchema.class](#doubleschema))),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("float", [FloatSchema.class](#floatschema)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -110,7 +110,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "float";<br> |
+| String | type = "float"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -134,7 +134,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "double";<br> |
+| String | type = "double"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -158,7 +158,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "int64";<br> |
+| String | type = "int64"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -182,7 +182,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "int32";<br> |
+| String | type = "int32"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -206,7 +206,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "binary";<br> |
+| String | type = "binary"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -230,7 +230,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "number";<br> |
+| String | type = "number"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -254,7 +254,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "date-time";<br> |
+| String | type = "date-time"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -278,7 +278,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "date";<br> |
+| String | type = "date"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -302,7 +302,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "uuid";<br> |
+| String | type = "uuid"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -49,8 +49,8 @@ Schema2.SchemaList2 validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Items2.class](#items2)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [Items2.class](#items2) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

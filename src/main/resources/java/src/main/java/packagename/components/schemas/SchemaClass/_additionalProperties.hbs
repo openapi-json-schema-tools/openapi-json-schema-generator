@@ -2,12 +2,12 @@
     {{#with additionalProperties}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-&nbsp;&nbsp;&nbsp;&nbsp;additionalProperties = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})<br>
+additionalProperties = [{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}})
             {{~else}}
-&nbsp;&nbsp;&nbsp;&nbsp;additionalProperties = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}})<br>
+additionalProperties = [{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}})
             {{~/if}}
         {{else}}
-&nbsp;&nbsp;&nbsp;&nbsp;additionalProperties = [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}})<br>
+additionalProperties = [{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}})
         {{~/if}}
     {{~/with}}
 {{else}}

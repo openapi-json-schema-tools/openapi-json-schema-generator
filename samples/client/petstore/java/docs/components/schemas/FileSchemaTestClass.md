@@ -57,8 +57,8 @@ FileSchemaTestClass.FileSchemaTestClassMap validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| Map<String, Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("file", [File.File1.class](../../components/schemas/File.md#file1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("files", [Files.class](#files)))<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("file", [File.File1.class](../../components/schemas/File.md#file1)),<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("files", [Files.class](#files)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -125,8 +125,8 @@ FileSchemaTestClass.FilesList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [File.File1.class](../../components/schemas/File.md#file1)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [File.File1.class](../../components/schemas/File.md#file1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

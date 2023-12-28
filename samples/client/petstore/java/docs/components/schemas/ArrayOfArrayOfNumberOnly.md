@@ -64,8 +64,8 @@ ArrayOfArrayOfNumberOnly.ArrayOfArrayOfNumberOnlyMap validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| Map<String, Class<? extends JsonSchema>> | &nbsp;&nbsp;&nbsp;&nbsp;properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("ArrayArrayNumber", [ArrayArrayNumber.class](#arrayarraynumber)))<br>&nbsp;&nbsp;&nbsp;&nbsp;)<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| Map<String, Class<? extends JsonSchema>> | properties = Map.ofEntries(<br>&nbsp;&nbsp;&nbsp;&nbsp;new PropertyEntry("ArrayArrayNumber", [ArrayArrayNumber.class](#arrayarraynumber)))<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -133,8 +133,8 @@ ArrayOfArrayOfNumberOnly.ArrayArrayNumberList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Items.class](#items)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [Items.class](#items) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |
@@ -197,8 +197,8 @@ ArrayOfArrayOfNumberOnly.ItemsList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Items1.class](#items1)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [Items1.class](#items1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

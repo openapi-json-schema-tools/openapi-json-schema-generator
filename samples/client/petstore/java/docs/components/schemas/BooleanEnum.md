@@ -43,8 +43,8 @@ boolean validatedPayload = BooleanEnum.BooleanEnum1.validate(
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Boolean.class)<br/> |
-| Set<Object> | &nbsp;&nbsp;&nbsp;&nbsp;enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;true)<br> |
+| Set<Class<?>> | type = Set.of(Boolean.class) |
+| Set<Object> | enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;true<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

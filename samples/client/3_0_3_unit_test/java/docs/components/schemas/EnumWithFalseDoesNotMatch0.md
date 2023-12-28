@@ -43,8 +43,8 @@ boolean validatedPayload = EnumWithFalseDoesNotMatch0.EnumWithFalseDoesNotMatch0
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Boolean.class)<br/> |
-| Set<Object> | &nbsp;&nbsp;&nbsp;&nbsp;enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;false)<br> |
+| Set<Class<?>> | type = Set.of(Boolean.class) |
+| Set<Object> | enumValues = SetMaker.makeSet(<br>&nbsp;&nbsp;&nbsp;&nbsp;false<br>)<br> |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

@@ -57,8 +57,8 @@ AnimalFarm.AnimalFarmList validatedPayload =
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(List.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;items = [Animal.Animal1.class](../../components/schemas/Animal.md#animal1)<br> |
+| Set<Class<?>> | type = Set.of(List.class) |
+| Class<? extends JsonSchema> | items = [Animal.Animal1.class](../../components/schemas/Animal.md#animal1) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

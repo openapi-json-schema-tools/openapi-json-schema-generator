@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Number | &nbsp;&nbsp;&nbsp;&nbsp;maximum = 300<br> |
+| Number | maximum = 300 |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

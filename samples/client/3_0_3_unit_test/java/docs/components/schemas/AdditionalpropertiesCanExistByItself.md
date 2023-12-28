@@ -48,8 +48,8 @@ AdditionalpropertiesCanExistByItself.AdditionalpropertiesCanExistByItselfMap val
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| Set<Class<?>> | &nbsp;&nbsp;&nbsp;&nbsp;type = Set.of(Map.class)<br/> |
-| Class<? extends JsonSchema> | &nbsp;&nbsp;&nbsp;&nbsp;additionalProperties = [AdditionalProperties.class](#additionalproperties)<br> |
+| Set<Class<?>> | type = Set.of(Map.class) |
+| Class<? extends JsonSchema> | additionalProperties = [AdditionalProperties.class](#additionalproperties) |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

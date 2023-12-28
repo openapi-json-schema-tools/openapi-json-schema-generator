@@ -19,7 +19,7 @@ A schema class that validates payloads
 ### Field Summary
 | Modifier and Type | Field and Description |
 | ----------------- | ---------------------- |
-| String | &nbsp;&nbsp;&nbsp;&nbsp;type = "uri-template";<br> |
+| String | type = "uri-template"; |
 
 ### Method Summary
 | Modifier and Type | Method and Description |

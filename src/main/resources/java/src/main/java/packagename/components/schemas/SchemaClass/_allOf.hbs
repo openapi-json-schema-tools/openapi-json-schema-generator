@@ -1,17 +1,17 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;allOf = List.of(<br>
+allOf = List.of(<br>
     {{~#each allOf}}
         {{#if refInfo.refClass}}
             {{#if refInfo.refModule}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refModule}}.{{refInfo.refClass}}.class]({{docRoot}}{{refInfo.ref.pathFromDocRoot}}.md#{{refInfo.ref.jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
             {{~else}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[{{refInfo.refClass}}.class](#{{refInfo.ref.jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
             {{~/if}}
         {{else}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;[{{jsonPathPiece.camelCase}}.class](#{{jsonPathPiece.anchorPiece}}){{#unless @last}},{{/unless}}<br>
         {{~/if}}
     {{/each}}
-&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+;)<br>
 {{~else}}
 .allOf(List.of(
     {{#each allOf}}

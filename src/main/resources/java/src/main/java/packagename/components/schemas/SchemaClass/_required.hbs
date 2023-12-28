@@ -1,9 +1,9 @@
 {{#if forDocs}}
-&nbsp;&nbsp;&nbsp;&nbsp;required = Set.of(<br>
+required = Set.of(<br>
     {{~#each requiredProperties}}
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key.original}}}"{{#unless @last}},{{/unless}}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"{{{@key.original}}}"{{#unless @last}},{{/unless}}<br>
     {{~/each}}
-&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+)<br>
 {{~else}}
 .required(Set.of(
     {{#each requiredProperties}}
