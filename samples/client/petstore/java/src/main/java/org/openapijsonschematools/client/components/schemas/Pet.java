@@ -254,7 +254,11 @@ public class Pet {
         public TagsListBuilder(List<Map<String, @Nullable Object>> list) {
             this.list = list;
         }
-        // items refed
+        
+        public TagsListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<Map<String, @Nullable Object>> build() {
             return list;

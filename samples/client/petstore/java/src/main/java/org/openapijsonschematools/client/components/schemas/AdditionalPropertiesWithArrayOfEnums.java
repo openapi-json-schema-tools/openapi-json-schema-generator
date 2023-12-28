@@ -47,7 +47,11 @@ public class AdditionalPropertiesWithArrayOfEnums {
         public AdditionalPropertiesListBuilder(List<String> list) {
             this.list = list;
         }
-        // items refed
+        
+        public AdditionalPropertiesListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
     
         public List<String> build() {
             return list;

@@ -73,7 +73,11 @@ public class PaginatedResultMyObjectDto {
         public ResultsListBuilder(List<Map<String, String>> list) {
             this.list = list;
         }
-        // items refed
+        
+        public ResultsListBuilder add(Map<String, String> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<Map<String, String>> build() {
             return list;

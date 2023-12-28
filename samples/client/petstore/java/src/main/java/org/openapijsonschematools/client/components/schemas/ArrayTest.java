@@ -381,7 +381,11 @@ public class ArrayTest {
         public ItemsListBuilder1(List<Map<String, @Nullable Object>> list) {
             this.list = list;
         }
-        // items refed
+        
+        public ItemsListBuilder1 add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<Map<String, @Nullable Object>> build() {
             return list;

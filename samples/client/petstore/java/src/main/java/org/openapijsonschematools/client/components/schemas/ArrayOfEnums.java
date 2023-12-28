@@ -42,7 +42,16 @@ public class ArrayOfEnums {
         public ArrayOfEnumsListBuilder(List<@Nullable String> list) {
             this.list = list;
         }
-        // items refed
+        
+        public ArrayOfEnumsListBuilder add(Void item) {
+            list.add(null);
+            return this;
+        }
+        
+        public ArrayOfEnumsListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
     
         public List<@Nullable String> build() {
             return list;

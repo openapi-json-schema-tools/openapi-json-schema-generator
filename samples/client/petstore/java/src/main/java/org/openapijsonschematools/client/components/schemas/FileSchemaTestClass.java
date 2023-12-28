@@ -48,7 +48,11 @@ public class FileSchemaTestClass {
         public FilesListBuilder(List<Map<String, @Nullable Object>> list) {
             this.list = list;
         }
-        // items refed
+        
+        public FilesListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<Map<String, @Nullable Object>> build() {
             return list;

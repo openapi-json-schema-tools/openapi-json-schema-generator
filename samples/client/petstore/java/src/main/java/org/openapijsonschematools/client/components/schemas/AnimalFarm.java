@@ -44,7 +44,11 @@ public class AnimalFarm {
         public AnimalFarmListBuilder(List<Map<String, @Nullable Object>> list) {
             this.list = list;
         }
-        // items refed
+        
+        public AnimalFarmListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<Map<String, @Nullable Object>> build() {
             return list;

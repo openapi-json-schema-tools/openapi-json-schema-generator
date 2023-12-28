@@ -45,7 +45,11 @@ public class Schema {
         public SchemaListBuilder(List<Map<String, @Nullable Object>> list) {
             this.list = list;
         }
-        // items refed
+        
+        public SchemaListBuilder add(Map<String, @Nullable Object> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<Map<String, @Nullable Object>> build() {
             return list;

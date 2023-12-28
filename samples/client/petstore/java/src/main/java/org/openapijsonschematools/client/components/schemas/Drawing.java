@@ -48,7 +48,51 @@ public class Drawing {
         public ShapesListBuilder(List<@Nullable Object> list) {
             this.list = list;
         }
-        // items refed
+        
+        public ShapesListBuilder add(Void item) {
+            list.add(null);
+            return this;
+        }
+        
+        public ShapesListBuilder add(boolean item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ShapesListBuilder add(String item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ShapesListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ShapesListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ShapesListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ShapesListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ShapesListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
+        
+        public ShapesListBuilder add(Map<String, ?> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<@Nullable Object> build() {
             return list;
