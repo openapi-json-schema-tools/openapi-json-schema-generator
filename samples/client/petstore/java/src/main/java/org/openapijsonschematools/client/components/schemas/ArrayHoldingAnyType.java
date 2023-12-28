@@ -55,47 +55,47 @@ public class ArrayHoldingAnyType {
         public ArrayHoldingAnyTypeListBuilder(List<@Nullable Object> list) {
             this.list = list;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(Void item) {
             list.add(null);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(boolean item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(String item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(int item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(float item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(long item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(double item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(List<?> item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayHoldingAnyTypeListBuilder add(Map<String, ?> item) {
             list.add(item);
             return this;

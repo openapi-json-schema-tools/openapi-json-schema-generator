@@ -55,47 +55,47 @@ public class ComposedArray {
         public ComposedArrayListBuilder(List<@Nullable Object> list) {
             this.list = list;
         }
-    
+        
         public ComposedArrayListBuilder add(Void item) {
             list.add(null);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(boolean item) {
             list.add(item);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(String item) {
             list.add(item);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(int item) {
             list.add(item);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(float item) {
             list.add(item);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(long item) {
             list.add(item);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(double item) {
             list.add(item);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(List<?> item) {
             list.add(item);
             return this;
         }
-    
+        
         public ComposedArrayListBuilder add(Map<String, ?> item) {
             list.add(item);
             return this;

@@ -418,22 +418,22 @@ public class FormatTest {
         public ArrayWithUniqueItemsListBuilder(List<Number> list) {
             this.list = list;
         }
-    
+        
         public ArrayWithUniqueItemsListBuilder add(int item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayWithUniqueItemsListBuilder add(float item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayWithUniqueItemsListBuilder add(long item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayWithUniqueItemsListBuilder add(double item) {
             list.add(item);
             return this;

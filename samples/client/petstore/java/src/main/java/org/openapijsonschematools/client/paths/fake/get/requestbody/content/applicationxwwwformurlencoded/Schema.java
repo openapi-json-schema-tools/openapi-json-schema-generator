@@ -119,7 +119,7 @@ public class Schema {
         public EnumFormStringArrayListBuilder(List<String> list) {
             this.list = list;
         }
-    
+        
         public EnumFormStringArrayListBuilder add(String item) {
             list.add(item);
             return this;

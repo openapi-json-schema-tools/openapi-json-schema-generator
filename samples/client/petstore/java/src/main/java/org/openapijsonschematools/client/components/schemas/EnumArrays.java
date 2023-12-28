@@ -186,7 +186,7 @@ public class EnumArrays {
         public ArrayEnumListBuilder(List<String> list) {
             this.list = list;
         }
-    
+        
         public ArrayEnumListBuilder add(String item) {
             list.add(item);
             return this;

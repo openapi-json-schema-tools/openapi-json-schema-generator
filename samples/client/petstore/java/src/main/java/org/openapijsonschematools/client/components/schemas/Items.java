@@ -56,7 +56,7 @@ public class Items {
         public ItemsListBuilder(List<Map<String, @Nullable Object>> list) {
             this.list = list;
         }
-    
+        
         public ItemsListBuilder add(Map<String, @Nullable Object> item) {
             list.add(item);
             return this;

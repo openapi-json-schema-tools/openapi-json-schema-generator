@@ -113,7 +113,7 @@ public class Schema0 {
         public SchemaListBuilder0(List<String> list) {
             this.list = list;
         }
-    
+        
         public SchemaListBuilder0 add(String item) {
             list.add(item);
             return this;

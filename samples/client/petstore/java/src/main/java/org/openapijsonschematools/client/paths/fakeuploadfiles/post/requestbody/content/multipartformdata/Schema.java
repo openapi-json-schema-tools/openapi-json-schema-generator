@@ -61,7 +61,7 @@ public class Schema {
         public FilesListBuilder(List<String> list) {
             this.list = list;
         }
-    
+        
         public FilesListBuilder add(String item) {
             list.add(item);
             return this;

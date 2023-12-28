@@ -54,7 +54,7 @@ public class Schema2 {
         public SchemaListBuilder2(List<String> list) {
             this.list = list;
         }
-    
+        
         public SchemaListBuilder2 add(String item) {
             list.add(item);
             return this;

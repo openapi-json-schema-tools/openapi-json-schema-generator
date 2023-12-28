@@ -87,7 +87,7 @@ public class Pet {
         public PhotoUrlsListBuilder(List<String> list) {
             this.list = list;
         }
-    
+        
         public PhotoUrlsListBuilder add(String item) {
             list.add(item);
             return this;

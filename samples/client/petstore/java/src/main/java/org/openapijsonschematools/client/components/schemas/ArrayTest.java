@@ -61,7 +61,7 @@ public class ArrayTest {
         public ArrayOfStringListBuilder(List<String> list) {
             this.list = list;
         }
-    
+        
         public ArrayOfStringListBuilder add(String item) {
             list.add(item);
             return this;
@@ -170,22 +170,22 @@ public class ArrayTest {
         public ItemsListBuilder(List<Number> list) {
             this.list = list;
         }
-    
+        
         public ItemsListBuilder add(int item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(float item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(long item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(double item) {
             list.add(item);
             return this;
@@ -283,7 +283,7 @@ public class ArrayTest {
         public ArrayArrayOfIntegerListBuilder(List<List<Number>> list) {
             this.list = list;
         }
-    
+        
         public ArrayArrayOfIntegerListBuilder add(List<Number> item) {
             list.add(item);
             return this;
@@ -475,7 +475,7 @@ public class ArrayTest {
         public ArrayArrayOfModelListBuilder(List<List<Map<String, @Nullable Object>>> list) {
             this.list = list;
         }
-    
+        
         public ArrayArrayOfModelListBuilder add(List<Map<String, @Nullable Object>> item) {
             list.add(item);
             return this;

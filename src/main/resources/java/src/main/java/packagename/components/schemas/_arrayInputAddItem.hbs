@@ -1,0 +1,113 @@
+{{#each types}}
+    {{#eq this "null"}}
+
+public {{builderClass}} add(Void item) {
+    list.add(null);
+    return this;
+}
+    {{else}}
+        {{#eq this "boolean"}}
+
+public {{builderClass}} add(boolean item) {
+    list.add(item);
+    return this;
+}
+        {{else}}
+            {{#eq this "string"}}
+
+public {{builderClass}} add(String item) {
+    list.add(item);
+    return this;
+}
+            {{else}}
+                {{#or (eq this "integer") (eq this "number") }}
+
+public {{builderClass}} add(int item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(float item) {
+    list.add(item);
+    return this;
+}
+                    {{#neq ../format "int32"}}
+
+public {{builderClass}} add(long item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(double item) {
+    list.add(item);
+    return this;
+}
+                    {{/neq}}
+                {{else}}
+                    {{#eq this "array"}}
+
+public {{builderClass}} add(List<{{#with items}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
+    list.add(item);
+    return this;
+}
+                    {{else}}
+                        {{#eq this "object"}}
+
+public {{builderClass}} add(Map<String, {{#with mapValueSchema}}{{> src/main/java/packagename/components/schemas/types/schema_input_type sourceJsonPath=../jsonPath forceNull=true noExtends=true }}{{else}}@Nullable Object{{/with}}> item) {
+    list.add(item);
+    return this;
+}
+                        {{/eq}}
+                    {{/eq}}
+                {{/or}}
+            {{/eq}}
+        {{/eq}}
+    {{/eq}}
+{{else}}
+    {{! no type defined }}
+
+public {{builderClass}} add(Void item) {
+    list.add(null);
+    return this;
+}
+
+public {{builderClass}} add(boolean item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(String item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(int item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(float item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(long item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(double item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(List<?> item) {
+    list.add(item);
+    return this;
+}
+
+public {{builderClass}} add(Map<String, ?> item) {
+    list.add(item);
+    return this;
+}
+{{/each}}

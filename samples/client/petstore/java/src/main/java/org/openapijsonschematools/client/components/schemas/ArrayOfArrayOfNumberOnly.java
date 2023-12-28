@@ -60,22 +60,22 @@ public class ArrayOfArrayOfNumberOnly {
         public ItemsListBuilder(List<Number> list) {
             this.list = list;
         }
-    
+        
         public ItemsListBuilder add(int item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(float item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(long item) {
             list.add(item);
             return this;
         }
-    
+        
         public ItemsListBuilder add(double item) {
             list.add(item);
             return this;
@@ -173,7 +173,7 @@ public class ArrayOfArrayOfNumberOnly {
         public ArrayArrayNumberListBuilder(List<List<Number>> list) {
             this.list = list;
         }
-    
+        
         public ArrayArrayNumberListBuilder add(List<Number> item) {
             list.add(item);
             return this;

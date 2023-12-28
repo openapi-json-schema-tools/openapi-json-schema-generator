@@ -109,22 +109,22 @@ public class ArrayWithValidationsInItems {
         public ArrayWithValidationsInItemsListBuilder(List<Number> list) {
             this.list = list;
         }
-    
+        
         public ArrayWithValidationsInItemsListBuilder add(int item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayWithValidationsInItemsListBuilder add(float item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayWithValidationsInItemsListBuilder add(long item) {
             list.add(item);
             return this;
         }
-    
+        
         public ArrayWithValidationsInItemsListBuilder add(double item) {
             list.add(item);
             return this;
