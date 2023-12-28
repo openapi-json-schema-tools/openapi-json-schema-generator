@@ -55,6 +55,26 @@ public class NestedItems {
             this.list = list;
         }
     
+        public ItemsListBuilder add(int item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ItemsListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ItemsListBuilder add(long item) {
+            list.add(item);
+            return this;
+        }
+    
+        public ItemsListBuilder add(double item) {
+            list.add(item);
+            return this;
+        }
+    
         public List<Number> build() {
             return list;
         }

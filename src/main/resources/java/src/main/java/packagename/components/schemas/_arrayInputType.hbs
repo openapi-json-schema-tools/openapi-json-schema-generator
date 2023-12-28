@@ -36,6 +36,31 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
         list.add(item);
         return this;
     }
+                        {{else}}
+                            {{#or (eq this "integer") (eq this "number") }}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(int item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(float item) {
+        list.add(item);
+        return this;
+    }
+                                {{#neq ../format "int32"}}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(long item) {
+        list.add(item);
+        return this;
+    }
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(double item) {
+        list.add(item);
+        return this;
+    }
+                                {{/neq}}
+                            {{/or}}
                         {{/eq}}
                     {{/eq}}
                 {{/eq}}
@@ -62,17 +87,17 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
         return this;
     }
 
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(float item) {
+        list.add(item);
+        return this;
+    }
+
     public {{../../arrayInputJsonPathPiece.camelCase}} add(long item) {
         list.add(item);
         return this;
     }
 
     public {{../../arrayInputJsonPathPiece.camelCase}} add(double item) {
-        list.add(item);
-        return this;
-    }
-
-    public {{../../arrayInputJsonPathPiece.camelCase}} add(float item) {
         list.add(item);
         return this;
     }

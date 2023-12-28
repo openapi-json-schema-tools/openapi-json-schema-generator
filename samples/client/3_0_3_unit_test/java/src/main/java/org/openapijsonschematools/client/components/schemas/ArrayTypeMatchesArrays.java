@@ -76,17 +76,17 @@ public class ArrayTypeMatchesArrays {
             return this;
         }
     
+        public ArrayTypeMatchesArraysListBuilder add(float item) {
+            list.add(item);
+            return this;
+        }
+    
         public ArrayTypeMatchesArraysListBuilder add(long item) {
             list.add(item);
             return this;
         }
     
         public ArrayTypeMatchesArraysListBuilder add(double item) {
-            list.add(item);
-            return this;
-        }
-    
-        public ArrayTypeMatchesArraysListBuilder add(float item) {
             list.add(item);
             return this;
         }
