@@ -78,10 +78,14 @@ builder for `List<List<List<List<Number>>>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<List<List<Number>>> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| List<List<List<Number>>> |  | |
 
 ## NestedItemsList
 public class NestedItemsList<br>
@@ -146,10 +150,14 @@ builder for `List<List<List<Number>>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<List<Number>> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| List<List<Number>> |  | |
 
 ## ItemsList2
 public class ItemsList2<br>
@@ -212,10 +220,14 @@ builder for `List<List<Number>>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-List<Number> |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| List<Number> |  | |
 
 ## ItemsList1
 public class ItemsList1<br>
@@ -276,10 +288,14 @@ builder for `List<Number>`
 
 A class that builds the List input type
 
+## Constructor Summary
+| Constructor and Description |
+| --------------------------- |
+
 ## Input List Items
-List Item Type | Description | Notes
--------------------- | ------------- | -------------
-Number |  |
+| List Item Type | Description | Notes |
+| -------------- | ----------- | ----- |
+| Number |  | |
 
 ## ItemsList
 public class ItemsList<br>
