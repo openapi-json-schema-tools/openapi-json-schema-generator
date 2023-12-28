@@ -43,7 +43,11 @@ public class SelfReferencingArrayModel {
         public SelfReferencingArrayModelListBuilder(List<List<?>> list) {
             this.list = list;
         }
-        // items refed
+    
+        public SelfReferencingArrayModelListBuilder add(List<?> item) {
+            list.add(item);
+            return this;
+        }
     
         public List<List<?>> build() {
             return list;

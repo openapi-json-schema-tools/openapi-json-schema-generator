@@ -13,7 +13,16 @@ public static class {{arrayInputJsonPathPiece.camelCase}} {
     }
     {{#with items}}
         {{#if refInfo }}
+            {{#if refInfo.refModule}}
     // items refed
+            {{else}}
+                {{! self reference} }}
+
+    public {{../../arrayInputJsonPathPiece.camelCase}} add(List<?> item) {
+        list.add(item);
+        return this;
+    }
+            {{/if}}
         {{else}}
             {{#each types}}
                 {{#eq this "null"}}
